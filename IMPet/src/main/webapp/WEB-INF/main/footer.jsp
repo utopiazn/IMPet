@@ -1,13 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	
-	푸터
-</body>
-</html>
+<%@ page contentType="text/html; charset=UTF-8"%>
+
+<div align="left">
+<input value="회사소개" type="button" onclick="location.href='/ImPet/Info'"/>
+<input value="찾아오시는길" type="button" onclick="location.href='/ImPet/Way'"/>
+</div>
