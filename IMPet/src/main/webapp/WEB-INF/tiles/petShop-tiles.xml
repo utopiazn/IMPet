@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+
+	<!-- 서브메뉴 있음 -->
+	<definition name="petShop_main" template="/WEB-INF/main/main.jsp">
+		<put-attribute name="title" 	value="Remedium Hotel[당신만을 위한 오리엔탈 프리미엄 에디션]" />
+		<put-attribute name="header1" 	value="/WEB-INF/main/header1.jsp" />
+		<put-attribute name="header2" 	value="/WEB-INF/main/header2.jsp" />
+		<put-attribute name="body" 		value="/WEB-INF/main/body.jsp" />		
+		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
+	</definition>
+ 
+	
+	
+	
+	<!-- 테스트 -->
+<!-- 	<definition name="test" extends="main_main2">
+		<put-attribute name="body" value="/WEB-INF/test.jsp" />
+		</definition>
+ -->
+ 
+ 
+	<!-- 펫샵메인페이지 -->
+	<definition name="PetShop" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/item/main.jsp" />
+	</definition>
+	
+	<!-- 펫샵상품리스트 -->
+	<definition name="ItemList" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/item/itemList.jsp" />
+	</definition>
+	
+	<!-- 펫샵상품상세보기 -->
+	<definition name="ItemView" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/item/main.jsp" />
+	</definition>
+	
+	
+	
+	<!-- 펫샵장바구니리스트 -->
+	<definition name="BasketList" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/basketList.jsp" />
+	</definition>
+	
+	
+	
+	<!-- 펫샵관리자상품추가폼 -->
+	<definition name="AdminItemWriteForm" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminItemWrite.jsp" />
+	</definition>
+	
+	
+	
+	
+	
+</tiles-definitions>
+	
+	
