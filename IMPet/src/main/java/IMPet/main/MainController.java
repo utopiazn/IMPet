@@ -18,7 +18,7 @@ public class MainController {
 	
 	
 	
-	@RequestMapping(value="/main")
+	@RequestMapping(value="/Main")
 	public ModelAndView mainForm(){
 
 
