@@ -26,7 +26,8 @@ width: 100%;  height: 10%; display: table-cell; float: left; font-family: 'ë§‘ì
 </head>
 <body>
 <div class="header">
-<tiles:insertAttribute name="header" />
+<tiles:insertAttribute name="header1" />
+<tiles:insertAttribute name="header2" />
 </div>
 <div class="right">
 <tiles:insertAttribute name="body" />	
