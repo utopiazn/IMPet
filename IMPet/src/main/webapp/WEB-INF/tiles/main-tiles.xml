@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+
+	<!-- 서브메뉴 있음 -->
+	<definition name="main" template="/WEB-INF/main/main.jsp">
+		<put-attribute name="title" 	value="Remedium Hotel[당신만을 위한 오리엔탈 프리미엄 에디션]" />
+		<put-attribute name="header" 	value="/WEB-INF/main/header.jsp" />			
+		<put-attribute name="body" 		value="/WEB-INF/main/body.jsp" />		
+		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
+	</definition>
+ 
+	
+	
+	
+	<!-- 테스트 -->
+<!-- 	<definition name="test" extends="main_main2">
+		<put-attribute name="body" value="/WEB-INF/test.jsp" />
+	</definition>
+	
+	
+	
+ -->
+
+	
+	
+	
+</tiles-definitions>
+	
+	
