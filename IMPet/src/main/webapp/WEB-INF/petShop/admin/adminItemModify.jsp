@@ -4,11 +4,11 @@
 <html lang=ko>
 <head>
 <meta charset="UTF-8">
-<title>펫샵장바구니리스트</title>
+<title>관리자상품수정폼</title>
 </head>
 <body>
 
-펫샵장바구니리스트
+관리자상품수정폼
 
 </body>
 </html>

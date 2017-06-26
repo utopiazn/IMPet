@@ -4,11 +4,11 @@
 <html lang=ko>
 <head>
 <meta charset="UTF-8">
-<title>펫샵장바구니리스트</title>
+<title>펫샵상품리스트</title>
 </head>
 <body>
 
-펫샵장바구니리스트
+펫샵상품리스트
 
 </body>
 </html>

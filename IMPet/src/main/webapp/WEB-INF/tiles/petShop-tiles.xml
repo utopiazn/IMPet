@@ -18,15 +18,17 @@
  
 	
 	
-	
 	<!-- 테스트 -->
-<!-- 	<definition name="test" extends="main_main2">
+	<!-- 	
+		<definition name="test" extends="main_main2">
 		<put-attribute name="body" value="/WEB-INF/test.jsp" />
 		</definition>
- -->
+ 	-->
  
  
-	<!-- 펫샵메인페이지 -->
+ 
+	<!-- item -->
+	<!-- 펫샵메인 -->
 	<definition name="PetShop" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/item/main.jsp" />
 	</definition>
@@ -38,24 +40,49 @@
 	
 	<!-- 펫샵상품상세보기 -->
 	<definition name="ItemView" extends="petShop_main">
-		<put-attribute name="body" value="/WEB-INF/petShop/item/main.jsp" />
+		<put-attribute name="body" value="/WEB-INF/petShop/item/itemView.jsp" />
+	</definition>
+	
+	<!-- 펫샵상품후기상세보기 -->
+	<definition name="ItemCommentView" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/item/itemCommentView.jsp" />
 	</definition>
 	
 	
 	
+	<!-- basket -->
 	<!-- 펫샵장바구니리스트 -->
 	<definition name="BasketList" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/basketList.jsp" />
 	</definition>
 	
+	<!-- 펫샵장바구니추가처리 -->
+	<definition name="BasketWrite" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/basketList.jsp" />
+	</definition>
+	
+	<!-- 펫샵주문상품리스트 -->
+	<definition name="OrderList" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
+	</definition>	
 	
 	
+
+	<!-- admin -->
 	<!-- 펫샵관리자상품추가폼 -->
 	<definition name="AdminItemWriteForm" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminItemWrite.jsp" />
 	</definition>
 	
+	<!-- 펫샵관리자상품수정폼 -->
+	<definition name="AdminItemModifyForm" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminItemModify.jsp" />
+	</definition>
 	
+	<!-- 관리자회원주문내역리스트 -->
+	<definition name="AdminOrderList" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminOrderList.jsp" />
+	</definition>
 	
 	
 	

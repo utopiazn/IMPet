@@ -12,7 +12,7 @@ public class ItemController {
 	
 	//펫샵메인
 	@RequestMapping(value="/Main")
-	public ModelAndView main() {
+	public ModelAndView Main() {
 
 		
 		System.out.println("펫샵메인");
@@ -47,4 +47,17 @@ public class ItemController {
 		mav.setViewName("ItemView");
 		return mav;
 	}
+	
+	
+	//펫샵상품후기상세보기
+		@RequestMapping(value="/ItemCommentView")
+		public ModelAndView ItemCommentView() {
+
+			
+			System.out.println("펫샵상품후기상세보기");
+		
+			
+			mav.setViewName("ItemCommentView");
+			return mav;
+		}
 }

@@ -12,13 +12,37 @@ public class AdminItemController {
 	
 	//펫샵관리자상품추가폼
 	@RequestMapping(value="/AdminItemWriteForm")
-	public ModelAndView mainForm() {
+	public ModelAndView AdminItemWriteForm() {
 
 		
 		System.out.println("펫샵관리자상품추가폼");
 	
 		
 		mav.setViewName("AdminItemWriteForm");
+		return mav;
+	}
+	
+	//펫샵관리자상품수정폼
+	@RequestMapping(value="/AdminItemModifyForm")
+	public ModelAndView AdminItemModifyForm() {
+
+		
+		System.out.println("펫샵관리자상품수정폼");
+	
+		
+		mav.setViewName("AdminItemModifyForm");
+		return mav;
+	}
+	
+	//관리자회원주문내역리스트
+	@RequestMapping(value="/AdminOrderList")
+	public ModelAndView AdminOrderList() {
+
+		
+		System.out.println("관리자회원주문내역리스트");
+	
+		
+		mav.setViewName("AdminOrderList");
 		return mav;
 	}
 

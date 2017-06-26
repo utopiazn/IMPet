@@ -4,10 +4,11 @@
 <html lang=ko>
 <head>
 <meta charset="UTF-8">
-<title>관리자 상품 추가 폼</title>
+<title>관리자상품추가폼</title>
 </head>
 <body>
 
+관리자상품추가폼
 
 </body>
 </html>
