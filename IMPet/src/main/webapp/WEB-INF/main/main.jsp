@@ -10,14 +10,16 @@
 
 <!-- 임시 css -->
 <style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 .header{ /* 헤더부분 main 1, 2 */
-width: 100%; height: 100%; display: table-cell; float: left; font-family: serif; background-color: #d4f4fa;
+width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: #87EAA2; margin: -15px; padding: 15px;
 }
 .right{ /* main 2 body부분 */
-width: 70%; height: 1200px; overflow: auto; display: table-cell; float: left; font-family: '맑은고딕', sans-serif; color:black; padding-left: 15%; vertical-align: middle; text-align: center;
+width: 70%; height: 1200px; overflow: auto; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color:black; padding-left: 15%; vertical-align: middle; text-align: center;
 }
 .footer{
-width: 100%;  height: 10%; display: table-cell; float: left; font-family: '맑은고딕', sans-serif; color: white;  margin: -15px; padding: 15px; background-color: #202f58;
+width: 100%;  height: 10%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  margin: -15px; padding: 15px; background-color: #FFDC4C;
 } 
 </style>
 
