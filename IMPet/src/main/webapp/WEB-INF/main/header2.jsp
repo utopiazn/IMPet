@@ -8,7 +8,7 @@
 
 <div align="center">
 <a href='/IMPet/PetHotel/Main'>Hotel</a>&nbsp;&nbsp;
-<a href='/ImPet/PetShop/Main'>Shopping</a>&nbsp;&nbsp;
-<a href='/ImPet/Community/Main'>Community</a>
+<a href='/IMPet/PetShop/Main'>Shopping</a>&nbsp;&nbsp;
+<a href='/IMPet/Community/Main'>Community</a>
 <br/><br/>
 </div>
