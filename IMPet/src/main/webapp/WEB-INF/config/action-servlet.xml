@@ -23,7 +23,7 @@
 	 
      
 
-	<mvc:interceptors>
+	<mvc:interceptors> 
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<bean id="loggerInterceptor" class="IMPet.module.LoggerInterceptor"/>
