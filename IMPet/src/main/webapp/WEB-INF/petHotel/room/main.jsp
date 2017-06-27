@@ -12,6 +12,7 @@ HotelMain
 <br/>
 <div align="center">
 <input value="룸리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomList'"/>
+<input value="힐링리스트" type="button" onclick="location.href='/IMPet/PetHotel/HealingList'"/>
 </div>
 </body>
 </html>

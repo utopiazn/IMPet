@@ -57,7 +57,57 @@
 	<!-- 호텔 룸 삭제 -->
 	<definition name="PetHotel_Delete" extends="petHotel_main">
 		<put-attribute name="body" value="/WEB-INF/petHotel/room/list.jsp" />
+	</definition>
+
+	<!-- 호텔 예약 페이지 -->
+	<definition name="PetHotelReservation" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/roomRes/reservation.jsp" />
+	</definition>
+	
+	<!-- 호텔 예약 리스트(고객용) -->
+	<definition name="PetHotelReservation_List" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/roomRes/resList.jsp" />
+	</definition>
+	
+	<!-- 호텔 예약 리스트(관리자용) -->
+	<definition name="PetHotelReservation_AllList" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/roomRes/resAllList.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 리스트 -->
+	<definition name="PetHotel_HealingList" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/list.jsp" />
 	</definition>	
+	
+	<!-- 호텔 힐링 상세보기 -->
+	<definition name="PetHotel_HealingView" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 추가폼 -->	
+	<definition name="PetHotel_HealingInsertForm" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/insertForm.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 추가 -->
+	<definition name="PetHotel_HealingInsert" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 수정폼 -->
+	<definition name="PetHotel_HealingModifyForm" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/insertForm.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 수정 -->
+	<definition name="PetHotel_HealingModify" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 힐링 삭제 -->
+	<definition name="PetHotel_HealingDelete" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/healing/list.jsp" />
+	</definition>
 
 </tiles-definitions>
 	

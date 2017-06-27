@@ -23,7 +23,7 @@ public class PetRoomController {
 	
 	//호텔 룸 리스트
 	@RequestMapping(value="RoomList")
-	public ModelAndView list(){
+	public ModelAndView roomList(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -36,7 +36,7 @@ public class PetRoomController {
 	
 	//호텔 룸 상세
 	@RequestMapping(value="RoomView")
-	public ModelAndView view(){
+	public ModelAndView roomView(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -49,7 +49,7 @@ public class PetRoomController {
 	
 	//호텔 룸 추가폼
 	@RequestMapping(value="RoomInsertForm")
-	public ModelAndView insertForm(){
+	public ModelAndView roomInsertForm(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -62,7 +62,7 @@ public class PetRoomController {
 
 	//호텔 룸 추가
 	@RequestMapping(value="RoomInsert")
-	public ModelAndView insert(){
+	public ModelAndView roomInsert(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -75,7 +75,7 @@ public class PetRoomController {
 
 	//호텔 룸 수정폼
 	@RequestMapping(value="RoomModifyForm")
-	public ModelAndView modifyForm(){
+	public ModelAndView roomModifyForm(){
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -88,7 +88,7 @@ public class PetRoomController {
 
 	//호텔 룸 수정
 	@RequestMapping(value="RoomModify")
-	public ModelAndView modify(){
+	public ModelAndView roomModify(){
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -101,7 +101,7 @@ public class PetRoomController {
 
 	//호텔 룸 삭제
 	@RequestMapping(value="RoomDelete")
-	public ModelAndView delete(){
+	public ModelAndView roomDelete(){
 		
 		ModelAndView mav = new ModelAndView();
 
