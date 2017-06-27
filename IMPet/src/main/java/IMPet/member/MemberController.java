@@ -46,7 +46,7 @@ public class MemberController {
 	public ModelAndView JoinInset(){
 
 
-		System.out.println("회원 가입 폼");
+		System.out.println("회원 가입 처리");
 
 		
 		mav.setViewName("JoinInsetSuccess");
@@ -54,19 +54,152 @@ public class MemberController {
 	}
 
 
-	//로그인 폼 폼
+	//로그인  폼
 	@RequestMapping(value="/LoginForm")
 	public ModelAndView loginForm(){
 
 
-		System.out.println("회원 가입 폼");
+		System.out.println("로그인 폼");
 
 		
-		mav.setViewName("loginForm");
+		mav.setViewName("LoginForm");
 		return mav;
 	}
 	
 	
+
+	//ID 찾기 폼
+	@RequestMapping(value="/FindIDForm")
+	public ModelAndView FindIDForm(){
+
+
+		System.out.println("ID 찾기 폼");
+
+		
+		mav.setViewName("FindIDForm");
+		return mav;
+	}
+	
+	
+	//ID 찾기 폼
+	@RequestMapping(value="/FindID")
+	public ModelAndView FindID(){
+
+
+		System.out.println("ID 찾기 처리");
+
+		
+		mav.setViewName("FindIDForm");
+		return mav;
+	}
+	
+		
+	
+	
+	
+	
+	//비번 찾기 폼
+	@RequestMapping(value="/FindPwForm")
+	public ModelAndView FindPwForm(){
+
+
+		System.out.println("비번 찾기 폼");
+
+		
+		mav.setViewName("FindPwForm");
+		return mav;
+	}
+	
+	
+	//비번 찾기 폼
+	@RequestMapping(value="/FindPw")
+	public ModelAndView FindPw(){
+
+
+		System.out.println("비번 찾기 처리");
+
+		
+		mav.setViewName("FindPwForm");
+		return mav;
+	}
+	
+	
+	//로그인 처리
+	@RequestMapping(value="/Login")
+	public ModelAndView Login(){
+
+
+		System.out.println("로그인 처리 후 메인 이동");
+
+		
+		mav.setViewName("main");
+		return mav;
+	}
+	
+	
+	
+	//회원 탈퇴 폼
+	@RequestMapping(value="/DeleteForm")
+	public ModelAndView DeleteForm(){
+
+
+		System.out.println("로그인 탈퇴폼");
+
+		
+		mav.setViewName("DeleteForm");
+		return mav;
+	}
+	
+	
+	//회원 탈퇴 처리
+	@RequestMapping(value="/Delete")
+	public ModelAndView Delete(){
+
+
+		System.out.println("로그인 탈퇴 처리 후 메인으로 이동");
+
+		
+		mav.setViewName("main");
+		return mav;
+	}
+
+	
+	//회원 정보 리스트
+	@RequestMapping(value="/MemberList")
+	public ModelAndView MemberList(){
+
+
+		System.out.println("회원들의 정보 리스트 보여주기");
+
+		
+		mav.setViewName("MemberList");
+		return mav;
+	}
+	
+
+	//회원 수정  폼
+	@RequestMapping(value="/ModifiedForm")
+	public ModelAndView ModifiedForm(){
+
+
+		System.out.println("회원 수정 폼");
+
+		
+		mav.setViewName("ModifiedForm");
+		return mav;
+	}
+	
+	//회원 수정 처리 
+	@RequestMapping(value="/Modified")
+	public ModelAndView Modified(){
+
+
+		System.out.println("회원들의 정보 수정 처리");
+
+		
+		mav.setViewName("ModifiedForm");
+		return mav;
+	}
 
 
 }
