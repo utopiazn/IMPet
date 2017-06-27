@@ -12,9 +12,10 @@
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-.header{ /* 헤더부분 main 1, 2 */
-width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: #87EAA2; /* margin: -15px; */ padding: 15px;
+.header{ /* 헤더부분 main 1 */
+width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px;
 }
+
 .right{ /* main 2 body부분 */
 width: 70%; height: 1200px; overflow: auto; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color:black; padding-left: 15%; vertical-align: middle; text-align: center;
 }

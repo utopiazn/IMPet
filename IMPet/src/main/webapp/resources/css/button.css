@@ -1,0 +1,23 @@
+@CHARSET "EUC-KR";
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.button {
+	font-weight:bold;
+	text-decoration:none;
+	font-family: 'Hanna', sans-serif;
+	text-indent:0px;
+	line-height:0px;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:15px;
+	color:#9c7113;
+	width:56px;
+	height:0px;
+	padding:17px;
+	border-color:#e3bf54;
+	border-width:0px;
+	border-style:solid;
+}
