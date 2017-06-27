@@ -29,7 +29,7 @@ public class PetRoomReservationController {
 		
 		System.out.println("호텔 룸 예약완료");
 		
-		mav.setViewName("PetHotelReservation_List");
+		mav.setViewName("redirect:RoomResList");
 		
 		return mav;
 	}
@@ -68,7 +68,7 @@ public class PetRoomReservationController {
 		
 		System.out.println("호텔 룸 예약 결제상태 변경(관리자용)");
 		
-		mav.setViewName("PetHotelReservation_AllList");
+		mav.setViewName("redirect:RoomResAllList");
 		
 		return mav;
 	}
@@ -81,7 +81,7 @@ public class PetRoomReservationController {
 		
 		System.out.println("룸 예약 삭제(관리자용)");
 		
-		mav.setViewName("PetHotelReservation_AllList");
+		mav.setViewName("redirect:RoomResAllList");
 		
 		return mav;
 	}
@@ -94,7 +94,7 @@ public class PetRoomReservationController {
 		
 		System.out.println("룸 예약 취소(개인용)");
 		
-		mav.setViewName("PetHotelReservation_List");
+		mav.setViewName("redirect:RoomResList");
 		
 		return mav;
 	}

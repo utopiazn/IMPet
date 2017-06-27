@@ -55,7 +55,7 @@ public class PetHealingController {
 		
 		System.out.println("호텔 힐링 추가");
 		
-		mav.setViewName("PetHotel_HealingInsert");
+		mav.setViewName("redirect:HealingList");
 		
 		return mav;
 	}
@@ -81,7 +81,7 @@ public class PetHealingController {
 
 		System.out.println("호텔 힐링 수정");
 		
-		mav.setViewName("PetHotel_HealingModify");
+		mav.setViewName("redirect:HealingView");
 		
 		return mav;
 	}
@@ -94,7 +94,7 @@ public class PetHealingController {
 
 		System.out.println("호텔 힐링 삭제");
 		
-		mav.setViewName("PetHotel_HealingDelete");
+		mav.setViewName("redirect:HealingList");
 		
 		return mav;
 	}
