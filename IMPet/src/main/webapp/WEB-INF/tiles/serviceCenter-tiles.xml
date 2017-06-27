@@ -21,7 +21,7 @@
 	
 	<!-- 테스트 -->
  	<definition name="ServiceCenter" extends="serviceCenter_main">
-		<put-attribute name="body" value="/WEB-INF/serviceCenter/main2.jsp" />
+		<put-attribute name="body" value="/WEB-INF/serviceCenter/main.jsp" />
 	</definition>
 	
 	
