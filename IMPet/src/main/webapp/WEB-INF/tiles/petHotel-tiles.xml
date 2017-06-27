@@ -19,16 +19,46 @@
 	
 	
 	
-
+	<!-- 호텔 메인 -->
 	<definition name="PetHotel" extends="petHotel_main">
 		<put-attribute name="body" value="/WEB-INF/petHotel/room/main.jsp" />
 	</definition>
 	
+	<!-- 호텔 룸 리스트 -->
+	<definition name="PetHotel_List" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/list.jsp" />
+	</definition>	
+	
+	<!-- 호텔 룸 상세보기 -->
+	<definition name="PetHotel_View" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 룸 추가폼 -->	
+	<definition name="PetHotel_InsertForm" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/insertForm.jsp" />
+	</definition>
+	
+	<!-- 호텔 룸 추가 -->
+	<definition name="PetHotel_Insert" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 룸 수정폼 -->
+	<definition name="PetHotel_ModifyForm" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/insertForm.jsp" />
+	</definition>
+	
+	<!-- 호텔 룸 수정 -->
+	<definition name="PetHotel_Modify" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/view.jsp" />
+	</definition>
+	
+	<!-- 호텔 룸 삭제 -->
+	<definition name="PetHotel_Delete" extends="petHotel_main">
+		<put-attribute name="body" value="/WEB-INF/petHotel/room/list.jsp" />
+	</definition>	
 
-
-	
-	
-	
 </tiles-definitions>
 	
 	
