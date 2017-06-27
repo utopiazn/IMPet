@@ -10,15 +10,7 @@ public class QnAController {
 
 	ModelAndView mav = new ModelAndView();
 
-/*	// 서비스센터 메인
-	@RequestMapping(value = "/Main")
-	public ModelAndView Main() {
 
-		System.out.println("메인");
-
-		mav.setViewName("ServiceCenter");
-		return mav;
-	}*/
 
 	// Q&A리스트
 	@RequestMapping(value = "/QuestionList")

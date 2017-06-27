@@ -10,16 +10,6 @@ public class FAQController {
 
 	ModelAndView mav = new ModelAndView();
 
-/*	// 서비스센터 메인
-	@RequestMapping(value = "/Main")
-	public ModelAndView Main() {
-
-		System.out.println("메인");
-
-		mav.setViewName("ServiceCenter");
-		return mav;
-	}
-*/
 	// 자주묻는질문 리스트
 	@RequestMapping(value = "/FAQList")
 	public ModelAndView FAQList() {
