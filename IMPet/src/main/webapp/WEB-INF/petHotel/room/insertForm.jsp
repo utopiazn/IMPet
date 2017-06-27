@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelRoomInsertForm&HotelModifyForm
-<br/>
+<br/><br/>
 <div align="center">
 룸을 추가할때
 <br/>

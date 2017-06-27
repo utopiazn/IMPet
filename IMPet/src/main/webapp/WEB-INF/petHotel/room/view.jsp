@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelRoomView
-<br/>
+<br/><br/>
 <div align="center">
 <input value="룸 예약" type="button" onclick="location.href='/IMPet/PetHotel/RoomReservation'"/>
 <input value="룸 수정" type="button" onclick="location.href='/IMPet/PetHotel/RoomModifyForm'"/>

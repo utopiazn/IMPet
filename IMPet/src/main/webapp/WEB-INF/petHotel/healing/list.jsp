@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelHealingList
-<br/>
+<br/><br/>
 <div align="center">
 <input value="상세보기" type="button" onclick="location.href='/IMPet/PetHotel/HealingView'"/>
 <input value="힐링 추가" type="button" onclick="location.href='/IMPet/PetHotel/HealingInsertForm'"/>

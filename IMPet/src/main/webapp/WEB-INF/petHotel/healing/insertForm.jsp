@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelHealingInsertForm&HotelHealingModifyForm
-<br/>
+<br/><br/>
 <div align="center">
 힐링시설을 추가할때
 <br/>

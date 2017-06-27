@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelRoomList
-<br/>
+<br/><br/>
 <div align="center">
 <input value="상세보기" type="button" onclick="location.href='/IMPet/PetHotel/RoomView'"/>
 <input value="룸 추가" type="button" onclick="location.href='/IMPet/PetHotel/RoomInsertForm'"/>

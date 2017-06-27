@@ -9,7 +9,7 @@
 <body>
 <br/><br/>
 HotelReservation
-<br/>
+<br/><br/>
 <div align="center">
 <input value="예약 완료" type="button" onclick="location.href='/IMPet/PetHotel/RoomResSuccess'"/>
 <input value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/RoomView'"/>
