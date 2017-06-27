@@ -10,7 +10,7 @@
 	]]>
 	</sql>
 	
-	<sql id="where-no"><![CDATA[WHERE ROOM_NO = #{room_no}]]></sql>
+	<sql id="where-no"><![CDATA[ WHERE ROOM_NO = #{room_no}]]></sql>
 	
 	<!-- 룸 전체 리스트 -->
 	<select id="selectAll" resultType="hashmap">
@@ -18,6 +18,12 @@
 		<![CDATA[
 		ORDER BY ROOM_NO DESC
 		]]>
+	</select>
+	
+	<!-- 룸 상세보기 -->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletClass"/>
+		<include refid="where-no"/>
 	</select>
 	
 </mapper>

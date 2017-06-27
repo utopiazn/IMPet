@@ -6,11 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
+
 @Controller
 @RequestMapping(value="PetHotel")
 public class PetRoomController {
 	
-	@Resource(name="PetRoomService")
+	@Resource(name="petRoomService")
 	private PetRoomService petRoomService;
 	
 	//호텔 메인
@@ -32,7 +34,7 @@ public class PetRoomController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject(petRoomService.selectAll());
+		mav.addObject("list", petRoomService.selectAll());
 		
 		System.out.println("호텔 룸 리스트");
 		
@@ -43,9 +45,11 @@ public class PetRoomController {
 	
 	//호텔 룸 상세
 	@RequestMapping(value="RoomView")
-	public ModelAndView roomView(){
+	public ModelAndView roomView(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("view", petRoomService.selectOne(commandMap.getMap()));
 		
 		System.out.println("호텔 룸 상세");
 		

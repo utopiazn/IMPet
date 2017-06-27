@@ -9,18 +9,25 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-@Service(value="PetRoomService")
+import IMPet.module.CommandMap;
+
+@Service(value="petRoomService")
 public class PetRoomServiceImpl implements PetRoomService {
 	
 	Logger log = Logger.getLogger(this.getClass());
     
-    @Resource(name="PetRoomDAO")
+    @Resource(name="petRoomDAO")
     private PetRoomDAO petRoomDAO;
 
 	@Override
 	public List<Map<String, Object>> selectAll() throws Exception {
 		
-		return  petRoomDAO.selectAll();
+		return petRoomDAO.selectAll();
 	}
-
+	
+	@Override
+	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
+		return petRoomDAO.selectOne(map);
+	}
+	
 }
