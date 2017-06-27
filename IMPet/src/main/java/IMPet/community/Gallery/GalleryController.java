@@ -62,7 +62,7 @@ public class GalleryController {
 		System.out.println("갤러리 추가 처리");
 
 		//상세보기로 이동
-		mav.setViewName("GalleryView");
+		mav.setViewName("redirect:GalleryList");
 		return mav;
 	}
 	

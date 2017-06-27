@@ -1,12 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ page contentType="text/html; charset=UTF-8"%>
+
+<!DOCTYPE html>
+
+
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+
+
+<meta charset="UTF-8">
+<title>커뮤니티 갤러리 수정 폼</title>
 </head>
 <body>
+
+커뮤니티 갤러리 수정 폼
+
+<br/><br/><br/><br/><br/>
+
+<input value="수정 완료" type="button" onclick="location.href='/IMPet/Community/GalleryInsert'"/> 
+
+
 
 </body>
 </html>
