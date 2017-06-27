@@ -18,7 +18,10 @@
  
  <definition name="MyPage" extends="myPage_main">
   <put-attribute name="body" value="/WEB-INF/myPage/Main.jsp" />
+ </definition>
  
+ <definition name="AdminPage" extends="myPage_main">
+  <put-attribute name="body" value="/WEB-INF/adminPage/adminMain.jsp" />
  </definition>
 
 
