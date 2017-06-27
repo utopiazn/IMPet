@@ -34,6 +34,18 @@ public class BasketController {
 		return mav;
 	}
 	
+	//펫샵장바구니상품삭제
+	@RequestMapping(value="/BasketDelete")
+	public ModelAndView BasketDelete() {
+
+		
+		System.out.println("펫샵장바구니상품삭제");
+	
+		
+		mav.setViewName("BasketDelete");
+		return mav;
+	}
+	
 	//펫샵주문상품리스트
 	@RequestMapping(value="/OrderList")
 	public ModelAndView OrderList() {
@@ -46,8 +58,28 @@ public class BasketController {
 		return mav;
 	}
 	
-	
-	
-	
+	//펫샵주문배송상태처리
+	@RequestMapping(value="/OrderShip")
+	public ModelAndView OrderShip() {
 
+		
+		System.out.println("펫샵주문배송상태처리");
+	
+		
+		mav.setViewName("OrderShip");
+		return mav;
+	}
+	
+	//펫샵주문결제상태처리
+	@RequestMapping(value="/OrderPay")
+	public ModelAndView OrderPay() {
+
+		
+		System.out.println("펫샵주문결제상태처리");
+	
+		
+		mav.setViewName("OrderPay");
+		return mav;
+	}
+	
 }

@@ -2,7 +2,7 @@
 
 <div align="center">
 <br/><br/>
-<h1>I'm Pet</h1>
+<h1><a href='/IMPet/Main'>I'm Pet</a></h1>
 <br/><br/>
 </div>
 

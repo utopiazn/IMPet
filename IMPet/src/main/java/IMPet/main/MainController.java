@@ -29,6 +29,28 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/Info")
+	public ModelAndView mainInfo(){
+
+
+		System.out.println("회사소개");
+
+		
+		mav.setViewName("Info");
+		return mav;
+	}
+	
+	@RequestMapping(value="/Way")
+	public ModelAndView mainWay(){
+
+
+		System.out.println("찾아오시는길");
+
+		
+		mav.setViewName("Way");
+		return mav;
+	}
+	
 	
 	
 	@RequestMapping(value="/anooymik")
