@@ -20,7 +20,13 @@
 
 <input value="공지사항 리스트 이동" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
 
+<br/><br/><br/><br/><br/>
 
+<input value="자주묻는질문 리스트 이동" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+
+<br/><br/><br/><br/><br/>
+
+<input value="QnA 리스트 이동" type="button" onclick="location.href='/IMPet/ServiceCenter/QnAList'"/>
 
 </body>
 </html>

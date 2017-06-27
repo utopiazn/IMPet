@@ -10,15 +10,15 @@
 
 
 <meta charset="UTF-8">
-<title>공지사항 추가 폼</title>
+<title>QnA 수정 폼</title>
 </head>
 <body>
 
-공지사항 추가 폼
+QnA 수정 폼
 
 <br/><br/><br/><br/><br/>
 
-<input value="공지사항 추가" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeInsert'"/>
+<input value="Q&A 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModify'"/>
 
 
 

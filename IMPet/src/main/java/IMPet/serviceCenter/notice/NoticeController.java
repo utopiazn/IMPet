@@ -80,7 +80,7 @@ public class NoticeController {
 		return mav;
 	}
 
-	// 공지사항 수정
+	// 공지사항 삭제
 	@RequestMapping(value = "/NoticeDelete")
 	public ModelAndView NoticeDelete() {
 

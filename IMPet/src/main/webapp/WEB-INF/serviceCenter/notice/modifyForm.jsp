@@ -16,6 +16,10 @@
 
 공지사항 수정 폼
 
+<br/><br/><br/><br/><br/>
+
+<input value="공지사항 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeModify'"/>
+
 
 
 </body>
