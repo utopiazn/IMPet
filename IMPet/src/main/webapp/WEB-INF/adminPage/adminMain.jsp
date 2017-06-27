@@ -11,26 +11,30 @@
 관리자페이지
 
 
+<!-- 회원관리 -->
+<br/><br/><br/><br/><br/>
+<input value="회원리스트" type="button" onclick="location.href='/IMPet/Member/MemberList'"/>
+
+<!-- 호텔관리 -->
+<br/><br/><br/><br/><br/>
+<input value="룸예약리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomResAllList'"/>
+<input value="룸리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomList'"/>
+
 <!-- 상품관리 -->
 <br/><br/><br/><br/><br/>
-
 <input value="상품리스트" type="button" onclick="location.href='/IMPet/PetShop/ItemList'"/>
-
-<br/><br/>
-
-<input value="관리자상품추가폼" type="button" onclick="location.href='/IMPet/PetShop/AdminItemWriteForm'"/>
-
-<br/><br/>
-
-<input value="관리자상품수정폼" type="button" onclick="location.href='/IMPet/PetShop/AdminItemModifyForm'"/>
-
-<br/><br/>
-
-<input value="상품삭제" type="button" onclick="location.href='/IMPet/PetShop/AdminItemDelete'"/>
-
-<br/><br/>
-
 <input value="관리자 회원 주문 내역 리스트" type="button" onclick="location.href='/IMPet/PetShop/AdminOrderList'"/>
+
+<!-- 공지사항 -->
+<br/><br/><br/><br/><br/>
+<input value="공지사항리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
+
+<!-- 자주묻는질문 -->
+<br/><br/><br/><br/><br/>
+<input value="자주묻는질문리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+
+
+
 
 
 </body>
