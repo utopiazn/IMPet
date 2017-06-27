@@ -22,15 +22,8 @@
  	</typeAliases>  --> 
 	 
 	 <!-- SQL 정의한 xml문서 Mapping -->
- <!-- 	<mappers>
-	    <mapper resource="mybatis/config/memberSQL.xml" />
-	    <mapper resource="mybatis/config/memberSQL2.xml" />
-	    <mapper resource="mybatis/config/facilitiesSQL.xml" />
-	    <mapper resource="mybatis/config/roomClassSQL.xml" />	 
-	     <mapper resource="mybatis/config/boardSQL.xml" /> 
-	     <mapper resource="mybatis/config/eventSQL.xml" />
-	     <mapper resource="mybatis/config/roomSQL.xml" />
-	      <mapper resource="mybatis/config/faqSQL.xml" />
-	         <mapper resource="mybatis/config/testSQL.xml" />
-	</mappers>  -->
+	<mappers>
+	    <mapper resource="IMPet/mybatis/config/PetRoomSQL.xml" />
+	    <!-- <mapper resource="PetRoomSQL.xml" /> -->
+	</mappers>
 </configuration> 

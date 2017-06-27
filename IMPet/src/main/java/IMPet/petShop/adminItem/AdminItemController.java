@@ -22,6 +22,18 @@ public class AdminItemController {
 		return mav;
 	}
 	
+	//펫샵관리자상품추가
+	@RequestMapping(value="/AdminItemWrite")
+	public ModelAndView AdminItemWrite() {
+
+		
+		System.out.println("펫샵관리자상품추가");
+	
+		
+		mav.setViewName("AdminItemWrite");
+		return mav;
+	}
+	
 	//펫샵관리자상품수정폼
 	@RequestMapping(value="/AdminItemModifyForm")
 	public ModelAndView AdminItemModifyForm() {
@@ -34,6 +46,30 @@ public class AdminItemController {
 		return mav;
 	}
 	
+	//펫샵관리자상품수정
+	@RequestMapping(value="/AdminItemModify")
+	public ModelAndView AdminItemModify() {
+
+		
+		System.out.println("펫샵관리자상품수정");
+	
+		
+		mav.setViewName("AdminItemModify");
+		return mav;
+	}
+	
+	//펫샵관리자상품삭제
+	@RequestMapping(value="/AdminItemDelete")
+	public ModelAndView AdminItemDelete() {
+
+		
+		System.out.println("펫샵관리자상품삭제");
+	
+		
+		mav.setViewName("AdminItemDelete");
+		return mav;
+	}
+	
 	//관리자회원주문내역리스트
 	@RequestMapping(value="/AdminOrderList")
 	public ModelAndView AdminOrderList() {
@@ -43,6 +79,18 @@ public class AdminItemController {
 	
 		
 		mav.setViewName("AdminOrderList");
+		return mav;
+	}
+	
+	//관리자회원주문결제상태
+	@RequestMapping(value="/AdminOrderPay")
+	public ModelAndView AdminOrderPay() {
+
+		
+		System.out.println("관리자회원주문결제상태");
+	
+		
+		mav.setViewName("AdminOrderPay");
 		return mav;
 	}
 

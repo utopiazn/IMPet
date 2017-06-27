@@ -1,4 +1,4 @@
-<%@ page contentType="text/html charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -9,6 +9,10 @@
 <body>
 
 관리자상품수정폼
+
+<br/><br/><br/><br/><br/>
+
+<input value="상품수정" type="button" onclick="location.href='/IMPet/PetShop/AdminItemModify'"/>
 
 </body>
 </html>

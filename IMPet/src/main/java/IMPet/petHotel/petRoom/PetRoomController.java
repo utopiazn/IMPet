@@ -1,5 +1,7 @@
 package IMPet.petHotel.petRoom;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,6 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value="PetHotel")
 public class PetRoomController {
+	
+	@Resource(name="PetRoomService")
+	private PetRoomService petRoomService;
 	
 	//호텔 메인
 	@RequestMapping(value="Main")
@@ -23,9 +28,11 @@ public class PetRoomController {
 	
 	//호텔 룸 리스트
 	@RequestMapping(value="RoomList")
-	public ModelAndView list(){
+	public ModelAndView roomList() throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject(petRoomService.selectAll());
 		
 		System.out.println("호텔 룸 리스트");
 		
@@ -36,7 +43,7 @@ public class PetRoomController {
 	
 	//호텔 룸 상세
 	@RequestMapping(value="RoomView")
-	public ModelAndView view(){
+	public ModelAndView roomView(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -49,7 +56,7 @@ public class PetRoomController {
 	
 	//호텔 룸 추가폼
 	@RequestMapping(value="RoomInsertForm")
-	public ModelAndView insertForm(){
+	public ModelAndView roomInsertForm(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -62,20 +69,20 @@ public class PetRoomController {
 
 	//호텔 룸 추가
 	@RequestMapping(value="RoomInsert")
-	public ModelAndView insert(){
+	public ModelAndView roomInsert(){
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 추가");
 		
-		mav.setViewName("PetHotel_Insert");
+		mav.setViewName("redirect:RoomList");
 		
 		return mav;
 	}
 
 	//호텔 룸 수정폼
 	@RequestMapping(value="RoomModifyForm")
-	public ModelAndView modifyForm(){
+	public ModelAndView roomModifyForm(){
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -88,26 +95,26 @@ public class PetRoomController {
 
 	//호텔 룸 수정
 	@RequestMapping(value="RoomModify")
-	public ModelAndView modify(){
+	public ModelAndView roomModify(){
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 룸 수정");
 		
-		mav.setViewName("PetHotel_Modify");
+		mav.setViewName("redirect:RoomView");
 		
 		return mav;
 	}
 
 	//호텔 룸 삭제
 	@RequestMapping(value="RoomDelete")
-	public ModelAndView delete(){
+	public ModelAndView roomDelete(){
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 룸 삭제");
 		
-		mav.setViewName("PetHotel_Delete");
+		mav.setViewName("redirect:RoomList");
 		
 		return mav;
 	}

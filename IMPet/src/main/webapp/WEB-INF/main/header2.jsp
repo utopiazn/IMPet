@@ -34,7 +34,7 @@ a:hover
 <div align="center" style="height: 70%">
 
 <br/><br/>
-<h1>I'm Pet</h1>
+<h1><a href='/IMPet/Main'>I'm Pet</a></h1>
 <br/><br/>
 </div>
 

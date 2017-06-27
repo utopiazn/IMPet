@@ -49,15 +49,54 @@ public class ItemController {
 	}
 	
 	
+	//펫샵후기처리
+	@RequestMapping(value="/ItemComment")
+	public ModelAndView ItemComment() {
+
+		
+		System.out.println("펫샵후기처리");
+	
+		
+		mav.setViewName("ItemComment");
+		return mav;
+	}
+	
+	
 	//펫샵상품후기상세보기
-		@RequestMapping(value="/ItemCommentView")
-		public ModelAndView ItemCommentView() {
+	@RequestMapping(value="/ItemCommentView")
+	public ModelAndView ItemCommentView() {
 
 			
-			System.out.println("펫샵상품후기상세보기");
+		System.out.println("펫샵상품후기상세보기");
 		
 			
-			mav.setViewName("ItemCommentView");
-			return mav;
-		}
+		mav.setViewName("ItemCommentView");
+		return mav;
+	}
+	
+	
+	//펫샵상품후기수정
+	@RequestMapping(value="/ItemCommentModify")
+	public ModelAndView ItemCommentModify() {
+
+			
+		System.out.println("펫샵상품후기수정");
+		
+			
+		mav.setViewName("ItemCommentModify");
+		return mav;
+	}
+	
+	
+	//펫샵상품후기삭제
+	@RequestMapping(value="/ItemCommentDelete")
+	public ModelAndView ItemCommentDelete() {
+
+			
+		System.out.println("펫샵상품후기삭제");
+		
+			
+		mav.setViewName("ItemCommentDelete");
+		return mav;
+	}
 }

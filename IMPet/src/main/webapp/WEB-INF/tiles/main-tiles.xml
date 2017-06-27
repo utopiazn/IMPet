@@ -16,16 +16,22 @@
 		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
 	</definition>
  
+ 
+ 
+	<definition name="Info" extends="main">
+		<put-attribute name="body" value="/WEB-INF/main/info.jsp" />
+	</definition>
 	
-	
-	
-	<!-- 테스트 -->
-<!-- 	<definition name="test" extends="main_main2">
-		<put-attribute name="body" value="/WEB-INF/test.jsp" />
+	<definition name="Way" extends="main">
+		<put-attribute name="body" value="/WEB-INF/main/way.jsp" />
 	</definition>
 	
 	
-	
+	<!-- 예시에요 -->
+<!-- 	
+	<definition name="test" extends="main_main2">
+		<put-attribute name="body" value="/WEB-INF/test.jsp" />
+	</definition>
  -->
 
 	
