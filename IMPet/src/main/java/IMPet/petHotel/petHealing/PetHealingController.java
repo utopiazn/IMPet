@@ -1,20 +1,30 @@
 package IMPet.petHotel.petHealing;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import IMPet.module.CommandMap;
+import IMPet.petHotel.petHealing.PetHealingService;
 
 @Controller
 @RequestMapping(value="PetHotel")
 public class PetHealingController {
 	
+	@Resource(name="petHealingService")
+	private PetHealingService petHealingService;
+	
 	//호텔 힐링 리스트
 	@RequestMapping(value="HealingList")
-	public ModelAndView healingList(){
+	public ModelAndView healingList() throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 힐링 리스트");
+		
+		mav.addObject("list", petHealingService.selectAll());
 		
 		mav.setViewName("PetHotel_HealingList");
 		
@@ -23,9 +33,11 @@ public class PetHealingController {
 	
 	//호텔 힐링 상세
 	@RequestMapping(value="HealingView")
-	public ModelAndView healingView(){
+	public ModelAndView healingView(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("view", petHealingService.selectOne(commandMap.getMap()));
 		
 		System.out.println("호텔 힐링 상세");
 		

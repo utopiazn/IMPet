@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="FAQSQL">
+	
+	<sql id="seletClass" >
+	<![CDATA[
+	SELECT * FROM Pet_FAQ
+	]]>
+	</sql>
+	
+	<sql id="where-no"><![CDATA[ WHERE FAQ_NO = #{faq_no}]]></sql>
+	
+	<!--FAQ 리스트 -->
+	<select id="selectAll" resultType="hashmap">
+		<include refid="seletClass"/>
+		<![CDATA[
+		ORDER BY FAQ_NO DESC
+		]]>
+	</select>
+	
+	<!-- FAQ 상세보기 -->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletClass"/>
+		<include refid="where-no"/>
+	</select>
+	
+</mapper>

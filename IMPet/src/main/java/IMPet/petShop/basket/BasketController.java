@@ -1,5 +1,10 @@
 package IMPet.petShop.basket;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,14 +15,18 @@ public class BasketController {
 	
 	ModelAndView mav = new ModelAndView();
 	
+	@Resource(name="basketService")
+	private BasketService basketService;
+	
 	//펫샵장바구니리스트
 	@RequestMapping(value="/BasketList")
-	public ModelAndView BasketList() {
+	public ModelAndView BasketList() throws Exception {
 
 		
 		System.out.println("펫샵장바구니리스트");
-	
+		List<Map<String, Object>> list = basketService.selectAll();
 		
+		mav.addObject("list", list);
 		mav.setViewName("BasketList");
 		return mav;
 	}

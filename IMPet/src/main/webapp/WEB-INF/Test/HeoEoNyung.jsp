@@ -74,7 +74,7 @@ function fn_test2(obj){
 		<table>
 			<tr>
 				<td class='test'>
-					<a href='#this' name='title'>테스트</a> <!-- 글 상세보기 -->
+					<a href='#this' name='title'>테스트2</a> <!-- 글 상세보기 -->
 					<input type='hidden' name='test' id='test' value="string">
 					<input type='hidden' name='test' id='test2' value="${gab }">
 				</td>

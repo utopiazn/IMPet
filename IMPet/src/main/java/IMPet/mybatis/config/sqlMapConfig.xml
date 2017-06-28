@@ -26,5 +26,6 @@
 	    <mapper resource="IMPet/mybatis/config/PetRoomSQL.xml" />
 	    <mapper resource="IMPet/mybatis/config/PetHealingSQL.xml" />
 	    <!-- <mapper resource="PetRoomSQL.xml" /> -->
+	    <mapper resource="IMPet/mybatis/config/NoticeSQL.xml" />
 	</mappers>
 </configuration> 
