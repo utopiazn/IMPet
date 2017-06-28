@@ -86,12 +86,17 @@
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
 	</definition>
 	
-	<!-- 펫샵주문배송상태 -->
+	<!-- 펫샵주문상품결제 -->
+	<definition name="OrderItemPay" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderItemPay.jsp" />
+	</definition>
+	
+	<!-- 펫샵주문배송상태처리 -->
 	<definition name="OrderShip" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
 	</definition>
 	
-	<!-- 펫샵주문결제상태 -->
+	<!-- 펫샵주문결제상태처리 -->
 	<definition name="OrderPay" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
 	</definition>	
@@ -99,6 +104,12 @@
 	
 
 	<!-- admin -->
+	
+	<!-- 펫샵관리자상품리스트 -->
+	<definition name="AdminItemList" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminItemList.jsp" />
+	</definition>
+	
 	<!-- 펫샵관리자상품추가폼 -->
 	<definition name="AdminItemWriteForm" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/admin/adminItemWrite.jsp" />

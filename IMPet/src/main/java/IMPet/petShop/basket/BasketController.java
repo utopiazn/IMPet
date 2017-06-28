@@ -82,4 +82,15 @@ public class BasketController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/OrderItemPay")
+	public ModelAndView OrderItemPay() {
+
+			
+		System.out.println("펫상품결제진행");
+		
+			
+		mav.setViewName("OrderItemPay");
+		return mav;
+	}
+	
 }

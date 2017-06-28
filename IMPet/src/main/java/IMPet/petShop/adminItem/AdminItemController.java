@@ -10,6 +10,18 @@ public class AdminItemController {
 	
 	ModelAndView mav = new ModelAndView();
 	
+	//펫샵관리자상품리스트
+	@RequestMapping(value="/AdminItemList")
+	public ModelAndView AdminItemList() {
+
+		
+		System.out.println("펫샵관리자상품리스트");
+	
+		
+		mav.setViewName("AdminItemList");
+		return mav;
+	}
+	
 	//펫샵관리자상품추가폼
 	@RequestMapping(value="/AdminItemWriteForm")
 	public ModelAndView AdminItemWriteForm() {

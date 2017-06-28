@@ -12,13 +12,11 @@
 
 <br/><br/><br/><br/><br/>
 
+<input value="결제하기" type="button" onclick="location.href='/IMPet/PetShop/OrderItemPay'"/>
+
 <input value="장바구니 추가" type="button" onclick="location.href='/IMPet/PetShop/BasketWrite'"/>
 
-<br/><br/>
-
 <input value="상품후기상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemCommentView'"/>
-
-<br/><br/>
 
 <input value="후기등록" type="button" onclick="location.href='/IMPet/PetShop/ItemComment'"/>
 
