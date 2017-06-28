@@ -29,5 +29,21 @@ public class PetRoomServiceImpl implements PetRoomService {
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		return petRoomDAO.selectOne(map);
 	}
+
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		petRoomDAO.insert(map);
+	}
+	
+	@Override
+	public void update(Map<String, Object> map) throws Exception {
+		petRoomDAO.update(map);
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		petRoomDAO.delete(map);
+	}
+	
 	
 }

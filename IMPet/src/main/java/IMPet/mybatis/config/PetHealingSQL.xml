@@ -6,24 +6,51 @@
 	
 	<sql id="seletClass" >
 	<![CDATA[
-	SELECT * FROM PET_ROOM
+	SELECT * FROM PET_HEALING
 	]]>
 	</sql>
 	
-	<sql id="where-no"><![CDATA[ WHERE ROOM_NO = #{room_no}]]></sql>
+	<sql id="where-no"><![CDATA[ WHERE HEALING_NO = #{Healing_no}]]></sql>
 	
-	<!-- 룸 전체 리스트 -->
+	<!-- 힐링 전체 리스트 -->
 	<select id="selectAll" resultType="hashmap">
 		<include refid="seletClass"/>
 		<![CDATA[
-		ORDER BY ROOM_NO DESC
+		ORDER BY HEALING_NO DESC
 		]]>
 	</select>
 	
-	<!-- 룸 상세보기 -->
+	<!-- 힐링 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletClass"/>
 		<include refid="where-no"/>
 	</select>
+	
+	<!-- 힐링 추가 -->
+	<insert id="insert" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO PET_HEALING ( HEALING_NO, HEALING_NAME, HEALING_DETAIL,
+	HEALING_TIME, HEALING_GUIDE, HEALING_IMG)
+	VALUES (#{healing_NO}, #{healing_Name},	#{healing_Detail},
+			#{healing_Time}, #{healing_Guide}, #{healing_IMG})
+	]]>
+	</insert>
+	
+	<!-- 힐링 수정 -->
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+		UPDATE PET_HEALING SET HEALING_NO=#{healing_NO}, HEALING_NAME=#{healing_Name},
+		HEALING_DETAIL=#{healing_Detail}, HEALING_TIME=#{healing_Time},
+		HEALING_GUIDE=#{healing_Guide}, HEALING_IMG=#{healing_IMG}
+		]]>
+		<include refid="where-no"/>
+	</update>
+	
+	<!-- 힐링 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	DELETE FROM PET_HEALING WHERE HEALING_NO = #{Healing_NO}
+	]]>
+	</delete>
 	
 </mapper>
