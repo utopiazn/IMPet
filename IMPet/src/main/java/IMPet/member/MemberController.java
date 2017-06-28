@@ -136,6 +136,17 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/Logout")
+	public ModelAndView Logout(){
+
+
+		System.out.println("로그아웃 처리 후 메인 이동");
+
+		
+		mav.setViewName("main");
+		return mav;
+	}
+	
 	
 	
 	//회원 탈퇴 폼
