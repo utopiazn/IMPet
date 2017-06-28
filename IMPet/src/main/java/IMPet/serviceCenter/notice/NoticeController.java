@@ -1,5 +1,10 @@
 package IMPet.serviceCenter.notice;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,6 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/ServiceCenter")
 public class NoticeController {
 
+	@Resource(name="noticeService")
+	private NoticeService noticeService;
+	
+	
 	ModelAndView mav = new ModelAndView();
 
 	// 서비스센터 메인
@@ -22,7 +31,11 @@ public class NoticeController {
 
 	// 공지사항 리스트
 	@RequestMapping(value = "/NoticeList")
-	public ModelAndView NoticeList() {
+	public ModelAndView NoticeList() throws Exception{
+		
+		List<Map<String, Object>> list = noticeService.selectAll();
+		
+		mav.addObject("list",list);
 
 		System.out.println("공지사항리스트");
 
