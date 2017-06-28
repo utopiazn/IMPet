@@ -18,6 +18,7 @@
 
 <input value="수정 완료" type="button" onclick="location.href='/IMPet/Community/GalleryInsert'"/> 
 
+<input value="커뮤니티 갤러리 리스트  이동" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
 
 
 </body>

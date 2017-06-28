@@ -18,7 +18,7 @@
 
 <input value="갤러리 리스트" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
 <br/> <br/> 
-<input value="이벤트" type="button" onclick="location.href='/IMPet/Member/FindID'"/>  
+<input value="이벤트 리스트" type="button" onclick="location.href='/IMPet/Community/EventList'"/>  
 
 
 

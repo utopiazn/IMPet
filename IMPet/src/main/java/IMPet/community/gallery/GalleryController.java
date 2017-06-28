@@ -1,4 +1,6 @@
-package IMPet.community.Gallery;
+package IMPet.community.gallery;
+
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

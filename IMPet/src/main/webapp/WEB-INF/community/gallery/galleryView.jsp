@@ -22,6 +22,8 @@
 <input value="댓글 달기" type="button" onclick="location.href='/IMPet/Community/GalleryComment'"/> 
 <input value="댓글 삭제" type="button" onclick="location.href='/IMPet/Community/GalleryCommentDelete'"/> 
 
+<input value="커뮤니티 갤러리 리스트  이동" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
+
 
 
 
