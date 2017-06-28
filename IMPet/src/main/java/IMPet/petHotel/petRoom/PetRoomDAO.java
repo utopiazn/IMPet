@@ -27,6 +27,6 @@ public class PetRoomDAO extends AbstractDAO{
 		
 		Map<String, Object> view= (Map<String, Object>)selectOne("PetRoomSQL.selectOne", map);
 		
-		return view;  
+		return view;
 	}
-}	
+}
