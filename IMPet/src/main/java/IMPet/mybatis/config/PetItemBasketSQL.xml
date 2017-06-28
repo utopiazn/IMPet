@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PetItemBasketSQL">
+
+	<sql id="seletALL" > 
+		<![CDATA[ SELECT * FROM PET_ITEM_BASKET ]]>
+	</sql>
+	
+	<sql id="where-no"> 
+		<![CDATA[ WHERE BASEKT_NO = #{BASEKT_NO}]]> 
+	</sql>
+	
+	<!-- 장바구니 전체 리스트 -->
+	<select id="selectAll" resultType="hashmap">
+		<include refid="seletALL"/>
+		<![CDATA[
+			ORDER BY BASEKT_NO DESC
+		]]>
+	</select>
+	
+	<!-- 장바구니 상세보기 -->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletALL"/> 
+		<include refid="where-no"/>
+	</select>
+
+</mapper>

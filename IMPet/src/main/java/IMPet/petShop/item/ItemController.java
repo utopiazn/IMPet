@@ -1,14 +1,23 @@
 package IMPet.petShop.item;
 
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import IMPet.module.CommandMap;
 
 @Controller
 @RequestMapping(value="/PetShop")
 public class ItemController {
 	
 	ModelAndView mav = new ModelAndView();
+	
+	@Resource(name="itemService")
+	private ItemService itemService;
 	
 	//펫샵메인
 	@RequestMapping(value="/Main")
@@ -38,14 +47,16 @@ public class ItemController {
 	
 	//펫샵상품상세보기
 	@RequestMapping(value="/ItemView")
-	public ModelAndView ItemView() {
+	public ModelAndView ItemView(CommandMap commandMap) throws Exception {
 
 		
 		System.out.println("펫샵상품상세보기");
-	
+		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
 		
+		mav.addObject("data", map);
 		mav.setViewName("ItemView");
 		return mav;
+	
 	}
 	
 	
