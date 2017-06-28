@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
-@Controller
+@Controller 
 @RequestMapping(value="/Community")
 public class GalleryController {
 	
