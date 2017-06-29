@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Service;
 
 @Service(value="itemService")
@@ -14,6 +12,7 @@ public class ItemServiceImpl implements ItemService{
 	@Resource(name="itemDAO")
 	private ItemDAO itemDAO;
 
+	
 	@Override
 	public List<Map<String, Object>> selectAll() throws Exception {
 	
@@ -26,8 +25,4 @@ public class ItemServiceImpl implements ItemService{
 		return itemDAO.selectOne(map);	
 	}
 
-
-	
-	
-	
 }

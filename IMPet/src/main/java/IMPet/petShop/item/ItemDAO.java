@@ -18,7 +18,6 @@ public class ItemDAO extends AbstractDAO {
 	}
 
 
-
 	//상품상세보기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectOne(Map<String, Object> map ) throws Exception{
