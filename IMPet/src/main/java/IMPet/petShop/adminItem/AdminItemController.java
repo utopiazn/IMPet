@@ -64,8 +64,7 @@ public class AdminItemController {
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap) throws Exception {
 
-		
-		itemDAO.itemInsert(commandMap.getMap());
+
 		
 		mav.setViewName("redirect:/AdminItemList");
 		return mav;
