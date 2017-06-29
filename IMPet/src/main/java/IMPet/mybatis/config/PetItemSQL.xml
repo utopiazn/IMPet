@@ -19,10 +19,48 @@
 		]]>
 	</select>
 	
+	<!-- 상품 리스트 -->
+	<select id="selectList" parameterType="hashmap" resultType="hashmap">
+			<include refid="common.pagingPre"/>
+			<![CDATA[
+			select
+				row_number() over (order by ITEM_NO desc) rnum, 
+				ITEM_NO, ITEM_NAME, ITEM_IMG, ITEM_DETAIL, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_SELLCOUNT, ITEM_TYPE, ITEM_DETAILIMG
+					from 
+						pet_item
+					
+			]]>
+			<include refid="common.pagingPost"/>
+	</select>
+	
+	
 	<!-- 상품 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletALL"/> 
 		<include refid="where-no"/>
 	</select>
+	
+	<!-- 관리자 상품 추가 -->
+	<insert id="itemInsert" parameterType="hashmap">
+		insert into pet_item
+					 (ITEM_NO,
+					  ITEM_NAME,
+					  ITEM_IMG,
+					  ITEM_PRICE,
+					  ITEM_DETAIL,
+					  ITEM_TOTALCOUNT,
+					  ITEM_SELLCOUNT,
+					  ITEM_TYPE,
+					  ITEM_DETAILIMG)
+			values(goods_seq.NEXTVAL,
+					  #{ITEM_NO},
+					  #{ITEM_NAME},
+					  #{ITEM_IMG},
+				      #{ITEM_PRICE},
+				      #{ITEM_DETAIL},
+				      #{ITEM_TOTALCOUNT},
+				      #{ITEM_SELLCOUNT},
+				      #{ITEM_DETAILIMG}				     
+	</insert>
 	
 </mapper>
