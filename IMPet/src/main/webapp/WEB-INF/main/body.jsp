@@ -14,8 +14,8 @@
     data-cycle-prev="#prev"
     data-cycle-next="#next"
  >
-<img alt="s1" src="/IMPet/resources/image/sa.gif" style="width: 100%; height: 70%">
-<img alt="s2" src="/IMPet/resources/image/b.jpg" style="width: 100%; height: 70%">
+<img alt="s1" src="/IMPet/resources/image/giphy.gif" style="width: 100%; height: 70%">
+<img alt="s2" src="/IMPet/resources/image/sa.gif" style="width: 100%; height: 70%">
 <img alt="s3" src="/IMPet/resources/image/c.jpg" style="width: 100%; height: 70%">
 <img alt="s4" src="/IMPet/resources/image/d.jpg" style="width: 100%; height: 70%">
 </div>
