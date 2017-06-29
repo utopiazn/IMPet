@@ -7,10 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ItemService {
 	
-	Map<String,Object> selectOne(Map<String,Object> map) throws Exception;
-	
-	void itemInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
-	
-	List<Map<String,Object>> selectList(Map<String,Object> map) throws Exception;
-	
+	List<Map<String, Object>> selectAll() throws Exception;
+
+	Map<String, Object> selectOne(Map<String,Object> map) throws Exception;
+
 }
