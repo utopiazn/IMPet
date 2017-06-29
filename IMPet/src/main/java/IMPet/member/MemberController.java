@@ -1,10 +1,15 @@
 package IMPet.member;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import IMPet.module.CommandMap;
 
 @Controller
 @RequestMapping(value="/Member")
@@ -183,20 +188,28 @@ public class MemberController {
 	
 	//회원 정보 리스트
 	@RequestMapping(value="/MemberList")
-	public ModelAndView MemberList(){
-
+	public ModelAndView MemberList() throws Exception{
 
 		System.out.println("회원들의 정보 리스트 보여주기");
 
+		String url = "MemberList";
 		
-		mav.setViewName("MemberList");
+		List<Map<String,Object>> listAll = memberService.selectAll();		
+
+		mav.addObject("list", listAll);	
+		
+		
+		mav.setViewName(url);	
+		
 		return mav;
 	}
 	
 
+
+
 	//회원 수정  폼
 	@RequestMapping(value="/ModifiedForm")
-	public ModelAndView ModifiedForm(){
+	public ModelAndView ModifiedForm(CommandMap commandMap) throws Exception{
 
 
 		System.out.println("회원 수정 폼");
@@ -208,7 +221,7 @@ public class MemberController {
 	
 	//회원 수정 처리 
 	@RequestMapping(value="/Modified")
-	public ModelAndView Modified(){
+	public ModelAndView Modified(CommandMap commandMap) throws Exception{
 
 
 		System.out.println("회원들의 정보 수정 처리");
