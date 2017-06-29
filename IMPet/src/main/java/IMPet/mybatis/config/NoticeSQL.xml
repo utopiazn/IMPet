@@ -16,13 +16,15 @@
 	<select id="selectAll" resultType="hashmap">
 		<include refid="seletClass"/>
 		<![CDATA[
+		SELECT * FROM Pet_Notice
 		ORDER BY notice_NO DESC
 		]]>
 	</select>
 	
 	<!-- 공지사항 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletClass"/>
+		<include refid="seletClass"/>		
+		
 		<include refid="where-no"/>
 	</select>
 	
