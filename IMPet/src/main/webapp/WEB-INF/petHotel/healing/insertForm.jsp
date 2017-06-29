@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -11,32 +12,37 @@
 HotelHealingInsertForm&HotelHealingModifyForm
 <br/><br/>
 <div align="center">
-힐링시설을 추가할때
 <br/>
-<form action="PetHotel/HealingInsert" method="post">
-
-room_NO : <input id="room_NO" type="text"/>
-room_Name : <input id="room_Name" type="text"/>
-room_IMG : <input id="room_IMG" type="text"/>
-room_Detail : <input id="room_Detail" type="text"/>
-room_Price : <input id="room_Price" type="text"/>
-room_NUM : <input id="room_NUM" type="text"/>
-room_Total : <input id="room_Total" type="text"/>
-
-
+<c:choose>
+<c:when test="${view.HEALING_NO == null}">
+힐링시설을 추가할때
+<form action="HealingInsert" method="post">
+healing_NO : <input name="healing_NO" type="text"/>
+healing_Name : <input name="healing_Name" type="text"/><br/>
+healing_Detail : <input name="healing_Detail" type="text"/><br/>
+healing_Time : <input name="healing_Time" type="text"/><br/>
+healing_Guide : <input name="healing_Guide" type="text"/><br/>
+healing_IMG : <input name="healing_IMG" type="text"/><br/>
 
 <input value="힐링 추가" type="submit"/>
-
 </form>
 
-
-
-
-
-<br/><br/>
+</c:when>
+<c:otherwise>
 힐링시설을 수정할때
-<br/>
-<input value="힐링 수정" type="button" onclick="location.href='/IMPet/PetHotel/HealingModify'"/>
+<form action="HealingModify" method="post">
+healing_NO : ${view.HEALING_NO } <input name="healing_NO" type="hidden" value="${view.HEALING_NO }"/><br/>
+healing_Name : <input name="healing_Name" type="text" value="${view.HEALING_NAME }"/><br/>
+healing_Detail : <input name="healing_Detail" type="text" value="${view.HEALING_DETAIL}"/><br/>
+healing_Time : <input name="healing_Time" type="text" value="${view.HEALING_TIME }"/><br/>
+healing_Guide : <input name="healing_Guide" type="text" value="${view.HEALING_GUIDE }"/><br/>
+healing_IMG : <input name="healing_IMG" type="text" value="${view.HEALING_IMG }"/><br/>
+
+<input value="힐링 수정" type="submit"/>
+</form>
+</c:otherwise>
+</c:choose>
 </div>
+
 </body>
 </html>

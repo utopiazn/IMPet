@@ -10,7 +10,7 @@
 	]]>
 	</sql>
 	
-	<sql id="where-no"><![CDATA[ WHERE HEALING_NO = #{Healing_no}]]></sql>
+	<sql id="where-no"><![CDATA[ WHERE HEALING_NO = #{healing_NO}]]></sql>
 	
 	<!-- 힐링 전체 리스트 -->
 	<select id="selectAll" resultType="hashmap">
@@ -49,7 +49,7 @@
 	<!-- 힐링 삭제 -->
 	<delete id="delete" parameterType="hashmap">
 	<![CDATA[
-	DELETE FROM PET_HEALING WHERE HEALING_NO = #{Healing_NO}
+	DELETE FROM PET_HEALING WHERE HEALING_NO = #{healing_NO}
 	]]>
 	</delete>
 	

@@ -8,6 +8,9 @@
 <html lang="ko">
 <head>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+
 <!-- 임시 css -->
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
