@@ -21,16 +21,30 @@ public class AdminItemController {
 	@Resource(name="itemDAO")
 	private ItemDAO itemDAO;
 	
+	@RequestMapping(value="/AdminOpenItemList")
+	public ModelAndView AdminOpenItemList(CommandMap commandMap) throws Exception {
+		ModelAndView mav = new ModelAndView("AdminItemList");
+		
+
+		return mav;
+	}
+	
 	
 	//펫샵관리자상품리스트
 	@RequestMapping(value="/AdminItemList")
 	public ModelAndView AdminItemList(CommandMap commandMap) throws Exception {
-
+		ModelAndView mav = new ModelAndView("jsonView");
 		
-		List<Map<String,Object>> map = itemDAO.selectList(commandMap.getMap());
+		List<Map<String,Object>> list = itemDAO.selectList(commandMap.getMap());
 	
-		mav.addObject("list", map);
-		mav.setViewName("AdminItemList");
+		mav.addObject("list", list);
+		
+		if(list.size() > 0) {
+			mav.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+		}
+		else {
+			mav.addObject("TOTAL", 0);
+		}
 		return mav;
 	}
 	
