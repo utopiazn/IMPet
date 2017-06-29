@@ -16,7 +16,7 @@ HotelHealingList
 <table border="1">
 <c:forEach var="Healing" items="${list}">
 <tr><td>
-<h1><a href="/IMPet/PetHotel/HealingView?Healing_no=${Healing.HEALING_NO}">힐링 번호 : ${Healing.HEALING_NO} / 힐링 이름 : ${Healing.HEALING_NAME}</h1></a><br/>
+<h1><a href="/IMPet/PetHotel/HealingView?healing_NO=${Healing.HEALING_NO}">힐링 번호 : ${Healing.HEALING_NO} / 힐링 이름 : ${Healing.HEALING_NAME}</h1></a><br/>
 <h2>힐링 소개 : ${Healing.HEALING_DETAIL}</h2><br/>
 </td></tr>
 </c:forEach>

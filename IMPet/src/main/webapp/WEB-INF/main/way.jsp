@@ -14,6 +14,6 @@
 <br/><br/><br/><br/><br/><br/><br/>
 <h1>찾아오시는길</h1>
 <br/>
-없습니다 ㅇㅅㅇ;;
+<img alt="찾아오시는 길" src="/IMPet/resources/image/way.png">
 </body>
 </html>

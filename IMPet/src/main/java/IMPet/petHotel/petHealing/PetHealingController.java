@@ -1,5 +1,8 @@
 package IMPet.petHotel.petHealing;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -24,9 +27,13 @@ public class PetHealingController {
 		
 		System.out.println("호텔 힐링 리스트");
 		
-		mav.addObject("list", petHealingService.selectAll());
+		List<Map<String, Object>> list = petHealingService.selectAll();
 		
-		mav.setViewName("PetHotel_HealingList");
+		String url = "PetHotel_HealingList";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
@@ -37,11 +44,15 @@ public class PetHealingController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("view", petHealingService.selectOne(commandMap.getMap()));
-		
 		System.out.println("호텔 힐링 상세");
 		
-		mav.setViewName("PetHotel_HealingView");
+		Map<String, Object> map = petHealingService.selectOne(commandMap.getMap());
+		
+		String url = "PetHotel_HealingView";
+		
+		mav.addObject("view", map);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
@@ -53,41 +64,53 @@ public class PetHealingController {
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 힐링 추가 폼");
+
+		String url = "PetHotel_HealingInsertForm";
 		
-		mav.setViewName("PetHotel_HealingInsertForm");
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 힐링 추가
 	@RequestMapping(value="HealingInsert")
-	public ModelAndView healingInsert(){
+	public ModelAndView healingInsert(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 힐링 추가");
 		
-		mav.setViewName("redirect:HealingList");
+		petHealingService.insert(commandMap.getMap());
+		
+		String url = "redirect:HealingList";
+		
+		mav.setViewName(url);		
 		
 		return mav;
 	}
 
 	//호텔 힐링 수정폼
 	@RequestMapping(value="HealingModifyForm")
-	public ModelAndView healingModifyForm(){
+	public ModelAndView healingModifyForm(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 힐링 수정 폼");
 		
-		mav.setViewName("PetHotel_HealingModifyForm");
+		Map<String, Object> map = petHealingService.selectOne(commandMap.getMap());
+		
+		String url = "PetHotel_HealingModifyForm";
+		
+		mav.addObject("view", map);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 힐링 수정
 	@RequestMapping(value="HealingModify")
-	public ModelAndView healingModify(){
+	public ModelAndView healingModify(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -95,18 +118,30 @@ public class PetHealingController {
 		
 		mav.setViewName("redirect:HealingView");
 		
+		petHealingService.update(commandMap.getMap());
+		
+		String no = commandMap.get("healing_NO").toString();
+		
+		String url = "redirect:HealingView?healing_NO="+no;
+		
+		mav.setViewName(url);
+		
 		return mav;
 	}
 
 	//호텔 힐링 삭제
 	@RequestMapping(value="HealingDelete")
-	public ModelAndView healingDelete(){
+	public ModelAndView healingDelete(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 힐링 삭제");
 		
-		mav.setViewName("redirect:HealingList");
+		petHealingService.delete(commandMap.getMap());
+		
+		String url = "redirect:HealingList";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}

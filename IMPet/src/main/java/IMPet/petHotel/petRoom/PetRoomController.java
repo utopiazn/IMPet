@@ -66,10 +66,6 @@ public class PetRoomController {
 		
 		mav.setViewName(url);
 		
-		
-		
-		
-		
 		return mav;
 	}
 	
