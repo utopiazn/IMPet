@@ -26,6 +26,14 @@ public class ItemServiceImpl implements ItemService{
 		return itemDAO.selectOne(map);	
 	}
 
+	@Override
+	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return itemDAO.selectList(map);
+	}
+	
+	
+
 
 	
 	

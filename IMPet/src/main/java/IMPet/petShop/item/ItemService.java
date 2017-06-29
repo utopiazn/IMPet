@@ -10,5 +10,7 @@ public interface ItemService {
 	List<Map<String, Object>> selectAll() throws Exception;
 
 	Map<String, Object> selectOne(Map<String,Object> map) throws Exception;
+	
+	List<Map<String, Object>> selectList(Map<String,Object> map) throws Exception;
 
 }

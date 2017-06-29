@@ -63,7 +63,19 @@ function fn_selectListCallback(data){
 <title>관리자상품리스트</title>
 </head>
 <body>
-
+<table>
+        <colgroup>
+            <col width="10%"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">글번호</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+</table>
 관리자상품리스트
 
   <div id="PAGE_NAVI"></div>
