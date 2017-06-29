@@ -29,4 +29,26 @@ public class PetHealingDAO extends AbstractDAO{
 		
 		return view;
 	}
+
+	public void insert(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		insert("PetHealingSQL.insert", map);
+	}
+	
+	public void update(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		insert("PetHealingSQL.update", map);
+	}
+	
+	public void delete(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		insert("PetHealingSQL.delete", map);
+	}	
+	
 }

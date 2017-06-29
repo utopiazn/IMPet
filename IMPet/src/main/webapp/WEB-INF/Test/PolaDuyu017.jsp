@@ -22,11 +22,11 @@
 <br/><br/>
 <div>
 
-<div align="right" style="float: left; width:24%; ">
+<div align="right" style="float: left; width:24%; padding-top: 13%;">
     <a href=# id="prev"><<</a>
 </div>
 
-<div style="float: left;  width: 50%; height: 50%" >
+<div style="float: left;  width: 50%;" >
 <div class="cycle-slideshow" 
 	data-cycle-fx="scrollHorz"
     data-cycle-timeout="0"
@@ -40,7 +40,7 @@
 </div>
 </div>
 
-<div style="float: left; width:24%;">
+<div style="float: left; width:24%; padding-top: 13%;">
     <a href=# id="next">>></a>
 </div>
 </div>

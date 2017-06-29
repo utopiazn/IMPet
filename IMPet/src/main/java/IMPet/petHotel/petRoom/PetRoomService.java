@@ -18,4 +18,5 @@ public interface PetRoomService {
 	public void update(Map<String, Object> map) throws Exception;
 	
 	public void delete(Map<String, Object> map) throws Exception;
+
 }
