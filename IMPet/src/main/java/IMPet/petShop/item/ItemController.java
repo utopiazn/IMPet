@@ -55,9 +55,12 @@ public class ItemController {
 	public ModelAndView ItemView(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵상품상세보기");
+
 		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
 		
 		mav.addObject("view", map);
+
+
 		mav.setViewName("ItemView");
 		return mav;
 	

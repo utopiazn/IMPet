@@ -1,5 +1,7 @@
 package IMPet.member;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,6 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value="/Member")
 public class MemberController {
+	
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
 	
 	ModelAndView mav = new ModelAndView();
 	
@@ -25,7 +32,6 @@ public class MemberController {
 		return mav;
 	}
 
-	
 	
 	//회원 가입 폼
 	@RequestMapping(value="/JoinForm")
@@ -130,6 +136,17 @@ public class MemberController {
 
 
 		System.out.println("로그인 처리 후 메인 이동");
+
+		
+		mav.setViewName("main");
+		return mav;
+	}
+	
+	@RequestMapping(value="/Logout")
+	public ModelAndView Logout(){
+
+
+		System.out.println("로그아웃 처리 후 메인 이동");
 
 		
 		mav.setViewName("main");

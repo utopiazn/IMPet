@@ -10,5 +10,7 @@
 	
 	결제 진행 페이지
 	
+	<br/><br/><br/><br/>
+	<input value="결제하기" type="button" onclick="location.href='/IMPet/PetShop/OrderList'"/>
 </body>
 </html>

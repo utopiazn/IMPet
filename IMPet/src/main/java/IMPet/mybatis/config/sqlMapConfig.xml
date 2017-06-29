@@ -24,8 +24,11 @@
 	 <!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>
 	    <mapper resource="IMPet/mybatis/config/PetRoomSQL.xml" />
-	    <mapper resource="IMPet/mybatis/config/PetHealingSQL.xml" />
-	    <!-- <mapper resource="PetRoomSQL.xml" /> -->
+	    <mapper resource="IMPet/mybatis/config/PetHealingSQL.xml" />	   
 	    <mapper resource="IMPet/mybatis/config/NoticeSQL.xml" />
+	    <mapper resource="IMPet/mybatis/config/MemberSQL.xml" />	    
+	    <mapper resource="IMPet/mybatis/config/PetItemSQL.xml" />
+	    <mapper resource="IMPet/mybatis/config/PetBasketSQL.xml" />
+	    <mapper resource="IMPet/mybatis/config/CommonSQL.xml" />
 	</mappers>
 </configuration> 

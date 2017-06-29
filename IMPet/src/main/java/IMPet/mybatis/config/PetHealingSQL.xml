@@ -31,17 +31,17 @@
 	<![CDATA[
 	INSERT INTO PET_HEALING ( HEALING_NO, HEALING_NAME, HEALING_DETAIL,
 	HEALING_TIME, HEALING_GUIDE, HEALING_IMG)
-	VALUES (#{healing_NO}, #{healing_Name},	#{healing_Detail},
-			#{healing_Time}, #{healing_Guide}, #{healing_IMG})
+	VALUES (#{Healing_NO}, #{Healing_Name},	#{Healing_Detail},
+			#{Healing_Time}, #{Healing_Guide}, #{Healing_IMG})
 	]]>
 	</insert>
 	
 	<!-- 힐링 수정 -->
 	<update id="update" parameterType="hashmap">
 	<![CDATA[
-		UPDATE PET_HEALING SET HEALING_NO=#{healing_NO}, HEALING_NAME=#{healing_Name},
-		HEALING_DETAIL=#{healing_Detail}, HEALING_TIME=#{healing_Time},
-		HEALING_GUIDE=#{healing_Guide}, HEALING_IMG=#{healing_IMG}
+		UPDATE PET_HEALING SET HEALING_NO=#{Healing_NO}, HEALING_NAME=#{Healing_Name},
+		HEALING_DETAIL=#{Healing_Detail}, HEALING_TIME=#{Healing_Time},
+		HEALING_GUIDE=#{Healing_Guide}, HEALING_IMG=#{Healing_IMG}
 		]]>
 		<include refid="where-no"/>
 	</update>
