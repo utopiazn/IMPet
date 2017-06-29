@@ -2,10 +2,20 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+
+
 <!DOCTYPE html>
 <html lang=ko>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="<c:url value='/resources/ajax/ajax.js'/>" charset="utf-8"></script>
 <script type="text/javascript">
-function fn_selecList(pageNo){
+
+fn_selectList(1);
+$(document).ready(function(){
+	fn_selectList(1);
+});
+
+function fn_selectList(pageNo){
     var comAjax = new ComAjax();
     comAjax.setUrl("<c:url value='AdminItemList' />");
     comAjax.setCallback("fn_selectListCallback");
@@ -17,7 +27,7 @@ function fn_selecList(pageNo){
 function fn_selectListCallback(data){
 	
 	var total = data.TOTAL;
-	var body = $("body");
+	var body = $("table>tbody");
 	body.empty();
 	if(total == 0){
 		var str = "<tr>" + 
@@ -39,13 +49,13 @@ function fn_selectListCallback(data){
 		$.each(data.list, function(key, value){
 			str += "<tr>" + 
 						"<td>" + value.ITEM_NO + "</td>" + 
-						/* "<td class='title'>" +
+						 "<td class='title'>" +
 							"<a href='#this' name='title'>" + value.ITEM_NAME + "</a>" +
-							"<input type='hidden' name='IDX' id='IDX' value=" + value.IDX + ">" + 
+							"<input type='hidden' name='IDX' id='IDX' value=" + value.ITEM_NO + ">" + 
 							
 						"</td>" +
-						"<td>" + value.HIT_CNT + "</td>" + 
-						"<td>" + value.CREA_DTM + "</td>" +  */
+						"<td>" + value.ITEM_IMG + "</td>" + 
+						"<td>" + value.ITEM_PRICE + "</td>" +  
 					"</tr>";
 		});
 		body.append(str);
@@ -63,13 +73,18 @@ function fn_selectListCallback(data){
 <title>관리자상품리스트</title>
 </head>
 <body>
-<table>
+<table align="center" >
         <colgroup>
             <col width="10%"/>
         </colgroup>
         <thead>
-            <tr>
+            <tr align="center">
                 <th scope="col">글번호</th>
+                 <th scope="col">아이템 이름</th>
+                  <th scope="col">아이템 번호</th>
+                   <th scope="col">아이템 이미지</th>
+                   
+                    <th scope="col">아이템 가겨</th>
             </tr>
         </thead>
         <tbody>

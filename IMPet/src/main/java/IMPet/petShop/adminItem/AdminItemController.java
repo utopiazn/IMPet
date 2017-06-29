@@ -33,7 +33,7 @@ public class AdminItemController {
 	//펫샵관리자상품리스트
 	@RequestMapping(value="/AdminItemList")
 	public ModelAndView AdminItemList(CommandMap commandMap) throws Exception {
-		ModelAndView mav = new ModelAndView("jsonView");
+		ModelAndView mav = new ModelAndView("jsonAjax");
 		
 		List<Map<String,Object>> list = itemDAO.selectList(commandMap.getMap());
 	
