@@ -1,106 +1,76 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-
-
-<!DOCTYPE html>
-<html lang=ko>
-<style>
-	
-	.main_itemlist {clear:both; width:100%; height:auto; overflow:hidden; padding-top:30px; }
-	.main_itemlist .item-cont {width:  1095px;    height: auto;    margin: 0 auto; }
-	.main_itemlist .item-cont dl {float:left; width:281px;}
-	.main_itemlist .item-cont dl dt {width:250px; height:250px; border:1px solid #ececec; box-sizing:border-box;}
-	.main_itemlist .item-cont dl dt img {width:100%;}
-	.main_itemlist .item-cont dl dd {width:250px; height:75px; margin-top:15px; margin-bottom:50px;  margin: 0px !important;}
-	.main_itemlist .item-cont dl dd ul {margin: 5px 0 5px 10px; padding: 0px !important;}
-	.main_itemlist .item-cont dl dd ul li.prd-name {color:#7d7d7d; line-height:20px; width:100%; height:55px; overflow:hidden; }
-	.main_itemlist .item-cont dl dd ul li.prd-price {width:100%; height:20px; position:relative;list-style:none;}
-	.item-list:nth-child(4){width:250px !important;}
-
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="<c:url value='/resources/ajax/ajax.js'/>" charset="utf-8"></script>
-<script type="text/javascript">
-
-fn_selectList(1);
-
-function fn_selectList(pageNo){
-    var comAjax = new ComAjax();
-    comAjax.setUrl("<c:url value='AdminItemList' />");
-    comAjax.setCallback("fn_selectListCallback");
-    comAjax.addParam("PAGE_INDEX",pageNo);
-    comAjax.addParam("PAGE_ROW", 10);
-    comAjax.ajax();
-}
-
-function fn_selectListCallback(data){
-	
-	var total = data.TOTAL;
-	var body = $("#div");
-	body.empty();
-	if(total == 0){
-		var str = "<tr>" + 
-						"<td colspan='11' style='text-align:center;'>등록된 상품이 없습니다.</td>" + 
-					"</tr>";
-		body.append(str);
-	}
-	else{
-		var params = {
-			divId : "PAGE_NAVI",
-			pageIndex : "PAGE_INDEX", 
-			pageRow : 10,
-			totalCount : total,
-			eventName : "fn_selectList"
-		};
-		gfn_renderPaging(params);
-		
-		var str = "";
-		$.each(data.list, function(key, value){
-			str +=  
-				/* "<tr>" + 
-						"<td>" + value.ITEM_NO + "</td>" + 
-						 "<td class='title'>" +
-							"<a href='#this' name='title'>" + value.ITEM_NAME + "</a>" +
-							"<input type='hidden' name='IDX' id='IDX' value=" + value.ITEM_NO + ">" + 
-							
-						"</td>" +
-						"<td>" + value.ITEM_IMG + "</td>" + 
-						"<td>" + value.ITEM_PRICE + "</td>" +  
-					"</tr>";   */ 					
-		"<div class='main_itemlist'>" + 
-			"<div class='item-cont'>" +
-			 	"<dl class='item-list'>" +
-					"<dt class='humb'><a href=''><img class= src= alt='상품 섬네일' title='상품 섬네일'>"+value.ITEM_IMG+"</a></dt>" +
-					"<dd>" +
-						"<ul>" +
-							"<li class='prd-name'>" + value.ITEM_NAME + " </li>" +
-							"<li class='prd-price'> " +
-								"<span class='prd_priceno'> " + value.ITEM_PRICE + "</span>" +
-								"<span class='prd_preview'><a href=''><img src=''></a> </span>" +
-							"</li>" +
-						"<ul>" +
-					"<dd>" +
-				"</dl>" +
-			"</div>" +
-		"</div>";
-		});
-		body.append(str);
-		 
-		$("a[name='title']").on("click", function(e){ //제목 
-			e.preventDefault();
-			fn_openBoardDetail($(this));
-		});
-	}
-}
-
-</script>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <head>
-<meta charset="UTF-8">
-<title>관리자상품리스트</title>
+<script type="text/javascript">
+//주문번호 같은 열 합치는 Jquery
+$( document ).ready(function() {
+	$('#dataTables-example').rowspan(0);
+	$('#dataTables-example').rowspan(1);
+	$('#dataTables-example').rowspan(2);
+	$('#dataTables-example').rowspan(3);
+	$('#dataTables-example').rowspan(4);
+	$('#dataTables-example').rowspan(5);
+	$('#dataTables-example').rowspan(9);
+	$('#dataTables-example').rowspan(10);
+});
+
+$.fn.rowspan = function(colIdx, isStats) {       
+	return this.each(function(){      
+		var that;     
+		$('tr', this).each(function(row) {      
+			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+				
+				if ($(this).html() == $(that).html()
+					&& (!isStats 
+							|| isStats && $(this).prev().html() == $(that).prev().html()
+							)
+					) {            
+					rowspan = $(that).attr("rowspan") || 1;
+					rowspan = Number(rowspan)+1;
+
+					$(that).attr("rowspan",rowspan);
+					
+					// do your action for the colspan cell here            
+					$(this).hide();
+					
+					//$(this).remove(); 
+					// do your action for the old cell here
+					
+				} else {            
+					that = this;         
+				}          
+				
+				// set the that if not already set
+				that = (that == null) ? this : that;      
+			});     
+		});    
+	});  
+}; 
+function delchk(){
+    return confirm("삭제하시겠습니까?");
+    
+    
+}
+</script>
+<style type="text/css">
+.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
+.paging a,
+.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
+-webkit-border-radius:3px;
+   -moz-border-radius:3px;
+		border-radius:3px;
+-webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+}
+.paging a:first-child{margin-left:0;}
+.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
+.paging .page_arw{font-size:11px;line-height:30px;}
+</style>
 </head>
-<body>
+
 <div class="row" style="padding-left:15px;width:900px;">    
 	<h1 class="page-header">상품목록</h1>
 </div>
@@ -231,7 +201,3 @@ function fn_selectListCallback(data){
 	</div>
         <!-- /.panel -->   
 </div>
-  <div id="PAGE_NAVI"></div>
-    <input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX"/>
-</body>
-</html>

@@ -33,6 +33,7 @@
 <br/><br/><br/><br/><br/>
 
 	<div class="main_itemlist">
+
 		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
