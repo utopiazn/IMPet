@@ -12,7 +12,6 @@
 HotelRoomList
 <br/><br/>
 
-room  =list[1].
 
 
 <div align="center">
