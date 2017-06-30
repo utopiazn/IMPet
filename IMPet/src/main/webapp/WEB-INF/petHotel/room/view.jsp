@@ -11,18 +11,63 @@
 HotelRoomView
 <br/><br/>
 
-<div align="center">
-<table border="1">
-<tr><td>
-<h1>방 번호 : ${view.ROOM_NO} / 방 이름 : ${view.ROOM_NAME} / 방 가격 : ${view.ROOM_PRICE}</h1><br/>
-<h2>방 소개 : ${view.ROOM_DETAIL}</h2><br/>
-</td></tr>
-</table>
+<div style="float:left; width:80%; border:1px solid black; margin-right: 1px; height:40%;">
+<div align="center" style="width:100%; height:100%;">
+
+<div style="border:1px solid black; width:99%; height:80%;">
+이미지 들어갈 자리
+</div>
+
+<div style="width:100%; height:19%;">
+방 소개 : ${view.ROOM_DETAIL}<br/>
+
+</div>
+
+</div>
 </div>
 
 
+<div style="float:left; width:19%; border:1px solid black; height:40%;">
+<form action="RoomReservation" method="post">
+<div style="width:100%;">
+<input name="room_NO" type="hidden" value="${view.ROOM_NO}"/>
+<input name="member_ID" type="hidden" value=""/>
+<input name="res_Price" type="hidden" value="${view.ROOM_PRICE}"/>
+
 <div align="center">
-<input value="룸 예약" type="button" onclick="location.href='/IMPet/PetHotel/RoomReservation'"/>
+<br/>
+<font>방 번호 : ${view.ROOM_NO}</font><br/>
+<font>방 이름 : ${view.ROOM_NAME}</font><br/>
+<font>방 가격 : ${view.ROOM_PRICE}</font><br/>
+<font>남은 객실 : ${view.ROOM_NUM}/${view.ROOM_TOTAL}</font><br/>
+</div>
+
+<div align="left" style="margin-bottom:10px;">
+<br/>
+&nbsp;입실날짜 : <input name="res_FirstDate" type="date" style="width:60%; margin-bottom:3px;" onc/><br/>
+&nbsp;퇴실날짜 : <input name="res_LastDate" type="date" style="width:60%;"/><br/>
+</div>
+
+<div align="center">
+요구사항<br/>
+<textarea name="res_Requests" rows="5" style="width:90%;"></textarea>
+</div>
+
+
+
+res_NO DB에서 넣어야함<br>
+res_State DB에서 넣어야함<br>
+
+
+
+<input value="룸 예약하기" type="submit"/>
+
+</div>
+</form>
+</div>
+
+<div align="center" style="float:inherit; width:100%">
+
 <input value="룸 수정" type="button" onclick="location.href='/IMPet/PetHotel/RoomModifyForm?room_NO=${view.ROOM_NO}'"/>
 <input value="룸 삭제" type="button" onclick="location.href='/IMPet/PetHotel/RoomDelete?room_NO=${view.ROOM_NO}'"/>
 <input value="룸 리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomList'"/>
