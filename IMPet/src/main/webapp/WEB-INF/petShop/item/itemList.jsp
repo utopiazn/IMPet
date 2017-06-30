@@ -33,11 +33,10 @@
 <br/><br/><br/><br/><br/>
 
 	<div class="main_itemlist">
-
 		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
-						<dt class="thumb"><a href="/IMPet/PetShop/ItemView"><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
+						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO }"><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
 						<dd>
 							<ul>
 								<li class="prd-name">${items.ITEM_NAME}</li>

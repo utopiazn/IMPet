@@ -41,16 +41,17 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 <title>메인페이지</title>
 </head>
 <body>
-<div class="header">
-<tiles:insertAttribute name="header1" />
-<tiles:insertAttribute name="header2" />
-</div>
-<div class="right">
-<tiles:insertAttribute name="body" />	
-</div>
-<div class="footer">
-<tiles:insertAttribute name="footer" />
-</div>
-
+	<div class="wrap">
+		<div class="header">
+		<tiles:insertAttribute name="header1" />
+		<tiles:insertAttribute name="header2" />
+		</div>
+		<div class="right">
+		<tiles:insertAttribute name="body" />	
+		</div>
+		<div class="footer">
+		<tiles:insertAttribute name="footer" />
+		</div>
+	</div>
 </body>
 </html>
