@@ -7,9 +7,19 @@
 
 <html lang="ko">
 <head>
-
+<!-- 이미지슬라이드 -->
+<link href="/IMPet/resources/css/flexslider.css" rel="stylesheet" style="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<script src="resources/JQuery/jquery.flexslider.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(window).load(function() {
+	  $('.flexslider').flexslider({
+	    animation: "slide"
+	  });
+	});
+</script>
+<!-- 이미지슬라이드 -->
 
 <!-- 임시 css -->
 <style type="text/css">
