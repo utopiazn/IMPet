@@ -14,7 +14,6 @@ public class QnADAO  extends AbstractDAO {
 	public List<Map<String, Object>> selectAll() throws Exception {
 		
 		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("QnASQL.selectAll");
-		
 		return list;  
 	}
 	
