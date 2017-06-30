@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,7 +24,7 @@ public class MemberController {
 	ModelAndView mav = new ModelAndView();
 	
 	
-	
+	List<Map<String,Object>> listAll =null;
 	
 	//회원 약관 동의 폼
 	@RequestMapping(value="/JoinAgreement")
@@ -195,9 +196,21 @@ public class MemberController {
 		String url = "MemberList";
 		
 		List<Map<String,Object>> listAll = memberService.selectAll();		
-
-		mav.addObject("list", listAll);	
 		
+		
+	
+		
+		System.out.println(listAll);
+
+		mav.addObject("listAll", listAll);	
+		
+		
+		
+		if(this.listAll != null){			
+			this.listAll.clear();		
+		}
+		
+		this.listAll = listAll;
 		
 		mav.setViewName(url);	
 		
@@ -209,13 +222,28 @@ public class MemberController {
 
 	//회원 수정  폼
 	@RequestMapping(value="/ModifiedForm")
-	public ModelAndView ModifiedForm(CommandMap commandMap) throws Exception{
-
-
-		System.out.println("회원 수정 폼");
+	public ModelAndView ModifiedForm(@ModelAttribute("NO") int idx) throws Exception{
 
 		
-		mav.setViewName("ModifiedForm");
+		System.out.println("회원 수정 폼"+idx);
+		
+		
+		Map<String,Object> list =this.listAll.get(idx-1);
+		
+		System.out.println("회원 수정 폼"+idx);
+
+		String url = "ModifiedForm";
+		
+		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
+		System.out.println(list);	
+		
+		
+		mav.addObject("member", list);	
+		
+		
+		mav.setViewName(url);	
+
+	
 		return mav;
 	}
 	

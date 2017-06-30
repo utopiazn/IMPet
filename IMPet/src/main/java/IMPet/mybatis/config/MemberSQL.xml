@@ -9,8 +9,26 @@
 	<select id="selectAll" resultType="hashmap">
 		<!-- <include refid="seletClass"/> -->
 		<![CDATA[		
-			 select 
-			 	* 
+			     select 
+			     	row_number() over(order by 	member_UserYN,member_Join_Date) as NO, 
+				 	MEMBER_ID,
+			        MEMBER_PW, 
+			        MEMBER_NAME,
+			        MEMBER_NICKNAME,
+			        MEMBER_ZIPCODE,
+			        MEMBER_ADDRESS,
+			        MEMBER_ADDRESS2,
+			        MEMBER_NEWZIPCODE,
+			        MEMBER_NEWADDRESS,
+			        MEMBER_NEWADDRESS2,
+			        MEMBER_EMAIL,
+			        MEMBER_TEL,
+			        MEMBER_ANIMAL_TYPE, 
+			        MEMBER_REQUESTS, 
+			        MEMBER_USERYN, 
+			        MEMBER_ADMIN, 
+			        MEMBER_JOIN_DATE, 
+			        MEMBER_DEL_DATE
 			 from 
 			 	Pet_Member 
 			 order by 
@@ -28,7 +46,7 @@
 			 from 
 			 	Pet_Member 
 			 where
-			 	member_ID = ${member_ID}	
+			 	member_ID = '${MEMBER_ID}'	
 			 order by 
 			 	member_Join_Date
 		]]>
