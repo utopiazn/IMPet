@@ -121,13 +121,10 @@
 	  <ul class="nav__menu">
 	    <li class="nav__menu-item"><a>HOTEL</a>
 	     <ul class="nav__submenu">	     
-	    	<li class="nav__submenu-item"> <a>ROOM</a></li>
+	    	<li class="nav__submenu-item"> <a href="https://codepen.io/">ROOM</a></li>
 	        <li class="nav__submenu-item"> <a>HEALING</a></li>
 	        <li class="nav__submenu-item"> <a>Web Hosting</a></li>
-	    	<li class="nav__submenu-item"> <a>Web Design</a></li>
-	        <li class="nav__submenu-item"> <a>Web Development</a></li>
-	        <li class="nav__submenu-item"> <a>Web Hosting</a></li>
-	        </ul>
+		</ul>
 	    <li class="nav__menu-item"><a>SHOP</a>
 	      <ul class="nav__submenu">
 	        <li class="nav__submenu-item"> <a>Web Design</a></li>
@@ -144,6 +141,8 @@
 	      </li>
 	      </ul>
 	</nav>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="button-effect">
 <a class="effect effect-5" href="/IMPet/Main" title="Learn More">Learn More</a>
 </div>
