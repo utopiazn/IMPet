@@ -26,7 +26,7 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="QnA 리스트 이동" type="button" onclick="location.href='/IMPet/ServiceCenter/QnAList'"/>
+<input value="QnA 리스트 이동" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>
 
 </body>
 </html>
