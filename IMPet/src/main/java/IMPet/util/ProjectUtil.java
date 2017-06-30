@@ -82,12 +82,31 @@ public class ProjectUtil{
 		}
 	}
 	
+	//String - sql.Date 변환  (day=yyyy-MM-dd 형식이어야함)
+	public static java.sql.Date changeSqlDate(String day){
+		java.sql.Date date = java.sql.Date.valueOf(day);
+		return date;
+	}
 	
+	//String - sql.Timestamp 변환 (day=yyyy-MM-dd hh:mm:ss.s 형식이어야함)
+	public static java.sql.Timestamp changeSqlTimestamp(String day){
+		java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(day);
+		return timestamp;
+	}
 	
+	//String - util.Date 변환  (day=yyyy-MM-dd 형식이어야함)
+	public static java.util.Date changeUtilDate(String day) throws Exception{
+		java.util.Date date = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(day);
+		return date;
+	}
 	
-	
-	
-	
+	//util.Date - sql.Date 변환
+	public static java.sql.Date changeUtilSqlDate(java.util.Date day){
+		
+		java.sql.Date date = new java.sql.Date(day.getTime()); 
+		
+		return date;
+	}
 	
 	
 	

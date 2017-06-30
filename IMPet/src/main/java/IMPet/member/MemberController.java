@@ -1,17 +1,30 @@
 package IMPet.member;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import IMPet.module.CommandMap;
 
 @Controller
 @RequestMapping(value="/Member")
 public class MemberController {
 	
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
+	
 	ModelAndView mav = new ModelAndView();
 	
 	
-	
+	List<Map<String,Object>> listAll =null;
 	
 	//회원 약관 동의 폼
 	@RequestMapping(value="/JoinAgreement")
@@ -25,7 +38,6 @@ public class MemberController {
 		return mav;
 	}
 
-	
 	
 	//회원 가입 폼
 	@RequestMapping(value="/JoinForm")
@@ -136,6 +148,17 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/Logout")
+	public ModelAndView Logout(){
+
+
+		System.out.println("로그아웃 처리 후 메인 이동");
+
+		
+		mav.setViewName("main");
+		return mav;
+	}
+	
 	
 	
 	//회원 탈퇴 폼
@@ -166,32 +189,67 @@ public class MemberController {
 	
 	//회원 정보 리스트
 	@RequestMapping(value="/MemberList")
-	public ModelAndView MemberList(){
-
+	public ModelAndView MemberList() throws Exception{
 
 		System.out.println("회원들의 정보 리스트 보여주기");
 
+		String url = "MemberList";
 		
-		mav.setViewName("MemberList");
+		List<Map<String,Object>> listAll = memberService.selectAll();		
+		
+		
+	
+		
+		System.out.println(listAll);
+
+		mav.addObject("listAll", listAll);	
+		
+		
+		
+		if(this.listAll != null){			
+			this.listAll.clear();		
+		}
+		
+		this.listAll = listAll;
+		
+		mav.setViewName(url);	
+		
 		return mav;
 	}
 	
 
+
+
 	//회원 수정  폼
 	@RequestMapping(value="/ModifiedForm")
-	public ModelAndView ModifiedForm(){
-
-
-		System.out.println("회원 수정 폼");
+	public ModelAndView ModifiedForm(@ModelAttribute("NO") int idx) throws Exception{
 
 		
-		mav.setViewName("ModifiedForm");
+		System.out.println("회원 수정 폼"+idx);
+		
+		
+		Map<String,Object> list =this.listAll.get(idx-1);
+		
+		System.out.println("회원 수정 폼"+idx);
+
+		String url = "ModifiedForm";
+		
+		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
+		System.out.println(list);	
+		
+		
+		mav.addObject("member", list);	
+		
+		
+		mav.setViewName(url);	
+
+	
 		return mav;
 	}
 	
 	//회원 수정 처리 
 	@RequestMapping(value="/Modified")
-	public ModelAndView Modified(){
+	public ModelAndView Modified(CommandMap commandMap) throws Exception{
 
 
 		System.out.println("회원들의 정보 수정 처리");

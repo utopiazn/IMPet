@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value="/Community")
 public class GalleryController {
 	
-	
+	 
 	ModelAndView mav = new ModelAndView();
 	
 	

@@ -12,11 +12,14 @@
 HotelRoomList
 <br/><br/>
 
+room  =list[1].
+
+
 <div align="center">
 <table border="1">
 <c:forEach var="room" items="${list}">
 <tr><td>
-<h1><a href="/IMPet/PetHotel/RoomView?room_no=${room.ROOM_NO}">방 번호 : ${room.ROOM_NO} / 방 이름 : ${room.ROOM_NAME} / 방 가격 : ${room.ROOM_PRICE}</h1></a><br/>
+<h1><a href="/IMPet/PetHotel/RoomView?room_NO=${room.ROOM_NO}">방 번호 : ${room.ROOM_NO} / 방 이름 : ${room.ROOM_NAME} / 방 가격 : ${room.ROOM_PRICE}</h1></a><br/>
 <h2>방 소개 : ${room.ROOM_DETAIL}</h2><br/>
 </td></tr>
 </c:forEach>
@@ -26,7 +29,6 @@ HotelRoomList
 <br/><br/>
 
 <div align="center">
-<input value="상세보기" type="button" onclick="location.href='/IMPet/PetHotel/RoomView'"/>
 <input value="룸 추가" type="button" onclick="location.href='/IMPet/PetHotel/RoomInsertForm'"/>
 </div>
 </body>

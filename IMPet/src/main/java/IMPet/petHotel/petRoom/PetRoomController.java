@@ -1,5 +1,8 @@
 package IMPet.petHotel.petRoom;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -34,11 +37,15 @@ public class PetRoomController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("list", petRoomService.selectAll());
-		
 		System.out.println("호텔 룸 리스트");
+
+		List<Map<String, Object>> list = petRoomService.selectAll();
 		
-		mav.setViewName("PetHotel_List");
+		String url = "PetHotel_List";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
@@ -49,11 +56,15 @@ public class PetRoomController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("view", petRoomService.selectOne(commandMap.getMap()));
-		
 		System.out.println("호텔 룸 상세");
 		
-		mav.setViewName("PetHotel_View");
+		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
+		
+		String url = "PetHotel_View";
+		
+		mav.addObject("view", map);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
@@ -66,59 +77,81 @@ public class PetRoomController {
 		
 		System.out.println("호텔 룸 추가 폼");
 		
-		mav.setViewName("PetHotel_InsertForm");
+		String url = "PetHotel_InsertForm";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 룸 추가
 	@RequestMapping(value="RoomInsert")
-	public ModelAndView roomInsert(){
+	public ModelAndView roomInsert(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
+		petRoomService.insert(commandMap.getMap());
+		
 		System.out.println("호텔 룸 추가");
 		
-		mav.setViewName("redirect:RoomList");
+		String url = "redirect:RoomList";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 룸 수정폼
 	@RequestMapping(value="RoomModifyForm")
-	public ModelAndView roomModifyForm(){
+	public ModelAndView roomModifyForm(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 룸 수정 폼");
 		
-		mav.setViewName("PetHotel_ModifyForm");
+		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
+		
+		String url = "PetHotel_ModifyForm";
+		
+		mav.addObject("view", map);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 룸 수정
 	@RequestMapping(value="RoomModify")
-	public ModelAndView roomModify(){
+	public ModelAndView roomModify(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 룸 수정");
 		
-		mav.setViewName("redirect:RoomView");
+		petRoomService.update(commandMap.getMap());
+		
+		String no = commandMap.get("room_NO").toString();
+		
+		String url = "redirect:RoomView?room_NO="+no;
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 
 	//호텔 룸 삭제
 	@RequestMapping(value="RoomDelete")
-	public ModelAndView roomDelete(){
+	public ModelAndView roomDelete(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("호텔 룸 삭제");
 		
-		mav.setViewName("redirect:RoomList");
+		petRoomService.delete(commandMap.getMap());
+		
+		String url = "redirect:RoomList";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}

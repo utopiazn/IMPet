@@ -29,7 +29,7 @@ public class CommandMap {
 	public String toString() {
 		// TODO Auto-generated method stub
     	
-    	  System.out.println("?‹œ?‘" + map.size());
+    	  System.out.println("ì‹œì‘" + map.size());
     	
     	  
     	
@@ -42,7 +42,7 @@ public class CommandMap {
  
         }
     	
-    	  System.out.println("?");
+    	  System.out.println("ë");
     	
 		return super.toString();
 	}

@@ -8,6 +8,9 @@
 <html lang="ko">
 <head>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+
 <!-- 임시 css -->
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
@@ -20,7 +23,7 @@ width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna
 width: 70%; height: 1200px; overflow: auto; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color:black; padding-left: 15%; vertical-align: middle; text-align: center;
 }
 .footer{
-width: 100%;  height: 10%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  margin: -15px; padding: 15px; background-color: #FFDC4C;
+width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; background-color: #87EAA2;
 } 
 </style>
 
