@@ -12,6 +12,9 @@
 HotelRoomList
 <br/><br/>
 
+room  =list[1].
+
+
 <div align="center">
 <table border="1">
 <c:forEach var="room" items="${list}">

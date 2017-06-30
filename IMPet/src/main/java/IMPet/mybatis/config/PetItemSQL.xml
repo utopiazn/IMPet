@@ -23,7 +23,7 @@
 			<include refid="common.pagingPre"/>
 			<![CDATA[
 			select
-				row_number() over `(order by ITEM_NO desc) rnum, 
+				row_number() over (order by ITEM_NO desc) rnum, 
 				ITEM_NO, ITEM_NAME, ITEM_IMG, ITEM_DETAIL, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_SELLCOUNT, ITEM_TYPE, ITEM_DETAILIMG
 					from 
 						pet_item

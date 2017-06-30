@@ -34,12 +34,13 @@
 
 <input value="상품상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
+		
 				<div class="item-cont">
 				 	<dl class="item-list">
 						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
 						<dd>
 							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
+								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 1</li>
 								<li class="prd-price">
 									<span class="prd_priceno">14,800원</span>
 									<span class="prd_preview"><a href=""><img src=""></a> </span>
@@ -47,48 +48,8 @@
 							</ul>
 						</dd>
 					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-
 				</div>
-			<div>
-
-
-	
-
+			</div>
+		
 </body>
 </html>
