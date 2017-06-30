@@ -16,14 +16,16 @@
 			vertical-align:middle;
 			display:inline-block;
 			font-size:15px;
-		/* 	width:56px; */
+			width:56px;
 			height:0px;
 			padding:8px;
 			border-color:#e3bf54;
 			border-width:0px;
 			border-style:solid;
 	
-	}
+	} 
+	
+	
 	
 	.foot{
 	 vertical-align: middle;
