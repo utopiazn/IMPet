@@ -11,15 +11,15 @@
 </head>
 <style>
 	.main_itemlist {clear:both; width:100%; height:auto; overflow:hidden; padding-top:30px; }
-	.main_itemlist .item-cont {width:  1095px;    height: auto;    margin: 0 auto; }
+	.main_itemlist .item-cont {width:  1125px;    height: auto;    margin: 0 auto; }
 	.main_itemlist .item-cont dl {float:left; width:281px;}
-	.main_itemlist .item-cont dl dt {width:250px; height:250px; border:1px solid #ececec; box-sizing:border-box;}
+	.main_itemlist .item-cont dl dt {width:250px; height:250px; border:1px solid #ececec; box-sizing:border-box;     margin: 0 auto;}
 	.main_itemlist .item-cont dl dt img {width:100%;}
-	.main_itemlist .item-cont dl dd {width:250px; height:75px; margin-top:15px; margin-bottom:50px;  margin: 0px !important;}
+	.main_itemlist .item-cont dl dd {width:250px; height:75px;     margin: 0 auto;}
 	.main_itemlist .item-cont dl dd ul {margin: 5px 0 5px 10px; padding: 0px !important;}
-	.main_itemlist .item-cont dl dd ul li.prd-name {color:#7d7d7d; line-height:20px; width:100%; height:55px; overflow:hidden; }
+	.main_itemlist .item-cont dl dd ul li.prd-name {list-style:none; color:#7d7d7d; line-height:20px; width:100%; height:55px; /* overflow:hidden; */ }
 	.main_itemlist .item-cont dl dd ul li.prd-price {width:100%; height:20px; position:relative;list-style:none;}
-	.item-list:nth-child(4){width:250px !important;}
+	.main_itemlist .item-cont dl:nth-child(4n){width:250px !important;}
 
 
 </style>
@@ -32,63 +32,25 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="상품상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
+
+		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
+						<dt class="thumb"><a href="/IMPet/PetShop/ItemView"><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
 						<dd>
 							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
+								<li class="prd-name">${items.ITEM_NAME}</li>
 								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
+									<span class="prd_priceno">${items.ITEM_PRICE} 원</span>
 									<span class="prd_preview"><a href=""><img src=""></a> </span>
 								</li>
 							</ul>
 						</dd>
 					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-					<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
-						<dd>
-							<ul>
-								<li class="prd-name">[네츄라오가닉]  휴대용모빌 겸용 곰돌이딸랑이 </li>
-								<li class="prd-price">
-									<span class="prd_priceno">14,800원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
-							</ul>
-						</dd>
-					</dl>
-
 				</div>
-			<div>
-
-
-	
+		</c:forEach>
+	</div>
 
 </body>
 </html>

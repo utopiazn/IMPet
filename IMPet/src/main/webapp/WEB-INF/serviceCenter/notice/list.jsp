@@ -20,7 +20,7 @@ ${list[0].NOTICE_SUBJECT}
 
 공지사항 리스트
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/> 
 
 <input value="공지사항 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeView'"/>
 

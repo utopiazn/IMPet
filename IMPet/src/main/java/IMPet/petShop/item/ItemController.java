@@ -30,9 +30,11 @@ public class ItemController {
 
 		System.out.println("펫샵메인");
 		List<Map<String, Object>> list = itemService.selectAll();
+		System.out.println("list"+list.size());
+		System.out.println("list2"+list);
 		
-		mav.addObject("list", list);
-		mav.setViewName("ItemList");
+		mav.addObject("bestItems", list);
+		mav.setViewName("PetShop");
 		return mav;
 	}
 	
@@ -43,8 +45,10 @@ public class ItemController {
 
 		System.out.println("펫샵상품리스트");
 		List<Map<String, Object>> list = itemService.selectAll();
-	
-		mav.addObject("list", list);
+		
+		System.out.println("list"+list.size());
+		
+		mav.addObject("items", list);
 		mav.setViewName("ItemList");
 		return mav;
 	}

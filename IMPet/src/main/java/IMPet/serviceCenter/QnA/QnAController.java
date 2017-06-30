@@ -1,12 +1,22 @@
 package IMPet.serviceCenter.QnA;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.serviceCenter.notice.NoticeService;
+
 @Controller
 @RequestMapping(value = "/ServiceCenter")
 public class QnAController {
+	
+	@Resource(name="qnAService")
+	private QnAService qnAService;
 
 	ModelAndView mav = new ModelAndView();
 
@@ -14,9 +24,11 @@ public class QnAController {
 
 	// Q&A리스트
 	@RequestMapping(value = "/QuestionList")
-	public ModelAndView QuestionList() {
-
-		System.out.println("Q&A리스트");
+	public ModelAndView QuestionList() throws Exception {
+		
+		List<Map<String, Object>> list = qnAService.selectAll();
+		
+		mav.addObject("list",list);
 
 		mav.setViewName("QuestionList");
 		return mav;

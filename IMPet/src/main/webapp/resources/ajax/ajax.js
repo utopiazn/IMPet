@@ -84,7 +84,7 @@ function ComAjax(opt_formId){
     
  // List를 뽑을때 자기자신으로 콜백 하기위한 ajax
     this.ajax = function ajax(){ 
-    	alert("111");
+    
        if(this.formId != "commonForm"){
             this.param += "&" + $("#" + this.formId).serialize();
         }
@@ -105,7 +105,7 @@ function ComAjax(opt_formId){
     
  // 다른 페이지를 가져오는 ajax
     this.ajax1 = function ajax1(){ 
-    	alert(this.param);
+    	
         $.ajax({
             url : this.url,   
             type : "POST",  
