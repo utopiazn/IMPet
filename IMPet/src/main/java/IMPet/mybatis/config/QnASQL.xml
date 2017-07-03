@@ -3,27 +3,55 @@
 
 
 <mapper namespace="QnASQL">
-	
-	<sql id="seletClass" >
+
+	<sql id="seletClass">
 	<![CDATA[
 	SELECT * FROM Pet_QnA
 	]]>
 	</sql>
-	
+
 	<sql id="where-no"><![CDATA[ WHERE QnA_NO = #{qna_no}]]></sql>
-	
+
 	<!--QnA 리스트 -->
 	<select id="selectAll" resultType="hashmap">
-		<include refid="seletClass"/>
+		<include refid="seletClass" />
 		<![CDATA[
 		ORDER BY QnA_NO DESC
 		]]>
 	</select>
-	
+
 	<!-- QnA 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletClass"/>
-		<include refid="where-no"/>
+		<include refid="seletClass" />
+		<include refid="where-no" />
 	</select>
-	
+
+
+	<!-- QnA 추가 -->
+	<insert id="insert" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO PET_QNA ( QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
+	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE)
+	VALUES (#{QnA_NO},#{QnA_Ref},#{QnA_Reply},#{QnA_Subject},
+	#{QnA_Content},#{member_ID},#{QnA_IMG},#{QnA_Count},#{QnA_Date})
+	]]>
+	</insert>
+
+	<!-- QnA 수정 -->
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+		UPDATE PET_QNA SET QNA_NO=#{QnA_NO}, QNA_REF=#{QnA_Ref}, QNA_REPLY=#{QnA_Reply}, 
+		QNA_SUBJECT=#{QnA_Subject}, QNA_CONTENT=#{QnA_Content}, MEMBER_ID=#{member_ID}, 
+		QNA_IMG=#{QnA_IMG}, QNA_COUNT=#{QnA_Count}, QNA_DATE=#{QnA_Date}
+		]]>
+		<include refid="where-no" />
+	</update>
+
+	<!-- QnA 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	DELETE FROM PET_QNA WHERE QNA_NO = #{QnA_NO}
+	]]>
+	</delete>
+
 </mapper>
