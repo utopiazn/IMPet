@@ -19,7 +19,27 @@
 
 
 
-<script type="text/javascript">
+<script>
+function joinCheck(){
+	  alert("체크 확인");
+	
+	var obj = document.jform;
+   if(obj.ck1.checked == false)
+   {
+         alert("이용약관에 동의하셔야 합니다.");
+         obj.ck2.checked = false;
+      } else {
+         if(obj.ck2.checked == false){
+            alert("개인정보 수집 및 이용에 동의하셔야 합니다.");
+            obj.ck1.checked = false;
+         } else {
+            location.href="join_main.jsp";
+         }
+      }
+   }
+</script>
+
+<!-- <script type="text/javascript">
 
 $(document).ready(function(){
 	$("#check_all").click(function() {
@@ -32,14 +52,14 @@ $(document).ready(function(){
 		alert($("input[name=mycheck]:checkbox:checked").length);
 	});
 
-</script>
+</script> -->
 
 </head>
 <body>
 
 회원 약관 동의 폼
 
-
+<form name="jform">
 <div id="container">
 
 
@@ -316,7 +336,7 @@ $(document).ready(function(){
 			
 			
 			<div class="btnArea">	
-			<a class="effect effect-5" href="/IMPet/Member/JoinForm" title="다음 단계로 이동" onclick="">다음 단계로 이동</a>
+			<a class="effect effect-5" href="/IMPet/Member/JoinForm" title="다음 단계로 이동" onclick="joinCheck()">다음 단계로 이동</a>
 			</div>
 			
 			<!-- 
@@ -344,6 +364,6 @@ $(document).ready(function(){
 <br/><br/><br/><br/><br/><br/><br/>
 <!-- <input value="다음 단계" type="button" onclick="location.href='/IMPet/Member/JoinForm'"/>
  -->
-
+</form>
 </body>
 </html>
