@@ -75,9 +75,9 @@
 <!-- <div align="center" id="header2">
 <a href='/IMPet/PetHotel/Main'>HOTEL</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href='/IMPet/PetShop/Main'>SHOP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href='/IMPet/Community/Main'>COMMUNITY</a> -->
+<a href='/IMPet/Community/Main'>COMMUNITY</a>
 <br/><br/>
-</div>
+</div> -->
 </body>
 
 </html>
