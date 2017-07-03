@@ -3,29 +3,57 @@
 
 
 <mapper namespace="NoticeSQL">
-	
-	<sql id="seletClass" >
+
+	<sql id="seletClass">
 	<![CDATA[
 	SELECT * FROM Pet_Notice
 	]]>
 	</sql>
-	
+
 	<sql id="where-no"><![CDATA[ WHERE notice_NO = #{notice_no}]]></sql>
-	
+
 	<!-- 공지사항 리스트 -->
 	<select id="selectAll" resultType="hashmap">
-		<include refid="seletClass"/>
+		<include refid="seletClass" />
 		<![CDATA[
 		SELECT * FROM Pet_Notice
 		ORDER BY notice_NO DESC
 		]]>
 	</select>
-	
+
 	<!-- 공지사항 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletClass"/>		
-		
-		<include refid="where-no"/>
+		<include refid="seletClass" />
+
+		<include refid="where-no" />
 	</select>
+
+	<!-- 공지사항 추가 -->
+	<insert id="insert" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT, NOTICE_IMG,
+	NOTICE_COUNT, NOTICE_DATE
+	VALUES (#{notice_NO},#{notice_Subject},#{notice_Content},#{notice_IMG},
+	#{notice_Count},#{notice_Date})
+	]]>
+	</insert>
 	
+	<!-- 공지사항 수정 -->
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+	UPDATE PET_NOTICE SET NOTICE_NO=#{notice_NO}, NOTICE_SUBJECT=#{notice_Subject}, 
+	NOTICE_CONTENT=#{notice_Content}, NOTICE_IMG=#{notice_IMG},
+	NOTICE_COUNT=#{notice_Count}, NOTICE_DATE=#{notice_Date}
+	]]>
+	<include refid="where-no"/>
+	</update>
+	
+	<!-- 공지사항 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	DELETE FROM PET_NOTICE WHERE NOTICE_NO = #{notice_NO}
+	]]>
+	</delete>
+
+
 </mapper>
