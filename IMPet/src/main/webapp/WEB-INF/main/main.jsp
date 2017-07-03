@@ -47,10 +47,12 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  line-height: 45px;
 	  font-weight: 700;
 	  text-transform: uppercase;
+	  word-spacing: 270px;
 	}
 	.nav__menu-item {
 	  display: inline-block;
 	  position: relative;
+	  
 	}
 	.nav__menu-item:hover {
 	  color: hotpink;
@@ -66,6 +68,7 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  width: 220px;
 	  background-color: #FFDC4C;
 	   z-index: 2;
+	 MARGIN-LEFT: -60PX;
 	}
 	/* .nav__submenu-item:hover {
 	  background: rgba(0, 0, 0, 0.1);
