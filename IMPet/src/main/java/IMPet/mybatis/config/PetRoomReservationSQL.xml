@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="PetRoomReservationSQL">
+	
+	<sql id="seletClass" >
+	<![CDATA[
+	SELECT * FROM PET_ROOM_RESERVATION
+	]]>
+	</sql>
+	
+	<sql id="where-no"><![CDATA[ WHERE RES_NO = #{res_NO}]]></sql>
+	
+	
+	<!-- 룸 날짜로 가능 객실수 검색 -->
+	<select id="searchDate" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[
+		SELECT room_Total - (
+		SELECT COUNT (res_NO) FROM (
+  			SELECT res_NO FROM PET_ROOM_RESERVATION 	
+			WHERE res_FirstDate between #{res_FirstDate} and #{res_LastDate} or
+			  res_LastDate between #{res_FirstDate} and #{res_LastDate} or
+			  #{res_FirstDate} between res_FirstDate and res_LastDate or
+			  #{res_LastDate} between res_FirstDate and res_LastDate))
+			as "NUM" FROM PET_ROOM
+		WHERE room_NO = #{room_NO}
+		
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 룸 전체 리스트 -->
+	<select id="selectAll" resultType="hashmap">
+		<include refid="seletClass"/>
+		<![CDATA[
+		ORDER BY ROOM_NO DESC
+		]]>
+	</select>
+	
+	<!-- 룸 상세보기 -->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletClass"/>
+		<include refid="where-no"/>
+	</select>
+	
+	<!-- 룸 추가 -->
+	<insert id="insert" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO PET_ROOM ( ROOM_NO, ROOM_NAME, ROOM_IMG, ROOM_DETAIL,
+	ROOM_PRICE, ROOM_NUM, ROOM_TOTAL)
+	VALUES (#{room_NO},#{room_Name},#{room_IMG},#{room_Detail},
+	#{room_Price},#{room_NUM},#{room_Total})
+	]]>
+	</insert>
+	
+	<!-- 룸 수정 -->
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+		UPDATE PET_ROOM SET ROOM_NO=#{room_NO}, ROOM_NAME=#{room_Name},
+		ROOM_IMG=#{room_IMG}, ROOM_DETAIL=#{room_Detail},
+		ROOM_PRICE=#{room_Price}, ROOM_NUM=#{room_NUM}, ROOM_TOTAL=#{room_Total}
+		]]>
+		<include refid="where-no"/>
+	</update>
+	
+	<!-- 룸 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	DELETE FROM PET_ROOM WHERE ROOM_NO = #{room_NO}
+	]]>
+	</delete>
+	
+</mapper>
