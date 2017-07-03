@@ -5,13 +5,13 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="/IMPet/css/main.css" type="test/css">
+<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
 
-<!-- <style type="text/css">
+ <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-/* #header2{ 
-width: 100%;
+ #header2{ 
+	width: 100%;
     height: 100%;
     display: table-cell;
     float: left;
@@ -19,9 +19,9 @@ width: 100%;
     background-color: #87EAA2;
     MARGIN-LEFT: -69PX;
     text-align: center;
-    padding: 20px 90px 4px;
+  /*   padding: 20px 90px 4px; */
     font-size: 20px;
-    word-spacing: 30px;
+/*     word-spacing: 30px; */
 }
 #header2 a:link,
 #header2 a:visited
@@ -35,11 +35,10 @@ width: 100%;
 {
     color: hotpink;
 }
- */
+
 
 
 </style>
- -->
 </head>
 <body>
 <div align="center" style="height: 70%">
@@ -49,27 +48,26 @@ width: 100%;
 <br/><br/>
 </div>
 
-<nav class="nav">
+<nav class="nav" id="header2">
 	  <ul class="nav__menu">
-	    <li class="nav__menu-item"><a>HOTEL</a>
+	    <li class="nav__menu-item"><a href=/IMPet/PetHotel/Main>HOTEL</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	     <ul class="nav__submenu">	     
-	    	<li class="nav__submenu-item"> <a href="https://codepen.io/">ROOM</a></li>
-	        <li class="nav__submenu-item"> <a>HEALING</a></li>
-	        
-		</ul>
-	    <li class="nav__menu-item"><a>SHOP</a>
+	    	<li class="nav__submenu-item"> <a href=/IMPet/PetHotel/RoomList>ROOM</a></li>
+	        <li class="nav__submenu-item"> <a href=/IMPet/PetHotel/HealingList>HEALING</a></li>
+	    </ul>
+	    	<li class="nav__menu-item"><a href=/IMPet/PetShop/Main>SHOP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <ul class="nav__submenu">
+	        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>사료</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>간식</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>의류</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>장난감</a></li>
+	    </ul>
+	  </li>
+	    <li class="nav__menu-item"><a href=/IMPet/Community/Main>COMMUNITY</a>
 	      <ul class="nav__submenu">
-	        <li class="nav__submenu-item"> <a>Web Design</a></li>
-	        <li class="nav__submenu-item"> <a>Web Development</a></li>
-	        <li class="nav__submenu-item"> <a>Web Hosting</a></li>
-	      </ul>
-	    </li>
-	    <li class="nav__menu-item"><a>COMMUNITY</a>
-	      <ul class="nav__submenu">
-	        <li class="nav__submenu-item"> <a>Our Company</a></li>
-	        <li class="nav__submenu-item"> <a>Our Team</a></li>
-	        <li class="nav__submenu-item"> <a>Our Reach</a></li>
-	      </ul>
+	        <li class="nav__submenu-item"><a href=/IMPet/Community/GalleryList>Gallery</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/Community/EventList>Event</a></li>
+	       </ul>
 	      </li>
 	      </ul>
 	</nav>
