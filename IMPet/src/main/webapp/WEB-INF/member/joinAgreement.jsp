@@ -65,11 +65,7 @@ $(document).ready(function(){
 회원 약관 동의 폼
 
 <form name="jform">
-<div id="container">
 
-
-
-    	
 	<div class="contents1">			
 			
 		<div class="titleArea">
@@ -78,7 +74,7 @@ $(document).ready(function(){
 			</h2>
 		</div>
 
-		<div class="xans-member-join">   
+		<div class="xans-member-joinAgreement">   
 	    
 	    	<h3>이용약관 동의</h3>
 
@@ -346,31 +342,12 @@ $(document).ready(function(){
 			<a class="effect effect-5"  title="다음 단계로 이동" onclick="joinCheck()">다음 단계로 이동</a>
 			</div>
 			
-			<!-- 
-					<div class="btnArea">		
-					
-					<input value="다음 단계" type="button" onclick="location.href='/IMPet/Member/JoinForm'"/>
-			      	<a href="/index.html"><img src="/pet/resources/images/SkinImg/btn_member_cancel.gif" alt="회원가입취소"></a>
-			        	<input type="image" src="/pet/resources/images/SkinImg/btn_member_join.gif" name="Submit" value="" style="border:0px;" />
-			    
-			    </div>
-	    	 -->
-	    
-	
+		
 
-			</div>
-
-		</div>   
-
-<!-- // container -->
+		</div>
+	</div>
 
 
-
-
-
-<br/><br/><br/><br/><br/><br/><br/>
-<!-- <input value="다음 단계" type="button" onclick="location.href='/IMPet/Member/JoinForm'"/>
- -->
 </form>
 </body>
 </html>

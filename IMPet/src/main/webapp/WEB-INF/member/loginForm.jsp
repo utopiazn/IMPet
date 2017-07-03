@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 
 
@@ -16,6 +16,9 @@
 로그인 폼
 
 <br/><br/><br/><br/><br/><br/><br/>
+
+
+
 
 
 <input value="로그인" type="button" onclick="location.href='/IMPet/Member/Login'"/> <br/>
