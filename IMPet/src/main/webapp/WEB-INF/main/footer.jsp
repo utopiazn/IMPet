@@ -16,7 +16,7 @@
 			vertical-align:middle;
 			display:inline-block;
 			font-size:15px;
-			width:56px;
+			width: 97px;
 			height:0px;
 			padding:8px;
 			border-color:#e3bf54;

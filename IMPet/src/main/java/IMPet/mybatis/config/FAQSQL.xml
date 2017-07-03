@@ -3,27 +3,52 @@
 
 
 <mapper namespace="FAQSQL">
-	
-	<sql id="seletClass" >
+
+	<sql id="seletClass">
 	<![CDATA[
 	SELECT * FROM Pet_FAQ
 	]]>
 	</sql>
-	
+
 	<sql id="where-no"><![CDATA[ WHERE FAQ_NO = #{faq_no}]]></sql>
-	
+
 	<!--FAQ 리스트 -->
 	<select id="selectAll" resultType="hashmap">
-		<include refid="seletClass"/>
+		<include refid="seletClass" />
 		<![CDATA[
 		ORDER BY FAQ_NO DESC
 		]]>
 	</select>
-	
+
 	<!-- FAQ 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletClass"/>
-		<include refid="where-no"/>
+		<include refid="seletClass" />
+		<include refid="where-no" />
 	</select>
-	
+
+
+	<!-- FAQ 추가 -->
+	<insert id="insert" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO Pet_FAQ ( FAQ_NO, FAQ_Subject, FAQ_Content
+	VALUES (#{faq_NO},#{faq_Subject},#{faq_Content})
+	]]>
+	</insert>
+
+	<!-- FAQ 수정 -->
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+	UPDATE PET_FAQ SET FAQ_NO=#{faq_NO}, FAQ_SUBJECT=#{faq_Subject}, 
+	FAQ_CONTENT=#{faq_Content}
+	]]>
+	<include refid="where-no"/>
+	</update>
+
+	<!-- FAQ 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+	DELETE FROM PET_FAQ WHERE FAQ_NO = #{faq_NO}
+	]]>
+	</delete>
+
 </mapper>

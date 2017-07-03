@@ -113,6 +113,7 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+/* 드롭다운 */
 </style>
 </head>
 <body>
@@ -122,7 +123,7 @@
 	    <li class="nav__menu-item"><a>HOTEL</a>
 	     <ul class="nav__submenu">	     
 	    	<li class="nav__submenu-item"> <a href="https://codepen.io/">ROOM</a></li>
-	        <li class="nav__submenu-item"> <a>HEALING</a></li>
+	        <li class="nav__submenu-item"> <a href="https://codepen.io/EricPorter/pen/EKqYpj">HEALING</a></li>
 	        <li class="nav__submenu-item"> <a>Web Hosting</a></li>
 		</ul>
 	    <li class="nav__menu-item"><a>SHOP</a>
