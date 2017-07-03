@@ -77,6 +77,7 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  position: absolute;
 	  width: 220px;
 	  background-color: #FFDC4C;
+	   z-index: 2;
 	}
 	/* .nav__submenu-item:hover {
 	  background: rgba(0, 0, 0, 0.1);

@@ -21,6 +21,7 @@
     text-align: center;
   /*   padding: 20px 90px 4px; */
     font-size: 20px;
+    z-index: 2;
 /*     word-spacing: 30px; */
 }
 #header2 a:link,
@@ -58,9 +59,9 @@
 	    	<li class="nav__menu-item"><a href=/IMPet/PetShop/Main>SHOP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    <ul class="nav__submenu">
 	        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>사료</a></li>
-	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>간식</a></li>
-	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>의류</a></li>
-	        <li class="nav__submenu-item"><a href=/IMPet/PetHotel/Main>장난감</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>간식</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>의류</a></li>
+	        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>장난감</a></li>
 	    </ul>
 	  </li>
 	    <li class="nav__menu-item"><a href=/IMPet/Community/Main>COMMUNITY</a>
