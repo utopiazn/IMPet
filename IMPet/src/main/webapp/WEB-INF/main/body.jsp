@@ -1,23 +1,39 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<br/><br/>
+<div align="center">
+<div>&nbsp;</div>
 
-<img alt="s1" src="/IMPet/resources/image/giphy.gif" style="width: 100%; height: 70%">
+<div class="flexslider" style="width: 100%; height: 30%">
 
-<div class="flexslider" style="width: 100%; height: 70%">
-  <ul class="slides">
+<ul class="slides" style="width: 100%; height: 100%">
     <li>
-	  <img alt="s1" src="/IMPet/resources/image/giphy.gif" style="width: 100%; height: 70%">
+		<iframe id="s1" width="100%" height="600"
+		 	src="https://www.youtube.com/embed/jtGRV87bZGI?
+		 	autohide=1&autoplay=1&rel=0&controls=0&
+		 	disablekb=1&showinfo=0&vq=hd720&loop=100">
+		</iframe>
     </li>
     <li>
-      <img alt="s2" src="/IMPet/resources/image/sa.gif" style="width: 100%; height: 70%">
+		<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
+    </li>
+	<li>
+		<iframe id="s3" width="100%" height="600"
+		 	src="https://www.youtube.com/embed/Coo3gZv7U0U?
+		 	autohide=1&autoplay=1&rel=0&controls=0&
+		 	disablekb=1&showinfo=0&vq=hd720&loop=10">
+		</iframe>
     </li>
     <li>
-	  <img alt="s3" src="/IMPet/resources/image/c.jpg" style="width: 100%; height: 70%">
+		<img alt="s4" src="/IMPet/resources/image/dog2.jpg" style="width: 100%; height: 600px">
     </li>
     <li>
-	  <img alt="s4" src="/IMPet/resources/image/d.jpg" style="width: 100%; height: 70%">
-    </li>
+		<iframe id="s5" width="100%" height="600"
+		 	src="https://www.youtube.com/embed/ay7so8bf348?
+		 	autohide=1&autoplay=1&rel=0&controls=0&
+		 	disablekb=1&showinfo=0&vq=hd720&loop=10">
+		</iframe>	
+	</li>
 
   </ul>
+</div>
 </div>

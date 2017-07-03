@@ -11,6 +11,7 @@
 <link href="/IMPet/resources/css/flexslider.css" rel="stylesheet" style="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="resources/JQuery/jquery.flexslider.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
 
 <script type="text/javascript">
 $(window).load(function() {
@@ -35,6 +36,58 @@ width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: 
 .footer{
 width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; background-color: #87EAA2;
 } 
+	.nav {
+	width: 100%;
+    margin: 0 auto;
+    background: #87EAA2;
+    color: #87EAA2;
+    MARGIN-LEFT: -69PX;
+    text-align: center;
+    padding: 7px 90px 4px;
+    font-size: 20px;
+
+	}
+	.nav a {
+	  color: black;
+	  text-decoration: none;
+	  display: block;
+	  padding: 0 16px;
+	  line-height: inherit;
+	  cursor: pointer;
+	}
+	.nav__menu {
+	  line-height: 45px;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	}
+	.nav__menu-item {
+	  display: inline-block;
+	  position: relative;
+	}
+	.nav__menu-item:hover {
+	  color: hotpink;
+	}
+	.nav__menu-item:hover .nav__submenu {
+	  display: block;
+	}
+	.nav__submenu {
+	  font-weight: 300;
+	  text-transform: none;
+	  display: none;
+	  position: absolute;
+	  width: 220px;
+	  background-color: #FFDC4C;
+	   z-index: 2;
+	}
+	/* .nav__submenu-item:hover {
+	  background: rgba(0, 0, 0, 0.1);
+	} */
+	nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 </style>
 
 <meta charset="UTF-8">
