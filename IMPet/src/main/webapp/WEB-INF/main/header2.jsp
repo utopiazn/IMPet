@@ -17,7 +17,7 @@
     float: left;
     font-family: 'Hanna', sans-serif;
     background-color: #87EAA2;
-    MARGIN-LEFT: -69PX;
+/*     MARGIN-LEFT: -69PX; */
     text-align: center;
   /*   padding: 20px 90px 4px; */
     font-size: 20px;
@@ -64,15 +64,15 @@
 			        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>의류</a></li>
 			        <li class="nav__submenu-item"><a href=/IMPet/PetShop/Main>장난감</a></li>
 			    </ul>
-	  </li>
-	    <li class="nav__menu-item"><a href=/IMPet/Community/Main>COMMU</a>
-	      <ul class="nav__submenu">
-	        <li class="nav__submenu-item"><a href=/IMPet/Community/GalleryList>Gallery</a></li>
-	        <li class="nav__submenu-item"><a href=/IMPet/Community/EventList>Event</a></li>
-	       </ul>
-	      </li>
-	      </ul>
-	</nav>
+	 	 	</li>
+		    <li class="nav__menu-item"><a href=/IMPet/Community/Main>COMMU</a>
+		      <ul class="nav__submenu">
+		        <li class="nav__submenu-item"><a href=/IMPet/Community/GalleryList>Gallery</a></li>
+		        <li class="nav__submenu-item"><a href=/IMPet/Community/EventList>Event</a></li>
+		       </ul>
+		     </li>
+	    </ul>
+</nav>
 <!-- <div align="center" id="header2">
 <a href='/IMPet/PetHotel/Main'>HOTEL</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href='/IMPet/PetShop/Main'>SHOP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
