@@ -85,14 +85,14 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/SIRORAGI/goods/goodsList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<a href="/IMPet/PetShop/adminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--카테고리--</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=OUTER">OUTER</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=TOP">TOP</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=PANTS">PANTS</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=SHOES">SHOES</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=ACC">ACC</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=OUTER">CLOTHES</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=TOP">TOY</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=PANTS">FEED</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=SHOES">SNACK</option>
+								<!-- <option value ="/IMPet/PetShop/adminItemList?searchNum=2&isSearch=ACC">ACC</option> -->
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>

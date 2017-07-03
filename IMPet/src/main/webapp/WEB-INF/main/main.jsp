@@ -7,20 +7,8 @@
 
 <html lang="ko">
 <head>
-<!-- 이미지슬라이드 -->
-<link href="/IMPet/resources/css/flexslider.css" rel="stylesheet" style="text/css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="resources/JQuery/jquery.flexslider.js" charset="utf-8"></script>
-<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
 
-<script type="text/javascript">
-$(window).load(function() {
-	  $('.flexslider').flexslider({
-	    animation: "slide"
-	  });
-	});
-</script>
-<!-- 이미지슬라이드 -->
+<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
 
 <!-- 임시 css -->
 <style type="text/css">
@@ -34,7 +22,7 @@ width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna
 width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; 
 }
 .footer{
-width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; background-color: #87EAA2;
+width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX;     MARGIN-LEFT: -50PX; padding: 15px; background-color: #87EAA2;
 } 
 	.nav {
 	width: 100%;
@@ -59,10 +47,12 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  line-height: 45px;
 	  font-weight: 700;
 	  text-transform: uppercase;
+	  word-spacing: 270px;
 	}
 	.nav__menu-item {
 	  display: inline-block;
 	  position: relative;
+	  
 	}
 	.nav__menu-item:hover {
 	  color: hotpink;
@@ -78,6 +68,7 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  width: 220px;
 	  background-color: #FFDC4C;
 	   z-index: 2;
+	 MARGIN-LEFT: -60PX;
 	}
 	/* .nav__submenu-item:hover {
 	  background: rgba(0, 0, 0, 0.1);
@@ -96,14 +87,14 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 <body>
 	<div class="wrap">
 		<div class="header">
-		<tiles:insertAttribute name="header1" />
-		<tiles:insertAttribute name="header2" />
+			<tiles:insertAttribute name="header1" />
+			<tiles:insertAttribute name="header2" />
 		</div>
 		<div class="right">
-		<tiles:insertAttribute name="body" />	
+			<tiles:insertAttribute name="body" />	
 		</div>
 		<div class="footer">
-		<tiles:insertAttribute name="footer" />
+			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
 </body>
