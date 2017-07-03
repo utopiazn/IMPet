@@ -9,19 +9,64 @@
 
 
 <meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="/IMPet/resources/css/member/loginForm.css" />
+
 <title>로그인 폼 </title>
 </head>
 <body>
+
 
 로그인 폼
 
 <br/><br/><br/><br/><br/><br/><br/>
 
+<div class="xans-member-login" >
+	<div class="login">
+	
+		 <fieldset>
+		 	 <label class="id"><img src="/IMPet/resources/image/SkinImg/id.gif" alt="id"/> 
+            
+		 	<input id="member_id" name="id" type="text" class="inputTypeText" value=""> <br/><br/>
+		 	
+		 	</label>
+		 	
+		 	
+		 	<label class="password"><img src="/IMPet/resources/image/SkinImg/pw.gif" alt="pw"/> 
+            
+            
+            
+		 	
+		 	<input id="member_passwd" name="password" type="password" value="">
+		 	
+		 	</label>
+		 	
+		 	 <p class="security"></p>
+		 	
+		 	
+		 </fieldset>
+	
+	</div>
+	
+	<div class="login_btn">
+	
+			
+		<input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif" name="Submit" value="Submit"  onclick="location.href='/IMPet/Member/Login'"/>
+		
+	</div>
+	
+</div>
+
+
+      <input  type="text"  name="id"     />  <br/>
+	  <input  type="password"  name="pw"     />
 
 
 
 
 <input value="로그인" type="button" onclick="location.href='/IMPet/Member/Login'"/> <br/>
+
+
 
 <br/><br/><br/>
 

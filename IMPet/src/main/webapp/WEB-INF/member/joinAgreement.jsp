@@ -3,15 +3,14 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 
-
+<html lang="ko">
 <head>
 
 
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
+<!-- <link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css"> -->
 
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/member/joinAgreement.css" />
 

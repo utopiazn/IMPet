@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+
+.xans-member-login {
+    width: 700px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 10px 0 30px 30px;
+    background: #fff url(/web/upload/goodymall15/layout/bg_login.gif) 6px
+ 6px 6px 6px no-repeat;
+    border: 1px solid #e5e5e5;
+}
+
+.xans-member-login .login {
+    display: inline-block;
+    height: 160px;
+    margin: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+fieldset {
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+    min-width: -webkit-min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+
+form, fieldset, img {
+    border: none;
+}
+
+
+textarea, label, input, button, select, img {
+    vertical-align: middle;
+}
+
+
+.xans-member-login .login .id input, .xans-member-login .login .password input {
+    width: 170px;
+    height: 14px;
+    padding: 2px;
+    border: 1px solid #e5e5e5;
+    color: #555;
+}
+
+.xans-member-login .login .security {
+    margin: 10px 0 0 55px;
+    font-size: 11px;
+    color: #777;
+}
+
+
+.xans-member-login .login_btn {
+    display: inline-block;
+    width: 72px;
+    margin: 56px 20px 0 0;
+    margin-top: 15px;
+}
+
+
+
+
