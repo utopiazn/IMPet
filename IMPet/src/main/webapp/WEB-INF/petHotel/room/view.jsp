@@ -28,19 +28,20 @@ HotelRoomView
 
 <div style="float:left; width:19%; border:1px solid black; height:40%; margin-bottom: 10px;">
 	<form action="RoomReservation" method="post">
+		<input name="room_NO" type="hidden" value="${view.ROOM_NO}"/>
+		<input name="member_ID" type="hidden" value="utopiazn"/>
+		<input name="res_Price" type="hidden" value="${view.ROOM_PRICE}"/>
+		<input name="room_Name" type="hidden" value="${view.ROOM_NAME}"/>
+		<input name="room_Total" type="hidden" value="${view.ROOM_TOTAL}"/>
+
 		<div style="width:100%;">
-			<input name="room_NO" type="hidden" value="${view.ROOM_NO}"/>
-			<input name="member_ID" type="hidden" value="utopiazn"/>
-			<input name="res_Price" type="hidden" value="${view.ROOM_PRICE}"/>
-			<input name="room_Name" type="hidden" value="${view.ROOM_NAME}"/>
-			<input name="room_Total" type="hidden" value="${view.ROOM_TOTAL}"/>
-			
+
 			<div align="center">
 				<br/>
 				<font>방 번호 : ${view.ROOM_NO}</font><br/>
 				<font>방 이름 : ${view.ROOM_NAME}</font><br/>
 				<font>방 가격 : ${view.ROOM_PRICE}</font><br/>
-				<font>남은 객실 : ${view.ROOM_NUM}/${view.ROOM_TOTAL}</font><br/>
+				<font>총 객실 : ${view.ROOM_TOTAL}</font><br/>
 			</div>
 			
 			<div align="left" style="margin-bottom:10px;">
