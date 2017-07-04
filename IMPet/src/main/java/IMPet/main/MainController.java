@@ -112,6 +112,45 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/PolaDuyu017Tabs")
+	public ModelAndView PolaDuyu01722(CommandMap commandMap){
+
+		
+	
+		System.out.println("이동훈");
+	
+	
+		
+		mav.setViewName("Test/PolaDuyu017Tabs");
+		return mav;
+	}
+	
+	@RequestMapping(value="/PolaDuyu017jsp1")
+	public ModelAndView PolaDuyu017jsp1(CommandMap commandMap){
+
+		
+	
+		System.out.println("이동훈");
+	
+	
+		
+		mav.setViewName("Test/test1");
+		return mav;
+	}
+	
+	@RequestMapping(value="/PolaDuyu017jsp2")
+	public ModelAndView PolaDuyu017jsp2(CommandMap commandMap){
+
+		
+	
+		System.out.println("이동훈");
+	
+	
+		
+		mav.setViewName("Test/test2");
+		return mav;
+	}
+	
 	
 	
 	@RequestMapping(value="/KyuyeonAhn")

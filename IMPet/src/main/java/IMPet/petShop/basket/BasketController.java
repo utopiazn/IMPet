@@ -26,7 +26,7 @@ public class BasketController {
 		System.out.println("펫샵장바구니리스트");
 		List<Map<String, Object>> list = basketService.selectAll();
 		
-		mav.addObject("list", list);
+		mav.addObject("basketList", list);
 		mav.setViewName("BasketList");
 		return mav;
 	}

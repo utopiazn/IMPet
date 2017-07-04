@@ -9,7 +9,7 @@
 <script type="text/javascript">
 $(window).load(function() {
 	  $('.flexslider').flexslider({
-	    animation: "slide"
+	    /* animation: "slide" */
 	  });
 	});
 </script>
@@ -24,8 +24,8 @@ $(window).load(function() {
 	    <li>
 			<iframe id="s1" width="100%" height="600"
 			 	src="https://www.youtube.com/embed/jtGRV87bZGI?
-			 	autohide=1&autoplay=1&rel=0&controls=0&
-			 	disablekb=1&showinfo=0&vq=hd720&loop=100">
+			 	autohide=1&autoplay=0&rel=0&controls=0&
+			 	disablekb=1&showinfo=0&vq=hd720&loop=100&mute=1">
 			</iframe>
 	    </li>
 	    <li>
@@ -34,8 +34,8 @@ $(window).load(function() {
 		<li>
 			<iframe id="s3" width="100%" height="600"
 			 	src="https://www.youtube.com/embed/Coo3gZv7U0U?
-			 	autohide=1&autoplay=1&rel=0&controls=0&
-			 	disablekb=1&showinfo=0&vq=hd720&loop=10">
+			 	autohide=1&autoplay=0&rel=0&controls=0&
+			 	disablekb=1&showinfo=0&vq=hd720&loop=10&mute=1">
 			</iframe>
 	    </li>
 	    <li>
@@ -44,8 +44,8 @@ $(window).load(function() {
 	    <li>
 			<iframe id="s5" width="100%" height="600"
 			 	src="https://www.youtube.com/embed/ay7so8bf348?
-			 	autohide=1&autoplay=1&rel=0&controls=0&
-			 	disablekb=1&showinfo=0&vq=hd720&loop=10">
+			 	autohide=1&autoplay=0&rel=0&controls=0&
+			 	disablekb=1&showinfo=0&vq=hd720&loop=10&mute=1">
 			</iframe>	
 		</li>
 	
