@@ -29,7 +29,8 @@ public class PetHealingController {
 		
 		List<Map<String, Object>> list = petHealingService.selectAll();
 		
-		String url = "PetHotel_HealingList";
+		String url = "petHotel/healing/list";
+		/*String url = "PetHotel_HealingList";*/
 		
 		mav.addObject("list", list);
 		
