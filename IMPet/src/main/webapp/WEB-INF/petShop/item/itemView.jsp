@@ -14,7 +14,7 @@
 
 <input value="결제하기" type="button" onclick="location.href='/IMPet/PetShop/OrderItemPay'"/>
 
-<input value="장바구니 추가" type="button" onclick="location.href='/IMPet/PetShop/BasketWrite'"/>
+<input value="장바구니 추가" type="button" onclick="location.href='/IMPet/PetShop/BasketWrite?BASKET_NO=1'"/>
 
 <input value="상품후기상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemCommentView'"/>
 

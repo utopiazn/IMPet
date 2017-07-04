@@ -133,15 +133,15 @@ function delchk(){
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
+								<c:forEach var="items"  items="${items}" varStatus="stat">
 								<c:url var="viewURL" value="/goods/goodsModifyForm" >
-									<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />
+									<c:param name="ITEM_NO" value="${items.ITEM_NO }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NUMBER}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${goodsList.GOODS_THUMBNAIL}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${items.ITEM_NO}<div style='display:none;'>${items.ITEM_NO}</div></td>										
+										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${items.IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_CATEGORY1}/<br/>${goodsList.GOODS_CATEGORY2 }<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NAME}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${items.ITEM_NAME}<div style='display:none;'>${items.ITEM_NAME}</div></td>
 										
 										<c:if test="${goodsList.GOODS_DCPRICE != null}">
 										<td style="text-align:center;vertical-align:middle;">

@@ -23,7 +23,7 @@ public class ItemReviewDAO extends AbstractDAO {
 		return (Map<String, Object>) update("PetReviewSQL.update", map);
 	}
 	
-	//후기처리
+	//후기등록
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> insert(Map<String, Object> map) throws Exception{
 		

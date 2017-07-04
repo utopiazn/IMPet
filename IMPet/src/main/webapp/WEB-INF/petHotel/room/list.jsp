@@ -1,16 +1,5 @@
-<%@ page contentType="text/html charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelRoomList</title>
-</head>
-<body>
-<br/><br/>
-HotelRoomList
-<br/><br/>
 
 <div align="center">
 	<table border="1">
@@ -30,5 +19,4 @@ HotelRoomList
 	<input value="룸 추가" type="button" onclick="location.href='/IMPet/PetHotel/RoomInsertForm'"/>
 </div>
 
-</body>
-</html>
+<br/><br/>
