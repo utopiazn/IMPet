@@ -63,7 +63,8 @@ public class PetRoomController {
 		
 		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
 		
-		String url = "PetHotel_View";
+		String url = "petHotel/room/view";
+		/*String url = "PetHotel_View";*/
 		
 		mav.addObject("view", map);
 		

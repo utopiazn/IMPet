@@ -1,15 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelRoomView</title>
-</head>
-<body>
-<br/><br/>
-HotelRoomView
-<br/><br/>
+<script type="text/javascript">
+
+function ajaxRoom(){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/PetHotel/RoomList",
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#Context').html(data);
+      }
+
+    });
+}
+</script>
+
+
+
+
 
 <div style="float:left; width:80%; border:1px solid black; margin-right: 1px; height:40%;">
 	<div align="center" style="width:100%; height:100%;">
@@ -71,8 +82,5 @@ HotelRoomView
 <div align="center" style="float:inherit; width:100%; margin-bottom: 20px;">
 	<input value="룸 수정" type="button" onclick="location.href='/IMPet/PetHotel/RoomModifyForm?room_NO=${view.ROOM_NO}'"/>
 	<input value="룸 삭제" type="button" onclick="location.href='/IMPet/PetHotel/RoomDelete?room_NO=${view.ROOM_NO}'"/>
-	<input value="룸 리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomList'"/>
+	<input value="룸 리스트" type="button" onclick="ajaxRoom()"/>
 </div>
-
-</body>
-</html>
