@@ -4,7 +4,7 @@
 <html lang=ko>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <title>관리자페이지</title>
 </head>
 <body>
