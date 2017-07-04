@@ -70,7 +70,7 @@
 	</select>
 	
 	<!-- 룸 추가 -->
-	<insert id="insert" parameterType="hashmap">
+	<insert id="insert2" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO PET_ROOM ( ROOM_NO, ROOM_NAME, ROOM_IMG, ROOM_DETAIL,
 	ROOM_PRICE, ROOM_NUM, ROOM_TOTAL)
