@@ -22,7 +22,7 @@
 
 <!-- 상품관리 -->
 <br/><br/><br/><br/><br/>
-<input value="관리자 상품 리스트" type="button" onclick="location.href='/IMPet/PetShop/AdminOpenItemList'"/>
+<input value="관리자 상품 리스트" type="button" onclick="location.href='/IMPet/PetShop/AdminItemList'"/>
 <input value="관리자 회원 주문 내역 리스트" type="button" onclick="location.href='/IMPet/PetShop/AdminOrderList'"/>
 
 <!-- 공지사항 -->

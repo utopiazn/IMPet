@@ -14,20 +14,13 @@ public class AdminItemDAO {
 	private SqlSessionTemplate sqlSession;
 
 	// 상품 목록 전체 불러오기
-	public List<Map<String, Object>> goodsList(Map<String, Object> map) throws Exception {
-		return sqlSession.selectList("adminGoods.selectAdminGoodsList");
+	public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception {
+		return sqlSession.selectList("PetItemSQL.selectAll");
 	}
-
-	// 등록된 상품 목록 수 구하기
-	public int countGoodsList() throws Exception {
-		return sqlSession.selectOne("adminGoods.countAdminGoods");
-	}
-
-	// 상품 등록 폼으로 이동
 
 	// 상품 등록
-	public void goodsInsert(Map<String, Object> map) throws Exception {
-		sqlSession.insert("adminGoods.insertAdminGoods", map);
+	public void itemInsert(Map<String, Object> map) throws Exception {
+		sqlSession.insert("PetItemSQL.itemInsert", map);
 	}
 
 	// 상품 세분화 등록

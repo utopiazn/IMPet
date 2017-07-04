@@ -18,44 +18,30 @@ public class AdminItemController {
 	
 	ModelAndView mav = new ModelAndView();
 	
-	@Resource(name="itemDAO")
-	private ItemDAO itemDAO;
-	
-	@RequestMapping(value="/AdminOpenItemList")
-	public ModelAndView AdminOpenItemList(CommandMap commandMap) throws Exception {
-		ModelAndView mav = new ModelAndView("AdminItemList");
-		
-
-		return mav;
-	}
-	
+	@Resource(name="adminItemService")
+	private AdminItemService adminItemService;
 	
 	//펫샵관리자상품리스트
 	@RequestMapping(value="/AdminItemList")
 	public ModelAndView AdminItemList(CommandMap commandMap) throws Exception {
-		ModelAndView mav = new ModelAndView("jsonAjax");
 		
-		List<Map<String,Object>> list = itemDAO.selectList(commandMap.getMap());
-	
-		mav.addObject("list", list);
+		ModelAndView mav = new ModelAndView("AdminItemList");
 		
-		if(list.size() > 0) {
-			mav.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
-		}
-		else {
-			mav.addObject("TOTAL", 0);
-		}
+		List<Map<String,Object>> itemList = adminItemService.itemList(commandMap.getMap()); 
+		
+		int count = itemList.size();
+		mav.addObject("itemList", itemList);
+		mav.addObject("totalCount", count);
 		return mav;
+		
+		
 	}
 	
 	//펫샵관리자상품추가폼
 	@RequestMapping(value="/AdminItemWriteForm")
 	public ModelAndView AdminItemWriteForm() throws Exception {
 
-		
-		System.out.println("펫샵관리자상품추가폼");
-	
-		
+		 
 		mav.setViewName("AdminItemWriteForm");
 		return mav;
 	}
@@ -64,7 +50,7 @@ public class AdminItemController {
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap) throws Exception {
 
-
+		adminItemService.itemInsert(commandMap.getMap());
 		
 		mav.setViewName("redirect:/AdminItemList");
 		return mav;

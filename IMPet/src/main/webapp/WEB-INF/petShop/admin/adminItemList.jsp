@@ -124,50 +124,43 @@ function delchk(){
 										<th style="width: 7%; text-align:center;vertical-align:middle;">카테고리</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">상품명</th>
 										<th style="width: 8%; text-align:center;vertical-align:middle;">가격</th>
-										<th style="width: 7%; text-align:center;vertical-align:middle;">색상</th>
-										<th style="width: 6%; text-align:center;vertical-align:middle;">사이즈</th>
 										<th style="width: 7%; text-align:center;vertical-align:middle;">수량</th>
-										<th style="width: 7%; text-align:center;vertical-align:middle;">판매량</th>
-										<th style="width: 12%; text-align:center;vertical-align:middle;">등록일자</th>									
+										<th style="width: 7%; text-align:center;vertical-align:middle;">판매량</th>							
 										<th style="width: 13%; text-align:center;vertical-align:middle;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
-								<c:url var="viewURL" value="/goods/goodsModifyForm" >
-									<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />
+								<c:forEach var="itemList"  items="${itemList}" varStatus="stat">
+								<c:url var="viewURL" value="/petShop/AdminItemModifyForm" >
+									<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NUMBER}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${goodsList.GOODS_THUMBNAIL}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_CATEGORY1}/<br/>${goodsList.GOODS_CATEGORY2 }<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NAME}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NO}<div style='display:none;'>${itemList.ITEM_NO}</div></td>										
+										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">카테고리<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NAME}<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										
-										<c:if test="${goodsList.GOODS_DCPRICE != null}">
+										<c:if test="${itemList.ITEM_PRICE != null}">
 										<td style="text-align:center;vertical-align:middle;">
-												<del><fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원<br/></del>
-												<fmt:formatNumber value="${goodsList.GOODS_DCPRICE}" type="number"/>원<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
+												<del><fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<br/></del>
+												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
-										<c:if test="${goodsList.GOODS_DCPRICE == null}">
+										<c:if test="${itemList.ITEM_PRICE == null}">
 										<td style="text-align:center;vertical-align:middle;">
-												<fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
+												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
-												
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_COLOR}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SIZE}<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_AMOUNT}개<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SELLCOUNT}개<div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${goodsList.GOODS_DATE}" pattern="YY.MM.dd HH:mm" /><div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>										
+										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>																	
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="/goods/goodsDelete" >
-											<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />							
+										<c:url var="viewURL2" value="/petShop/AdminItemDelete" >
+											<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />							
 										</c:url>	
-										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${goodsList.GOODS_NUMBER}</div></td>									
+										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div></td>									
 									</tr>
 								</c:forEach>
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(goodsList) le 0}">
+									<c:if test="${fn:length(itemList) le 0}">
 										<tr><td colspan="11" style="text-align:center;">등록된 상품이 없습니다</td></tr>
 									</c:if> 
 								</tbody>
