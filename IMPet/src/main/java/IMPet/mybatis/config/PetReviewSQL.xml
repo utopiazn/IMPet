@@ -24,7 +24,7 @@
 		<include refid="where-re"/>
 	</select>
 	
-	<!-- 상품 후기 처리 -->
+	<!-- 상품 후기 등록 -->
 	<select id="insert" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletALL"/> 
 		<include refid="where-re"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="PetItemBasketSQL">
+<mapper namespace="PetBasketSQL">
 
 	<sql id="seletALL" > 
 		<![CDATA[ SELECT * FROM PET_ITEM_BASKET ]]>
@@ -11,16 +11,35 @@
 		<![CDATA[ WHERE BASEKT_NO = #{BASEKT_NO}]]> 
 	</sql>
 	
-	<!-- 장바구니 전체 리스트 -->
-	<select id="selectAll" resultType="hashmap">
-		<include refid="seletALL"/>
+	<sql id="where-id"> 
+		<![CDATA[ WHERE MEMBER_ID = #{MEMBER_ID}]]> 
+	</sql>
+	
+	
+	<!-- 장바구니 리스트 -->
+	<select id="selectAll" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-			ORDER BY BASEKT_NO DESC
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, b.*
+				FROM PET_ITEM a, PET_ITEM_BASKET b
+					WHERE b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM.NO
+						ORDER BY BASEKT_NO DESC
 		]]>
 	</select>
 	
 	<!-- 장바구니 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletALL"/> 
+		<include refid="where-no"/>
+	</select>
+	
+	<!-- 장바구니 추가 -->
+	<select id="insert" resultType="hashmap" parameterType="hashmap">
+		<include refid="seletALL"/> 
+		<include refid="where-no"/>
+	</select>
+	
+	<!-- 장바구니 삭제 -->
+	<select id="delete" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletALL"/> 
 		<include refid="where-no"/>
 	</select>
