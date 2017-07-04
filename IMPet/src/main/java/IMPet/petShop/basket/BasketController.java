@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
+
 @Controller
 @RequestMapping(value="/PetShop")
 public class BasketController {
@@ -20,13 +22,13 @@ public class BasketController {
 	
 	//펫샵장바구니리스트
 	@RequestMapping(value="/BasketList")
-	public ModelAndView BasketList() throws Exception {
+	public ModelAndView BasketList(CommandMap commandMap) throws Exception {
 
 		
 		System.out.println("펫샵장바구니리스트");
-		List<Map<String, Object>> list = basketService.selectAll();
+		List<Map<String, Object>> list = basketService.selectAll(commandMap.getMap());
 		
-		mav.addObject("list", list);
+		mav.addObject("basketList", list);
 		mav.setViewName("BasketList");
 		return mav;
 	}

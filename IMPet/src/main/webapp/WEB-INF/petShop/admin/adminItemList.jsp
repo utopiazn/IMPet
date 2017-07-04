@@ -130,6 +130,7 @@ function delchk(){
 									</tr>
 								</thead>
 								<tbody>
+
 								<c:forEach var="itemList"  items="${itemList}" varStatus="stat">
 								<c:url var="viewURL" value="/petShop/AdminItemModifyForm" >
 									<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />
@@ -139,7 +140,7 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">카테고리<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NAME}<div style='display:none;'>${itemList.ITEM_NO}</div></td>
-										
+
 										<c:if test="${itemList.ITEM_PRICE != null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<del><fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<br/></del>

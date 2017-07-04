@@ -236,7 +236,7 @@ public class MemberController {
 		
 		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
 		System.out.println(list);	
-		
+				
 		
 		mav.addObject("member", list);	
 		
@@ -246,6 +246,8 @@ public class MemberController {
 	
 		return mav;
 	}
+	
+	
 	
 	//회원 수정 처리 
 	@RequestMapping(value="/Modified")

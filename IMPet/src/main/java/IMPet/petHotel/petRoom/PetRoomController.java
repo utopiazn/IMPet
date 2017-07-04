@@ -41,7 +41,10 @@ public class PetRoomController {
 
 		List<Map<String, Object>> list = petRoomService.selectAll();
 		
-		String url = "PetHotel_List";
+		System.out.println(list);
+		
+		String url = "petHotel/room/list";
+		/*String url = "PetHotel_List";*/
 		
 		mav.addObject("list", list);
 		
@@ -60,7 +63,8 @@ public class PetRoomController {
 		
 		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
 		
-		String url = "PetHotel_View";
+		String url = "petHotel/room/view";
+		/*String url = "PetHotel_View";*/
 		
 		mav.addObject("view", map);
 		

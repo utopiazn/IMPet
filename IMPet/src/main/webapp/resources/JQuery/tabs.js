@@ -3,10 +3,12 @@
 $(document).ready(function() {
 
     //Default Action
+	
+	
     $(".tab_cate .tab_content").hide(); //Hide all content
     $(".tab_cate ul.tabs li:first").addClass("act").show(); //Activate first tab
     $(".tab_cate .tab_content:first").show(); //Show first tab content
-    
+
     //On Click Event
     $(".tab_cate ul.tabs li").click(function() {
         $(".tab_cate ul.tabs li").removeClass("act"); //Remove any "act" class

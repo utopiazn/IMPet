@@ -14,7 +14,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 
-
+ 
 	<repositories>
 		<repository>
 			<id>mvn2</id>
@@ -108,6 +108,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-orm</artifactId>
+    		<version>4.0.3.RELEASE</version>
 		</dependency>
 
 		<!-- AOP Alliance -->
