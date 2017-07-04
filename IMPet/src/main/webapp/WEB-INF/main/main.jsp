@@ -19,7 +19,8 @@ width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna
 }
 
 .right{ /* main 2 body부분 */
-width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; 
+width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both;
+
 }
 .footer{
 width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX;     MARGIN-LEFT: -50PX; padding: 15px; background-color: #87EAA2;
@@ -86,7 +87,7 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 </head>
 <body>
 	<div class="wrap">
-		<div class="header">
+		<div class="header clear">
 			<tiles:insertAttribute name="header1" />
 			<tiles:insertAttribute name="header2" />
 		</div>

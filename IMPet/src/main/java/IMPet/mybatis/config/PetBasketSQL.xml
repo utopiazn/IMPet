@@ -21,8 +21,8 @@
 		<![CDATA[
 			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, b.*
 				FROM PET_ITEM a, PET_ITEM_BASKET b
-					WHERE b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM.NO
-						ORDER BY BASEKT_NO DESC
+					WHERE b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM_NO
+					
 		]]>
 	</select>
 	

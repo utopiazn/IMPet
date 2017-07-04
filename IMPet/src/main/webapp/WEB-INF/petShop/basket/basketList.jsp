@@ -4,7 +4,61 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<style>
+	.basket_main .basket{	
+    color: #8f8f8f;
+    font-size: 13px;
+    border-bottom: 1px solid #e5e5e5;
+    width: 1000px;
+    margin: 0 auto;
+}
+.basket_main{
+	margin:0 auto;
+}
+.basket th{
+    padding: 6px 0 4px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #f6f6f6;
+    font-weight: normal;
+    color: #888;	
+}
+.basket td{
+	padding: 6px 0 4px;
+    border-top: 1px dotted #e3e3e3;
+    line-height: 140%;
+    text-align: center;
+}
+.basket_button{
+	float:right;
+	margin-bottom: 50px;
+}
+/* clera */
+.clear:after{content:".";height:0;font-size:0;display:block;clear:both;}
+.clear{display:inline-block;}
+* html .clear{height:0;}
+.clear{display:block;}
+.clear-both{clear:both;}
+.over-point {cursor:pointer;}
+.category_top{
+    height: 30px;
+    line-height: 30px;
+}
+.category_top ul{
+    float:right;
+}
+.category_top li{
+	padding: 0 0 0 0;
+    margin: 0 0 0 5px;
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 0px;
+    float:left;
+    list-style:none;
+}
 
+
+</style>
 <div class="category_top">
 	<ul>
 	 	<li>펫샵 ></li><li>장바구니</li>			
