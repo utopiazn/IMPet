@@ -21,19 +21,24 @@
 
 <script>
 function joinCheck(){
-	  alert("체크 확인");
 	
 	var obj = document.jform;
    if(obj.ck1.checked == false)
    {
          alert("이용약관에 동의하셔야 합니다.");
-         obj.ck2.checked = false;
+         //obj.ck2.checked = false;
+         
+         
       } else {
          if(obj.ck2.checked == false){
             alert("개인정보 수집 및 이용에 동의하셔야 합니다.");
-            obj.ck1.checked = false;
+            
+            
+           // obj.ck1.checked = false;
+           
+            
          } else {
-            location.href="join_main.jsp";
+            location.href="/IMPet/Member/JoinForm";
          }
       }
    }
@@ -286,7 +291,7 @@ $(document).ready(function(){
 		        
 		        	<p>
 			        	<span>이용약관에 동의하십니까?</span> 
-			        	<input id="agree_service_check0" name="mycheck" fw-filter="/1/" fw-label="이용약관 동의" fw-msg="이용약관에 동의 하세요" value="1" type="checkbox">
+			        	<input id="agree_service_check0" name="ck1" fw-filter="/1/" fw-label="이용약관 동의" fw-msg="이용약관에 동의 하세요" value="1" type="checkbox">
 			        	<label for="agree_service_check0">동의함</label>
 		        	</p>
 	        	
@@ -327,7 +332,7 @@ $(document).ready(function(){
 						
 				        <p>
 				        	<span>개인정보 수집 및 이용에 동의하십니까?</span> 
-				        	<input id="agree_privacy_check0" name="mycheck" fw-filter="/1/" fw-label="개인정보 수집 및 이용 방침" fw-msg="개인정보 수집 및 이용 방침에 동의하세요" value="1" type="checkbox">
+				        	<input id="agree_privacy_check0" name="ck2" fw-filter="/1/" fw-label="개인정보 수집 및 이용 방침" fw-msg="개인정보 수집 및 이용 방침에 동의하세요" value="1" type="checkbox">
 				        	<label for="agree_privacy_check0">동의함</label>
 				        </p>
 		    		</div> <!-- <div class="agreeArea"> -->
@@ -335,8 +340,10 @@ $(document).ready(function(){
 			
 			
 			
+			<br/><br/>
+			
 			<div class="btnArea">	
-			<a class="effect effect-5" href="/IMPet/Member/JoinForm" title="다음 단계로 이동" onclick="joinCheck()">다음 단계로 이동</a>
+			<a class="effect effect-5"  title="다음 단계로 이동" onclick="joinCheck()">다음 단계로 이동</a>
 			</div>
 			
 			<!-- 
