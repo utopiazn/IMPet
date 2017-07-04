@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
-import IMPet.petShop.item.ItemDAO;
+import IMPet.util.ProjectUtil;
 
 @Controller
 @RequestMapping(value="/PetShop")
@@ -48,8 +49,10 @@ public class AdminItemController {
 	
 	//펫샵관리자상품추가
 	@RequestMapping(value="/AdminItemWrite")
-	public ModelAndView AdminItemWrite(CommandMap commandMap) throws Exception {
-
+	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
+		ProjectUtil util = new ProjectUtil();
+		String uploadPath = util.getPath();
+		
 		adminItemService.itemInsert(commandMap.getMap());
 		
 		mav.setViewName("redirect:/AdminItemList");

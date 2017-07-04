@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <head>
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <script type="text/javascript">
 //주문번호 같은 열 합치는 Jquery
 $( document ).ready(function() {
@@ -71,7 +72,7 @@ function delchk(){
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:15px;width:100;">    
 	<h1 class="page-header">상품목록</h1>
 </div>
 <div class="row">
@@ -83,16 +84,16 @@ function delchk(){
 			<div class="dataTable_wrapper">
 				<div id="dataTables-example_wrapper"
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-					<div class="row" style="margin-bottom:5px;">
+					<div class="row" style="margin-bottom:5px; text-align:left;">
 						<div class="col-sm-6">
 							<a href="/IMPet/PetShop/adminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--카테고리--</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=CLOTHES">CLOTHES</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=TOY">TOY</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=FEED">FEED</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2&isSearch=SNACK">SNACK</option>
-								<!-- <option value ="/IMPet/PetShop/adminItemList?searchNum=2&isSearch=ACC">ACC</option> -->
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=0">사료</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=1">간식</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2">패션의류</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=3">목줄/야외</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=4">생활/잡화</option> 
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>
@@ -102,8 +103,8 @@ function delchk(){
 							</select>			
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=ITEM_SELLCOUNT">판매수량순</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=GOODS_COUNT">조회순</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=ITEM_TOTALCOUNT">수량순</option>
+								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=ITEM_SELLCOUNT">판매량순</option>
 							</select>											
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
@@ -138,7 +139,14 @@ function delchk(){
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NO}<div style='display:none;'>${itemList.ITEM_NO}</div></td>										
 										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
-										<td style="text-align:center;vertical-align:middle;">카테고리<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">
+											<c:if test="${itemList.ITEM_TYPE eq 0 }">사료</c:if>
+											<c:if test="${itemList.ITEM_TYPE eq 1 }">간식</c:if>
+											<c:if test="${itemList.ITEM_TYPE eq 2 }">패션의류</c:if>
+											<c:if test="${itemList.ITEM_TYPE eq 3 }">목줄/야외</c:if>
+											<c:if test="${itemList.ITEM_TYPE eq 4 }">생활/잡화</c:if>
+											<div style='display:none;'>${itemList.ITEM_NO}</div>
+										</td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NAME}<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 
 										<c:if test="${itemList.ITEM_PRICE != null}">

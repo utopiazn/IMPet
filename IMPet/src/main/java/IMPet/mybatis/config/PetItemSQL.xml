@@ -43,22 +43,22 @@
 	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item
 					 (ITEM_NO,
-					  ITEM_NAME,
-					  ITEM_IMG,
+					  ITEM_NAME,			
 					  ITEM_PRICE,
 					  ITEM_DETAIL,
 					  ITEM_TOTALCOUNT,
 					  ITEM_SELLCOUNT,
 					  ITEM_TYPE,
+					  ITEM_IMG,
 					  ITEM_DETAILIMG)
-			values(goods_seq.NEXTVAL,
-					  #{ITEM_NO},
+			values(ITEM_NO_SEQ.NEXTVAL,
 					  #{ITEM_NAME},
-					  #{ITEM_IMG},
 				      #{ITEM_PRICE},
 				      #{ITEM_DETAIL},
 				      #{ITEM_TOTALCOUNT},
-				      #{ITEM_SELLCOUNT},
+				      0,
+				      #{ITEM_TYPE}
+				      #{ITEM_IMG},
 				      #{ITEM_DETAILIMG}				     
 	</insert>
 	
