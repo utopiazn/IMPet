@@ -41,6 +41,9 @@ function joinCheck(){
          }
       }
    }
+   
+     
+   
 </script>
 
 <!-- <script type="text/javascript">
