@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
+
 @Controller
 @RequestMapping(value = "/ServiceCenter")
 public class NoticeController {
@@ -38,6 +40,8 @@ public class NoticeController {
 		mav.addObject("list",list);
 
 		System.out.println("공지사항리스트");
+		
+		System.out.println(list);
 
 		mav.setViewName("NoticeList");
 		return mav;
@@ -45,10 +49,14 @@ public class NoticeController {
 
 	// 공지사항 개별페이지
 	@RequestMapping(value = "/NoticeView")
-	public ModelAndView NoticeView() {
+	public ModelAndView NoticeView(CommandMap commandMap) throws Exception{
+		
+		Map<String, Object> map = noticeService.selectOne(commandMap.getMap());
 
 		System.out.println("공지사항 개별페이지");
-
+		
+		mav.addObject("view",map);
+		
 		mav.setViewName("NoticeView");
 		return mav;
 	}

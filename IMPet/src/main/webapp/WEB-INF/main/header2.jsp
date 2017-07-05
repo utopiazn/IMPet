@@ -1,16 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 
-<!DOCTYPE html>
-<html>
-
-<head>
-<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
-
  <style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css); 
 
- #header2{ 
+/*  #header2{ 
 	width: 100%;
     height: 100%;
     display: table-cell;
@@ -18,12 +12,12 @@
     font-family: 'Hanna', sans-serif;
     background-color: #87EAA2;
 /*     MARGIN-LEFT: -69PX; */
-    text-align: center;
+ /*    text-align: center; */
   /*   padding: 20px 90px 4px; */
-    font-size: 20px;
-    z-index: 2;
+/*     font-size: 20px;
+    z-index: 2; */
 /*     word-spacing: 30px; */
-}
+/* } */ */
 #header2 a:link,
 #header2 a:visited
 {
@@ -40,8 +34,8 @@
 
 
 </style>
-</head>
-<body>
+
+
 <div align="center" style="height: 70%">
 
 <br/><br/>
@@ -79,6 +73,3 @@
 <a href='/IMPet/Community/Main'>COMMUNITY</a>
 <br/><br/>
 </div>-->
-</body>
-
-</html>

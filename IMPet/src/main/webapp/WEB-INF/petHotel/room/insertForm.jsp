@@ -1,17 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelRoomForm</title>
-</head>
-<body>
-<br/><br/>
-HotelRoomInsertForm&HotelModifyForm
-<br/><br/>
-
 <div align="center">
 	<br/>
 	<c:choose>
@@ -46,6 +35,3 @@ HotelRoomInsertForm&HotelModifyForm
 		</c:otherwise>
 	</c:choose>
 </div>
-
-</body>
-</html>
