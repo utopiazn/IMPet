@@ -56,7 +56,8 @@
 	 <li><a href="javascript:vold(0)">상품 관리</a>
 		  <ul>
 			  <li><a href="/IMPet/PetShop/AdminItemList">상품 리스트</a></li>
-			  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li>   
+			  <li><a href="/IMPet/PetShop/AdminItemWriteForm">상품 추가</a></li>   
+			  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li> 
 		 </ul>
 	</li>
 

@@ -8,7 +8,7 @@
 			text-decoration:none;
 			font-family: 'Jeju Gothic', sans-serif;
 			line-height:0px;
-			text-align:center;
+			text-align:left;
 			vertical-align:middle;
 			display:inline-block;
 			font-size:15px;
@@ -24,7 +24,7 @@
 	
 	
 	.foot{
-	 vertical-align: middle;
+	vertical-align: middle;
     font-family: 'Jeju Gothic', sans-serif;
     line-height: 2em;
     float: left;
