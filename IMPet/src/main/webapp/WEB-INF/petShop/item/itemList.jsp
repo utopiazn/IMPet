@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -32,15 +32,12 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="펫샵상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView?ITEM_NO=1'"/>
-
-<br/><br/><br/><br/><br/>
-
+<input value="상품리스트" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
 		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
-						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO }"><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
+						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
 						<dd>
 							<ul>
 								<li class="prd-name">${items.ITEM_NAME}</li>

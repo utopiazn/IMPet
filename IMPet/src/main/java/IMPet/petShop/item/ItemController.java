@@ -61,21 +61,22 @@ public class ItemController {
 		System.out.println("펫샵상품상세보기");
 		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
 		
-		mav.addObject("view", map);
+		mav.addObject("view", map.get("view"));
+		mav.addObject("comment", map.get("commentMap"));
 		mav.setViewName("ItemView");
 		return mav;
 	
 	}
 	
 	
-	//펫샵후기처리
+	//펫샵후기등록
 	@RequestMapping(value="/ItemComment")
 	public ModelAndView ItemComment(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵후기처리");
 		Map<String, Object> map = itemReviewService.insert(commandMap.getMap());
 	
-		mav.addObject("in", map);
+		mav.addObject("commentAdd", map);
 		mav.setViewName("ItemComment");
 		return mav;
 	}
@@ -88,7 +89,7 @@ public class ItemController {
 		System.out.println("펫샵상품후기상세보기");
 		Map<String, Object> map = itemReviewService.selectOne(commandMap.getMap());
 		
-		mav.addObject("view", map);
+		mav.addObject("commentView", map);
 		mav.setViewName("ItemCommentView");
 		return mav;
 	}
@@ -101,7 +102,7 @@ public class ItemController {
 		System.out.println("펫샵상품후기수정");
 		Map<String, Object> map = itemReviewService.update(commandMap.getMap());
 		
-		mav.addObject("up", map);
+		mav.addObject("commentUp", map);
 		mav.setViewName("ItemCommentModify");
 		return mav;
 	}
@@ -114,7 +115,7 @@ public class ItemController {
 		System.out.println("펫샵상품후기삭제");
 		Map<String, Object> map = itemReviewService.delete(commandMap.getMap());
 		
-		mav.addObject("del", map);
+		mav.addObject("commentDel", map);
 		mav.setViewName("ItemCommentDelete");
 		return mav;
 	}
