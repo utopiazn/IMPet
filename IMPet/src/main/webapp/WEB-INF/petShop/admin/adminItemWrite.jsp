@@ -40,7 +40,7 @@ function validateForm() {
 				<form action="AdminItemWrite" enctype="multipart/form-data" method="post" name="joinform" onsubmit="return validateForm()">	
 						<div class="form-group">
                             <label>카테고리</label>	                            
-                            <select id="ITEM_TYPE" class="form-control" style="width:initial;" >
+                            <select name="ITEM_TYPE" class="form-control" style="width:initial;" >
 								<option value="0" label="사료" />
 								<option value="1" label="간식" />
 								<option value="2" label="패션의류" />
@@ -56,7 +56,7 @@ function validateForm() {
                         
                         <div class="form-group">
                             <label>상품이미지</label>
-                            <input type="file" name="file" size="30" value=''/>
+                            <input type="file" name="ITEM_IMG" size="30" value=''/>
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
                         </div>
                         
@@ -73,13 +73,13 @@ function validateForm() {
                         
                         <div class="form-group">
                             <label>상품 내용 이미지</label><!-- goods_contentimage -->
-                            <input type="file" name="file" size="30" value=''/>
+                            <input type="file" name="ITEM_DETAILIMG" size="30" value=''/>
                             <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
                         </div>
                         
                         <div class="form-group">
                             <label>배송 내용 이미지</label><!-- goods_delevimage -->
-                            <input type="file" name="file" size="30" value=''/>
+                            <input type="file" name="ITEM_BASKETIMG" size="30" value=''/>
                             <p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p>
                         </div>
                                            

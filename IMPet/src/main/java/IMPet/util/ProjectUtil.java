@@ -1,18 +1,15 @@
 package IMPet.util;
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.StringTokenizer;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 
@@ -43,7 +40,7 @@ public class ProjectUtil{
 	// 프로젝트 위치 경로
 	public String getPath(){
 		String s = this.getClass().getResource("/").getPath();
-		String sc = s.substring(0, s.indexOf(".metadata"))+ "/remedium2/src/main/webapp/resources/image";
+		String sc = s.substring(0, s.indexOf(".metadata"));
 		
 		System.out.println("프로젝트 전까지의 경로: "+sc);
 		
@@ -80,6 +77,39 @@ public class ProjectUtil{
 			File file = new File(uploadPath, multipartFile.getOriginalFilename());
 			multipartFile.transferTo(file);
 		}
+	
+	}
+	
+	public static Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath) throws IOException {
+		
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+		
+		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+	
+		MultipartFile multipartFile = null;
+		
+		String originalFileName = null;
+		
+		while(iterator.hasNext()) {
+			
+		
+			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			
+			System.out.println("파일이름"+multipartFile.getName());
+			
+			if (multipartFile.isEmpty() == false) {
+				
+				originalFileName = multipartFile.getOriginalFilename();			
+				
+				File file = new File(uploadPath + originalFileName);
+				
+				multipartFile.transferTo(file);
+				
+				commandMap.put(multipartFile.getName(), originalFileName);	
+			}
+		}
+		
+		return commandMap;
 	}
 	
 	//String - sql.Date 변환  (day=yyyy-MM-dd 형식이어야함)

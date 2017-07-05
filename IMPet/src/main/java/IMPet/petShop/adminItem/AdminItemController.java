@@ -2,6 +2,7 @@ package IMPet.petShop.adminItem;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,12 @@ import IMPet.util.ProjectUtil;
 public class AdminItemController {
 	
 	ModelAndView mav = new ModelAndView();
+	
+	ProjectUtil util = new ProjectUtil();
+	
+	public static String getRandomString() {
+		return UUID.randomUUID().toString().replace("-", "");
+	}
 	
 	@Resource(name="adminItemService")
 	private AdminItemService adminItemService;
@@ -50,12 +57,15 @@ public class AdminItemController {
 	//펫샵관리자상품추가
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
-		ProjectUtil util = new ProjectUtil();
-		String uploadPath = util.getPath();
 		
-		adminItemService.itemInsert(commandMap.getMap());
 		
-		mav.setViewName("redirect:/AdminItemList");
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+	
+		Map<String,Object> map = ProjectUtil.UploadFile(commandMap.getMap(), request, uploadPath);
+		
+		adminItemService.itemInsert(map);
+		
+		mav.setViewName("redirect:/PetShop/AdminItemList");
 		return mav;
 	}
 	
