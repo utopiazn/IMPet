@@ -11,6 +11,8 @@ public interface AdminItemService {
 		public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception;
 
 		public void itemInsert(Map<String, Object> map) throws Exception;
+		
+		public Map<String,Object> itemSelect(Map<String, Object> map) throws Exception;
 
 
 	

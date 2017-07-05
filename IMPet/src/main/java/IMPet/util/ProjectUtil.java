@@ -83,16 +83,12 @@ public class ProjectUtil{
 	public static Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath) throws IOException {
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-		
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-	
 		MultipartFile multipartFile = null;
-		
 		String originalFileName = null;
 		
 		while(iterator.hasNext()) {
 			
-		
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
 			
 			System.out.println("파일이름"+multipartFile.getName());

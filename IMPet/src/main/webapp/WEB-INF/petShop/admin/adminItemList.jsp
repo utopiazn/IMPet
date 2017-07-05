@@ -133,9 +133,14 @@ function delchk(){
 								<tbody>
 
 								<c:forEach var="itemList"  items="${itemList}" varStatus="stat">
-								<c:url var="viewURL" value="/petShop/AdminItemModifyForm" >
-									<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />
-								</c:url>									
+									<c:url var="viewURL" value="/PetShop/AdminItemModifyForm" >
+										<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />
+									</c:url>			
+															
+									<c:url var="viewURL2" value="/PetShop/AdminItemDelete" >
+										<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />							
+									</c:url>
+									
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NO}<div style='display:none;'>${itemList.ITEM_NO}</div></td>										
 										<td style="text-align:center;vertical-align:middle;"><img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
@@ -161,10 +166,7 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>																	
 										<td style="text-align:center;vertical-align:middle;">
-											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="/petShop/AdminItemDelete" >
-											<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />							
-										</c:url>	
+										<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div></td>									
 									</tr>
 								</c:forEach>

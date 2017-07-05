@@ -28,17 +28,23 @@ public class AdminItemServiceImpl implements AdminItemService{
 	public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception {
 
 		List<Map<String, Object>> list = adminItemDAO.itemList(map);
-
 		return list;
-
 	}
-
+	
 	@Override
 	public void itemInsert(Map<String, Object> map) throws Exception {
 		
 		adminItemDAO.itemInsert(map);
 		
 	}
+
+	@Override
+	public Map<String, Object> itemSelect(Map<String, Object> map) throws Exception {
+		
+		return adminItemDAO.itemSelect(map);
+	}
+	
+	
 	
 	
 

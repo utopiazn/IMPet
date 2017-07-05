@@ -58,7 +58,6 @@ public class AdminItemController {
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
 		
-		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
 	
 		Map<String,Object> map = ProjectUtil.UploadFile(commandMap.getMap(), request, uploadPath);
@@ -66,17 +65,18 @@ public class AdminItemController {
 		adminItemService.itemInsert(map);
 		
 		mav.setViewName("redirect:/PetShop/AdminItemList");
+		
 		return mav;
 	}
 	
 	//펫샵관리자상품수정폼
 	@RequestMapping(value="/AdminItemModifyForm")
-	public ModelAndView AdminItemModifyForm() throws Exception {
+	public ModelAndView AdminItemModifyForm(CommandMap commandMap) throws Exception {
 
 		
-		System.out.println("펫샵관리자상품수정폼");
+		Map<String,Object> map = adminItemService.itemSelect(commandMap.getMap());
 	
-		
+		mav.addObject("itemList", map);
 		mav.setViewName("AdminItemModifyForm");
 		return mav;
 	}

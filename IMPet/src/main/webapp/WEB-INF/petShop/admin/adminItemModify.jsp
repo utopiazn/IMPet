@@ -3,6 +3,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <script type="text/javascript">
 window.onload = function(){
 	var code ="${itemList.ITEM_TYPE}"
@@ -13,6 +14,7 @@ window.onload = function(){
 	    }
 	}
 }
+
 function validateForm() {
     var x = document.forms["joinform"]["ITEM_NAME"].value;
     if (x == null || x == "") {
@@ -25,16 +27,17 @@ function validateForm() {
 
 <!-- 메뉴 시작 -->
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:15px;width:100;text-align:left;">    
 	<h1 class="page-header">상품수정</h1>
 </div>
 
-<div class="row" style="padding-left:15px;width:900px;">
+<div class="row" style="padding-left:15px;width:100;text-align:left;">
 	<div class="panel panel-default">
 		<div class="panel-heading" >상품수정 페이지입니다. 이미지 확인하십시오</div>
-			<div class="panel-body">
+			<div class="panel-body" style=text-align:left;>
 				<form action="goodsModify.dog" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
-				<input type="hidden" name="ITEM_NO" value="${itemList.ITEM_NO}">				
+				<input type="hidden" name="ITEM_NO" value="${itemList.ITEM_NO}">	
+							
 						<div class="form-group">
                             <label>카테고리</label>	                            
                               <select name="ITEM_TYPE" class="form-control" style="width:initial;" >
