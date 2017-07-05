@@ -15,10 +15,7 @@
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
 .header{ /* 헤더부분 main 1 */
-width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; /* MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; */  {margin:0; padding:0;}
-
-
-
+width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; /* MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; */
 }
 
 .right{ /* main 2 body부분 */
@@ -30,10 +27,7 @@ width: 1125px; height:100%; font-family: 'Hanna', sans-serif; color:black;  vert
 
 }
 .footer{
-width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    {margin:0; padding:0;}
-
-
- 
+width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    
 } 
 
 .nav {

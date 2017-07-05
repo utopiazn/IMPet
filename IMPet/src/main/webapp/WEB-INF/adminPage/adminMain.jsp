@@ -48,8 +48,9 @@
 	 
 	 <li><a href="javascript:vold(0)">호텔 관리</a>
 		  <ul>
-			  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
 			  <li><a href="/IMPet/PetHotel/RoomList">룸 리스트</a></li>   
+			  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
+			  
 		 </ul>
 	</li>
 	
