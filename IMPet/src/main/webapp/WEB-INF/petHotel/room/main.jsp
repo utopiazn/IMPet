@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -40,9 +41,25 @@ function ajaxHealing(){
     });
 }
 
+/* function compare(){
+	var on = document.getElementById("roomListOn").value;
+	if(on == 1){
+		ajaxRoom();
+	}else{
+		
+	}
+	
+	
+*/
+
+
 </script>
 </head>
 <body>
+ <%-- onload="compare();">
+
+<input name="roomListOn" type="hidden" id="roomListOn" value="${roomListOn}"/> --%>
+
 
 <br/><br/>
 
