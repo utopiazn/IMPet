@@ -45,21 +45,21 @@
 					 (ITEM_NO,
 					  ITEM_NAME,			
 					  ITEM_PRICE,
-					  ITEM_DETAIL,
 					  ITEM_TOTALCOUNT,
 					  ITEM_SELLCOUNT,
 					  ITEM_TYPE,
 					  ITEM_IMG,
-					  ITEM_DETAILIMG)
+					  ITEM_DETAILIMG,
+					  ITEM_BASKETIMG)
 			values(ITEM_NO_SEQ.NEXTVAL,
 					  #{ITEM_NAME},
 				      #{ITEM_PRICE},
-				      #{ITEM_DETAIL},
 				      #{ITEM_TOTALCOUNT},
 				      0,
-				      #{ITEM_TYPE}
+				      #{ITEM_TYPE},
 				      #{ITEM_IMG},
-				      #{ITEM_DETAILIMG}				     
+				      #{ITEM_DETAILIMG},
+				      #{ITEM_BASKETIMG})			     
 	</insert>
 	
 </mapper>
