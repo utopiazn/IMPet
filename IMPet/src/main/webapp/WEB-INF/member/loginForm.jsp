@@ -1,20 +1,75 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
+
 <!DOCTYPE html>
+
+
 
 
 <html lang="ko">
 <head>
-
+ 	<c:if test="${LoginSuccess==1}">
+		<meta http-equiv="refresh" content="0;url=http://localhost:8080/IMPet/Main" />	
+ 	</c:if>
 
 <meta charset="UTF-8">
 
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/member/loginForm.css" />
 
 <title>로그인 폼 </title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+
+function ajaxLoginView(){
+	  alert('들어옴');
+	
+	  
+	  
+	  var obj =document.jform;
+	
+	 var dataList ={ MEMBER_ID : obj.MEMBER_ID.value ,MEMBER_PW:obj.MEMBER_PW.value}
+	  
+	  
+	var url1 = "/IMPet/Member/Login";
+	
+    $.ajax({
+    
+      type : "GET",
+      url : url1,
+      
+      data: dataList,
+      
+      dataType : "text",
+      error : function() {
+    	  
+    	alert('오류발생!!');
+    	
+    	 
+    	  
+        //alert('오류발생!!');
+      },
+      success : function(data) {  
+    	 $('#Context').html(data);
+        		
+      }
+      
+    });
+    
+   
+}
+
+</script>
+
+
+
 </head>
 <body>
+
+<div id ="Context">
 
 
 로그인 폼
@@ -22,6 +77,9 @@
 <br/><br/><br/><br/><br/><br/><br/>
 
 
+
+
+<form name="jform">
 
 <div class="xans-member-login" >
 
@@ -32,7 +90,7 @@
 		 	<label class="id">
 		 	
 		 		<img src="/IMPet/resources/image/SkinImg/id.gif" alt="id"/>             
-		 		<input id="member_id" name="MEMBER_ID" type="text" class="inputTypeText" value=""/> <br/><br/>		 	
+		 		<input id="member_id" name="MEMBER_ID" type="text" class="inputTypeText" value="" /> <br/><br/>		 	
 		 	
 		 	</label>
 		 	
@@ -52,11 +110,18 @@
 	
 	<div class="login_btn">
 				
-		<input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif" name="Submit" value="Submit"  onclick="location.href='/IMPet/Member/Login'"/>
+		<input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif" name="Submit" value="Submit"  onclick="ajaxLoginView();" />
 		
 	</div>
 	
 </div>
+
+
+</form>
+
+
+</div>
+
 
 
 

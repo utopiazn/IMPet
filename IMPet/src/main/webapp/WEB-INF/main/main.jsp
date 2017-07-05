@@ -90,6 +90,7 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 <title>메인페이지</title>
 </head>
 <body>
+
 	<div class="wrap">
 		<div class="header clear">
 			<tiles:insertAttribute name="header1" />
@@ -102,5 +103,6 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -74,7 +74,7 @@ public class MemberController {
 		System.out.println("로그인 폼");
 
 		
-		mav.setViewName("LoginForm");
+		mav.setViewName("LoginForm1"); 
 		return mav;
 	}
 	
@@ -136,15 +136,57 @@ public class MemberController {
 	}
 	
 	
+	 
+	
+	
+	
 	//로그인 처리
 	@RequestMapping(value="/Login")
-	public ModelAndView Login(){
+	public ModelAndView Login(CommandMap commandMap) throws Exception{
 
-
+		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 처리 후 메인 이동");
 
 		
-		mav.setViewName("main");
+		System.out.println(commandMap.getMap());
+		
+		Map<String,Object>  check = memberService.selectLogInCheck(commandMap.getMap());
+		//로그인 성공시	
+		
+		
+		int LoginSuccess = 0;
+		
+		if(check.size()>0){
+			
+			LoginSuccess = 1;
+		}
+		
+		
+		mav.addObject("LoginSuccess",LoginSuccess );
+	
+		
+		mav.setViewName("member/loginForm");
+
+		
+		
+		//mav.setViewName("redirect:/Main");
+		
+		//mav.setViewName("member/loginForm");
+		//mav.setViewName("member/loginForm");
+		/*//mav.setViewName("main");
+		//로그인 성공시
+		
+				int LoginSuccess = 1;
+				
+				mav.addObject("LoginSuccess",LoginSuccess );
+				
+				
+				mav.setViewName("member/loginForm");
+				//mav.setViewName("member/loginForm");
+				//mav.setViewName("main");
+				
+		*/
+		
 		return mav;
 	}
 	

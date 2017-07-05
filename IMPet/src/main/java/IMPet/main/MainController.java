@@ -174,8 +174,8 @@ public class MainController {
 	
 		System.out.println("장조성");
 	
-	
-		
+		int a = 0;
+		mav.addObject("dd",a );
 		mav.setViewName("Test/utopiazn");
 		return mav;
 	}

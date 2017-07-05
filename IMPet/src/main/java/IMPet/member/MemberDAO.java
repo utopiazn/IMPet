@@ -29,5 +29,18 @@ public class MemberDAO extends AbstractDAO{
 		
 		return view;
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectLogInCheck(Map<String, Object> map) throws Exception {
+		
+	//	System.out.println(map);
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectLogInCheck", map);
+		
+		return view;
+	}
+	
+
 
 }

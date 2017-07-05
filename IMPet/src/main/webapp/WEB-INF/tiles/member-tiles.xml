@@ -42,7 +42,7 @@
 
 	
 	<!-- 로그인 폼-->	
- 	<definition name="LoginForm" extends="member_main">
+ 	<definition name="LoginForm1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/loginForm.jsp" />
 	</definition>
 	
