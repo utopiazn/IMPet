@@ -30,9 +30,9 @@
 	<insert id="insert" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT, NOTICE_IMG,
-	NOTICE_COUNT, NOTICE_DATE
-	VALUES (#{notice_NO},#{notice_Subject},#{notice_Content},#{notice_IMG},
-	#{notice_Count},#{notice_Date})
+	NOTICE_COUNT, NOTICE_DATE)
+	VALUES (pet_notice_no_seq.nextval, #{notice_Subject}, #{notice_Content}, #{notice_IMG}, 
+	'0', sysdate)
 	]]>
 	</insert>
 	
@@ -41,7 +41,7 @@
 	<![CDATA[
 	UPDATE PET_NOTICE SET NOTICE_NO=#{notice_NO}, NOTICE_SUBJECT=#{notice_Subject}, 
 	NOTICE_CONTENT=#{notice_Content}, NOTICE_IMG=#{notice_IMG},
-	NOTICE_COUNT=#{notice_Count}, NOTICE_DATE=#{notice_Date}
+	NOTICE_COUNT=#{notice_Count}, NOTICE_DATE=sysdate
 	]]>
 	<include refid="where-no"/>
 	</update>

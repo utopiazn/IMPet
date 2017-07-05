@@ -30,9 +30,9 @@
 	<insert id="insert" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO PET_ROOM ( ROOM_NO, ROOM_NAME, ROOM_IMG, ROOM_DETAIL,
-	ROOM_PRICE, ROOM_NUM, ROOM_TOTAL)
+	ROOM_PRICE, ROOM_TOTAL)
 	VALUES (#{room_NO},#{room_Name},#{room_IMG},#{room_Detail},
-	#{room_Price},#{room_NUM},#{room_Total})
+	#{room_Price},#{room_Total})
 	]]>
 	</insert>
 	
@@ -41,7 +41,7 @@
 	<![CDATA[
 		UPDATE PET_ROOM SET ROOM_NO=#{room_NO}, ROOM_NAME=#{room_Name},
 		ROOM_IMG=#{room_IMG}, ROOM_DETAIL=#{room_Detail},
-		ROOM_PRICE=#{room_Price}, ROOM_NUM=#{room_NUM}, ROOM_TOTAL=#{room_Total}
+		ROOM_PRICE=#{room_Price}, ROOM_TOTAL=#{room_Total}
 		]]>
 		<include refid="where-no"/>
 	</update>

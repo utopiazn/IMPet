@@ -16,7 +16,8 @@ public class ItemDAO extends AbstractDAO {
 		
 		return (List<Map<String, Object>>) selectList("PetItemSQL.selectAll");
 	}
-
+	
+	//상품상세보기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectOne(Map<String, Object> map ) throws Exception{
 		

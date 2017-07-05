@@ -45,29 +45,11 @@
 			value="/WEB-INF/serviceCenter/notice/insertForm.jsp" />
 	</definition>
 
-	<!-- 공지사항 추가 -->
-	<definition name="NoticeInsertForm" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/notice/view.jsp" />
-	</definition>
 
 	<!-- 공지사항 수정 폼 -->
 	<definition name="NoticeModifyForm" extends="serviceCenter_main">
 		<put-attribute name="body"
 			value="/WEB-INF/serviceCenter/notice/modifyForm.jsp" />
-	</definition>
-
-	<!-- 공지사항 수정 -->
-	<definition name="NoticeModify" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/notice/view.jsp" />
-	</definition>
-
-
-	<!-- 공지사항 삭제 -->
-	<definition name="NoticeDelete" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/notice/list.jsp" />
 	</definition>
 
 
@@ -91,29 +73,10 @@
 			value="/WEB-INF/serviceCenter/FAQ/insertForm.jsp" />
 	</definition>
 
-	<!-- 자주묻는질문 추가 -->
-	<definition name="FAQInsert" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/FAQ/view.jsp" />
-	</definition>
-
 	<!-- 자주묻는질문 수정 폼 -->
 	<definition name="FAQModifyForm" extends="serviceCenter_main">
 		<put-attribute name="body"
 			value="/WEB-INF/serviceCenter/FAQ/modifyForm.jsp" />
-	</definition>
-
-	<!-- 자주묻는질문 수정 -->
-	<definition name="FAQModify" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/FAQ/view.jsp" />
-	</definition>
-
-
-	<!-- 자주묻는질문 삭제 -->
-	<definition name="FAQDelete" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/FAQ/list.jsp" />
 	</definition>
 
 
@@ -137,31 +100,12 @@
 			value="/WEB-INF/serviceCenter/QnA/insertForm.jsp" />
 	</definition>
 
-	<!-- Q&A 추가 -->
-	<definition name="QuestionInsert" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/QnA/view.jsp" />
-	</definition>
 
 	<!-- Q&A 수정 폼 -->
 	<definition name="QuestionModifyForm" extends="serviceCenter_main">
 		<put-attribute name="body"
 			value="/WEB-INF/serviceCenter/QnA/modifyForm.jsp" />
 	</definition>
-
-	<!-- Q&A 수정 -->
-	<definition name="QuestionModify" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/QnA/view.jsp" />
-	</definition>
-
-
-	<!-- Q&A 삭제 -->
-	<definition name="QuestionDelete" extends="serviceCenter_main">
-		<put-attribute name="body"
-			value="/WEB-INF/serviceCenter/QnA/list.jsp" />
-	</definition>
-
 
 
 
