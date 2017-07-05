@@ -1,5 +1,6 @@
 package IMPet.petShop.item;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,13 @@ public class ItemReviewDAO extends AbstractDAO {
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception{
 		
 		return (Map<String, Object>) selectOne("PetReviewSQL.selectOne", map);
+	}
+	
+	//후기리스트
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectAll() throws Exception{
+		
+		return (List<Map<String, Object>>) selectList("PetReviewSQL.selectAll");
 	}
 	
 }

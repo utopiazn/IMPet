@@ -8,37 +8,37 @@
 <html lang="ko">
 <head>
 
-<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
+<!-- <link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css"> -->
 
 <!-- 임시 css -->
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
 .header{ /* 헤더부분 main 1 */
-width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px;
+width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; /* MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; */
 }
 
 .right{ /* main 2 body부분 */
 
-width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both;
+width: 1125px; height:100%; font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
 
 
 /* width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; display: table-cell; padding-left: 30%; */
 
 }
 .footer{
-width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;   MARGIN-TOP: -8PX;     MARGIN-LEFT: -50PX; padding: 15px; background-color: #87EAA2;
+width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    
 } 
-	.nav {
+
+.nav {
 	width: 100%;
     margin: 0 auto;
     background: #87EAA2;
     color: #87EAA2;
-    MARGIN-LEFT: -69PX;
-    text-align: center;
-    padding: 7px 90px 4px;
-    font-size: 20px;
 
+    text-align: center;
+/*     padding: 7px 90px 4px; */
+    font-size: 20px;
 	}
 	.nav a {
 	  color: black;
@@ -57,7 +57,6 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	.nav__menu-item {
 	  display: inline-block;
 	  position: relative;
-	  
 	}
 	.nav__menu-item:hover {
 	  color: hotpink;
@@ -72,12 +71,11 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  position: absolute;
 	  width: 220px;
 	  background-color: #FFDC4C;
-	   z-index: 2;
-	 MARGIN-LEFT: -60PX;
+	  z-index: 2;
 	}
-	/* .nav__submenu-item:hover {
+	.nav__submenu-item:hover {
 	  background: rgba(0, 0, 0, 0.1);
-	} */
+	}
 	nav ul {
   list-style: none;
   padding-left: 0;

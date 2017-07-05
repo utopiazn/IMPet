@@ -1,14 +1,14 @@
-@CHARSET "EUC-KR";
+@CHARSET "UTF-8";
+
 .nav {
-	  width: 100%;
-	  margin: 0 auto;
-	  background: #1e8449;
-	  color: #87EAA2;
-	  MARGIN-LEFT: -69PX;
-	  text-align: center;
-	  padding: 20px 90px 4px;
-	  font-size: 20px;
-	  word-spacing: 30px;
+	width: 100%;
+    margin: 0 auto;
+    background: #87EAA2;
+    color: #87EAA2;
+    MARGIN-LEFT: -167PX; 
+    text-align: center;
+    padding: 7px 90px 4px;
+    font-size: 20px;
 	}
 	.nav a {
 	  color: black;

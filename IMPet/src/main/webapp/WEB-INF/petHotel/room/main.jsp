@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -40,19 +41,35 @@ function ajaxHealing(){
     });
 }
 
+/* function compare(){
+	var on = document.getElementById("roomListOn").value;
+	if(on == 1){
+		ajaxRoom();
+	}else{
+		
+	}
+	
+	
+*/
+
+
 </script>
 </head>
 <body>
+ <%-- onload="compare();">
+
+<input name="roomListOn" type="hidden" id="roomListOn" value="${roomListOn}"/> --%>
+
 
 <br/><br/>
 
 <div align="center">
 	<div style="border: 1px solid black; width: 49.8%; float: left;">
-		<input src="/IMPet/resources/image/SkinImg/btn_login.gif" type="image" value="RoomList" onclick="ajaxRoom();"/>  
+		<input src="/IMPet/resources/image/SkinImg/room.bmp" type="image" value="RoomList" onclick="ajaxRoom();" style="width: 100%; height: 70px;"/>  
 	</div>
 	
 	<div style="border: 1px solid black; width: 49.8%; float: left;">
-		<input src="/IMPet/resources/image/SkinImg/btn_login.gif" type="image" value="HealingList" onclick="ajaxHealing();"/>
+		<input src="/IMPet/resources/image/SkinImg/healing.bmp" type="image" value="HealingList" onclick="ajaxHealing();"  style="width: 100%; height: 70px;"/>
 	</div>
 	
 	<div id="Context" align="center" style="border: 1px solid black; width:99.8%;  float: left;">

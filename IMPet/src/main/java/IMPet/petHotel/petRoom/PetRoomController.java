@@ -81,7 +81,7 @@ public class PetRoomController {
 		
 		System.out.println("호텔 룸 추가 폼");
 		
-		String url = "PetHotel_InsertForm";
+		String url = "petHotel/room/insertForm";
 		
 		mav.setViewName(url);
 		
@@ -98,9 +98,10 @@ public class PetRoomController {
 		
 		System.out.println("호텔 룸 추가");
 		
-		String url = "redirect:RoomList";
+		String url = "redirect:/PetHotel/RoomList";
 		
 		mav.setViewName(url);
+		
 		
 		return mav;
 	}

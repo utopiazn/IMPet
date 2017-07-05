@@ -2,21 +2,29 @@ package IMPet.petShop.adminItem;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
-import IMPet.petShop.item.ItemDAO;
+import IMPet.util.ProjectUtil;
 
 @Controller
 @RequestMapping(value="/PetShop")
 public class AdminItemController {
 	
 	ModelAndView mav = new ModelAndView();
+	
+	ProjectUtil util = new ProjectUtil();
+	
+	public static String getRandomString() {
+		return UUID.randomUUID().toString().replace("-", "");
+	}
 	
 	@Resource(name="adminItemService")
 	private AdminItemService adminItemService;
@@ -48,22 +56,27 @@ public class AdminItemController {
 	
 	//펫샵관리자상품추가
 	@RequestMapping(value="/AdminItemWrite")
-	public ModelAndView AdminItemWrite(CommandMap commandMap) throws Exception {
-
-		adminItemService.itemInsert(commandMap.getMap());
+	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
 		
-		mav.setViewName("redirect:/AdminItemList");
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+	
+		Map<String,Object> map = ProjectUtil.UploadFile(commandMap.getMap(), request, uploadPath);
+		
+		adminItemService.itemInsert(map);
+		
+		mav.setViewName("redirect:/PetShop/AdminItemList");
+		
 		return mav;
 	}
 	
 	//펫샵관리자상품수정폼
 	@RequestMapping(value="/AdminItemModifyForm")
-	public ModelAndView AdminItemModifyForm() throws Exception {
+	public ModelAndView AdminItemModifyForm(CommandMap commandMap) throws Exception {
 
 		
-		System.out.println("펫샵관리자상품수정폼");
+		Map<String,Object> map = adminItemService.itemSelect(commandMap.getMap());
 	
-		
+		mav.addObject("itemList", map);
 		mav.setViewName("AdminItemModifyForm");
 		return mav;
 	}

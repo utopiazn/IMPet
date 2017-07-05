@@ -30,6 +30,7 @@ public class ItemReviewServiceImpl implements ItemReviewService{
 		return itemReviewDAO.update(map);
 	}
 	
+	@Override
 	public Map<String, Object> insert(Map<String, Object> map) throws Exception {
 		
 		return itemReviewDAO.insert(map);

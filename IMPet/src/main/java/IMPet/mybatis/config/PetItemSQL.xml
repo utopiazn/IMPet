@@ -3,7 +3,7 @@
 
 <mapper namespace="PetItemSQL">
 	
-	<sql id="seletALL" > 
+	<sql id="selectAll" > 
 		<![CDATA[ SELECT * FROM PET_ITEM ]]>
 	</sql>
 	
@@ -43,23 +43,23 @@
 	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item
 					 (ITEM_NO,
-					  ITEM_NAME,
-					  ITEM_IMG,
+					  ITEM_NAME,			
 					  ITEM_PRICE,
-					  ITEM_DETAIL,
 					  ITEM_TOTALCOUNT,
 					  ITEM_SELLCOUNT,
 					  ITEM_TYPE,
-					  ITEM_DETAILIMG)
-			values(goods_seq.NEXTVAL,
-					  #{ITEM_NO},
+					  ITEM_IMG,
+					  ITEM_DETAILIMG,
+					  ITEM_BASKETIMG)
+			values(ITEM_NO_SEQ.NEXTVAL,
 					  #{ITEM_NAME},
-					  #{ITEM_IMG},
 				      #{ITEM_PRICE},
-				      #{ITEM_DETAIL},
 				      #{ITEM_TOTALCOUNT},
-				      #{ITEM_SELLCOUNT},
-				      #{ITEM_DETAILIMG}				     
+				      0,
+				      #{ITEM_TYPE},
+				      #{ITEM_IMG},
+				      #{ITEM_DETAILIMG},
+				      #{ITEM_BASKETIMG})			     
 	</insert>
 	
 </mapper>

@@ -76,7 +76,7 @@ protected Log log = LogFactory.getLog(AbstractDAO.class);
 		return sqlSession.selectList(queryId,params);
 	}
 	
-	@SuppressWarnings("unchecked")
+/*	@SuppressWarnings("unchecked")
 	public Object selectList1(String queryId, Object params){
 	    printQueryId(queryId);
 	    Map<String,Object> map = (Map<String,Object>)params;
@@ -96,6 +96,6 @@ protected Log log = LogFactory.getLog(AbstractDAO.class);
 	    map.put("END", (nPageIndex * nPageRow) + nPageRow);
 	     
 	    return sqlSession.selectList(queryId, map);
-	}
+	}*/
 	
 }

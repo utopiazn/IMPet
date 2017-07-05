@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
+
 @Controller
 @RequestMapping(value = "/ServiceCenter")
 public class NoticeController {
@@ -38,6 +40,8 @@ public class NoticeController {
 		mav.addObject("list",list);
 
 		System.out.println("공지사항리스트");
+		
+		System.out.println(list);
 
 		mav.setViewName("NoticeList");
 		return mav;
@@ -45,10 +49,14 @@ public class NoticeController {
 
 	// 공지사항 개별페이지
 	@RequestMapping(value = "/NoticeView")
-	public ModelAndView NoticeView() {
+	public ModelAndView NoticeView(CommandMap commandMap) throws Exception{
+		
+		Map<String, Object> map = noticeService.selectOne(commandMap.getMap());
 
 		System.out.println("공지사항 개별페이지");
-
+		
+		mav.addObject("view",map);
+		
 		mav.setViewName("NoticeView");
 		return mav;
 	}
@@ -56,6 +64,8 @@ public class NoticeController {
 	// 공지사항 추가 폼
 	@RequestMapping(value = "/NoticeInsertForm")
 	public ModelAndView NoticeInsertForm() {
+		
+		
 
 		System.out.println("공지사항 추가 폼");
 
@@ -65,11 +75,16 @@ public class NoticeController {
 
 	// 공지사항 추가
 	@RequestMapping(value = "/NoticeInsert")
-	public ModelAndView NoticeInsert() {
+	public ModelAndView NoticeInsert(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		noticeService.insert(commandMap.getMap());
+		
 
 		System.out.println("공지사항 추가");
 
-		mav.setViewName("NoticeInsert");
+		mav.setViewName("redirect:NoticeList");
 		return mav;
 	}
 
@@ -95,11 +110,16 @@ public class NoticeController {
 
 	// 공지사항 삭제
 	@RequestMapping(value = "/NoticeDelete")
-	public ModelAndView NoticeDelete() {
+	public ModelAndView NoticeDelete(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		noticeService.delete(commandMap.getMap());
+		
 
 		System.out.println("공지사항 삭제");
 
-		mav.setViewName("NoticeDelete");
+		mav.setViewName("redirect:NoticeList");
 		return mav;
 	}
 

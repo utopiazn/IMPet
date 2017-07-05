@@ -1,10 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<!DOCTYPE html>
 
-
-<html lang="ko">
-<head>
 	<style type="text/css">
 	@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 	.button2{
@@ -12,7 +8,7 @@
 			text-decoration:none;
 			font-family: 'Jeju Gothic', sans-serif;
 			line-height:0px;
-			text-align:center;
+			text-align:left;
 			vertical-align:middle;
 			display:inline-block;
 			font-size:15px;
@@ -23,12 +19,9 @@
 			border-width:0px;
 			border-style:solid;
 	
-	} 
-	
-	
-	
+	} 	
 	.foot{
-	 vertical-align: middle;
+	vertical-align: middle;
     font-family: 'Jeju Gothic', sans-serif;
     line-height: 2em;
     float: left;
@@ -50,11 +43,7 @@
 	}
 	
 	</style>
-</head>
 
-
-
-<body>
 	<div style="float: left; padding-left: 5%;">
 	<input class="button2" value="회사소개" type="button" onclick="location.href='/IMPet/Info'"/>
 	<br/>
@@ -76,9 +65,3 @@
 	무통장 입금 아임펫 1002-053-209817(우리은행)<br/>
 	</div>
 
-</body>
-
-
-
-
-</html>
