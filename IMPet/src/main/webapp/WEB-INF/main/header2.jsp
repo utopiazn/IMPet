@@ -1,12 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 
-<!DOCTYPE html>
-<html>
-
-<head>
-<link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css">
-
  <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css); 
 
@@ -40,8 +34,8 @@
 
 
 </style>
-</head>
-<body>
+
+
 <div align="center" style="height: 70%">
 
 <br/><br/>
@@ -79,6 +73,3 @@
 <a href='/IMPet/Community/Main'>COMMUNITY</a>
 <br/><br/>
 </div>-->
-</body>
-
-</html>
