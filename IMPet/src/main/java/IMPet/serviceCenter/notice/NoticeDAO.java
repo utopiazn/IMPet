@@ -27,5 +27,18 @@ import IMPet.module.AbstractDAO;
 			
 			return view;  
 		}
+		
+		public void insert(Map<String, Object> map) throws Exception{
+			insert("NoticeSQL.insert", map);
+			
+		}
+		
+		public void delete(Map<String, Object> map) throws Exception{
+			delete("NoticeSQL.delete", map);
+			
+		}
+		
+		
+		
 	}	
 

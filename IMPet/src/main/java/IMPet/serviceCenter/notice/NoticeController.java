@@ -64,6 +64,8 @@ public class NoticeController {
 	// 공지사항 추가 폼
 	@RequestMapping(value = "/NoticeInsertForm")
 	public ModelAndView NoticeInsertForm() {
+		
+		
 
 		System.out.println("공지사항 추가 폼");
 
@@ -73,11 +75,16 @@ public class NoticeController {
 
 	// 공지사항 추가
 	@RequestMapping(value = "/NoticeInsert")
-	public ModelAndView NoticeInsert() {
+	public ModelAndView NoticeInsert(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		noticeService.insert(commandMap.getMap());
+		
 
 		System.out.println("공지사항 추가");
 
-		mav.setViewName("NoticeInsert");
+		mav.setViewName("redirect:NoticeList");
 		return mav;
 	}
 
@@ -103,11 +110,16 @@ public class NoticeController {
 
 	// 공지사항 삭제
 	@RequestMapping(value = "/NoticeDelete")
-	public ModelAndView NoticeDelete() {
+	public ModelAndView NoticeDelete(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		noticeService.delete(commandMap.getMap());
+		
 
 		System.out.println("공지사항 삭제");
 
-		mav.setViewName("NoticeDelete");
+		mav.setViewName("redirect:NoticeList");
 		return mav;
 	}
 

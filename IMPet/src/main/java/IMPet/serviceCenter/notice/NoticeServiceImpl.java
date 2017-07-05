@@ -27,4 +27,18 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.selectOne(map);
 	}
 
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		noticeDAO.insert(map);
+		
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		noticeDAO.delete(map);
+		
+	}
+	
+	
+
 }
