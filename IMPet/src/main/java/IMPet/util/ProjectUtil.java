@@ -43,7 +43,7 @@ public class ProjectUtil{
 	// 프로젝트 위치 경로
 	public String getPath(){
 		String s = this.getClass().getResource("/").getPath();
-		String sc = s.substring(0, s.indexOf(".metadata"))+ "/remedium2/src/main/webapp/resources/image";
+		String sc = s.substring(0, s.indexOf(".metadata"));
 		
 		System.out.println("프로젝트 전까지의 경로: "+sc);
 		

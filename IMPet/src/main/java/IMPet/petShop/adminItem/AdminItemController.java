@@ -1,13 +1,18 @@
 package IMPet.petShop.adminItem;
 
+import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
@@ -18,6 +23,12 @@ import IMPet.util.ProjectUtil;
 public class AdminItemController {
 	
 	ModelAndView mav = new ModelAndView();
+	
+	ProjectUtil util = new ProjectUtil();
+	
+	public static String getRandomString() {
+		return UUID.randomUUID().toString().replace("-", "");
+	}
 	
 	@Resource(name="adminItemService")
 	private AdminItemService adminItemService;
@@ -50,12 +61,34 @@ public class AdminItemController {
 	//펫샵관리자상품추가
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
-		ProjectUtil util = new ProjectUtil();
-		String uploadPath = util.getPath();
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+	
+		
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+		MultipartFile multipartFile = null;
+		String originalFileName = null;
+
+			///
+		while(iterator.hasNext()) {
+			
+		
+			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			System.out.println("파일이름"+multipartFile.getName());
+			if (multipartFile.isEmpty() == false) {
+				originalFileName = multipartFile.getOriginalFilename();			
+				File file = new File(uploadPath + originalFileName);
+				multipartFile.transferTo(file);
+				
+				commandMap.put(multipartFile.getName(), originalFileName);			
+		
+			}
+		}
+		System.out.println(commandMap.getMap().toString());
 		
 		adminItemService.itemInsert(commandMap.getMap());
 		
-		mav.setViewName("redirect:/AdminItemList");
+		mav.setViewName("redirect:/PetShop/AdminItemList");
 		return mav;
 	}
 	
