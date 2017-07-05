@@ -13,13 +13,16 @@
 <title>공지사항 추가 폼</title>
 </head>
 <body>
+<form action="NoticeInsert" method="post">
+<h2>공지사항 제목 : <input type="text" name=notice_Subject></h2><br/>
+<h2>공지사항 내용 : <input type="text" name=notice_Content></h2><br/>
+<h2>공지사항 이미지 : <input type="text" name=notice_IMG></h2><br/>
+<input  value="공지사항 추가" type="submit">
+
+</form>
 
 공지사항 추가 폼
 
 <br/><br/><br/><br/><br/>
-
-<input value="공지사항 추가" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeInsert'"/>
-
-
 
 </body>

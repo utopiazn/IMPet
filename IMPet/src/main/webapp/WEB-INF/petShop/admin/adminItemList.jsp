@@ -138,7 +138,7 @@ function delchk(){
 								</c:url>									
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NO}<div style='display:none;'>${itemList.ITEM_NO}</div></td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;"><img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">
 											<c:if test="${itemList.ITEM_TYPE eq 0 }">사료</c:if>
 											<c:if test="${itemList.ITEM_TYPE eq 1 }">간식</c:if>
@@ -149,12 +149,12 @@ function delchk(){
 										</td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NAME}<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 
-										<c:if test="${itemList.ITEM_PRICE != null}">
+										<c:if test="${itemList.ITEM_DCPRICE != null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<del><fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<br/></del>
 												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
-										<c:if test="${itemList.ITEM_PRICE == null}">
+										<c:if test="${itemList.ITEM_DCPRICE == null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>

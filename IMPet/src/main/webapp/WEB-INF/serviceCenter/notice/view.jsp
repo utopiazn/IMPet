@@ -30,7 +30,7 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="공지사항 삭제" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeDelete'"/>
+<input value="공지사항 삭제" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeDelete?notice_NO=${view.NOTICE_NO}'"/>
 
 <br/><br/><br/><br/><br/>
 
