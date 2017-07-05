@@ -19,10 +19,7 @@
 			border-width:0px;
 			border-style:solid;
 	
-	} 
-	
-	
-	
+	} 	
 	.foot{
 	vertical-align: middle;
     font-family: 'Jeju Gothic', sans-serif;
