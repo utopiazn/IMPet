@@ -31,26 +31,21 @@ function ajaxLoginView(){
 	  
 	  var obj =document.jform;
 	
-	 var dataList =
-	 { 
-		 "MEMBER_ID" : obj.MEMBER_ID.value ,	 
-		 "MEMBER_PW":obj.MEMBER_PW.value
-	 }
-	
+	 var dataList ={ MEMBER_ID : obj.MEMBER_ID.value ,MEMBER_PW:obj.MEMBER_PW.value}
 	  
 	  
 	var url1 = "/IMPet/Member/Login";
 	
     $.ajax({
     
-      type : "POST",
+      type : "post",
       url : url1,      
-       data: dataList,       
+      data: dataList,      
       dataType : "text",
       
       error : function() {
     	  
-    	/* alert('오류임!'); */
+    	alert('오류임!');
     	
       },
       success : function(data) {  
@@ -62,19 +57,12 @@ function ajaxLoginView(){
    
 }
 
-
-
-
-
-
 </script>
 
 
 
 </head>
 <body>
-
-
 
 <div id ="Context">
 
@@ -86,14 +74,12 @@ function ajaxLoginView(){
 
 
 
+<form name="jform">
 
 <div class="xans-member-login" >
 
 	<div class="login">
-
-
-
-<form name="jform" method="post">	
+	
 		 <fieldset>
 		 	
 		 	<label class="id">
@@ -114,17 +100,13 @@ function ajaxLoginView(){
 		 	 <p class="security"></p>		 	
 		 	
 		 </fieldset>
-
-</form>
 	
 	</div>
 	
 	<div class="login_btn">
-	
-		<input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
-		<!-- 		
-	 <input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif"   onclick="ajaxLoginView();" />
-		  -->
+				
+		<input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif" name="Submit" value="Submit"  onclick="ajaxLoginView();" />
+		
 	</div>
 	
 </div>
@@ -139,7 +121,7 @@ function ajaxLoginView(){
 
 
 
-<!-- <input value="로그인" type="button" onclick="location.href='/IMPet/Member/Login'"/> <br/>
+<input value="로그인" type="button" onclick="location.href='/IMPet/Member/Login'"/> <br/>
 
 
 
@@ -150,7 +132,7 @@ function ajaxLoginView(){
 
 <input value="비번찾기" type="button" onclick="location.href='/IMPet/Member/FindPwForm'"/>
 
- -->
+
 
 
 </body>

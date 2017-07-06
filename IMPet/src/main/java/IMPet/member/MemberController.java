@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -66,18 +67,6 @@ public class MemberController {
 	}
 
 
-	//로그인  폼
-	@RequestMapping(value="/LoginForm")
-	public ModelAndView loginForm(){
-
-
-		System.out.println("로그인 폼");
-
-		
-		mav.setViewName("LoginForm1"); 
-		return mav;
-	}
-	
 	
 
 	//ID 찾기 폼
@@ -137,12 +126,24 @@ public class MemberController {
 	
 	
 	 
+
+	//로그인  폼
+	@RequestMapping(value="/LoginForm")
+	public ModelAndView loginForm(){
+
+
+		System.out.println("로그인 폼");
+
+		
+		mav.setViewName("LoginForm1"); 
+		return mav;
+	}
 	
 	
 	
 	//로그인 처리
 	@RequestMapping(value="/Login")
-	public ModelAndView Login(CommandMap commandMap) throws Exception{
+	public ModelAndView Login(CommandMap commandMap,HttpSession session) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 처리 후 메인 이동");
@@ -150,17 +151,30 @@ public class MemberController {
 		
 		System.out.println(commandMap.getMap());
 		
+		
+	
+		
+		
 		Map<String,Object>  check = memberService.selectLogInCheck(commandMap.getMap());
 		//로그인 성공시	
+		//dd = memberService.selectLogInCheck(commandMap.getMap());
+		//System.out.println(dd);
 		
 		
 		int LoginSuccess = 0;
 		
-		if(check.size()>0){
+		
+		
+		if(!check.isEmpty()){
+			
+			System.out.println("ddd:"+check.get("MEMBER_ID"));
+			
+			session.setAttribute("member_ID", check.get("MEMBER_ID"));
 			
 			LoginSuccess = 1;
 		}
 		
+	//	mav.addObject("check",check );
 		
 		mav.addObject("LoginSuccess",LoginSuccess );
 	

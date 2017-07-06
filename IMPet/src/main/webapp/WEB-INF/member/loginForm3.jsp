@@ -31,12 +31,12 @@ function ajaxLoginView(){
 	  
 	  var obj =document.jform;
 	
-	 var dataList =
+	/*  var dataList =
 	 { 
 		 "MEMBER_ID" : obj.MEMBER_ID.value ,	 
 		 "MEMBER_PW":obj.MEMBER_PW.value
 	 }
-	
+	 */
 	  
 	  
 	var url1 = "/IMPet/Member/Login";
@@ -45,12 +45,12 @@ function ajaxLoginView(){
     
       type : "POST",
       url : url1,      
-       data: dataList,       
+     /*  data: dataList,      */ 
       dataType : "text",
       
       error : function() {
     	  
-    	/* alert('오류임!'); */
+    	alert('오류임!');
     	
       },
       success : function(data) {  
