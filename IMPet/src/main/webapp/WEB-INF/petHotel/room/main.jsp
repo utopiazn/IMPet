@@ -1,11 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelMain</title>
+<input name="car" type="hidden" id="car" value="${car}"/>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
@@ -41,25 +38,27 @@ function ajaxHealing(){
     });
 }
 
-/* function compare(){
-	var on = document.getElementById("roomListOn").value;
+window.onload=function(){
+	var on = document.getElementById("car").value;
 	if(on == 1){
 		ajaxRoom();
-	}else{
-		
+	}else if(on == 2){
+		ajaxHealing();
 	}
-	
-	
-*/
-
+}
 
 </script>
-</head>
-<body>
- <%-- onload="compare();">
 
-<input name="roomListOn" type="hidden" id="roomListOn" value="${roomListOn}"/> --%>
-
+<input name="car" type="hidden" id="car" value="${car}"/>
+<c:choose>
+	<c:when test="${car==1}">
+	
+	</c:when>
+	
+	<c:otherwise>
+	
+	</c:otherwise>
+</c:choose>
 
 <br/><br/>
 
@@ -80,6 +79,3 @@ function ajaxHealing(){
 </div>
 
 &nbsp;
-
-</body>
-</html>

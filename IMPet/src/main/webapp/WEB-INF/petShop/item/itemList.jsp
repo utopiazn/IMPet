@@ -32,12 +32,12 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="상품리스트" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
+<input value="상품상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
 		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="" src="" alt="상품 섬네일" title="상품 섬네일"></a></dt>
+						<dt class="thumb"><a href=""><img class="item_image" src="/IMPet/resources/image/itemImg/${view.ITEM_IMG}" alt="상품 섬네일" title="상품 섬네일"></a></dt>
 						<dd>
 							<ul>
 								<li class="prd-name">${items.ITEM_NAME}</li>

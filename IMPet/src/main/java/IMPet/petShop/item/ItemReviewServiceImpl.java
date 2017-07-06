@@ -1,5 +1,6 @@
 package IMPet.petShop.item;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -35,6 +36,12 @@ public class ItemReviewServiceImpl implements ItemReviewService{
 		
 		return itemReviewDAO.insert(map);
 		
+	}
+
+	@Override
+	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
+	
+		return itemReviewDAO.selectList(map);
 	}
 	
 }

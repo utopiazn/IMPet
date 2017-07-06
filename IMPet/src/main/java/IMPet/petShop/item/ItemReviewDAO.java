@@ -40,9 +40,9 @@ public class ItemReviewDAO extends AbstractDAO {
 	
 	//후기리스트
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> selectAll() throws Exception{
+	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception{
 		
-		return (List<Map<String, Object>>) selectList("PetReviewSQL.selectAll");
+		return (List<Map<String, Object>>) selectList("PetReviewSQL.selectList", map);
 	}
 	
 }

@@ -53,17 +53,50 @@
 			
 		</c:when>
 		<c:otherwise>
+		
+			<script type="text/javascript">
+				function ajaxRoomModify(){
+					
+					var obj = document.Modify;
+					
+					var url1 = "/IMPet/PetHotel/RoomModify";
+					
+					var formData = 
+					{ "room_NO" : obj.room_NO.value,
+					  "room_Name" : obj.room_Name.value,
+					  "room_IMG" : obj.room_IMG.value,
+					  "room_Detail" : obj.room_Detail.value,
+					  "room_Price" : obj.room_Price.value,
+					  "room_Total" : obj.room_Total.value		
+					}
+					
+				    $.ajax({
+				      type : "POST",
+				      url : url1,
+				      data : formData,
+				      dataType : "text",
+				      error : function() {
+				        alert('오류발생!!');
+				      },
+				      success : function(data) {
+				        $('#Context').html(data);
+				      }
+				
+				    });
+				}
+		
+			</script>		
+		
 			룸을 수정할때
-			<form action="RoomModify" method="post">
+			<form name="Modify" method="post">
 				room_NO : ${view.ROOM_NO } <input name="room_NO" type="hidden" value="${view.ROOM_NO }"/><br/>
 				room_Name : <input name="room_Name" type="text" value="${view.ROOM_NAME }"/><br/>
 				room_IMG : <input name="room_IMG" type="text" value="${view.ROOM_IMG }"/><br/>
 				room_Detail : <input name="room_Detail" type="text" value="${view.ROOM_DETAIL}"/><br/>
 				room_Price : <input name="room_Price" type="text" value="${view.ROOM_PRICE }"/><br/>
-				room_NUM : <input name="room_NUM" type="text" value="${view.ROOM_NUM }"/><br/>
 				room_Total : <input name="room_Total" type="text" value="${view.ROOM_TOTAL }"/><br/>
 				
-				<input value="룸 수정" type="submit"/>
+				<input value="룸 추가" type="button" onclick="ajaxRoomModify();"/>
 			</form>
 		</c:otherwise>
 	</c:choose>
