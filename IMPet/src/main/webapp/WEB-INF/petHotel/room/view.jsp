@@ -126,7 +126,7 @@ function ajaxRoomDelete(){
 	</div>
 <br/>
 <div align="center" style="float:inherit; width:100%; margin-bottom: 20px;">
-	<input value="룸 수정" type="button" onclick="location.href='/IMPet/PetHotel/RoomModifyForm?room_NO=${view.ROOM_NO}'"/>
+	<input value="룸 수정" type="button" onclick="ajaxRoomModifyForm()"/>
 	<input value="룸 삭제" type="button" onclick="ajaxRoomDelete()"/>
 	<input value="룸 리스트" type="button" onclick="ajaxRoom()"/>
 </div>

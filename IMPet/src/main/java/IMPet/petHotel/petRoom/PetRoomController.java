@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,12 +21,13 @@ public class PetRoomController {
 	
 	//호텔 메인
 	@RequestMapping(value="Main")
-	public ModelAndView main(){
+	public ModelAndView main(@ModelAttribute("car") int car){
 		
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("호텔 메인");
+		System.out.println("호텔 메인"+car);
 		
+		mav.addObject("car", car);
 		mav.setViewName("PetHotel");
 		
 		return mav;
@@ -116,7 +118,7 @@ public class PetRoomController {
 		
 		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
 		
-		String url = "PetHotel_ModifyForm";
+		String url = "petHotel/room/insertForm";
 		
 		mav.addObject("view", map);
 		

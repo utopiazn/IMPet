@@ -45,10 +45,10 @@
 
 <nav class="nav" id="header2">
 	  <ul class="nav__menu">
-	    	<li class="nav__menu-item"><a href=/IMPet/PetHotel/Main>HOTEL</a>
+	    	<li class="nav__menu-item"><a href=javascript:jsHotel(0);>HOTEL</a>
 	     		<ul class="nav__submenu">	     
-			    	<li class="nav__submenu-item"> <a href=/IMPet/PetHotel/RoomList>ROOM</a></li>
-			        <li class="nav__submenu-item"> <a href=/IMPet/PetHotel/HealingList>HEALING</a></li>
+			    	<li class="nav__submenu-item"><a href=javascript:jsHotel(1);>ROOM</a></li>
+			        <li class="nav__submenu-item"><a href=javascript:jsHotel(2);>HEALING</a></li>
 	    		</ul>
 	    	</li>
 	    	<li class="nav__menu-item"><a href=/IMPet/PetShop/Main>SHOP</a>
@@ -73,3 +73,17 @@
 <a href='/IMPet/Community/Main'>COMMUNITY</a>
 <br/><br/>
 </div>-->
+
+<form name="hotel">
+<input type="hidden" name="car">
+</form>
+<script type="text/javascript">
+function jsHotel(value){
+    var f = document.hotel; //폼 name
+    f.car.value = value; //POST방식으로 넘기고 싶은 값
+    f.action="/IMPet/PetHotel/Main";//이동할 페이지
+    f.method="post";//POST방식
+    f.submit();
+}
+
+</script>
