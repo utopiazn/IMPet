@@ -26,7 +26,7 @@ public class ItemDAO extends AbstractDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList1("PetItemSQL.selectList", map);
+		return (List<Map<String, Object>>) selectList("PetItemSQL.selectList", map);
 	}
 
 }

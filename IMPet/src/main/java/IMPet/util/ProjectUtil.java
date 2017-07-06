@@ -28,8 +28,10 @@ public class ProjectUtil{
 	
 	// 현재 날짜 : java에서는 이 함수 호출
 	public String getDate(){
+		
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat ( "yyyy-MM-dd" );
+		
 		String cDate = dateFormat.format(currentDate);
 		//System.out.println("현재날짜 : "+cDate);
 		
