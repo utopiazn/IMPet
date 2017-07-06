@@ -73,16 +73,7 @@ public class ProjectUtil{
 	*/
 	
 	
-	//파일업로드 설정
-	public static void UplodeFile(String uploadPath, MultipartFile multipartFile) throws IOException{
-		if(!multipartFile.isEmpty()){
-			File file = new File(uploadPath, multipartFile.getOriginalFilename());
-			multipartFile.transferTo(file);
-		}
-	
-	}
-	
-	public static Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath) throws IOException {
+	public Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath) throws IOException {
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();

@@ -60,7 +60,7 @@ public class AdminItemController {
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
 	
-		Map<String,Object> map = ProjectUtil.UploadFile(commandMap.getMap(), request, uploadPath);
+		Map<String,Object> map = util.UploadFile(commandMap.getMap(), request, uploadPath);
 		
 		adminItemService.itemInsert(map);
 		
