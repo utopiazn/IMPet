@@ -33,5 +33,6 @@
 	    <mapper resource="IMPet/mybatis/config/MemberSQL.xml" />	    
 	    <mapper resource="IMPet/mybatis/config/PetItemSQL.xml" />
 	    <mapper resource="IMPet/mybatis/config/PetBasketSQL.xml" />
+	    <mapper resource="IMPet/mybatis/config/PetReviewSQL.xml" />
 	</mappers>
 </configuration> 

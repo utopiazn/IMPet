@@ -2,7 +2,6 @@ package IMPet.petShop.adminItem;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
+import IMPet.module.Paging;
 import IMPet.util.ProjectUtil;
 
 @Controller
@@ -22,26 +22,101 @@ public class AdminItemController {
 	
 	ProjectUtil util = new ProjectUtil();
 	
-	public static String getRandomString() {
-		return UUID.randomUUID().toString().replace("-", "");
-	}
-	
 	@Resource(name="adminItemService")
 	private AdminItemService adminItemService;
 	
+	private int searchNum; // 검색 유형
+	private Integer posting; 
+	private String isSearch; // 검색어
+	private int currentPage; // 현재 페이지
+	private int totalCount; // 총 게시글 수
+	private int blockCount = 10; // 한 화면에 보여줄 게시글 수
+	private int blockPage = 5; // 한 화면에 보여줄 페이지 수 
+	private String pagingHtml;
+	private Paging page;
+	
+	
 	//펫샵관리자상품리스트
 	@RequestMapping(value="/AdminItemList")
-	public ModelAndView AdminItemList(CommandMap commandMap) throws Exception {
+	public ModelAndView AdminItemList(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		
 		ModelAndView mav = new ModelAndView("AdminItemList");
 		
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		isSearch = request.getParameter("isSearch");
+		
 		List<Map<String,Object>> itemList = adminItemService.itemList(commandMap.getMap()); 
 		
-		int count = itemList.size();
-		mav.addObject("itemList", itemList);
-		mav.addObject("totalCount", count);
-		return mav;
-		
+		if (isSearch != null) {
+
+			searchNum = Integer.parseInt(request.getParameter("searchNum"));
+
+			System.out.println("getMap : " + commandMap.getMap());
+			
+			if (searchNum == 1)// 상품명
+				itemList = adminItemService.itemSearch1(isSearch);
+			else if (searchNum == 2) // 상품 번호
+				itemList = adminItemService.itemSearch2(isSearch);
+			else if (searchNum == 3) // 카테고리
+				itemList = adminItemService.itemSearch3(isSearch);
+			else if (searchNum == 4) // 판매중
+				itemList = adminItemService.itemSearch4(isSearch);
+			else if (searchNum == 5) // 품절
+				itemList = adminItemService.itemSearch5(isSearch);
+			else if (searchNum == 6) // 재고량 0 인상품
+				itemList = adminItemService.itemSearch6(isSearch);
+			else if (searchNum == 7) // 판매량 높은 순
+				itemList = adminItemService.itemSearch7(isSearch);
+			totalCount = itemList.size();
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "AdminItemList",searchNum, isSearch);
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			itemList = itemList.subList(page.getStartCount(), lastCount);
+
+
+			mav.addObject("totalCount", totalCount);
+			mav.addObject("pagingHtml", pagingHtml);
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("itemList", itemList);
+
+			return mav;
+
+		} else {
+
+			posting = 0;
+			searchNum = 0;
+				
+			totalCount = itemList.size();
+
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "AdminItemList",searchNum, isSearch);
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			itemList = itemList.subList(page.getStartCount(), lastCount);
+
+			mav.addObject("posting", posting);
+			mav.addObject("totalCount", totalCount);
+			mav.addObject("pagingHtml", pagingHtml);
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("itemList", itemList);
+
+			return mav;
+		}
 		
 	}
 	

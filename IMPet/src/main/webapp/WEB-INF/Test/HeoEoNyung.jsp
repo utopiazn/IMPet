@@ -25,7 +25,6 @@ $(document).ready(function(){
 	  		// $(this)란 내가 클릭한 곳을 말함.
 		    fn_test2($(this));
 		});
- 
 });	
 
 // 이 Function 이벤트는 모두 <a 태그로 작성하여 써야함.(input type="button"/ input type="submit")

@@ -46,14 +46,14 @@ protected Log log = LogFactory.getLog(AbstractDAO.class);
 		return sqlSession.delete(queryId, params);
 	}
 	
-	public Object selectOne(String queryId){
+	public Map<String,Object> selectOne(String queryId){
 		
 		printQueryId(queryId);
 		
 		return sqlSession.selectOne(queryId);
 	}
 	
-	public Object selectOne(String queryId, Object params){
+	public Map<String,Object> selectOne(String queryId, Object params){
 		
 		printQueryId(queryId);
 		
@@ -71,6 +71,13 @@ protected Log log = LogFactory.getLog(AbstractDAO.class);
 	@SuppressWarnings("rawtypes")
 	public List selectList(String queryId, Object params){
 		
+		printQueryId(queryId);
+		
+		return sqlSession.selectList(queryId,params);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public List itemSearch(String queryId, Object params) {
 		printQueryId(queryId);
 		
 		return sqlSession.selectList(queryId,params);

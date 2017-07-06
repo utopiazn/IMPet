@@ -39,6 +39,41 @@
 		<include refid="where-no"/>
 	</select>
 	
+	<select id="itemSearch1" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where ITEM_NAME LIKE '%'||#{isSearch}||'%'
+	</select>
+	
+	<select id="itemSearch2" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where ITEM_NO LIKE '%'||#{isSearch}||'%'
+	</select>
+	
+	<select id="itemSearch3" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where ITEM_TYPE=#{isSearch}
+	</select>
+	
+	<select id="itemSearch4" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
+	</select>
+	
+	<select id="itemSearch5" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
+	</select>
+	
+	<select id="itemSearch6" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 
+		where ITEM_REMAINCOUNT = 0
+	</select>
+	
+	<select id="itemSearch7" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll"/> 	
+		ORDER BY ITEM_SELLCOUNT DESC
+	</select>
+	
 	<!-- 관리자 상품 추가 -->
 	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item

@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService{
 		Map<String,Object> resultMap = new HashMap<String,Object>();
 		Map<String,Object> viewMap = itemDAO.selectOne(map);
 		
-		List<Map<String,Object>> commentMap = itemReviewDAO.selectAll();
+		List<Map<String,Object>> commentMap = itemReviewDAO.selectList(map);
 		
 		resultMap.put("view", viewMap);
 		resultMap.put("commentMap", commentMap);
