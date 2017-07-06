@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -142,7 +143,7 @@ public class MemberController {
 	
 	//로그인 처리
 	@RequestMapping(value="/Login")
-	public ModelAndView Login(CommandMap commandMap) throws Exception{
+	public ModelAndView Login(CommandMap commandMap,HttpSession session) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 처리 후 메인 이동");
@@ -165,6 +166,10 @@ public class MemberController {
 		
 		
 		if(!check.isEmpty()){
+			
+			System.out.println("ddd:"+check.get("MEMBER_ID"));
+			
+			session.setAttribute("member_ID", check.get("MEMBER_ID"));
 			
 			LoginSuccess = 1;
 		}
