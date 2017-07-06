@@ -27,59 +27,67 @@ public class AdminItemServiceImpl implements AdminItemService{
 	@Override
 	public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception {
 
-		List<Map<String, Object>> list = adminItemDAO.itemList(map);
-		return list;
+		return adminItemDAO.itemList(map);
 	}
 	
+	//상품 추가
 	@Override
 	public void itemInsert(Map<String, Object> map) throws Exception {
 		
 		adminItemDAO.itemInsert(map);
 		
 	}
-
+	
+	// 상품 선택
 	@Override
 	public Map<String, Object> itemSelect(Map<String, Object> map) throws Exception {
 		
 		return adminItemDAO.itemSelect(map);
 	}
-
+	
+	// 상품 설명 검색
 	@Override
 	public List<Map<String, Object>> itemSearch1(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch1(isSearch);
 	}
-
+	
+	// 상품 번호 검색
 	@Override
 	public List<Map<String, Object>> itemSearch2(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch2(isSearch);
 	}
-
+	
+	// 상품 타입 검색
 	@Override
 	public List<Map<String, Object>> itemSearch3(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch3(isSearch);
 	}
-
+	
+	// 상품 판매중 
 	@Override
 	public List<Map<String, Object>> itemSearch4(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch4(isSearch);
 	}
-
+	
+	// 상품 품절
 	@Override
 	public List<Map<String, Object>> itemSearch5(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch5(isSearch);
 	}
-
+	
+	// 상품 재고 적은순
 	@Override
 	public List<Map<String, Object>> itemSearch6(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch6(isSearch);
 	}
-
+	
+	// 상품 판매량 많은 순
 	@Override
 	public List<Map<String, Object>> itemSearch7(String isSearch) throws Exception {
 		// TODO Auto-generated method stub

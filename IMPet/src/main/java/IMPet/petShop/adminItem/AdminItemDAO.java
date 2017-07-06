@@ -33,36 +33,36 @@ public class AdminItemDAO extends AbstractDAO{
 	
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch1(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch1",isSearch);
 	}
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch2(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch2",isSearch);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch3(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch3",isSearch);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch4(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch4",isSearch);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch5(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch5",isSearch);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch6(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch6",isSearch);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String,Object>> itemSearch7(String isSearch) throws Exception {
-		return itemSearch("PetItemSQL.itemSearch",isSearch);
+		return itemSearch("PetItemSQL.itemSearch7",isSearch);
 	}
 
 

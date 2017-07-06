@@ -39,36 +39,43 @@
 		<include refid="where-no"/>
 	</select>
 	
+	<!-- 상품 내용 -->
 	<select id="itemSearch1" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		where ITEM_NAME LIKE '%'||#{isSearch}||'%'
 	</select>
 	
+	<!-- 상품 번호 -->
 	<select id="itemSearch2" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		where ITEM_NO LIKE '%'||#{isSearch}||'%'
 	</select>
 	
+	<!-- 상품 타입 -->
 	<select id="itemSearch3" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		where ITEM_TYPE=#{isSearch}
 	</select>
 	
+	<!-- 판매중 -->
 	<select id="itemSearch4" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
 	</select>
 	
+	<!-- 품절 -->
 	<select id="itemSearch5" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
 	</select>
 	
+	<!-- 재고수량 -->
 	<select id="itemSearch6" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
-		where ITEM_REMAINCOUNT = 0
+		ORDER BY ITEM_REMAINCOUNT ASC
 	</select>
 	
+	<!-- 판매량 -->
 	<select id="itemSearch7" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 	
 		ORDER BY ITEM_SELLCOUNT DESC

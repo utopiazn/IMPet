@@ -48,31 +48,38 @@ public class AdminItemController {
 		} else {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-		
+		System.out.println("111111111111111111111111111111");
+		System.out.println("search"+request.getParameter("isSearch"));
 		isSearch = request.getParameter("isSearch");
 		
 		List<Map<String,Object>> itemList = adminItemService.itemList(commandMap.getMap()); 
 		
 		if (isSearch != null) {
-
+			System.out.println("22222222222222");
+			
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
 			System.out.println("getMap : " + commandMap.getMap());
 			
-			if (searchNum == 1)// 상품명
+			if (searchNum == 0){ // 상품명
+				System.out.println("333333");
 				itemList = adminItemService.itemSearch1(isSearch);
-			else if (searchNum == 2) // 상품 번호
+			}
+			else if (searchNum == 1) // 상품 번호
 				itemList = adminItemService.itemSearch2(isSearch);
-			else if (searchNum == 3) // 카테고리
+			else if (searchNum == 2) // 카테고리
 				itemList = adminItemService.itemSearch3(isSearch);
-			else if (searchNum == 4) // 판매중
+			else if (searchNum == 3) // 판매중
 				itemList = adminItemService.itemSearch4(isSearch);
-			else if (searchNum == 5) // 품절
+			else if (searchNum == 4) // 품절
 				itemList = adminItemService.itemSearch5(isSearch);
-			else if (searchNum == 6) // 재고량 0 인상품
+			else if (searchNum == 5) // 재고량 적은순(품절 임박)
 				itemList = adminItemService.itemSearch6(isSearch);
-			else if (searchNum == 7) // 판매량 높은 순
+			else if (searchNum == 6) // 판매량 높은 순
 				itemList = adminItemService.itemSearch7(isSearch);
+			else 
+				adminItemService.itemList(commandMap.getMap());
+			
 			totalCount = itemList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "AdminItemList",searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
