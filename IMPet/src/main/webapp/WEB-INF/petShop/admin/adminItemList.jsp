@@ -86,25 +86,24 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px; text-align:left;">
 						<div class="col-sm-6">
-							<a href="/IMPet/PetShop/adminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<a href="/IMPet/PetShop/AdminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--카테고리--</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=0">사료</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=1">간식</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=2">패션의류</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=3">목줄/야외</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=4">생활/잡화</option> 
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">사료</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=1">간식</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=2">패션의류</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=3">목줄/야외</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=4">생활/잡화</option> 
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=3&isSearch=0">판매중</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=4&isSearch=">품절상품</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE=3&isSearch=1">비활성화</option>
+								<option value ="/IMPet/PetShop/adminItemList?searchNum=4&isSearch=0">판매중</option>
+								<option value ="/IMPet/PetShop/adminItemList?searchNum=5&isSearch=0">품절상품</option>
 							</select>			
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=ITEM_TOTALCOUNT">수량순</option>
-								<option value ="/IMPet/PetShop/adminItemList?ITEM_TYPE&isSearch=ITEM_SELLCOUNT">판매량순</option>
+								<option value ="/IMPet/PetShop/adminItemList?searchNum=6&isSearch=0">재고수량</option>
+								<option value ="/IMPet/PetShop/adminItemList?searchNum=7&isSearch=0">판매량</option>
 							</select>											
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
@@ -125,7 +124,8 @@ function delchk(){
 										<th style="width: 7%; text-align:center;vertical-align:middle;">카테고리</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">상품명</th>
 										<th style="width: 8%; text-align:center;vertical-align:middle;">가격</th>
-										<th style="width: 7%; text-align:center;vertical-align:middle;">수량</th>
+										<th style="width: 7%; text-align:center;vertical-align:middle;">총수량</th>
+										<th style="width: 7%; text-align:center;vertical-align:middle;">재고수량</th>
 										<th style="width: 7%; text-align:center;vertical-align:middle;">판매량</th>							
 										<th style="width: 13%; text-align:center;vertical-align:middle;">관리</th>
 									</tr>
@@ -157,13 +157,14 @@ function delchk(){
 										<c:if test="${itemList.ITEM_DCPRICE != null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<del><fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<br/></del>
-												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+												<fmt:formatNumber value="${itemList.ITEM_DCPRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
 										<c:if test="${itemList.ITEM_DCPRICE == null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT - itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>																	
 										<td style="text-align:center;vertical-align:middle;">
 										<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
