@@ -6,16 +6,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<!-- <link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet"> --> 
+<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 
 <script type="text/javascript">
 
+
+
 	//숫자,표시 함수
-	var funcSetCurrency = function($) {		
+	var funcSetCurrency = function($) {
+		
+		
+		  alert("1" );
+		
 		$('span,p.custom,.custom').each(
 				function() {
 					if (!isNaN(Number($(this).text())) && $(this).text())
@@ -24,21 +30,28 @@
 				});
 		
 	};
-
+	
+	
+	
+	
 	$(document).ready(function() {
+		
+		
 		funcSetCurrency($);
 	});
 	
 	//구매갯수 변환 함수
 	function count_change(temp){
-		var test=document.itemform.amount.value;		
+		var test=document.itemform.amount.value;
+		  alert("amount:" + amount);
+		
 		var price="${view.ITEM_PRICE}";//숫자계산위해필요
 			if(temp==0){
 				test++;
 			}else if(temp==1){
 				if(test >1 ) test--;
 			}
-		if(test>"${view.ITEM_REMAINCOUNT}"){
+		if(test>"${view.ITEM_TOTALCOUNT}"){
 			alert("잔여수량만큼 구매하세요");
 			test=1;
 		}
@@ -51,7 +64,11 @@
 	
 	//span값변경
 	$(window).load(function(){ 
+	    
 	    var amount=document.itemform.amount.value;
+	    
+	    alert("amount:" + amount);
+	    
 	    var price="${view.ITEM_PRICE}";
 	    var value2 = $("#span1").html(price*amount); 
 	    var value3 = $("em").html(price*amount);
@@ -72,7 +89,7 @@
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${session_member_id}";
-		location.href = 'PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+		location.href = 'PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_TOTALCOUNT='+amount+'&MEMBER_ID='+id;
 			
 	};
 		
@@ -82,17 +99,16 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${session_member_id}";
-        location.href = 'PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = 'PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_TOTALCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
     //코멘트 처리
     var onComment = function(){
-  		var form = $('.commentForm')[0];
-  		form.action = 'ItemComment'; 
+  		var form = $('.commentForm')[0];  //모르겠다아아아ㅏ아아아아아아아
+  		form.action = 'ItemView'; 
   		form.submit();
   	};
-	 
 	
 </script>
 
@@ -146,7 +162,7 @@ button {
 
 </head>
 <body>
-
+<input type="button" onclick="joinCheck();">
 	<!-- /* 카테고리 표시부분 */ -->
 	<div class="category_top">
 	<ul>
@@ -217,7 +233,7 @@ button {
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${view.ITEM_REMAINCOUNT}개)</span></span></td>
+								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${view.ITEM_TOTALCOUNT}개)</span></span></td>
 							</tr>
 						</tfoot>
 					</table>
@@ -225,12 +241,12 @@ button {
 				<div class="cartbuy">
 					<div class="img_on">
 						<!-- 잔여수량이 0 이면 솔드아웃 처리 -->
-						<c:if test="${view.ITEM_REMAINCOUNT > 0 }">						
+						<c:if test="${view.ITEM_TOTALCOUNT > 0 }">						
 						<a href="JavaScript:onOrder()"><img src="http://okidogki.com/web/upload/goodymall15/layout/btn_prdOrder.gif" alt="바로 구매하기"></a>
 						<a href="JavaScript:onBasket()"><img src="http://okidogki.com/web/upload/goodymall15/layout/btn_basket.gif" alt="장바구니 담기"></a> 
 						</c:if>
 						
-						<c:if test="${view.ITEM_REMAINCOUNT <= 0 }">
+						<c:if test="${view.ITEM_TOTALCOUNT <= 0 }">
 						<img src="http://ppoya.co.kr/images/btn_soldout.gif" alt="품절">						
 						</c:if>
 					</div>

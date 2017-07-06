@@ -60,7 +60,7 @@ public class ItemController {
 
 		System.out.println("펫샵상품상세보기");
 		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
-		
+		System.out.println(map);
 		mav.addObject("view", map.get("view"));
 		mav.addObject("comment", map.get("commentMap"));
 		mav.setViewName("ItemView");
