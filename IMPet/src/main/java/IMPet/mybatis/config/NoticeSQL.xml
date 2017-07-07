@@ -39,12 +39,24 @@
 	<!-- 공지사항 수정 -->
 	<update id="update" parameterType="hashmap">
 	<![CDATA[
-	UPDATE PET_NOTICE SET NOTICE_NO=#{notice_NO}, NOTICE_SUBJECT=#{notice_Subject}, 
-	NOTICE_CONTENT=#{notice_Content}, NOTICE_IMG=#{notice_IMG},
-	NOTICE_COUNT=#{notice_Count}, NOTICE_DATE=sysdate
+	UPDATE 
+		PET_NOTICE 
+	
+	SET NOTICE_NO=#{notice_NO}, 
+	NOTICE_SUBJECT=#{notice_Subject}, 
+	NOTICE_CONTENT=#{notice_Content},
+	 NOTICE_IMG=#{notice_IMG},
+	NOTICE_COUNT=#{notice_Count},
+	 NOTICE_DATE=#{notice_Date}
+	
+	 WHERE 
+	 notice_NO = #{notice_NO}
 	]]>
-	<include refid="where-no"/>
+	<!-- <include refid="where-no"/> -->
 	</update>
+	
+	
+	
 	
 	<!-- 공지사항 삭제 -->
 	<delete id="delete" parameterType="hashmap">
