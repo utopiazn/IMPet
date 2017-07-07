@@ -26,6 +26,10 @@ public class AdminItemDAO extends AbstractDAO{
 		insert("PetItemSQL.itemInsert", map);
 	}
 	
+	public void itemUpdate(Map<String, Object> map) throws Exception {
+		update("PetItemSQL.itemUpdate", map);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public Map<String,Object> itemSelect(Map<String,Object> map) throws Exception {
 		return selectOne("PetItemSQL.itemSelect", map);

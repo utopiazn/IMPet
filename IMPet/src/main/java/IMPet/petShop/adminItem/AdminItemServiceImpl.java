@@ -38,6 +38,14 @@ public class AdminItemServiceImpl implements AdminItemService{
 		
 	}
 	
+	
+	@Override
+	public void itemUpdate(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		adminItemDAO.itemUpdate(map);
+		
+	}
+
 	// 상품 선택
 	@Override
 	public Map<String, Object> itemSelect(Map<String, Object> map) throws Exception {
