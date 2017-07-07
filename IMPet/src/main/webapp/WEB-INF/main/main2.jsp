@@ -82,7 +82,7 @@ width: 100%; height: 80px; display: table-cell; float: left; font-family: 'Hanna
 </style>
 
 <meta charset="UTF-8">
-<title>메인페이지</title>
+<title>♥IMPET : 아임펫♥</title>
 </head>
 <body>
 	<div class="wrap">

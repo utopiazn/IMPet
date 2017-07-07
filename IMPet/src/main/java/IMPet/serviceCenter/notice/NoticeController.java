@@ -90,9 +90,16 @@ public class NoticeController {
 
 	// 공지사항 수정 폼
 	@RequestMapping(value = "/NoticeModifyForm")
-	public ModelAndView NoticeModifyForm() {
+	public ModelAndView NoticeModifyForm(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
 
+		
+		Map<String, Object> map = noticeService.selectOne(commandMap.getMap());
+		
 		System.out.println("공지사항 수정 폼");
+		
+		mav.addObject("view", map);
 
 		mav.setViewName("NoticeModifyForm");
 		return mav;
@@ -100,11 +107,19 @@ public class NoticeController {
 
 	// 공지사항 수정
 	@RequestMapping(value = "/NoticeModify")
-	public ModelAndView NoticeModify() {
-
+	public ModelAndView NoticeModify(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		Map<String, Object> map = commandMap.getMap();	
+		
+		noticeService.update(map);
+		
+		String no = commandMap.get("notice_NO").toString();
+		
 		System.out.println("공지사항 수정");
 
-		mav.setViewName("NoticeModify");
+		mav.setViewName("redirect:NoticeView?notice_NO="+no);
 		return mav;
 	}
 
