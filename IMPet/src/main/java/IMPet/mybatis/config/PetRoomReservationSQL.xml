@@ -19,10 +19,11 @@
 		SELECT room_Total - (
 		SELECT COUNT (res_NO) FROM (
   			SELECT res_NO FROM PET_ROOM_RESERVATION 	
-			WHERE res_FirstDate between #{res_FirstDate} and #{res_LastDate} or
+			WHERE (res_FirstDate between #{res_FirstDate} and #{res_LastDate} or
 			  res_LastDate between #{res_FirstDate} and #{res_LastDate} or
 			  #{res_FirstDate} between res_FirstDate and res_LastDate or
-			  #{res_LastDate} between res_FirstDate and res_LastDate))
+			  #{res_LastDate} between res_FirstDate and res_LastDate)
+			  and room_NO = #{room_NO}))
 			as "NUM" FROM PET_ROOM
 		WHERE room_NO = #{room_NO}
 		

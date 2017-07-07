@@ -100,7 +100,7 @@ public class PetRoomController {
 		
 		System.out.println("호텔 룸 추가");
 		
-		String url = "redirect:/PetHotel/RoomList";
+		String url = "redirect:RoomList";
 		
 		mav.setViewName(url);
 		
