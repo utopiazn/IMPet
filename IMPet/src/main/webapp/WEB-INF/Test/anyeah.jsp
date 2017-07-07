@@ -10,21 +10,131 @@
 
 	<meta charset="UTF-8">
 <title>안예아 전용 페이지 </title>
-<!-- 
-<link href="//fonts.googleapis.com/css?family=Comfortaa&subset=latin" rel="stylesheet" type="text/css"> -->
+
+<!-- 마이페이지 예시 -->
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/mypage.css" />
 
+ <style>
+ /* 폰트 */
+ @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+ 
+ /* 버튼 예시 1 */
+ .button {
+  position: relative;
+  padding: 14px 0;
+  border: 2px #2ecc71 solid;
+  float: left;
+  color: #2ecc71;
+  cursor: pointer;
+  font-family: 'Hanna' sans-serif;
+  font-size: .9em;
+  text-transform: uppercase;
+  transition: color 0.4s, background-color 0.4s;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1em;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 210px;
+  top: 50%;
+  left: 50%;
+  margin: 0 -105px;
+  width: 210px;
+}
+.button:hover, .button:focus {
+  transition: color 0.4s, background-color 0.4s;
+  color: white;
+  text-decoration: none;
+  background-color: #2ecc71;
+}
 
-<%-- <script src="<c:url value='/IMPet/resources/js/admin.js'/>" charset="utf-8"></script> --%>
-<!-- <script src="/IMPet/resources/js/admin.js" charset="utf-8"></script>
- -->
-<!-- <style>* { font-family: 'Comfortaa', sans-serif; }</style> -->
+ /* 버튼 예시 2 */
+.button2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+.button2 {
+  background: #333;
+  color: #ccc;
+  width: 200px;
+  height: 60px;
+  border: 0;
+  font-size: 18px;
+  border-radius: 4px;
+  font-family: 'Hanna', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+}
+.button:focus2 {
+  outline: 0;
+}
+.button2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:hover {
+  background: #338033;
+  cursor: pointer;
+}
+.button2:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+.button2:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+ </style>
 
 
 
 </head>
 <body>
-
+<!-- 마이페이지 -->
 <div id="middler_body">
 
 		<table cellpadding="0" cellspacing="0" width="100%">
@@ -153,7 +263,14 @@
 	</tbody>
 	</table>
 	</div>
+	
+	<!-- 버튼 예시 -->
+	<div class="button">
+		<div>확인</div>
+	</div>
 
+	<!-- 버튼 예시2 -->
+	<button class="button2">hover</button>
 
 </body>
 </html>

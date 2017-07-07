@@ -1,4 +1,4 @@
-@CHARSET "EUC-KR";
+@CHARSET "utf-8";
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 .button {
 	font-weight:bold;
@@ -20,4 +20,41 @@
 	border-color:#e3bf54;
 	border-width:0px;
 	border-style:solid;
+}
+
+.button2 {
+  position: relative;
+  padding: 14px 0;
+  border: 2px #2ecc71 solid;
+  float: left;
+  color: #2ecc71;
+  cursor: pointer;
+  font-family: "Montserrat", "helvetica neue", helvetica, arial, sans-serif;
+  font-size: .9em;
+  text-transform: uppercase;
+  transition: color 0.4s, background-color 0.4s;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1em;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 210px;
+  top: 50%;
+  left: 50%;
+  margin: 0 -105px;
+  width: 210px;
+}
+.button2:hover, .button:focus {
+  transition: color 0.4s, background-color 0.4s;
+  color: white;
+  text-decoration: none;
+  background-color: #2ecc71;
 }
