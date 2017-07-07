@@ -8,9 +8,9 @@
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 </head>
 <style>
-.right{ /* main 2 body부분 */
+.right{ /* main 2 body부분 */width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: left; margin: 0 auto; clear: both;}
 
-width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: left; margin: 0 auto; clear: both;
+
 </style>
 <body>
 
@@ -54,9 +54,13 @@ function validateForm() {
                             <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="상품명을 입력하세요" style="width:500px;"/>
                         </div>
                         
-                        <div class="form-group">
-                            <label>상품이미지</label>
-                            <input type="file" name="ITEM_IMG" size="30" value=''/>
+                        <div class="file_input">
+                        	메인 상품 이미지 <br/>
+                             <label>파일 첨부 
+                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
+                            <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
                         </div>
                         
@@ -71,18 +75,33 @@ function validateForm() {
                             <p class="help-block">판매가격 입력하세요. 0원으로 그대로 갈 경우 큰일납니다</p>
                         </div>
                         
-                        <div class="form-group">
-                            <label>상품 내용 이미지</label><!-- goods_contentimage -->
-                            <input type="file" name="ITEM_DETAILIMG" size="30" value=''/>
+                         <div class="file_input">
+                        	상품 내용 이미지 <br/>
+                             <label>파일 첨부 
+                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
+                            <input type="file" name="ITEM_DETAILIMG" onchange="javascript:document.getElementById('file_route1').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route1">
                             <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
                         </div>
                         
-                        <div class="form-group">
-                            <label>배송 내용 이미지</label><!-- goods_delevimage -->
-                            <input type="file" name="ITEM_BASKETIMG" size="30" value=''/>
-                            <p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p>
-                        </div>
-                                           
+                        <div class="file_input">
+                        	배송 내용 이미지 <br/>
+                            <label>파일 첨부 
+                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
+                            <input type="file" name="ITEM_BASKETIMG" onchange="javascript:document.getElementById('file_route2').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route2">
+                            <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>
+                        </div> 
+                                  
+                        <!-- <div class="file_input">
+		                     <label>
+		                        	파일첨부
+		                        <input type="file" onchange="javascript:document.getElementById('file_route').value=this.value">
+		                     </label>
+		                     <input type="text" readonly="readonly" title="File Route" id="file_route">
+		                </div>          -->
 						<button type="submit" class="btn btn-success">상품등록</button>
 						<button type="reset" class="btn btn-default">작성취소</button>					
 				</form>

@@ -13,6 +13,9 @@ public interface AdminItemService {
 		//상품 추가
 		public void itemInsert(Map<String, Object> map) throws Exception;
 		
+		//상품 수정
+		public void itemUpdate(Map<String, Object> map) throws Exception;
+		
 		// 상품 하나 가져오기
 		public Map<String,Object> itemSelect(Map<String, Object> map) throws Exception;
 		

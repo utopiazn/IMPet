@@ -35,7 +35,7 @@ function validateForm() {
 	<div class="panel panel-default">
 		<div class="panel-heading" >상품수정 페이지입니다. 이미지 확인하십시오</div>
 			<div class="panel-body" style=text-align:left;>
-				<form action="goodsModify.dog" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
+				<form action="AdminItemModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
 				<input type="hidden" name="ITEM_NO" value="${itemList.ITEM_NO}">	
 							
 						<div class="form-group">
@@ -52,41 +52,60 @@ function validateForm() {
                             <label>상품명</label>
                             <input type="text" class="form-control" name="ITEM_NAME" value="${itemList.ITEM_NAME}" style="width:500px;"/>
                         </div>
-                        <div style="border:1px;" class="form-group">
-                           <label>상품이미지</label>
-                            
-                            <c:if test="${!empty itemList.ITEM_IMG}">
-                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt="" onerror="this.src='/pet/resources/images/noimg_130.gif'" /><input type="hidden"  name="goods_image" value="${goodsModel.goods_image}"></p>
+                        
+                         
+                        
+                        <div class="file_input">
+                        	메인 상품 이미지 <br/>
+                        	 <c:if test="${!empty itemList.ITEM_IMG}">
+                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
+                            	<input type="hidden"  name="ITEM_IMG" value="${itemList.ITEM_IMG}"></p>
                             </c:if>
-                            
-                            <input type="file" name="ITEM_IMG" size="30" value="${itemList.ITEM_IMG}"/>
+                             <label>파일 첨부 
+                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
+                            <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
                             
                         </div>
                         <div class="form-group">
-                            <label>상품수량</label>
-                            <input type="text" class="form-control" name="ITEM_TOTALCOUNT"  value="${itemList.ITEM_TOTALCOUNT}" style="width:107px;"/>
+                            <label>재고수량</label>
+                            <input type="text" class="form-control" name="ITEM_REMAINCOUNT"  value="${itemList.ITEM_REMAINCOUNT}" style="width:107px;"/>
                         </div>
                         <div class="form-group">
                             <label>판매가격</label>
                             <input type="text" class="form-control" value="${itemList.ITEM_PRICE}" name="ITEM_PRICE" style="width:initial;"/>
                             <p class="help-block">판매가격 입력하세요. 0원으로 그대로 갈 경우 큰일납니다</p>
                         </div>
-                        <div class="form-group">
-                            <label>상품 내용 이미지</label><!-- goods_contentimage -->
-                            <c:if test="${!empty itemList.ITEM_DETAILIMG}">
-                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_DETAILIMG}" width="60" height="60" alt="" onerror="this.src='/pet/resources/images/noimg_130.gif'" /><input type="hidden" name="goods_contentimage" value="${goodsModel.goods_contentimage}"></p>
+                        
+                       <div class="file_input">
+                        	메인 상품 이미지 <br/>
+                        	<c:if test="${!empty itemList.ITEM_DETAILIMG}">
+                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_DETAILIMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
+                            	<input type="hidden" name="ITEM_DETAILIMG" value="${itemList.ITEM_DETAILIMG}"></p>
                             </c:if>
-                            <input type="file" name="ITEM_DETAILIMG" size="30" value=''/>
+                             <label>파일 첨부 
+                          		 <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->                         
+                          		  <input type="file" name="ITEM_DETAILIMG" onchange="javascript:document.getElementById('file_route1').value=this.value" >                          
+                            </label>
+                          		  <input type="text" readonly="readonly" title="File Route" id="file_route1" value="">
                             <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
                         </div>
-                        <div class="form-group">
-                            <label>배송 내용 이미지</label><!-- goods_delevimage -->
-                            <c:if test="${!empty itemList.ITEM_BASKETIMG}">
-                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_BASKETIMG}" width="60" height="60" alt="" onerror="this.src='/pet/resources/images/noimg_130.gif'" /><input type="hidden" name="goods_delevimage" value="${goodsModel.goods_delevimage}"></p>
+                         
+                        
+                           <div class="file_input">
+                        	배송 내용 이미지 <br/>
+                        	 <c:if test="${!empty itemList.ITEM_BASKETIMG}">
+                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_BASKETIMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
+                            	<input type="hidden" name="ITEM_BASKETIMG" value="${itemList.ITEM_BASKETIMG}"></p>
                             </c:if>
-                            <input type="file" name="ITEM_BASKETIMG" size="30" value=''/>
-                            <p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p>
+                            <label>파일 첨부 
+                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
+                            <input type="file" name="ITEM_BASKETIMG" onchange="javascript:document.getElementById('file_route2').value=this.value" >                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route2" value="">
+                            <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>
                         </div>
 						<button type="submit" class="btn btn-success">상품수정</button>
 						<button type="reset" class="btn btn-default">작성취소</button>					

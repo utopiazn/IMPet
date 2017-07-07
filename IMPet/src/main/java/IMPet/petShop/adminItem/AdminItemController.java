@@ -53,6 +53,7 @@ public class AdminItemController {
 		isSearch = request.getParameter("isSearch");
 		
 		List<Map<String,Object>> itemList = adminItemService.itemList(commandMap.getMap()); 
+		System.out.println("list"+itemList.size());
 		
 		if (isSearch != null) {
 			System.out.println("22222222222222");
@@ -165,13 +166,18 @@ public class AdminItemController {
 	
 	//펫샵관리자상품수정
 	@RequestMapping(value="/AdminItemModify")
-	public ModelAndView AdminItemModify()  throws Exception {
+	public ModelAndView AdminItemModify(CommandMap commandMap, HttpServletRequest request)  throws Exception {
 
 		
-		System.out.println("펫샵관리자상품수정");
-	
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+
+		int num = Integer.parseInt(commandMap.get("ITEM_NO").toString());
 		
-		mav.setViewName("AdminItemModify");
+		Map<String,Object> map = util.UploadFile(commandMap.getMap(), request, uploadPath, num);
+	
+		adminItemService.itemUpdate(map);
+		
+		mav.setViewName("redirect:/PetShop/AdminItemList");
 		return mav;
 	}
 	

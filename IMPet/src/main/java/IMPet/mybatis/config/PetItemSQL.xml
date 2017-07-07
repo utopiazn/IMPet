@@ -34,7 +34,7 @@
 	
 	
 	<!-- 상품 상세보기 -->
-	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+	<select id="itemSelect" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		<include refid="where-no"/>
 	</select>
@@ -89,6 +89,7 @@
 					  ITEM_PRICE,
 					  ITEM_TOTALCOUNT,
 					  ITEM_SELLCOUNT,
+					  ITEM_REMAINCOUNT,
 					  ITEM_TYPE,
 					  ITEM_IMG,
 					  ITEM_DETAILIMG,
@@ -96,12 +97,26 @@
 			values(ITEM_NO_SEQ.NEXTVAL,
 					  #{ITEM_NAME},
 				      #{ITEM_PRICE},
-				      #{ITEM_TOTALCOUNT},
+				      #{ITEM_TOTALCOUNT},			   
 				      0,
+				      #{ITEM_TOTALCOUNT},
 				      #{ITEM_TYPE},
 				      #{ITEM_IMG},
 				      #{ITEM_DETAILIMG},
 				      #{ITEM_BASKETIMG})			     
 	</insert>
+	
+	<update id="itemUpdate" parameterType="hashmap">
+		
+		update PET_ITEM set
+			ITEM_NAME = #{ITEM_NAME},
+			ITEM_PRICE = #{ITEM_PRICE},
+			ITEM_REMAINCOUNT = #{ITEM_REMAINCOUNT},
+			ITEM_TYPE = #{ITEM_TYPE},
+			ITEM_IMG = #{ITEM_IMG},
+			ITEM_DETAILIMG = #{ITEM_DETAILIMG},
+			ITEM_BASKETIMG = #{ITEM_BASKETIMG}
+		<include refid="where-no"/>
+	</update>
 	
 </mapper>

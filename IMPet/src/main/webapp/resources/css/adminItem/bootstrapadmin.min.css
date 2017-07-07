@@ -2907,6 +2907,8 @@ input[type=search] {
 	-webkit-appearance: none
 }
 
+
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	input[type=date].form-control, input[type=time].form-control, input[type=datetime-local].form-control,
 		input[type=month].form-control {
@@ -2928,6 +2930,42 @@ input[type=search] {
 
 .form-group {
 	margin-bottom: 15px
+}
+
+.file_input label {
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    width:75px;
+    height:30px;
+    color:#fff;
+    text-align:center;
+    line-height:30px;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size:14px;
+    
+}
+.file_input label input {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+.file_input input[type=text] {
+    vertical-align:middle;
+    display:inline-block;
+    width:400px;
+    height:28px;
+    line-height:28px;
+    font-size:14px;
+    padding:0;
+    border:0;
+ 
 }
 
 .checkbox, .radio {

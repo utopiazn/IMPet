@@ -73,12 +73,17 @@ public class ProjectUtil{
 	*/
 	
 	
-	public Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath) throws IOException {
+	public Map<String,Object> UploadFile(Map<String,Object> commandMap ,HttpServletRequest request, String uploadPath, int num) throws IOException {
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
 		MultipartFile multipartFile = null;
 		String originalFileName = null;
+		String originalFileExtension = null;
+		String storedFileName = null;
+		int count = 0;
+		
+		
 		
 		while(iterator.hasNext()) {
 			
@@ -88,7 +93,9 @@ public class ProjectUtil{
 			
 			if (multipartFile.isEmpty() == false) {
 				
-				originalFileName = multipartFile.getOriginalFilename();			
+				originalFileName = multipartFile.getOriginalFilename();	
+				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+				storedFileName = "IMAGE_"+ num+ "_"+count++ + originalFileExtension;
 				
 				File file = new File(uploadPath + originalFileName);
 				
