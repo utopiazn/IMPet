@@ -53,8 +53,25 @@
 	</select>
 	
 	
+	<!-- 카운터 확인-->
+	<select id="selectLogInCount" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 
+			 where
+			 	member_ID = '${MEMBER_ID}'	and
+			 	member_PW = '${MEMBER_PW}'
+			
+		]]>
+	</select>
+	
+	
+	
 	<!-- 로그인 확인-->
-	<select id="selectLogInCheck" resultType="hashmap" parameterType="hashmap">
+	<select id="selectLogInOne" resultType="hashmap" parameterType="hashmap">
 			
 		<![CDATA[		
 			 select 

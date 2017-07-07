@@ -49,7 +49,7 @@ public class PetHealingController {
 		
 		Map<String, Object> map = petHealingService.selectOne(commandMap.getMap());
 		
-		String url = "PetHotel_HealingView";
+		String url = "petHotel/healing/view";
 		
 		mav.addObject("view", map);
 		
@@ -66,7 +66,7 @@ public class PetHealingController {
 		
 		System.out.println("호텔 힐링 추가 폼");
 
-		String url = "PetHotel_HealingInsertForm";
+		String url = "petHotel/healing/insertForm";
 		
 		mav.setViewName(url);
 		
@@ -100,7 +100,7 @@ public class PetHealingController {
 		
 		Map<String, Object> map = petHealingService.selectOne(commandMap.getMap());
 		
-		String url = "PetHotel_HealingModifyForm";
+		String url = "petHotel/healing/insertForm";
 		
 		mav.addObject("view", map);
 		

@@ -26,7 +26,7 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="공지사항 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeModifyForm'"/>
+<input value="공지사항 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeModifyForm?notice_NO=${view.NOTICE_NO}'"/>
 
 <br/><br/><br/><br/><br/>
 

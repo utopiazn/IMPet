@@ -152,54 +152,38 @@ public class MemberController {
 		System.out.println(commandMap.getMap());
 		
 		
-	
 		
-		
-		Map<String,Object>  check = memberService.selectLogInCheck(commandMap.getMap());
-		//로그인 성공시	
-		//dd = memberService.selectLogInCheck(commandMap.getMap());
-		//System.out.println(dd);
+		int count = memberService.selectLogInCount(commandMap.getMap());
 		
 		
 		int LoginSuccess = 0;
 		
 		
-		
-		if(!check.isEmpty()){
+		//로그인 성공시
+		if(count>0){			
+			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());
 			
-			System.out.println("ddd:"+check.get("MEMBER_ID"));
+			System.out.println("ddd:"+check.get("MEMBER_ID"));			
+			session.setAttribute("member_ID", check.get("MEMBER_ID"));	
 			
-			session.setAttribute("member_ID", check.get("MEMBER_ID"));
+			
 			
 			LoginSuccess = 1;
+			
+		}else{
+			
+			String errorMsg ="아이디 또는 비밀번호가 잘못 되었습니다 다시 확인해주세요";			
+			mav.addObject("errorMsg", errorMsg);	
+			
 		}
 		
-	//	mav.addObject("check",check );
-		
-		mav.addObject("LoginSuccess",LoginSuccess );
-	
-		
+				
+		mav.addObject("LoginSuccess",LoginSuccess );			
 		mav.setViewName("member/loginForm");
 
 		
 		
-		//mav.setViewName("redirect:/Main");
-		
-		//mav.setViewName("member/loginForm");
-		//mav.setViewName("member/loginForm");
-		/*//mav.setViewName("main");
-		//로그인 성공시
-		
-				int LoginSuccess = 1;
-				
-				mav.addObject("LoginSuccess",LoginSuccess );
-				
-				
-				mav.setViewName("member/loginForm");
-				//mav.setViewName("member/loginForm");
-				//mav.setViewName("main");
-				
-		*/
+	
 		
 		return mav;
 	}

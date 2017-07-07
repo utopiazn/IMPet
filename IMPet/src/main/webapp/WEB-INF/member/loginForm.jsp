@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
@@ -50,8 +52,7 @@ function ajaxLoginView(){
       
       error : function() {
     	  
-    	/* alert('오류임!'); */
-    	
+    	 alert('오류임!');     	
       },
       success : function(data) {  
     	 $('#Context').html(data);
@@ -85,7 +86,7 @@ function ajaxLoginView(){
 
 
 
-
+${ errorMsg }
 
 <div class="xans-member-login" >
 
@@ -121,10 +122,11 @@ function ajaxLoginView(){
 	
 	<div class="login_btn">
 	
-		<input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
-		<!-- 		
+		<!-- <input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
+		 --> 		
+	
 	 <input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif"   onclick="ajaxLoginView();" />
-		  -->
+	 
 	</div>
 	
 </div>

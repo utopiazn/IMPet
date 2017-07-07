@@ -32,15 +32,39 @@ public class MemberDAO extends AbstractDAO{
 	
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> selectLogInCheck(Map<String, Object> map) throws Exception {
+	public Map<String, Object> selectLogInOne(Map<String, Object> map) throws Exception {
 		
 	//	System.out.println(map);
 		
-		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectLogInCheck", map);
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectLogInOne", map);
 		
 		return view;
 	}
 	
 
+	@SuppressWarnings("unchecked")
+	public int selectLogInCount(Map<String, Object> map) throws Exception {
+		
+	//	System.out.println(map);
+		
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectLogInCount", map);
+	
+		System.out.println("확인:"+view);
+	
+		
+		int count = Integer.parseInt(view.get("COUNT").toString());
+		
+		//int count = (Integer)view.get("COUNT");
+		
+		System.out.println("체크 확인:"+count);
+		
+		//int a = Integer.parseInt((String) view.get("count"));
+		
+		
+		
+		return count;
+	}
+	
 
 }

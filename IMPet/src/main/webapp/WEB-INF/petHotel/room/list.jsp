@@ -5,11 +5,12 @@
 
 function ajaxRoomView(no){
 	
-	var url1 = "/IMPet/PetHotel/RoomView?room_NO="+no;
-	
+	var url1 = "/IMPet/PetHotel/RoomView";
+	var formData = { room_NO : no};
     $.ajax({
-      type : "GET",
+      type : "POST",
       url : url1,
+      data : formData,
       dataType : "text",
       error : function() {
         alert('오류발생!!');
@@ -53,7 +54,7 @@ function ajaxRoomInsert(){
 				</td>
 				<td style="width: 70%;">
 				<div style="border:1px solid black; width: 100%; height: 220px; float:left;">
-					<h1><a href="#" onclick="ajaxRoomView(${room.ROOM_NO});">방 번호 : ${room.ROOM_NO} / 방 이름 : ${room.ROOM_NAME} / 방 가격 : ${room.ROOM_PRICE}</a></h1><br/>
+					<h1><a href="javascript:ajaxRoomView(${room.ROOM_NO});">방 번호 : ${room.ROOM_NO} / 방 이름 : ${room.ROOM_NAME} / 방 가격 : ${room.ROOM_PRICE}</a></h1><br/>
 					<h2>방 소개 : ${room.ROOM_DETAIL} / 총 객실 : ${room.ROOM_TOTAL}</h2><br/>
 				</div>
 				</td></tr>

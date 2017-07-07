@@ -17,13 +17,11 @@ function ajaxRoom(){
     });
 }
 
-function ajaxRoomModifyForm(){
-	
-	var obj = document.RoomReservation;
+function ajaxRoomModifyForm(no){
 	
 	var url1 = "/IMPet/PetHotel/RoomModifyForm";
 	
-	var formData = {"room_NO" : obj.room_NO.value}
+	var formData = {"room_NO" : no}
 	
     $.ajax({
       type : "POST",
@@ -40,13 +38,11 @@ function ajaxRoomModifyForm(){
     });
 }
 
-function ajaxRoomDelete(){
-	
-	var obj = document.RoomReservation;
+function ajaxRoomDelete(no){
 	
 	var url1 = "/IMPet/PetHotel/RoomDelete";
 	
-	var formData = {"room_NO" : obj.room_NO.value}
+	var formData = {"room_NO" : no}
 	
     $.ajax({
       type : "POST",
@@ -126,7 +122,7 @@ function ajaxRoomDelete(){
 	</div>
 <br/>
 <div align="center" style="float:inherit; width:100%; margin-bottom: 20px;">
-	<input value="룸 수정" type="button" onclick="ajaxRoomModifyForm()"/>
-	<input value="룸 삭제" type="button" onclick="ajaxRoomDelete()"/>
+	<input value="룸 수정" type="button" onclick="ajaxRoomModifyForm(${view.ROOM_NO})"/>
+	<input value="룸 삭제" type="button" onclick="ajaxRoomDelete(${view.ROOM_NO})"/>
 	<input value="룸 리스트" type="button" onclick="ajaxRoom()"/>
 </div>

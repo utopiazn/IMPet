@@ -96,7 +96,7 @@
 				room_Price : <input name="room_Price" type="text" value="${view.ROOM_PRICE }"/><br/>
 				room_Total : <input name="room_Total" type="text" value="${view.ROOM_TOTAL }"/><br/>
 				
-				<input value="룸 추가" type="button" onclick="ajaxRoomModify();"/>
+				<input value="룸 수정" type="button" onclick="ajaxRoomModify();"/>
 			</form>
 		</c:otherwise>
 	</c:choose>
