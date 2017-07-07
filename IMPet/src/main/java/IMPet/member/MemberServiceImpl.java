@@ -31,9 +31,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Map<String, Object> selectLogInCheck(Map<String, Object> map) throws Exception {
+	public Map<String, Object> selectLogInOne(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return memberDAO.selectLogInCheck(map);
+		return memberDAO.selectLogInOne(map);
+	}
+
+	@Override
+	public int selectLogInCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectLogInCount(map);
 	}
 
 }
