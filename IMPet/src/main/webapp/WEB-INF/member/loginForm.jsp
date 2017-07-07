@@ -86,7 +86,7 @@ function ajaxLoginView(){
 
 
 
-${ member_ID }
+${ errorMsg }
 
 <div class="xans-member-login" >
 
@@ -122,10 +122,11 @@ ${ member_ID }
 	
 	<div class="login_btn">
 	
-		<input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
-		<!-- 		
+		<!-- <input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
+		 --> 		
+	
 	 <input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif"   onclick="ajaxLoginView();" />
-		  -->
+	 
 	</div>
 	
 </div>
