@@ -189,13 +189,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/Logout")
-	public ModelAndView Logout(){
+	public ModelAndView Logout(HttpSession session) throws Exception{
 
-
-		System.out.println("로그아웃 처리 후 메인 이동");
-
+		String url = "redirect:/Main";
 		
-		mav.setViewName("main");
+		
+		System.out.println("로그아웃 처리 후 메인 이동");
+		
+		System.out.println("로그인 된 아이디::"+session.getAttribute("member_ID"));
+
+		if(session.getAttribute("member_ID")!= null){
+			
+			session.invalidate();
+			
+		}
+
+		mav.setViewName(url);
 		return mav;
 	}
 	
