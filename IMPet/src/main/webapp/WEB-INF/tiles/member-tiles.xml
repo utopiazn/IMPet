@@ -15,16 +15,24 @@
 		<put-attribute name="body" 		value="/WEB-INF/main/body.jsp" />		
 		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
 	</definition>
+	
+	
+	
+	<!--회원 관련 가입 메인 -->
+ 	<definition name="JoinMain" extends="member_main">
+		<put-attribute name="body" value="/WEB-INF/member/joinAgreement.jsp" />
+	</definition>
+	
  
 	
 	
 	<!-- 회원 약관 동의 폼 -->
- 	<definition name="JoinAgreement" extends="member_main">
+ 	<definition name="JoinAgreement1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/joinAgreement.jsp" />
 	</definition>
 	
 	<!-- 회원 가입 폼 -->	
- 	<definition name="JoinForm" extends="member_main">
+ 	<definition name="JoinForm1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/joinForm.jsp" />
 	</definition>
 	
@@ -34,11 +42,6 @@
 	</definition>
 	
 
-	
-	<!-- 회원 가입 성공 폼-->	
- 	<definition name="JoinInsetSuccess" extends="member_main">
-		<put-attribute name="body" value="/WEB-INF/member/joinInsetSuccess.jsp" />
-	</definition>
 
 	
 	<!-- 로그인 폼-->	

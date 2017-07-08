@@ -42,4 +42,22 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectLogInCount(map);
 	}
 
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		memberDAO.insert(map);
+	}
+
+	@Override
+	public void update(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

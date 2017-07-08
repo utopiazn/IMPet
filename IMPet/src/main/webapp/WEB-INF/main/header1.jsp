@@ -45,7 +45,7 @@
 	<!--로그인이 아닐 경우 -->	
 		
 		<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
-		<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinAgreement'"/>	
+		<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinMain'"/>	
 	
 	</c:when>	
 	
