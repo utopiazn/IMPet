@@ -27,7 +27,9 @@
 
 
 <div align="right">
-		<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
+
+
+<!-- 		<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
 		<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=aa'"/>
 		<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
 		<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
@@ -35,25 +37,36 @@
 		<input class="button" value="고객센터" type="button" onclick="location.href='/IMPet/ServiceCenter/Main'"/>
 		<input class="button" value="관리자페이지" type="button" onclick="location.href='/IMPet/AdminPage'"/>
 
-<%-- <c:choose>
+ -->
 
-	<c:when test="${ sessionScope.memberID  == null}">
+<c:choose>
+
+	<c:when test="${ sessionScope.member_ID  == null }">
+	<!--로그인이 아닐 경우 -->	
+		
+		<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
+		<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinAgreement'"/>	
+	
+	</c:when>	
+	
+	<c:when test="${ sessionScope.member_ID  != null}">	
+	<!-- 로그인일 경우 -->
+	
 		<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
 		<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=aa'"/>
 		<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
+			
+		<c:if test="${ sessionScope.member_Admin eq '1' }">
+		<!--관리자 권한일 경우 -->		
+	
+			<input class="button" value="관리자페이지" type="button" onclick="location.href='/IMPet/AdminPage'"/>
+	
+		</c:if>
+		
 	</c:when>
 
-	<c:otherwise>
-		<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
-		<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinAgreement'"/>
-		<input class="button" value="고객센터" type="button" onclick="location.href='/IMPet/ServiceCenter/Main'"/>
-	</c:otherwise>
 </c:choose>
 
 
-<c:if test="${ sessionScope.MEMBER_ADMIN eq '1' }">
-	<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
-	<input class="button" value="관리자페이지" type="button" onclick="location.href='/IMPet/AdminPage'"/>
-</c:if> --%>
 
 </div>

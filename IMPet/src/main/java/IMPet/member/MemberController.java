@@ -145,45 +145,38 @@ public class MemberController {
 	@RequestMapping(value="/Login")
 	public ModelAndView Login(CommandMap commandMap,HttpSession session) throws Exception{
 
-		ModelAndView mav = new ModelAndView();
+		String url = "member/loginForm";
+		
 		System.out.println("로그인 처리 후 메인 이동");
-
+		System.out.println(commandMap.getMap());				
 		
-		System.out.println(commandMap.getMap());
-		
-		
-		
-		int count = memberService.selectLogInCount(commandMap.getMap());
-		
-		
-		int LoginSuccess = 0;
-		
-		
-		//로그인 성공시
-		if(count>0){			
-			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());
+		ModelAndView mav = new ModelAndView();		
+				
+		//로그인 상태 :  0:로그인 실패  1: 로그인 성공	
+		int LoginSuccess = memberService.selectLogInCount(commandMap.getMap());	
+				
+		if(LoginSuccess>0){//로그인 성공시
 			
-			System.out.println("ddd:"+check.get("MEMBER_ID"));			
-			session.setAttribute("member_ID", check.get("MEMBER_ID"));	
+			//회원 정보 가져오기
+			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());			
 			
+			System.out.println("회원 정보:"+check);					
 			
+			//session 에 회원 ID 와 권한 여부 저장함.
+			session.setAttribute("member_ID", check.get("MEMBER_ID").toString());		// 로그인 아이지 저장			
+			session.setAttribute("member_Admin", check.get("MEMBER_ADMIN").toString());	// 로그인시 관리자 권한 여부 체크  0:일반 1:관리자
 			
-			LoginSuccess = 1;
+			LoginSuccess = 1; //1: 로그인 성공	 
 			
-		}else{
+		}else{ //로그인 실패시
 			
 			String errorMsg ="아이디 또는 비밀번호가 잘못 되었습니다 다시 확인해주세요";			
 			mav.addObject("errorMsg", errorMsg);	
 			
 		}
-		
-				
+						
 		mav.addObject("LoginSuccess",LoginSuccess );			
-		mav.setViewName("member/loginForm");
-
-		
-		
-	
+		mav.setViewName(url);
 		
 		return mav;
 	}
@@ -191,17 +184,16 @@ public class MemberController {
 	@RequestMapping(value="/Logout")
 	public ModelAndView Logout(HttpSession session) throws Exception{
 
-		String url = "redirect:/Main";
+		//메인 하면으로 이동
+		String url = "redirect:/Main";		
 		
-		
-		System.out.println("로그아웃 처리 후 메인 이동");
-		
+		System.out.println("로그아웃 처리 후 메인 이동");		
 		System.out.println("로그인 된 아이디::"+session.getAttribute("member_ID"));
 
+		//로그인 되어 있을 경우
 		if(session.getAttribute("member_ID")!= null){
 			
-			session.invalidate();
-			
+			session.invalidate();  //session 값을 모두 지움			
 		}
 
 		mav.setViewName(url);
@@ -214,9 +206,7 @@ public class MemberController {
 	@RequestMapping(value="/DeleteForm")
 	public ModelAndView DeleteForm(){
 
-
 		System.out.println("로그인 탈퇴폼");
-
 		
 		mav.setViewName("DeleteForm");
 		return mav;
