@@ -19,7 +19,7 @@ public class CommandMap {
 	public void put(String key, Object value){
 		
 		
-		System.out.println("key"+key);
+		System.out.println(key +":"+value.toString());
 		
 		map.put(key, value);
 	}

@@ -141,17 +141,32 @@ public class MemberController {
 	@RequestMapping(value="/JoinInset")
 	public ModelAndView JoinInset(CommandMap commandMap) throws Exception{
 
-		String url ="JoinInsetSuccess";
+		String url ="member/joinInsetSuccess";
 		System.out.println("회원 가입 처리");		
+		
+		//기본 설정 데이터 
+		commandMap.MapInfoList();	
+		JoinInsertAddData(commandMap);
 		
 		//정보 확인
 		commandMap.MapInfoList();				
+		
+		memberService.insert(commandMap.getMap());
 		
 		mav.setViewName(url);
 		return mav;
 	}
 	
-	
+	//회원 가입시  DB 기본으로 들어가는 값들  추가 입력.
+	public void JoinInsertAddData(CommandMap commandMap){
+		
+		String userYN="Y"; // 사용 여부 ,Y: 사용 N: 미사용	
+		int admin = 0;     // 관리자 권한   0:일반 1:관리자
+		
+		commandMap.put("MEMBER_USERYN", userYN);
+		commandMap.put("MEMBER_ADMIN", admin);
+		
+	}
 	
 	
 	

@@ -37,7 +37,7 @@
 	</definition>
 	
 	<!-- 회원 가입 성공 폼-->	
- 	<definition name="JoinInsetSuccess" extends="member_main">
+ 	<definition name="JoinInsetSuccess1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/joinInsetSuccess.jsp" />
 	</definition>
 	
