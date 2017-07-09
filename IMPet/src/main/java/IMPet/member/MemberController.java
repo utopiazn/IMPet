@@ -234,22 +234,17 @@ public class MemberController {
 		System.out.println("회원들의 정보 리스트 보여주기");
 
 		String url = "MemberList";
-		
 		List<Map<String,Object>> listAll = memberService.selectAll();		
 		
-		
-	
-		
+
 		System.out.println(listAll);
 
 		mav.addObject("listAll", listAll);	
 		
+		if(this.listAll != null){
 		
-		
-		if(this.listAll != null){			
 			this.listAll.clear();		
-		}
-		
+		}		
 		this.listAll = listAll;
 		
 		mav.setViewName(url);	
