@@ -19,34 +19,25 @@ public class CommandMap {
 	public void put(String key, Object value){
 		
 		
-		System.out.println("key"+key);
+		System.out.println(key +":"+value.toString());
 		
 		map.put(key, value);
 	}
 	
-	  
-    @Override
-	public String toString() {
-		// TODO Auto-generated method stub
-    	
-    	  System.out.println("시작" + map.size());
-    	
-    	  
-    	
-    	for(String key : map.keySet()){
-    		 
-            String value = (String) map.get(key);
-            		
- 
-            System.out.println(key+" : "+value);
- 
-        }
-    	
-    	  System.out.println("끝");
-    	
-		return super.toString();
+	 
+	public void MapInfoList(){
+		
+		  System.out.println("시작" + map.size());	
+		  
+		  if(map.size() <1){			  
+			  System.out.println("CommandMap 에 넘오는 값이 없습니다.");
+		  }else{
+			  System.out.println(map);
+		  }
+		  System.out.println("끝");
 	}
-
+	
+    
 	public Object remove(String key){
     	
     	return map.remove(key);

@@ -27,16 +27,16 @@
 <script type="text/javascript">
 
 function ajaxLoginView(){
-	  alert('들어옴');
+	 alert('들어옴');
 	
 	  
 	  
-	  var obj =document.jform;
+	 var obj =document.jform;
 	
 	 var dataList =
 	 { 
 		 "MEMBER_ID" : obj.MEMBER_ID.value ,	 
-		 "MEMBER_PW":obj.MEMBER_PW.value
+		 "MEMBER_PW" : obj.MEMBER_PW.value
 	 }
 	
 	  

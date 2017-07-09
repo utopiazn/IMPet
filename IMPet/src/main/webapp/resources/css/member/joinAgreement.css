@@ -109,6 +109,9 @@
 	color: #555;
 }
 
+
+
+
 .xans-member-joinAgreement input[type=radio], .xans-member-joinAgreement input[type=checkbox]
 	{
 	width: 13px;
@@ -130,6 +133,10 @@
 	line-height: 160%;
 	text-align: left;
 }
+
+
+
+
 
 .xans-member-joinAgreement .agreeArea .agree {
 	overflow: auto;
@@ -171,5 +178,6 @@
 	margin: 0 0 0 1px;
 	font-size: 12px;
 	line-height: 18px;
+	
 }
 

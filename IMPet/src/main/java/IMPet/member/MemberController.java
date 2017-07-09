@@ -27,6 +27,155 @@ public class MemberController {
 	
 	List<Map<String,Object>> listAll =null;
 	
+	
+	
+//////////////////로그인 관련////////////////////////////////////////////////////
+	//로그인  폼
+	@RequestMapping(value="/LoginForm")
+	public ModelAndView loginForm(){
+
+		String url = "LoginForm1";
+		
+		System.out.println("로그인 폼");		
+		mav.setViewName(url);		
+		return mav;
+	}	
+	
+	//로그인 처리
+	@RequestMapping(value="/Login")
+	public ModelAndView Login(CommandMap commandMap,HttpSession session) throws Exception{
+
+		String url = "member/loginForm";
+		
+		System.out.println("로그인 처리 후 메인 이동");
+		System.out.println(commandMap.getMap());				
+		
+		ModelAndView mav = new ModelAndView();		
+				
+		//로그인 상태 :  0:로그인 실패  1: 로그인 성공	
+		int LoginSuccess = memberService.selectLogInCount(commandMap.getMap());	
+				
+		if(LoginSuccess>0){//로그인 성공시
+			
+			//회원 정보 가져오기
+			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());			
+			
+			System.out.println("회원 정보:"+check);					
+			
+			//session 에 회원 ID 와 권한 여부 저장함.
+			session.setAttribute("member_ID", check.get("MEMBER_ID").toString());		// 로그인 아이지 저장			
+			session.setAttribute("member_Admin", check.get("MEMBER_ADMIN").toString());	// 로그인시 관리자 권한 여부 체크  0:일반 1:관리자
+			
+			LoginSuccess = 1; //1: 로그인 성공	 
+			
+		}else{ //로그인 실패시
+			
+			String errorMsg ="아이디 또는 비밀번호가 잘못 되었습니다 다시 확인해주세요";			
+			mav.addObject("errorMsg", errorMsg);	
+			
+		}
+						
+		mav.addObject("LoginSuccess",LoginSuccess );			
+		mav.setViewName(url);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/Logout")
+	public ModelAndView Logout(HttpSession session) throws Exception{
+
+		//메인 하면으로 이동
+		String url = "redirect:/Main";		
+		
+		System.out.println("로그아웃 처리 후 메인 이동");		
+		System.out.println("로그인 된 아이디::"+session.getAttribute("member_ID"));
+
+		//로그인 되어 있을 경우
+		if(session.getAttribute("member_ID")!= null){
+			
+			session.invalidate();  //session 값을 모두 지움			
+		}
+
+		mav.setViewName(url);
+		return mav;
+	}
+	
+
+
+	
+	
+//////////////////////////////////////////////////////////////////////////////	
+	
+	
+	
+	
+	
+	//회원 가입 메인 폼
+	@RequestMapping(value="/JoinMain")
+	public ModelAndView JoinMain(){
+
+		String url = "JoinMain";
+
+		System.out.println("회원 가입 계약");
+		
+		mav.setViewName(url);
+		return mav;
+	}	
+	
+	
+	//회원 가입 폼
+	@RequestMapping(value="/JoinForm")
+	public ModelAndView JoinForm(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		String url ="member/joinForm";
+		System.out.println("회원 가입 폼");		
+		
+		mav.setViewName(url);
+		return mav;
+	}
+		
+	
+	//회원 가입 처리
+	@RequestMapping(value="/JoinInset")
+	public ModelAndView JoinInset(CommandMap commandMap) throws Exception{
+
+		String url ="member/joinInsetSuccess";
+		System.out.println("회원 가입 처리");		
+		
+		//기본 설정 데이터 
+		commandMap.MapInfoList();	
+		JoinInsertAddData(commandMap);
+		
+		//정보 확인
+		commandMap.MapInfoList();				
+		
+		memberService.insert(commandMap.getMap());
+		
+		mav.setViewName(url);
+		return mav;
+	}
+	
+	//회원 가입시  DB 기본으로 들어가는 값들  추가 입력.
+	public void JoinInsertAddData(CommandMap commandMap){
+		
+		String userYN="Y"; // 사용 여부 ,Y: 사용 N: 미사용	
+		int admin = 0;     // 관리자 권한   0:일반 1:관리자
+		
+		commandMap.put("MEMBER_USERYN", userYN);
+		commandMap.put("MEMBER_ADMIN", admin);
+		
+	}
+	
+	
+	
+	
+	
+	
+
+	
+	
 	//회원 약관 동의 폼
 	@RequestMapping(value="/JoinAgreement")
 	public ModelAndView MembershipAgreement(){
@@ -40,31 +189,11 @@ public class MemberController {
 	}
 
 	
-	//회원 가입 폼
-	@RequestMapping(value="/JoinForm")
-	public ModelAndView JoinForm(){
-
-
-		System.out.println("회원 가입 폼");
-
-		
-		mav.setViewName("JoinForm");
-		return mav;
-	}
 	
 	
 	
-	//회원 가입 처리
-	@RequestMapping(value="/JoinInset")
-	public ModelAndView JoinInset(){
+	
 
-
-		System.out.println("회원 가입 처리");
-
-		
-		mav.setViewName("JoinInsetSuccess");
-		return mav;
-	}
 
 
 	
@@ -127,87 +256,13 @@ public class MemberController {
 	
 	 
 
-	//로그인  폼
-	@RequestMapping(value="/LoginForm")
-	public ModelAndView loginForm(){
-
-
-		System.out.println("로그인 폼");
-
-		
-		mav.setViewName("LoginForm1"); 
-		return mav;
-	}
-	
-	
-	
-	//로그인 처리
-	@RequestMapping(value="/Login")
-	public ModelAndView Login(CommandMap commandMap,HttpSession session) throws Exception{
-
-		ModelAndView mav = new ModelAndView();
-		System.out.println("로그인 처리 후 메인 이동");
-
-		
-		System.out.println(commandMap.getMap());
-		
-		
-		
-		int count = memberService.selectLogInCount(commandMap.getMap());
-		
-		
-		int LoginSuccess = 0;
-		
-		
-		//로그인 성공시
-		if(count>0){			
-			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());
-			
-			System.out.println("ddd:"+check.get("MEMBER_ID"));			
-			session.setAttribute("member_ID", check.get("MEMBER_ID"));	
-			
-			
-			
-			LoginSuccess = 1;
-			
-		}else{
-			
-			String errorMsg ="아이디 또는 비밀번호가 잘못 되었습니다 다시 확인해주세요";			
-			mav.addObject("errorMsg", errorMsg);	
-			
-		}
-		
-				
-		mav.addObject("LoginSuccess",LoginSuccess );			
-		mav.setViewName("member/loginForm");
-
-		
-		
-	
-		
-		return mav;
-	}
-	
-	@RequestMapping(value="/Logout")
-	public ModelAndView Logout(){
-
-
-		System.out.println("로그아웃 처리 후 메인 이동");
-
-		
-		mav.setViewName("main");
-		return mav;
-	}
-	
 	
 	
 	//회원 탈퇴 폼
 	@RequestMapping(value="/DeleteForm")
 	public ModelAndView DeleteForm(){
 
-
 		System.out.println("로그인 탈퇴폼");
-
 		
 		mav.setViewName("DeleteForm");
 		return mav;

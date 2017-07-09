@@ -19,7 +19,7 @@
 <input name="notice_Count" type=hidden value="${view.NOTICE_COUNT}">
 <input name="notice_Date" type=hidden value="${view.NOTICE_DATE}">
 
-<h2>공지사항 제목 : <input type="text" name=notice_Subject value="${view.NOTICE_SUBJECT}"></h2><br/>
+<h2>공지사항 제목 : <input type="text" name=notice_Subject value="${view.NOTICE_SUBJECT}"  maxlength="15"></h2><br/>
 <h2>공지사항 내용 : <input type="text" name=notice_Content value="${view.NOTICE_CONTENT}"></h2><br/>
 <h2>공지사항 이미지 : <input type="text" name=notice_IMG value="${view.NOTICE_IMG}"></h2><br/>
 <input  value="공지사항 수정" type="submit">
