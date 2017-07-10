@@ -26,7 +26,6 @@
 	counter-reset: fieldsets;
 	padding: 20px;
 	width: 420px;	
-	text-align: left;
 	
 }
 
@@ -149,7 +148,6 @@
 	outline: none;
 	padding: 5px;
 	width: 200px;
-	
 }
 
 					
