@@ -27,5 +27,20 @@ public class FAQDAO extends AbstractDAO{
 		
 		return view;  
 	}
+	
+	public void insert(Map<String, Object> map) throws Exception{
+		insert("FAQSQL.insert", map);
+		
+	}
+	
+	public void update(Map<String, Object> map) throws Exception{
+		update("FAQSQL.update", map);
+		
+	}
+	
+	public void delete(Map<String, Object> map) throws Exception{
+		delete("FAQSQL.delete", map);
+		
+	}
 
 }

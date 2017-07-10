@@ -10,7 +10,7 @@
 	]]>
 	</sql>
 
-	<sql id="where-no"><![CDATA[ WHERE FAQ_NO = #{faq_no}]]></sql>
+	<sql id="where-no"><![CDATA[ WHERE FAQ_NO = #{FAQ_NO}]]></sql>
 
 	<!--FAQ 리스트 -->
 	<select id="selectAll" resultType="hashmap">
@@ -30,16 +30,16 @@
 	<!-- FAQ 추가 -->
 	<insert id="insert" parameterType="hashmap">
 	<![CDATA[
-	INSERT INTO Pet_FAQ ( FAQ_NO, FAQ_Subject, FAQ_Content
-	VALUES (#{faq_NO},#{faq_Subject},#{faq_Content})
+	INSERT INTO Pet_FAQ ( FAQ_NO, FAQ_Subject, FAQ_Content)
+	VALUES (pet_faq_no_seq.nextval,#{FAQ_Subject},#{FAQ_Content})
 	]]>
 	</insert>
 
 	<!-- FAQ 수정 -->
 	<update id="update" parameterType="hashmap">
 	<![CDATA[
-	UPDATE PET_FAQ SET FAQ_NO=#{faq_NO}, FAQ_SUBJECT=#{faq_Subject}, 
-	FAQ_CONTENT=#{faq_Content}
+	UPDATE PET_FAQ SET FAQ_NO=#{FAQ_NO}, FAQ_SUBJECT=#{FAQ_Subject}, 
+	FAQ_CONTENT=#{FAQ_Content}
 	]]>
 	<include refid="where-no"/>
 	</update>
@@ -47,7 +47,7 @@
 	<!-- FAQ 삭제 -->
 	<delete id="delete" parameterType="hashmap">
 	<![CDATA[
-	DELETE FROM PET_FAQ WHERE FAQ_NO = #{faq_NO}
+	DELETE FROM PET_FAQ WHERE FAQ_NO = #{FAQ_NO}
 	]]>
 	</delete>
 

@@ -14,12 +14,13 @@
 </head>
 <body>
 
-자주묻는질문 추가 폼
+<form action="FAQInsert" method="post">
+<h2>자주묻는질문 제목 : <input type="text" name=FAQ_Subject maxlength="15"></h2><br/>
+<h2>자주묻는질문 내용 : <input type="text" name=FAQ_Content></h2><br/>
+<input  value="자주묻는질문" type="submit">
+
+</form>
 
 <br/><br/><br/><br/><br/>
-
-<input value="자주묻는질문 추가" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQInsert'"/>
-
-
 
 </body>
