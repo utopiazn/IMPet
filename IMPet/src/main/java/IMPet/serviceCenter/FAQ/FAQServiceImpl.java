@@ -27,4 +27,24 @@ public class FAQServiceImpl implements FAQService{
 		return fAQDAO.selectOne(map);
 	}
 
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		fAQDAO.insert(map);
+		
+	}
+
+	@Override
+	public void update(Map<String, Object> map) throws Exception {
+		fAQDAO.update(map);
+		
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		fAQDAO.delete(map);
+		
+	}
+	
+	
+
 }

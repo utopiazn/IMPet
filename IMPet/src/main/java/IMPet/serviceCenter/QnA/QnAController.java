@@ -1,4 +1,4 @@
-package IMPet.serviceCenter.QnA;
+ package IMPet.serviceCenter.QnA;
 
 import java.util.List;
 import java.util.Map;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
 import IMPet.serviceCenter.notice.NoticeService;
 
 @Controller
@@ -36,9 +37,13 @@ public class QnAController {
 
 	// Q&A 개별페이지
 	@RequestMapping(value = "/QuestionView")
-	public ModelAndView QuestionView() {
-
+	public ModelAndView QuestionView(CommandMap commandMap) throws Exception{
+		
+		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
+		
 		System.out.println("자주묻는질문 개별페이지");
+		
+		mav.addObject("view",map);
 
 		mav.setViewName("QuestionView");
 		return mav;
@@ -56,8 +61,12 @@ public class QnAController {
 
 	// Q&A 추가
 	@RequestMapping(value = "/QuestionInsert")
-	public ModelAndView QuestionInsert() {
-
+	public ModelAndView QuestionInsert(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		qnAService.insert(commandMap.getMap());
+		
 		System.out.println("Q&A 추가");
 
 		mav.setViewName("QuestionInsert");
@@ -66,31 +75,49 @@ public class QnAController {
 
 	// Q&A 수정 폼
 	@RequestMapping(value = "/QuestionModifyForm")
-	public ModelAndView QuestionModifyForm() {
+	public ModelAndView QuestionModifyForm(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
 
+		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
+		
 		System.out.println("Q&A 수정 폼");
 
+		mav.addObject("view", map);
+		
 		mav.setViewName("QuestionModifyForm");
 		return mav;
 	}
 
 	// Q&A 수정
 	@RequestMapping(value = "/QuestionModify")
-	public ModelAndView QuestionModify() {
-
+	public ModelAndView QuestionModify(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		Map<String, Object> map = commandMap.getMap();	
+		
+		qnAService.update(map);
+		
+		String no = commandMap.get("qnA_NO").toString();
+		
 		System.out.println("Q&A 수정");
 
-		mav.setViewName("QuestionModify");
+		mav.setViewName("redirect:QnAView?qnA_NO="+no);
 		return mav;
 	}
 
 	// Q&A 삭제
 	@RequestMapping(value = "/QuestionDelete")
-	public ModelAndView QuestionDelete() {
-
+	public ModelAndView QuestionDelete(CommandMap commandMap) throws Exception {
+		
+        ModelAndView mav = new ModelAndView();
+		
+		qnAService.delete(commandMap.getMap());
+		
 		System.out.println("Q&A 삭제");
 
-		mav.setViewName("QuestionDelete");
+		mav.setViewName("redirect:QnAList");
 		return mav;
 	}
 

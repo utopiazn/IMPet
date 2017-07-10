@@ -26,5 +26,32 @@ public class QnADAO  extends AbstractDAO {
 		
 		return view;  
 	} 
+	
+	public void insert(Map<String, Object> map) throws Exception{
+		insert("QnASQL.insert", map);
+		
+	}
+	
+	public void update(Map<String, Object> map) throws Exception{
+		
+		System.out.println("전:"+map);
+		
+		String day = map.get("qnA_Date").toString();
+	
+		java.util.Date date = (java.util.Date)IMPet.util.ProjectUtil.changeUtilDate(day);
+		java.sql.Date date1 = IMPet.util.ProjectUtil.changeUtilSqlDate(date);
+		map.put("qnA_Date", date1);
+		
+		System.out.println("후:"+map);	
+		
+		
+		update("QnASQL.update", map);
+		
+	}
+	
+	public void delete(Map<String, Object> map) throws Exception{
+		delete("QnASQL.delete", map);
+		
+	}
 
 }

@@ -1,5 +1,7 @@
 package IMPet.petShop.adminItem;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
@@ -172,8 +175,9 @@ public class AdminItemController {
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
 
 		int num = Integer.parseInt(commandMap.get("ITEM_NO").toString());
+	
 		
-		Map<String,Object> map = util.UploadFile(commandMap.getMap(), request, uploadPath, num);
+		Map<String,Object> map = util.UpdateFile(commandMap.getMap(), request, uploadPath, num);
 	
 		adminItemService.itemUpdate(map);
 		
