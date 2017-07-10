@@ -38,8 +38,9 @@ public class BasketController {
 	public ModelAndView BasketWrite() {
 
 		
-		System.out.println("펫샵장바구니추가처리");
-	
+		/*System.out.println("펫샵장바구니추가처리");
+		System.out.println(commandMap.getMap());
+		basketReviewService.insert(commandMap.getMap());*/
 		
 		mav.setViewName("BasketWrite");
 		return mav;
