@@ -63,7 +63,7 @@ function validateForm() {
                             </c:if>
                              <label>파일 첨부 
                            <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
+                            <input type="file" name="ITEM_IMG_MODIFY" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
