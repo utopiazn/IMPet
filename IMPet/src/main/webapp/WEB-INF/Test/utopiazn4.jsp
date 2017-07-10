@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
+<link rel="stylesheet" href="/IMPet/resources/css/member/joinForm4.css">
 
 </head>
 <body class="joinFormBody">

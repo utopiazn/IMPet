@@ -12,6 +12,22 @@
 	
 	<sql id="where-no"><![CDATA[ WHERE RES_NO = #{res_NO}]]></sql>
 	
+	<!-- 예약리스트(관리자용) -->
+	<select id="selectAllList" resultType="hashmap">
+		<include refid="seletClass"/>
+		<![CDATA[
+		ORDER BY RES_NO DESC
+		]]>
+	</select>
+	
+	<!-- 예약리스트(고객용) -->
+	<select id="selectUserList" parameterType="String" resultType="hashmap">
+		<include refid="seletClass"/>
+		<![CDATA[
+		WHERE MEMBER_ID = #{member_ID} 
+		ORDER BY RES_NO DESC
+		]]>
+	</select>
 	
 	<!-- 룸 날짜로 가능 객실수 검색 -->
 	<select id="searchDate" resultType="hashmap" parameterType="hashmap">

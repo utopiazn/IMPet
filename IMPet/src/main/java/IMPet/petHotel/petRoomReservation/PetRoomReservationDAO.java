@@ -16,7 +16,7 @@ public class PetRoomReservationDAO extends AbstractDAO{
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> searchDate(Map<String, Object> map) throws Exception {
 		
-		System.out.println(map);
+		System.out.println("DAO:"+map);
 		
 		Map<String, Object> view= (Map<String, Object>)selectOne(
 				"PetRoomReservationSQL.searchDate", map);
@@ -26,9 +26,28 @@ public class PetRoomReservationDAO extends AbstractDAO{
 		return view;
 	}
 	
+	public void resInsert(Map<String, Object> map) throws Exception {
+		
+		System.out.println("DAO:"+map);
+		
+		insert("PetRoomReservationSQL.insert", map);
+	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectUserList(String str) throws Exception {
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectUserList", str);
+		
+		return list;  
+	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectAllList() throws Exception {
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectAllList");
+		
+		return list;  
+	}
 	
 	
 	

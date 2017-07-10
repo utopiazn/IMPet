@@ -62,7 +62,7 @@ window.onload=function(){
 
 <br/><br/>
 
-<div align="center">
+<div align="center" style="width: 100%;">
 	<div style="border: 1px solid black; width: 49.8%; float: left;">
 		<input src="/IMPet/resources/image/SkinImg/room.bmp" type="image" value="RoomList" onclick="ajaxRoom();" style="width: 100%; height: 70px;"/>  
 	</div>
