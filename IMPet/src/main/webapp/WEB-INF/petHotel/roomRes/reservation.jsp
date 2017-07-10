@@ -26,7 +26,15 @@ HotelReservation
 
 
 <center>
+<form action="RoomResSuccess" method="post">
 <div class="resDIV1" >
+	<input type="hidden" name="room_NO" value="${res.room_NO}">
+	<input type="hidden" name="member_ID" value="${res.member_ID}">
+	<input type="hidden" name="res_FirstDate" value="${res.res_FirstDate}">
+	<input type="hidden" name="res_LastDate" value="${res.res_LastDate}">
+	<input type="hidden" name="res_Price" value="${res.res_Price}">
+	<input type="hidden" name="res_Requests" value="${res.res_Requests}">
+
 	<div class="resDIV2">
 		방번호 : ${res.room_NO} <br/>
 		방이름 : ${res.room_Name}
@@ -55,9 +63,9 @@ HotelReservation
 </div>
 
 <div align="center" style=" margin-bottom: 20px;">
-	<input value="예약 완료" type="button" onclick="location.href='/IMPet/PetHotel/RoomResSuccess'"/>
-	<input value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/RoomView?room_NO=${res.room_NO}'"/>
+	<input value="예약 완료" type="submit" />
+	<input value="뒤로가기" type="button" onclick="window.history.go(-1);"/>
 </div>
-
+</form>
 </body>
 </html>

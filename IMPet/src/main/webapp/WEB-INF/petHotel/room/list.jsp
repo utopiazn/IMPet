@@ -63,9 +63,9 @@ function ajaxRoomInsert(){
 </div>
 
 <br/><br/>
-
+<c:if test="${sessionScope.member_Admin==1 }">
 <div align="center">
 	<input value="룸 추가" type="button" onclick="ajaxRoomInsert()"/>
 </div>
-
+</c:if>
 <br/><br/>

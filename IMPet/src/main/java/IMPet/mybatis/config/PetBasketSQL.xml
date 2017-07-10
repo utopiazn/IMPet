@@ -33,10 +33,19 @@
 	</select>
 	
 	<!-- 장바구니 추가 -->
-	<select id="insert" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletALL"/> 
-		<include refid="where-no"/>
-	</select>
+	<insert id="baInsert" parameterType="hashmap">
+		insert into pet_item_basket
+					 (BAKSET_NO,
+					  ITEM_NO,
+					  BAKSET_BUYCOUNT,
+					  MEMBER_ID,
+					  ITEM_PRICE)
+			values(BAKSET_NO_SEQ.NEXTVAL,
+					  #{ITEM_NO},
+				      #{BAKSET_BUYCOUNT},
+				      #{MEMBER_ID},		
+				      #{ITEM_PRICE})			     
+	</insert>
 	
 	<!-- 장바구니 삭제 -->
 	<select id="delete" resultType="hashmap" parameterType="hashmap">

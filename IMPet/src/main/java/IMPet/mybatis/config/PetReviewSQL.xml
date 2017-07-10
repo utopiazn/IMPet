@@ -13,22 +13,37 @@
 
 
 	<!-- 상품 후기 삭제 -->
-	<select id="delete" resultType="hashmap" parameterType="hashmap">
+	<select id="reDelete" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		<include refid="where-re"/>
 	</select>
 	
 	<!-- 상품 후기 수정 -->
-	<select id="update" resultType="hashmap" parameterType="hashmap">
+	<select id="reUpdate" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/> 
 		<include refid="where-re"/>
 	</select>
 	
 	<!-- 상품 후기 등록 -->
-	<select id="insert" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
-		<include refid="where-re"/>
-	</select>
+	<insert id="reInsert" parameterType="hashmap">
+		insert into pet_item_review
+					 (REVIEW_NO,
+					  ITEM_NO,
+					  REVIEW_SUBJECT,
+					  REVIEW_CONTENT,
+					  MEMBER_ID,
+					  REVIEW_IMG,
+					  REVIEW_STAR,
+					  REVIEW_DATE)
+			values(REVIEW_NO_SEQ.NEXTVAL,
+					  #{ITEM_NO},
+				      #{REVIEW_SUBJECT},
+				      #{REVIEW_CONTENT},		
+				      #{MEMBER_ID},
+				      #{REVIEW_IMG},
+				      #{REVIEW_STAR},
+				      SYSDATE)			     
+	</insert>
 	
 	<!-- 상품 후기 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">

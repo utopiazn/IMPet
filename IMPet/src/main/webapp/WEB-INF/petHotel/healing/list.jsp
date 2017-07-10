@@ -63,9 +63,9 @@ function ajaxHealingInsert(){
 </div>
 
 <br/><br/>
-
+<c:if test="${sessionScope.member_Admin==1 }">
 <div align="center">
 <input value="힐링 추가" type="button" onclick="ajaxHealingInsert()"/>
 </div>
-
+</c:if>
 <br/><br/>

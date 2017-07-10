@@ -153,8 +153,9 @@ public class ProjectUtil {
 		return timestamp;
 	}
 
-	// String - util.Date 변환 (day=yyyy-MM-dd 형식이어야함)
-	public static java.util.Date changeUtilDate(String day) throws Exception {
+	//String - util.Date 변환
+	public static java.util.Date changeUtilDate(String day) throws Exception{
+
 		java.util.Date date = new java.text.SimpleDateFormat("yyyyy-mm-dd hh:mm:ss").parse(day);
 		return date;
 	}

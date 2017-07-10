@@ -8,15 +8,15 @@
 <html lang="ko">
 <head>
 
-<!-- <link rel="stylesheet" href="/IMPet/resources/css/main.css" type="test/css"> -->
+
 
 <!-- 임시 css -->
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-.header{ /* 헤더부분 main 1 */
-width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white; /* MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; */
-}
+/* /* .header{ 
+width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white;  MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; 
+} */ 
 
 .right{ /* main 2 body부분 */
 
@@ -30,16 +30,18 @@ width: 1125px; height:100%; font-family: 'Hanna', sans-serif; color:black;  vert
 width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    
 } 
 
-.nav {
-	width: 100%;
+/*  .nav  {
+	 width: 100%;
     margin: 0 auto;
-    background: #87EAA2;
-    color: #87EAA2;
-
+    background: white;
+    color: white;
+    border: 2px solid;
+    border-top-color: #CAF871;
+    border-bottom-color: #CAF871;
     text-align: center;
-/*     padding: 7px 90px 4px; */
+   padding: 7px 90px 4px;
     font-size: 20px;
-	}
+    }
 	.nav a {
 	  color: black;
 	  text-decoration: none;
@@ -57,12 +59,13 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	.nav__menu-item {
 	  display: inline-block;
 	  position: relative;
-	}
+	 }
 	.nav__menu-item:hover {
-	  color: hotpink;
+	  color: black;	  
 	}
 	.nav__menu-item:hover .nav__submenu {
 	  display: block;
+	  
 	}
 	.nav__submenu {
 	  font-weight: 300;
@@ -70,18 +73,22 @@ width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hann
 	  display: none;
 	  position: absolute;
 	  width: 220px;
-	  background-color: #FFDC4C;
+	  border-top: 1px solid fade(black, 5%);
+      border-bottom: 3px solid;
+      border-radius: 0 0 3px 3px;
+	  background-color: white;
 	  z-index: 2;
 	}
 	.nav__submenu-item:hover {
 	  background: rgba(0, 0, 0, 0.1);
 	}
 	nav ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+	  list-style: none;
+	  padding-left: 0;
+	  margin-top: 0;
+	  margin-bottom: 0;
+	}  
+	 */
 </style>
 
 <meta charset="UTF-8">

@@ -25,7 +25,7 @@ public class PetRoomController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("호텔 메인"+car);
+		System.out.println("호텔 메인 : 카테고리번호="+car);
 		
 		mav.addObject("car", car);
 		mav.setViewName("PetHotel");

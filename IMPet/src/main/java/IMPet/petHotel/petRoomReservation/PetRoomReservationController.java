@@ -1,8 +1,10 @@
 package IMPet.petHotel.petRoomReservation;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +28,7 @@ public class PetRoomReservationController {
 		
 		System.out.println("호텔 룸 예약페이지");
 		
-		System.out.println(commandMap.getMap());
+		System.out.println("Controller:"+commandMap.getMap());
 		
 		Map<String, Object> map = petRoomReservationService.searchDate(commandMap.getMap());
 		
@@ -34,46 +36,74 @@ public class PetRoomReservationController {
 		
 		mav.addObject("res", commandMap.getMap());
 		
-		mav.setViewName("PetHotelReservation");
+		String url = "PetHotelReservation";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 	
 	//호텔 룸 예약완료
 	@RequestMapping(value="RoomResSuccess")
-	public ModelAndView resSuccess(){
+	public ModelAndView resSuccess(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 예약완료");
 		
-		mav.setViewName("redirect:RoomResList");
+		System.out.println("Controller:"+commandMap.getMap());
+		
+		petRoomReservationService.resInsert(commandMap.getMap());
+		
+		String url = "redirect:RoomResList";
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 	
 	//호텔 룸 예약리스트(고객용)
 	@RequestMapping(value="RoomResList")
-	public ModelAndView resList(){
+	public ModelAndView resList(HttpSession session) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 예약리스트(고객용)");
 		
-		mav.setViewName("PetHotelReservation_List");
+		System.out.println("Controller:"+session.getAttribute("member_ID"));
+		
+		List<Map<String, Object>> list = petRoomReservationService.selectUserList((String)session.getAttribute("member_ID"));
+		
+		System.out.println(list);
+		
+		/*String url = "petHotel/room/list";*/
+		String url = "PetHotelReservation_List";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}
 	
 	//호텔 룸 예약리스트(관리자용)
 	@RequestMapping(value="RoomResAllList")
-	public ModelAndView resAllList(){
+	public ModelAndView resAllList() throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 예약리스트(관리자용)");
 		
-		mav.setViewName("PetHotelReservation_AllList");
+		List<Map<String, Object>> list = petRoomReservationService.selectAllList();
+		
+		System.out.println(list);
+		
+		/*String url = "petHotel/room/list";*/
+		String url = "PetHotelReservation_AllList";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
 		
 		return mav;
 	}

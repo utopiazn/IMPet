@@ -60,6 +60,8 @@ public class ItemController {
 
 		System.out.println("펫샵상품상세보기");
 		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
+		
+		
 		System.out.println(map);
 		mav.addObject("view", map.get("view"));
 		mav.addObject("comment", map.get("commentMap"));
@@ -73,10 +75,10 @@ public class ItemController {
 	@RequestMapping(value="/ItemComment")
 	public ModelAndView ItemComment(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵후기처리");
-		Map<String, Object> map = itemReviewService.insert(commandMap.getMap());
+		System.out.println("펫샵후기등록");
+		System.out.println(commandMap.getMap());
+		itemReviewService.insert(commandMap.getMap());
 	
-		mav.addObject("commentAdd", map);
 		mav.setViewName("ItemComment");
 		return mav;
 	}
