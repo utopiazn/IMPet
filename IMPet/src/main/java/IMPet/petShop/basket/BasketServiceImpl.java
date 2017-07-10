@@ -26,9 +26,9 @@ public class BasketServiceImpl implements BasketService {
 	}
 
 	@Override
-	public Map<String, Object> insert(Map<String, Object> map) throws Exception {
+	public void insert(Map<String, Object> map) throws Exception {
 		
-		return basketDAO.insert(map);
+		basketDAO.insert(map);
 	}
 
 	@Override

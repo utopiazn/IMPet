@@ -71,8 +71,8 @@
 			
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
-		var id = "${session_member_id}";
-		location.href = 'PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+		var id = "${sessionScope.member_ID}";
+		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
 			
 	};
 		
@@ -81,8 +81,8 @@
          
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
-        var id = "${session_member_id}";
-        location.href = 'PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+        var id = "${sessionScope.member_ID}";
+        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
@@ -92,59 +92,61 @@
   		form.action = 'ItemComment'; 
   		form.submit();
   	};
-	 
-	
+	 	
 </script>
 
 
 <style type="text/css"> 
-	.soyoon ul {
-    list-style:none !important;
-    overflow:auto !important;
-    
+	.review_explanation ul {
+    	list-style:none !important;
+    	overflow:auto !important;
 	}
 
-	.soyoon li {
-  	display:inline !important;
-    float: left !important;
+	.review_explanation li {
+  		display:inline !important;
+    	float: left !important;
 	}
 	
 	.btn1 {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    overflow: visible;
-}
-.btn1 {
-    width: 80px;
-    height: 70px;
-}
-.btn-primary1 {
-    color: #fff;
-    background-color: #2a2e33;
-    border-color: #2a2e33;
-}
-button {
-    cursor: pointer;
-}
-
-.reply_grp {
-    margin-top: 50px;
-    margin-bottom: 77px;
-}
+    	display: inline-block;
+    	vertical-align: middle;
+    	text-align: center;
+    	overflow: visible;
+	}
 	
-.reply_grp .reply_view .reply_tit .btn {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: 14px;
-    width: 30px;
-}
+	.btn1 {
+    	width: 80px;
+    	height: 70px;
+	}
+	
+	.btn-primary1 {
+    	color: #fff;
+   		background-color: #2a2e33;
+    	border-color: #2a2e33;
+	}
+	
+	button {
+  		cursor: pointer;
+	}
 
+	.review_grp {
+   		margin-top: 50px;
+    	margin-bottom: 77px;
+	}
+	
+	.review_grp .review_view .review_title .btn {
+    	position: absolute;
+    	top: 50%;
+    	right: 0;
+    	margin-top: 14px;
+    	width: 30px;
+	}
 	
 </style>
 
 </head>
+
+
 <body>
 
 	<!-- /* 카테고리 표시부분 */ -->
@@ -278,44 +280,53 @@ button {
 <div class="inner">
 		<!-- reply_grp -->
 		<form class="commentForm" method="post">
-		<input type="hidden" name="item_no" value="${view.ITEM_NO}"/>
-		
+		<input type="hidden" name="ITEM_NO" value="${view.ITEM_NO}"/>
+		<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}"/>
+		<input type="hidden" name="REVIEW_IMG" value="1"/>
 	
 		
 				<div class="review_grp">
 					<div class="review_form">
 				
 						<div class="review_write">
-							<c:if test="${session_member_id == null}">
+							
+							<!-- 로그인전 -->
+							<c:if test="${sessionScope.member_ID == null}">
                   				<input type="text" style="align:center; margin: 10px; width: 950px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
 	      	 				</c:if>
-	      	 				<c:if test="${session_member_id != null}">
-							<div class="review_explanation" style="align: center">
-								<img src="/IMPet/resources/image/review/commentlogo.png"></img>
-		<ul>
-		<li>&nbsp;&nbsp; <input type="radio" name="item_point" value="1" height="1" class="radio">
-      <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-       </li>
-       
-      		<li><input type="radio" name="item_point" value="2" height="1" class="radio">
-      <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-     	</li>
-       
-      		<li><input type="radio" name="item_point" value="3" height="1" class="radio">
-      <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-      		</li>
-      
-     		<li><input type="radio" name="item_point" value="4" height="1" class="radio">
-      <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-       		</li>
-      		<li><input type="radio" name="item_point" value="5" height="1" checked="" class="radio">
-      <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
-		 		</li></ul>			
-		 						</div>
+	      	 				
+	      	 				<!-- 로그인후 -->
+	      	 				<c:if test="${sessionScope.member_ID != null}">
+								<div class="review_explanation" style="align: center">
+									  <img src="/IMPet/resources/image/review/commentlogo.png"></img>
+										<ul>
+											<li><input type="radio" name="REVIEW_STAR" value="1" height="1" class="radio">
+									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
+									      	</li>
+									       
+									      	<li><input type="radio" name="REVIEW_STAR" value="2" height="1" class="radio">
+									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
+									     	</li>
+									       
+									      	<li><input type="radio" name="REVIEW_STAR" value="3" height="1" class="radio">
+									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
+									      	</li>
+									      
+									     	<li><input type="radio" name="REVIEW_STAR" value="4" height="1" class="radio">
+									     		 <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
+									       	</li>
+									       	
+									      	<li><input type="radio" name="REVIEW_STAR" value="5" height="1" checked="" class="radio">
+									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
+											</li>
+										</ul>			
+			 					</div>
+			 					
 							
-							<div class="textarea_grp" style="width: 1000px;">
-								<textarea name="commentt" style="margin: 10px; width: 849px; height: 55px;"></textarea><button type="button" class="btn1 btn-primary1" onclick="onComment()">입력	</button>
-							</div>
+								<div class="REVIEW_CONTENT" style="width: 1000px;" align="left">
+									<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/> &nbsp;작성자 : ${sessionScope.member_ID}
+									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 849px; height: 55px;" placeholder="내용을 입력하세요"></textarea><button type="button" class="btn1 btn-primary1" onclick="onComment()">입력</button>
+								</div>
 							</c:if>
 						</div>
 						
@@ -324,58 +335,52 @@ button {
 
 
 
-<c:if test="${fn:length(comment) ge 0}">
-		<p class="review_num"> </p>
-		</c:if> 
+<%-- <c:if test="${fn:length(comment) ge 0}">
+		<p class="review_no"> </p>
+		</c:if>  --%>
 	<c:forEach var="comment" items="${comment}" varStatus="stat">
 
 	
 			
 			<!-- <p class="reply_num">댓글 수 <strong>1</strong></p> -->
-			<div class="main_review">
-				<div class="review_nm">
-					<div class="nm"><strong>${comment.MEMBER_ID} </strong>님  
-					<div class="star">
-					 <c:if test='${comment.REVIEW_STAR == 1}'>
-      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0" /><img src="/IMPet/resources/image/review/star_off2.gif" border="0" /><img src="/IMPet/resources/image/review/star_off2.gif" border="0" /><img src="/IMPet/resources/image/review/star_off2.gif" border="0" /><img src="/IMPet/resources/image/review/star_off2.gif" border="0" />
-      </c:if>
-      <c:if test='${comment.REVIEW_STAR == 2}'>
-     &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-      </c:if>
-      <c:if test='${comment.REVIEW_STAR == 3}'>
-     &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-      </c:if>
-      <c:if test='${comment.REVIEW_STAR == 4}'>
-     &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-      </c:if>
-      <c:if test='${comment.REVIEW_STAR == 5}'>
-       &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-      </c:if>
-      <fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate></div>
+			
+			<!-- 후기리스트영역 -->
+			<div class="review_view">
+				
+				<!-- 후기타이틀영역 -->
+				<div class="review_title">
+					<div class="MEMBER_ID"><strong>${comment.MEMBER_ID} </strong>님  
+						<div class="REVIEW_STAR">
+							  <c:if test='${comment.REVIEW_STAR == 1}'>
+						      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
+						      </c:if>
+						      <c:if test='${comment.REVIEW_STAR == 2}'>
+						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+						      </c:if>
+						      <c:if test='${comment.REVIEW_STAR == 3}'>
+						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+						      </c:if>
+						      <c:if test='${comment.REVIEW_STAR == 4}'>
+						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+						      </c:if>
+						      <c:if test='${comment.REVIEW_STAR == 5}'>
+						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
+						      </c:if>
+						      
+						<fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate>
+						</div>
 					</div>
-					<c:if test="${session_member_id == comment.MEMBER_ID}">
-					<a href="commentDelete.dog?REVIEW_NO=${comment.REVIEW_NO}&ITEM_NO=${view.ITEM_NO}" class="btn btnC_01 btnP_02">
-						<span class="btn btnC_05 review_btn">삭제</span>
+					
+					<c:if test="${member_ID == comment.MEMBER_ID}">
+					<a href="/IMPet/PetShop/ItemView?ItemCommentDelete=${comment.REVIEW_NO}&ITEM_NO=${view.ITEM_NO}" class="btn btnC_01 btnP_02">
+						<span class="btn btnC_05 reply_btn">삭제</span>
 					</a>
 					</c:if>
 				</div>
 				
-				<!-- 후기제목영역 -->
-				<div class="review_tit">
-					<div class="tit"><strong>${comment.REVIEW_SUBJECT} </strong></div>
-				</div>
-				
-				<div class="main_review">
-					<!-- 후기이미지영역 -->
-					<div class="review_image">
-						<div class="review_imagedetail">
-							<img src=/IMPet/resources/image/itemImg/${view.ITEM_IMG}" onerror="this.src='/IMPet/resources/image/test/noimg_130.gif'" />
-						</div>
-					</div>
-					<!-- 후기내용영역 -->
-					<div class="review_ctt">
-						<p>${comment.REVIEW_CONTENT}</p>
-					</div>
+				<!-- 후기내용영역 -->
+				<div class="REVIEW_CONTENT">
+					<p>${comment.REVIEW_CONTENT}</p>
 				</div>
 			</div>
 

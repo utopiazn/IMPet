@@ -25,10 +25,11 @@ public class ItemReviewDAO extends AbstractDAO {
 	}
 	
 	//후기등록
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> insert(Map<String, Object> map) throws Exception{
+	public void insert(Map<String, Object> map) throws Exception{
 		
-		return (Map<String, Object>) insert("PetReviewSQL.insert", map);
+		System.out.print("dao:"+map);
+		
+		insert("PetReviewSQL.reInsert", map);
 	}
 	
 	//후기상세보기
