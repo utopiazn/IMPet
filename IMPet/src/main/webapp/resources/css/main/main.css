@@ -1,0 +1,337 @@
+ @CHARSET "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css); 
+
+/*#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu  {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding: 0 13% 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Jeju Gothic', sans-serif;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;x
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+ 	width: 100%;
+    margin: 0 auto;
+    background: white;
+    border: 2px solid;
+    border-top-color: #19915C;
+    border-bottom-color: #19915C;
+    text-align: center;
+   	padding: 7px 90px 4px;
+    font-size: 20px;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > a {
+    padding: 12px;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+    -webkit-transition: color .2s ease;
+    -moz-transition: color .2s ease;
+    -ms-transition: color .2s ease;
+    -o-transition: color .2s ease;
+    transition: color .2s ease;
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li.active > a {
+  color: #009ae1;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 25px;
+  z-index: 100;
+}
+#cssmenu > ul > li.has-sub > a::after {
+  position: absolute;
+  top: 21px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-bottom: 1px solid #000000;
+  content: "";
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: border-color 0.2s ease;
+  -moz-transition: border-color 0.2s ease;
+  -ms-transition: border-color 0.2s ease;
+  -o-transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;
+  z-index: 100;
+}
+#cssmenu > ul > li.has-sub:hover > a::after {
+  border-color: #009ae1;
+  z-index: 100;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+}
+#cssmenu li:hover > ul {
+  left: auto;
+}
+#cssmenu.align-right li:hover > ul {
+  right: 0;
+}
+#cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 0;
+}
+#cssmenu.align-right ul ul ul {
+  margin-left: 0;
+  margin-right: 100%;
+}
+#cssmenu ul ul li {
+  height: 0;
+  -webkit-transition: height .2s ease;
+  -moz-transition: height .2s ease;
+  -ms-transition: height .2s ease;
+  -o-transition: height .2s ease;
+  transition: height .2s ease;
+}
+#cssmenu ul li:hover > ul > li {
+  height: 32px;
+}
+#cssmenu ul ul li a {
+  padding: 10px 20px;
+  width: 160px;
+  font-size: 12px;
+  background: #333333;
+  text-decoration: none;
+  color: #dddddd;
+  -webkit-transition: color .2s ease;
+  -moz-transition: color .2s ease;
+  -ms-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+  z-index: 100;
+      margin-left: -76%;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  content: "";
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: border-color 0.2s ease;
+  -moz-transition: border-color 0.2s ease;
+  -ms-transition: border-color 0.2s ease;
+  -o-transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;
+  z-index: 100;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  right: auto;
+  left: 10px;
+  border-bottom: 0;
+
+  border-top: 1px solid #dddddd;
+
+  z-index: 100;
+ 
+}
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-color: #ffffff;
+   z-index: 100;
+   
+}
+
+ */
+ 
+ 
+
+ .nav  {
+	width: 100%;
+    margin: 0 auto; 
+    font-size: 20px;
+    }
+
+#main {
+  position: relative;
+  list-style: none;
+  background: #6BBE92;
+  font-weight: 500;
+  font-size: 20%;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0;
+  margin: 50px auto;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  word-spacing: 245px;
+  font-family: 'Hanna', sans-serif;
+  /*  border: 2px solid;
+ border-top-color: #CAF871;
+  border-bottom-color: #CAF871;
+  border-color: #6BBE92 white; */
+   
+}
+#main li {
+  font-size: 0.8rem;
+  display: inline-block;
+  position: relative;
+  padding: 15px 20px;
+  cursor: pointer;
+  z-index: 5;
+  min-width: 120px;
+  font-size: 18px;
+ 
+}
+
+li {
+  margin: 0;
+}
+
+.drop {
+  overflow: hidden;
+  list-style: none;
+  position: absolute;
+ /*  padding: 2px 0px 0; */
+  margin-left : 2px;  
+  width: 100%;
+  left: 0;
+  top: 48px;
+  font-family: 'Jeju Gothic', sans-serif;
+}
+.drop div {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  -webkit-transition: all 0.5s 0.1s;
+  -moz-transition: all 0.5s 0.1s;
+  -ms-transition: all 0.5s 0.1s;
+  transition: all 0.5s 0.1s;
+  position: relative;
+  word-spacing: 10px;
+}
+.drop li {
+  display: block;
+  padding: 0;
+  width: 61%;
+  background: #6BBE92 !important;
+}
+
+#marker {
+  height: 6px;
+  background: #3E8760 !important;
+  position: absolute;
+  bottom: 0;
+  width: 162px;
+  z-index: 5;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+  transition: all 0.35s;
+  margin-left: 24%;
+}
+
+#main li:nth-child(1):hover ul div {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#main li:nth-child(1):hover ~ #marker {
+  -webkit-transform: translate(0px, 0);
+  -moz-transform: translate(0px, 0);
+  -ms-transform: translate(0px, 0);
+  transform: translate(0px, 0);
+}
+
+#main li:nth-child(2):hover ul div {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#main li:nth-child(2):hover ~ #marker {
+  -webkit-transform: translate(412px, 0);
+  -moz-transform: translate(412px, 0);
+  -ms-transform: translate(412px, 0);
+  transform: translate(412px, 0);
+}
+
+#main li:nth-child(3):hover ul div {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#main li:nth-child(3):hover ~ #marker {
+  -webkit-transform: translate(821px, 0);
+  -moz-transform: translate(821px, 0);
+  -ms-transform: translate(821px, 0);
+  transform: translate(821px, 0);
+}
+
+#main li:nth-child(4):hover ul div {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#main li:nth-child(4):hover ~ #marker {
+  -webkit-transform: translate(1230px, 0);
+  -moz-transform: translate(1230px, 0);
+  -ms-transform: translate(1230px, 0);
+  transform: translate(1230px, 0);
+}
+ 
