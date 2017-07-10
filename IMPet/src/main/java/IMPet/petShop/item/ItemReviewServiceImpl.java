@@ -32,10 +32,8 @@ public class ItemReviewServiceImpl implements ItemReviewService{
 	}
 	
 	@Override
-	public Map<String, Object> insert(Map<String, Object> map) throws Exception {
-		
-		return itemReviewDAO.insert(map);
-		
+	public void insert(Map<String, Object> map) throws Exception {
+		itemReviewDAO.insert(map);
 	}
 
 	@Override

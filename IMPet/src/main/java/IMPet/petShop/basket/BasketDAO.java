@@ -27,10 +27,9 @@ public class BasketDAO extends AbstractDAO {
 	}
 	
 	//장바구니 추가
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> insert(Map<String, Object> map) throws Exception{
+	public void insert(Map<String, Object> map) throws Exception{
 		
-		return (Map<String, Object>) insert("PetBasketSQL.insert", map);
+		insert("PetBasketSQL.baInsert", map);
 	}
 	
 	//장바구니 삭제

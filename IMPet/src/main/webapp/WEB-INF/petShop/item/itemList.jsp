@@ -34,22 +34,21 @@
 
 <input value="상품상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
+	
 		<c:forEach var="items" items="${items}">
 				<div class="item-cont">
 				 	<dl class="item-list">
-						<dt class="thumb"><a href=""><img class="item_image" src="/IMPet/resources/image/itemImg/${view.ITEM_IMG}" alt="상품 섬네일" title="상품 섬네일"></a></dt>
+						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img class="item_image" src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}" alt="상품 섬네일" title="${items.ITEM_NAME}"></a></dt>
 						<dd>
 							<ul>
 								<li class="prd-name">${items.ITEM_NAME}</li>
-								<li class="prd-price">
-									<span class="prd_priceno">${items.ITEM_PRICE} 원</span>
-									<span class="prd_preview"><a href=""><img src=""></a> </span>
-								</li>
+								<li class="prd-price">${items.ITEM_PRICE} 원	</li>
 							</ul>
 						</dd>
 					</dl>
 				</div>
 		</c:forEach>
+		
 	</div>
 
 </body>
