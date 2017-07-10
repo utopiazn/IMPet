@@ -11,6 +11,11 @@ public interface PetRoomReservationService {
 
 	public Map<String, Object> searchDate(Map<String, Object> map) throws Exception;
 	
+	public void resInsert(Map<String, Object> map) throws Exception;
+	
+	public List<Map<String, Object>> selectUserList(String str) throws Exception;
+	
+	public List<Map<String, Object>> selectAllList() throws Exception;
 	
 	
 	
@@ -31,14 +36,9 @@ public interface PetRoomReservationService {
 	
 	
 	
-	
-	
-	
-	public List<Map<String, Object>> selectAll() throws Exception;
 	
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
-	public void insert(Map<String, Object> map) throws Exception;
 	
 	public void update(Map<String, Object> map) throws Exception;
 	
