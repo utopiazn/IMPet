@@ -25,9 +25,9 @@
 		
 	};
 
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		funcSetCurrency($);
-	});
+	}); */
 	
 	//구매갯수 변환 함수
 	function count_change(temp){
@@ -68,11 +68,11 @@
 	
 	//장바구니 처리
 	var onBasket = function(){
-			
+		alert("${sessionScope.member_ID}");
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${sessionScope.member_ID}";
-		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
 			
 	};
 		
@@ -82,10 +82,28 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
+
+
+    var rate = 1;
+
+    function rateup(n){
+    	rate = n;
+    }
+
+    $( document ).ready(function() {
+			
+    	funcSetCurrency($);
+    	 $( ".star_rating a" ).click(function() {
+    	     $(this).parent().children("a").removeClass("on");
+    	     $(this).addClass("on").prevAll("a").addClass("on");
+    	     return false;
+    	 });
+    	});
+    
     //코멘트 처리
     var onComment = function(){
   		var form = $('.commentForm')[0];
@@ -93,7 +111,7 @@
   		var data1 = { 	ITEM_NO : form.ITEM_NO.value,
   						MEMBER_ID : form.MEMBER_ID.value,
   						REVIEW_IMG : form.REVIEW_IMG.value,
-  						REVIEW_STAR : form.REVIEW_STAR.value,
+  						REVIEW_STAR : rate,
   						REVIEW_SUBJECT : form.REVIEW_SUBJECT.value,
   						REVIEW_CONTENT : form.REVIEW_CONTENT.value
   						};
@@ -274,7 +292,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${view.ITEM_REMAINCOUNT}개)</span></span></td>
+								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
 							</tr>
 						</tfoot>
 					</table>
@@ -352,7 +370,7 @@
 	      	 				
 	      	 				<!-- 로그인후 -->
 	      	 				<c:if test="${sessionScope.member_ID != null}">
-								<div class="review_explanation" style="align: center">
+								<!-- <div class="review_explanation" style="align: center">
 									  <img src="/IMPet/resources/image/review/commentlogo.png"></img>
 										<ul>
 											<li><input type="radio" name="REVIEW_STAR" value="1" height="1" class="radio">
@@ -375,7 +393,60 @@
 									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
 											</li>
 										</ul>			
-			 					</div>
+			 					</div> -->
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+<style type="text/css">
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+</style>
+
+
+
+<p class="star_rating" id="star_rating">
+    <a href="#" onclick="rateup(1);" class="on">★</a>
+    <a href="#" onclick="rateup(2);" >★</a>
+    <a href="#" onclick="rateup(3);" >★</a>
+    <a href="#" onclick="rateup(4);" >★</a>
+    <a href="#" onclick="rateup(5);" >★</a>
+</p>
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
 			 					
 							
 								<div class="REVIEW_CONTENT" style="width: 1000px;" align="left">

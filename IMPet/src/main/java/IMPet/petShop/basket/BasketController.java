@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,8 @@ public class BasketController {
 		System.out.println("펫샵장바구니리스트");
 		List<Map<String, Object>> list = basketService.selectAll(commandMap.getMap());
 		
+		System.out.println("size"+list.size());
+		
 		mav.addObject("basketList", list);
 		mav.setViewName("BasketList");
 		return mav;
@@ -34,21 +37,29 @@ public class BasketController {
 	
 	//펫샵장바구니추가처리
 	@RequestMapping(value="/BasketWrite")
-	public ModelAndView BasketWrite() {
+	public ModelAndView BasketWrite(CommandMap commandMap, HttpSession session) throws Exception {
 
 		System.out.println("펫샵장바구니추가처리");
+		System.out.println(commandMap.getMap());
+		basketService.insert(commandMap.getMap());
 		
-		mav.setViewName("BasketWrite");
+		String id = session.getAttribute("member_ID").toString();
+		
+		mav.setViewName("redirect:/PetShop/BasketList?MEMBER_ID="+id);
 		return mav;
 	}
 	
 	//펫샵장바구니상품삭제
 	@RequestMapping(value="/BasketDelete")
-	public ModelAndView BasketDelete() {
+	public ModelAndView BasketDelete(CommandMap commandMap, HttpSession session) throws	Exception {
 		
+		System.out.println("controller" +commandMap.getMap());
+		basketService.delete(commandMap.getMap());
 		System.out.println("펫샵장바구니상품삭제");
 			
-		mav.setViewName("BasketDelete");
+		String id = session.getAttribute("member_ID").toString();
+		
+		mav.setViewName("redirect:BasketList?MEMBER_ID="+id);
 		return mav;
 	}
 	

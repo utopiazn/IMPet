@@ -94,15 +94,15 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><img src="/pet/resources/goods_upload/${basketList.ITEM_IMG}" width="90" height="90"></td>
+						<td align="center"><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${basketList.BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE*basketList.BUYCOUNT}" type="number"/>원</strong></td>
+						<td align="center">${basketList.BASKET_BUYCOUNT}EA</td>
+						<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE*basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>
 						<td align="center">
-							<a href="basketdelete.dog?basket_num=${basketList.BASKET_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
+							<a href="/IMPet/PetShop/BasketDelete?BASKET_NO=${basketList.BASKET_NO}&MEMBER_ID=${basketList.MEMBER_ID}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
 						</td>
-						<c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BUYCOUNT)}"/>
+						<c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT)}"/>
 					</tr>
 				</c:forEach>
 					<c:if test="${fn:length(basketList) <= 0}">
