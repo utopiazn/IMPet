@@ -1,5 +1,7 @@
 package IMPet.petHotel.petRoomReservation;
 
+import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +33,30 @@ public class PetRoomReservationController {
 		System.out.println("Controller:"+commandMap.getMap());
 		
 		Map<String, Object> map = petRoomReservationService.searchDate(commandMap.getMap());
+		
+		Date firstDateD = Date.valueOf((String)commandMap.get("res_FirstDate"));
+		Date lastDateD = Date.valueOf((String)commandMap.get("res_LastDate"));
+		
+		Calendar calf = Calendar.getInstance ( );
+		calf.setTime(firstDateD);// 입실날짜 
+
+		Calendar call = Calendar.getInstance ( );
+		call.setTime(lastDateD); // 퇴실날짜
+
+		int count = 0;
+		while (!calf.after(call))
+		{
+		count++;
+		calf.add ( Calendar.DATE, 1 ); // 다음날로 바뀜
+		}
+		count--; //하루 오버되서 날짜 재조정
+		System.out.println (count + "박 예정" );
+		
+		int price = (Integer.parseInt((String)commandMap.get("res_Price")) * count);
+		System.out.println ("예약금 : "+price );
+		commandMap.put("res_Price", price);
+		
+		
 		
 		mav.addObject("retotal", map);
 		
