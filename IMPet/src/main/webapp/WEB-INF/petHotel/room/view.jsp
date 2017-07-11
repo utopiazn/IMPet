@@ -12,7 +12,7 @@ function ajaxRoom(){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -33,7 +33,7 @@ function ajaxRoomModifyForm(no){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -54,7 +54,7 @@ function ajaxRoomDelete(no){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
