@@ -72,8 +72,10 @@ window.onload=function(){
 	</div>
 	
 	<div id="ContextHotel" align="center" style="border: 1px solid black; width:99.8%;  float: left;">
-		<div>
+		<div style="width: 100%; height: 600px">
+			<c:if test="${car==0}">		
 			<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
+			</c:if>
 		</div>
 	</div>
 </div>
