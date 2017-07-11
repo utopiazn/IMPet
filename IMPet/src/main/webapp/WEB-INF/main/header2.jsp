@@ -3,6 +3,65 @@
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/main/main.css" />
  <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css); 
+.nav  {
+	 width: 100%;
+    margin: 0 auto;
+    background: white;
+    color: white;
+    border: 2px solid;
+    border-top-color: #CAF871;
+    border-bottom-color: #CAF871;
+    text-align: center;
+   padding: 7px 90px 4px;
+    font-size: 20px;
+    }
+	.nav a {
+	  color: black;
+	  text-decoration: none;
+	  display: block;
+	  padding: 0 16px;
+	  line-height: inherit;
+	  cursor: pointer;
+	}
+	.nav__menu {
+	  line-height: 45px;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  word-spacing: 270px;
+	}
+	.nav__menu-item {
+	  display: inline-block;
+	  position: relative;
+	 }
+	.nav__menu-item:hover {
+	  color: black;	  
+	}
+	.nav__menu-item:hover .nav__submenu {
+	  display: block;
+	  
+	}
+	.nav__submenu {
+	  font-weight: 300;
+	  text-transform: none;
+	  display: none;
+	  position: absolute;
+	  width: 220px;
+	  border-top: 1px solid fade(black, 5%);
+      border-bottom: 3px solid;
+      border-radius: 0 0 3px 3px;
+	  background-color: white;
+	  z-index: 2;
+	}
+	.nav__submenu-item:hover {
+	  background: rgba(0, 0, 0, 0.1);
+	}
+	nav ul {
+	  list-style: none;
+	  padding-left: 0;
+	  margin-top: 0;
+	  margin-bottom: 0;
+	}  
+	 
 
 
 #main a:link,
@@ -31,7 +90,7 @@
 </div>
 
 
-<!-- <nav class="nav" id="header2">
+ <nav class="nav" id="header2">
 	  <ul class="nav__menu">
 	    	<li class="nav__menu-item"><a href=javascript:jsHotel(0);>HOTEL</a>
 	     		<ul class="nav__submenu">	     
@@ -54,10 +113,10 @@
 		       </ul>
 		     </li>
 	    </ul> 
-</nav> -->
+</nav> 
 
 <!-- not responsive yet -->
-<nav>
+<!-- <nav>
   <ul id="main"> 
     <li><a href=javascript:jsHotel(0);>HOTEL</a>
       <ul class="drop">
@@ -88,7 +147,7 @@
 	    </div>
       </ul>
     </li>
-    
+     -->
    
     <div id="marker"></div> 
 </nav>
