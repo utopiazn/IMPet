@@ -45,6 +45,13 @@ public class AdminItemServiceImpl implements AdminItemService{
 		adminItemDAO.itemUpdate(map);
 		
 	}
+	
+
+	@Override
+	public void itemDelete(Map<String, Object> map) throws Exception {
+		adminItemDAO.itemDelete(map);
+		
+	}
 
 	// 상품 선택
 	@Override

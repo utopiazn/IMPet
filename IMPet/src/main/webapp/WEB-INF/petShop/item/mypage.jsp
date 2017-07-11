@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <script>
@@ -15,7 +13,18 @@ $(function () {
         $(this).addClass("selected");
     });
 });
-
+function gg(){
+	var qna_num = document.getElementById("qna_number").value;
+	var qna_state = document.getElementById("qna_state").value;
+	if(qna_state != "답변대기"){
+	$.ajax({
+		url: "/SIRORAGI/qna/updateRepState",
+		type : "get",
+		data: {"QNA_NUMBER":qna_num},
+		success:function(data){
+		}
+	});}
+};
 $(document).ready(function(){
 var link = document.location.href;
 var tab = link.split('mypage').pop();

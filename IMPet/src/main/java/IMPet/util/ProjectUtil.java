@@ -71,7 +71,7 @@ public class ProjectUtil {
 	// 상품 추가
 	public Map<String, Object> UploadFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath,
 			int num) throws IOException {
-
+		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
 		MultipartFile multipartFile = null;
@@ -79,79 +79,71 @@ public class ProjectUtil {
 		String originalFileExtension = null;
 		String storedFileName = null;
 		int count = 0;
-
+		
 		while (iterator.hasNext()) {
-
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
-
 			System.out.println("파일이름" + multipartFile.getName());
-
+			
 			if (multipartFile.isEmpty() == false) {
-
 				originalFileName = multipartFile.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
 				storedFileName = "IMAGE_" + num + "_" + count++ + originalFileExtension;
-
+				
 				File file = new File(uploadPath + storedFileName);
 				multipartFile.transferTo(file);
-
+				
 				commandMap.put(multipartFile.getName(), storedFileName);
 			}
 		}
-
 		return commandMap;
 	}
-
-	public Map<String, Object> UpdateFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath)
-			throws IOException {
-
+	
+	// 상품 이미지 수정
+	public Map<String, Object> UpdateFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath) throws IOException {
+		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
 		MultipartFile multipartFile = null;
 		String originalFileName = null;
+		String originalFile = null;
 		String originalFileExtension = null;
 		String storedFileName = null;
-		String imgvalue = null;
 
-		String[] originalimg = request.getParameterValues("ORIGINALIMG");
-
+	
+		String[] originalImg = request.getParameterValues("ORIGINALIMG");
 		
+		
+		while (iterator.hasNext()) {
 			
-			while (iterator.hasNext()) {
-
-				multipartFile = multipartHttpServletRequest.getFile(iterator.next());
-
-				for (String a : originalimg) {
-
-					imgvalue = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
-					System.out.println("뽑는다" + imgvalue);
-					if (imgvalue.equals(a)) {
-
-						System.out.println("2222");
-
-						File removeFile = new File(uploadPath + a);
+			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			
+			if (multipartFile.isEmpty() == false) {
+				
+				originalFileName = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
+				
+				for(String a : originalImg){
+					
+					if(originalFileName.equals(a)) {
+																
+						File removeFile = new File(uploadPath, a);
 						removeFile.delete();
-
-						originalFileName = multipartFile.getOriginalFilename();
-						originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+						
+						originalFile = multipartFile.getOriginalFilename();
+						originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
 						storedFileName = a.substring(0, a.lastIndexOf(".")) + originalFileExtension;
-
-						File file = new File(uploadPath + storedFileName);
+														
+						File file = new File(uploadPath, storedFileName);
 						multipartFile.transferTo(file);
-
-						System.out.println("컬럼명 "
-								+ multipartFile.getName().substring(0, multipartFile.getName().lastIndexOf("I") - 1));
-						System.out.println("수정된" + storedFileName);
-
-						commandMap.put(
-								multipartFile.getName().substring(0, multipartFile.getName().lastIndexOf("I") - 1),
-								storedFileName);
-
+												
+						commandMap.put(multipartFile.getName().substring(0,multipartFile.getName().lastIndexOf("I")-1), storedFileName);
+			
 					}
+							
 				}
+								
 			}
-		
-
+				
+		}
 		return commandMap;
 	}
 

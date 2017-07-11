@@ -13,7 +13,7 @@ function ajaxHealing(){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -34,7 +34,7 @@ function ajaxHealingModifyForm(no){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -55,7 +55,7 @@ function ajaxHealingDelete(no){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });

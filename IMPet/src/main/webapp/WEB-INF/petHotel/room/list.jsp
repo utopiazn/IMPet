@@ -16,7 +16,7 @@ function ajaxRoomView(no){
         alert('오류발생!!');
       },
       success : function(data) {  
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -34,7 +34,7 @@ function ajaxRoomInsert(){
         alert('오류발생!!');
       },
       success : function(data) {  
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });

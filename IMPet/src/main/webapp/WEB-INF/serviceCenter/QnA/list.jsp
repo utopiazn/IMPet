@@ -19,7 +19,7 @@
 		<c:forEach var="QNA" items="${list}">
 			<tr><td>
 			<h2>번호 : ${QNA.QNA_NO}</h2><br/>
-			<input value="QnA 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeView?QNA_NO=${QNA.QNA_NO}'"/>
+			<input value="QnA 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'"/>
 			<h2>제목 : ${QNA.QNA_SUBJECT}</h2><br/>
 			<h2>조회수 : ${QNA.QNA_COUNT}</h2><br/>
 			<h2>아이디 : ${QNA.QNA_DATE}</h2><br/>
@@ -34,14 +34,9 @@ QnA 리스트
 
 <br/><br/><br/><br/><br/>
 
-<input value="Q&A 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionView'"/>
-
-<br/><br/><br/><br/><br/>
-
 <input value="Q&A 추가" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertForm'"/>
 
-
-
+O
 
 </body>
 

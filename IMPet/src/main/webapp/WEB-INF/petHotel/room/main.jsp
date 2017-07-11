@@ -17,7 +17,7 @@ function ajaxRoom(){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -32,7 +32,7 @@ function ajaxHealing(){
         alert('오류발생!!');
       },
       success : function(data) {
-        $('#Context').html(data);
+        $('#ContextHotel').html(data);
       }
 
     });
@@ -71,9 +71,11 @@ window.onload=function(){
 		<input src="/IMPet/resources/image/SkinImg/healing.bmp" type="image" value="HealingList" onclick="ajaxHealing();"  style="width: 100%; height: 70px;"/>
 	</div>
 	
-	<div id="Context" align="center" style="border: 1px solid black; width:99.8%;  float: left;">
-		<div>
+	<div id="ContextHotel" align="center" style="border: 1px solid black; width:99.8%;  float: left;">
+		<div style="width: 100%; height: 600px">
+			<c:if test="${car==0}">		
 			<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
+			</c:if>
 		</div>
 	</div>
 </div>

@@ -119,4 +119,11 @@
 		<include refid="where-no"/>
 	</update>
 	
+	<delete id="itemDelete" parameterType="hashmap">
+		
+		delete from PET_ITEM
+		<include refid="where-no"/>
+	
+	</delete>
+	
 </mapper>

@@ -25,9 +25,9 @@
 		
 	};
 
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		funcSetCurrency($);
-	});
+	}); */
 	
 	//구매갯수 변환 함수
 	function count_change(temp){
@@ -68,11 +68,10 @@
 	
 	//장바구니 처리
 	var onBasket = function(){
-			
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${sessionScope.member_ID}";
-		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
 			
 	};
 		
@@ -82,16 +81,89 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&ITEM_REMAINCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
+
+
+    var rate = 1;
+
+    function rateup(n){
+    	rate = n;
+    }
+
+    $( document ).ready(function() {
+			
+    	funcSetCurrency($);
+    	 $( ".star_rating a" ).click(function() {
+    	     $(this).parent().children("a").removeClass("on");
+    	     $(this).addClass("on").prevAll("a").addClass("on");
+    	     return false;
+    	 });
+    	});
+    
     //코멘트 처리
     var onComment = function(){
   		var form = $('.commentForm')[0];
-  		form.action = 'ItemComment'; 
-  		form.submit();
+			  		
+  		var data1 = { 	ITEM_NO : form.ITEM_NO.value,
+  						MEMBER_ID : form.MEMBER_ID.value,
+  						REVIEW_IMG : form.REVIEW_IMG.value,
+  						REVIEW_STAR : rate,
+  						REVIEW_SUBJECT : form.REVIEW_SUBJECT.value,
+  						REVIEW_CONTENT : form.REVIEW_CONTENT.value
+  						};
+  		var url1 = "/IMPet/PetShop/ItemComment";
+  		
+  	    $.ajax({    
+  	      type : "POST",
+  	      url : url1,
+  	      dataType : "text",
+  	      data : data1,
+  	      error : function() {
+  	    	  
+  	    	 alert('오류임!');     	
+  	      },
+  	      success : function(data) {  
+  	    	 $('body').html(data);
+  	        		
+  	      }
+  	      
+  	    });    
+  		
   	};
+  	
+  	$(document).ready(function(){
+  		//<a href="#this" id="test" >테스트</a> 에서 id부분을 #test로 표시하여 id 클릭시 fn_test 이벤트가 발생함.
+  		  $("#btn btnC_01 btnP_02").on("click", function(e){ 
+  		       e.preventDefault();
+  		       fn_ajax();
+  		   });	  
+  	});	
+
+  	// 이 Function 이벤트는 모두 <a 태그로 작성하여 써야함.(input type="button"/ input type="submit")
+  	function fn_ajax(a, b){
+		  
+	var url1 = "/IMPet/PetShop/ItemCommentDelete";
+	
+    $.ajax({    
+      type : "POST",
+      url : url1,
+      dataType : "text",
+      data : {REVIEW_NO : a, ITEM_NO : b},
+      error : function() {
+    	  
+    	 alert('오류임!');     	
+      },
+      success : function(data) {  
+    	 $('body').html(data);
+        		
+      }
+      
+    });    
+   
+}
 	 	
 </script>
 
@@ -219,7 +291,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${view.ITEM_REMAINCOUNT}개)</span></span></td>
+								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
 							</tr>
 						</tfoot>
 					</table>
@@ -276,15 +348,14 @@
 	<div id="page-wrapper">
 
 		 
-		 <!-- 코멘트 달기 -->
-<div class="inner">
-		<!-- reply_grp -->
+	<!-- 코멘트 달기 -->
+	<div class="inner">
+		<!-- review_grp -->
 		<form class="commentForm" method="post">
 		<input type="hidden" name="ITEM_NO" value="${view.ITEM_NO}"/>
 		<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}"/>
 		<input type="hidden" name="REVIEW_IMG" value="1"/>
 	
-		
 				<div class="review_grp">
 					<div class="review_form">
 				
@@ -297,7 +368,7 @@
 	      	 				
 	      	 				<!-- 로그인후 -->
 	      	 				<c:if test="${sessionScope.member_ID != null}">
-								<div class="review_explanation" style="align: center">
+								<!-- <div class="review_explanation" style="align: center">
 									  <img src="/IMPet/resources/image/review/commentlogo.png"></img>
 										<ul>
 											<li><input type="radio" name="REVIEW_STAR" value="1" height="1" class="radio">
@@ -320,7 +391,60 @@
 									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
 											</li>
 										</ul>			
-			 					</div>
+			 					</div> -->
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+<style type="text/css">
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+</style>
+
+
+
+<p class="star_rating" id="star_rating">
+    <a href="#" onclick="rateup(1);" class="on">★</a>
+    <a href="#" onclick="rateup(2);" >★</a>
+    <a href="#" onclick="rateup(3);" >★</a>
+    <a href="#" onclick="rateup(4);" >★</a>
+    <a href="#" onclick="rateup(5);" >★</a>
+</p>
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
+			 					
 			 					
 							
 								<div class="REVIEW_CONTENT" style="width: 1000px;" align="left">
@@ -335,61 +459,68 @@
 
 
 
-<%-- <c:if test="${fn:length(comment) ge 0}">
-		<p class="review_no"> </p>
-		</c:if>  --%>
-	<c:forEach var="comment" items="${comment}" varStatus="stat">
-
-	
+				<%-- <c:if test="${fn:length(comment) ge 0}">
+						<p class="review_no"> </p>
+					 </c:if>  --%>
+					 
+					 
+					<c:forEach var="comment" items="${comment}" varStatus="stat">
 			
-			<!-- <p class="reply_num">댓글 수 <strong>1</strong></p> -->
+						<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
+						
+						<!-- 후기리스트영역 -->
+						<div class="review_view">
+							
+							<!-- 후기타이틀영역 -->
+							<div class="review_title">
+								<div class="REVIEW_SUBJECT"><strong>${comment.REVIEW_SUBJECT} </strong>|
+								<div class="MEMBER_ID"><strong>${comment.MEMBER_ID} </strong>님  
+									<div class="REVIEW_STAR">
+										  <c:if test='${comment.REVIEW_STAR == 1}'>
+									      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
+									      </c:if>
+									      <c:if test='${comment.REVIEW_STAR == 2}'>
+									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+									      </c:if>
+									      <c:if test='${comment.REVIEW_STAR == 3}'>
+									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+									      </c:if>
+									      <c:if test='${comment.REVIEW_STAR == 4}'>
+									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+									      </c:if>
+									      <c:if test='${comment.REVIEW_STAR == 5}'>
+									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
+									      </c:if>
+									      
+									<fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate>
+									</div>
+								</div>
+								</div>
 			
-			<!-- 후기리스트영역 -->
-			<div class="review_view">
-				
-				<!-- 후기타이틀영역 -->
-				<div class="review_title">
-					<div class="MEMBER_ID"><strong>${comment.MEMBER_ID} </strong>님  
-						<div class="REVIEW_STAR">
-							  <c:if test='${comment.REVIEW_STAR == 1}'>
-						      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
-						      </c:if>
-						      <c:if test='${comment.REVIEW_STAR == 2}'>
-						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-						      </c:if>
-						      <c:if test='${comment.REVIEW_STAR == 3}'>
-						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-						      </c:if>
-						      <c:if test='${comment.REVIEW_STAR == 4}'>
-						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-						      </c:if>
-						      <c:if test='${comment.REVIEW_STAR == 5}'>
-						      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-						      </c:if>
-						      
-						<fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate>
+							</div>
+							
+							<!-- 후기내용영역 -->
+							<div class="REVIEW_CONTENT">
+								<p>${comment.REVIEW_CONTENT}</p>
+								<c:if test="${member_ID == comment.MEMBER_ID}">
+							<%-- 	<a href="/IMPet/PetShop/ItemCommentDelete?REVIEW_NO=${comment.REVIEW_NO}&ITEM_NO=${view.ITEM_NO}" class="btn btnC_01 btnP_02">
+									<span class="btn btnC_05 review_btn">삭제</span>
+								</a> --%>
+								
+								<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="btn btnC_01 btnP_02">
+									<span class="btn btnC_05 review_btn">삭제</span>
+								</a>
+								</c:if>
+							</div>
 						</div>
-					</div>
-					
-					<c:if test="${member_ID == comment.MEMBER_ID}">
-					<a href="/IMPet/PetShop/ItemView?ItemCommentDelete=${comment.REVIEW_NO}&ITEM_NO=${view.ITEM_NO}" class="btn btnC_01 btnP_02">
-						<span class="btn btnC_05 reply_btn">삭제</span>
-					</a>
-					</c:if>
-				</div>
-				
-				<!-- 후기내용영역 -->
-				<div class="REVIEW_CONTENT">
-					<p>${comment.REVIEW_CONTENT}</p>
-				</div>
-			</div>
-
-		</c:forEach>	
-		</div><!-- // review_grp -->
+			
+					</c:forEach>
+						
+				</div><!-- // review_grp -->
 		</form>
-		</div>
 	</div>
-	</div>	
+</div>
+</div>	
 
 </body>
 </html>

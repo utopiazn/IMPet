@@ -11,6 +11,6 @@ public interface BasketService {
 	
 	public void insert(Map<String, Object> map) throws Exception;
 	
-	Map<String, Object> delete(Map<String, Object> map) throws Exception;
+	public void delete(Map<String, Object> map) throws Exception;
 
 }

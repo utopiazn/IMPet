@@ -13,6 +13,8 @@
 <!-- 임시 css -->
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
 
 /* /* .header{ 
 width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna', sans-serif; background-color: white;  MARGIN-TOP: -8PX; MARGIN-LEFT: -5PX; padding: 15px; 
@@ -20,75 +22,17 @@ width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna
 
 .right{ /* main 2 body부분 */
 
-width: 1125px; height:100%; font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
+width: 1125px; height:100%; font-family: 'Noto sans KR', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
 
 
 /* width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; display: table-cell; padding-left: 30%; */
 
 }
 .footer{
-width: 100%;  height: 80px; display: table-cell; float: left; font-family: 'Hanna', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    
+width: 100%;  /* height: 80px; */ display: table-cell; float: left; font-family: 'Noto sans KR', sans-serif; color: white;  /*   MARGIN-TOP: -8PX;     MARGIN-LEFT: -5px; padding: 15px; */ background-color: #87EAA2;    
 } 
 
-/*  .nav  {
-	 width: 100%;
-    margin: 0 auto;
-    background: white;
-    color: white;
-    border: 2px solid;
-    border-top-color: #CAF871;
-    border-bottom-color: #CAF871;
-    text-align: center;
-   padding: 7px 90px 4px;
-    font-size: 20px;
-    }
-	.nav a {
-	  color: black;
-	  text-decoration: none;
-	  display: block;
-	  padding: 0 16px;
-	  line-height: inherit;
-	  cursor: pointer;
-	}
-	.nav__menu {
-	  line-height: 45px;
-	  font-weight: 700;
-	  text-transform: uppercase;
-	  word-spacing: 270px;
-	}
-	.nav__menu-item {
-	  display: inline-block;
-	  position: relative;
-	 }
-	.nav__menu-item:hover {
-	  color: black;	  
-	}
-	.nav__menu-item:hover .nav__submenu {
-	  display: block;
-	  
-	}
-	.nav__submenu {
-	  font-weight: 300;
-	  text-transform: none;
-	  display: none;
-	  position: absolute;
-	  width: 220px;
-	  border-top: 1px solid fade(black, 5%);
-      border-bottom: 3px solid;
-      border-radius: 0 0 3px 3px;
-	  background-color: white;
-	  z-index: 2;
-	}
-	.nav__submenu-item:hover {
-	  background: rgba(0, 0, 0, 0.1);
-	}
-	nav ul {
-	  list-style: none;
-	  padding-left: 0;
-	  margin-top: 0;
-	  margin-bottom: 0;
-	}  
-	 */
+
 </style>
 
 <meta charset="UTF-8">

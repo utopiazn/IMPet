@@ -11,17 +11,19 @@ import IMPet.module.AbstractDAO;
 public class ItemReviewDAO extends AbstractDAO {
 	
 	//후기삭제
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> delete(Map<String, Object> map) throws Exception{
+	public void delete(Map<String, Object> map) throws Exception{
 		
-		return (Map<String, Object>) delete("PetReviewSQL.delete", map);
+		System.out.print("dao:"+map);
+		
+		delete("PetReviewSQL.reDelete", map);
 	}
 	
 	//후기수정
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> update(Map<String, Object> map) throws Exception{
+	public void update(Map<String, Object> map) throws Exception{
 		
-		return (Map<String, Object>) update("PetReviewSQL.update", map);
+		System.out.print("dao:"+map);
+		
+		update("PetReviewSQL.reUpdate", map);
 	}
 	
 	//후기등록

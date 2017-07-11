@@ -160,13 +160,15 @@ function delchk(){
 												<fmt:formatNumber value="${itemList.ITEM_DCPRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
 										<c:if test="${itemList.ITEM_DCPRICE == null}">
-										<td style="text-align:center;vertical-align:middle;">
+											<td style="text-align:center;vertical-align:middle;">
 												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										</c:if>
+										
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_REMAINCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
 										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>																	
 										<td style="text-align:center;vertical-align:middle;">
+										
 										<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div></td>									
 									</tr>

@@ -20,15 +20,15 @@ public class ItemReviewServiceImpl implements ItemReviewService{
 	}
 
 	@Override
-	public Map<String, Object> delete(Map<String, Object> map) throws Exception {
+	public void delete(Map<String, Object> map) throws Exception {
 
-		return itemReviewDAO.delete(map);
+		itemReviewDAO.delete(map);
 	}
 	
 	@Override
-	public Map<String, Object> update(Map<String, Object> map) throws Exception {
+	public void update(Map<String, Object> map) throws Exception {
 
-		return itemReviewDAO.update(map);
+		itemReviewDAO.update(map);
 	}
 	
 	@Override

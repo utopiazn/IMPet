@@ -33,10 +33,9 @@ public class BasketDAO extends AbstractDAO {
 	}
 	
 	//장바구니 삭제
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> delete(Map<String, Object> map) throws Exception{
+	public void delete(Map<String, Object> map) throws Exception{
 		
-		return (Map<String, Object>) delete("PetBasketSQL.delete", map);
+		delete("PetBasketSQL.baDelete", map);
 	}
 	
 	

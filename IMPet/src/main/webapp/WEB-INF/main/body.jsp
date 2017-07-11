@@ -12,11 +12,15 @@ $(window).load(function() {
 	    /* animation: "slide" */
 	  });
 	});
+	
+function openWin(){  
+    window.open("/IMPet/Egg", "egg", "width=800, height=700" );  
+}  
 </script>
 <!-- 이미지슬라이드 -->
 
 <div align="center">
-	<div>&nbsp;</div>
+	
 	
 	<div class="flexslider" style="width: 100%; height: 30%">
 	
@@ -50,5 +54,8 @@ $(window).load(function() {
 		</li>
 	
 	  </ul>
+	</div>
+	<div style="float: left;">
+	<a href="javascript:openWin();">_</a>
 	</div>
 </div>

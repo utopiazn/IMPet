@@ -8,7 +8,7 @@
 	</sql>
 	
 	<sql id="where-no"> 
-		<![CDATA[ WHERE BASEKT_NO = #{BASEKT_NO}]]> 
+		<![CDATA[ WHERE BASKET_NO = #{BASKET_NO}]]> 
 	</sql>
 	
 	<sql id="where-id"> 
@@ -34,23 +34,22 @@
 	
 	<!-- 장바구니 추가 -->
 	<insert id="baInsert" parameterType="hashmap">
-		insert into pet_item_basket
-					 (BAKSET_NO,
+		insert into PET_ITEM_BASKET
+					 (BASKET_NO,
 					  ITEM_NO,
-					  BAKSET_BUYCOUNT,
 					  MEMBER_ID,
-					  ITEM_PRICE)
-			values(BAKSET_NO_SEQ.NEXTVAL,
+					  BASKET_BUYCOUNT)
+			values(BASKET_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
-				      #{BAKSET_BUYCOUNT},
-				      #{MEMBER_ID},		
-				      #{ITEM_PRICE})			     
+				      #{MEMBER_ID},
+				      #{BASKET_BUYCOUNT})
 	</insert>
 	
 	<!-- 장바구니 삭제 -->
-	<select id="delete" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletALL"/> 
-		<include refid="where-no"/>
-	</select>
+	<delete id="baDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FROM PET_ITEM_BASKET WHERE BASKET_NO = #{BASKET_NO}
+		]]>
+	</delete>
 
 </mapper>

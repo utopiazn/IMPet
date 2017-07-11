@@ -4,11 +4,12 @@
 
 
 <style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .button{
 		background-color: white;
 		text-decoration:none;
-		font-family: 'Jeju Gothic', sans-serif;
+		font-family: 'Noto sans KR', sans-serif;
 		line-height:0px;
 		text-align:center;
 		vertical-align:middle;
@@ -53,7 +54,7 @@
 	<!-- 로그인일 경우 -->
 	
 		<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
-		<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=aa'"/>
+		<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}'"/>
 		<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
 			
 		<c:if test="${ sessionScope.member_Admin eq '1' }">
