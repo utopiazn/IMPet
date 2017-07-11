@@ -32,7 +32,6 @@
 
 <br/><br/><br/><br/><br/>
 
-<input value="상품상세보기" type="button" onclick="location.href='/IMPet/PetShop/ItemView'"/>
 	<div class="main_itemlist">
 	
 		<c:forEach var="items" items="${items}">

@@ -356,7 +356,6 @@
 		<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}"/>
 		<input type="hidden" name="REVIEW_IMG" value="1"/>
 	
-		ITEM_NOMEMBER_IDREVIEW_IMG
 				<div class="review_grp">
 					<div class="review_form">
 				

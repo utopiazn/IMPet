@@ -24,7 +24,7 @@ public class ItemController {
 	private ItemReviewService itemReviewService;
 	
 	
-	//펫샵메인
+	//펫샵메인(베스트셀러)
 	@RequestMapping(value="/Main")
 	public ModelAndView Main() throws Exception {
 
@@ -55,7 +55,7 @@ public class ItemController {
 	}
 	
 	
-	//펫샵상품상세보기
+	//펫샵상품상세보기(+댓글리스트)
 	@RequestMapping(value="/ItemView")
 	public ModelAndView ItemView(CommandMap commandMap) throws Exception {
 
