@@ -69,7 +69,7 @@ public class QnAController {
 		
 		System.out.println("Q&A 추가");
 
-		mav.setViewName("QuestionInsert");
+		mav.setViewName("redirect:QuestionList");
 		return mav;
 	}
 
@@ -117,7 +117,7 @@ public class QnAController {
 		
 		System.out.println("Q&A 삭제");
 
-		mav.setViewName("redirect:QnAList");
+		mav.setViewName("redirect:QuestionList");
 		return mav;
 	}
 

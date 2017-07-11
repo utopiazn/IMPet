@@ -34,7 +34,7 @@ public class QnADAO  extends AbstractDAO {
 	
 	public void update(Map<String, Object> map) throws Exception{
 		
-		System.out.println("전:"+map);
+/*		System.out.println("전:"+map);
 		
 		String day = map.get("qnA_Date").toString();
 	
@@ -43,7 +43,7 @@ public class QnADAO  extends AbstractDAO {
 		map.put("qnA_Date", date1);
 		
 		System.out.println("후:"+map);	
-		
+		*/
 		
 		update("QnASQL.update", map);
 		
