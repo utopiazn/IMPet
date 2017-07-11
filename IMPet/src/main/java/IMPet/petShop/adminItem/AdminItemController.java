@@ -173,11 +173,8 @@ public class AdminItemController {
 
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
-
-		int num = Integer.parseInt(commandMap.get("ITEM_NO").toString());
 	
-		
-		Map<String,Object> map = util.UpdateFile(commandMap.getMap(), request, uploadPath, num);
+		Map<String,Object> map = util.UpdateFile(commandMap.getMap(), request, uploadPath);
 	
 		adminItemService.itemUpdate(map);
 		

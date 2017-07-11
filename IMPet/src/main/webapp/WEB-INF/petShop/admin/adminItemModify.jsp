@@ -59,11 +59,11 @@ function validateForm() {
                         	메인 상품 이미지 <br/>
                         	 <c:if test="${!empty itemList.ITEM_IMG}">
                             	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
-                            	<input type="hidden"  name="ITEM_IMG" value="${itemList.ITEM_IMG}"></p>
+                            	<input type="hidden"  name="ORIGINALIMG" value="${itemList.ITEM_IMG}"></p>
                             </c:if>
                              <label>파일 첨부 
                            <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_IMG_MODIFY" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
+                            <input type="file" name="ITEM_IMG_${itemList.ITEM_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
@@ -83,11 +83,11 @@ function validateForm() {
                         	메인 상품 이미지 <br/>
                         	<c:if test="${!empty itemList.ITEM_DETAILIMG}">
                             	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_DETAILIMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
-                            	<input type="hidden" name="ITEM_DETAILIMG" value="${itemList.ITEM_DETAILIMG}"></p>
+                            	<input type="hidden" name="ORIGINALIMG" value="${itemList.ITEM_DETAILIMG}"></p>
                             </c:if>
                              <label>파일 첨부 
                           		 <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->                         
-                          		  <input type="file" name="ITEM_DETAILIMG" onchange="javascript:document.getElementById('file_route1').value=this.value" >                          
+                          		  <input type="file" name="ITEM_DETAILIMG_${itemList.ITEM_DETAILIMG}" onchange="javascript:document.getElementById('file_route1').value=this.value" >                          
                             </label>
                           		  <input type="text" readonly="readonly" title="File Route" id="file_route1" value="">
                             <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
@@ -98,11 +98,11 @@ function validateForm() {
                         	배송 내용 이미지 <br/>
                         	 <c:if test="${!empty itemList.ITEM_BASKETIMG}">
                             	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/itemImg/${itemList.ITEM_BASKETIMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />
-                            	<input type="hidden" name="ITEM_BASKETIMG" value="${itemList.ITEM_BASKETIMG}"></p>
+                            	<input type="hidden" name="ORIGINALIMG" value="${itemList.ITEM_BASKETIMG}"></p>
                             </c:if>
                             <label>파일 첨부 
                            <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_BASKETIMG" onchange="javascript:document.getElementById('file_route2').value=this.value" >                          
+                            <input type="file" name="ITEM_BASKETIMG_${itemList.ITEM_BASKETIMG}" onchange="javascript:document.getElementById('file_route2').value=this.value" >                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route2" value="">
                             <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>

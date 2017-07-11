@@ -101,9 +101,9 @@ public class ProjectUtil {
 
 		return commandMap;
 	}
-	
-	public Map<String, Object> UpdateFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath,
-			int num) throws IOException {
+
+	public Map<String, Object> UpdateFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath)
+			throws IOException {
 
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
@@ -111,35 +111,51 @@ public class ProjectUtil {
 		String originalFileName = null;
 		String originalFileExtension = null;
 		String storedFileName = null;
-		int count = 0;
+		String imgvalue = null;
+
+		String[] originalimg = request.getParameterValues("ORIGINALIMG");
+
 		
-		System.out.println("파일이름" + multipartFile.getName());
-		System.out.println("파일오리지날" + multipartFile.getOriginalFilename());
+			
+			while (iterator.hasNext()) {
 
-		while (iterator.hasNext()) {
+				multipartFile = multipartHttpServletRequest.getFile(iterator.next());
 
-			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+				for (String a : originalimg) {
 
-			System.out.println("파일이름" + multipartFile.getName());
+					imgvalue = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
+					System.out.println("뽑는다" + imgvalue);
+					if (imgvalue.equals(a)) {
 
-			if (multipartFile.isEmpty() == false) {
+						System.out.println("2222");
 
-				originalFileName = multipartFile.getOriginalFilename();
-				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-				storedFileName = "IMAGE_" + num + "_" + count++ + originalFileExtension;
+						File removeFile = new File(uploadPath + a);
+						removeFile.delete();
 
-				File file = new File(uploadPath + storedFileName);
-				multipartFile.transferTo(file);
+						originalFileName = multipartFile.getOriginalFilename();
+						originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+						storedFileName = a.substring(0, a.lastIndexOf(".")) + originalFileExtension;
 
-				commandMap.put(multipartFile.getName(), storedFileName);
+						File file = new File(uploadPath + storedFileName);
+						multipartFile.transferTo(file);
+
+						System.out.println("컬럼명 "
+								+ multipartFile.getName().substring(0, multipartFile.getName().lastIndexOf("I") - 1));
+						System.out.println("수정된" + storedFileName);
+
+						commandMap.put(
+								multipartFile.getName().substring(0, multipartFile.getName().lastIndexOf("I") - 1),
+								storedFileName);
+
+					}
+				}
 			}
-		}
+		
 
 		return commandMap;
 	}
 
 	// 상품 수정 시 원본 삭제 후 수정
-	
 
 	// String - sql.Date 변환 (day=yyyy-MM-dd 형식이어야함)
 	public static java.sql.Date changeSqlDate(String day) {
@@ -153,8 +169,8 @@ public class ProjectUtil {
 		return timestamp;
 	}
 
-	//String - util.Date 변환
-	public static java.util.Date changeUtilDate(String day) throws Exception{
+	// String - util.Date 변환
+	public static java.util.Date changeUtilDate(String day) throws Exception {
 
 		java.util.Date date = new java.text.SimpleDateFormat("yyyyy-mm-dd hh:mm:ss").parse(day);
 		return date;
