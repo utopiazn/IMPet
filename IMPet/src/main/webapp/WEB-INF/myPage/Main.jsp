@@ -1,5 +1,31 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/mypage.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+<script type="text/javascript">
+
+function ajaxRoomResList(){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/PetHotel/RoomResList",
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
+
+</script>
+
+
+
+
+
 
 <div id="middler_body">
 
@@ -35,7 +61,7 @@
 				<table cellpadding="0" cellspacing="0">
 					<tbody><tr>
 						<td><a href="/IMPet/Member/ModifiedForm"><img src="http://img.funpick.co.kr/button/button_mypage_menu_1.png" border="0"></a></td>
-						<td><a href="/IMPet/PetHotel/RoomReservationList"><img src="http://img.funpick.co.kr/button/button_mypage_menu_2.png" border="0"></a></td>
+						<td><a href="javascript:ajaxRoomResList();"><img src="http://img.funpick.co.kr/button/button_mypage_menu_2.png" border="0"></a></td>
 						<td><a href="/IMPet/PetShop/OrderList"><img src="http://img.funpick.co.kr/button/button_mypage_menu_3.png" border="0" ></a></td>
 						<td><a href="/IMPet/Member/DeleteForm"><img src="http://img.funpick.co.kr/button/button_mypage_menu_4.png" border="0" ></a></td>
 						<td><a href="/IMPet/PetShop/OrderList"><img src="http://img.funpick.co.kr/button/button_mypage_menu_5.png" border="0" ></a></td>
@@ -55,7 +81,7 @@
 							<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="border:1px #dee1e2 solid;">
 								<tbody>
 									<tr>
-										<td style="padding:20px;">									
+										<td id="ContextMyPage" style="padding:20px;">									
 																			
 											<script language="JavaScript">
 												addOnloadEvent(function() {_ID('confirm_password').focus()});

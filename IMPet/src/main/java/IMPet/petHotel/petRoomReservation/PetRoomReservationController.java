@@ -76,8 +76,8 @@ public class PetRoomReservationController {
 		
 		System.out.println(list);
 		
-		/*String url = "petHotel/room/list";*/
-		String url = "PetHotelReservation_List";
+		String url = "petHotel/roomRes/resList";
+		/*String url = "PetHotelReservation_List";*/
 		
 		mav.addObject("list", list);
 		

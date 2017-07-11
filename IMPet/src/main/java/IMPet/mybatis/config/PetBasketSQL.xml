@@ -48,9 +48,10 @@
 	</insert>
 	
 	<!-- 장바구니 삭제 -->
-	<select id="delete" resultType="hashmap" parameterType="hashmap">
-		<include refid="seletALL"/> 
-		<include refid="where-no"/>
-	</select>
+	<delete id="baDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FROM PET_ITEM_BASKET WHERE BASEKT_NO = #{BASEKT_NO}
+		]]>
+	</delete>
 
 </mapper>

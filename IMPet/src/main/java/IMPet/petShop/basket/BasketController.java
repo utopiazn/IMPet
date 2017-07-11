@@ -23,7 +23,6 @@ public class BasketController {
 	//펫샵장바구니리스트
 	@RequestMapping(value="/BasketList")
 	public ModelAndView BasketList(CommandMap commandMap) throws Exception {
-
 		
 		System.out.println("펫샵장바구니리스트");
 		List<Map<String, Object>> list = basketService.selectAll(commandMap.getMap());
@@ -37,10 +36,7 @@ public class BasketController {
 	@RequestMapping(value="/BasketWrite")
 	public ModelAndView BasketWrite() {
 
-		
-		/*System.out.println("펫샵장바구니추가처리");
-		System.out.println(commandMap.getMap());
-		basketReviewService.insert(commandMap.getMap());*/
+		System.out.println("펫샵장바구니추가처리");
 		
 		mav.setViewName("BasketWrite");
 		return mav;
@@ -49,11 +45,9 @@ public class BasketController {
 	//펫샵장바구니상품삭제
 	@RequestMapping(value="/BasketDelete")
 	public ModelAndView BasketDelete() {
-
 		
 		System.out.println("펫샵장바구니상품삭제");
-	
-		
+			
 		mav.setViewName("BasketDelete");
 		return mav;
 	}
@@ -61,10 +55,8 @@ public class BasketController {
 	//펫샵주문상품리스트
 	@RequestMapping(value="/OrderList")
 	public ModelAndView OrderList() {
-
 		
 		System.out.println("펫샵주문상품리스트");
-	
 		
 		mav.setViewName("OrderList");
 		return mav;
@@ -73,11 +65,9 @@ public class BasketController {
 	//펫샵주문배송상태처리
 	@RequestMapping(value="/OrderShip")
 	public ModelAndView OrderShip() {
-
-		
-		System.out.println("펫샵주문배송상태처리");
 	
-		
+		System.out.println("펫샵주문배송상태처리");
+			
 		mav.setViewName("OrderShip");
 		return mav;
 	}
@@ -85,10 +75,8 @@ public class BasketController {
 	//펫샵주문결제상태처리
 	@RequestMapping(value="/OrderPay")
 	public ModelAndView OrderPay() {
-
 		
 		System.out.println("펫샵주문결제상태처리");
-	
 		
 		mav.setViewName("OrderPay");
 		return mav;
@@ -96,11 +84,9 @@ public class BasketController {
 	
 	@RequestMapping(value="/OrderItemPay")
 	public ModelAndView OrderItemPay() {
-
-			
-		System.out.println("펫상품결제진행");
 		
-			
+		System.out.println("펫상품결제진행");
+				
 		mav.setViewName("OrderItemPay");
 		return mav;
 	}

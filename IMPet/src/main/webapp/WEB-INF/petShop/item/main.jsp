@@ -51,6 +51,8 @@
 				</div>
 		</c:forEach>
 	</div>
+	
+<input value="상품리스트" type="button" onclick="location.href='/IMPet/PetShop/ItemList'"/>
 
 </body>
 </html>

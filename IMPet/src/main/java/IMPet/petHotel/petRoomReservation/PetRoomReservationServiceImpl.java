@@ -40,12 +40,10 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 		//DB에 들어간 날짜들 표출할때 시간빼고 yyyy-MM-dd 형식으로 만듬
 		for(int i=0; i<list.size(); i++){
 			Date date1 = (Date)list.get(i).get("RES_FIRSTDATE");
-			System.out.println(date1);
 			String day1 = new SimpleDateFormat("yyyy-MM-dd").format(date1);
 			list.get(i).put("RES_FIRSTDATE", day1);
 			
 			Date date2 = (Date)list.get(i).get("RES_LASTDATE");
-			System.out.println(date1);
 			String day2 = new SimpleDateFormat("yyyy-MM-dd").format(date2);
 			list.get(i).put("RES_LASTDATE", day2);
 		};
@@ -61,12 +59,10 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 		//DB에 들어간 날짜들 표출할때 시간빼고 yyyy-MM-dd 형식으로 만듬
 		for(int i=0; i<list.size(); i++){
 			Date date1 = (Date)list.get(i).get("RES_FIRSTDATE");
-			System.out.println(date1);
 			String day1 = new SimpleDateFormat("yyyy-MM-dd").format(date1);
 			list.get(i).put("RES_FIRSTDATE", day1);
 			
 			Date date2 = (Date)list.get(i).get("RES_LASTDATE");
-			System.out.println(date1);
 			String day2 = new SimpleDateFormat("yyyy-MM-dd").format(date2);
 			list.get(i).put("RES_LASTDATE", day2);
 		};

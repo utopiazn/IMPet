@@ -32,7 +32,7 @@ public class ItemServiceImpl implements ItemService{
 		List<Map<String,Object>> commentMap = itemReviewDAO.selectList(map);
 		
 		resultMap.put("view", viewMap);
-		resultMap.put("commentMap", commentMap);
+		resultMap.put("comment", commentMap);
 		
 		return resultMap;
 	}

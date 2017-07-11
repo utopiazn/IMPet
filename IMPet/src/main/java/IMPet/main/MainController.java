@@ -180,4 +180,10 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/Egg")
+	public ModelAndView Egg(){
+		
+		mav.setViewName("egg");
+		return mav;
+	}
 }
