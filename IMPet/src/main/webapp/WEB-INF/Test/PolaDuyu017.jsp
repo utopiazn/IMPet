@@ -18,11 +18,18 @@
     text-decoration:none;
 }
 .star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
+.star_rating a.on {color:#660000;}
 
 </style>
 
 <script type="text/javascript">
+
+var rate = 1;
+
+function rateup(n){
+	rate = n;
+}
+
 $( document ).ready(function() {
 
 	 $( ".star_rating a" ).click(function() {
@@ -38,11 +45,11 @@ $( document ).ready(function() {
 
 <body>
 <p class="star_rating" id="star_rating">
-    <a href="#" class="on">★</a>
-    <a href="#" class="on">★</a>
-    <a href="#" class="on">★</a>
-    <a href="#">★</a>
-    <a href="#">★</a>
+    <a href="#" onclick="rateup(1);" class="on">★</a>
+    <a href="#" onclick="rateup(2);" >★</a>
+    <a href="#" onclick="rateup(3);" >★</a>
+    <a href="#" onclick="rateup(4);" >★</a>
+    <a href="#" onclick="rateup(5);" >★</a>
 </p>
 
 </body>
