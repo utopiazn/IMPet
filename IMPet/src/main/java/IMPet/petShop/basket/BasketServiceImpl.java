@@ -32,9 +32,9 @@ public class BasketServiceImpl implements BasketService {
 	}
 
 	@Override
-	public Map<String, Object> delete(Map<String, Object> map) throws Exception {
+	public void delete(Map<String, Object> map) throws Exception {
 		
-		return basketDAO.delete(map);
+		basketDAO.delete(map);
 	}
 
 }

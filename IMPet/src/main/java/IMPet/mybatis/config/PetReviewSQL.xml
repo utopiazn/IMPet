@@ -3,6 +3,7 @@
 
 <mapper namespace="PetReviewSQL">
 	
+	
 	<sql id="selectAll" > 
 		<![CDATA[ SELECT * FROM PET_ITEM_REVIEW ]]>
 	</sql>
@@ -11,22 +12,28 @@
 		<![CDATA[ WHERE REVIEW_NO = #{REVIEW_NO} ]]> 
 	</sql>
 
-
 	<!-- 상품 후기 삭제 -->
-	<select id="reDelete" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
-		<include refid="where-re"/>
-	</select>
+	<delete id="reDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FROM PET_ITEM_REVIEW WHERE REVIEW_NO = #{REVIEW_NO}
+		]]>
+	</delete>
 	
 	<!-- 상품 후기 수정 -->
-	<select id="reUpdate" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
+	<update id="reUpdate" parameterType="hashmap">
+		<![CDATA[
+		UPDATE PET_ITEM_REVIEW SET
+		REVIEW_SUBJECT = #{REVIEW_SUBJECT},
+		REVIEW_CONTENT = #{REVIEW_CONTENT},
+		REVIEW_IMG = #{REVIEW_IMG}, 
+		REVIEW_STAR = #{REVIEW_STAR}
+		]]>
 		<include refid="where-re"/>
-	</select>
+	</update>
 	
 	<!-- 상품 후기 등록 -->
 	<insert id="reInsert" parameterType="hashmap">
-		insert into pet_item_review
+		INSERT INTO PET_ITEM_REVIEW
 					 (REVIEW_NO,
 					  ITEM_NO,
 					  REVIEW_SUBJECT,
