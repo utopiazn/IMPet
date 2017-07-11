@@ -136,11 +136,43 @@ public class MemberController {
 		return mav;
 	}
 		
+	@RequestMapping(value="/IDCheck")
+	public ModelAndView IDCheck(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		String url = "member/IDCheck";
+		System.out.println("ID 중복 체크");
+		
+		
+		commandMap.MapInfoList();
+		
+		int distinctID = 0;	
+		
+		distinctID  = memberService.selectIDdistinctCount(commandMap.getMap());	
+
+		String memberID= commandMap.get("MEMBER_ID").toString();
+		
+		
+		System.out.println("distinctID:"+distinctID);
+		System.out.println("memberID:"+memberID);
+		
+		
+		mav.addObject("distinctID", distinctID);	
+		
+		mav.addObject("MEMBER_ID", memberID);	
+		
+		
+		
+		mav.setViewName(url);
+		return mav;
+	}	
+	
 	
 	//회원 가입 처리
 	@RequestMapping(value="/JoinInset")
 	public ModelAndView JoinInset(CommandMap commandMap) throws Exception{
 
+		ModelAndView mav = new ModelAndView();
 		String url ="member/joinInsetSuccess";
 		System.out.println("회원 가입 처리");		
 		
@@ -170,6 +202,103 @@ public class MemberController {
 	
 	
 	
+/*	//회원 수정  폼
+	@RequestMapping(value="/ModifiedForm")
+	public ModelAndView ModifiedForm(@ModelAttribute("NO") int idx) throws Exception{
+
+		
+		System.out.println("회원 수정 폼"+idx);
+		
+		
+		Map<String,Object> list =this.listAll.get(idx-1);
+		
+		System.out.println("회원 수정 폼"+idx);
+
+		String url = "ModifiedForm";
+		
+		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
+		System.out.println(list);	
+				
+		
+		mav.addObject("member", list);	
+		
+		
+		mav.setViewName(url);	
+
+	
+		return mav;
+	}
+	
+		*/
+	
+	//회원 수정  폼
+	@RequestMapping(value="/ModifiedForm")
+	public ModelAndView ModifiedForm(CommandMap commandMap, HttpSession session) throws Exception{
+
+		ModelAndView mav = new ModelAndView();
+		
+		String url = "ModifiedForm";			
+		
+		System.out.println("회원 수정 폼");	
+	
+		
+		//회원 개인 정보
+		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);
+		
+		System.out.println(memberInfo);
+		
+		mav.addObject("memberInfo", memberInfo);				
+
+				
+		
+		
+		
+		mav.setViewName(url);	
+
+	
+		return mav;
+	}
+	
+	
+	public Map<String, Object> getMemberInfo(CommandMap commandMap, HttpSession session) throws Exception{
+		
+		
+		String member_Admin= session.getAttribute("member_Admin").toString();				
+		
+		System.out.println("member_Admin:"+member_Admin);			
+		
+		String member_ID="";
+		
+		if(member_Admin.equals("1")){	//관리자일 경우
+			
+			 member_ID=commandMap.get("Member_ID").toString();
+			
+		}else if(member_Admin.equals("0")){  //일반 사용자 일 경우
+										
+			member_ID= session.getAttribute("member_ID").toString();			
+			commandMap.put("MEMBER_ID", member_ID);			
+		
+		}
+				
+		Map<String, Object> memberInfo = memberService.selectOne(commandMap.getMap());	
+		
+		return memberInfo;
+	}
+	
+	
+		
+	//회원 수정 처리 
+	@RequestMapping(value="/Modified")
+	public ModelAndView Modified(CommandMap commandMap, HttpSession session) throws Exception{
+
+
+		System.out.println("회원들의 정보 수정 처리");
+
+		
+		mav.setViewName("ModifiedForm");
+		return mav;
+	}
+
 	
 	
 	
@@ -310,46 +439,7 @@ public class MemberController {
 
 
 
-	//회원 수정  폼
-	@RequestMapping(value="/ModifiedForm")
-	public ModelAndView ModifiedForm(@ModelAttribute("NO") int idx) throws Exception{
-
-		
-		System.out.println("회원 수정 폼"+idx);
-		
-		
-		Map<String,Object> list =this.listAll.get(idx-1);
-		
-		System.out.println("회원 수정 폼"+idx);
-
-		String url = "ModifiedForm";
-		
-		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
-		System.out.println(list);	
-				
-		
-		mav.addObject("member", list);	
-		
-		
-		mav.setViewName(url);	
-
 	
-		return mav;
-	}
-	
-	
-	
-	//회원 수정 처리 
-	@RequestMapping(value="/Modified")
-	public ModelAndView Modified(CommandMap commandMap) throws Exception{
-
-
-		System.out.println("회원들의 정보 수정 처리");
-
-		
-		mav.setViewName("ModifiedForm");
-		return mav;
-	}
 
 
 }

@@ -60,4 +60,10 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public int selectIDdistinctCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectIDdistinctCount(map);
+	}
+
 }

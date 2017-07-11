@@ -10,53 +10,133 @@
 
 <meta charset="UTF-8">
 <title>회원 수정 폼</title>
+
+<link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
+
 </head>
 <body>
 
-회원 수정 폼
-<br/><br/>
+
+<div class="joinFormBody">
+
+<div id ="ContextJoinForm">
 
 
-
-
-
-
-<table width="550" border="0" cellspacing="0" cellpadding="0">
- 	<tr>
-		<td width="100" bgcolor="#202f58" align="left">
-		<font color="#FFFFFF">아이디</font>
-		</td>
-			
-		<td width="60" bgcolor="#FFFFFF"align="left">
-		&nbsp;<input type="text" name="MEMBER_ID" value="${member.MEMBER_ID}" disabled="disabled" />										
-		</td>
-	</tr>
-
-	<tr bgcolor="#777777">
-		<td height="1" colspan="2"></td>	
-	</tr>
+	<div class="joinInbox">
+	<form name="jform" class="joinForm">
 	
-	<tr>
-		<td width="100" bgcolor="#202f58" align="left">
-		<font color="#FFFFFF">비밀번호</font>
-		</td>
-			
-		<td width="60" bgcolor="#FFFFFF"align="left">
-		&nbsp;<input type="password" name="MEMBER_PW" value="${member.MEMBER_PW}" />										
-		</td>
-	</tr>
-
-	<tr bgcolor="#777777">
-		<td height="1" colspan="2"></td>	
-	</tr>
+		<fieldset>
+			<!-- <legend>로그인 정보</legend> -->
+			<ol>
+				<li>
+					<label   class="reqyestslabel2" >아이디</label>
+					<input  name="MEMBER_ID" type="text" value="${memberInfo.MEMBER_ID}"  readonly autofocus>					
+								
+				</li>
+				<li>
+					<label class="reqyestslabel2">비밀번호</label>
+					<input  name="MEMBER_PW" type="password"  value="${memberInfo.MEMBER_PW}"   required>
+				</li>
+				<li>
+					<label class="reqyestslabel2" >비밀번호 확인</label>
+					<input name="MEMBER_PW2" type="password"  value="${memberInfo.MEMBER_PW}"  required>
+				</li> 		
+			</ol>
+		</fieldset>
 		
+			
+		<fieldset>
+			<!-- <legend>개인 정보</legend> -->
+			<ol>
+				<li>
+					<label class="reqyestslabel2">이름</label>
+					<input name="MEMBER_NAME" type="text" value="${memberInfo.MEMBER_NAME}" placeholder="5자미만 공백없이"  required>
+				</li> 
+				
+				<li>
+					<label class="reqyestslabel2" >닉네임</label>
+					<input name="MEMBER_NICKNAME" type="text" value="${memberInfo.MEMBER_NICKNAME}" required>
+				</li> 				
+			</ol>
+		</fieldset>	 
+		
+		<fieldset>
+			<!-- <legend>개인 정보</legend> -->
+			<ol>
+					
+				<li>
+					<label class="reqyestslabel2">우편번호</label>
+					<!-- <input id="name" name="MEMBER_NICKNAME" type="text" required>-->
+					<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly value="">
+					<input  type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />		
+				</li> 	
+				
+				<li>
+					<label class="reqyestslabel2">주소</label>
+					<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly value="">
+					<!-- <input id="name" name="MEMBER_NICKNAME" type="text" required> -->
+				</li>
+				
+				<li>
+					<label class="reqyestslabel2">상제 주소</label>
+					<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required>
+				</li>
+				
+			</ol>
+		</fieldset>
+		
+		<fieldset>
+			<!-- <legend>개인 정보</legend> -->
+			<ol>
+				<li>
+					<label class="reqyestslabel2">메일 주소</label>
+	    			<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" value="${memberInfo.MEMBER_EMAIL}" required autocomplete="off">			
+	    		</li> 	 
+	    			
+	    		<li>
+				    <label class="reqyestslabel2">연락처</label>
+				    <input name="MEMBER_TEL" type="tel" value="${memberInfo.MEMBER_TEL}" autocomplete="off">
+				</li>  			
+			</ol>
+		</fieldset>	
+		
+		<fieldset>
+			<!-- <legend>부가 정보</legend> -->
+			<ol>
+				<li>
+					<label>반려동물종류</label>				
+					
+					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="1" <c:if test="${memberInfo.MEMBER_ANIMAL_TYPE eq '1'}">checked="checked"</c:if> />강아지
+					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="2" <c:if test="${memberInfo.MEMBER_ANIMAL_TYPE eq '2'}">checked="checked"</c:if> />고양이
+					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="3" <c:if test="${memberInfo.MEMBER_ANIMAL_TYPE eq '3'}">checked="checked"</c:if> />기타
+					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="0" <c:if test="${memberInfo.MEMBER_ANIMAL_TYPE eq '0'}">checked="checked"</c:if> />없음	
+									
+				</li>
+				
+				<li>
+					<label  class="reqyestslabel">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</label>
+					
+					<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required >${memberInfo.MEMBER_ANIMAL_TYPE}</textarea>
+					
+				</li>			
+			
+			</ol>
+		</fieldset>	
+		
+	
+	</form>	
+	</div>	
+	<br/><br/>
+	<!-- <input value="가입 완료" type="button" onclick="ajaxJoinInsertView();"/>
+	 -->
+
+</div>
+</div>
 
 
-</table>	
 
 
-<!-- {NO=2, MEMBER_NAME=허어녕, MEMBER_ADMIN=0, MEMBER_ANIMAL_TYPE=0, MEMBER_USERYN=Y, MEMBER_REQUESTS=졸려, MEMBER_ADDRESS2=4, MEMBER_ZIPCODE=2, MEMBER_PW=aa, MEMBER_ID=aa, MEMBER_ADDRESS=3, MEMBER_JOIN_DATE=2017-06-30 07:55:35.0, MEMBER_NICKNAME=대원1, MEMBER_TEL=9, MEMBER_EMAIL=8, MEMBER_NEWADDRESS2=7, MEMBER_NEWZIPCODE=5, MEMBER_NEWADDRESS=6}
- -->
+
 
 <br/><br/><br/>
 

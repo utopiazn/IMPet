@@ -20,8 +20,11 @@
 
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
-<script type="text/javascript">
 
+
+
+
+<script type="text/javascript">
 
 
 
@@ -44,6 +47,27 @@ function ajaxJoinFormView(){
       
     });    
    
+}
+
+
+//아이디 중복 여부를 판다
+function openConfirmid(userinput){
+	//아이디를 입력했는지 검사
+	
+	
+	if(userinput.MEMBER_ID.value==""){
+		alert("아이디를 입력하세요");
+		return;
+	}
+
+	
+	//url과 사용자 입력 id를 조합합니다.			
+	url="/IMPet/Member/IDCheck?MEMBER_ID="+userinput.MEMBER_ID.value;
+	
+	//새로운 윈도우를 엽니다.
+	open(url,"confirm",
+	 "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400, height=200");
+
 }
 
 

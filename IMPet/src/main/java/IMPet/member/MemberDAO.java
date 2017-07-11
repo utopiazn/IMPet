@@ -60,4 +60,16 @@ public class MemberDAO extends AbstractDAO{
 	}
 	
 
+	
+	//회원 ID 중복 여부 확인
+	@SuppressWarnings("unchecked")
+	public int selectIDdistinctCount(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectIDdistinctCount", map);
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
 }

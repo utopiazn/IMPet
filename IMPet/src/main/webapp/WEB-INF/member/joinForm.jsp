@@ -22,6 +22,8 @@
 
 
 <script type="text/javascript">
+
+
 	
 	function ajaxJoinInsertView(){
 		
@@ -67,22 +69,31 @@
 	      });    
 	     
 
-}
+	}
+	
+	
+	function setChildValue(name){	
+		var obj =document.jform;	
+		obj.MEMBER_ID.value =  name;				
+	}
+	
+	
+</script>
 
 
 
-    </script>
 
 
 </head>
 
 
 
-<body class="joinFormBody">
+<body >
 
 
 <br/><br/><br/><br/><br/><br/><br/>
 
+<div class="joinFormBody">
 
 <div id ="ContextJoinForm">
 
@@ -90,13 +101,14 @@
 	<div class="joinInbox">
 	<form name="jform" class="joinForm">
 	
-			<fieldset>
+		<fieldset>
 			<!-- <legend>로그인 정보</legend> -->
 			<ol>
 				<li>
 					<label   class="reqyestslabel2" >아이디</label>
-					<input  name="MEMBER_ID" type="text" equired autofocus>
-					<input  type="button" value="중복 체크" />
+					<input  name="MEMBER_ID" type="text" equired autofocus>					
+					<input  type="button" value="ID중복확인"  onclick="openConfirmid(this.form)">
+			
 					
 				</li>
 				<li>
@@ -119,7 +131,6 @@
 					<input name="MEMBER_NAME" type="text" placeholder="5자미만 공백없이"  required>
 				</li> 
 				
-				
 				<li>
 					<label class="reqyestslabel2" >닉네임</label>
 					<input name="MEMBER_NICKNAME" type="text" required>
@@ -130,8 +141,7 @@
 		<fieldset>
 			<!-- <legend>개인 정보</legend> -->
 			<ol>
-				
-				
+					
 				<li>
 					<label class="reqyestslabel2">우편번호</label>
 					<!-- <input id="name" name="MEMBER_NICKNAME" type="text" required>-->
@@ -150,10 +160,8 @@
 					<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text" required>
 				</li>
 				
-			
 			</ol>
 		</fieldset>
-		
 		
 		<fieldset>
 			<!-- <legend>개인 정보</legend> -->
@@ -162,8 +170,7 @@
 					<label class="reqyestslabel2">메일 주소</label>
 	    			<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off">			
 	    		</li> 	 
-	    		
-	    		
+	    			
 	    		<li>
 				    <label class="reqyestslabel2">연락처</label>
 				    <input name="MEMBER_TEL" type="tel" autocomplete="off">
@@ -180,19 +187,15 @@
 					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="1" />강아지
 					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="2"/>고양이
 					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="3"/>기타
-					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="0" checked="checked"/>없음
-					
-					
-					
+					<input type="radio" name="MEMBER_ANIMAL_TYPE" value="0" checked="checked"/>없음					
 				</li>
+				
 				<li>
 					<label  class="reqyestslabel">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</label>
 					
 					<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required ></textarea>
 					
-				</li>
-				
-				
+				</li>			
 			
 			</ol>
 		</fieldset>	
@@ -200,59 +203,11 @@
 	
 	</form>	
 	</div>	
-	
-<!-- 	
-	<strong>아이디:</strong>
-	<input type="text"  name="MEMBER_ID" value="" />
-	<br/>
-	
-	<strong>비밀번호:</strong>
-	<input type="password"  name="MEMBER_PW" value="" />
-	<br/>	
-	
-	<strong>이름:</strong>
-	<input type="text"  name="MEMBER_NAME" value="" />
-	<br/>
-	
-	<strong>닉네임:</strong>
-	<input type="text"  name="MEMBER_NICKNAME" value="" />
-	<br/>
-	
-	<strong>우편번호:</strong>
-	<input type="text"  name="MEMBER_ZIPCODE" value="" />
-	<br/>
-	
-	<strong>기본주소:</strong>
-	<input type="text"  name="MEMBER_ADDRESS" value="" />
-	<br/>
-	
-	<strong>기본 상제 주소:</strong>
-	<input type="text"  name="MEMBER_ADDRESS2" value="" />
-	<br/>
-	
-	<strong>메일주소:</strong>
-	<input type="text"  name="MEMBER_EMAIL" value="" />
-	<br/>
-	
-	<strong>전화번호:</strong>
-	<input type="text"  name="MEMBER_TEL" value="" />
-	<br/>
-	
-	<strong>반려동물종류:</strong>
-	<input type="text"  name="MEMBER_ANIMAL_TYPE" value="" />
-	<br/>
-	
-	<strong>요구사항:</strong>
-	<input type="text"  name="MEMBER_REQUESTS" value="" />
-	<br/>
-			
-	
-	 -->
-	<br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/>
 	<input value="가입 완료" type="button" onclick="ajaxJoinInsertView();"/>
 	
-	<%-- 
-</form>	 --%>
+
+</div>
 </div>
 
 </body>

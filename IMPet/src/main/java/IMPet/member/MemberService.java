@@ -22,5 +22,7 @@ public interface MemberService {
 	
 	public void delete(Map<String, Object> map) throws Exception;
 
+	public int  selectIDdistinctCount(Map<String, Object> map) throws Exception;
+	
 	
 }
