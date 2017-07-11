@@ -4,11 +4,12 @@
 
 
 <style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .button{
 		background-color: white;
 		text-decoration:none;
-		font-family: 'Jeju Gothic', sans-serif;
+		font-family: 'Noto sans KR', sans-serif;
 		line-height:0px;
 		text-align:center;
 		vertical-align:middle;
