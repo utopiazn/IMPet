@@ -17,7 +17,8 @@ $(document).ready(function(){
 	       e.preventDefault();
 	       fn_test();
 	   });
-	  
+	 
+	1번
 	//<a href='#this' name='title'>테스트</a> 에서 name이 title인 것을 클릭시 fn_test2가 발생함.
 	  $("a[name='title']").on("click", function(e){ //제목 
 		    e.preventDefault();
@@ -43,6 +44,7 @@ function fn_test(){
     }
 
 
+//1번
 function fn_test2(obj){
 	
 	//위에 선언해놓은 ajax주소에 function ComAjax(opt_formId) 부분을 new ComAjax(); 으로 생성하여 가져다씀.
@@ -70,7 +72,7 @@ function fn_test2(obj){
 		<%@ include file="/WEB-INF/ajax/include-body.jspf" %>
 		<a href="#this" id="test" >테스트</a> <!-- 글쓰기 식 -->
 		
-		<table>
+	<table>
 			<tr>
 				<td class='test'>
 					<a href='#this' name='title'>테스트2</a> <!-- 글 상세보기 -->
@@ -78,7 +80,7 @@ function fn_test2(obj){
 					<input type='hidden' name='test' id='test2' value="${gab }">
 				</td>
 			</tr>
-		</table>
+		</table> 
 
 
 </body>

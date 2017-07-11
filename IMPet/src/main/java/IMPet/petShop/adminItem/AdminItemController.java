@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,27 +22,29 @@ import IMPet.util.ProjectUtil;
 @RequestMapping(value="/PetShop")
 public class AdminItemController {
 	
-	ModelAndView mav = new ModelAndView();
+
 	
-	ProjectUtil util = new ProjectUtil();
+
 	
 	@Resource(name="adminItemService")
 	private AdminItemService adminItemService;
 	
-	private int searchNum; // 검색 유형
-	private Integer posting; 
-	private String isSearch; // 검색어
-	private int currentPage; // 현재 페이지
-	private int totalCount; // 총 게시글 수
-	private int blockCount = 10; // 한 화면에 보여줄 게시글 수
-	private int blockPage = 5; // 한 화면에 보여줄 페이지 수 
-	private String pagingHtml;
-	private Paging page;
-	
+
 	
 	//펫샵관리자상품리스트
 	@RequestMapping(value="/AdminItemList")
 	public ModelAndView AdminItemList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		
+		int searchNum; // 검색 유형
+		Integer posting; 
+		String isSearch; // 검색어
+		int currentPage; // 현재 페이지
+		int totalCount; // 총 게시글 수
+		int blockCount = 10; // 한 화면에 보여줄 게시글 수
+		int blockPage = 5; // 한 화면에 보여줄 페이지 수 
+		String pagingHtml;
+		Paging page;
+		
 		
 		ModelAndView mav = new ModelAndView("AdminItemList");
 		
@@ -134,7 +137,7 @@ public class AdminItemController {
 	//펫샵관리자상품추가폼
 	@RequestMapping(value="/AdminItemWriteForm")
 	public ModelAndView AdminItemWriteForm() throws Exception {
-
+		ModelAndView mav = new ModelAndView();
 		 
 		mav.setViewName("AdminItemWriteForm");
 		return mav;
@@ -143,6 +146,10 @@ public class AdminItemController {
 	//펫샵관리자상품추가
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
+		
+		ProjectUtil util = new ProjectUtil();
+		
+		ModelAndView mav = new ModelAndView();
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
 	
@@ -158,7 +165,7 @@ public class AdminItemController {
 	//펫샵관리자상품수정폼
 	@RequestMapping(value="/AdminItemModifyForm")
 	public ModelAndView AdminItemModifyForm(CommandMap commandMap) throws Exception {
-
+		ModelAndView mav = new ModelAndView();
 		
 		Map<String,Object> map = adminItemService.itemSelect(commandMap.getMap());
 	
@@ -170,7 +177,9 @@ public class AdminItemController {
 	//펫샵관리자상품수정
 	@RequestMapping(value="/AdminItemModify")
 	public ModelAndView AdminItemModify(CommandMap commandMap, HttpServletRequest request)  throws Exception {
-
+		ModelAndView mav = new ModelAndView();
+		
+		ProjectUtil util = new ProjectUtil();
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
 	
@@ -184,20 +193,20 @@ public class AdminItemController {
 	
 	//펫샵관리자상품삭제
 	@RequestMapping(value="/AdminItemDelete")
-	public ModelAndView AdminItemDelete() throws Exception  {
-
+	public ModelAndView AdminItemDelete(CommandMap commandMap) throws Exception  {
+		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("펫샵관리자상품삭제");
-	
+		adminItemService.itemDelete(commandMap.getMap());
 		
-		mav.setViewName("AdminItemDelete");
+		
+		mav.setViewName("redirect:/PetShop/AdminItemList");
 		return mav;
 	}
 	
 	//관리자회원주문내역리스트
 	@RequestMapping(value="/AdminOrderList")
 	public ModelAndView AdminOrderList() {
-
+		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("관리자회원주문내역리스트");
 	
@@ -209,7 +218,7 @@ public class AdminItemController {
 	//관리자회원주문결제상태
 	@RequestMapping(value="/AdminOrderPay")
 	public ModelAndView AdminOrderPay() {
-
+		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("관리자회원주문결제상태");
 	

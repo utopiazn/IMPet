@@ -94,8 +94,7 @@ function validateForm() {
                           		  <input type="text" readonly="readonly" title="File Route" id="file_route1" value="">
                             <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
                         </div>
-                         
-                        
+                                              
                            <div class="file_input">
                         	배송 내용 이미지 <br/>
                         	 <c:if test="${!empty itemList.ITEM_BASKETIMG}">
