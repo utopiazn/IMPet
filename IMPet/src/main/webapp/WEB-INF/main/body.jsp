@@ -20,9 +20,7 @@ function openWin(){
 <!-- 이미지슬라이드 -->
 
 <div align="center">
-	<div>&nbsp;
-	<a href="javascript:openWin();">_</a>
-	</div>
+	
 	
 	<div class="flexslider" style="width: 100%; height: 30%">
 	
@@ -56,5 +54,8 @@ function openWin(){
 		</li>
 	
 	  </ul>
+	</div>
+	<div style="float: left;">
+	<a href="javascript:openWin();">_</a>
 	</div>
 </div>
