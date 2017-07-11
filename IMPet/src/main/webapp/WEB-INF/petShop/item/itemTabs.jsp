@@ -96,84 +96,13 @@ function tab(num){
 };
 </script>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<section class="page-category container">
-	<div class="selectboxWrap">
-		<div class="selectbox">
-			<div class="selectbox-data">
-				<strong class="text">마이페이지 </strong>
-				<span class="icon icon-dropdown-white"></span>
-			</div>
-			<select name="category[]" id="cate02">
-				<option value="">마이페이지</option>
-			</select>
-		</div>
-		
-		<!--
-		<a href="#" class="comment">
-			<span class="icon icon-speaker-white"></span>
-			<span class="text">배송관련 공지사항 안내 드립니다.</span>
-		</a>
-		-->
-	</div>
-</section>
 <section class="page-title section container">
 	<h2>
 		<strong>my SIRORAGI</strong>
 	</h2>
 </section>
 <div class="personal-account-info container">
-	<div class="my-account row">
-		<section class="col-xs-24 my-info">
-			<div class="section-body">
-				<div class="item profile col-xs-24 col-md-6">
-					<div class="info">						<strong>
-						<span class="level" style="text-align:center;">${sessionScope.MEMBER_ID}</span>(${sessionScope.MEMBER_NAME }님)
-						</strong>
-						<a href="#" onclick="javascript:tab(7)" class="button small button-dimmed">
-							<span class="button-label">내 정보 수정</span>
-						</a>
-					</div>
-				</div>
-				<div class="item point col-xs-8 col-md-6">
-					<strong>포인트 : </strong>
-					<em><fmt:formatNumber value="${sumPoint}" type="number" />원</em><br>
-					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/SIRORAGI/member/myPoint">
-						<span class="button-label">자세히 보기</span>
-					</button>
-					<div></div>
-				</div>
-				<div class="item cash col-xs-8 col-md-6">
-				<div class="info">
-				<c:choose>
-				<c:when test="${totalMoney eq null }">
-				<span>총  구입금액 : </span>
-				 <span>0원</span>
-				 </c:when>
-				 <c:otherwise>
-				 <span>총  구입금액 : </span>
-				 <span>${totalMoney}원</span>
-				 </c:otherwise>
-				</c:choose>
-				
-				</div>
-				</div>
-				<div class="item coupon col-xs-8 col-md-6">
-				<div style="margin-top:-15px">
-					<span>주문진행중 : </span>
-				<span>${buyCount }건</span><br> 
-				</div>
-				<div>
-					<span>반품진행중 : </span>
-					 <span>${ReCount }건</span><br> 
-					 </div>
-					 <div>
-					<span>교환진행중 : </span>
-					 <span>${ExCount }건</span><br> 
-					 </div>
-				
-				</div>
-			</div>
-		</section>
+	<div class="my-account row">	
 <style>
 .account-nav {display:block;}
 .account-nav ul li {width:14.285%;}
