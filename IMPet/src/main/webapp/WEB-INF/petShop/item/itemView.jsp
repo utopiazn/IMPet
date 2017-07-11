@@ -68,7 +68,6 @@
 	
 	//장바구니 처리
 	var onBasket = function(){
-		alert("${sessionScope.member_ID}");
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${sessionScope.member_ID}";

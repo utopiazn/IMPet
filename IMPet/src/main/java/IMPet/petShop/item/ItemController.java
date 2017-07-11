@@ -30,6 +30,7 @@ public class ItemController {
 
 		System.out.println("펫샵메인");
 		List<Map<String, Object>> list = itemService.selectAll();
+		
 		System.out.println("list"+list.size());
 		System.out.println("list2"+list);
 		
