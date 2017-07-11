@@ -24,12 +24,11 @@
 <title>로그인 폼 </title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
 <script type="text/javascript">
 
 function ajaxLoginView(){
-	 alert('들어옴');
-	
-	  
 	  
 	 var obj =document.jform;
 	
@@ -38,9 +37,7 @@ function ajaxLoginView(){
 		 "MEMBER_ID" : obj.MEMBER_ID.value ,	 
 		 "MEMBER_PW" : obj.MEMBER_PW.value
 	 }
-	
-	  
-	  
+  
 	var url1 = "/IMPet/Member/Login";
 	
     $.ajax({
@@ -50,8 +47,7 @@ function ajaxLoginView(){
        data: dataList,       
       dataType : "text",
       
-      error : function() {
-    	  
+      error : function() {    	  
     	 alert('오류임!');     	
       },
       success : function(data) {  
@@ -62,28 +58,13 @@ function ajaxLoginView(){
     });    
    
 }
-
-
-
-
-
-
 </script>
-
-
-
 </head>
+
+
 <body>
 
-
-
 <div id ="Context">
-
-
-로그인 폼
-
-<br/><br/><br/><br/><br/><br/><br/>
-
 
 
 ${ errorMsg }

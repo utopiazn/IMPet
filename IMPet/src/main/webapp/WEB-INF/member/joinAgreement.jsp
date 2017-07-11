@@ -17,14 +17,16 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+ <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 <script type="text/javascript">
 
 
 
 
 function ajaxJoinFormView(){
-	alert('들어옴11');  
-	  
+		  
 	var url1 = "/IMPet/Member/JoinForm";
 	
     $.ajax({    
