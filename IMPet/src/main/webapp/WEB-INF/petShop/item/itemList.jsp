@@ -27,11 +27,6 @@
 
 <script src="<c:url value='/resources/JQuery/tabs_old.js'/>" charset="utf-8"></script>
 <body>
-
-펫샵상품리스트
-
-<br/><br/><br/><br/><br/>
-
 	<div class="main_itemlist">
 	
 		<c:forEach var="items" items="${itemList}">

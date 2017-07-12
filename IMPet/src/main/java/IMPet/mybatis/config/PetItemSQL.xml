@@ -40,8 +40,6 @@
 
 	</select>
 
-
-
 	<!-- 상품 상세보기 -->
 	<select id="itemSelect" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />

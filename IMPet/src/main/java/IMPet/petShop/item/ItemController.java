@@ -45,12 +45,13 @@ public class ItemController {
 	public ModelAndView ItemList(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵상품리스트");
+		System.out.println(commandMap.get("ITEM_TYPE"));
 		List<Map<String, Object>> list = itemService.selectType(commandMap.getMap());
 		
 		System.out.println("list"+list.size());
 		
 		mav.addObject("itemList", list);
-		mav.setViewName("ItemList");
+		mav.setViewName("petShop/item/itemList");
 		return mav;
 	}
 	
