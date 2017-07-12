@@ -67,7 +67,7 @@ window.onload=function(){
 
 	<div class="btn-group btn-group-justified" role="group" aria-label="..." >
 	  <div class="btn-group" role="group">
-	    <button type="button" class="btn btn-default" onclick="ajaxRoom();" style="height:100px;">ROOM</button>
+	    <button type="button" class="btn btn-default" onclick="ajaxRoom();" style="height:100px; ">ROOM</button>
 	  </div>
 	  <div class="btn-group" role="group">
 	    <button type="button" class="btn btn-default" onclick="ajaxHealing();" style="height:100px;">HEALING</button>
@@ -84,7 +84,7 @@ window.onload=function(){
 		<input src="/IMPet/resources/image/SkinImg/healing.bmp" type="image" value="HealingList" onclick="ajaxHealing();"  style="width: 100%; height: 70px;"/>
 	</div> -->
 	
-	<div id="ContextHotel" align="center" style="/* border: 1px solid black; */ width:100%;  float: left;">
+	<div id="ContextHotel" align="center" style="width:100%;  float: left;">
 		<div style="width: 100%; height: 600px">
 			<c:if test="${car==0}">		
 			<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
