@@ -77,8 +77,8 @@ ul.dropdown {
   display: flex;
   position: absolute;
   top: 100%;
-  left: 200px;
-  right: 200px;
+  left: 30%;
+  right: 30%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -149,10 +149,10 @@ ul.dropdown > li {
 
 
  
-<div align="center" style="height: 70%">
+<div align="center" style="height: 60%">
 
 <br/><br/>
-<h1><a href='/IMPet/Main'>I'm Pet</a></h1>
+<img alt="logo" src="/IMPet/resources/image/logo.png" onclick="location.href='/IMPet/Main'">
 <br/><br/>
 </div>
 
@@ -263,19 +263,6 @@ function jsHotel(value){
     f.submit();
 }
 
-$(document).ready(function() {
-	// Loop through each nav item
-	$("nav.navbar").children("ul.nav").children("li").each(function(indexCount) {
-		// loop through each dropdown, count children and apply a animation delay based on their index value
-		$(this).children("ul.dropdown").children("li").each(function(index) {
-			// Turn the index value into a reasonable animation delay
-			var delay = 0.1 + index * 0.03;
-
-			// Apply the animation delay
-			$(this).css("animation-delay", delay + "s");
-		});
-	});
-});
 
 
 </script>

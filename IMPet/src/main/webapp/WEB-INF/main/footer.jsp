@@ -80,7 +80,7 @@ footer {
 }
 
 .footer-list-top {
-  width: 20%;
+  width: 21%;
   padding: 0;
 }
 
@@ -352,7 +352,7 @@ footer {
   </ul> 
   
   <div class="footer-list-top">
-  <img alt="mungmung" src="/IMPet/resources/image/mung.png" style="width: 150px; height: 150px; float: right;"> 
+  <img alt="mungmung" src="/IMPet/resources/image/logo2.png" style="width: 300px; height: 150px; float: right;"> 
   </div>
   <section class="footer-social-section flex-rw">
       <span class="footer-social-overlap footer-social-connect">
