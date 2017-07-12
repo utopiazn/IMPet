@@ -26,10 +26,10 @@ public class ItemController {
 	
 	//펫샵메인(베스트셀러)
 	@RequestMapping(value="/Main")
-	public ModelAndView Main() throws Exception {
+	public ModelAndView Main(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵메인");
-		List<Map<String, Object>> list = itemService.selectAll();
+		List<Map<String, Object>> list = itemService.selectBest(commandMap.getMap());
 		
 		System.out.println("list"+list.size());
 		System.out.println("list2"+list);
@@ -42,14 +42,14 @@ public class ItemController {
 	
 	//펫샵상품리스트
 	@RequestMapping(value="/ItemList")
-	public ModelAndView ItemList() throws Exception {
+	public ModelAndView ItemList(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵상품리스트");
-		List<Map<String, Object>> list = itemService.selectAll();
+		List<Map<String, Object>> list = itemService.selectType(commandMap.getMap());
 		
 		System.out.println("list"+list.size());
 		
-		mav.addObject("items", list);
+		mav.addObject("itemList", list);
 		mav.setViewName("ItemList");
 		return mav;
 	}

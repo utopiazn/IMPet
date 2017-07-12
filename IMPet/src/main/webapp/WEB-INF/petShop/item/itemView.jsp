@@ -225,17 +225,20 @@
 	<div class="category_top">
 	<ul>
 	 	<c:if test="${view.ITEM_TYPE eq 0}">
-			<li>펫샵 ></li><li class="post2">의류</li>
+			<li>펫샵 ></li><li class="post2">사료</li>
 		</c:if>
 		<c:if test="${view.ITEM_TYPE eq 1}">
-			<li>펫샵 ></li><li class="post2">장난감</li>
+			<li>펫샵 ></li><li class="post2">간식</li>
 		</c:if>	
 		<c:if test="${view.ITEM_TYPE eq 2}">
-			<li>펫샵 ></li><li class="post2">사료</li>
+			<li>펫샵 ></li><li class="post2">의류</li>
 		</c:if>	
 		<c:if test="${view.ITEM_TYPE eq 3}">
-			<li>펫샵 ></li><li class="post2">간식</li>
-		</c:if>			
+			<li>펫샵 ></li><li class="post2">장난감</li>
+		</c:if>		
+		<c:if test="${view.ITEM_TYPE eq 4}">
+			<li>펫샵 ></li><li class="post2">잡화</li>
+		</c:if>		
 	</ul>
 	</div>
 	

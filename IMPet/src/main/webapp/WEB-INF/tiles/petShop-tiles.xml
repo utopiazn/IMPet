@@ -30,7 +30,7 @@
 	<!-- item -->
 	<!-- 펫샵메인 -->
 	<definition name="PetShop" extends="petShop_main">
-		<put-attribute name="body" value="/WEB-INF/petShop/item/main.jsp" />
+		<put-attribute name="body" value="/WEB-INF/petShop/item/itemTabs.jsp" />
 	</definition>
 	
 	<!-- 펫샵상품리스트 -->
