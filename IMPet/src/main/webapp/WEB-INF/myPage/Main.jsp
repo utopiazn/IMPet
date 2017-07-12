@@ -3,6 +3,9 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
+ <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
+
 <script type="text/javascript">
 
 function ajaxRoomResList(){
@@ -20,9 +23,17 @@ function ajaxRoomResList(){
     });
 }
 function ajaxmembermodify(){
+	
+	
+	var dataList =
+		{
+			"Mypage" : "1"
+		}
+	
     $.ajax({
       type : "POST",
       url : "/IMPet/Member/ModifiedForm",
+      data : dataList,
       dataType : "text",
       error : function() {
         alert('오류발생!!');

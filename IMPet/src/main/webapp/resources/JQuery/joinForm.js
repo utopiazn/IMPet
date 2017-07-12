@@ -34,9 +34,14 @@
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
                 document.getElementById('sample6_address').value = fullAddr;
-
+                
+                document.getElementById('sample6_address2').value = '';
+                
+              
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById('sample6_address2').focus();
             }
         }).open();
+        
+ 
     }
