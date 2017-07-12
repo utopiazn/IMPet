@@ -77,8 +77,8 @@ ul.dropdown {
   display: flex;
   position: absolute;
   top: 100%;
-  left: 200px;
-  right: 200px;
+  left: 30%;
+  right: 30%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -149,10 +149,10 @@ ul.dropdown > li {
 
 
  
-<div align="center" style="height: 70%">
+<div align="center" style="height: 60%">
 
 <br/><br/>
-<h1><a href='/IMPet/Main'>I'm Pet</a></h1>
+<img alt="logo" src="/IMPet/resources/image/logo.png" onclick="/IMPet/Main">
 <br/><br/>
 </div>
 

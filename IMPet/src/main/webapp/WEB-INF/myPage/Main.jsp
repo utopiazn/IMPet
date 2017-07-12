@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/mypage.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/mypage.css" /> -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
@@ -19,7 +19,34 @@ function ajaxRoomResList(){
 
     });
 }
+function ajaxmembermodify(){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/Member/ModifiedForm",
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
 
+    });
+}
+function ajaxmemberdelete(){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/Member/DeleteForm",
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
 </script>
 
 
@@ -60,11 +87,12 @@ function ajaxRoomResList(){
 				
 				<table cellpadding="0" cellspacing="0">
 					<tbody><tr>
-						<td><a href="/IMPet/Member/ModifiedForm"><img src="http://img.funpick.co.kr/button/button_mypage_menu_1.png" border="0"></a></td>
-						<td><a href="javascript:ajaxRoomResList();"><img src="http://img.funpick.co.kr/button/button_mypage_menu_2.png" border="0"></a></td>
-						<td><a href="/IMPet/PetShop/OrderList"><img src="http://img.funpick.co.kr/button/button_mypage_menu_3.png" border="0" ></a></td>
-						<td><a href="/IMPet/Member/DeleteForm"><img src="http://img.funpick.co.kr/button/button_mypage_menu_4.png" border="0" ></a></td>
-						<td><a href="/IMPet/PetShop/OrderList"><img src="http://img.funpick.co.kr/button/button_mypage_menu_5.png" border="0" ></a></td>
+						<td><a href="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
+						<td><a href="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
+						<td><a href="/IMPet/PetShop/OrderList"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
+						<td><a href="/IMPet/Member/DeleteForm"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
+						<td><a href="/IMPet/Member/DeleteForm"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
+						
 					</tr>
 				</tbody></table>
 			</td>

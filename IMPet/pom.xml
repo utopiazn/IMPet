@@ -15,8 +15,8 @@
 	</properties>
 
  
-	<repositories>
-		<repository>
+	<repositories>  
+		<repository> 
 			<id>mvn2</id>
 			<url>http://repo1.maven.org/maven2/</url>
 			<releases>
@@ -28,6 +28,7 @@
 		</repository>
 
 		<repository>
+		
 			<id>egovframe</id>
 			<url>http://www.egovframe.go.kr/maven/</url>
 			<releases>
@@ -121,14 +122,14 @@
 		<dependency>
 			<groupId>aopalliance</groupId>
 			<artifactId>aopalliance</artifactId>
-			<version>1.0</version>
+			<version>1.0</version> 
 		</dependency>
 
 
 
 		<!-- AspectJ -->
 		<dependency>
-			<groupId>org.aspectj</groupId>
+			<groupId>org.aspectj</groupId> 
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
@@ -139,7 +140,7 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
-		<dependency>
+		<dependency> 
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
 			<version>${org.aspectj-version}</version>
@@ -151,7 +152,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
 		</dependency>
-		<dependency>
+		<dependency> 
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>

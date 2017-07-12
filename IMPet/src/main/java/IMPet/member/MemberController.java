@@ -237,7 +237,7 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 		
-		String url = "ModifiedForm";			
+		String url = "member/modifiedForm";			
 		
 		System.out.println("회원 수정 폼");	
 	
