@@ -48,12 +48,12 @@ function ajaxHealingInsert(){
 	<table>
 		<c:forEach var="Healing" items="${list}">
 			<tr><td style="width: 30%;">
-				<div style="border:1px solid lightgray; width: 100%; height: 220px; float:left;">
+				<div style="margin-top: 5px; border:1px solid lightgray; width: 100%; height: 220px; float:left;">
 					<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 100%;">
 				</div>
 			</td>
 			<td style="width: 70%;">
-				<div style="border:1px solid lightgray; width: 100%; height: 220px; float:left;">
+				<div style="margin-top: 5px; border:1px solid lightgray; width: 100%; height: 220px; float:left;">
 					<h1><a href="javascript:ajaxHealingView(${Healing.HEALING_NO});">힐링 번호 : ${Healing.HEALING_NO} / 힐링 이름 : ${Healing.HEALING_NAME}</a></h1><br/>
 					<h2>힐링 소개 : ${Healing.HEALING_DETAIL}</h2><br/>
 				</div>

@@ -27,14 +27,9 @@
 
 <script src="<c:url value='/resources/JQuery/tabs_old.js'/>" charset="utf-8"></script>
 <body>
-
-펫샵상품리스트
-
-<br/><br/><br/><br/><br/>
-
 	<div class="main_itemlist">
 	
-		<c:forEach var="items" items="${items}">
+		<c:forEach var="items" items="${itemList}">
 				<div class="item-cont">
 				 	<dl class="item-list">
 						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img class="item_image" src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}" alt="상품 섬네일" title="${items.ITEM_NAME}"></a></dt>

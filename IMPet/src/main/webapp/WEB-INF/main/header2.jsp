@@ -166,10 +166,11 @@ ul.dropdown > li {
 	    	</li>
 	    	<li><a href=/IMPet/PetShop/Main>SHOP</a>
 	    		<ul class="dropdown">
-			        <li><a href=/IMPet/PetShop/Main>사료</a></li>
-			        <li><a href=/IMPet/PetShop/Main>간식</a></li>
-			        <li><a href=/IMPet/PetShop/Main>의류</a></li>
-			        <li><a href=/IMPet/PetShop/Main>장난감</a></li>
+			        <li><a href="#feed" onclick="javascript:tab(0)">사료</a></li>
+			        <li><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
+			        <li><a href="#clothing"	onclick="javascript:tab(2)">의류</a></li>
+			        <li><a href="#toy" onclick="javascript:tab(3)">장난감</a></li>		
+					<li><a href="#stuff" onclick="javascript:tab(4)">잡화 </a></li>
 			    </ul>
 	 	 	</li>
 		    <li><a href=/IMPet/Community/Main>COMMU</a>
@@ -254,6 +255,7 @@ ul.dropdown > li {
 <form name="hotel">
 <input type="hidden" name="car">
 </form>
+<script src="/IMPet/resources/JQuery/petShop.js" charset="utf-8"></script>
 <script type="text/javascript">
 function jsHotel(value){
     var f = document.hotel; //폼 name

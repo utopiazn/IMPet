@@ -268,16 +268,19 @@ public class MemberController {
 		System.out.println("member_Admin:"+member_Admin);			
 		
 		String member_ID="";
+		String Mypage= commandMap.get("Mypage").toString();
 		
-		if(member_Admin.equals("1")){	//관리자일 경우
+	
+			
+		if(member_Admin.equals("0") || Mypage.equals("1") ){  //일반 사용자 일 경우  or 마이 페이지일경우
+				
+			member_ID= session.getAttribute("member_ID").toString();			
+			commandMap.put("MEMBER_ID", member_ID);			
+			
+		}else if(member_Admin.equals("1")){	//관리자일 경우
 			
 			 member_ID=commandMap.get("Member_ID").toString();
 			
-		}else if(member_Admin.equals("0")){  //일반 사용자 일 경우
-										
-			member_ID= session.getAttribute("member_ID").toString();			
-			commandMap.put("MEMBER_ID", member_ID);			
-		
 		}
 				
 		Map<String, Object> memberInfo = memberService.selectOne(commandMap.getMap());	
@@ -291,9 +294,9 @@ public class MemberController {
 	@RequestMapping(value="/Modified")
 	public ModelAndView Modified(CommandMap commandMap, HttpSession session) throws Exception{
 
-
 		System.out.println("회원들의 정보 수정 처리");
-
+		
+		commandMap.MapInfoList();
 		
 		mav.setViewName("ModifiedForm");
 		return mav;

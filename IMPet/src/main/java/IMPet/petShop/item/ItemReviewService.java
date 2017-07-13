@@ -14,4 +14,6 @@ public interface ItemReviewService {
 	public void insert(Map<String, Object> map) throws Exception;
 	
 	public List<Map<String, Object>> selectList(Map<String,Object> map) throws Exception;
+	
+
 }

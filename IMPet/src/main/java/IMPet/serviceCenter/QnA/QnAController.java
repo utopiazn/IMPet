@@ -33,7 +33,7 @@ public class QnAController {
 
 		mav.setViewName("QuestionList");
 		return mav;
-	}
+	}   
 
 	// Q&A 개별페이지
 	@RequestMapping(value = "/QuestionView")
@@ -76,6 +76,9 @@ public class QnAController {
 	// Q&A 수정 폼
 	@RequestMapping(value = "/QuestionModifyForm")
 	public ModelAndView QuestionModifyForm(CommandMap commandMap) throws Exception{
+		
+		
+		System.out.println(commandMap.getMap());
 		
 		ModelAndView mav = new ModelAndView();
 

@@ -13,6 +13,61 @@
 
 <link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
 
+
+
+
+<script type="text/javascript">
+
+
+	
+	function ajaxJoinUpdateView(){
+		
+		  
+		  
+		var obj =document.jform;
+
+	
+		
+		var dataList =
+		{ 
+			"MEMBER_ID" : obj.MEMBER_ID.value ,	 
+			"MEMBER_PW":obj.MEMBER_PW.value,
+			"MEMBER_NAME":obj.MEMBER_NAME.value,
+			"MEMBER_NICKNAME":obj.MEMBER_NICKNAME.value,
+			"MEMBER_ZIPCODE":obj.MEMBER_ZIPCODE.value,
+			"MEMBER_ADDRESS":obj.MEMBER_ADDRESS.value,
+			"MEMBER_ADDRESS2":obj.MEMBER_ADDRESS2.value,
+			"MEMBER_EMAIL":obj.MEMBER_EMAIL.value,
+			"MEMBER_TEL":obj.MEMBER_TEL.value,
+			"MEMBER_ANIMAL_TYPE":obj.MEMBER_ANIMAL_TYPE.value,
+			"MEMBER_REQUESTS":obj.MEMBER_REQUESTS.value,
+			"Mypage" : "1"
+		}
+		
+	
+		var url1 = "/IMPet/Member/Modified";
+		alert('오류임wrewrwe!');     	
+		
+	    $.ajax({    
+	        type : "POST",
+	        url : url1,
+	        data : dataList,
+	        dataType : "text",      
+	        error : function() {
+	      	  
+	      	 alert('오류임!');     	
+	        },
+	        success : function(data) {  
+	      	 $('#ContextJoinForm').html(data);
+	          		
+	        }
+	        
+	      });    
+	     
+
+	}
+</script>	
+
 </head>
 <body>
 
@@ -67,19 +122,19 @@
 				<li>
 					<label class="reqyestslabel2">우편번호</label>
 					<!-- <input id="name" name="MEMBER_NICKNAME" type="text" required>-->
-					<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly value="">
+					<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly >
 					<input  type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />		
 				</li> 	
 				
-				<li>
+				<li>				
 					<label class="reqyestslabel2">주소</label>
-					<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly value="">
+					<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly >
 					<!-- <input id="name" name="MEMBER_NICKNAME" type="text" required> -->
 				</li>
 				
 				<li>
 					<label class="reqyestslabel2">상제 주소</label>
-					<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required>
+					<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required >
 				</li>
 				
 			</ol>
@@ -123,11 +178,13 @@
 			</ol>
 		</fieldset>	
 		
+	<input value="회원 수정하기" type="button"  onclick="ajaxJoinUpdateView();"/>
 	
 	</form>	
 	</div>	
 	<br/><br/>
-	<!-- <input value="가입 완료" type="button" onclick="ajaxJoinInsertView();"/>
+	<!-- <input value="가입 완료" type="button" onclick="	<input value="가입 완료" type="button" onclick="ajaxJoinInsertView();"/>
+	();"/>
 	 -->
 
 </div>
@@ -139,8 +196,6 @@
 
 
 <br/><br/><br/>
-
-<input value="회원 수정하기" type="button" onclick="location.href='/IMPet/Member/Modified'"/>
 
 <br/><br/>
 <input value="마이페이지로 이동" type="button" onclick="location.href='/IMPet/MyPage/Main'"/>

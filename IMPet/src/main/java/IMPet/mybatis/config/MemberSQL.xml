@@ -100,6 +100,8 @@
 		]]>
 	</select>
 	
+	
+	<!-- 회원 추가 -->
 	<insert id="insert" parameterType="hashmap">
 		<![CDATA[
 		
@@ -127,6 +129,30 @@
 		]]>
 	</insert>
 		
+		
+	<!-- 회원 수정 -->
+	<update id="update" parameterType="hashmap">
+		<![CDATA[
+			UPDATE 
+				PET_MEMBER 
+			SET 
+				MEMBER_PW = #{MEMBER_ADDRESS},
+				MEMBER_NAME = #{MEMBER_ADDRESS},
+				MEMBER_NICKNAME = #{MEMBER_ADDRESS}, 
+				MEMBER_ZIPCODE = #{MEMBER_ADDRESS},
+				MEMBER_ADDRESS = #{MEMBER_ADDRESS},
+				MEMBER_ADDRESS2 = #{MEMBER_ADDRESS2}, 
+				MEMBER_EMAIL = #{MEMBER_EMAIL},	
+				MEMBER_TEL = #{MEMBER_TEL},   					 
+				MEMBER_ANIMAL_TYPE = #{MEMBER_ANIMAL_TYPE}, 
+				MEMBER_REQUESTS = #{MEMBER_REQUESTS}, 
+			where
+				MEMBER_ID = #{MEMBER_ID}	 
+									
+
+		]]>
+			
+	</update>	
 	
 	
 	

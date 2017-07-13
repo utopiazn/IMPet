@@ -13,6 +13,12 @@ public class CommandMap {
 	
 	public Object get(String key){
 		
+		if(map.get(key)== null){
+			System.out.println(key+"의 값이 null 입니다 확인이 필요함.");
+			
+			return "".toString();
+		}
+		
 		return map.get(key);
 	}
 	

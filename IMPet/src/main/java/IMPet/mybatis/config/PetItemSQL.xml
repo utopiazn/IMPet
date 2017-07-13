@@ -2,128 +2,135 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="PetItemSQL">
-	
-	<sql id="selectAll" > 
+
+	<sql id="selectAll"> 
 		<![CDATA[ SELECT * FROM PET_ITEM ]]>
 	</sql>
-	
+
 	<sql id="where-no"> 
-		<![CDATA[ WHERE ITEM_NO = #{ITEM_NO} ]]> 
+		<![CDATA[ WHERE ITEM_NO = #{ITEM_NO} ]]>
 	</sql>
-	
-	
+
+
 	<!-- 상품 전체 리스트 -->
 	<select id="selectAll" resultType="hashmap">
-		<include refid="selectAll"/>
+		<include refid="selectAll" />
 		<![CDATA[ ORDER BY ITEM_NO DESC ]]>
 	</select>
-	
-	<!-- 상품 리스트 -->
-	<select id="selectList" parameterType="hashmap" resultType="hashmap">
-			<include refid="common.pagingPre"/>
-			<![CDATA[
-			select
-				row_number() over (order by ITEM_NO desc) rnum, 
-				ITEM_NO, ITEM_NAME, ITEM_IMG, ITEM_DETAIL, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_SELLCOUNT, ITEM_TYPE, ITEM_DETAILIMG
-					from 
-						pet_item
-					
-			]]>
-			<include refid="common.pagingPost"/>
+
+
+
+	<select id="selectBest" parameterType="hashmap" resultType="hashmap">
+		
+		<![CDATA[
+			select 
+   				 a.*
+			from
+ 				 (select row_number() over   (partition by item_type order by item_sellcount desc) 
+   				  		 as
+   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_DETAILIMG, ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
+				 from 
+   					 pet_item 
+  						) a
+				where 
+					  a.sellcount < 5
+			order by 
+					  a.item_type , a.sellcount 				
+		]]>
+
 	</select>
-	
-	
+
 	<!-- 상품 상세보기 -->
 	<select id="itemSelect" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
-		<include refid="where-no"/>
+		<include refid="selectAll" />
+		<include refid="where-no" />
 	</select>
-	
+
 	<!-- 상품 내용 -->
 	<select id="itemSearch1" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
+		<include refid="selectAll" />
 		where ITEM_NAME LIKE '%'||#{isSearch}||'%'
 	</select>
-	
+
 	<!-- 상품 번호 -->
 	<select id="itemSearch2" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
+		<include refid="selectAll" />
 		where ITEM_NO LIKE '%'||#{isSearch}||'%'
 	</select>
-	
+
 	<!-- 상품 타입 -->
 	<select id="itemSearch3" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
+		<include refid="selectAll" />
 		where ITEM_TYPE=#{isSearch}
 	</select>
-	
+
 	<!-- 판매중 -->
 	<select id="itemSearch4" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
-		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
+		<include refid="selectAll" />
+		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
 	</select>
-	
+
 	<!-- 품절 -->
 	<select id="itemSearch5" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
-		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT =  0
+		<include refid="selectAll" />
+		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
 	</select>
-	
+
 	<!-- 재고수량 -->
 	<select id="itemSearch6" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 
+		<include refid="selectAll" />
 		ORDER BY ITEM_REMAINCOUNT ASC
 	</select>
-	
+
 	<!-- 판매량 -->
 	<select id="itemSearch7" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/> 	
+		<include refid="selectAll" />
 		ORDER BY ITEM_SELLCOUNT DESC
 	</select>
-	
+
 	<!-- 관리자 상품 추가 -->
 	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item
-					 (ITEM_NO,
-					  ITEM_NAME,			
-					  ITEM_PRICE,
-					  ITEM_TOTALCOUNT,
-					  ITEM_SELLCOUNT,
-					  ITEM_REMAINCOUNT,
-					  ITEM_TYPE,
-					  ITEM_IMG,
-					  ITEM_DETAILIMG,
-					  ITEM_BASKETIMG)
-			values(ITEM_NO_SEQ.NEXTVAL,
-					  #{ITEM_NAME},
-				      #{ITEM_PRICE},
-				      #{ITEM_TOTALCOUNT},			   
-				      0,
-				      #{ITEM_TOTALCOUNT},
-				      #{ITEM_TYPE},
-				      #{ITEM_IMG},
-				      #{ITEM_DETAILIMG},
-				      #{ITEM_BASKETIMG})			     
+		(ITEM_NO,
+		ITEM_NAME,
+		ITEM_PRICE,
+		ITEM_TOTALCOUNT,
+		ITEM_SELLCOUNT,
+		ITEM_REMAINCOUNT,
+		ITEM_TYPE,
+		ITEM_IMG,
+		ITEM_DETAILIMG,
+		ITEM_BASKETIMG)
+		values(ITEM_NO_SEQ.NEXTVAL,
+		#{ITEM_NAME},
+		#{ITEM_PRICE},
+		#{ITEM_TOTALCOUNT},
+		0,
+		#{ITEM_TOTALCOUNT},
+		#{ITEM_TYPE},
+		#{ITEM_IMG},
+		#{ITEM_DETAILIMG},
+		#{ITEM_BASKETIMG})
 	</insert>
-	
+
 	<update id="itemUpdate" parameterType="hashmap">
-		
+
 		update PET_ITEM set
-			ITEM_NAME = #{ITEM_NAME},
-			ITEM_PRICE = #{ITEM_PRICE},
-			ITEM_REMAINCOUNT = #{ITEM_REMAINCOUNT},
-			ITEM_TYPE = #{ITEM_TYPE},
-			ITEM_IMG = #{ITEM_IMG},
-			ITEM_DETAILIMG = #{ITEM_DETAILIMG},
-			ITEM_BASKETIMG = #{ITEM_BASKETIMG}
-		<include refid="where-no"/>
+		ITEM_NAME = #{ITEM_NAME},
+		ITEM_PRICE = #{ITEM_PRICE},
+		ITEM_REMAINCOUNT = #{ITEM_REMAINCOUNT},
+		ITEM_TYPE = #{ITEM_TYPE},
+		ITEM_IMG = #{ITEM_IMG},
+		ITEM_DETAILIMG = #{ITEM_DETAILIMG},
+		ITEM_BASKETIMG = #{ITEM_BASKETIMG}
+		<include refid="where-no" />
 	</update>
-	
+
 	<delete id="itemDelete" parameterType="hashmap">
-		
+
 		delete from PET_ITEM
-		<include refid="where-no"/>
-	
+		<include refid="where-no" />
+
 	</delete>
-	
+
 </mapper>

@@ -28,5 +28,16 @@ public class ItemDAO extends AbstractDAO {
 	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
 		return (List<Map<String, Object>>) selectList("PetItemSQL.selectList", map);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectBest(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("PetItemSQL.selectBest", map);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectType(Map<String, Object> map) throws Exception {
+			return itemSearch("PetItemSQL.itemSearch3",map);
+
+	}
 
 }

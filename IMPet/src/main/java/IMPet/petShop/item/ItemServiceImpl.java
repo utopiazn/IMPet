@@ -43,4 +43,20 @@ public class ItemServiceImpl implements ItemService{
 		return itemDAO.selectList(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> selectBest(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return itemDAO.selectBest(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectType(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return itemDAO.selectType(map);
+	}
+	
+	
+	
+	
+
 }

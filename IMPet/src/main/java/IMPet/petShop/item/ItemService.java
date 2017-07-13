@@ -10,5 +10,8 @@ public interface ItemService {
 	Map<String, Object> selectOne(Map<String,Object> map) throws Exception;
 	
 	List<Map<String, Object>> selectList(Map<String,Object> map) throws Exception;
+	
+	List<Map<String, Object>> selectBest(Map<String,Object> map) throws Exception;
 
+	List<Map<String, Object>> selectType(Map<String,Object> map) throws Exception;
 }
