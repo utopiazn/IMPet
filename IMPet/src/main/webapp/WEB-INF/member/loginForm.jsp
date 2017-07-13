@@ -64,96 +64,38 @@ function ajaxLoginView(){
 
 <body>
 
-
-
-<%-- 
 <div id ="Context">
-
-
-${ errorMsg }
-
-<div class="xans-member-login" >
-
-	<div class="login">
-
-
-
-<form name="jform" method="post">	
-		 <fieldset>
-		 	
-		 	<label class="id">
-		 	
-		 		<img src="/IMPet/resources/image/SkinImg/id.gif" alt="id"/>             
-		 		<input id="member_id" name="MEMBER_ID" type="text" class="inputTypeText" value="" /> <br/><br/>		 	
-		 	
-		 	</label>
-		 	
-		 	
-		 	<label class="password">
-		 	
-		 		<img src="/IMPet/resources/image/SkinImg/pw.gif" alt="pw"/>       	
-		 		<input id="member_passwd" name="MEMBER_PW" type="password" value=""/>
-		 	
-		 	</label>
-		 	
-		 	 <p class="security"></p>		 	
-		 	
-		 </fieldset>
-
-</form>
 	
-	</div>
-	
-	<div class="login_btn">
-	
-		<!-- <input value="룸 추가"  type="button" onclick="ajaxLoginView();"/>
-		 --> 		
-	
-	 <input TYPE="IMAGE" src="/IMPet/resources/image/SkinImg/btn_login.gif"   onclick="ajaxLoginView();" />
+	${ errorMsg }
+	<br/><br/><br/>
 	 
-	</div>
+	<form name="jform" method="post">	
+	 
+		<div class="login">	
+			
+			<input id="member_id" name="MEMBER_ID" type="text"  placeholder="ID 입력"  /> 
+			<input id="member_passwd" name="MEMBER_PW" type="password" placeholder="password 입력"/>		
+		 	<input   TYPE="button"  onclick="ajaxLoginView();" value="Sign In" />		 	
+		 	<br/>	  		  
+		    <div class="help">
+		     
+			    <a class="font" href="#">아이디 찾기</a>
+			    
+			    <span class="font">|</span>			    
+			    <a class="font" href="#">비밀번호 찾기</a>
+			    
+			    <span class="font">|</span>			    
+			    <a class="font" href="/IMPet/Member/JoinMain">회원가입</a>
+			    
+		    </div>
+		  	
+		</div>
+			
+	</form>
+	
+	<br/><br/><br/>
 	
 </div>
-
-
-
-
-</div>
-
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
- --%>
-
-
-<div id ="Context">
- 
- <form name="jform" method="post">	
- 
-<div class="login">
-
-
-	
-	<input id="member_id" name="MEMBER_ID" type="text"  placeholder="ID 입력"  /> 
-	<input id="member_passwd" name="MEMBER_PW" type="password" placeholder="password 입력"/>
-
-
-	<!-- <div class="loginbuttion"> -->
- 		<input   TYPE="button"  onclick="ajaxLoginView();" value="Sign In" />
- 	<!-- </div> -->
- <!--  <input type="submit" value="Sign In"> -->
-  <br/>
-  
-  	
-    <a href="#" class="forgotID">ID 찾기</a>
-   <!--  <a href="#" class="forgotPw">비밀번호 찾기</a>
-   -->
-</div>
-<div class="shadow"></div>
-
-
-</form>
-</div>
-
 
 <!-- <input value="아디찾기" type="button" onclick="location.href='/IMPet/Member/FindIDForm'"/> /
 
