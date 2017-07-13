@@ -1,5 +1,6 @@
 @CHARSET "utf-8";
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
 .button {
 	font-weight:bold;
 	text-decoration:none;
@@ -13,7 +14,7 @@
 	vertical-align:middle;
 	display:inline-block;
 	font-size:15px;
-	color:#9c7113;
+	/* color:#9c7113; */
 	width:56px;
 	height:0px;
 	padding:17px;
@@ -58,3 +59,41 @@
   text-decoration: none;
   background-color: #2ecc71;
 }
+
+.button3 {
+  position: relative;
+  padding: 14px 0;
+  border: 2px #2ecc71 solid;
+  float: left;
+  color: #2ecc71;
+  cursor: pointer;
+  font-family: 'KoPub Batang' sans-serif;
+  font-size: .9em;
+  text-transform: uppercase;
+  transition: color 0.4s, background-color 0.4s;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1em;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 210px;
+  top: 50%;
+  left: 50%;
+  margin: 0 -105px;
+  width: 210px;
+}
+.button3:hover, .button3:focus {
+  transition: color 0.4s, background-color 0.4s;
+  color: white;
+  text-decoration: none;
+  background-color: #2ecc71;
+}
+

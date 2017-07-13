@@ -1,13 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelReservationAllList(관리자용)</title>
-</head>
-<body>
 <br/><br/>
 HotelReservationAllList(관리자용)<input value="고객용리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomResList'"/>
 <br/><br/>
@@ -24,7 +17,3 @@ HotelReservationAllList(관리자용)<input value="고객용리스트" type="but
 		</div>
 	</c:forEach>
 </div>
-
-
-</body>
-</html>

@@ -72,7 +72,7 @@
 	</definition>
 	
 	<!-- 펫샵장바구니추가처리 -->
-	<definition name="BasketWrite" extends="petShop_main">
+	<definition name="BasketInsert" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/basketList.jsp" />
 	</definition>
 	
@@ -81,11 +81,30 @@
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/basketList.jsp" />
 	</definition>
 	
-	<!-- 펫샵주문상품리스트 -->
+	<!-- order -->
+	<!-- 펫샵장바구니전체주문 -->
 	<definition name="OrderList" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
 	</definition>
 	
+	<!-- 펫샵상품바로주문 -->
+	<definition name="OrderView" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
+	</definition>
+	
+	<!-- 펫샵주문상품추가 -->
+	<definition name="OrderInsert" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
+	</definition>
+	
+	<!-- 펫샵주문취소 -->
+	<definition name="OrderDelete" extends="petShop_main">
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderList.jsp" />
+	</definition>
+	
+	
+	
+	<!-- /////////////////////////////////////////////////////////////////////// -->
 	<!-- 펫샵주문상품결제 -->
 	<definition name="OrderItemPay" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderItemPay.jsp" />
