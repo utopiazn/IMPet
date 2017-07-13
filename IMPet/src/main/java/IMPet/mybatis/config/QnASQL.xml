@@ -16,11 +16,20 @@
 	<select id="selectAll" resultType="hashmap">
 		<include refid="seletClass" />
 		<![CDATA[
-		ORDER BY QnA_NO DESC
+		ORDER BY QnA_Ref DESC, QnA_Reply 
+		
+		
+		
+		
+		
+		
+		
+		
+		000 
 		]]>
 	</select>
 
-	<!-- QnA 상세보기 -->
+	<!-- Qn                       A 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletClass" />
 		<include refid="where-no" />
@@ -32,7 +41,7 @@
 	<![CDATA[
 	INSERT INTO PET_QNA ( QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
 	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE)
-	VALUES (pet_faq_no_seq.nextval,0,0,#{QnA_Subject},
+	VALUES (pet_faq_no_seq.nextval,pet_faq_no_seq.currval,0,#{QnA_Subject},
 	#{QnA_Content},#{member_ID},#{QnA_IMG},0,sysdate)
 	]]>
 	</insert>
@@ -53,5 +62,15 @@
 	DELETE FROM PET_QNA WHERE QNA_NO = #{QnA_NO}
 	]]>
 	</delete>
+	
+    <!-- QnA 답글 추가 -->
+	<insert id="insertRef" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO PET_QNA ( QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
+	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE)
+	VALUES (pet_faq_no_seq.nextval,#{QnA_Ref},1,#{QnA_Subject},
+	#{QnA_Content},#{member_ID},#{QnA_IMG},0,sysdate)
+	]]>
+	</insert>
 
 </mapper>

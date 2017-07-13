@@ -35,7 +35,6 @@ public class ItemReviewDAO extends AbstractDAO {
 	}
 	
 	//후기상세보기
-	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception{
 		
 		return (Map<String, Object>) selectOne("PetReviewSQL.selectOne", map);

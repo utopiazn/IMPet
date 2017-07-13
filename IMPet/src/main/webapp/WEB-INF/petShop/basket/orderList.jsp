@@ -1,36 +1,39 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>펫샵주문상품리스트</title>
-</head>
-<body>
-
-펫샵주문상품리스트
-
-<br/><br/><br/><br/><br/>
-
-<input value="주문배송상태" type="button" onclick="location.href='/IMPet/PetShop/OrderShip'"/>
-
-<br/><br/>
-
-<input value="주문결제상태" type="button" onclick="location.href='/IMPet/PetShop/OrderPay'"/>
-
-</body>
-</html>
-
-
-
-
-<!-- -------------------- -->
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script type="text/javascript">
+	
+	
+	window.onload = function(){
+		$("input[name=order_trade_type1]").attr("disabled", true);  
+	}
+	
+	function openZipcode(){
+		var url="zipcodeCheckForm.dog";
+		open(url, "confirm","toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+	}
+
+	function chk_radio() 
+	{ 
+		
+		if($("input[name=order_trade_payer]:radio:checked").length == 0){
+			
+		    alert("무통장 입금계좌를 선택하세요");
+		    document.order.order_trade_type.focus();
+		    
+		}else{
+			  frm.method = "post";
+			  frm.action = "/pet/order/orderForm1.dog"
+			  frm.submit();
+			  return true;
+		 } 
+	}
+	
+</script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
+
 
 <style type="text/css">
 	.orderArea h3{
@@ -75,12 +78,15 @@
 	    border: 1px solid #cfcecd;
 	    background: #fff;
 	}
+
 </style>
 <div class="category_top">
 	<ul>
 	 	<li>펫샵 ></li><li>주문하기</li>			
 	</ul>
 </div>
+
+
 <div  class="basket_list">
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>
@@ -103,23 +109,22 @@
 						<th scope="col">수량</th>
 						<th scope="col">합계</th>
 					</tr>
-				</thead>	
-				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">				
+				</thead>				
 					<tr>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${basketList.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${basketList.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE*basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT)}"/>
+						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderList.ITEM_IMG}" width="90" height="90"></td>
+						<td align="center">${orderList.ITEM_NAME}</td>
+						<td align="center"><fmt:formatNumber value="${orderList.ITEM_PRICE}" type="number"/>원</td>
+						<td align="center">${orderList.BASKET_BUYCOUNT}EA</td>
+						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+						<%-- <c:set var= "sum" value="${sum + (basketList.basket_goods_price * basketList.basket_goods_amount)}"/> --%>
 					</tr>
-				</c:forEach>
+				
 				
 				<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><fmt:formatNumber value="${orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tfoot>
@@ -127,6 +132,36 @@
 			</table>
 				
 		
+		</div>
+</div>
+
+<form name="order" id="frm" method="post">
+<input type="hidden" name="order_sum_money" value="${orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}" />
+<input type="hidden" name="id" value="${member_ID}" />
+<input type="hidden" name="item_no" value="${orderList.ITEM_NO}" />
+<input type="hidden" name="basket_buycount" value="${orderList.BASKET_BUYCOUNT}"/>
+
+
+<div class="orderArea">
+	<h3>결제자 정보</h3>
+		<div class="boardWrite">
+			<table border="1" summary="">
+				<caption>결제자 정보</caption>
+				<tbody>
+					<tr>
+						<th scope="row">성명</th>
+						<td>${member.MEMBER_NAME}</td>
+					</tr>
+					<tr>
+						<th scope="row">휴대폰</th>
+						<td>${member.MEMBER_TEL}</td>
+					</tr>
+					<tr>
+						<th scope="row">이메일</th>
+						<td>${member.MEMBER_EMAIL}&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#cfcfcf;">*제품구입시 E-mail을 통해 주문처리과정을 보내 드립니다.</font></td>
+					</tr>              
+				</tbody>
+			</table>
 		</div>
 </div>
 <div class="orderArea">
@@ -137,58 +172,61 @@
 				<tbody>
 					<tr>
 						<th scope="row">주소</th>
-						<td>
-							${orderModel.order_receive_zipcode}<br>${orderModel.order_receive_addr}
+						<td><input type="text"  name="zipcode" onclick="this.value=''" id="zipcode" readonly value="${member.MEMBER_ZIPCODE}" style="margin-bottom:2px;"/> 
+								<a href="#none" title="우편번호(새창으로 열기)" onclick="return openZipcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
+							<input type="text"  style="width:100%;margin-bottom:2px;" name="addr" onclick="this.value=''" id="addr1" readonly value="${member.MEMBER_ADDRESS}"  style="margin-bottom:5px;"/><br>
+                   	 		<input type="text" style="width:100%;" name="addr2" onclick="this.value=''" id="addr2" />
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">이름</th>
-						<td>${orderModel.order_receive_name}</td>
+						<td><input type="text" name="order_receive_name" value="${member.MEMBER_NAME}" /></td>
 					</tr>
 					<tr>
 						<th scope="row">휴대폰</th>
-						<td>${orderModel.order_receive_mobile}</td>						
+						<td><input type="text" name="order_receive_mobile" value="${member.MEMBER_TEL}" /></td>						
 					</tr> 
 					<tr>
 						<th scope="row">배송요청사항</th>
 						<td>
-							${orderModel.order_memo}</td>
+						<textarea style="width:100%;" name="order_memo"  placeholder=" 배송시요청사항 예)부재시 경비실에 맡겨주세요"></textarea></td>
 					</tr>
 					<tr>
-						<th scope="row">결재방식</th>
-						<td>${orderModel.order_trade_type}</td>
+						<th scope="row" rowspan="2">결제방식</th>
+						<td><input type="radio" name="order_trade_type" value="무통장입금" checked="">무통장입금&nbsp;
+						<input type="radio"	name="order_trade_type1" value="카드결제"> 카드결제&nbsp;
+							</td>
 					</tr>   
 					<tr>
-						<th scope="row">입금주소</th>
-						<td>${orderModel.order_trade_payer}</td>
+						<td>
+							<div style="text-align:center;">
+					    		<div style="display:inline-block;">
+					    		
+						    		<div style="float:left;margin-top: 116px;">
+								    		<input type="radio" name="order_trade_payer" value="농협은행 : 1207-01-004061 박준영">
+								    		<br/><br/><br/><br/>
+											<input type="radio" name="order_trade_payer" value="우리은행 : 1002-834-406482 박준영">
+											<br/><br/><br/><br/>
+											<input type="radio" name="order_trade_payer" value="경남은행 : 528-22-0247871 박준영">
+									</div>
+									
+						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.gif">
+						    		</div>
+					    					    	   		
+					    		</div>
+					    	</div>
+						</td>
 					</tr>           
 				</tbody>
 			</table>
 		</div>
 </div>
 
-<form action="basketorderbuyOk.dog" method="post">
-<input type="hidden" name="order_member_id" value="${orderModel.order_member_id }" />
-<input type="hidden" name="order_receive_name" value="${orderModel.order_receive_name }" />
-<input type="hidden" name="order_receive_addr" value="${orderModel.order_receive_addr }" />
-<input type="hidden" name="order_receive_mobile" value="${orderModel.order_receive_mobile }" />
-<input type="hidden" name="order_receive_zipcode" value="${orderModel.order_receive_zipcode }" />
-<input type="hidden" name="order_memo" value="${orderModel.order_memo }" />
-<input type="hidden" name="order_trade_type" value="${orderModel.order_trade_type }" />
-<input type="hidden" name="order_trade_payer" value="${orderModel.order_trade_payer }" />
 
+			<div class="basket_button" style="margin-top:5px;">
+					<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="chk_radio()" >					
 
-
-	<input type="hidden" name="order_sum_money" value="${orderModel.order_sum_money }" />
-
-
-<div class="basket_button" style="margin-top:5px;">
-
-
-		<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" value="submit" name="submit">					
-
-</div>	
-
+			</div>	
 
 
 </form>
