@@ -2,10 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/IMPet/resources/css/button.css" />
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
+<style>
+
+</style>
 <script type="text/javascript">
 
 function ajaxRoom(){
@@ -50,6 +54,7 @@ window.onload=function(){
 </script>
 
 
+
 <br/><br/>
 
 <div align="center" style="width: 100%;">
@@ -66,7 +71,7 @@ window.onload=function(){
 	<div id="ContextHotel" align="center" style="width:100%;  float: left;">
 		<div style="width: 100%; height: 600px">
 			<c:if test="${car==0}">		
-			<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
+			<img alt="s2" src="/IMPet/resources/image/hotel/main.jpg" style="width: 100%; height: 600px">
 			</c:if>
 		</div>
 	</div>
