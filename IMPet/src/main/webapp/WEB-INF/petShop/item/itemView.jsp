@@ -71,7 +71,7 @@
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${sessionScope.member_ID}";
-		location.href = '/IMPet/PetShop/BasketWrite?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+		location.href = '/IMPet/PetShop/BasketInsert?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
 			
 	};
 		
@@ -81,7 +81,7 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderItemPay?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = '/IMPet/PetShop/OrderInsert?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       

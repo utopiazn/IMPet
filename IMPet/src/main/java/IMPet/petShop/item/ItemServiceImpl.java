@@ -27,9 +27,9 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
-		Map<String,Object> viewMap = itemDAO.selectOne(map);
+		Map<String, Object> viewMap = itemDAO.selectOne(map);
 		
-		List<Map<String,Object>> commentMap = itemReviewDAO.selectList(map);
+		List<Map<String, Object>> commentMap = itemReviewDAO.selectList(map);
 		
 		resultMap.put("view", viewMap);
 		resultMap.put("comment", commentMap);

@@ -1,7 +1,7 @@
 // JavaScript Document
+	
 
-
-	$(function() {
+/*	$(function() {
 		$(".tab_content").hide();
 		$(".tab_content:first").show();
 
@@ -10,7 +10,7 @@
 
 			$(this).addClass("selected");
 		});
-	});
+	});*/
 
 	$(document).ready(function() {
 		var link = document.location.href;
@@ -30,6 +30,7 @@
 				isSearch : num
 			},
 			success : function(data) {
+
 				$("#account-contentsWrap").html(data);
 
 			}
@@ -37,3 +38,5 @@
 
 		return false;
 	};
+	
+	

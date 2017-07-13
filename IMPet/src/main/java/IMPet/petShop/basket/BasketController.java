@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.member.MemberService;
 import IMPet.module.CommandMap;
 
 @Controller
@@ -23,6 +24,12 @@ public class BasketController {
 	
 	@Resource(name="orderService")
 	private OrderService orderService;
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
+	@Resource(name="payService")
+	private PayService payService;
 	
 	
 	//Basket
@@ -77,11 +84,11 @@ public class BasketController {
 	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
 		
 		System.out.println("펫샵장바구니전체주문");
-		List<Map<String, Object>> list = orderService.selectAll(commandMap.getMap());
+		Map<String, Object> map = orderService.selectAll(commandMap.getMap());
 		
-		System.out.println("size"+list.size());
-		
-		mav.addObject("orderList", list);
+		System.out.println(map);
+		mav.addObject("member", map.get("memMap"));
+		mav.addObject("orderList", map.get("odList"));
 		mav.setViewName("OrderList");
 		return mav;
 	}
@@ -94,8 +101,8 @@ public class BasketController {
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
 		
 		System.out.println(map);
-		
-		mav.addObject("orderView", map);
+		mav.addObject("member", map.get("memMap"));
+		mav.addObject("orderView", map.get("odView"));
 		mav.setViewName("OrderList");
 		return mav;
 	
@@ -129,6 +136,10 @@ public class BasketController {
 		return mav;
 	}
 	
+	//////////////////////////////////////////////////////////////////////////////
+	//결제하기버튼을눌렀을때
+	/*memberService.update(map);
+	payService.insert(map);*/
 	//////////////////////////////////////////////////////////////////////////////
 	
 	//펫샵주문배송상태처리
