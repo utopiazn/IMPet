@@ -102,11 +102,11 @@ public class QnAController {
 		
 		qnAService.update(map);
 		
-		String no = commandMap.get("qnA_NO").toString();
+		String no = commandMap.get("QnA_NO").toString();
 		
 		System.out.println("Q&A 수정");
 
-		mav.setViewName("redirect:QnAView?qnA_NO="+no);
+		mav.setViewName("redirect:QuestionView?QnA_NO="+no);
 		return mav;
 	}
 
