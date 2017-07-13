@@ -35,7 +35,8 @@
 <br/><br/><br/><br/><br/>
 <input value="자주묻는질문리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/> -->
 
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script src="/IMPet/resources/ajax/HotelAjax.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/admin.css" />
 
@@ -72,18 +73,10 @@
 </ul>
 </div>
 
-<div id="ContextHotel" style="border: 1px solid lightgray; float: left;">
-s
-</div>
-<div id="ContextHotel1" style="border: 1px solid lightgray; float: left;">
-s1
-</div>
-<div id="ContextHotel2" style="border: 1px solid lightgray; float: left;">
-s2
-</div>
-<div id="ContextHotel3" style="border: 1px solid lightgray; float: left;">
-s3
-</div>
+
+	<div id="ContextHotel" style="border: 1px solid lightgray; float: left;">
+	</div>
+
 
 
 

@@ -35,7 +35,7 @@ function ajaxRoomView(no){
     });
 }
 
-function ajaxRoomInsertFrom(){
+function ajaxRoomInsertForm(){
 	
 	var url1 = "/IMPet/PetHotel/RoomInsertForm";
 	
@@ -191,7 +191,7 @@ function ajaxHealingView(no){
     });
 }
 
-function ajaxHealingInsertFrom(){
+function ajaxHealingInsertForm(){
 	
 	var url1 = "/IMPet/PetHotel/HealingInsertForm";
 	
