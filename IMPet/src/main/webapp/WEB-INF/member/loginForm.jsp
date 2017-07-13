@@ -64,6 +64,9 @@ function ajaxLoginView(){
 
 <body>
 
+
+
+<%-- 
 <div id ="Context">
 
 
@@ -118,22 +121,46 @@ ${ errorMsg }
 </div>
 
 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ --%>
 
 
+<div id ="Context">
+ 
+ <form name="jform" method="post">	
+ 
+<div class="login">
 
-<!-- <input value="로그인" type="button" onclick="location.href='/IMPet/Member/Login'"/> <br/>
+
+	
+	<input id="member_id" name="MEMBER_ID" type="text"  placeholder="ID 입력"  /> 
+	<input id="member_passwd" name="MEMBER_PW" type="password" placeholder="password 입력"/>
 
 
+	<!-- <div class="loginbuttion"> -->
+ 		<input   TYPE="button"  onclick="ajaxLoginView();" value="Sign In" />
+ 	<!-- </div> -->
+ <!--  <input type="submit" value="Sign In"> -->
+  <br/>
+  
+  	
+    <a href="#" class="forgotID">ID 찾기</a>
+   <!--  <a href="#" class="forgotPw">비밀번호 찾기</a>
+   -->
+</div>
+<div class="shadow"></div>
 
-<br/><br/><br/>
+
+</form>
+</div>
 
 
-<input value="아디찾기" type="button" onclick="location.href='/IMPet/Member/FindIDForm'"/> /
+<!-- <input value="아디찾기" type="button" onclick="location.href='/IMPet/Member/FindIDForm'"/> /
 
 <input value="비번찾기" type="button" onclick="location.href='/IMPet/Member/FindPwForm'"/>
 
- -->
 
+ -->
 
 </body>
 </html>

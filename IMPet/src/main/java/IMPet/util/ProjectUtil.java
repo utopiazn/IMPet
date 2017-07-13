@@ -164,7 +164,7 @@ public class ProjectUtil {
 	// String - util.Date 변환
 	public static java.util.Date changeUtilDate(String day) throws Exception {
 
-		java.util.Date date = new java.text.SimpleDateFormat("yyyyy-mm-dd hh:mm:ss").parse(day);
+		java.util.Date date = new java.text.SimpleDateFormat("yyyyy-MM-dd HH:mm:ss").parse(day);
 		return date;
 	}
 
