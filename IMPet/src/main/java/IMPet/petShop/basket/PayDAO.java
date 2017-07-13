@@ -7,33 +7,33 @@ import org.springframework.stereotype.Repository;
 
 import IMPet.module.AbstractDAO;
 
-@Repository(value="orderDAO")
-public class OrderDAO extends AbstractDAO {
+@Repository(value="payDAO")
+public class PayDAO extends AbstractDAO {
 	
-	//장바구니전체주문
+	//주문목록전체결제
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectAll(Map<String, Object> map) throws Exception {
 		
 		
-		return selectList("PetOrderSQL.selectAll", map);
+		return selectList("PetPaySQL.selectAll", map);
 	}
 	
-	//상품바로주문
+	//상품결제
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		
-		return (Map<String, Object>) selectOne("PetOrderSQL.selectOne", map);	
+		return (Map<String, Object>) selectOne("PetPaySQL.selectOne", map);	
 	}
 	
-	//주문추가
+	//결제정보추가
 	public void insert(Map<String, Object> map) throws Exception {
 		
-		insert("PetOrderSQL.odInsert", map);
+		insert("PetPaySQL.payInsert", map);
 	}
 	
-	//주문취소
+	//결제취소
 	public void delete(Map<String, Object> map) throws Exception {
 		
-		delete("PetOrderSQL.odDelete", map);
+		delete("PetPaySQL.payDelete", map);
 	}
 
 }

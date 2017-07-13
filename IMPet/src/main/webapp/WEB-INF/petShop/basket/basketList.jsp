@@ -123,7 +123,7 @@
 			<div class="basket_button">
 										
 					<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>
-					<a href="/IMPet/PetShop/OrderItemPay?ITEM_NO=${ITEM_NO}&BASKET_BUYCOUNT=${BASKET_BUYCOUNT}&MEMBER_ID=${sessionScope.member_ID}"><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_all.gif" alt="전체상품주문"></a>  		
+					<a href="/IMPet/PetShop/OrderList?ITEM_NO=${ITEM_NO}&BASKET_BUYCOUNT=${BASKET_BUYCOUNT}&MEMBER_ID=${sessionScope.member_ID}"><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_all.gif" alt="전체상품주문"></a>  		
 			</div>		
 		</form>
 		</div>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PetPaySQL">
+
+	<sql id="seletALL" > 
+		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
+	</sql>
+
+	
+	<!-- 주문목록 전체 결제 -->
+	<select id="selectAll" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, b.*
+				FROM PET_ITEM a, PET_ITEM_ORDER b
+					WHERE b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM_NO
+					
+		]]>
+	</select>
+	
+	<!-- 상품 결제 -->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+		<![CDATA[ 
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, b.*
+	          FROM PET_ITEM a, PET_ITEM_ORDER b
+	            WHERE  b.ORDER_NO = ORDER_NO_SEQ.CURRVAL AND b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM_NO ]]>
+	</select>
+	
+	<!-- 결제정보추가 -->
+	<insert id="payInsert" parameterType="hashmap">
+		insert into PET_ITEM_ORDER
+					 (ORDER_NO,
+					  ITEM_NO,
+					  ORDER_BUYCOUNT,
+					  MEMBER_ID,
+					  ORDER_PRICE,
+					  ORDER_STATE,
+					  ORDER_DATE,
+					  ORDER_TYPE,
+					  ORDER_IMG)
+			values(ORDER_NO_SEQ.NEXTVAL,
+					  #{ITEM_NO},
+					  #{ORDER_BUYCOUNT},
+				      #{MEMBER_ID},
+				      #{ORDER_PRICE},
+				      #{ORDER_STATE},
+				      #{ORDER_DATE},
+				      #{ORDER_TYPE},
+				      #{ORDER_IMG})
+	</insert>
+	
+	<!-- 결제취소 -->
+	<delete id="payDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FROM PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO}
+		]]>
+	</delete>
+
+</mapper>

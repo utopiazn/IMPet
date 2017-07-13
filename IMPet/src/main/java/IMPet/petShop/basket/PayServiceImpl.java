@@ -10,25 +10,24 @@ import org.springframework.stereotype.Service;
 
 import IMPet.member.MemberDAO;
 
-@Service(value="orderService")
-public class OrderServiceImpl implements OrderService {
+@Service(value="payService")
+public class PayServiceImpl implements PayService {
 	
-	@Resource(name="orderDAO")
-	private OrderDAO orderDAO;
+	@Resource(name="payDAO")
+	private PayDAO payDAO;
 	
 	@Resource(name="memberDAO")
 	private MemberDAO memberDAO;
-
-
+	
 	@Override
 	public Map<String, Object> selectAll(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		
-		List<Map<String, Object>> orderListMap = orderDAO.selectAll(map);
+		List<Map<String, Object>> payListMap = payDAO.selectAll(map);
 		
 		Map<String, Object> memMap = memberDAO.selectOne(map);
 		
-		resultMap.put("orderList", orderListMap);
+		resultMap.put("payList", payListMap);
 		resultMap.put("member", memMap);
 		
 		return resultMap;
@@ -37,11 +36,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
-		Map<String, Object> orderViewMap = orderDAO.selectOne(map);
+		Map<String, Object> payViewMap = payDAO.selectOne(map);
 		
 		Map<String, Object> memMap = memberDAO.selectOne(map);
 		
-		resultMap.put("orderView", orderViewMap);
+		resultMap.put("payView", payViewMap);
 		resultMap.put("member", memMap);
 		
 		return resultMap;
@@ -50,13 +49,13 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void insert(Map<String, Object> map) throws Exception {
 		
-		orderDAO.insert(map);		
+		payDAO.insert(map);		
 	}
 
 	@Override
 	public void delete(Map<String, Object> map) throws Exception {
 
-		orderDAO.delete(map);		
+		payDAO.delete(map);		
 	}
 
 }

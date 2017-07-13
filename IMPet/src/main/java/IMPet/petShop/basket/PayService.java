@@ -2,7 +2,7 @@ package IMPet.petShop.basket;
 
 import java.util.Map;
 
-public interface OrderService {
+public interface PayService {
 	
 	Map<String, Object> selectAll(Map<String, Object> map) throws Exception;
 	
