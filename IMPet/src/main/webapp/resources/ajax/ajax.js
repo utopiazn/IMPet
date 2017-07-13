@@ -13,40 +13,6 @@ function gfn_isNull(str) {
     return false; 
 }
 
-function ComSubmit(opt_formId) {
-	// <form 태그 확인 없으면 include 시킨 commonForm으로 지정
-	this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
-	
-	// 내가 보내줄 URL 주소 
-	this.url = "";
-	
-	// <form 아이디가 commonForm으로 지정됬다면 초기화 시켜줌
-	if(this.formId == "commonForm"){
-		$("#commonForm")[0].reset();
-	}
-	
-	// jsp에서 보내준 URL을 url에다 넣어줌
-	this.setUrl = function setUrl(url){
-		this.url = url;
-	};
-	
-	// 내가 보내줄 값을 모두 히든값으로 넘겨줌 
-	// a 태그에서 값을 넘겨줘도 <form 형식으로 변경하여 넘어가기 때문에 hidden으로 값을 넘겨줌
-	this.addParam = function addParam(key, value){
-		$("#"+this.formId).append($("<input type='hidden' name='"+key+"' id='"+key+"' value='"+value+"' >"));
-	};
-	
-	// submit 버튼 역활을 한다 
-	// 버튼 클릭시 <form name="commandForm", action=url, method="post"> 으로 동작함.
-	this.submit = function submit(){
-		var frm = $("#"+this.formId)[0];
-		frm.action = this.url;
-		frm.method = "post";
-		frm.submit();	
-	};
-	
-	
-}
 
 // 내 자신으로 aJax를 걸기위해 콜백 함수가 필요함.
 var gfv_ajaxCallback = "";
