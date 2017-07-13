@@ -6,39 +6,6 @@
 	<c:choose>
 		<c:when test="${view.HEALING_NO == null}">
 			
-			<script type="text/javascript">
-				function ajaxHealingInsert(){
-					
-					var obj = document.Insert;
-					
-					var url1 = "/IMPet/PetHotel/HealingInsert";
-					
-					var formData = 
-					{ "healing_NO" : obj.healing_NO.value,
-					  "healing_Name" : obj.healing_Name.value,
-					  "healing_Detail" : obj.healing_Detail.value,
-					  "healing_Time" : obj.healing_Time.value,
-					  "healing_Guide" : obj.healing_Guide.value,
-					  "healing_IMG" : obj.healing_IMG.value		
-					}
-					
-				    $.ajax({
-				      type : "POST",
-				      url : url1,
-				      data : formData,
-				      dataType : "text",
-				      error : function() {
-				        alert('오류발생!!');
-				      },
-				      success : function(data) {
-				        $('#ContextHotel').html(data);
-				      }
-				
-				    });
-				}
-		
-			</script>
-			
 			힐링시설을 추가할때
 			<form name="Insert" method="post">
 				healing_NO : <input name="healing_NO" type="text"/>
@@ -54,39 +21,6 @@
 		
 		
 		<c:otherwise>
-		
-			<script type="text/javascript">
-				function ajaxHealingModify(){
-					
-					var obj = document.Modify;
-					
-					var url1 = "/IMPet/PetHotel/HealingModify";
-					
-					var formData = 
-					{ "healing_NO" : obj.healing_NO.value,
-					  "healing_Name" : obj.healing_Name.value,
-					  "healing_Detail" : obj.healing_Detail.value,
-					  "healing_Time" : obj.healing_Time.value,
-					  "healing_Guide" : obj.healing_Guide.value,
-					  "healing_IMG" : obj.healing_IMG.value		
-					}
-					
-				    $.ajax({
-				      type : "POST",
-				      url : url1,
-				      data : formData,
-				      dataType : "text",
-				      error : function() {
-				        alert('오류발생!!');
-				      },
-				      success : function(data) {
-				        $('#ContextHotel').html(data);
-				      }
-				
-				    });
-				}
-		
-			</script>
 		
 			힐링시설을 수정할때
 			<form name="Modify" method="post">
