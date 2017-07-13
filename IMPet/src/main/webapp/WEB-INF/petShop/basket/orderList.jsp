@@ -136,7 +136,7 @@
 </div>
 
 <form name="order" id="frm" method="post">
-<input type="hidden" name="order_sum_money" value="${{orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}}" />
+<input type="hidden" name="order_sum_money" value="${orderList.ITEM_PRICE * orderList.BASKET_BUYCOUNT}" />
 <input type="hidden" name="id" value="${member_ID}" />
 <input type="hidden" name="item_no" value="${orderList.ITEM_NO}" />
 <input type="hidden" name="basket_buycount" value="${orderList.BASKET_BUYCOUNT}"/>
