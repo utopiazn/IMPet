@@ -46,6 +46,14 @@ public class QnAServiceImpl implements QnAService{
 		qnADAO.delete(map);
 		
 	}
+
+	@Override
+	public void insertRef(Map<String, Object> map) throws Exception {
+		qnADAO.insertRef(map);
+		
+	}
+	
+	
 	
 	
 

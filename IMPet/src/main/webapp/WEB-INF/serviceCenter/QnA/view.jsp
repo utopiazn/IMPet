@@ -24,6 +24,8 @@
 QnA 개별페이지
 
 <br/><br/><br/><br/><br/>
+<input value="Q&A 답글쓰기" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+
 
 <input value="Q&A 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
 

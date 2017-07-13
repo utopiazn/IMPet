@@ -54,5 +54,10 @@ public class QnADAO  extends AbstractDAO {
 		delete("QnASQL.delete", map);
 		
 	}
+	
+	public void insertRef(Map<String, Object> map) throws Exception{
+		insert("QnASQL.insertRef", map);
+		
+	}
 
 }

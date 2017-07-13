@@ -17,4 +17,6 @@ public interface QnAService {
 	public void update(Map<String, Object> map) throws Exception;
 
 	public void delete(Map<String, Object> map) throws Exception;
+	
+	public void insertRef(Map<String, Object> map) throws Exception;
 }

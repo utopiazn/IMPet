@@ -106,6 +106,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/serviceCenter/QnA/modifyForm.jsp" />
 	</definition>
+	
+	<!-- Q&A 답글 폼 -->
+	<definition name="QuestionInsertFormRef" extends="serviceCenter_main">
+		<put-attribute name="body"
+			value="/WEB-INF/serviceCenter/QnA/insertForm.jsp" />
+	</definition>
 
 
 
