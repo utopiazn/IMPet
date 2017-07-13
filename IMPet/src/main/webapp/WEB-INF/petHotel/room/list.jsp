@@ -3,44 +3,6 @@
 
 <script type="text/javascript">
 
-function ajaxRoomView(no){
-	
-	var url1 = "/IMPet/PetHotel/RoomView";
-	var formData = { room_NO : no};
-    $.ajax({
-      type : "POST",
-      url : url1,
-      data : formData,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-function ajaxRoomInsert(){
-	
-	var url1 = "/IMPet/PetHotel/RoomInsertForm";
-	
-    $.ajax({
-      type : "POST",
-      url : url1,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-
 
 </script>
 
@@ -69,7 +31,7 @@ function ajaxRoomInsert(){
 <br/><br/>
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="center">
-	<input value="룸 추가" type="button" onclick="ajaxRoomInsert()"/>
+	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
 </div>
 </c:if>
 <br/><br/>

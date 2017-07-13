@@ -1,49 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script type="text/javascript">
-
-function ajaxHealingView(no){
-	
-	var url1 = "/IMPet/PetHotel/HealingView";
-	var formData = { healing_NO : no};
-    $.ajax({
-      type : "POST",
-      url : url1,
-      data : formData,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-function ajaxHealingInsert(){
-	
-	var url1 = "/IMPet/PetHotel/HealingInsertForm";
-	
-    $.ajax({
-      type : "POST",
-      url : url1,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-
-
-</script>
-
 <div align="center">
 	<table>
 		<c:forEach var="Healing" items="${list}">
@@ -65,7 +22,7 @@ function ajaxHealingInsert(){
 <br/><br/>
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="center">
-<input value="힐링 추가" type="button" onclick="ajaxHealingInsert()"/>
+<input value="힐링 추가" type="button" onclick="ajaxHealingInsertForm()"/>
 </div>
 </c:if>
 <br/><br/>

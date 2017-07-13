@@ -1,68 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<script type="text/javascript">
-
-function ajaxHealing(){
-    $.ajax({
-      type : "POST",
-      url : "/IMPet/PetHotel/HealingList",
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-function ajaxHealingModifyForm(no){
-	
-	var url1 = "/IMPet/PetHotel/HealingModifyForm";
-	
-	var formData = {"healing_NO" : no}
-	
-    $.ajax({
-      type : "POST",
-      url : url1,
-      data : formData,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-function ajaxHealingDelete(no){
-	
-	var url1 = "/IMPet/PetHotel/HealingDelete";
-	
-	var formData = {"healing_NO" : no}
-	
-    $.ajax({
-      type : "POST",
-      url : url1,
-      data : formData,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-</script>
-
 <div style="width:95%; border:1px solid black;  margin-top: 5px; height:800px;">
 	<div align="center" style="width:100%; height:100%;">
 	
@@ -72,7 +10,7 @@ function ajaxHealingDelete(no){
 		
 		<div align="left" style="width:100%; height:19%;">
 		&nbsp;&nbsp;방 번호 : ${view.HEALING_NO} / 방 이름 : ${view.HEALING_NAME}<br/>
-		&nbsp;&nbsp;방 소개 : ${view.HEALING_DETAIL}</h2><br/>
+		&nbsp;&nbsp;방 소개 : ${view.HEALING_DETAIL}<br/>
 		</div>
 	
 	</div>
