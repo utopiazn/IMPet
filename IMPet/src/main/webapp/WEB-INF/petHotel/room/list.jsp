@@ -3,61 +3,54 @@
 
 <script type="text/javascript">
 
-function ajaxRoomView(no){
-	
-	var url1 = "/IMPet/PetHotel/RoomView";
-	var formData = { room_NO : no};
-    $.ajax({
-      type : "POST",
-      url : url1,
-      data : formData,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-function ajaxRoomInsert(){
-	
-	var url1 = "/IMPet/PetHotel/RoomInsertForm";
-	
-    $.ajax({
-      type : "POST",
-      url : url1,
-      dataType : "text",
-      error : function() {
-        alert('오류발생!!');
-      },
-      success : function(data) {  
-        $('#ContextHotel').html(data);
-      }
-
-    });
-}
-
-
 
 </script>
 
+<style>
+.con{
+	margin-top: 5px;
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding-top: 8px;
+    padding-bottom: 15px;
+    }
+
+.con a:link,
+.con a:visited
+{
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+</style>
+
 <div align="center">
-	<table>
+	<table  style="width: 100%">
 		<c:forEach var="room" items="${list}">
 			<tr>
-				<td style="width: 30%;">
+				<!-- <td style="width: 30%;">
 					<div style="margin-top: 5px; border:1px solid lightgray; width: 100%; height: 220px; float:left;">
 						<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 100%;">
 					</div>
-				</td>
+				</td> -->
 				
-				<td style="width: 70%;">
-					<div style="margin-top: 5px; border:1px solid lightgray; width: 100%; height: 220px; float:left;">
-						<h1><a href="javascript:ajaxRoomView(${room.ROOM_NO});">방 번호 : ${room.ROOM_NO} / 방 이름 : ${room.ROOM_NAME} / 방 가격 : ${room.ROOM_PRICE}</a></h1><br/>
-						<h2>방 소개 : ${room.ROOM_DETAIL} / 총 객실 : ${room.ROOM_TOTAL}</h2><br/>
+				<td>
+					<div class="con">
+						<div>
+							<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+						</div>
+						
+						<div>
+							 <a href="javascript:ajaxRoomView(${room.ROOM_NO});" >
+							<%-- 방 번호 : ${room.ROOM_NO} --%>
+							 <h3>&nbsp;&nbsp;${room.ROOM_NAME} <br/><br/></h3>
+							 &nbsp;&nbsp;가격 : 1박 ${room.ROOM_PRICE}&nbsp;&nbsp;남은 객실 : ${room.ROOM_TOTAL}<br/>
+							 &nbsp;&nbsp;${room.ROOM_DETAIL} <br/><br/></a>
+							
+						 </div>
 					</div>
 				</td>
 				
@@ -69,7 +62,7 @@ function ajaxRoomInsert(){
 <br/><br/>
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="center">
-	<input value="룸 추가" type="button" onclick="ajaxRoomInsert()"/>
+	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
 </div>
 </c:if>
 <br/><br/>

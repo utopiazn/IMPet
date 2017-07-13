@@ -42,8 +42,8 @@ import IMPet.module.AbstractDAO;
 			String day = map.get("notice_Date").toString();
 		
 			java.util.Date date = (java.util.Date)IMPet.util.ProjectUtil.changeUtilDate(day);
-			java.sql.Date date1 = IMPet.util.ProjectUtil.changeUtilSqlDate(date);
-			map.put("notice_Date", date1);
+		
+			map.put("notice_Date", date);
 			
 			System.out.println("후:"+map);	
 			

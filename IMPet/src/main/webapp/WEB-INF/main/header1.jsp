@@ -40,34 +40,35 @@
 
  -->
 
-<c:choose>
-
-	<c:when test="${ sessionScope.member_ID  == null }">
-	<!--로그인이 아닐 경우 -->	
-		
-		<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
-		<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinMain'"/>	
+	<c:choose>
 	
-	</c:when>	
-	
-	<c:when test="${ sessionScope.member_ID  != null}">	
-	<!-- 로그인일 경우 -->
-	
-		<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
-		<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}'"/>
-		<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
+		<c:when test="${ sessionScope.member_ID  == null }">
+		<!--로그인이 아닐 경우 -->	
 			
-		<c:if test="${ sessionScope.member_Admin eq '1' }">
-		<!--관리자 권한일 경우 -->		
-	
-			<input class="button" value="관리자페이지" type="button" onclick="location.href='/IMPet/AdminPage'"/>
-	
-		</c:if>
+			<input class="button" value="로그인" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
+			<input class="button" value="회원가입" type="button" onclick="location.href='/IMPet/Member/JoinMain'"/>	
 		
-	</c:when>
-
-</c:choose>
-
+		</c:when>	
+		
+		<c:when test="${ sessionScope.member_ID  != null}">	
+		<!-- 로그인일 경우 -->
+		
+			<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
+			<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}'"/>
+			<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
+				
+			<c:if test="${ sessionScope.member_Admin eq '1' }">
+			<!--관리자 권한일 경우 -->		
+		
+				<input class="button" value="관리자페이지" type="button" onclick="location.href='/IMPet/AdminPage'"/>
+		
+			</c:if>
+			
+		</c:when>
+	
+	</c:choose>
+	
+	<input class="button" value="고객센터" type="button" onclick="location.href='/IMPet/ServiceCenter/Main'"/>
 
 
 </div>

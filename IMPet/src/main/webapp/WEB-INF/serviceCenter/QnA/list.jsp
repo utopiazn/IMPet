@@ -22,7 +22,7 @@
 			<input value="QnA 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'"/>
 			<h2>제목 : ${QNA.QNA_SUBJECT}</h2><br/>
 			<h2>조회수 : ${QNA.QNA_COUNT}</h2><br/>
-			<h2>아이디 : ${QNA.QNA_DATE}</h2><br/>
+			<h2>아이디 : ${QNA.MEMBER_ID}</h2><br/>
 			<h2>작성일 : ${QNA.QNA_DATE}</h2><br/>
 			
 			</td></tr>

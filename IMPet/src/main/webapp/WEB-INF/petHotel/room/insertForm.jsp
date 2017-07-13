@@ -4,41 +4,8 @@
 <div align="center">
 	<br/>
 	<c:choose>
-		<c:when test="${view.ROOM_NO == null}">
-		
-			<script type="text/javascript">
-				function ajaxRoomInsert(){
-					
-					var obj = document.Insert;
-					
-					var url1 = "/IMPet/PetHotel/RoomInsert";
-					
-					var formData = 
-					{ "room_NO" : obj.room_NO.value,
-					  "room_Name" : obj.room_Name.value,
-					  "room_IMG" : obj.room_IMG.value,
-					  "room_Detail" : obj.room_Detail.value,
-					  "room_Price" : obj.room_Price.value,
-					  "room_Total" : obj.room_Total.value		
-					}
-					
-				    $.ajax({
-				      type : "POST",
-				      url : url1,
-				      data : formData,
-				      dataType : "text",
-				      error : function() {
-				        alert('오류발생!!');
-				      },
-				      success : function(data) {
-				        $('#ContextHotel').html(data);
-				      }
+		<c:when test="${view.ROOM_NO == null}">	
 				
-				    });
-				}
-		
-			</script>		
-		
 			룸을 추가할때
 			<form name="Insert" method="post">
 				room_NO : <input name="room_NO" id=room_NO type="text"/>
@@ -52,40 +19,7 @@
 			</form>
 			
 		</c:when>
-		<c:otherwise>
-		
-			<script type="text/javascript">
-				function ajaxRoomModify(){
-					
-					var obj = document.Modify;
-					
-					var url1 = "/IMPet/PetHotel/RoomModify";
-					
-					var formData = 
-					{ "room_NO" : obj.room_NO.value,
-					  "room_Name" : obj.room_Name.value,
-					  "room_IMG" : obj.room_IMG.value,
-					  "room_Detail" : obj.room_Detail.value,
-					  "room_Price" : obj.room_Price.value,
-					  "room_Total" : obj.room_Total.value		
-					}
-					
-				    $.ajax({
-				      type : "POST",
-				      url : url1,
-				      data : formData,
-				      dataType : "text",
-				      error : function() {
-				        alert('오류발생!!');
-				      },
-				      success : function(data) {
-				        $('#ContextHotel').html(data);
-				      }
-				
-				    });
-				}
-		
-			</script>		
+		<c:otherwise>		
 		
 			룸을 수정할때
 			<form name="Modify" method="post">
