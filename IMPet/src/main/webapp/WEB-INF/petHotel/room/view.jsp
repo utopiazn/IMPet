@@ -3,7 +3,7 @@
 
 <div>
 	<div style="float:left; width:70%; /* border:1px solid black; */ margin-right: 1px; height:500px;">
-		<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 100%;">		
+		<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${view.ROOM_IMG}" style="width: 100%; height: 100%;">		
 	</div>
 
 	<div style="float:left; width:29%;/*  border:1px solid black;  height:500px; margin-bottom: 10px;*/">
