@@ -16,8 +16,13 @@
 		var link = document.location.href;
 		var tab = link.split('Main').pop();
 	
-		$('a[href$=' + tab + ']').trigger("click");
-		
+		if(tab == ""){
+
+			$('a[href=#feed]').trigger("click");
+		}else  
+		{
+			$('a[href$=' + tab + ']').trigger("click");
+		}
 	});
 
 	function tab(num) {

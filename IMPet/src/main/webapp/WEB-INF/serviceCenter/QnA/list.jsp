@@ -18,12 +18,14 @@
 	<table border="1">
 		<c:forEach var="QNA" items="${list}">
 			<tr><td>
-			<h2>번호 : ${QNA.QNA_NO}</h2><br/>
-			<input value="QnA 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'"/>
-			<h2>제목 : ${QNA.QNA_SUBJECT}</h2><br/>
-			<h2>조회수 : ${QNA.QNA_COUNT}</h2><br/>
-			<h2>아이디 : ${QNA.MEMBER_ID}</h2><br/>
-			<h2>작성일 : ${QNA.QNA_DATE}</h2><br/>
+			<a href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'>
+			<h2>글번호 : 
+			<c:if test="${QNA.QNA_REPLY==1}">[답글]</c:if>
+			${QNA.QNA_NO}</h2>
+제목 : ${QNA.QNA_SUBJECT}</a>
+조회수 : ${QNA.QNA_COUNT}<br/>
+아이디 : ${QNA.MEMBER_ID}
+작성일 : ${QNA.QNA_DATE}<br/>
 			
 			</td></tr>
 		</c:forEach>

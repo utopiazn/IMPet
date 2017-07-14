@@ -74,25 +74,11 @@
 		<put-attribute name="body" value="/WEB-INF/petHotel/healing/insertForm.jsp" />
 	</definition>
 	
-	<!-- 호텔 힐링 추가 -->
-	<definition name="PetHotel_HealingInsert" extends="petHotel_main">
-		<put-attribute name="body" value="/WEB-INF/petHotel/healing/view.jsp" />
-	</definition>
-	
 	<!-- 호텔 힐링 수정폼 -->
 	<definition name="PetHotel_HealingModifyForm" extends="petHotel_main">
 		<put-attribute name="body" value="/WEB-INF/petHotel/healing/insertForm.jsp" />
 	</definition>
-	
-	<!-- 호텔 힐링 수정 -->
-	<definition name="PetHotel_HealingModify" extends="petHotel_main">
-		<put-attribute name="body" value="/WEB-INF/petHotel/healing/view.jsp" />
-	</definition>
-	
-	<!-- 호텔 힐링 삭제 -->
-	<definition name="PetHotel_HealingDelete" extends="petHotel_main">
-		<put-attribute name="body" value="/WEB-INF/petHotel/healing/list.jsp" />
-	</definition>
+
 
 </tiles-definitions>
 	

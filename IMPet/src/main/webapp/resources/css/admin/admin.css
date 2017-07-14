@@ -8,10 +8,9 @@
 .nestedsidemenu {
     font: 16px 'Jeju Gothic';
     position: relative;
-    width: 30%;
+    width: 15%;
     height: 1200px;
     z-index: 1;
-    margin-left: -40%;
     margin-top: 10%;
     line-height: 2em;
     float: left;

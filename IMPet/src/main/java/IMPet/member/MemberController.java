@@ -433,7 +433,7 @@ public class MemberController {
 
 		System.out.println("회원들의 정보 리스트 보여주기");
 
-		String url = "MemberList";
+		String url = "AdminPage";
 		List<Map<String,Object>> listAll = memberService.selectAll();		
 		
 

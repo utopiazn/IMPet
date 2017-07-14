@@ -33,7 +33,7 @@
    					 pet_item 
   						) a
 				where 
-					  a.sellcount < 5
+					  a.item_type = #{isSearch} and a.sellcount <5
 			order by 
 					  a.item_type , a.sellcount 				
 		]]>

@@ -26,9 +26,13 @@
 }
 
 </style>
-
+<c:if test="${sessionScope.member_Admin==1 }">
+<div align="right">
+	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
+</div>
+</c:if>
 <div align="center">
-	<table  style="width: 100%">
+	<table style="width: 100%">
 		<c:forEach var="room" items="${list}">
 			<tr>
 				<!-- <td style="width: 30%;">
@@ -39,8 +43,8 @@
 				
 				<td>
 					<div class="con">
-						<div>
-							<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+						<div> <!-- 사진 넣고 사진에도 바로 상세보기 갈 수 있는 링크 넣기 -->
+							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
 						</div>
 						
 						<div>
@@ -60,9 +64,5 @@
 </div>
 
 <br/><br/>
-<c:if test="${sessionScope.member_Admin==1 }">
-<div align="center">
-	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
-</div>
-</c:if>
+
 <br/><br/>
