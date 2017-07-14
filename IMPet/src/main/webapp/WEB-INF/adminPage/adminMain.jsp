@@ -43,63 +43,67 @@
 </head>
 <body>
 <div align="left" style="width:100%;" >
-<div class="nestedsidemenu">
-<ul>
-	 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
-	 </li>
-	 
-	 <li><a href="javascript:vold(0)">호텔 관리</a>
-		  <ul>
-			  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>   
-			  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
-			  
-		 </ul>
-	</li>
-	
-	 <li><a href="javascript:vold(0)">상품 관리</a>
-		  <ul>
-			  <li><a href="/IMPet/PetShop/AdminItemList">상품 리스트</a></li>
-			  <li><a href="/IMPet/PetShop/AdminItemWriteForm">상품 추가</a></li>   
-			  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li> 
-		 </ul>
-	</li>
+	<div style="width: 19%;   float: left; ">
+		<div class="nestedsidemenu">
+			<ul>
+				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
+				 </li>
+				 
+				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;호텔 관리</a>
+					  <ul>
+						  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>   
+						  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
+						  
+					 </ul>
+				</li>
+				
+				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;상품 관리</a>
+					  <ul>
+						  <li><a href="/IMPet/PetShop/AdminItemList">상품 리스트</a></li>
+						  <li><a href="/IMPet/PetShop/AdminItemWriteForm">상품 추가</a></li>   
+						  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li> 
+					 </ul>
+				</li>
+			
+				<li><a href="/IMPet/ServiceCenter/NoticeList">공지사항</a>
+				</li>
+				
+				<li><a href="/IMPet/ServiceCenter/FAQList">FAQ</a>
+				</li>
+			
+			</ul>
+		</div>
+	</div>
 
-	<li><a href="/IMPet/ServiceCenter/NoticeList">공지사항</a>
-	</li>
+	<div align="center" style="width:80%; margin-left: 5px;  float: left;" >
 	
-	<li><a href="/IMPet/ServiceCenter/FAQList">FAQ</a>
-	</li>
-
-</ul>
-</div>
-<div align="center" style="width:80%; margin-left: 5px;  float: left;" >
-	<c:if test="${listAll[0].MEMBER_ID!=null}">
-	<div style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/member/memberList.jsp"/>
+		<c:if test="${listAll[0].MEMBER_ID!=null}">
+		<div style="width:70%; padding-top: 50px;">
+		<jsp:include page="/WEB-INF/member/memberList.jsp"/>
+		</div>
+		</c:if>
+		<c:if test="${list[0].ROOM_NAME!=null}">
+		<div id="ContextHotel" style="width:70%; padding-top: 50px;">
+		<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
+		</div>
+		</c:if>
+		<c:if test="${list[0].RES_NO!=null}">
+		<div style="width:70%; ">
+		<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
+		</div>
+		</c:if>
+		<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
+		<div style="width:70%; padding-top: 50px;">
+		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
+		</div>
+		</c:if>
+		<c:if test="${form!=null}">
+		<div style="width:70%; padding-top: 50px;">
+		<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
+		</div>
+		</c:if>
+		
 	</div>
-	</c:if>
-	<c:if test="${list[0].ROOM_NAME!=null}">
-	<div id="ContextHotel" style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
-	</div>
-	</c:if>
-	<c:if test="${list[0].RES_NO!=null}">
-	<div style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
-	</div>
-	</c:if>
-	<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
-	<div style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
-	</div>
-	</c:if>
-	<c:if test="${form!=null}">
-	<div style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
-	</div>
-	</c:if>
-	
-</div>
 
 <%-- <jsp:include page="/WEB-INF/petHotel/room/list.jsp"></jsp:include> --%>
 

@@ -8,12 +8,14 @@
 .nestedsidemenu {
     font: 16px 'Jeju Gothic';
     position: relative;
-    width: 15%;
+    width: 100%;
+    padding-left: 21%;
     height: 1200px;
     z-index: 1;
-    margin-top: 10%;
+    padding-top: 10%;
     line-height: 2em;
     float: left;
+    text-align: center;
 }
 
 
@@ -50,7 +52,7 @@
 
 /* Top level menu items link style on hover and when active */
 .nestedsidemenu ul li:hover > a {
-    background: #87EAA2;
+    background: #00B488;
 }
 
 /* Sub ULs style */
