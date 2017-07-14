@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <!DOCTYPE html>
 
@@ -15,8 +16,62 @@
  
  <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="<c:url value='/resources/ajax/ajax.js'/>" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+
+
+ 
+$(document).ready(function(){
+
+	  $("a[name='title']").on("click", function(e){ //제목 
+		    e.preventDefault();
+	  	
+	  		
+		    var id =$(this).parent().find("#MEMBER_ID").val()
+		    
+		    ajaxModifiedFormView(id);
+		    
+		 	
+		});
+});	
+
+
+function ajaxModifiedFormView(memberID){	
+	var dataList =
+	{ 
+		"MEMBER_ID" : memberID 	
+	}
+	
+
+	var url1 = "/IMPet/Member/ModifiedForm";
+	
+    $.ajax({    
+        type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        error : function() {
+      	  
+      	 alert('오류임!');     	
+        },
+        success : function(data) {  
+      		 $('#ContextModifiedForm').html(data);          		
+        }
+        
+      });        
+
+}
+
+</script>
+
+
 </head>
 <body>
+
+<div id="ContextModifiedForm">
+
 
 <br/><br/>
 
@@ -33,13 +88,14 @@
 			
 			<thead>
 				<tr role="row" style="vertical-align:middle;">
-					<th style="width: 5%; text-align:center;vertical-align:middle;">번호</th>
-					<th style="width: 8%; text-align:center;vertical-align:middle;">ID</th>										
-					<th style="width: 7%; text-align:center;vertical-align:middle;">이름</th>
-					<th style="width: 7%; text-align:center;vertical-align:middle;">별칭</th>
+					<th style="width: 10 %; text-align:center;vertical-align:middle;">번호</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">ID</th>										
+					<th style="width: 15%; text-align:center;vertical-align:middle;">이름</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">별칭</th>
 					<th style="width: 20%; text-align:center;vertical-align:middle;">전화번호 </th>
-					<th style="width: 8%; text-align:center;vertical-align:middle;">메일</th>
-					<th style="width: 8%; text-align:center;vertical-align:middle;">가입일</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
+					<th style="width: 13%; text-align:center;vertical-align:middle;">관리</th>
 					
 				</tr>
 			</thead>	
@@ -47,28 +103,49 @@
 			<tbody>
 				
 				<c:forEach var="itemList" items="${listAll}"  varStatus="stat">
-				
-					<c:url var="viewURL" value="/PetShop/AdminItemModifyForm" >
-						<c:param name="MEMBER_ID" value="${itemList.MEMBER_ID }" />
-					</c:url>
+
 					
-				<%-- 	<c:url var="viewURL2" value="/PetShop/AdminItemDelete" >
-						<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />							
-					</c:url>	 --%>
+					<tr>
 					
-				<%-- 	
-					<tr class="gradeA even" role="row">
-					
-						<td style="text-align:center;vertical-align:middle;">
-							${itemList.ITEM_NAME}
-							<div style='display:none;'>${itemList.ITEM_NO}</div>
+						<td>
+						  ${itemList.NO}
+						</td>
+						
+						<td>
+						  ${itemList.MEMBER_ID}
+						</td>						
+							
+						<td>
+						  ${itemList.MEMBER_NAME}
+						</td>
+						
+						<td>
+						  ${itemList.MEMBER_NICKNAME}
+						</td>
+						<td>
+						  ${itemList.MEMBER_TEL}
+						</td>		
+						
+							
+						<td>
+						  ${itemList. MEMBER_EMAIL}
+						</td>
+						
+								
+						
+						<td>
+						  ${itemList.MEMBER_JOIN_DATE}
 						</td>
 					
-							
-					</tr> --%>
-				
-				<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-								
+						
+						<td>	
+							<a name='title'>							
+								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
+								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 	<td>
+					 	
+					 	
+					 </tr>				
 				</c:forEach>
 			</tbody>				
 								
@@ -78,6 +155,8 @@
 	
 	</div>
 
+
+</div>
 
 </div>
 
@@ -102,28 +181,7 @@
 </div>
 
 
-<!-- 
-"MEMBER_ID" VARCHAR2(15 BYTE) NOT NULL ENABLE, 
-	"MEMBER_PW" VARCHAR2(12 BYTE) NOT NULL ENABLE, 
-	"MEMBER_NAME" VARCHAR2(10 BYTE) NOT NULL ENABLE, 
-	"MEMBER_NICKNAME" VARCHAR2(10 BYTE) NOT NULL ENABLE, 
-	"MEMBER_ZIPCODE" VARCHAR2(7 BYTE) NOT NULL ENABLE, 
-	"MEMBER_ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
-	"MEMBER_ADDRESS2" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
-	"MEMBER_NEWZIPCODE" VARCHAR2(7 BYTE) NOT NULL ENABLE, 
-	"MEMBER_NEWADDRESS" VARCHAR2(100 BYTE), 
-	"MEMBER_NEWADDRESS2" VARCHAR2(100 BYTE), 
-	"MEMBER_EMAIL" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
-	"MEMBER_TEL" VARCHAR2(13 BYTE) NOT NULL ENABLE, 
-	"MEMBER_ANIMAL_TYPE" NUMBER NOT NULL ENABLE, 
-	"MEMBER_REQUESTS" VARCHAR2(1000 BYTE), 
-	"MEMBER_USERYN" VARCHAR2(1 BYTE) NOT NULL ENABLE, 
-	"MEMBER_ADMIN" NUMBER NOT NULL ENABLE, 
-	"MEMBER_JOIN_DATE" DATE NOT NULL ENABLE, 
-	"MEMBER_DEL_DATE" DATE, 
 
- -->
-<br/><br/><br/>
 
 
 회원 리스트  선택 햇다 치고

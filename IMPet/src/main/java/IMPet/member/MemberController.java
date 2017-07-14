@@ -213,7 +213,15 @@ public class MemberController {
 		System.out.println("회원 수정 폼");	
 	
 		
+		commandMap.MapInfoList();
+		
+		
+		
 		//회원 개인 정보
+		System.out.println("2");	
+		
+		
+		
 		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);
 		
 		System.out.println(memberInfo);
@@ -233,8 +241,17 @@ public class MemberController {
 	
 	public Map<String, Object> getMemberInfo(CommandMap commandMap, HttpSession session) throws Exception{
 	
-		String member_Admin= session.getAttribute("member_Admin").toString();				
 		
+		
+		String member_Admin = "0";
+		if(session.getAttribute("member_Admin") == null){
+		
+			member_Admin = "1";
+		}else{
+			 member_Admin= session.getAttribute("member_Admin").toString();				
+		}
+		
+	
 		System.out.println("member_Admin:"+member_Admin);			
 		
 		String member_ID="";
@@ -244,14 +261,18 @@ public class MemberController {
 			
 		if(member_Admin.equals("0") || Mypage.equals("1") ){  //일반 사용자 일 경우  or 마이 페이지일경우
 				
-			member_ID= session.getAttribute("member_ID").toString();			
-			commandMap.put("MEMBER_ID", member_ID);			
+
+			member_ID= session.getAttribute("member_ID").toString();
+
+			commandMap.put("MEMBER_ID", member_ID);	
 			
 		}else if(member_Admin.equals("1")){	//관리자일 경우
 			
-			 member_ID=commandMap.get("Member_ID").toString();
-			
+			 member_ID=commandMap.get("MEMBER_ID").toString();
+
+				
 		}
+				
 				
 		Map<String, Object> memberInfo = memberService.selectOne(commandMap.getMap());	
 		
@@ -430,7 +451,7 @@ public class MemberController {
 	//회원 정보 리스트
 	@RequestMapping(value="/MemberList")
 	public ModelAndView MemberList() throws Exception{
-
+		ModelAndView mav = new ModelAndView();
 		System.out.println("회원들의 정보 리스트 보여주기");
 
 		String url = "AdminPage";

@@ -1,8 +1,13 @@
 package IMPet.main;
 
 
+import IMPet.member.MemberService;
 import IMPet.module.CommandMap;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +20,12 @@ public class MainController {
 	
 	
 	ModelAndView mav = new ModelAndView();
+	
+
+	
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
 	
 	
 	
@@ -168,16 +179,35 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/utopiazn")
-	public ModelAndView utopiazn(CommandMap commandMap){
+	public ModelAndView utopiazn(CommandMap commandMap) throws Exception{
 
 		
 	
 		System.out.println("장조성");
-	
+/*	
 		int a = 0;
-		mav.addObject("dd",a );
-		mav.setViewName("Test/utopiazn");
+		mav.addObject("dd",a );*/
+		
+		
+		ModelAndView mav = new ModelAndView();
+		System.out.println("회원들의 정보 리스트 보여주기");
+
+		String url = "Test/utopiazn";
+		List<Map<String,Object>> listAll = memberService.selectAll();		
+		
+
+		System.out.println(listAll);
+
+		mav.addObject("listAll", listAll);	
+		
+	
+		
+		mav.setViewName(url);	
+		
 		return mav;
+		
+		/*mav.setViewName("Test/utopiazn");
+		return mav;*/
 	}
 	
 	@RequestMapping(value="/Egg")
