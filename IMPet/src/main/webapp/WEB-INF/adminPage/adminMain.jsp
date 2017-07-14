@@ -79,7 +79,7 @@
 	
 		<c:if test="${listAll[0].MEMBER_ID!=null}">
 		<div style="width:70%; padding-top: 50px;">
-		<jsp:include page="/WEB-INF/member/memberList.jsp"/>
+		<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 		</div>
 		</c:if>
 		<c:if test="${list[0].ROOM_NAME!=null}">
