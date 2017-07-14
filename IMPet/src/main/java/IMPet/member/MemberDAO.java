@@ -72,4 +72,49 @@ public class MemberDAO extends AbstractDAO{
 		return count;
 	}
 	
+	
+	
+	//ID 찾기 있는지 여부 확인
+	@SuppressWarnings("unchecked")
+	public int selectFindIDCount(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectFindIDCount", map);
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	//ID 찾기  정보 가져오가
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectFindIDOne(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectFindIDOne", map);		
+		
+		return view;
+	}	
+	
+	
+
+	//ID 찾기 있는지 여부 확인
+	@SuppressWarnings("unchecked")
+	public int selectFindPwCount(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectFindPwCount", map);
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	//ID 찾기  정보 가져오가
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectFindPwOne(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectFindPwOne", map);		
+		
+		return view;
+	}	
+	
+	
 }

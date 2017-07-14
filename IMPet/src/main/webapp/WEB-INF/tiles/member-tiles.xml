@@ -50,13 +50,13 @@
 	</definition>
 	
 	<!-- ID 찾기 폼-->	
- 	<definition name="FindIDForm" extends="member_main">
+ 	<definition name="FindIDForm1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/findIDForm.jsp" />
 	</definition>
 	
 	
 	<!-- 비번 찾기 폼-->	
- 	<definition name="FindPwForm" extends="member_main">
+ 	<definition name="FindPwForm1" extends="member_main">
 		<put-attribute name="body" value="/WEB-INF/member/findPwForm.jsp" />
 	</definition>
 	
