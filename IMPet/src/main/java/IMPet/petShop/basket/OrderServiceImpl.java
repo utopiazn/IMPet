@@ -36,15 +36,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
-		Map<String, Object> resultMap = new HashMap<String,Object>();
-		Map<String, Object> orderViewMap = orderDAO.selectOne(map);
 		
-		Map<String, Object> memMap = memberDAO.selectOne(map);
-		
-		resultMap.put("orderView", orderViewMap);
-		resultMap.put("member", memMap);
-		
-		return resultMap;
+		return orderDAO.selectOne(map);
 	}
 
 	@Override
