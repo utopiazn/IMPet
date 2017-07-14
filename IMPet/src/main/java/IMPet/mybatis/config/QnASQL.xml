@@ -16,16 +16,7 @@
 	<select id="selectAll" resultType="hashmap">
 		<include refid="seletClass" />
 		<![CDATA[
-		ORDER BY QnA_Ref DESC, QnA_Reply 
-		
-		
-		
-		
-		
-		
-		
-		
-		000 
+		ORDER BY QnA_Ref DESC, QnA_Reply
 		]]>
 	</select>
 
