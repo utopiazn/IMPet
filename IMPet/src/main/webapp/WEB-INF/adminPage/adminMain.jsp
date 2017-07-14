@@ -42,7 +42,7 @@
 
 </head>
 <body>
-<div align="left">
+<div align="left" style="width:100%;" >
 <div class="nestedsidemenu">
 <ul>
 	 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
@@ -72,15 +72,34 @@
 
 </ul>
 </div>
-
-	<c:if test="${list[0].ROOM_NO!=null}">
-	<div style="width:40%; border: 1px solid lightgray; float: left;">
+<div align="center" style="width:80%; margin-left: 5px;  float: left;" >
+	<c:if test="${listAll[0].MEMBER_ID!=null}">
+	<div style="width:70%; border: 1px solid lightgray;">
+	<jsp:include page="/WEB-INF/member/memberList.jsp"/>
+	</div>
+	</c:if>
+	<c:if test="${list[0].ROOM_NAME!=null}">
+	<div id="ContextHotel" style="width:70%; border: 1px solid lightgray;">
 	<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
 	</div>
 	</c:if>
-	<div id="ContextHotel" style="width:30%; border: 1px solid lightgray; float: left;">
+	<c:if test="${list[0].RES_NO!=null}">
+	<div style="width:70%; border: 1px solid lightgray;">
+	<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
 	</div>
-
+	</c:if>
+	<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
+	<div style="width:70%; border: 1px solid lightgray;">
+	<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
+	</div>
+	</c:if>
+	<c:if test="${form!=null}">
+	<div style="width:70%; border: 1px solid lightgray;">
+	<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
+	</div>
+	</c:if>
+	
+</div>
 
 <%-- <jsp:include page="/WEB-INF/petHotel/room/list.jsp"></jsp:include> --%>
 

@@ -46,7 +46,7 @@ public class AdminItemController {
 		Paging page;
 		
 		
-		ModelAndView mav = new ModelAndView("AdminItemList");
+		ModelAndView mav = new ModelAndView("AdminPage");
 		
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
@@ -138,8 +138,11 @@ public class AdminItemController {
 	@RequestMapping(value="/AdminItemWriteForm")
 	public ModelAndView AdminItemWriteForm() throws Exception {
 		ModelAndView mav = new ModelAndView();
-		 
-		mav.setViewName("AdminItemWriteForm");
+		
+		//관리자페이지 구분인자
+		mav.addObject("form", 1);
+		
+		mav.setViewName("AdminPage");
 		return mav;
 	}
 	

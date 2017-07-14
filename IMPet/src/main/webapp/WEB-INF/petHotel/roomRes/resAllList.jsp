@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <br/><br/>
-HotelReservationAllList(관리자용)<input value="고객용리스트" type="button" onclick="location.href='/IMPet/PetHotel/RoomResList'"/>
-<br/><br/>
 <div align="center">
 	<c:forEach var="res" items="${list}">
 		<div style="border:1px solid black; width: 90%; margin-bottom: 5px">

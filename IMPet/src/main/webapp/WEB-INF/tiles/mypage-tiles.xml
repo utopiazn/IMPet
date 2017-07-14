@@ -31,7 +31,7 @@
   <put-attribute name="body" value="/WEB-INF/myPage/Main.jsp" />
  </definition>
  
- <definition name="AdminPage" extends="myPage_main">
+ <definition name="AdminPage" extends="myPage_main2">
   <put-attribute name="body" value="/WEB-INF/adminPage/adminMain.jsp" />
 
  </definition>

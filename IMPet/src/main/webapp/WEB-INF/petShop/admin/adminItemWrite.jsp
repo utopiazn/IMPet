@@ -1,18 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>관리자상품추가폼</title>
+
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
-</head>
-<style>
-.right{ /* main 2 body부분 */width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: left; margin: 0 auto; clear: both;}
-
-
-</style>
-<body>
 
 
 <script type="text/javascript">
@@ -108,6 +97,3 @@ function validateForm() {
 			</div>
 	</div>
 </div>
-
-</body>
-</html>
