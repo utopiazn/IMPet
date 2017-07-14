@@ -200,36 +200,7 @@ public class MemberController {
 		
 	}
 	
-	
-	
-/*	//회원 수정  폼
-	@RequestMapping(value="/ModifiedForm")
-	public ModelAndView ModifiedForm(@ModelAttribute("NO") int idx) throws Exception{
 
-		
-		System.out.println("회원 수정 폼"+idx);
-		
-		
-		Map<String,Object> list =this.listAll.get(idx-1);
-		
-		System.out.println("회원 수정 폼"+idx);
-
-		String url = "ModifiedForm";
-		
-		//Map<String,Object> list = memberService.selectOne(commandMap.getMap());				
-		System.out.println(list);	
-				
-		
-		mav.addObject("member", list);	
-		
-		
-		mav.setViewName(url);	
-
-	
-		return mav;
-	}
-	
-		*/
 	
 	//회원 수정  폼
 	@RequestMapping(value="/ModifiedForm")
@@ -261,8 +232,7 @@ public class MemberController {
 	
 	
 	public Map<String, Object> getMemberInfo(CommandMap commandMap, HttpSession session) throws Exception{
-		
-		
+	
 		String member_Admin= session.getAttribute("member_Admin").toString();				
 		
 		System.out.println("member_Admin:"+member_Admin);			
@@ -293,7 +263,7 @@ public class MemberController {
 	//회원 수정 처리 
 	@RequestMapping(value="/Modified")
 	public ModelAndView Modified(CommandMap commandMap, HttpSession session) throws Exception{
-
+		ModelAndView mav = new ModelAndView();
 		System.out.println("회원들의 정보 수정 처리");
 		
 		commandMap.MapInfoList();
@@ -312,46 +282,61 @@ public class MemberController {
 	@RequestMapping(value="/JoinAgreement")
 	public ModelAndView MembershipAgreement(){
 
-
+		ModelAndView mav = new ModelAndView();
 		System.out.println("회원 가입 계약");
 
 		
 		mav.setViewName("JoinAgreement");
 		return mav;
 	}
-
-	
-	
-	
-	
-	
-
-
-
-	
+		
 
 	//ID 찾기 폼
 	@RequestMapping(value="/FindIDForm")
 	public ModelAndView FindIDForm(){
 
-
+		ModelAndView mav = new ModelAndView();
 		System.out.println("ID 찾기 폼");
+		
+		String url = "member/findIDForm";
 
 		
-		mav.setViewName("FindIDForm");
+		mav.setViewName(url);
 		return mav;
 	}
 	
 	
-	//ID 찾기 폼
+	//ID 찾기 처리
 	@RequestMapping(value="/FindID")
-	public ModelAndView FindID(){
-
-
-		System.out.println("ID 찾기 처리");
-
+	public ModelAndView FindID(CommandMap commandMap) throws Exception{
 		
-		mav.setViewName("FindIDForm");
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("ID 찾기 처리");
+		String url ="member/findIDForm";
+		commandMap.MapInfoList();
+		
+		int IDCount= memberService.selectFindIDCount(commandMap.getMap());
+		
+		String msg = "";
+		
+		if(IDCount>0){ //사용자 정보가 있을 경우
+			
+			Map<String, Object> Findlist = memberService.selectFindIDOne(commandMap.getMap());
+			
+			msg = " 아이디는"+  Findlist.get("MEMBER_ID").toString()  + "입니다.  ";
+			mav.addObject("msg", msg);
+			
+		}else{ //사용자가 없는 겨우
+			
+			msg = " 검색 결과  잘못된 정보 입니다.";
+			mav.addObject("msg", msg);
+			
+		}
+		
+		
+		
+		mav.setViewName(url);
 		return mav;
 	}
 	
@@ -362,33 +347,61 @@ public class MemberController {
 	
 	//비번 찾기 폼
 	@RequestMapping(value="/FindPwForm")
-	public ModelAndView FindPwForm(){
-
+	public ModelAndView FindPwForm(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("비번 찾기 폼");
-
+		String url ="member/findPwForm";
 		
-		mav.setViewName("FindPwForm");
+		
+		
+		mav.setViewName(url);
+		
 		return mav;
 	}
 	
 	
-	//비번 찾기 폼
+	//비번 찾기 처리
 	@RequestMapping(value="/FindPw")
-	public ModelAndView FindPw(){
-
-
-		System.out.println("비번 찾기 처리");
-
+	public ModelAndView FindPw(CommandMap commandMap) throws Exception{
 		
-		mav.setViewName("FindPwForm");
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("비번 찾기 처리");
+		String url ="member/findPwForm";
+		
+		commandMap.MapInfoList();
+		
+		int PwCount= memberService.selectFindPwCount(commandMap.getMap());
+		
+		String msg = "";
+		
+		if(PwCount>0){ //사용자 정보가 있을 경우
+			
+			Map<String, Object> Pwlist = memberService.selectFindPwOne(commandMap.getMap());
+			
+			
+			System.out.println(Pwlist);
+			msg = "비밀번호는"+  Pwlist.get("MEMBER_PW").toString()  + "입니다.  ";
+			System.out.println(msg);
+			
+			
+			mav.addObject("msg", msg);
+			
+		}else{ //사용자가 없는 겨우
+			
+			msg = " 검색 결과  잘못된 정보 입니다.";
+			mav.addObject("msg", msg);
+			
+		}
+		
+		
+		
+		mav.setViewName(url);
 		return mav;
 	}
-	
-	
-	 
-
-	
+		
 	
 	//회원 탈퇴 폼
 	@RequestMapping(value="/DeleteForm")

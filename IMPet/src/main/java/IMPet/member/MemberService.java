@@ -24,5 +24,16 @@ public interface MemberService {
 
 	public int  selectIDdistinctCount(Map<String, Object> map) throws Exception;
 	
+	//ID 찾기 있는지 여부
+	public int  selectFindIDCount(Map<String, Object> map) throws Exception;	
+	//ID 찾기 정보 가져오기 확인
+	public Map<String, Object> selectFindIDOne(Map<String, Object> map) throws Exception;
+	
+	//Pw 찾기 있는지 여부
+	public int  selectFindPwCount(Map<String, Object> map) throws Exception;	
+	//Pw 찾기 정보 가져오기 확인
+	public Map<String, Object> selectFindPwOne(Map<String, Object> map) throws Exception;
+	
+	
 	
 }

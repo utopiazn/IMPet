@@ -58,6 +58,59 @@ function ajaxLoginView(){
     });    
    
 }
+
+
+
+function ajaxFindIDView(){
+	  
+
+ 
+	var url1 = "/IMPet/Member/FindIDForm";
+	
+   $.ajax({
+   
+     type : "POST",
+     url : url1,             
+     dataType : "text",
+     
+     error : function() {    	  
+   	 	alert('오류임!');     	
+     },
+     success : function(data) {  
+   	 $('#Context').html(data);
+       		
+     }
+     
+   });    
+  
+}
+
+
+
+function ajaxFindPwView(){	 
+	var url1 = "/IMPet/Member/FindPwForm";
+	
+   $.ajax({
+   
+     type : "POST",
+     url : url1,             
+     dataType : "text",
+     
+     error : function() {    	  
+   	 	alert('오류임!');     	
+     },
+     success : function(data) {  
+   	 $('#Context').html(data);
+       		
+     }
+     
+   });    
+  
+}
+
+
+
+
 </script>
 </head>
 
@@ -79,10 +132,10 @@ function ajaxLoginView(){
 		 	<br/>	  		  
 		    <div class="help">
 		     
-			    <a class="font" href="#">아이디 찾기</a>
+			    <a class="font" href="javascript:ajaxFindIDView();" >아이디 찾기</a>
 			    
 			    <span class="font">|</span>			    
-			    <a class="font" href="#">비밀번호 찾기</a>
+			    <a class="font" href="javascript:ajaxFindPwView();">비밀번호 찾기</a>
 			    
 			    <span class="font">|</span>			    
 			    <a class="font" href="/IMPet/Member/JoinMain">회원가입</a>
