@@ -150,15 +150,10 @@ public class AdminItemController {
 	@RequestMapping(value="/AdminItemWrite")
 	public ModelAndView AdminItemWrite(CommandMap commandMap ,HttpServletRequest request) throws Exception {
 		
-		ProjectUtil util = new ProjectUtil();
 		
 		ModelAndView mav = new ModelAndView();
 		
-		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
-	
-		Map<String,Object> map = util.UploadFile(commandMap.getMap(), request, uploadPath,0);
-		
-		adminItemService.itemInsert(map);
+		adminItemService.itemInsert(commandMap.getMap(), request);
 		
 		mav.setViewName("redirect:/PetShop/AdminItemList");
 		

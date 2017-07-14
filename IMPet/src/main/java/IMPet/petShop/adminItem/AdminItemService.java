@@ -11,7 +11,7 @@ public interface AdminItemService {
 		public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception;
 		
 		//상품 추가
-		public void itemInsert(Map<String, Object> map) throws Exception;
+		public void itemInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 		
 		//상품 수정
 		public void itemUpdate(Map<String, Object> map) throws Exception;

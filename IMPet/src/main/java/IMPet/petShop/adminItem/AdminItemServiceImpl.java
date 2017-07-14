@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import IMPet.util.ProjectUtil;
+
 @Service("adminItemService")
 public class AdminItemServiceImpl implements AdminItemService{
 	
@@ -32,9 +34,17 @@ public class AdminItemServiceImpl implements AdminItemService{
 	
 	//상품 추가
 	@Override
-	public void itemInsert(Map<String, Object> map) throws Exception {
+	public void itemInsert(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		ProjectUtil util = new ProjectUtil();
 		
 		adminItemDAO.itemInsert(map);
+		
+		int num = Integer.parseInt(map.get("ITEM_NO").toString());
+		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+		
+		util.UploadFile(map, request, uploadPath,num);
+		
 		
 	}
 	
