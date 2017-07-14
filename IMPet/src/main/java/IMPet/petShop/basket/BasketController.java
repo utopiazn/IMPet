@@ -88,8 +88,8 @@ public class BasketController {
 		
 		System.out.println(map);
 		mav.addObject("member", map.get("memMap"));
-		mav.addObject("orderList", map.get("odList"));
-		mav.setViewName("OrderList");
+		mav.addObject("orderView", map.get("odList"));
+		mav.setViewName("OrderView");
 		return mav;
 	}
 	
@@ -98,12 +98,13 @@ public class BasketController {
 	public ModelAndView OrderView(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵상품바로주문");
+		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
+		map.put("BASKET_BUYCOUNT", commandMap.get("BASKET_BUYCOUNT"));
 		
 		System.out.println(map);
-		mav.addObject("member", map.get("memMap"));
-		mav.addObject("orderView", map.get("odView"));
-		mav.setViewName("OrderList");
+		mav.addObject("orderView", map);
+		mav.setViewName("OrderView");
 		return mav;
 	
 	}
@@ -112,7 +113,7 @@ public class BasketController {
 	@RequestMapping(value="/OrderInsert")
 	public ModelAndView OrderInsert(CommandMap commandMap, HttpSession session) throws Exception {
 
-		System.out.println("펫샵주문상품추가");
+		System.out.println("펫샵주문상품추가처리");
 		System.out.println(commandMap.getMap());
 		orderService.insert(commandMap.getMap());
 		
@@ -162,6 +163,7 @@ public class BasketController {
 		return mav;
 	}
 	
+	//펫상품결제진행
 	@RequestMapping(value="/OrderItemPay")
 	public ModelAndView OrderItemPay() {
 		

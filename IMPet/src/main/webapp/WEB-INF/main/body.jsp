@@ -33,7 +33,10 @@ function openWin(){
 			</iframe>
 	    </li>
 	    <li>
-			<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 600px">
+			<img alt="s2" src="/IMPet/resources/image/main/main1.png" style="width: 100%; height: 600px">
+	    </li>
+	    <li>
+			<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 100%; height: 600px">
 	    </li>
 		<li>
 			<iframe id="s3" width="100%" height="600"
@@ -42,9 +45,7 @@ function openWin(){
 			 	disablekb=1&showinfo=0&vq=hd720&loop=10&mute=1">
 			</iframe>
 	    </li>
-	    <li>
-			<img alt="s4" src="/IMPet/resources/image/dog2.jpg" style="width: 100%; height: 600px">
-	    </li>
+	    
 	    <li>
 			<iframe id="s5" width="100%" height="600"
 			 	src="https://www.youtube.com/embed/ay7so8bf348?
