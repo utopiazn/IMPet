@@ -53,11 +53,11 @@ function ajaxRoomInsertForm(){
     });
 }
 
-function ajaxRoomInsert(){
-	
-	var obj = document.Insert;
+/*function ajaxRoomInsert(){
 	
 	var url1 = "/IMPet/PetHotel/RoomInsert";
+	
+	var obj = document.Insert;
 	
 	var formData = 
 	{ "room_NO" : obj.room_NO.value,
@@ -67,12 +67,17 @@ function ajaxRoomInsert(){
 	  "room_Price" : obj.room_Price.value,
 	  "room_Total" : obj.room_Total.value		
 	}
+	var form = $('#insertForm')[0];
+	var formData = new formData(form);
+	formData.append("fileObj", $("#room_IMG")[0].files[0]);
 	
     $.ajax({
       type : "POST",
       url : url1,
       data : formData,
-      dataType : "text",
+      contentType : "multipart/form-data", 
+      processData: false,
+      contentType: false,
       error : function() {
         alert('오류발생!!');
       },
@@ -81,7 +86,7 @@ function ajaxRoomInsert(){
       }
 
     });
-}
+}*/
 
 function ajaxRoomModifyForm(no){
 	
