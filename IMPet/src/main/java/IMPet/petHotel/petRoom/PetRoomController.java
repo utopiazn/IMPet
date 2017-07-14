@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
+import IMPet.util.ProjectUtil;
 
 @Controller
 @RequestMapping(value="PetHotel")
@@ -55,6 +58,27 @@ public class PetRoomController {
 		return mav;
 	}
 	
+	//호텔 admin 룸 리스트
+	@RequestMapping(value="RoomAdminList")
+	public ModelAndView roomAdminList() throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("호텔 admin 룸 리스트");
+
+		List<Map<String, Object>> list = petRoomService.selectAll();
+		
+		System.out.println(list);
+		
+		String url = "AdminPage";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
+		
+		return mav;
+	}
+
 	//호텔 룸 상세
 	@RequestMapping(value="RoomView")
 	public ModelAndView roomView(CommandMap commandMap) throws Exception{
@@ -92,15 +116,17 @@ public class PetRoomController {
 
 	//호텔 룸 추가
 	@RequestMapping(value="RoomInsert")
-	public ModelAndView roomInsert(CommandMap commandMap) throws Exception{
+	public ModelAndView roomInsert(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
-		petRoomService.insert(commandMap.getMap());
+		petRoomService.insert(commandMap.getMap(), request);
 		
 		System.out.println("호텔 룸 추가");
 		
-		String url = "redirect:RoomList";
+		String url = "redirect:RoomAdminList";
+		
+		mav.addObject("car", 1);
 		
 		mav.setViewName(url);
 		

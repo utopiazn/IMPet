@@ -4,25 +4,24 @@
 <div align="center">
 	<br/>
 	<c:choose>
-		<c:when test="${view.ROOM_NO == null}">	
-				
-			룸을 추가할때
-			<form name="Insert" method="post">
+		<c:when test="${view.ROOM_NO == null}">
+			<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert">
 				room_NO : <input name="room_NO" id=room_NO type="text"/>
 				room_Name : <input name="room_Name" type="text"/><br/>
-				room_IMG : <input name="room_IMG" type="text"/><br/>
+				room_IMG : <!-- <input name="room_IMG" type="text"/> --><input name="room_IMG" type="file"><br/>
 				room_Detail : <input name="room_Detail" type="text"/><br/>
 				room_Price : <input name="room_Price" type="text"/><br/>
 				room_Total : <input name="room_Total" type="text"/><br/>
 				
-				<input value="룸 추가" type="button" onclick="ajaxRoomInsert();"/>
+				<input value="룸 추가" type="submit"/>
 			</form>
+			
 			
 		</c:when>
 		<c:otherwise>		
 		
 			룸을 수정할때
-			<form name="Modify" method="post">
+			<form name="Modify" method="post" enctype="multipart/form-data">
 				room_NO : ${view.ROOM_NO } <input name="room_NO" type="hidden" value="${view.ROOM_NO }"/><br/>
 				room_Name : <input name="room_Name" type="text" value="${view.ROOM_NAME }"/><br/>
 				room_IMG : <input name="room_IMG" type="text" value="${view.ROOM_IMG }"/><br/>

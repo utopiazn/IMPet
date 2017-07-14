@@ -26,7 +26,11 @@
 }
 
 </style>
-
+<c:if test="${sessionScope.member_Admin==1 }">
+<div align="right">
+	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
+</div>
+</c:if>
 <div align="center">
 	<table  style="width: 100%">
 		<c:forEach var="room" items="${list}">
@@ -60,9 +64,5 @@
 </div>
 
 <br/><br/>
-<c:if test="${sessionScope.member_Admin==1 }">
-<div align="center">
-	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
-</div>
-</c:if>
+
 <br/><br/>

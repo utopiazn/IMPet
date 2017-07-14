@@ -42,7 +42,7 @@
 
 </head>
 <body>
-
+<div align="left">
 <div class="nestedsidemenu">
 <ul>
 	 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
@@ -50,7 +50,7 @@
 	 
 	 <li><a href="javascript:vold(0)">호텔 관리</a>
 		  <ul>
-			  <li><a href="javascript:ajaxRoom();">룸 리스트</a></li>   
+			  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>   
 			  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
 			  
 		 </ul>
@@ -73,18 +73,20 @@
 </ul>
 </div>
 
-
-	<div id="ContextHotel" style="border: 1px solid lightgray; float: left;">
+	<c:if test="${list[0].ROOM_NO!=null}">
+	<div style="width:40%; border: 1px solid lightgray; float: left;">
+	<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
 	</div>
-
-
+	</c:if>
+	<div id="ContextHotel" style="width:30%; border: 1px solid lightgray; float: left;">
+	</div>
 
 
 <%-- <jsp:include page="/WEB-INF/petHotel/room/list.jsp"></jsp:include> --%>
 
 
 
-
+</div>
 
 </body>
 </html>
