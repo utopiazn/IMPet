@@ -126,8 +126,6 @@ public class PetRoomController {
 		
 		String url = "redirect:RoomAdminList";
 		
-		mav.addObject("car", 1);
-		
 		mav.setViewName(url);
 		
 		
