@@ -75,7 +75,7 @@
 <div align="center" style="width:80%; margin-left: 5px;  float: left;" >
 	<c:if test="${listAll[0].MEMBER_ID!=null}">
 	<div style="width:70%; border: 1px solid lightgray;">
-	<jsp:include page="/WEB-INF/member/memberList.jsp"/>
+	<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 	</div>
 	</c:if>
 	<c:if test="${list[0].ROOM_NAME!=null}">

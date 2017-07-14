@@ -18,7 +18,7 @@ $(document).ready(function(){
 	       fn_test();
 	   });
 	 
-	1번
+	
 	//<a href='#this' name='title'>테스트</a> 에서 name이 title인 것을 클릭시 fn_test2가 발생함.
 	  $("a[name='title']").on("click", function(e){ //제목 
 		    e.preventDefault();
