@@ -154,6 +154,78 @@
 			
 	</update>	
 	
+	<!--ID 찾기 정보 가져오기 확인-->
+	<select id="selectFindIDOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	* 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_NAME = '${MEMBER_NAME}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- ID 찾기 있는지 여부-->
+	<select id="selectFindIDCount" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_NAME = '${MEMBER_NAME}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+		
+	<!--Pw 찾기 정보 가져오기 확인-->
+	<select id="selectFindPwOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	* 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_ID = '${MEMBER_ID}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- ID 찾기 있는지 여부-->
+	<select id="selectFindPwCount" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_ID = '${MEMBER_ID}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
 	
 	
 </mapper>

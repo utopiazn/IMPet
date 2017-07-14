@@ -29,12 +29,7 @@ public class ItemController {
 	public ModelAndView Main(CommandMap commandMap) throws Exception {
 
 		System.out.println("펫샵메인");
-		List<Map<String, Object>> list = itemService.selectBest(commandMap.getMap());
 		
-		System.out.println("list"+list.size());
-		System.out.println("list2"+list);
-		
-		mav.addObject("bestItems", list);
 		mav.setViewName("PetShop");
 		return mav;
 	}
@@ -46,11 +41,11 @@ public class ItemController {
 
 		System.out.println("펫샵상품리스트");
 		System.out.println(commandMap.get("ITEM_TYPE"));
-		List<Map<String, Object>> list = itemService.selectType(commandMap.getMap());
 		
-		System.out.println("list"+list.size());
+		Map<String,Object> map = itemService.selectItem(commandMap.getMap());
 		
-		mav.addObject("itemList", list);
+		mav.addObject("bestList", map.get("bestList"));
+		mav.addObject("itemList", map.get("typeList"));
 		mav.setViewName("petShop/item/itemList");
 		return mav;
 	}

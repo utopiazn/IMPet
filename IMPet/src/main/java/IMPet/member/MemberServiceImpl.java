@@ -66,4 +66,28 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectIDdistinctCount(map);
 	}
 
+	@Override
+	public int selectFindIDCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectFindIDCount(map);
+	}
+
+	@Override
+	public Map<String, Object> selectFindIDOne(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectFindIDOne(map);
+	}
+
+	@Override
+	public int selectFindPwCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectFindPwCount(map);
+	}
+
+	@Override
+	public Map<String, Object> selectFindPwOne(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectFindPwOne(map);
+	}
+
 }

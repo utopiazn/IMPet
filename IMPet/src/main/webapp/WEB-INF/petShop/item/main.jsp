@@ -5,7 +5,8 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="/IMPet/resources/JQuery/petShop.js" charset="utf-8"></script>
 <style>
 .account-contentsWrap {
@@ -144,121 +145,7 @@
 
 	</div>
 	<div id="account-contentsWrap" class="account-contentsWrap">
-		<h2>사료 Best 4 !</h2>
-		<c:forEach var="bestItem" items="${bestItems}">
-			<c:if test="${bestItem.ITEM_TYPE eq 0 }">
-				<div class="item-cont">
-					<dl class="item-list">
-						<dt class="thumb">
-							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img
-								class="item_image"
-								src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}"
-								alt="상품 섬네일" title="${items.ITEM_NAME}"></a>
-						</dt>
-						<dd>
-							<ul>
-								<li class="prd-name">${bestItem.ITEM_NAME}</li>
-								<li class="prd-price">${bestItem.ITEM_PRICE}원</li>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</c:if>
-		</c:forEach>
-
-		<h2>간식 Best 4 !</h2>
-		<c:forEach var="bestItem" items="${bestItems}">
-			<c:if test="${bestItem.ITEM_TYPE eq 1}">
-
-				<div class="item-cont">
-					<dl class="item-list">
-						<dt class="thumb">
-							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img
-								class="item_image"
-								src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}"
-								alt="상품 섬네일" title="${items.ITEM_NAME}"></a>
-						</dt>
-						<dd>
-							<ul>
-								<li class="prd-name">${bestItem.ITEM_NAME}</li>
-								<li class="prd-price">${bestItem.ITEM_PRICE}원</li>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</c:if>
-		</c:forEach>
-
-		<h2>의류 Best 4 !</h2>
-		<c:forEach var="bestItem" items="${bestItems}">
-			<c:if test="${bestItem.ITEM_TYPE eq 2}">
-
-				<div class="item-cont">
-					<dl class="item-list">
-						<dt class="thumb">
-							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img
-								class="item_image"
-								src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}"
-								alt="상품 섬네일" title="${items.ITEM_NAME}"></a>
-						</dt>
-						<dd>
-							<ul>
-								<li class="prd-name">${bestItem.ITEM_NAME}</li>
-								<li class="prd-price">${bestItem.ITEM_PRICE}원</li>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</c:if>
-		</c:forEach>
-
-		<h2>장난감 Best 4 !</h2>
-		<c:forEach var="bestItem" items="${bestItems}">
-			<c:if test="${bestItem.ITEM_TYPE eq 3 }">
-
-				<div class="item-cont">
-					<dl class="item-list">
-						<dt class="thumb">
-							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img
-								class="item_image"
-								src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}"
-								alt="상품 섬네일" title="${items.ITEM_NAME}"></a>
-						</dt>
-						<dd>
-							<ul>
-								<li class="prd-name">${bestItem.ITEM_NAME}</li>
-								<li class="prd-price">${bestItem.ITEM_PRICE}원</li>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</c:if>
-		</c:forEach>
-
-		<h2>잡화 Best 4 !</h2>
-		<c:forEach var="bestItem" items="${bestItems}">
-			<c:if test="${bestItem.ITEM_TYPE eq 4 }">
-
-				<div class="item-cont">
-					<dl class="item-list">
-						<dt class="thumb">
-							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img
-								class="item_image"
-								src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}"
-								alt="상품 섬네일" title="${items.ITEM_NAME}"></a>
-						</dt>
-						<dd>
-							<ul>
-								<li class="prd-name">${bestItem.ITEM_NAME}</li>
-								<li class="prd-price">${bestItem.ITEM_PRICE}원</li>
-							</ul>
-						</dd>
-					</dl>
-				</div>
-			</c:if>
-		</c:forEach>
-
-
+		
 	</div>
 </div>
 <script>
