@@ -32,7 +32,7 @@
 </div>
 </c:if>
 <div align="center">
-	<table  style="width: 100%">
+	<table style="width: 100%">
 		<c:forEach var="room" items="${list}">
 			<tr>
 				<!-- <td style="width: 30%;">
@@ -43,7 +43,7 @@
 				
 				<td>
 					<div class="con">
-						<div>
+						<div> <!-- 사진 넣고 사진에도 바로 상세보기 갈 수 있는 링크 넣기 -->
 							<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
 						</div>
 						

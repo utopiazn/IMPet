@@ -53,9 +53,14 @@
 	</div>
 </div>
 
-
-<div align="left" style="width:100%; height:19%; clear:both; " >
-		&nbsp;&nbsp;방 소개 : ${view.ROOM_DETAIL}<br/>
+<div style="width:100%; height:19%; clear:both; " >
+	<div style="float: left; ">
+	<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
+	</div>
+	
+	<div style="float: left; padding-top: 35px; " >
+	&nbsp;&nbsp;방 소개 : ${view.ROOM_DETAIL}<br/>
+	</div>
 </div>
 	
 <br/>
