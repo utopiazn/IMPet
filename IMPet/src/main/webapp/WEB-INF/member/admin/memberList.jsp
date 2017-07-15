@@ -144,7 +144,7 @@ function delchk(){
 					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
 					<th style="width: 8%; text-align:center;vertical-align:middle;">사용여부</th>
-					<th style="width: 13%; text-align:center;vertical-align:middle;">관리</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">관리</th>
 					
 					
 				</tr>
@@ -198,14 +198,13 @@ function delchk(){
 							<a name='Modified'>							
 								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
 								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
-					 	&nbsp;&nbsp;
-					 	
+					 	&nbsp;&nbsp;					 	
 					 		 <a name='delete'>
 					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
 					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
 					 		
 					 	
-					 	<td>
+					 	</td>
 					 	
 					 	
 					 </tr>				

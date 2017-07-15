@@ -10,6 +10,9 @@ public interface MemberService {
 	
 	public List<Map<String, Object>> selectAll() throws Exception;
 	
+
+	public List<Map<String, Object>> selectRangeAll(Map<String, Object> map) throws Exception;
+	
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
 	public Map<String, Object> selectLogInOne(Map<String, Object> map) throws Exception;

@@ -23,6 +23,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.selectAll();
 	}
+	
+	@Override
+	public List<Map<String, Object>> selectRangeAll(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectRangeAll(map);
+	}
 
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
@@ -95,5 +101,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		memberDAO.updateUserYN(map);
 	}
+
+
 
 }

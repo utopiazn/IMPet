@@ -22,6 +22,18 @@ public class MemberDAO extends AbstractDAO{
 		return list;
 	}
 	
+	
+	//회원 특정 범위 리스트
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectRangeAll(Map<String, Object> map) throws Exception{
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("MemberSQL.selectRangeAll",map);
+		
+		return list;
+	}
+	
+	
+	
 	////회원 정보 가져오기 selectLogInOne 과 동일한 기능임!
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {

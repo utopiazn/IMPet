@@ -454,14 +454,28 @@ public class MemberController {
 		String userYN ="N";
 		commandMap.put("MEMBER_USERYN",userYN);
 		
-		commandMap.MapInfoList();
+		//commandMap.MapInfoList();
 		
 		memberService.updateUserYN(commandMap.getMap());
 		
 		
+		
 		//mav.setViewName("redirect:MemberList");
 		
-		List<Map<String,Object>> listAll = memberService.selectAll();		
+	//	List<Map<String,Object>> listAll = memberService.selectAll();
+		
+		String PAGINGNO;
+		
+		//PAGINGNO = " 5*(1-1)+1 and 5 *(1)";
+		
+		PAGINGNO = "1";
+		commandMap.put("PAGINGNO",PAGINGNO);
+	
+
+
+		commandMap.MapInfoList();
+		
+		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
 		mav.addObject("listAll", listAll);	
 
 		
