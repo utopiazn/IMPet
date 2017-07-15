@@ -426,8 +426,9 @@ public class MemberController {
 	
 	//회원 탈퇴 폼
 	@RequestMapping(value="/DeleteForm")
-	public ModelAndView DeleteForm(){
+	public ModelAndView DeleteForm(CommandMap commandMap) throws Exception{
 
+		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 탈퇴폼");
 		
 		mav.setViewName("DeleteForm");
@@ -437,13 +438,22 @@ public class MemberController {
 	
 	//회원 탈퇴 처리
 	@RequestMapping(value="/Delete")
-	public ModelAndView Delete(){
+	public ModelAndView Delete(CommandMap commandMap) throws Exception{
 
-
+		ModelAndView mav = new ModelAndView();
+		String url = "member/admin/memberList";
 		System.out.println("로그인 탈퇴 처리 후 메인으로 이동");
 
 		
-		mav.setViewName("main");
+		commandMap.MapInfoList();
+		
+		//mav.setViewName("redirect:MemberList");
+		
+		List<Map<String,Object>> listAll = memberService.selectAll();		
+		mav.addObject("listAll", listAll);	
+
+		
+		mav.setViewName(url);
 		return mav;
 	}
 
@@ -461,13 +471,7 @@ public class MemberController {
 		System.out.println(listAll);
 
 		mav.addObject("listAll", listAll);	
-		
-		if(this.listAll != null){
-		
-			this.listAll.clear();		
-		}		
-		this.listAll = listAll;
-		
+
 		mav.setViewName(url);	
 		
 		return mav;

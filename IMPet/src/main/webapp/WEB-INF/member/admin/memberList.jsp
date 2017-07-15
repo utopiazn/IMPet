@@ -25,43 +25,91 @@
  
 $(document).ready(function(){
 
-	  $("a[name='title']").on("click", function(e){ //제목 
-		    e.preventDefault();
-	  	
-	  		
-		    var id =$(this).parent().find("#MEMBER_ID").val()
-		    
-		    ajaxModifiedFormView(id);
-		    
-		 	
-		});
+ 	$("a[name='Modified']").on("click", function(e){ //수정
+    	
+ 		e.preventDefault(); 	 		
+    	var id =$(this).parent().find("#MEMBER_ID").val();    
+   		ajaxModifiedFormView(id);    	
+	});	  
+	  
+ 	$("a[name='delete']").on("click", function(e){ //삭제 
+    
+		var id =$(this).parent().find("#MEMBER_ID").val();	     	
+ 		if(confirm(id +"의 회원 정보를 삭제하시겠습니까?")){		    		
+
+ 			e.preventDefault();   
+    		ajaxdeleteView(id);
+ 		} 	
+	});
 });	
 
 
 function ajaxModifiedFormView(memberID){	
+	
 	var dataList =
 	{ 
 		"MEMBER_ID" : memberID 	
-	}
-	
+	}	
 
 	var url1 = "/IMPet/Member/ModifiedForm";
 	
-    $.ajax({    
+    $.ajax({     	
+    
         type : "POST",
         url : url1,
         data : dataList,
         dataType : "text",      
+        
         error : function() {
       	  
-      	 alert('오류임!');     	
+      		alert('오류임!');     	
         },
+        
+        success : function(data) {  
+      		 $('#ContextModifiedForm').html(data);          		
+        }
+        
+      });        
+}
+
+function ajaxdeleteView(memberID){	
+	
+	var dataList =
+	{ 
+		"MEMBER_ID" : memberID,
+		"ADMIN" : 	"1" 	
+	}	
+
+	var url1 = "/IMPet/Member/Delete";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
         success : function(data) {  
       		 $('#ContextModifiedForm').html(data);          		
         }
         
       });        
 
+}
+
+
+
+
+
+function delchk(){
+    return confirm("삭제하시겠습니까?");
+    
+    
 }
 
 </script>
@@ -90,12 +138,14 @@ function ajaxModifiedFormView(memberID){
 				<tr role="row" style="vertical-align:middle;">
 					<th style="width: 10 %; text-align:center;vertical-align:middle;">번호</th>
 					<th style="width: 15%; text-align:center;vertical-align:middle;">ID</th>										
-					<th style="width: 15%; text-align:center;vertical-align:middle;">이름</th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">별칭</th>
-					<th style="width: 20%; text-align:center;vertical-align:middle;">전화번호 </th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">이름</th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">별칭</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">전화번호 </th>
 					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
+					<th style="width: 8%; text-align:center;vertical-align:middle;">사용여부</th>
 					<th style="width: 13%; text-align:center;vertical-align:middle;">관리</th>
+					
 					
 				</tr>
 			</thead>	
@@ -136,12 +186,25 @@ function ajaxModifiedFormView(memberID){
 						<td>
 						  ${itemList.MEMBER_JOIN_DATE}
 						</td>
+						
+						
+						<td>
+						  ${itemList.MEMBER_USERYN}
+						</td>
+					
 					
 						
 						<td>	
-							<a name='title'>							
+							<a name='Modified'>							
 								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
 								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 	&nbsp;&nbsp;
+					 	
+					 		 <a name='delete'>
+					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
+					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 		
+					 	
 					 	<td>
 					 	
 					 	
@@ -159,27 +222,6 @@ function ajaxModifiedFormView(memberID){
 </div>
 
 </div>
-
-
-
-<div align="center">
-	<table border="1">
-		<c:forEach var="Member" items="${listAll}">
-		
-		<tr>
-			<td>								
-				<a href="/IMPet/Member/ModifiedForm?NO=${Member.NO}">${Member.MEMBER_ID}</a>				
-			</td>
-			<td>								
-				${Member.MEMBER_NAME}				
-			</td>
-			
-			
-		</tr>
-		</c:forEach>
-	</table>
-</div>
-
 
 
 
