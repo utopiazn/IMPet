@@ -151,4 +151,12 @@ public class MemberDAO extends AbstractDAO{
 	}
 	
 	
+	public void update(Map<String, Object> map) throws Exception {
+		
+		update("MemberSQL.update", map);
+		
+	}
+	
+	
+	
 }

@@ -208,7 +208,7 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 		
-		String url = "member/modifiedForm";			
+		String url = "member/admin/modifiedForm";			
 		
 		System.out.println("회원 수정 폼");	
 	
@@ -284,12 +284,28 @@ public class MemberController {
 	//회원 수정 처리 
 	@RequestMapping(value="/Modified")
 	public ModelAndView Modified(CommandMap commandMap, HttpSession session) throws Exception{
+		
 		ModelAndView mav = new ModelAndView();
 		System.out.println("회원들의 정보 수정 처리");
 		
 		commandMap.MapInfoList();
 		
-		mav.setViewName("ModifiedForm");
+		
+	
+
+		memberService.update(commandMap.getMap());
+		
+
+		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);
+	
+		
+		
+		System.out.println(memberInfo);
+		
+		mav.addObject("memberInfo", memberInfo);				
+
+		
+		mav.setViewName("member/admin/modifiedForm");
 		return mav;
 	}
 
@@ -458,22 +474,13 @@ public class MemberController {
 		
 		memberService.updateUserYN(commandMap.getMap());		
 		
-		int totalCount=  memberService.selectMemberCount();
-		System.out.println("전체 수:"+totalCount);		
-		
-		String PAGIN;		
-		PAGIN = "3";
-		commandMap.put("PAGING",PAGIN);		
-		
-		String PAGINGNO;		
-		PAGINGNO = "1";
-		commandMap.put("PAGINGNO",PAGINGNO);	
-
-
+	
+		String pagingHtml =pagingHtml(commandMap,1);
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
 		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
 		
 		mav.setViewName(url);
 		return mav;
@@ -481,22 +488,76 @@ public class MemberController {
 	
 	
 	
+
+
+	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
+		
+		
+		
+		
+		int blockCount =5;
+		
+
+		int totalCount=  memberService.selectMemberCount();	
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
+		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'' >" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}
+		
 	
+	//	<strong>1</strong><a class='page' href=AdminItemList?&currentPage=2>2</a><a class='page' href=AdminItemList?&currentPage=3>3</a>
+
+		
+		return pagingHtml.toString();
+		
+	}
 
 	
 	//회원 정보 리스트
 	@RequestMapping(value="/MemberList")
-	public ModelAndView MemberList() throws Exception{
+	public ModelAndView MemberList(CommandMap commandMap) throws Exception{
+		
 		ModelAndView mav = new ModelAndView();
 		System.out.println("회원들의 정보 리스트 보여주기");
 
 		String url = "AdminPage";
-		List<Map<String,Object>> listAll = memberService.selectAll();		
 		
-
-		System.out.println(listAll);
-
+		
+		
+		
+		String pagingHtml = pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
+		
+		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
 		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+
 
 		mav.setViewName(url);	
 		
@@ -504,6 +565,31 @@ public class MemberController {
 	}
 	
 
+	
+	//회원 정보 페이지 리스트
+	@RequestMapping(value="/MemberPageList")
+	public ModelAndView MemberPageList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		System.out.println("회원들의 정보 리스트 보여주기");
+
+		String url = "member/admin/memberList";	
+		
+		
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+
+
+		mav.setViewName(url);	
+		
+		return mav;
+	}
 
 
 	

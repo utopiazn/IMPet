@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void update(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		
+		memberDAO.update(map);
 	}
 
 	@Override
