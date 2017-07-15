@@ -16,6 +16,9 @@ public interface MemberService {
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
 	public Map<String, Object> selectLogInOne(Map<String, Object> map) throws Exception;
+	
+	public int  selectMemberCount() throws Exception;
+	
 		
 	public int  selectLogInCount(Map<String, Object> map) throws Exception;
 	

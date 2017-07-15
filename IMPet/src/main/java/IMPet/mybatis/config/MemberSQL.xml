@@ -66,7 +66,7 @@
 			 from 
 			 	Pet_Member ) a    
 			 where 
-			 	a.No between 5*( ${PAGINGNO} -1)+1 and 5 *( ${PAGINGNO} )
+			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
 			 order by 			 
 			 	member_Join_Date
         
@@ -89,6 +89,18 @@
 		]]>
 	</select>
 	
+	
+	<!-- 전체 회원 카운터수-->
+	<select id="selectMemberCount" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 			
+			
+		]]>
+	</select>
 	
 	<!-- 카운터 확인-->
 	<select id="selectLogInCount" resultType="hashmap" parameterType="hashmap">

@@ -43,6 +43,21 @@ public class MemberDAO extends AbstractDAO{
 		return view;
 	}
 	
+	
+	//회원 ID 중복 여부 확인
+	@SuppressWarnings("unchecked")
+	public int selectMemberCount() throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("MemberSQL.selectMemberCount");
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	
+	
+	
 	//회원 정보 가져오기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectLogInOne(Map<String, Object> map) throws Exception {

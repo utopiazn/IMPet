@@ -102,6 +102,12 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.updateUserYN(map);
 	}
 
+	@Override
+	public int selectMemberCount() throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectMemberCount();
+	}
+
 
 
 }

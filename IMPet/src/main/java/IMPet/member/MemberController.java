@@ -456,32 +456,32 @@ public class MemberController {
 		
 		//commandMap.MapInfoList();
 		
-		memberService.updateUserYN(commandMap.getMap());
+		memberService.updateUserYN(commandMap.getMap());		
 		
+		int totalCount=  memberService.selectMemberCount();
+		System.out.println("전체 수:"+totalCount);		
 		
+		String PAGIN;		
+		PAGIN = "3";
+		commandMap.put("PAGING",PAGIN);		
 		
-		//mav.setViewName("redirect:MemberList");
-		
-	//	List<Map<String,Object>> listAll = memberService.selectAll();
-		
-		String PAGINGNO;
-		
-		//PAGINGNO = " 5*(1-1)+1 and 5 *(1)";
-		
+		String PAGINGNO;		
 		PAGINGNO = "1";
-		commandMap.put("PAGINGNO",PAGINGNO);
-	
+		commandMap.put("PAGINGNO",PAGINGNO);	
 
 
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
 		mav.addObject("listAll", listAll);	
-
 		
 		mav.setViewName(url);
 		return mav;
 	}
+	
+	
+	
+	
 
 	
 	//회원 정보 리스트
