@@ -116,5 +116,12 @@ public class MemberDAO extends AbstractDAO{
 		return view;
 	}	
 	
+	//회워 탈토 여부 수정.
+	public void updateUserYN(Map<String, Object> map) throws Exception {
+		
+		update("MemberSQL.updateUserYN", map);
+		
+	}
+	
 	
 }

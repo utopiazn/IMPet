@@ -447,6 +447,18 @@ public class MemberController {
 		
 		commandMap.MapInfoList();
 		
+		//탈퇴 처리 추가 로직
+		
+		
+		//사용 여부 Y:사용 N: 미사용
+		String userYN ="N";
+		commandMap.put("MEMBER_USERYN",userYN);
+		
+		commandMap.MapInfoList();
+		
+		memberService.updateUserYN(commandMap.getMap());
+		
+		
 		//mav.setViewName("redirect:MemberList");
 		
 		List<Map<String,Object>> listAll = memberService.selectAll();		

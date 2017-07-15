@@ -31,8 +31,7 @@
 			        MEMBER_DEL_DATE
 			 from 
 			 	Pet_Member 
-			 order by 
-			 	member_UserYN,
+			 order by 			 
 			 	member_Join_Date
 		]]>
 	</select>
@@ -224,6 +223,23 @@
 			
 		]]>
 	</select>
+	
+	
+	
+	<!-- 회원 탈퇴 -->
+	<update id="updateUserYN" parameterType="hashmap">
+		<![CDATA[
+			UPDATE 
+				PET_MEMBER 
+			SET 
+				MEMBER_USERYN = #{MEMBER_USERYN}
+			where
+				MEMBER_ID = #{MEMBER_ID}	 
+									
+
+		]]>
+			
+	</update>	
 	
 	
 	

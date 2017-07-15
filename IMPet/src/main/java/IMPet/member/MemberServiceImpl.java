@@ -90,4 +90,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectFindPwOne(map);
 	}
 
+	@Override
+	public void updateUserYN(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		memberDAO.updateUserYN(map);
+	}
+
 }

@@ -34,6 +34,7 @@ public interface MemberService {
 	//Pw 찾기 정보 가져오기 확인
 	public Map<String, Object> selectFindPwOne(Map<String, Object> map) throws Exception;
 	
-	
+	//회원 탈퇴 여부
+	public void updateUserYN(Map<String, Object> map) throws Exception;
 	
 }
