@@ -57,22 +57,8 @@
 
 <div align="center" style="width: 100%;">
 
-	<div style="width: 100%; float: left;" >
-	  <div role="group">
-	    <button type="button" class="button3" onclick="ajaxRoom();">갤러리</button>
-	  </div>
-	  <div role="group">
-	    <button type="button" class="button3" onclick="ajaxHealing();">이벤트</button>
-	  </div>
-	</div>
+	<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 	
-	<div id="ContextHotel" align="center" style="width:100%;  float: left;">
-		<div style="width: 100%; height: 600px">
-			<c:if test="${car==0}">		
-				<img alt="s2" src="/IMPet/resources/image/hotel/main.jpg" style="width: 100%; height: 600px">
-			</c:if>
-		</div>
-	</div>
 </div>
 
 &nbsp;

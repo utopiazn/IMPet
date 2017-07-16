@@ -182,33 +182,21 @@ public class MainController {
 	public ModelAndView utopiazn(CommandMap commandMap) throws Exception{
 
 		
+		ModelAndView mav = new ModelAndView();
+		
 	
 		System.out.println("장조성");
-/*	
-		int a = 0;
-		mav.addObject("dd",a );*/
-		
-		
-		ModelAndView mav = new ModelAndView();
-		System.out.println("회원들의 정보 리스트 보여주기");
 
-		String url = "Test/utopiazn";
-		List<Map<String,Object>> listAll = memberService.selectAll();		
+		int d =3;
+		mav.addObject("d",d);
 		
-
-		System.out.println(listAll);
-
-		mav.addObject("listAll", listAll);	
-		
-	
-		
-		mav.setViewName(url);	
-		
+		mav.setViewName("Test/utopiazn");
 		return mav;
-		
-		/*mav.setViewName("Test/utopiazn");
-		return mav;*/
+
 	}
+	
+	
+	
 	
 	@RequestMapping(value="/Egg")
 	public ModelAndView Egg(){

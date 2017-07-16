@@ -1,0 +1,70 @@
+@CHARSET "utf-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 9pt;
+}
+
+#barMenu1 {
+	position: relative;
+	left: 100px;
+	top: 100px;
+	width: 450px;
+}
+
+#barMenu2 {
+	left: 100px;
+	top: 150px;
+}
+
+.bar-menu {
+	position: relative;
+	height: 50px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.bar-menu ul.menu-body {
+	position: relative;
+	list-style: none;
+	height: 100%;
+}
+
+.bar-menu ul.menu-body li {
+	height: 20px;
+	padding: 10px;
+	margin-left: 10px;
+	float: left;
+	line-height: 20px;
+	vertical-align: middle;
+	border: 2px solid #93b0bc;
+	display: inline-block;
+	border-radius: 10px;
+}
+
+
+/* 선택 메뉴 아이템 스타일 */
+
+.bar-menu ul.menu-body li.select {
+	background-color: #bddeea;
+}
+
+
+/* 오버 메뉴 아이템 스타일 */
+
+.bar-menu ul.menu-body li.over {
+	background-color: #eee;
+}
+
+.bar-menu .bar {
+	width: 0;
+	height: 5px;
+	background-color: #468ebc;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}

@@ -22,7 +22,8 @@ width: 100%; height: 100%; display: table-cell; float: left; font-family: 'Hanna
 
 .right{ /* main 2 body부분 */
 
-width: 1125px; height:100%; font-family: 'Noto sans KR', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
+/* width: 1125px; height:100%; font-family: 'Noto sans KR', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
+ */width: 100%; height:100%; font-family: 'Noto sans KR', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; clear: both; 
 
 
 /* width: 1125px;  font-family: 'Hanna', sans-serif; color:black;  vertical-align: middle; text-align: center; margin: 0 auto; display: table-cell; padding-left: 30%; */
