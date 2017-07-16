@@ -1,12 +1,43 @@
  @CHARSET "UTF-8";
  
- 	<style>
+ 
+
+ 
+ 		.container{
+			display: table;
+			width:100%;
+			height: 5%;			
+			margin: 5px auto;
+		}
+		
+		.outer{
+			display: table;
+			width:100%;
+			height: 100%;
+			
+		}
+	
+		.inner{
+			display: table-cell;
+			vertical-align: middle;
+			text-align:center;
+		
+			
+		}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
 
 .search-results {
-/*     padding-bottom: 75px;
- */
+     padding-bottom: 75px;
 
 }
+
+
 .pen-grid, .projects-grid {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
@@ -15,6 +46,8 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
      vertical-align: middle;
+     
+     
     
 }
 

@@ -64,6 +64,12 @@
 
 <br/><br/>
 
+<!-- <div class="container">
+<div class="outer">
+<div class="inner">
+ -->
+
+
 <div class="search-results pen-grid">
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	
@@ -73,11 +79,11 @@
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	
 </div>
 
+<!-- </div>
+</div>
+</div>
 
-
-
-
-
+ -->
 
 <!-- <div align="center" style="width: 100%;">
 
