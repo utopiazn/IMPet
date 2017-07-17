@@ -4,7 +4,13 @@
 <mapper namespace="PetItemSQL">
 
 	<sql id="selectAll"> 
-		<![CDATA[ SELECT * FROM PET_ITEM ]]>
+		<![CDATA[
+		SELECT 
+				ITEM_NO, ITEM_SELLCOUNT, TO_CHAR(ITEM_PRICE,'FM999,999,999') as ITEM_PRICE, TO_CHAR(ITEM_DCPRICE,'FM999,999,999') as ITEM_DCPRICE,
+				ITEM_TOTALCOUNT, ITEM_TYPE, ITEM_NAME, ITEM_IMG, ITEM_BASKETIMG, ITEM_DETAILIMG, ITEM_REMAINCOUNT
+		FROM 
+				PET_ITEM 
+		]]>
 	</sql>
 
 	<sql id="where-no"> 
@@ -28,7 +34,8 @@
 			from
  				 (select row_number() over   (partition by item_type order by item_sellcount desc) 
    				  		 as
-   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_DETAILIMG, ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
+   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, TO_CHAR(ITEM_PRICE,'FM999,999,999') as ITEM_PRICE, 
+   				 	ITEM_TOTALCOUNT, ITEM_DETAILIMG, TO_CHAR(ITEM_DCPRICE,'FM999,999,999') as ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
 				 from 
    					 pet_item 
   						) a

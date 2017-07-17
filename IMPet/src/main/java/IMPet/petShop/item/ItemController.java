@@ -47,6 +47,8 @@ public class ItemController {
 		mav.addObject("bestList", map.get("bestList"));
 		mav.addObject("itemList", map.get("typeList"));
 		mav.setViewName("petShop/item/itemList");
+		
+		System.out.println(map.get("typeList"));
 		return mav;
 	}
 	
