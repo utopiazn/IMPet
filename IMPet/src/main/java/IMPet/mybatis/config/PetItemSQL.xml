@@ -107,12 +107,13 @@
 		<include refid="selectAll" />
 		ORDER BY ITEM_SELLCOUNT DESC
 	</select>
+	
+	<select id="selectKey" resultType="hashmap">
+			SELECT ITEM_NO_SEQ.NEXTVAL as ITEM_NO FROM DUAL
+	</select>
 
 	<!-- 관리자 상품 추가 -->
-	<insert id="itemInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		<selectKey keyProperty="ITEM_NO" resultType="String" order="BEFORE">
-			SELECT ITEM_NO_SEQ.NEXTVAL FROM DUAL
-		</selectKey>
+	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item
 			(ITEM_NO,
 			ITEM_NAME,
@@ -142,6 +143,7 @@
 		update PET_ITEM set
 		ITEM_NAME = #{ITEM_NAME},
 		ITEM_PRICE = #{ITEM_PRICE},
+		ITEM_DCPRICE = #{ITEM_DCPRICE},
 		ITEM_REMAINCOUNT = #{ITEM_REMAINCOUNT},
 		ITEM_TYPE = #{ITEM_TYPE},
 		ITEM_IMG = #{ITEM_IMG},

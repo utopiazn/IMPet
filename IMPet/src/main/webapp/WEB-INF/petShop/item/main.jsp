@@ -3,11 +3,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<script src="/IMPet/resources/JQuery/petShop.js" charset="utf-8"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="/IMPet/resources/JQuery/petShop.js" charset="utf-8"></script>
+
+<script>
+$(document).ready(function() {
+	var link = document.location.href;
+	var tab = link.split('Main').pop();
+
+	if(tab == ""){
+
+		$('a[href=#feed]').trigger("click");
+	}else  
+	{
+		$('a[href$=' + tab + ']').trigger("click");
+	}
+});
+</script>
+
 <style>
 .account-contentsWrap {
 	clear: both;

@@ -2,12 +2,14 @@
 
 
 
-	<div class="single-pen" data-slug-hash="aOBgpj">
+	<!-- <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;  height: 300px;">
+	 -->
+	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;   height: 300px;"  >
 	
 		<div class="iframe-wrap loaded">
 		
 			<a href="/IMPet/Community/GalleryView" class="cover-link">
-						<img alt="s2" src="/IMPet/resources/image/dog1.jpg" >	
+						<img alt="s2" src="/IMPet/resources/image/dog1.jpg" width="250px" height="250px" >	
 			</a>
 			
 	
@@ -25,7 +27,7 @@
 		<div class="meta">
 			
 			<h3 class="item-title">
-				제목: 강아지 사진 테스트트			
+				제목: 강아지 사진 테스트트	
 				
 			</h3>
 			
