@@ -9,8 +9,26 @@
 
 <meta charset="UTF-8">
 <title>커뮤니티 갤러리 추가 폼</title>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+</script>
+
+
+
+
 </head>
 <body>
+
+
+
 
 커뮤니티 갤러리 추가 폼
 

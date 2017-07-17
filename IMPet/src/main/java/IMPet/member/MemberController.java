@@ -523,7 +523,7 @@ public class MemberController {
 			
 			}else{
 				
-				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'' >" );			
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
 				pagingHtml.append(i);				
 				pagingHtml.append("</a> ");
 				
@@ -531,8 +531,6 @@ public class MemberController {
 			
 		}
 		
-	
-	//	<strong>1</strong><a class='page' href=AdminItemList?&currentPage=2>2</a><a class='page' href=AdminItemList?&currentPage=3>3</a>
 
 		
 		return pagingHtml.toString();

@@ -19,9 +19,7 @@
 .paging .page_arw{font-size:11px;line-height:30px;}
 </style>
 
-
-<!-- <link href="/IMPet/resources/css/admin/memberList.css" rel="stylesheet" style="text/css">
- -->
+<link href="/IMPet/resources/css/admin/memberList.css" rel="stylesheet" style="text/css">
  
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
@@ -159,9 +157,6 @@ function ajaxPageView(page){
 </script>
 
 <div id="ContextModifiedForm">
-
-
-<br/><br/>
 
 <div class="row" >    
 	<h1 class="page-header">회원 관리 목록</h1>
