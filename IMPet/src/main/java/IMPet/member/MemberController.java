@@ -495,7 +495,7 @@ public class MemberController {
 		
 		
 		
-		int blockCount =5;
+		int blockCount =3;
 		
 
 		int totalCount=  memberService.selectMemberCount();	
