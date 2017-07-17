@@ -10,14 +10,17 @@
 <meta charset="UTF-8">
 <title>커뮤니티 갤러리 리스트</title>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
  -->
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <link rel="stylesheet" href="/IMPet/resources/css/gallery/gallery.css">
-
+<!-- <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+ -->
 <!-- 
 
 <style>

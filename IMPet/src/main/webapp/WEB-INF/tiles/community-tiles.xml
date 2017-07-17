@@ -8,7 +8,7 @@
 
 
 	<!-- 서브메뉴 있음 -->
-	<definition name="community_main" template="/WEB-INF/main/main.jsp">
+	<definition name="community_main" template="/WEB-INF/main/main3.jsp">
 		<put-attribute name="title" 	value="Remedium Hotel[당신만을 위한 오리엔탈 프리미엄 에디션]" />
 		<put-attribute name="header1" 	value="/WEB-INF/main/header1.jsp" />
 		<put-attribute name="header2" 	value="/WEB-INF/main/header2.jsp" />
