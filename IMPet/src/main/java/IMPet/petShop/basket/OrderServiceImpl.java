@@ -24,11 +24,11 @@ public class OrderServiceImpl implements OrderService {
 	public Map<String, Object> selectAll(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		
-		List<Map<String, Object>> orderListMap = orderDAO.selectAll(map);
+		List<Map<String, Object>> orderMap = orderDAO.selectAll(map);
 		
 		Map<String, Object> memMap = memberDAO.selectOne(map);
 		
-		resultMap.put("orderList", orderListMap);
+		resultMap.put("orderView", orderMap);
 		resultMap.put("member", memMap);
 		
 		return resultMap;

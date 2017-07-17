@@ -32,7 +32,7 @@ public class BasketController {
 	private PayService payService;
 	
 	
-	//Basket
+	////////////////////////////////////////////////////////////////////////////Basket
 	
 	//펫샵장바구니리스트
 	@RequestMapping(value="/BasketList")
@@ -77,34 +77,34 @@ public class BasketController {
 	}
 
 	
-	//Order
+	////////////////////////////////////////////////////////////////////////////Order
 	
-	//펫샵장바구니전체주문
-	@RequestMapping(value="/OrderList")
+	//펫샵장바구니전체주문폼Basket
+	@RequestMapping(value="/OrderFormB")
 	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
 		
-		System.out.println("펫샵장바구니전체주문");
+		System.out.println("펫샵장바구니전체주문폼");
 		Map<String, Object> map = orderService.selectAll(commandMap.getMap());
 		
 		System.out.println(map);
 		mav.addObject("member", map.get("memMap"));
-		mav.addObject("orderView", map.get("odList"));
-		mav.setViewName("OrderView");
+		mav.addObject("orderView", map.get("orderMap"));
+		mav.setViewName("OrderFormB");
 		return mav;
 	}
 	
-	//펫샵상품바로주문
-	@RequestMapping(value="/OrderView")
+	//펫샵상품바로주문폼Direct
+	@RequestMapping(value="/OrderFormD")
 	public ModelAndView OrderView(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵상품바로주문");
+		System.out.println("펫샵상품바로주문폼");
 		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
 		map.put("BASKET_BUYCOUNT", commandMap.get("BASKET_BUYCOUNT"));
 		
 		System.out.println(map);
 		mav.addObject("orderView", map);
-		mav.setViewName("OrderView");
+		mav.setViewName("OrderFormD");
 		return mav;
 	
 	}
@@ -113,13 +113,13 @@ public class BasketController {
 	@RequestMapping(value="/OrderInsert")
 	public ModelAndView OrderInsert(CommandMap commandMap, HttpSession session) throws Exception {
 
-		System.out.println("펫샵주문상품추가처리");
+		System.out.println("펫샵주문상품추가");
 		System.out.println(commandMap.getMap());
 		orderService.insert(commandMap.getMap());
 		
 		String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderList?MEMBER_ID="+id);
+		mav.setViewName("redirect:/PetShop/OrderFormD?MEMBER_ID="+id);
 		return mav;
 	}
 	
@@ -133,7 +133,7 @@ public class BasketController {
 			
 		String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderList?MEMBER_ID="+id);
+		mav.setViewName("redirect:/PetShop/Main?MEMBER_ID="+id);
 		return mav;
 	}
 	
@@ -143,26 +143,6 @@ public class BasketController {
 	payService.insert(map);*/
 	//////////////////////////////////////////////////////////////////////////////
 	
-	//펫샵주문배송상태처리
-	@RequestMapping(value="/OrderShip")
-	public ModelAndView OrderShip() {
-	
-		System.out.println("펫샵주문배송상태처리");
-			
-		mav.setViewName("OrderShip");
-		return mav;
-	}
-	
-	//펫샵주문결제상태처리
-	@RequestMapping(value="/OrderPay")
-	public ModelAndView OrderPay() {
-		
-		System.out.println("펫샵주문결제상태처리");
-		
-		mav.setViewName("OrderPay");
-		return mav;
-	}
-	
 	//펫상품결제진행
 	@RequestMapping(value="/OrderItemPay")
 	public ModelAndView OrderItemPay() {
@@ -170,6 +150,26 @@ public class BasketController {
 		System.out.println("펫상품결제진행");
 				
 		mav.setViewName("OrderItemPay");
+		return mav;
+	}
+	
+	//펫샵주문완료
+	@RequestMapping(value="/OrderComplete")
+	public ModelAndView OrderShip() {
+	
+		System.out.println("펫샵주문완료");
+			
+		mav.setViewName("OrderComplete");
+		return mav;
+	}
+	
+	//펫샵구매내역
+	@RequestMapping(value="/OrderList")
+	public ModelAndView OrderPay() {
+		
+		System.out.println("펫샵구매내역");
+		
+		mav.setViewName("OrderList");
 		return mav;
 	}
 	

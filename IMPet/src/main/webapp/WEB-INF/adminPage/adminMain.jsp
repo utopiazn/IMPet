@@ -94,7 +94,7 @@
 		</c:if>
 		</div>
 		</c:if>
-		<c:if test="${Shop==1}">
+		<c:if test="${Shop == 1}">
 		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>

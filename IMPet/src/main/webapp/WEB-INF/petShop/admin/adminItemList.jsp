@@ -71,7 +71,7 @@ function delchk(){
 .paging .page_arw{font-size:11px;line-height:30px;}
 </style>
 </head>
-
+<body>
 <div class="row" style="padding-left:15px;width:100;">    
 	<h1 class="page-header">상품목록</h1>
 </div>
@@ -173,9 +173,11 @@ function delchk(){
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div></td>									
 									</tr>
 								</c:forEach>
+
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(itemList) le 0}">
-										<tr><td colspan="11" style="text-align:center;">등록된 상품이 없습니다</td></tr>
+									<c:if test="${fn:length(itemList) == 0}">
+									
+										<tr><td colspan="11" style="text-align:center;">해당 되는 상품이 없습니다</td></tr>
 									</c:if> 
 								</tbody>
 							</table>
@@ -207,3 +209,4 @@ function delchk(){
 	</div>
         <!-- /.panel -->   
 </div>
+</body>

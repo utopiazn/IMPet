@@ -87,13 +87,13 @@
 	<!-- 판매중 -->
 	<select id="itemSearch4" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
+		where not ITEM_REMAINCOUNT = 0
 	</select>
 
 	<!-- 품절 -->
 	<select id="itemSearch5" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
+		where ITEM_REMAINCOUNT = 0
 	</select>
 
 	<!-- 재고수량 -->

@@ -48,6 +48,8 @@ public class AdminItemController {
 		
 		ModelAndView mav = new ModelAndView("AdminPage");
 		
+		mav.addObject("Shop", 1);
+		
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
@@ -84,8 +86,7 @@ public class AdminItemController {
 				itemList = adminItemService.itemSearch6(isSearch);
 			else if (searchNum == 6) // 판매량 높은 순
 				itemList = adminItemService.itemSearch7(isSearch);
-			else 
-				adminItemService.itemList(commandMap.getMap());
+
 			
 			totalCount = itemList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "AdminItemList",searchNum, isSearch);
@@ -103,6 +104,8 @@ public class AdminItemController {
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("itemList", itemList);
+			
+			System.out.println("itemList"+itemList.size());
 
 			return mav;
 
