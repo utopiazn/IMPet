@@ -22,6 +22,23 @@ function ajaxRoomResList(){
 
     });
 }
+
+function ajaxRoomResCancel(no){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/PetHotel/RoomResCancel",
+      data : {res_NO : no},
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
+
 function ajaxmembermodify(){
 	
 	

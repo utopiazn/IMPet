@@ -13,9 +13,16 @@ public interface PetRoomReservationService {
 	
 	public void resInsert(Map<String, Object> map) throws Exception;
 	
+	public void resPayment(Map<String, Object> map) throws Exception;
+
+	public void resDelete(Map<String, Object> map) throws Exception;
+	
 	public List<Map<String, Object>> selectUserList(String str) throws Exception;
 	
 	public List<Map<String, Object>> selectAllList() throws Exception;
+	
+	
+	
 	
 	
 	
@@ -43,5 +50,7 @@ public interface PetRoomReservationService {
 	public void update(Map<String, Object> map) throws Exception;
 	
 	public void delete(Map<String, Object> map) throws Exception;
+
+
 
 }

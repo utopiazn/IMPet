@@ -49,7 +49,19 @@ public class PetRoomReservationDAO extends AbstractDAO{
 		return list;  
 	}
 	
+	public void resPayment(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		update("PetRoomReservationSQL.resPayment", map);
+	}
 	
+	public void resDelete(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		delete("PetRoomReservationSQL.delete", map);
+	}
 	
 	
 	
