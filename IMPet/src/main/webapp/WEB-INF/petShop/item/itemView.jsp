@@ -81,7 +81,7 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderView?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = '/IMPet/PetShop/OrderFormD?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
