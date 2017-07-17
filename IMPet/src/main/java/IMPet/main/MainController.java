@@ -3,6 +3,7 @@ package IMPet.main;
 
 import IMPet.member.MemberService;
 import IMPet.module.CommandMap;
+import IMPet.petShop.item.ItemService;
 
 import java.util.List;
 import java.util.Map;
@@ -27,14 +28,20 @@ public class MainController {
 	@Resource(name="memberService")
 	private MemberService memberService;
 	
+	@Resource(name="itemService")
+	private ItemService itemService;
+	
 	
 	
 	@RequestMapping(value="/Main")
-	public ModelAndView mainForm(){
+	public ModelAndView mainForm() throws Exception{
 
 
 		System.out.println("메인");
-
+		
+		List<Map<String, Object>> list = itemService.selectBestMain(); 
+		
+		mav.addObject("bestList", list);
 		
 		mav.setViewName("main");
 		return mav;

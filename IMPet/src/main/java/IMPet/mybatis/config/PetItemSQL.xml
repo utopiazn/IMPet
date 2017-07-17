@@ -4,7 +4,13 @@
 <mapper namespace="PetItemSQL">
 
 	<sql id="selectAll"> 
-		<![CDATA[ SELECT * FROM PET_ITEM ]]>
+		<![CDATA[
+		SELECT 
+				ITEM_NO, ITEM_SELLCOUNT, TO_CHAR(ITEM_PRICE,'FM999,999,999') as ITEM_PRICE, TO_CHAR(ITEM_DCPRICE,'FM999,999,999') as ITEM_DCPRICE,
+				ITEM_TOTALCOUNT, ITEM_TYPE, ITEM_NAME, ITEM_IMG, ITEM_BASKETIMG, ITEM_DETAILIMG, ITEM_REMAINCOUNT
+		FROM 
+				PET_ITEM 
+		]]>
 	</sql>
 
 	<sql id="where-no"> 
@@ -28,7 +34,8 @@
 			from
  				 (select row_number() over   (partition by item_type order by item_sellcount desc) 
    				  		 as
-   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_DETAILIMG, ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
+   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, TO_CHAR(ITEM_PRICE,'FM999,999,999') as ITEM_PRICE, 
+   				 	ITEM_TOTALCOUNT, ITEM_DETAILIMG, TO_CHAR(ITEM_DCPRICE,'FM999,999,999') as ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
 				 from 
    					 pet_item 
   						) a
@@ -36,6 +43,26 @@
 					  a.item_type = #{isSearch} and a.sellcount <5
 			order by 
 					  a.item_type , a.sellcount 				
+		]]>
+
+	</select>
+	
+	<select id="selectBestMain" resultType="hashmap">
+		
+		<![CDATA[
+			select 
+   				 a.*
+			from
+ 				 (select row_number() over   (partition by item_type order by item_sellcount desc) 
+   				  		 as
+   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_DETAILIMG, ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
+				 from 
+   					 pet_item 
+  						) a
+				where 
+					 a.sellcount =1
+			order by 
+					  a.item_type 				
 		]]>
 
 	</select>
@@ -67,13 +94,13 @@
 	<!-- 판매중 -->
 	<select id="itemSearch4" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where not ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
+		where not ITEM_REMAINCOUNT = 0
 	</select>
 
 	<!-- 품절 -->
 	<select id="itemSearch5" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where ITEM_TOTALCOUNT - ITEM_SELLCOUNT = 0
+		where ITEM_REMAINCOUNT = 0
 	</select>
 
 	<!-- 재고수량 -->
@@ -87,12 +114,13 @@
 		<include refid="selectAll" />
 		ORDER BY ITEM_SELLCOUNT DESC
 	</select>
+	
+	<select id="selectKey" resultType="hashmap">
+			SELECT ITEM_NO_SEQ.NEXTVAL as ITEM_NO FROM DUAL
+	</select>
 
 	<!-- 관리자 상품 추가 -->
-	<insert id="itemInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		<selectKey keyProperty="ITEM_NO" resultType="String" order="BEFORE">
-			SELECT ITEM_NO_SEQ.NEXTVAL FROM DUAL
-		</selectKey>
+	<insert id="itemInsert" parameterType="hashmap">
 		insert into pet_item
 			(ITEM_NO,
 			ITEM_NAME,
@@ -122,6 +150,7 @@
 		update PET_ITEM set
 		ITEM_NAME = #{ITEM_NAME},
 		ITEM_PRICE = #{ITEM_PRICE},
+		ITEM_DCPRICE = #{ITEM_DCPRICE},
 		ITEM_REMAINCOUNT = #{ITEM_REMAINCOUNT},
 		ITEM_TYPE = #{ITEM_TYPE},
 		ITEM_IMG = #{ITEM_IMG},

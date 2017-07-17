@@ -26,7 +26,7 @@
 
 
 <body>
-
+	<div class="main_itemlist">	
 	B &nbsp;E &nbsp;S &nbsp;T &nbsp;&nbsp;&nbsp;&nbsp;I  &nbsp;T &nbsp; E  &nbsp;M
 	<c:forEach var="bestList" items="${bestList}">		
 				<div class="item-cont">
@@ -40,7 +40,13 @@
 						<dd>
 							<ul>
 								<li class="prd-name">${bestList.ITEM_NAME}</li>
-								<li class="prd-price">${bestList.ITEM_PRICE}원</li>
+								<c:if test="${bestList.ITEM_DCPRICE != null}">
+									<font color="gray" size="2"><del><li class="prd-price">₩ ${bestList.ITEM_PRICE} 원</li></del></font>
+									<font color="red"><li class="prd-price">₩ ${bestList.ITEM_DCPRICE} 원	</li></font>
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null}">
+									<li class="prd-price">₩ ${bestList.ITEM_PRICE} 원</li>
+								</c:if>	
 							</ul>
 						</dd>
 					</dl>
@@ -51,7 +57,7 @@
 	<br/>
 	<br/>
 	I &nbsp;T &nbsp;E &nbsp;M
-	<div class="main_itemlist">	
+
 	
 		<c:forEach var="items" items="${itemList}">
 				<div class="item-cont">
@@ -59,8 +65,15 @@
 						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img class="item_image" src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}" alt="상품 섬네일" title="${items.ITEM_NAME}"></a></dt>
 						<dd>
 							<ul>
+										
 								<li class="prd-name">${items.ITEM_NAME}</li>
-								<li class="prd-price">${items.ITEM_PRICE} 원	</li>
+								<c:if test="${items.ITEM_DCPRICE != null}">
+									<font color="gray" size="2"><del><li class="prd-price">₩ ${items.ITEM_PRICE} 원</li></del></font>
+									<font color="red"><li class="prd-price">₩ ${items.ITEM_DCPRICE} 원	</li></font>
+								</c:if>
+								<c:if test="${items.ITEM_DCPRICE == null}">
+									<li class="prd-price">₩ ${items.ITEM_PRICE} 원</li>							
+								</c:if>
 							</ul>
 						</dd>
 					</dl>

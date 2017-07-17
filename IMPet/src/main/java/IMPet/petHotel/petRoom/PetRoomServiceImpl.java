@@ -62,7 +62,7 @@ public class PetRoomServiceImpl implements PetRoomService {
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/hotel/roomImg/";
 		System.out.println(reMap.get("ROOM_IMG").toString());
-		File f = new File(reMap.get("ROOM_IMG").toString());
+		File f = new File(uploadPath+reMap.get("ROOM_IMG").toString());
 		if(f.delete()){
 			System.out.println("이미지 삭제 성공");
 		}else{

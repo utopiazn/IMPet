@@ -39,5 +39,10 @@ public class ItemDAO extends AbstractDAO {
 			return itemSearch("PetItemSQL.itemSearch3",map);
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectBestMain() throws Exception {
+		return (List<Map<String, Object>>) selectList("PetItemSQL.selectBestMain");
+	}
 
 }

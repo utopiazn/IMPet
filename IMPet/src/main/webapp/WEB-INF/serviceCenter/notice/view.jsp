@@ -36,4 +36,10 @@
 
 <input value="공지사항 리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
 
+
+
 </body>
+
+</html>
+
+

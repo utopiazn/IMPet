@@ -13,8 +13,7 @@ public class PayDAO extends AbstractDAO {
 	//주문목록전체결제
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectAll(Map<String, Object> map) throws Exception {
-		
-		
+			
 		return selectList("PetPaySQL.selectAll", map);
 	}
 	

@@ -7,11 +7,24 @@
 		<div style="border:1px solid black; width: 90%; margin-bottom: 5px">
 			예약 번호 : ${res.RES_NO} / 방 번호 : ${res.ROOM_NO} / 예약금 : ${res.RES_PRICE}<br/>
 			예약기간 : ${res.RES_FIRSTDATE} ~ ${res.RES_LASTDATE} / 특이사항 : ${res.RES_REQUESTS}<br/>
-			예약아이디 : ${res.MEMBER_ID} / 결재상태 : ${res.RES_STATE}
+			예약아이디 : ${res.MEMBER_ID} / 결재상태 : 
+			<c:choose>
+				<c:when test="${res.RES_STATE == 1}">
+				입금완료
+				</c:when>
+				<c:when test="${res.RES_STATE != 1}">
+				입금대기중
+				</c:when>
+				<c:otherwise>
+				결재오류
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<div style="margin-bottom: 20px">
-			<input value="예약 결제상태 변경" type="button" onclick="location.href='/IMPet/PetHotel/RoomResPayment'"/>
-			<input value="예약 삭제" type="button" onclick="location.href='/IMPet/PetHotel/RoomResDelete'"/>
+			<c:if test="${res.RES_STATE != 1}">
+			<input value="예약 입금확인" type="button" onclick="location.href='/IMPet/PetHotel/RoomResPayment?res_NO=${res.RES_NO}'"/>
+			</c:if>
+			<input value="예약 삭제" type="button" onclick="location.href='/IMPet/PetHotel/RoomResDelete?res_NO=${res.RES_NO}'"/>
 		</div>
 	</c:forEach>
 </div>

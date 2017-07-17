@@ -80,6 +80,12 @@ function validateForm() {
                             <p class="help-block">판매가격 입력하세요. 0원으로 그대로 갈 경우 큰일납니다</p>
                         </div>
                         
+                         <div class="form-group">
+                            <label>할인가격</label>
+                            <input type="text" class="form-control" value="${itemList.ITEM_DCPRICE}" name="ITEM_DCPRICE" style="width:initial;"/>
+                            <p class="help-block">할인가격 입력하세요. </p>
+                        </div>
+                        
                        <div class="file_input">
                         	메인 상품 이미지 <br/>
                         	<c:if test="${!empty itemList.ITEM_DETAILIMG}">
