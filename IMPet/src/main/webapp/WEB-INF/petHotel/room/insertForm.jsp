@@ -8,7 +8,7 @@
 			<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert">
 				room_NO : <input name="room_NO" id=room_NO type="text"/>
 				room_Name : <input name="room_Name" type="text"/><br/>
-				room_IMG : <!-- <input name="room_IMG" type="text"/> --><input name="room_IMG" type="file"><br/>
+				room_IMG : <input name="room_IMG" type="file"><br/>
 				room_Detail : <input name="room_Detail" type="text"/><br/>
 				room_Price : <input name="room_Price" type="text"/><br/>
 				room_Total : <input name="room_Total" type="text"/><br/>
@@ -24,7 +24,6 @@
 			<form name="Modify" method="post" enctype="multipart/form-data">
 				room_NO : ${view.ROOM_NO } <input name="room_NO" type="hidden" value="${view.ROOM_NO }"/><br/>
 				room_Name : <input name="room_Name" type="text" value="${view.ROOM_NAME }"/><br/>
-				<%-- room_IMG : <input name="room_IMG" type="text" value="${view.ROOM_IMG }"/><br/> --%>
 				<input type="hidden" name="room_IMG" value="${view.ROOM_IMG}">
 				room_Detail : <input name="room_Detail" type="text" value="${view.ROOM_DETAIL}"/><br/>
 				room_Price : <input name="room_Price" type="text" value="${view.ROOM_PRICE }"/><br/>

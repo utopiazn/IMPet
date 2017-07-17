@@ -39,6 +39,25 @@ public class PetHealingController {
 		return mav;
 	}
 	
+	//호텔 admin 힐링 리스트
+		@RequestMapping(value="HealingAdminList")
+		public ModelAndView healingAdminList() throws Exception{
+			
+			ModelAndView mav = new ModelAndView();
+			
+			System.out.println("호텔 Admin 힐링 리스트");
+			
+			List<Map<String, Object>> list = petHealingService.selectAll();
+			
+			String url = "AdminPage";
+			
+			mav.addObject("list", list);
+			
+			mav.setViewName(url);
+			
+			return mav;
+		}
+	
 	//호텔 힐링 상세
 	@RequestMapping(value="HealingView")
 	public ModelAndView healingView(CommandMap commandMap) throws Exception{
@@ -83,7 +102,7 @@ public class PetHealingController {
 		
 		petHealingService.insert(commandMap.getMap());
 		
-		String url = "redirect:HealingList";
+		String url = "redirect:HealingAdminList";
 		
 		mav.setViewName(url);		
 		
