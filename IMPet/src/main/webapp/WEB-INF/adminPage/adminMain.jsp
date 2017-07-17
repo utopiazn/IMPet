@@ -42,14 +42,14 @@
 
 </head>
 <body>
-<div align="left" style="width:100%;" >
-	<div style="width: 19%;   float: left; ">
+<div class="adminMian" align="left" style="width:100%;" >
+	<div class="adminLeft" style="width: 19%;   float: left; ">
 		<div class="nestedsidemenu">
 			<ul>
 				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
 				 </li>
 				 
-				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;호텔 관리</a>
+				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;호텔 관리</a>
 					  <ul>
 						  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>   
 						  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
@@ -57,7 +57,7 @@
 					 </ul>
 				</li>
 				
-				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;상품 관리</a>
+				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;상품 관리</a>
 					  <ul>
 						  <li><a href="/IMPet/PetShop/AdminItemList">상품 리스트</a></li>
 						  <li><a href="/IMPet/PetShop/AdminItemWriteForm">상품 추가</a></li>   
@@ -75,10 +75,10 @@
 		</div>
 	</div>
 
-	<div align="center" style="width:80%; margin-left: 5px;  float: left;" >
+	<div class="adminCenter" align="center" style="width:80%; margin-left: 5px;  float: left;" >
 	
 		<c:if test="${listAll[0].MEMBER_ID!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 		</div>
 		</c:if>
@@ -88,17 +88,17 @@
 		</div>
 		</c:if>
 		<c:if test="${list[0].RES_NO!=null}">
-		<div style="width:70%; ">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
 		</div>
 		</c:if>
 		<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>
 		</c:if>
 		<c:if test="${form!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
 		</div>
 		</c:if>
