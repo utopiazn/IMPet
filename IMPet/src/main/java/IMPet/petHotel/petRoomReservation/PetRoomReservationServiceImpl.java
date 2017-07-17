@@ -31,6 +31,17 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 		
 		petRoomReservationDAO.resInsert(map);
 	}
+	
+	@Override
+	public void resPayment(Map<String, Object> map) throws Exception {
+		
+		petRoomReservationDAO.resPayment(map);
+	}
+
+	@Override
+	public void resDelete(Map<String, Object> map) throws Exception {
+		petRoomReservationDAO.resDelete(map);
+	}
 
 	@Override
 	public List<Map<String, Object>> selectUserList(String str) throws Exception {

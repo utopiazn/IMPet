@@ -4,6 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script type="text/javascript">
 	
 
@@ -27,7 +29,7 @@
 		    
 		}else{
 			  frm.method = "post";
-			  frm.action = "/IMPet/PetShop/OrderItemPay"
+			  frm.action = "/IMPet/PetShop/OrderItemPay";
 			  frm.submit();
 			  return true;
 		 } 
@@ -275,7 +277,6 @@
 
 			<div class="basket_button" style="margin-top:5px;">
 					<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="chk_radio()" >					
-
 			</div>	
 
 
