@@ -20,7 +20,10 @@ public class AdminItemDAO extends AbstractDAO{
 	public List<Map<String, Object>> itemList(Map<String, Object> map) throws Exception {
 		return selectList("PetItemSQL.selectAll");
 	}
-
+	
+	public Map<String,Object> selectKey() throws Exception {
+		return selectOne("PetItemSQL.selectKey");
+	}
 	// 상품 등록
 	public void itemInsert(Map<String, Object> map) throws Exception {
 		insert("PetItemSQL.itemInsert", map);
