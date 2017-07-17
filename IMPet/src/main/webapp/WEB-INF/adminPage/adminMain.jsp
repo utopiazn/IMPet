@@ -92,7 +92,7 @@
 		<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
 		</div>
 		</c:if>
-		<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
+		<c:if test="${Shop == 1}">
 		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>
