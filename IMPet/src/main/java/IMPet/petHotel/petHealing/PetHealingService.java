@@ -2,6 +2,8 @@ package IMPet.petHotel.petHealing;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 import IMPet.module.CommandMap;
@@ -13,7 +15,7 @@ public interface PetHealingService {
 	
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
-	public void insert(Map<String, Object> map) throws Exception;
+	void insert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	public void update(Map<String, Object> map) throws Exception;
 	

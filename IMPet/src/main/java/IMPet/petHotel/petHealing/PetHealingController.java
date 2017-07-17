@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,13 +95,13 @@ public class PetHealingController {
 
 	//호텔 힐링 추가
 	@RequestMapping(value="HealingInsert")
-	public ModelAndView healingInsert(CommandMap commandMap) throws Exception{
+	public ModelAndView healingInsert(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 힐링 추가");
 		
-		petHealingService.insert(commandMap.getMap());
+		petHealingService.insert(commandMap.getMap(), request);
 		
 		String url = "redirect:HealingAdminList";
 		

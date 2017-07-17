@@ -53,9 +53,9 @@
    					 pet_item 
   						) a
 				where 
-					 a.sellcount <5
+					 a.sellcount =1
 			order by 
-					  a.item_type , a.sellcount 				
+					  a.item_type 				
 		]]>
 
 	</select>
