@@ -18,10 +18,10 @@
 	
 		if(tab == ""){
 
-			$('a[href=#feed]').trigger("click");
+			$('a[href=#feed]').trigger('click');
 		}else  
 		{
-			$('a[href$=' + tab + ']').trigger("click");
+			$('a[href$=' + tab + ']').trigger('click');
 		}
 	});
 
