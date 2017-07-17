@@ -110,19 +110,19 @@
 		</div>
 </div>
 
-
+<!-- pet_item_receive -->
 <div class="orderArea">
 	<h3>배송지 정보</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
 				<caption>배송지 정보</caption>
 				<tbody>
-					<%-- <tr>
+					<tr>
 						<th scope="row">주소</th>
 						<td>
-							${orderModel.order_receive_zipcode}<br>${orderModel.order_receive_addr}
+							${orderView.MEMBER_ZIPCODE}<br>${orderView.MEMBER_ADDRESS}
 						</td>
-					</tr> --%>
+					</tr>
 					<tr>
 						<th scope="row">이름</th>
 						<td>${orderView.MEMBER_NAME}</td>
@@ -131,12 +131,12 @@
 						<th scope="row">휴대폰</th>
 						<td>${orderView.MEMBER_TEL}</td>						
 					</tr> 
-					<%-- <tr>
+					<tr>
 						<th scope="row">배송요청사항</th>
 						<td>
 							${orderModel.order_memo}</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<th scope="row">결재방식</th>
 						<td>${orderModel.order_trade_type}</td>
 					</tr>   

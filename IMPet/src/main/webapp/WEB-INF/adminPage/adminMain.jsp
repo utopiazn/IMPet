@@ -94,11 +94,19 @@
 		</c:if>
 		</div>
 		</c:if>
+		
+		<c:if test="${list[0].HEALING_NO!=null}">
+		<div id="ContextHotel" style="width:90%; padding-top: 50px;">
+		<jsp:include page="/WEB-INF/petHotel/healing/list.jsp"/>
+		</div>
+		</c:if>
+		
 		<c:if test="${Shop == 1}">
 		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>
 		</c:if>
+		
 		<c:if test="${form!=null}">
 		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>

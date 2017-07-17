@@ -60,7 +60,8 @@
 	    <div style="margin-top:15px; text-align:center;">
 			<span class="btn btnC_04 btnP_04"><a href="/IMPet/Main"><input type="button" value="메인화면으로"></a></span>
 			<span class="btn btnC_04 btnP_04">
-			<a href="${contextPath}/IMPet/PetShop/OrderList"><input type="button" value="구매내역"></a>	
+			<a href="/IMPet/PetShop/OrderList?MEMBER_ID=${sessionScope.member_ID}"><input type="button" value="구매내역"></a>
+			<%-- <a href="${contextPath}/IMPet/PetShop/OrderList"><input type="button" value="구매내역"></a> --%>	
 			</span>	
 		</div>
 	</div>

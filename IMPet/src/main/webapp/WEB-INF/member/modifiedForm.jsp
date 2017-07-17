@@ -171,7 +171,7 @@
 				<li>
 					<label  class="reqyestslabel">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</label>
 					
-					<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required >${memberInfo.MEMBER_ANIMAL_TYPE}</textarea>
+					<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required >${memberInfo.MEMBER_REQUESTS}</textarea>
 					
 				</li>			
 			

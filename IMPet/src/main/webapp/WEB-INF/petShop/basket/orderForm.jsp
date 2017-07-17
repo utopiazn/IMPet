@@ -6,10 +6,19 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
+
+
+<link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
 <script type="text/javascript">
 	
 
-	window.onload = function(){
+	window.onload = function() {
 		$("input[name=order_trade_type1]").attr("disabled", true);  
 	}
 	
@@ -19,8 +28,7 @@
 		open(url, "confirm","toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 	} */
 
-	function chk_radio() 
-	{ 
+	function chk_radio() { 
 		
 		if($("input[name=order_trade_payer]:radio:checked").length == 0){
 			
@@ -222,14 +230,14 @@
 			<table border="1" summary="">
 				<caption>배송지 정보</caption>
 				<tbody>
-					<%-- <tr>
+					<tr>
 						<th scope="row">주소</th>
-						<td><input type="text"  name="zipcode" onclick="this.value=''" id="zipcode" readonly value="${orderView.MEMBER_ZIPCODE}" style="margin-bottom:2px;"/> 
-								<a href="#none" title="우편번호(새창으로 열기)" onclick="return openZipcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
-							<input type="text"  style="width:100%;margin-bottom:2px;" name="addr" onclick="this.value=''" id="addr1" readonly value="${orderView.MEMBER_ADDRESS}"  style="margin-bottom:5px;"/><br>
-                   	 		<input type="text" style="width:100%;" name="addr2" onclick="this.value=''" id="addr2" />
+						<td><input type="text"  name="zipcode" onclick="this.value=''" id="sample6_postcode" readonly value="${orderView.MEMBER_ZIPCODE}" style="margin-bottom:2px;"/> 
+								<a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
+							<input type="text"  style="width:100%;margin-bottom:2px;" name="addr" onclick="this.value=''" id="sample6_address" readonly value="${orderView.MEMBER_ADDRESS}"  style="margin-bottom:5px;"/><br>
+                   	 		<input type="text" style="width:100%;" name="addr2" onclick="this.value=''" id="sample6_address2" />
 						</td>
-					</tr> --%>
+					</tr>
 					<tr>
 						<th scope="row">이름</th>
 						<td><input type="text" name="order_receive_name" value="${orderView.MEMBER_NAME}" /></td>

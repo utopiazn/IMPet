@@ -24,12 +24,38 @@
     text-align: center;
     text-decoration: none;
 }
+.button4{
+    display: block;
+    margin: 5px 1px;
+    height: 30px;
+    width: 100px;
+    background-color: transparent;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.button4:hover{
+  color: #fff;
+}
+
+.btn-4{
+  border: 2px solid #00B488;
+  color: #00B488;
+}
+.btn-4:hover{
+  background-color: #00B488;
+}
+
 
 </style>
 
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="right">
-	<input value="룸 추가" type="button" onclick="ajaxRoomInsertForm()"/>
+	<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxRoomInsertForm()"/>
 </div>
 </c:if>
 

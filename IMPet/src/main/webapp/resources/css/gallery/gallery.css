@@ -2,7 +2,7 @@
  
  
 
- 
+/*  
  		.container{
 			display: table;
 			width:100%;
@@ -23,13 +23,13 @@
 			text-align:center;
 		
 			
-		}
+		} */
  
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
  
 
 .search-results {
@@ -53,11 +53,11 @@
 
 .single-project, .single-pen {
    /*  width: 25%;   */
-	 width: 25%;
+	 width: 30%;
     border: 0 solid #00B488;    
     border-radius: 2px;
     overflow: hidden;
-    margin: 0 2% 25px 2%;
+    margin: 0 1% 25px 1%;
     position: relative;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.28);
     
@@ -67,8 +67,9 @@
 
 .iframe-wrap, .thumbnail-wrap {
     position: relative;
-    height: 0;
-    padding-top: 56.25%;
+    height: 0;/* 
+    padding-top: 56.25%; */
+    padding-top: 75.25%;
     overflow: hidden;
 }
 
@@ -140,6 +141,11 @@
     padding: 8px 10px 4px;
     box-shadow: 0 0 2px rgba(0,0,0,0.25);
     z-index: 3;
+    
+    width: 93%;
+    height: 21%;/* 
+    width: 100%;
+    height: 100%; */
 }
 
 
@@ -186,11 +192,11 @@
     margin-left: -6px;
 }
 
-a {
+/* a {
     text-decoration: none;
     color: #76daff;
 }
-
+ */
 
 .stats .single-stat:not(.loves) svg, .stats .single-stat.comments:not(.loves) svg {
     fill: #999999;

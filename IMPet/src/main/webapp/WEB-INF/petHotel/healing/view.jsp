@@ -5,7 +5,7 @@
 	<div align="center" style="width:100%; height:100%;">
 	
 		<div style="width:100%; height:80%;">
-		<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 100%;">
+		<img alt="s2" src="/IMPet/resources/image/hotel/healingImg/${view.HEALING_IMG}" style="width: 100%; height: 100%;">
 		</div>
 		
 		<div align="center" style="width:100%; height:19%;">
@@ -16,6 +16,8 @@
 			<div style="float: left;">
 			<div style="font-size: 15px; font-weight: bolder; padding-top: 20px; line-height: 3em;"> ${view.HEALING_NAME}<br/></div>
 			<div>${view.HEALING_DETAIL}</div>
+			<div>${view.HEALING_TIME}</div>
+			<div>${view.HEALING_GUIDE}</div>
 			</div>
 			
 		</div>

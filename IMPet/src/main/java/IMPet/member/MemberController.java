@@ -65,6 +65,7 @@ public class MemberController {
 			//session 에 회원 ID 와 권한 여부 저장함.
 			session.setAttribute("member_ID", check.get("MEMBER_ID").toString());		// 로그인 아이지 저장			
 			session.setAttribute("member_Admin", check.get("MEMBER_ADMIN").toString());	// 로그인시 관리자 권한 여부 체크  0:일반 1:관리자
+			session.setAttribute("member_Requests", check.get("MEMBER_REQUESTS").toString());
 			
 			LoginSuccess = 1; //1: 로그인 성공	 
 			
