@@ -70,7 +70,7 @@
  -->
 
 
-<div class="search-results pen-grid">
+<div class="search-results pen-grid" >
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	
 	<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	

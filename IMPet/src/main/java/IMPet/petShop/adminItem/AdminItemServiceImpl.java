@@ -37,13 +37,21 @@ public class AdminItemServiceImpl implements AdminItemService{
 	public void itemInsert(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		ProjectUtil util = new ProjectUtil();
 		
-		adminItemDAO.itemInsert(map);
 		
-		int num = Integer.parseInt(map.get("ITEM_NO").toString());
+		
+		Map<String,Object> key = adminItemDAO.selectKey();
+		
+		int num = Integer.parseInt(key.get("ITEM_NO").toString());
+		
+		System.out.println("key"+num);
+		
+		map.put("ITEM_NO", num);
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/itemImg/";
+			
+		Map<String,Object> resultMap = util.UploadFile(map, request, uploadPath,num);
 		
-		util.UploadFile(map, request, uploadPath,num);
+		adminItemDAO.itemInsert(resultMap);
 		
 		
 	}

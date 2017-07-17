@@ -81,8 +81,8 @@ public class PetRoomReservationController {
 		
 		petRoomReservationService.resInsert(commandMap.getMap());
 		
-		String url = "redirect:RoomResList";
-		
+		String url = "redirect:/MyPage";
+
 		mav.setViewName(url);
 		
 		return mav;
@@ -136,9 +136,11 @@ public class PetRoomReservationController {
 	
 	//호텔 룸 예약 결제상태 변경(관리자용)
 	@RequestMapping(value="RoomResPayment")
-	public ModelAndView resPayment(){
+	public ModelAndView resPayment(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		petRoomReservationService.resPayment(commandMap.getMap());
 		
 		System.out.println("호텔 룸 예약 결제상태 변경(관리자용)");
 		
@@ -149,9 +151,11 @@ public class PetRoomReservationController {
 	
 	//호텔 룸 예약 삭제(관리자용)
 	@RequestMapping(value="RoomResDelete")
-	public ModelAndView resDelete(){
+	public ModelAndView resDelete(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		petRoomReservationService.resDelete(commandMap.getMap());
 		
 		System.out.println("룸 예약 삭제(관리자용)");
 		
@@ -162,9 +166,11 @@ public class PetRoomReservationController {
 	
 	//호텔 룸 예약 취소(개인용)
 	@RequestMapping(value="RoomResCancel")
-	public ModelAndView resCancel(){
+	public ModelAndView resCancel(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
+		petRoomReservationService.resDelete(commandMap.getMap());
 		
 		System.out.println("룸 예약 취소(개인용)");
 		
