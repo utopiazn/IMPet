@@ -22,6 +22,23 @@ function ajaxRoomResList(){
 
     });
 }
+
+function ajaxRoomResCancel(no){
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/PetHotel/RoomResCancel",
+      data : {res_NO : no},
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
+
 function ajaxmembermodify(){
 	
 	
@@ -61,7 +78,16 @@ function ajaxmemberdelete(){
 </script>
 
 
+<style>
+.ok a{
+text-decoration: none;
+color: black;
+}
 
+.ok a:HOVER {
+	color: hotpink;
+}
+</style>
 
 
 
@@ -164,10 +190,10 @@ function ajaxmemberdelete(){
 													<div id="cp_button">
 														<table align="center" border="0" cellpadding="0" cellspacing="0">
 															<tbody>
-																<tr>
-																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);"><!-- <img src="/shop/data/skin/standard/img/common/btn_gr_cancle.gif" border="0"> -->취소</a></td>
-																	<td width="5"></td>
+																<tr class="ok">
 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">확인</a></td>
+																	<td width="5"></td>
+ 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">취소</a></td>
 																</tr>
 															</tbody>
 														</table>

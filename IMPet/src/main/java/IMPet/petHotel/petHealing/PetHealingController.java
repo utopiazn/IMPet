@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,25 @@ public class PetHealingController {
 		
 		return mav;
 	}
+	
+	//호텔 admin 힐링 리스트
+		@RequestMapping(value="HealingAdminList")
+		public ModelAndView healingAdminList() throws Exception{
+			
+			ModelAndView mav = new ModelAndView();
+			
+			System.out.println("호텔 Admin 힐링 리스트");
+			
+			List<Map<String, Object>> list = petHealingService.selectAll();
+			
+			String url = "AdminPage";
+			
+			mav.addObject("list", list);
+			
+			mav.setViewName(url);
+			
+			return mav;
+		}
 	
 	//호텔 힐링 상세
 	@RequestMapping(value="HealingView")
@@ -75,15 +95,15 @@ public class PetHealingController {
 
 	//호텔 힐링 추가
 	@RequestMapping(value="HealingInsert")
-	public ModelAndView healingInsert(CommandMap commandMap) throws Exception{
+	public ModelAndView healingInsert(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 힐링 추가");
 		
-		petHealingService.insert(commandMap.getMap());
+		petHealingService.insert(commandMap.getMap(), request);
 		
-		String url = "redirect:HealingList";
+		String url = "redirect:HealingAdminList";
 		
 		mav.setViewName(url);		
 		
