@@ -39,7 +39,7 @@ public class MainController {
 
 		System.out.println("메인");
 		
-		List<Map<String, Object>> list = itemService.selectBestMain();
+		List<Map<String, Object>> list = itemService.selectBestMain(); 
 		
 		mav.addObject("bestList", list);
 		
