@@ -39,6 +39,26 @@
 		]]>
 
 	</select>
+	
+	<select id="selectBestMain" resultType="hashmap">
+		
+		<![CDATA[
+			select 
+   				 a.*
+			from
+ 				 (select row_number() over   (partition by item_type order by item_sellcount desc) 
+   				  		 as
+   				 	sellcount , item_type , item_sellcount, item_no, ITEM_NAME, ITEM_IMG, ITEM_PRICE, ITEM_TOTALCOUNT, ITEM_DETAILIMG, ITEM_DCPRICE, ITEM_BASKETIMG, ITEM_REMAINCOUNT
+				 from 
+   					 pet_item 
+  						) a
+				where 
+					 a.sellcount <5
+			order by 
+					  a.item_type , a.sellcount 				
+		]]>
+
+	</select>
 
 	<!-- 상품 상세보기 -->
 	<select id="itemSelect" resultType="hashmap" parameterType="hashmap">
