@@ -60,9 +60,11 @@ public class ItemServiceImpl implements ItemService{
 		return resultMap;
 	}
 	
-	
-	
-	
+	@Override
+	public List<Map<String, Object>> selectBestMain() throws Exception {
+		
+		return itemDAO.selectBestMain();
+	}
 	
 	
 

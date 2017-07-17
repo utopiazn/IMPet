@@ -12,4 +12,6 @@ public interface ItemService {
 	List<Map<String, Object>> selectList(Map<String,Object> map) throws Exception;
 
 	Map<String, Object> selectItem(Map<String,Object> map) throws Exception;
+
+	List<Map<String, Object>> selectBestMain() throws Exception;
 }
