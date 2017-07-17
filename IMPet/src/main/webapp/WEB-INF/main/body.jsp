@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- 이미지슬라이드 -->
 <link href="/IMPet/resources/css/flexslider.css" rel="stylesheet" style="text/css">
@@ -22,7 +23,7 @@ function openWin(){
 <div align="center">
 	
 	
-	<div class="flexslider" style="width: 100%; height: 30%">
+	<div class="flexslider" style="width: 60%; height: 30%; margin:5 20%;">
 	
 	<ul class="slides" style="width: 100%; height: 100%">
 	    <li>
@@ -59,4 +60,28 @@ function openWin(){
 	<div style="float: left;">
 	<a href="javascript:openWin();">_</a>
 	</div>
+	<div style="width:49%; float: left;">
+	<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 100%; height: 300px">
+	</div>
+	<div style="width:49%; float: right;">
+		<c:forEach var="bestList" items="${bestList}" begin="0" end="2">		
+				<div class="item-cont">
+					<dl class="item-list">
+						<dt class="thumb">
+							<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}"><img
+								class="item_image"
+								src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}"
+								alt="상품 섬네일" title="${bestList.ITEM_NAME}"></a>
+						</dt>
+						<dd>
+							<ul>
+								<li class="prd-name">${bestList.ITEM_NAME}</li>
+								<li class="prd-price">${bestList.ITEM_PRICE}원</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+		</c:forEach>
+	</div>
+	
 </div>
