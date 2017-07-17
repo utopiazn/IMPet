@@ -59,6 +59,12 @@
 
 
 </style>
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
 <div class="category_top">
 	<ul>
 	 	<li>펫샵 ></li><li>장바구니</li>			
@@ -70,37 +76,45 @@
 		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep1.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
-	<form name="basketList" method="post">
+	<form name="basketList" >
+	<input type="hidden" name="member_ID" value="${sessionScope.member_ID}">
 		<table class="basket" style="margin-bottom:15px;">
 				<colgroup>
+					<col width="5%">
 					<col width="20%">
-					<col width="40%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
+					<col width="30%">
+					<col width="15%">
+					<col width="15%">
+					<col width="15%">
 					<col width="10%">
 				</colgroup>
 				<thead>
 					<tr>
+						<th scope="col">선택</th>
 						<th scope="col">이미지</th>
 						<th scope="col">상품명</th>
 						<th scope="col">단일금액</th>
 						<th scope="col">수량</th>
 						<th scope="col">합계</th>
-						<th scope="col">설정</th>
+						<th scope="col">삭제</th>
 					</tr>
 				</thead>
 				
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
+						<td align="center"><input type="checkbox" name="BASKET_NO" value="${basketList.BASKET_NO}"></td>
 						<td align="center"><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${basketList.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE*basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>
+						<td align="center">${basketList.BASKET_BUYCOUNT}EA
+						
+	                       
+	                    </td>
+						
+						<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>
 						<td align="center">
-							<a href="/IMPet/PetShop/BasketDelete?BASKET_NO=${basketList.BASKET_NO}&MEMBER_ID=${basketList.MEMBER_ID}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
+							<a href="/IMPet/PetShop/BasketDelete?BASKET_NO=${basketList.BASKET_NO}&MEMBER_ID=${basketList.MEMBER_ID}" onClick='return confirm("정말로 장바구니를 삭제하시겠습니까?");'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
 						</td>
 						<c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT)}"/>
 					</tr>
@@ -121,11 +135,47 @@
 	
 			</table>
 			<div class="basket_button">
-										
-					<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>
-			
-					<a href="/IMPet/PetShop/OrderForm?ITEM_NO=${ITEM_NO}&BASKET_BUYCOUNT=${BASKET_BUYCOUNT}&MEMBER_ID=${sessionScope.member_ID}"><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_all.gif" alt="전체상품주문"></a>  		
+				<a class="check-all"> <span class="button-label">전체 선택</span></a> 
+				<a class="check-unall"> <span class="button-label">전체 해제</span></a>						
+				<button class="button"><span class="button-label">선택 삭제</span>	</button>					
+				<a href="/IMPet/PetShop/Main"><span >쇼핑계속하기</span></a>	
+				<a href="#" onClick="cartBuy()"><span>상품주문</span></a>  		
 			</div>		
 		</form>
 		</div>
 </div>
+<script>
+function cartBuy(){
+	
+	var fm = document.basketList;
+	
+	if($("input:checkbox[name='BASKET_NO']").is(":checked") == false) {
+		alert("상품을 선택해 주세요");
+		return false;
+	};
+	
+	
+	fm.action = "/IMPet/PetShop/OrderFormB;"
+	fm.method= "post";
+	fm.submit();
+}
+</script>
+<script>
+
+$(".check-all").click(function(){
+
+	$(".basket_main input:checkbox[name='BASKET_NO']").not(":checked").trigger("click");
+});
+
+$(".check-unall").click(function(){
+$(".basket_main input:checkbox[name='BASKET_NO']:checked").trigger("click");
+});
+
+$("form[name=basketList]").submit(function(){
+if (!$(".basket_main input:checkbox[name='BASKET_NO']").is(":checked")){
+	alert("삭제하실 상품을 선택해주세요");
+	return false;
+}
+return confirm("정말로 장바구니를 삭제하시겠습니까?");	
+});
+</script>

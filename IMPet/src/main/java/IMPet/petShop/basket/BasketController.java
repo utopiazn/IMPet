@@ -82,7 +82,7 @@ public class BasketController {
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
 	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
-		
+		System.out.println(commandMap.getMap());
 		System.out.println("펫샵장바구니전체주문폼");
 		Map<String, Object> map = orderService.selectAll(commandMap.getMap());
 		
