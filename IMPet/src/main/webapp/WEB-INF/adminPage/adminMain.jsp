@@ -78,7 +78,7 @@
 	<div align="center" style="width:80%; margin-left: 5px;  float: left;" >
 	
 		<c:if test="${listAll[0].MEMBER_ID!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 		</div>
 		</c:if>
@@ -88,17 +88,17 @@
 		</div>
 		</c:if>
 		<c:if test="${list[0].RES_NO!=null}">
-		<div style="width:70%; ">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
 		</div>
 		</c:if>
 		<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>
 		</c:if>
 		<c:if test="${form!=null}">
-		<div style="width:70%; padding-top: 50px;">
+		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
 		</div>
 		</c:if>

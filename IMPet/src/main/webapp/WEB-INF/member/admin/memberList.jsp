@@ -2,15 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
-<!DOCTYPE html>
-
-
-<html lang="ko">
-<head>
-
-
-<meta charset="UTF-8">
-<title>회원 리스트 </title>
 
 <style type="text/css">
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
@@ -32,7 +23,7 @@
 <!-- <link href="/IMPet/resources/css/admin/memberList.css" rel="stylesheet" style="text/css">
  -->
  
- <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="<c:url value='/resources/ajax/ajax.js'/>" charset="utf-8"></script>
@@ -167,10 +158,6 @@ function ajaxPageView(page){
 
 </script>
 
-
-</head>
-<body>
-
 <div id="ContextModifiedForm">
 
 
@@ -293,6 +280,3 @@ function ajaxPageView(page){
 <br/><br/>
 <input value="회원 한면을 선택 행을 경우 회원 수정 폼으로 이동" type="button" onclick="location.href='/IMPet/Member/ModifiedForm'"/>
  -->
-
-</body>
-</html>
