@@ -51,7 +51,8 @@
 				 
 				 <li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;호텔 관리</a>
 					  <ul>
-						  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>   
+						  <li><a href="/IMPet/PetHotel/RoomAdminList">룸 리스트</a></li>
+						  <li><a href="/IMPet/PetHotel/HealingAdminList">힐링 리스트</a></li>   
 						  <li><a href="/IMPet/PetHotel/RoomResAllList">룸 예약 리스트</a></li>
 						  
 					 </ul>
@@ -93,7 +94,7 @@
 		</c:if>
 		</div>
 		</c:if>
-		<c:if test="${itemList[0].ITEM_REMAINCOUNT!=null}">
+		<c:if test="${Shop == 1}">
 		<div style="width:90%; padding-top: 50px;">
 		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 		</div>
