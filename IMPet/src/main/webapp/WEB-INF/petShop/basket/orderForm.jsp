@@ -107,9 +107,9 @@
 
 	<div class="basket_main">
 
-		 <c:if test="${fn:length(orderView) > 1}">
+		 <c:if test="${count == 1}">
 	
-			<table class="basket" border="1"style="margin-bottom:15px; width:100%">
+			 <table class="basket" border="1"style="margin-bottom:15px; width:100%">
 				<colgroup>
 					<col width="20%">
 					<col width="35%">
@@ -148,18 +148,18 @@
 					</tr>
 				</tfoot>
 				
-			</table>				
+			</table>		 		
 	
 		</c:if>
-		 
-		  <c:if test="${fn:length(orderView) == 1}">
+	
+		   <c:if test="${count == 0}">
 			<table class="basket" style="margin-bottom:15px;">
 				<colgroup>
-					<col width="22%">
-					<col width="42%">
-					<col width="12%">
-					<col width="12%">
-					<col width="12%">
+					<col width="20%">
+					<col width="35%">
+					<col width="25%">
+					<col width="20%">
+					<col width="25%">
 				</colgroup>
 				
 				<thead>
@@ -172,24 +172,24 @@
 					</tr>
 				</thead>	
 							
-					<tr>
+				 	<tr>
 						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${orderView.ITEM_NAME}</td>
 						<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
 						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
 						<%-- <c:set var= "sum" value="${sum + (basketList.basket_goods_price * basketList.basket_goods_amount)}"/> --%>
-					</tr>
+					</tr> 
 				
 				
-				<tfoot>
+			 	<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
 							상품구매금액 <strong><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
-				</tfoot>
+				</tfoot> 
 				
 			</table>		
 			</c:if>		 

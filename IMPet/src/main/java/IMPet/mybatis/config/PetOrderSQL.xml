@@ -21,13 +21,9 @@
 	<!-- 상품에서 바로 주문 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[ 
-			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE,
-					b.MEMBER_NAME, b.MEMBER_TEL, b.MEMBER_EMAIL, b.MEMBER_ADDRESS, b.MEMBER_ADDRESS2, b.MEMBER_ZIPCODE,
-					b.MEMBER_NEWADDRESS, b.MEMBER_NEWADDRESS2, b.MEMBER_NEWZIPCODE
-			FROM
-					PET_ITEM a, PET_MEMBER b
-			WHERE
-					a.ITEM_NO = #{ITEM_NO} AND b.MEMBER_ID = #{MEMBER_ID}
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE
+				FROM PET_ITEM a
+					WHERE a.ITEM_NO = #{ITEM_NO}
 	    ]]>
 	</select>
 	

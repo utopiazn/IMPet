@@ -97,6 +97,7 @@ public class BasketController {
 		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("count", 1);
 		mav.setViewName("OrderFormB");
 		return mav;
 	}
@@ -108,10 +109,13 @@ public class BasketController {
 		System.out.println("펫샵상품바로주문폼");
 		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
-		map.put("BASKET_BUYCOUNT", commandMap.get("BASKET_BUYCOUNT"));
+		
 		
 		System.out.println(map);
-		mav.addObject("orderView", map);
+		
+		mav.addObject("member", map.get("member"));
+		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("count", 0);
 		mav.setViewName("OrderFormD");
 		return mav;
 	
