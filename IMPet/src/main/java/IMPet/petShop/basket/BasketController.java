@@ -28,8 +28,8 @@ public class BasketController {
 	@Resource(name="memberService")
 	private MemberService memberService;
 	
-	@Resource(name="payService")
-	private PayService payService;
+	@Resource(name="receiveService")
+	private ReceiveService receiveService;
 	
 	
 	////////////////////////////////////////////////////////////////////////////Basket
@@ -109,7 +109,7 @@ public class BasketController {
 	
 	}
 	
-	//펫샵주문상품추가
+	//결제정보추가
 	@RequestMapping(value="/OrderInsert")
 	public ModelAndView OrderInsert(CommandMap commandMap, HttpSession session) throws Exception {
 
@@ -119,11 +119,11 @@ public class BasketController {
 		
 		String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderFormD?MEMBER_ID="+id);
+		mav.setViewName("redirect:/PetShop/OrderItemPay?MEMBER_ID="+id);
 		return mav;
 	}
 	
-	//펫샵주문취소
+	//결제취소
 	@RequestMapping(value="/OrderDelete")
 	public ModelAndView OrderDelete(CommandMap commandMap, HttpSession session) throws	Exception {
 		

@@ -37,7 +37,7 @@
 		    
 		}else{
 			  frm.method = "post";
-			  frm.action = "/IMPet/PetShop/OrderItemPay";
+			  frm.action = '/IMPet/PetShop/OrderInsert?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
 			  frm.submit();
 			  return true;
 		 } 

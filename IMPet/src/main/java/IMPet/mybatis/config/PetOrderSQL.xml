@@ -4,7 +4,7 @@
 <mapper namespace="PetOrderSQL">
 
 	<sql id="seletALL" > 
-		<![CDATA[ SELECT * FROM PET_ITEM_BASKET ]]>
+		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
 	</sql>
 
 	
@@ -31,23 +31,33 @@
 	    ]]>
 	</select>
 	
-	<!-- 주문상품추가 -->
+	<!-- 결제정보추가 -->
 	<insert id="odInsert" parameterType="hashmap">
-		insert into PET_ITEM_BASKET
-					 (BASKET_NO,
+		insert into PET_ITEM_ORDER
+					 (ORDER_NO,
 					  ITEM_NO,
+					  ORDER_BUYCOUNT,
 					  MEMBER_ID,
-					  BASKET_BUYCOUNT)
-			values(BASKET_NO_SEQ.NEXTVAL,
+					  ORDER_PRICE,
+					  ORDER_STATE,
+					  ORDER_DATE,
+					  ORDER_TYPE,
+					  ORDER_IMG)
+			values(ORDER_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
+					  #{ORDER_BUYCOUNT},
 				      #{MEMBER_ID},
-				      #{BASKET_BUYCOUNT})
+				      #{ORDER_PRICE},
+				      #{ORDER_STATE},
+				      #{ORDER_DATE},
+				      #{ORDER_TYPE},
+				      #{ORDER_IMG})
 	</insert>
 	
-	<!-- 주문취소 -->
+	<!-- 결제취소 -->
 	<delete id="odDelete" parameterType="hashmap">
 		<![CDATA[
-			DELETE FROM PET_ITEM_BASKET WHERE BASKET_NO = #{BASKET_NO}
+			DELETE FROM PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO}
 		]]>
 	</delete>
 
