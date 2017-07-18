@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
 		String[] num = request.getParameterValues("BASKET_NO");
 		System.out.println("오류확인");
 		for(String a : num) {
+			
 			System.out.println("넘버"+a);
 			map.put("BASKET_NO", a);
 			
