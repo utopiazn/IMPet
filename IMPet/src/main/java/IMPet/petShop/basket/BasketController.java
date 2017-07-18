@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -28,8 +29,8 @@ public class BasketController {
 	@Resource(name="memberService")
 	private MemberService memberService;
 	
-	@Resource(name="payService")
-	private PayService payService;
+	@Resource(name="receiveService")
+	private ReceiveService receiveService;
 	
 	
 	////////////////////////////////////////////////////////////////////////////Basket
@@ -81,14 +82,22 @@ public class BasketController {
 	
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
-	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
+	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		Map<String, Object> map = orderService.selectAll(commandMap.getMap(), request);
+		
+		
+
+		System.out.println(map.size());
+	
 		System.out.println(commandMap.getMap());
 		System.out.println("펫샵장바구니전체주문폼");
-		Map<String, Object> map = orderService.selectAll(commandMap.getMap());
-		
+	
 		System.out.println(map);
-		mav.addObject("member", map.get("memMap"));
-		mav.addObject("orderView", map.get("orderMap"));
+		
+		mav.addObject("member", map.get("member"));
+		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("count", 1);
 		mav.setViewName("OrderFormB");
 		return mav;
 	}
@@ -100,16 +109,19 @@ public class BasketController {
 		System.out.println("펫샵상품바로주문폼");
 		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
-		map.put("BASKET_BUYCOUNT", commandMap.get("BASKET_BUYCOUNT"));
+		
 		
 		System.out.println(map);
-		mav.addObject("orderView", map);
+		
+		mav.addObject("member", map.get("member"));
+		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("count", 0);
 		mav.setViewName("OrderFormD");
 		return mav;
 	
 	}
 	
-	//펫샵주문상품추가
+	//결제정보추가
 	@RequestMapping(value="/OrderInsert")
 	public ModelAndView OrderInsert(CommandMap commandMap, HttpSession session) throws Exception {
 
@@ -119,11 +131,11 @@ public class BasketController {
 		
 		String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderFormD?MEMBER_ID="+id);
+		mav.setViewName("redirect:/PetShop/OrderItemPay?MEMBER_ID="+id);
 		return mav;
 	}
 	
-	//펫샵주문취소
+	//결제취소
 	@RequestMapping(value="/OrderDelete")
 	public ModelAndView OrderDelete(CommandMap commandMap, HttpSession session) throws	Exception {
 		

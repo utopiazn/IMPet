@@ -77,7 +77,7 @@
 	</div>
 	<div class="basket_main">
 	<form name="basketList" >
-	<input type="hidden" name="member_ID" value="${sessionScope.member_ID}">
+	<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
 		<table class="basket" style="margin-bottom:15px;">
 				<colgroup>
 					<col width="5%">

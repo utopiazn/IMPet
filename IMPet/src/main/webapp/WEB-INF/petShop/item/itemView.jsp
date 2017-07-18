@@ -81,7 +81,7 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderForm?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+        location.href = '/IMPet/PetShop/OrderFormD?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
          
     };
       
@@ -259,18 +259,27 @@
 					<img src="/IMPet/resources/image/test/sale5.gif" />
 				</div>
 		            <h3>${view.ITEM_NAME}</h3>
-				<dd class="price">
-					<p class="custom"><fmt:formatNumber value="${view.ITEM_PRICE * 1.4}" type="number"/>원</p>
+				<dd class="price" align="left">
+		
+					<c:if test="${view.ITEM_DCPRICE != null}">
+					<p class="custom"><del><font color="gray"><fmt:formatNumber value="${view.ITEM_PRICE}" type="number"/>원</font></del></p>
+					<p>
+						<font color="red"><span id="price">${view.ITEM_DCPRICE}</span>원</font>
+					</p>
+					</c:if>
+					<c:if test="${view.ITEM_DCPRICE == null}">
+					<p class="custom"></p>
 					<p>
 						<span id="price">${view.ITEM_PRICE}</span>원
 					</p>
+					</c:if>
 				</dd>
 				<div id="totalProducts" class="">
 					<p class="info "><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/ico_information.gif" alt="" />
 						수량을 선택해주세요.
 					</p>
 					<table summary="">
-						<caption>상품 목록</caption>
+						
 						<colgroup>
 							<col style="width: 284px;" />
 							<col style="width: 80px;" />
@@ -287,9 +296,6 @@
 									
 								</td>
 								
-								<td class="right">
-									<span class="quantity_price" id="span1"></span>원
-								</td>
 							</tr>
 						</tbody>
 						<tfoot>

@@ -72,7 +72,7 @@
 				<td>
 					<div class="con">
 						<div> <!-- 사진 넣고 사진에도 바로 상세보기 갈 수 있는 링크 넣기 -->
-							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" style="padding-left : 8px; width: 30%; height: 250px; float:left; ">
 						</div>
 						
 						<div>

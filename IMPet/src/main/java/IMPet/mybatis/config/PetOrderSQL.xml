@@ -4,16 +4,16 @@
 <mapper namespace="PetOrderSQL">
 
 	<sql id="seletALL" > 
-		<![CDATA[ SELECT * FROM PET_ITEM_BASKET ]]>
+		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
 	</sql>
 
 	
-	<!-- 장바구니 상품 전체 주문 -->
+	<!-- 장바구니 상품 선택 주문 -->
 	<select id="selectAll" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, b.*
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE, a.ITEM_REMAINCOUNT, b.*
 				FROM PET_ITEM a, PET_ITEM_BASKET b
-					WHERE b.MEMBER_ID = #{MEMBER_ID} AND a.ITEM_NO = b.ITEM_NO
+					WHERE b.basket_no = #{BASKET_NO} AND a.ITEM_NO = b.ITEM_NO
 					
 		]]>
 	</select>
@@ -21,33 +21,39 @@
 	<!-- 상품에서 바로 주문 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[ 
-			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE,
-					b.MEMBER_NAME, b.MEMBER_TEL, b.MEMBER_EMAIL, b.MEMBER_ADDRESS, b.MEMBER_ADDRESS2, b.MEMBER_ZIPCODE,
-					b.MEMBER_NEWADDRESS, b.MEMBER_NEWADDRESS2, b.MEMBER_NEWZIPCODE
-			FROM
-					PET_ITEM a, PET_MEMBER b
-			WHERE
-					a.ITEM_NO = #{ITEM_NO} AND b.MEMBER_ID = #{MEMBER_ID}
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE
+				FROM PET_ITEM a
+					WHERE a.ITEM_NO = #{ITEM_NO}
 	    ]]>
 	</select>
 	
-	<!-- 주문상품추가 -->
+	<!-- 결제정보추가 -->
 	<insert id="odInsert" parameterType="hashmap">
-		insert into PET_ITEM_BASKET
-					 (BASKET_NO,
+		insert into PET_ITEM_ORDER
+					 (ORDER_NO,
 					  ITEM_NO,
+					  ORDER_BUYCOUNT,
 					  MEMBER_ID,
-					  BASKET_BUYCOUNT)
-			values(BASKET_NO_SEQ.NEXTVAL,
+					  ORDER_PRICE,
+					  ORDER_STATE,
+					  ORDER_DATE,
+					  ORDER_TYPE,
+					  ORDER_IMG)
+			values(ORDER_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
+					  #{ORDER_BUYCOUNT},
 				      #{MEMBER_ID},
-				      #{BASKET_BUYCOUNT})
+				      #{ORDER_PRICE},
+				      #{ORDER_STATE},
+				      #{ORDER_DATE},
+				      #{ORDER_TYPE},
+				      #{ORDER_IMG})
 	</insert>
 	
-	<!-- 주문취소 -->
+	<!-- 결제취소 -->
 	<delete id="odDelete" parameterType="hashmap">
 		<![CDATA[
-			DELETE FROM PET_ITEM_BASKET WHERE BASKET_NO = #{BASKET_NO}
+			DELETE FROM PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO}
 		]]>
 	</delete>
 

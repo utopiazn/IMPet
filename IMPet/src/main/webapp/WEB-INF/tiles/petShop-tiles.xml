@@ -94,7 +94,7 @@
 	
 	<!-- 펫샵주문상품추가 -->
 	<definition name="OrderInsert" extends="petShop_main">
-		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/petShop/basket/orderItemPay.jsp" />
 	</definition>
 	
 	<!-- 펫샵주문취소 -->
