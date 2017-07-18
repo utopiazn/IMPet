@@ -6,48 +6,64 @@
 	<title>tab example</title>
 
 	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="resources\css\gallery\slider.css">
 
 
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 
-<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
-<script src="/IMPet/resources/JQuery/gallery/slider.js" charset="utf-8"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="resources/JQuery/gallery/slider.js"></script> 
 
 
-
+  
 </head>
+
 <body>
 
 
-
-
+<br/><br/>
 
 
 <div class="slide_wrap">
-  <button type="button" class="btn_prev">이전</button>
-  <button type="button" class="btn_next">다음</button>
-  <div class="slide_area">
-    <ul class="slide_box">
-    <li>슬라이드 영역1</li>
-    <li>슬라이드 영역2</li>
-    <li>슬라이드 영역3</li>
-    <li>슬라이드 영역4</li>
-    </ul>
-  </div>
-  <ul class="indigator">
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  </ul>
+	
+	<button type="button" class="btn_prev">이전</button>
+	<button type="button" class="btn_next">다음</button>
+
+	<div class="slide_area">
+
+		<ul class="slide_box">
+	
+			<li>
+				<img src="/IMPet/resources/image/dog1.jpg" />
+			</li>
+	
+			<li>
+				<img src="/IMPet/resources/image/dog1.jpg" />
+			</li>
+	
+			<li>
+				<img src="/IMPet/resources/image/dog1.jpg" />
+			</li>
+	
+			<li>
+				<img src="/IMPet/resources/image/dog1.jpg" />
+			</li>
+	
+		</ul>
+	</div>
+	
+	<ul class="indigator">
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+	</ul>
 </div>
 
-
-
-
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script src="resources/JQuery/gallery/slider.js"></script> 
 
 </body>
 </html>
