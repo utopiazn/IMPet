@@ -316,6 +316,24 @@
 }
 
 
+.upload {  
+  opacity: 0;       /*input type="file" tag 투명하게 처리*/
+  position: relative;
+    width: 100px;
+  height: 100px;
+}
+.replace {    /*button tag 에 원하는 스타일 적용*/
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  font-weight: 600;
+  border-color: transparent;
+  font-size: 25px;
+  background: hotpink;
+  color: #fff;
+  cursor: pointer;
+}
  </style>
 
 
@@ -481,6 +499,11 @@
 
 	<!-- 버튼 예시2 -->
 	<button class="button2">hover</button>
-
+	
+	<input type="file" value="button" class="ex">
+	
+	<!-- <input type="submit" value="등록"> -->
+	<button class="replace">파일 업로드</button>
+	<input type="file" value="파일 업로드" class="upload"> 
 </body>
 </html>
