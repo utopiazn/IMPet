@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -81,14 +82,21 @@ public class BasketController {
 	
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
-	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
+	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		Map<String, Object> map = orderService.selectAll(commandMap.getMap(), request);
+		
+		
+
+		System.out.println(map.size());
+	
 		System.out.println(commandMap.getMap());
 		System.out.println("펫샵장바구니전체주문폼");
-		Map<String, Object> map = orderService.selectAll(commandMap.getMap());
-		
+	
 		System.out.println(map);
-		mav.addObject("member", map.get("memMap"));
-		mav.addObject("orderView", map.get("orderMap"));
+		
+		mav.addObject("member", map.get("member"));
+		mav.addObject("orderView", map.get("orderView"));
 		mav.setViewName("OrderFormB");
 		return mav;
 	}
