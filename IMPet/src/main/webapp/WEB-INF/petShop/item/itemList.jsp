@@ -2,6 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang=ko>
@@ -41,11 +42,11 @@
 							<ul>
 								<li class="prd-name">${bestList.ITEM_NAME}</li>
 								<c:if test="${bestList.ITEM_DCPRICE != null}">
-									<font color="gray" size="2"><del><li class="prd-price">₩ ${bestList.ITEM_PRICE} 원</li></del></font>
-									<font color="red"><li class="prd-price">₩ ${bestList.ITEM_DCPRICE} 원	</li></font>
+									<font color="gray" size="2"><del><li class="prd-price">₩<fmt:formatNumber value="${bestList.ITEM_PRICE}" type="number" />원</li></del></font>
+									<font color="red"><li class="prd-price">₩<fmt:formatNumber value="${bestList.ITEM_DCPRICE}" type="number" />원</li></font>
 								</c:if>
 								<c:if test="${bestList.ITEM_DCPRICE == null}">
-									<li class="prd-price">₩ ${bestList.ITEM_PRICE} 원</li>
+									<li class="prd-price">₩<fmt:formatNumber value="${bestList.ITEM_PRICE}" type="number" />원</li>
 								</c:if>	
 							</ul>
 						</dd>
@@ -68,11 +69,11 @@
 										
 								<li class="prd-name">${items.ITEM_NAME}</li>
 								<c:if test="${items.ITEM_DCPRICE != null}">
-									<font color="gray" size="2"><del><li class="prd-price">₩ ${items.ITEM_PRICE} 원</li></del></font>
-									<font color="red"><li class="prd-price">₩ ${items.ITEM_DCPRICE} 원	</li></font>
+										<font color="gray" size="2"><del><li class="prd-price">₩<fmt:formatNumber value="${items.ITEM_PRICE}" type="number" />원</li></del></font>
+									<font color="red"><li class="prd-price">₩<fmt:formatNumber value="${items.ITEM_DCPRICE}" type="number" />원</li></font>
 								</c:if>
 								<c:if test="${items.ITEM_DCPRICE == null}">
-									<li class="prd-price">₩ ${items.ITEM_PRICE} 원</li>							
+									<li class="prd-price">₩<fmt:formatNumber value="${items.ITEM_PRICE}" type="number" />원</li>							
 								</c:if>
 							</ul>
 						</dd>
