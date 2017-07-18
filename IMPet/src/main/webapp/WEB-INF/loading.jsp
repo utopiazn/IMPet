@@ -52,6 +52,14 @@
 }
 </style>
 
+<script type="text/javascript">
+
+setTimeout( function(){
+	location.href="/IMPet/Main";
+}, 3000);
+
+</script>
+
 </head>
 
 <body>

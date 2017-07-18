@@ -205,6 +205,51 @@ public class MainController {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value="/Loading")
+	public ModelAndView Loading(){
+		
+		mav.setViewName("loading");
+		return mav;
+	}
+	
+	
 	@RequestMapping(value="/Egg")
 	public ModelAndView Egg(){
 		

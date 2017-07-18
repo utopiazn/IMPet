@@ -6,18 +6,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="resources/JQuery/jquery.flexslider.js" charset="utf-8"></script>
 
-
-<script type="text/javascript">
-$(window).load(function() {
-	  $('.flexslider').flexslider({
-	    /* animation: "slide" */
-	  });
-	});
-	
-function openWin(){  
-    window.open("/IMPet/Egg", "egg", "width=800, height=700" );  
-}  
-</script>
 <!-- 이미지슬라이드 -->
 
 <style>
@@ -58,13 +46,8 @@ color: hotpink;
 	  
 	</div>
 	
-	<div style="float: left;">
-	<a href="javascript:openWin();">_</a>
-	</div>
 	
-	
-	
-	<div style="width:48%; float:left ;padding-right: 1%;">
+	<div style="width:45%; float:left ; padding-left:1.5%; padding-right: 6%;">
 		<div align="center" style="width: 100%; font-size: 23px; text-align: center;">
 			<font>EVENT</font>
 		</div>
@@ -85,7 +68,7 @@ color: hotpink;
 		</div>
 	</div>	
 
-	<div style="width:48%;  float: left ; ">
+	<div style="width:45%;  float: left ; ">
 		<div align="center" style="width: 100%; font-size: 23px; text-align:center;">
 			<font>BEST ITEM</font>
 		</div>

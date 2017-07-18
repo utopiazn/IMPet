@@ -166,7 +166,7 @@ ul.dropdown > li {
 <div align="center" style="height: 60%">
 
 <br/><br/>
-<img alt="logo" src="/IMPet/resources/image/logo.png" onclick="location.href='/IMPet/Main'">
+<img alt="logo" src="/IMPet/resources/image/logo.png" onclick="location.href='/IMPet/Loading'">
 <br/><br/>
 </div>
 
