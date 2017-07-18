@@ -8,6 +8,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
 .button3 {
   position: relative;
   padding: 14px 0;
@@ -15,8 +17,8 @@
   float : left;
   color: black;
   cursor: pointer;
-  font-family: 'KoPub Batang' sans-serif;
-  font-size: .9em;
+  font-family: 'Noto sans KR', sans-serif;
+  font-size: 30px;
   text-transform: uppercase;
   transition: color 0.4s, background-color 0.4s;
   display: inline-block;

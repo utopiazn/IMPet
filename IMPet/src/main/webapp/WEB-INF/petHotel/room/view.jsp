@@ -2,54 +2,76 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-.con{
-	margin-top: 5px;
-    border: 1px solid lightgray;
-    width: 100%;
-    height: 100%;
-    float: left;
-    padding-top: 8px;
-    padding-bottom: 15px;
-    }
-
-.con a:link,
-.con a:visited
-{
-    color: black;
-    text-align: center;
-    text-decoration: none;
+.button2 {
+  background: #333;
+  color: #ccc;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
 }
-.button4{
-    display: block;
-    margin: 5px 1px;
-    height: 30px;
-    width: 100px;
-    background-color: transparent;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.button:focus2 {
+  outline: 0;
 }
-.button4:hover{
-  color: #fff;
+.button2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
 }
-
-.btn-4{
-  border: 2px solid #00B488;
-  color: #00B488;
+.button2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
 }
-.btn-4:hover{
-  background-color: #00B488;
+.button2:hover {
+  background: #727070;
+  cursor: pointer;
+}
+.button2:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+.button2:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
 }
 
 
 </style>
 
 <div>
-	<div style="float:left; width:70%; /* border:1px solid black; */ margin-right: 1px; height:500px;">
+	<div style="float:left; width:70%; /* border:1px solid black; */ margin-top: 10px; margin-right: 1px; height:500px;">
 		<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${view.ROOM_IMG}" style="width: 100%; height: 100%;">		
 	</div>
 
@@ -66,7 +88,7 @@
 					<br/>
 					<%-- <font>방 번호 : ${view.ROOM_NO}</font><br/> --%>
 					<font size="10px" style="font-weight: bolder;"> ${view.ROOM_NAME}</font><br/>
-					<font size="5px"> ${view.ROOM_PRICE}원</font><br/>
+					<font size="5px" style="border-bottom: 1px solid lightgray;"> ${view.ROOM_PRICE}원</font><br/>
 				</div>
 				
 				<div align="left" style="margin-bottom:10px;">
@@ -79,19 +101,15 @@
 				
 				<div align="center">
 					요구사항<br/>
-					<textarea name="res_Requests" rows="5" style="width:90%; border: 1px solid lightgray;">${sessionScope.member_Requests}</textarea>
+					<textarea name="res_Requests" rows="13" style="width:90%; border: 1px solid lightgray; margin-bottom: 10px;">${sessionScope.member_Requests}</textarea>
 				</div>	
-								
-				
-				res_NO DB에서 넣어야함<br>
-				res_State DB에서 넣어야함<br>
 				
 				<c:if test="${sessionScope.member_ID!=null}">
-				<input value="룸 예약하기" class="button4 btn-4" type="submit"/>
+				<input value="룸 예약하기" class="button2" type="submit"/>
 				</c:if>
 				
 				<c:if test="${sessionScope.member_ID==null}">
-				<input value="로그인" class="button4 btn-4" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/><br/><br/><br/>	
+				<input value="로그인" class="button2" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/><br/>
 				<small style="color: red;">호텔 예약은 로그인 후 이용가능합니다.</small>			
 				</c:if>
 			</div>
@@ -99,26 +117,27 @@
 	</div>
 </div>
 
-<div style="width:100%; height:19%; clear:both; " >
-	<div style="float: left; ">
-	<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
+<div>
+	<div style="float: left; width: 100%; border:1px solid lightgray; margin-top: 10px;" >
+		<div style="float: left; ">
+		<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
+		</div>
+		
+		<div style="float: left; padding-top: 35px; " >
+		&nbsp;&nbsp;방 소개 : ${view.ROOM_DETAIL}<br/>
+		</div>
 	</div>
+		
+	<br/>
 	
-	<div style="float: left; padding-top: 35px; " >
-	&nbsp;&nbsp;방 소개 : ${view.ROOM_DETAIL}<br/>
+	<div align="right" style="float: right; width:100%; margin-top: 10px;">
+		<c:if test="${sessionScope.member_Admin==1 }">
+		<input value="룸 수정" class="button2" type="button" onclick="ajaxRoomModifyForm(${view.ROOM_NO})"/>
+		<input value="룸 삭제" class="button2" type="button" onclick="ajaxRoomDelete(${view.ROOM_NO})"/>
+		</c:if>
+		<input value="목록으로" class="button2" type="button" onclick="ajaxRoom()"/>
 	</div>
 </div>
-	
-<br/>
-
-<div align="center" style="float:inherit; width:30%; margin-bottom: 20px;">
-	<c:if test="${sessionScope.member_Admin==1 }">
-	<input value="룸 수정" class="button4 btn-4" type="button" onclick="ajaxRoomModifyForm(${view.ROOM_NO})"/>
-	<input value="룸 삭제" class="button4 btn-4" type="button" onclick="ajaxRoomDelete(${view.ROOM_NO})"/>
-	</c:if>
-	<input value="뒤로가기" class="button4 btn-4" type="button" onclick="ajaxRoom()"/>
-</div>
-
 
 
 

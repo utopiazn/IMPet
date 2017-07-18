@@ -9,7 +9,7 @@
 
 
 
-<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
+<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css" style="text/css">
 <script src="/IMPet/resources/JQuery/gallery/slider.js" charset="utf-8"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
