@@ -26,38 +26,42 @@
 
 
 <div class="slide_wrap">
-	
 	<button type="button" class="btn_prev">이전</button>
 	<button type="button" class="btn_next">다음</button>
 
 	<div class="slide_area">
-
-		<ul class="slide_box">
 	
-			<li>
-				<img src="/IMPet/resources/image/dog1.jpg" />
-			</li>
-	
-			<li>
-				<img src="/IMPet/resources/image/dog1.jpg" />
-			</li>
-	
-			<li>
-				<img src="/IMPet/resources/image/dog1.jpg" />
-			</li>
-	
-			<li>
-				<img src="/IMPet/resources/image/dog1.jpg" />
-			</li>
-	
-		</ul>
+	<ul class="slide_box">	
+		<li>
+			<img src="/IMPet/resources/image/dog1.jpg" />
+		</li>
+		
+		<li>
+			<img src="/IMPet/resources/image/dog1.jpg" />
+	  	</li>
+	  
+	  	<li>
+	    	<img src="/IMPet/resources/image/dog1.jpg" />
+	  	</li>
+	  
+	  	<li>
+	    	<img src="/IMPet/resources/image/dog1.jpg" />
+	    </li>
+	 </ul>
 	</div>
-	
-	<ul class="indigator">
-		<li class="active"><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">4</a></li>
+  <ul class="indigator">
+	  <li class="active"><a href="#">1</a></li>
+	  <li><a href="#">2</a></li>
+	  <li><a href="#">3</a></li>
+	  <li><a href="#">4</a></li>
+  </ul>
+  
+ 
+  	<ul class="indigator">	
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
 	</ul>
 </div>
 
