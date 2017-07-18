@@ -96,10 +96,6 @@ color: #ccc;
 	<br/>
 	<c:choose>
 		<c:when test="${view.ROOM_NO == null}">
-			
-			
-			
-			
 			<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert">
 			<div align="left" style="width: 50%; color: gray;" >
 				
@@ -148,49 +144,59 @@ color: #ccc;
 				</div>
 			</div>
 			</form>
-			
-			
-	
-			
-			
-			
-			
-			
-			
-			
 		</c:when>
+		
+		
 		<c:otherwise>		
 		
-			룸을 수정할때
 			<form name="Modify" method="post" enctype="multipart/form-data">
-				room_NO : ${view.ROOM_NO } <input name="room_NO" type="hidden" value="${view.ROOM_NO }"/><br/>
-				room_Name : <input name="room_Name" type="text" value="${view.ROOM_NAME }"/><br/>
-				<input type="hidden" name="room_IMG" value="${view.ROOM_IMG}">
-				room_Detail : <input name="room_Detail" type="text" value="${view.ROOM_DETAIL}"/><br/>
-				room_Price : <input name="room_Price" type="text" value="${view.ROOM_PRICE }"/><br/>
-				room_Total : <input name="room_Total" type="text" value="${view.ROOM_TOTAL }"/><br/>
+			
+			<div align="left" style="width: 50%; color: gray;" >
+				<input name="room_NO" type="hidden" value="${view.ROOM_NO }"/>
+				<input name="room_IMG" type="hidden" value="${view.ROOM_IMG}">
 				
-				<input value="룸 수정" type="button" onclick="ajaxRoomModify();"/>
+				<h2 style="color: gray; border-bottom: 1px solid lightgray;">Pet Hotel Room Modify</h2>
+				<div class="roomSub">
+					객실 번호
+				</div>	
+				
+				<div class="roomIns" style="height : 32px; border : 1px solid white;">
+				${view.ROOM_NO } 
+				</div>
+				
+				<div class="roomSub">
+					객실 이름
+				</div>
+				
+				<input class="roomIns" name="room_Name" type="text" value="${view.ROOM_NAME }"/>
+				
+				<div class="roomSub">
+				 	하루 요금
+				</div>
+				
+				<input class="roomIns" name="room_Price" type="text" value="${view.ROOM_PRICE }"/>
+				
+				<div class="roomSub">
+					전체 객실 수
+				</div>
+				
+				<input class="roomIns" name="room_Total" type="text" value="${view.ROOM_TOTAL }"/>
+				
+				<div class="roomSub">
+					객실 설명
+				</div>
+				
+				<textarea class="roomIns" name="room_Detail" style="height: 70px;">${view.ROOM_DETAIL}</textarea>
+				
+				<div align="center" style="width: 100%; float: left; color: gray; border-top: 1px solid lightgray; padding-top: 10px;">
+					<input class="button2" value="객실 수정" type="button" onclick="ajaxRoomModify()"/>
+					<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoom()"/>
+				</div>
+			</div>
 			</form>
 		</c:otherwise>
 	</c:choose>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
