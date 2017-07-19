@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
+<link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script type="text/javascript"></script>
@@ -62,20 +62,23 @@
 	</ul>
 </div>
 
-<div class="basket_list">
+<div  class="basket_list">
+
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
+		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
 	</div>
-	<div class="basket_main">
-		<table class="basket" style="margin-bottom:15px;">
+
+	<div class="order_main">	
+			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
-					<col width="22%">
-					<col width="42%">
-					<col width="12%">
-					<col width="12%">
-					<col width="12%">
+						<col width="20%">
+					<col width="30%">
+					<col width="20%">
+					<col width="20%">
+					<col width="20%">
 				</colgroup>
+				
 				<thead>
 					<tr>
 						<th scope="col">이미지</th>
@@ -84,71 +87,71 @@
 						<th scope="col">수량</th>
 						<th scope="col">합계</th>
 					</tr>
-				</thead>				
+				</thead>	
+				
+			<c:forEach var="orderPay" items="${orderPay}">			
 					<tr>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${orderView.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<%-- <c:set var= "sum" value="${sum + (basketList.basket_goods_price * basketList.basket_goods_amount)}"/> --%>
-					</tr>
-				
-				
+						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderPay.ITEM_IMG}" width="90" height="90"></td>
+						<td align="center">${orderPay.ITEM_NAME}</td>
+						<td align="center"><fmt:formatNumber value="${orderPay.ITEM_PRICE}" type="number"/>원</td>
+						<td align="center">${orderPay.BASKET_BUYCOUNT}EA</td>
+						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+						<c:set var= "sum" value="${sum + (orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT)}"/> 
+					</tr>				
+			</c:forEach>
 				<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>  원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
-				</tfoot>
-				
-			</table>
-				
-		
-		</div>
+				</tfoot>				
+			</table>		 		
+	
+	
+	</div>
 </div>
 
-<!-- pet_item_receive -->
+
 <div class="orderArea">
 	<h3>배송지 정보</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
-				<caption>배송지 정보</caption>
+				
 				<tbody>
 					<tr>
 						<th scope="row">주소</th>
 						<td>
-							${orderView.MEMBER_ZIPCODE}<br>${orderView.MEMBER_ADDRESS}
+							${receive.RECEIVE_ZIPCODE}<br>${receive.RECEIVE_ADDRESS}&nbsp; / ${receive.RECEIVE_ADDRESS2}
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">이름</th>
-						<td>${orderView.MEMBER_NAME}</td>
+						<td>${receive.RECEIVE_NAME}</td>
 					</tr>
 					<tr>
 						<th scope="row">휴대폰</th>
-						<td>${orderView.MEMBER_TEL}</td>						
+						<td>${receive.RECEIVE_TEL}</td>						
 					</tr> 
 					<tr>
-						<th scope="row">배송요청사항</th>
-						<td>
-							${orderModel.order_memo}</td>
-					</tr>
-					<%-- <tr>
 						<th scope="row">결재방식</th>
-						<td>${orderModel.order_trade_type}</td>
+						<td>${receive.ORDER_TYPE}</td>
 					</tr>   
 					<tr>
 						<th scope="row">입금주소</th>
-						<td>${orderModel.order_trade_payer}</td>
-					</tr>  --%>          
+						<td>${receive.ORDER_PAYER}</td>
+					</tr>     
+					<tr>
+						<th scope="row">배송요청사항</th>
+						<td>
+							${receive.RECEIVE_REQUESTS}</td>
+					</tr>      
 				</tbody>
 			</table>
 		</div>
 </div>
-
+ 
 <form action="/IMPet/PetShop/OrderComplete" method="post">
 <%-- <input type="hidden" name="order_goods_num" value="${orderModel.order_goods_num }" />
 

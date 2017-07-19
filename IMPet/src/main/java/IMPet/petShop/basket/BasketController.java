@@ -91,29 +91,16 @@ public class BasketController {
 
 	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
 	
-		Map<String, Object> map = orderService.selectAll(commandMap.getMap(), request);
-
-
-		
 		ModelAndView mav = new ModelAndView();
 		
-
+		Map<String, Object> map = orderService.selectAll(commandMap.getMap(), request);
 		
-
 		session.setAttribute("orderView", map.get("orderView"));
 		session.setAttribute("member", map.get("member"));
 
-		System.out.println(map.size());
-	
-		System.out.println(commandMap.getMap());
-		System.out.println("펫샵장바구니전체주문폼");
-	
-		System.out.println(map);
-
-		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
-		mav.addObject("count", 1);
+		
 		mav.setViewName("OrderFormB");
 		
 		return mav;
@@ -121,20 +108,19 @@ public class BasketController {
 	
 	//펫샵상품바로주문폼Direct
 	@RequestMapping(value="/OrderFormD")
-	public ModelAndView OrderView(CommandMap commandMap) throws Exception {
+	public ModelAndView OrderView(CommandMap commandMap, HttpSession session) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("펫샵상품바로주문폼");
-		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
 		
-		System.out.println(map);
+		session.setAttribute("orderView", map.get("orderView"));
+		session.setAttribute("member", map.get("member"));
 		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
-		mav.addObject("count", 0);
 		mav.setViewName("OrderFormD");
+		
 		return mav;
 	
 	}
@@ -162,19 +148,23 @@ public class BasketController {
 	//////////////////////////////////////////////////////////////////////////////
 	
 	//펫상품결제진행
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/OrderItemPay")
-	public ModelAndView OrderItemPay(CommandMap commandMap, HttpServletRequest request) {
+	public ModelAndView OrderItemPay(CommandMap commandMap, HttpServletRequest request, HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
+
+		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
+		Map<String,Object> orderMember = (Map<String, Object>) session.getAttribute("member");
 		
-		System.out.println("펫상품결제진행");
-		String[] buy =  request.getParameterValues("BASKET_NO");
+	/*	session.removeAttribute("orderView");
+		session.removeAttribute("member");*/
 		
-		for(String a: buy){
-			System.out.println("BASKET_NO"+a);
-		}
-		System.out.println(commandMap.getMap());
-				
+		
+		mav.addObject("orderPay", orderPay);
+		mav.addObject("member", orderMember);
+		mav.addObject("receive", commandMap.getMap());
+
 		mav.setViewName("OrderItemPay");
 		return mav;
 	}
