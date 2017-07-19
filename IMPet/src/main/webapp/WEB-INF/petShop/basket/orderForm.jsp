@@ -10,7 +10,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 
-<link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
+
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
@@ -21,20 +21,38 @@
 		$("input[name=ORDER_TYPE1]").attr("disabled", true);  
 	}
 	
-	/* 	
-	function openZipcode(){
-		var url="zipcodeCheckForm.dog";
-		open(url, "confirm","toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-	} */
-
 	function chk_radio() { 
+		
+		var frm = document.order;
+		if(frm.RECEIVE_NAME.value == ""){
+			alert("받는사람을 입력해 주세요.");
+			return false;
+		}
+		
+		if(frm.RECEIVE_TEL.value == ""){
+			alert("휴대폰 번호를 입력해 주세요.");
+			return false;
+		}
+		
+		if(frm.RECEIVE_ZIPCODE.value == ""){
+			alert("배송지 주소를 입력해 주세요.");
+			sample6_execDaumPostcode();
+			return false;
+		
+		}
+		
+		if(frm.RECEIVE_TEL.value == ""){
+			alert("휴대폰 번호를 입력해 주세요");
+			return false;
+		}
 		
 		if($("input[name=ORDER_PAYER]:radio:checked").length == 0){
 			
 		    alert("무통장 입금계좌를 선택하세요");
-		    document.order.order_trade_type.focus();
+			return false;
 		    
-		}else{
+		}
+		else{
 			  frm.method = "post";
 			  frm.action = "/IMPet/PetShop/OrderItemPay";
 			  frm.submit();
@@ -52,9 +70,9 @@
 </div>
 
 
-<div  class="basket_list">
+<div  class="order_list">
 
-	<div class="basket_list_top">
+	<div class="order_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
 	</div>
@@ -134,11 +152,11 @@
 <div class="orderArea">
 
      
-	<h3>배송지 정보
+	<h3 style="padding-right: 100px;">배송지 정보
 		<label style="float: left;"> 
 			 <input type="checkbox" name="order" form="order_form" onclick="copydata()">주문자 정보 입력
      	</label>
-     </h3>
+    </h3>
 		<div class="boardWrite">
 			<table border="1" summary="" >
 				
@@ -146,21 +164,21 @@
 					
 					<tr>
 						<th scope="row">받는사람</th>
-						<td><input type="text" name="RECEIVE_NAME" value="" /></td>
+						<td><input type="text" name="RECEIVE_NAME" value="" required /></td>
 					</tr>
 					<tr>
 						<th scope="row">휴대폰</th>
-						<td><input type="text" name="RECEIVE_TEL" value="" /></td>						
+						<td><input type="text" name="RECEIVE_TEL" value="" required /></td>						
 					</tr> 
 				
 					<tr>
 						<th scope="row">주소</th>
 						<td>
 
-							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''" id="sample6_postcode" readonly value=""
-							style="margin-bottom: 2px;" /> <a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
-							<input type="text"  style="width:30%;margin-bottom:2px;" name="RECEIVE_ADDRESS" onclick="this.value=''" id="sample6_address" readonly value=""  style="margin-bottom:5px;"/>
-                   	 		<input type="text" style="width:30%;" name="RECEIVE_ADDRESS2" onclick="this.value=''" id="sample6_address2" value="" />
+							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''" id="sample6_postcode" readonly value="" style="margin-bottom: 2px; float:left;"  /> &nbsp;
+							<a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
+							<input type="text"  style="width:30%; margin-bottom:2px;" name="RECEIVE_ADDRESS" onclick="this.value=''" id="sample6_address" readonly value=""  style="margin-bottom:5px;" />
+                   	 		<input type="text" style="width:30%;" name="RECEIVE_ADDRESS2" onclick="this.value=''" id="sample6_address2" value="" required/>
 						</td>
 					</tr>
 					<tr>
@@ -170,7 +188,7 @@
 					</tr>
 					<tr>
 						<th scope="row" rowspan="2">결제방식</th>
-						<td><input type="radio" name="ORDER_TYPE" value="무통장입금" checked="">무통장입금&nbsp;
+						<td><input type="radio" name="ORDER_TYPE" value="무통장입금" checked="" >무통장입금&nbsp;
 						<input type="radio"	name="ORDER_TYPE1" value="카드결제"> 카드결제&nbsp;
 							</td>
 					</tr>   
@@ -180,14 +198,14 @@
 					    		<div style="display:inline-block;">
 					    		
 						    		<div style="float:left;margin-top: 116px;">
-								    		<input type="radio" name="ORDER_PAYER" value="우리은행 : 1002-053-209817 아임펫">
+								    		<input type="radio" name="ORDER_PAYER" value="농협은행 : 1207-01-004061 박준영" required>
 								    		<br/><br/><br/><br/>
-											<input type="radio" name="ORDER_PAYER" value="신한은행 : 110-419-047027 아임펫">
+											<input type="radio" name="ORDER_PAYER" value="우리은행 : 1002-834-406482 박준영" required>
 											<br/><br/><br/><br/>
-											<input type="radio" name="ORDER_PAYER" value="하나은행 : 762-910017-00507 아임펫">
+											<input type="radio" name="ORDER_PAYER" value="경남은행 : 528-22-0247871 박준영" required>
 									</div>
 									
-						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.jpg">
+						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.gif">
 						    		</div>
 					    					    	   		
 					    		</div>
