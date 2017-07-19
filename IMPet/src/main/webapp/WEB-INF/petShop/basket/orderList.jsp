@@ -100,7 +100,7 @@ function delchk(){
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
 						<td align="center">${orderList.ORDER_TYPE}</td>
 						<td align="center">
-							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${order.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
 						</td>
 				
 					</tr>
