@@ -1,0 +1,76 @@
+.orderArea h3 {
+	margin: 30px 0 5px 5px;
+	font-size: 12px;
+	color: #888;
+	font-weight: bold;
+}
+
+.orderArea .boardWrite table {
+	table-layout: fixed;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 12px;
+	width: 100%;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-weight: 800;
+	text-align: left;
+}
+
+.orderArea .boardWrite table th {
+	width: 140px;
+	padding: 5px 0 5px 22px;
+	border-top: 1px solid #e7e7e7;
+	background: #FAFAFA;
+	color: #888;
+	text-align: left;
+	line-height: 140%;
+	border-left: 0px;
+}
+
+.orderArea .boardWrite table td {
+	width: auto;
+	padding: 5px 0 3px 22px;
+	border-top: 1px solid #e7e7e7;
+	color: #8f8f8f;
+	line-height: 140%;
+	font-size: 12px;
+	border-right: 0px;
+}
+
+.boardWrite input[type="text"] {
+	text-indent: 5px;
+	font-size: 12px;
+	border: 1px solid #cfcecd;
+	background: #fff;
+}
+
+.order_main .basket {
+	color: #8f8f8f;
+	font-size: 13px;
+	border-bottom: 1px solid #e5e5e5;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.order_main {
+	margin: 0 auto;
+}
+
+.order th {
+	padding: 6px 0 4px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f6f6f6;
+	font-weight: normal;
+	font-size: 15px;
+	color: #888;
+}
+
+.order td {
+	padding: 6px 0 4px;
+	border-top: 1px dotted #e3e3e3;
+	line-height: 140%;
+	text-align: center;
+}

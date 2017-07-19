@@ -12,6 +12,7 @@
 
 
 <link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
+<link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 
@@ -43,54 +44,12 @@
 		 } 
 	}
 	
+	
+	
 </script>
 
 
-<style type="text/css">
-	.orderArea h3{
-	    margin: 30px 0 5px 5px;
-	    font-size: 12px;
-	    color: #888;
-	    font-weight: bold;
-	}
-	.orderArea .boardWrite table{
-		table-layout: fixed;
-	    border-top: 1px solid #ccc;
-	    border-bottom: 1px solid #ccc;
-	    font-size: 12px;
-	    width: 100%;
-	    border: 0;
-	    border-spacing: 0;
-	    border-collapse: collapse;
-	    font-weight: 800;
-	}
-	.orderArea .boardWrite table th{
-	    width: 140px;
-	    padding: 5px 0 5px 22px;
-	    border-top: 1px solid #e7e7e7;
-	    background: #FAFAFA;
-	    color: #888;
-	    text-align: left;
-	    line-height: 140%;
-	    border-left: 0px;
-	}
-	.orderArea .boardWrite table td{
-		width: auto;
-	    padding: 5px 0 3px 22px;
-	    border-top: 1px solid #e7e7e7;
-	    color: #8f8f8f;
-	    line-height: 140%;
-	    font-size: 12px;
-	    border-right: 0px;
-	}
-	.boardWrite input[type="text"]{
-		text-indent: 5px;
-	    font-size: 12px;
-	    border: 1px solid #cfcecd;
-	    background: #fff;
-	}
 
-</style>
 <div class="category_top">
 	<ul>
 	 	<li>펫샵 ></li><li>주문하기</li>			
@@ -105,17 +64,17 @@
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
 	</div>
 
-	<div class="basket_main">
+	<div class="order_main">
 
 		 <c:if test="${count == 1}">
 	
-			 <table class="basket" border="1"style="margin-bottom:15px; width:100%">
+			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
+						<col width="20%">
+					<col width="30%">
 					<col width="20%">
-					<col width="35%">
-					<col width="25%">
 					<col width="20%">
-					<col width="25%">
+					<col width="20%">
 				</colgroup>
 				
 				<thead>
@@ -153,13 +112,13 @@
 		</c:if>
 	
 		   <c:if test="${count == 0}">
-			<table class="basket" style="margin-bottom:15px;">
+			<table class="order" style="margin-bottom:15px;">
 				<colgroup>
 					<col width="20%">
-					<col width="35%">
-					<col width="25%">
+					<col width="30%">
 					<col width="20%">
-					<col width="25%">
+					<col width="20%">
+					<col width="20%">
 				</colgroup>
 				
 				<thead>
@@ -178,7 +137,7 @@
 						<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
 						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<%-- <c:set var= "sum" value="${sum + (basketList.basket_goods_price * basketList.basket_goods_amount)}"/> --%>
+						<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
 					</tr> 
 				
 				
@@ -186,7 +145,7 @@
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tfoot> 
@@ -208,7 +167,7 @@
 	<h3>결제자 정보</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
-				<caption>결제자 정보</caption>
+			
 				<tbody>
 					<tr>
 						<th scope="row">성명</th>
@@ -227,31 +186,42 @@
 		</div>
 </div>
 <div class="orderArea">
-	<h3>배송지 정보</h3>
+
+     
+	<h3>배송지 정보
+		<label style="float: left;"> 
+			 <input type="checkbox" name="order" form="order_form" id="same" onclick="copydata()">주문자 정보 입력
+     	</label>
+     </h3>
 		<div class="boardWrite">
-			<table border="1" summary="">
-				<caption>배송지 정보</caption>
+			<table border="1" summary="" >
+				
 				<tbody>
+					
 					<tr>
-						<th scope="row">주소</th>
-						<td><input type="text"  name="zipcode" onclick="this.value=''" id="sample6_postcode" readonly value="${member.MEMBER_ZIPCODE}" style="margin-bottom:2px;"/> 
-								<a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
-							<input type="text"  style="width:100%;margin-bottom:2px;" name="addr" onclick="this.value=''" id="sample6_address" readonly value="${member.MEMBER_ADDRESS}"  style="margin-bottom:5px;"/><br>
-                   	 		<input type="text" style="width:100%;" name="addr2" onclick="this.value=''" id="sample6_address2" readonly value="${member.MEMBER_ADDRESS2}" />
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">이름</th>
-						<td><input type="text" name="order_receive_name" value="${member.MEMBER_NAME}" /></td>
+						<th scope="row">받는사람</th>
+						<td><input type="text" name="RECEIVE_NAME" value="" /></td>
 					</tr>
 					<tr>
 						<th scope="row">휴대폰</th>
-						<td><input type="text" name="order_receive_mobile" value="${member.MEMBER_TEL}" /></td>						
+						<td><input type="text" name="RECEIVE_TEL" value="" /></td>						
 					</tr> 
+				
+					<tr>
+						<th scope="row">주소</th>
+						<td>
+
+							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''"
+							id="sample6_postcode" readonly value=""
+							style="margin-bottom: 2px;" /> <a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
+							<input type="text"  style="width:30%;margin-bottom:2px;" name="RECEIVE_ADDRESS" onclick="this.value=''" id="sample6_address" readonly value=""  style="margin-bottom:5px;"/>
+                   	 		<input type="text" style="width:30%;" name="RECEIVE_ADDRESS2" onclick="this.value=''" id="sample6_address2" value="" />
+						</td>
+					</tr>
 					<tr>
 						<th scope="row">배송요청사항</th>
 						<td>
-						<textarea style="width:100%;" name="order_memo"  placeholder=" 배송시요청사항 예)부재시 경비실에 맡겨주세요"></textarea></td>
+						<textarea style="width:100%;" name="RECEIVE_REQUESTS"  placeholder=" 배송시요청사항 예)부재시 경비실에 맡겨주세요"></textarea></td>
 					</tr>
 					<tr>
 						<th scope="row" rowspan="2">결제방식</th>
@@ -291,3 +261,25 @@
 
 
 </form>
+
+<script>
+function copydata() {
+
+	
+	var name = '${member.MEMBER_NAME}';
+	var tel = '${member.MEMBER_TEL}';
+	var zipcode = '${member.MEMBER_ZIPCODE}';
+	var addr = '${member.MEMBER_ADDRESS}';
+	var addr2 = '${member.MEMBER_ADDRESS2}';
+	
+    if ($('input[name="order"]').prop('checked') === true) {
+       $('input[name="RECEIVE_NAME"]').val(name);
+       $('input[name="RECEIVE_TEL"]').val(tel);
+       $('input[name="RECEIVE_ZIPCODE"]').val(zipcode);
+       $('input[name="RECEIVE_ADDRESS"]').val(addr);
+       $('input[name="RECEIVE_ADDRESS2"]').val(addr2);
+    } else {
+    	frm.reset();
+    }
+ }
+</script>

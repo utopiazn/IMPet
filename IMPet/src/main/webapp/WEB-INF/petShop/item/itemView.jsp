@@ -86,7 +86,6 @@
     };
       
 
-
     var rate = 1;
 
     function rateup(n){
