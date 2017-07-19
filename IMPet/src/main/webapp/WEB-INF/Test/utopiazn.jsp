@@ -10,14 +10,7 @@
 
 	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="resources\css\gallery\slider.css">
-
-<!-- 
- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-   <script src="resources/JQuery/gallery/slider.js"></script> 
- -->
-
+<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
 
 
 

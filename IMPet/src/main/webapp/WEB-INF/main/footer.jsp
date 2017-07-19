@@ -1,15 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <script type="text/javascript">
-$(window).load(function() {
+/* $(window).load(function() {
 	  $('.flexslider').flexslider({
 	    /* animation: "slide" */
 	  });
 	});
-	
-function openWin(){  
+	 */
+/* function openWin(){  
     window.open("/IMPet/Egg", "egg", "width=800, height=700" );  
-}  
+}   */
 </script>
 
 
@@ -333,12 +333,12 @@ footer {
 
 <footer class="flex-rw">
   
-  <ul>
+<!--   <ul>
   	<li>&nbsp;</li>
     <li class="footer-list-header">About</li>
     <li class="footer-list-header"><a href="javascript:openWin();">IMPET</a></li>
     </ul>
-   
+    -->
   <ul class="footer-list-top"> 
     <li><a href='/IMPet/Info' >COMPANY</a></li>
     <li>&nbsp;</li>

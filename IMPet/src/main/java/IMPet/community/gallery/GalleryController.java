@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class GalleryController {
 	
 	 
-	ModelAndView mav = new ModelAndView();
-	
 	
 	//커뮤니티 갤러리 리스트
 	@RequestMapping(value="/GalleryList")
 	public ModelAndView GalleryList(){
 
+		ModelAndView mav = new ModelAndView();
+		
 
 		System.out.println("커뮤니티 갤러리 리스트");
 
@@ -33,6 +33,8 @@ public class GalleryController {
 	public ModelAndView GalleryListAdmin(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("커뮤니티 갤러리 리스트");
 		
 		//관리자페이지 통합코드
@@ -50,8 +52,27 @@ public class GalleryController {
 	public ModelAndView GalleryView(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리  상세보기");
 
+		
+		
+		String txt01="나와라1111111";
+		String txt02="나와라!22222";
+		String txt03="나와라!33333";
+		String txt04="나와라!4444";
+		String txt05="나와라!55555";
+		
+		
+		
+		mav.addObject("TxT01", txt01);
+		mav.addObject("TxT02", txt02);
+		mav.addObject("TxT03", txt03);
+		mav.addObject("TxT04", txt04);
+		mav.addObject("TxT05", txt05);
+	
+		
 		
 		mav.setViewName("GalleryView");
 		return mav;
@@ -63,6 +84,8 @@ public class GalleryController {
 	public ModelAndView GalleryForm(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 추가폼");
 
 		
@@ -77,6 +100,8 @@ public class GalleryController {
 	public ModelAndView GalleryInsert(){
 
 
+
+		ModelAndView mav = new ModelAndView();
 		System.out.println("갤러리 추가 처리");
 
 		//상세보기로 이동
@@ -89,6 +114,8 @@ public class GalleryController {
 	public ModelAndView GalleryModifyForm(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 수정폼");
 
 		mav.setViewName("GalleryModifyForm");
@@ -101,6 +128,8 @@ public class GalleryController {
 	public ModelAndView GalleryModify(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 수정 처리");
 
 		//상세보기로 이동
@@ -129,6 +158,8 @@ public class GalleryController {
 	public ModelAndView GalleryDelete(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 삭제 처리");
 
 		mav.setViewName("GalleryList");
@@ -142,6 +173,8 @@ public class GalleryController {
 	public ModelAndView GalleryComment(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 댓글");
 
 		//상세보기
@@ -155,6 +188,8 @@ public class GalleryController {
 	public ModelAndView GalleryCommentDelete(){
 
 
+		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("갤러리 삭제 처리");
 
 		//상세 보기

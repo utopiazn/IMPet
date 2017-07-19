@@ -55,10 +55,15 @@ $('.slide_wrap').each(function(){
     $control.children('li').removeClass('active'); 
     $control.children('li').eq($index).addClass('active');
 
+   // var index1 = $index+1;
     ImageIndex($index+1);
     // alert($index+1);     
   }
 
+  
+  
+  
+  
   /* 인디게이터 클릭 이벤트 */
   $page.click(function() {
     $index = $(this).parent('li').index();
