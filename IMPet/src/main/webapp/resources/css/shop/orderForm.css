@@ -1,3 +1,20 @@
+.category_top ul{
+    float:right;
+}
+.category_top li{
+	padding: 0 0 0 0;
+    margin: 0 0 0 5px;
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 0px;
+    float:left;
+    list-style:none;
+}
+.order_button{
+	float:right;
+	margin-bottom: 50px;
+}
+
 .orderArea h3 {
 	margin: 30px 0 5px 5px;
 	font-size: 12px;
@@ -46,7 +63,7 @@
 	background: #fff;
 }
 
-.order_main .basket {
+.order_main .order {
 	color: #8f8f8f;
 	font-size: 13px;
 	border-bottom: 1px solid #e5e5e5;

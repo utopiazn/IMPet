@@ -5,6 +5,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <style>
+
+/* clera */
+.clear:after{content:".";height:0;font-size:0;display:block;clear:both;}
+.clear{display:inline-block;}
+* html .clear{height:0;}
+.clear{display:block;}
+.clear-both{clear:both;}
+.over-point {cursor:pointer;}
+.category_top{
+    height: 30px;
+    line-height: 30px;
+}
+.category_top ul{
+    float:right;
+}
+.category_top li{
+	padding: 0 0 0 0;
+    margin: 0 0 0 5px;
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 0px;
+    float:left;
+    list-style:none;
+}
 	.basket_main .basket{	
     color: #8f8f8f;
     font-size: 13px;
@@ -33,30 +57,6 @@
 	float:right;
 	margin-bottom: 50px;
 }
-/* clera */
-.clear:after{content:".";height:0;font-size:0;display:block;clear:both;}
-.clear{display:inline-block;}
-* html .clear{height:0;}
-.clear{display:block;}
-.clear-both{clear:both;}
-.over-point {cursor:pointer;}
-.category_top{
-    height: 30px;
-    line-height: 30px;
-}
-.category_top ul{
-    float:right;
-}
-.category_top li{
-	padding: 0 0 0 0;
-    margin: 0 0 0 5px;
-    color: #999;
-    font-size: 11px;
-    letter-spacing: 0px;
-    float:left;
-    list-style:none;
-}
-
 
 </style>
 
@@ -103,10 +103,10 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}"></td>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
+						<td align="center"><input type="checkbox" name="BASKET_NO" onclick="priceSum();" value="${basketList.BASKET_NO}" required></td>
+						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
+						<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
 						<td align="center">${basketList.BASKET_BUYCOUNT}EA
 						
 	                       
@@ -150,19 +150,21 @@ function cartBuy(){
 	
 	var fm = document.basketList;
 	
-	if($("input:checkbox[name='BASKET_NO']").is(":checked") == false) {
+ 	if($("input:checkbox[name='BASKET_NO']").is(":checked") == false) {
 		alert("상품을 선택해 주세요");
-		return false;
-	};
+		fm.BASKET_NO.focus();
+		
+	}; 
 	
 	
 	fm.action = "/IMPet/PetShop/OrderFormB";
 	fm.method= "post";
 	fm.submit();
 }
+
+
 </script>
 <script>
-
 
 $(".check-all").click(function(){
 
