@@ -69,24 +69,20 @@
 					 </ul>
 				</li>
 				
-				<li><a href="/IMPet/ServiceCenter/AdminNoticeList">공지사항</a>
-				</li>
+				<li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;고객센터</a>
+					  <ul>
+					  	<li><a href="/IMPet/ServiceCenter/AdminNoticeList">공지사항</a></li>				
+						<li><a href="/IMPet/ServiceCenter/AdminFAQList">FAQ</a></li>				
+						<li><a href="/IMPet/ServiceCenter/AdminQuestionList">QnA</a></li>								  
+					 </ul>
+				</li>		
 				
-				<li><a href="/IMPet/ServiceCenter/AdminFAQList">FAQ</a>
-				</li>
-				
-				<li><a href="/IMPet/ServiceCenter/AdminQuestionList">QnA</a>
-				</li>
-
-				<li><a href="/IMPet/Community/GalleryView">GALLERY</a>
-				</li>
-				
-				<li><a href="/IMPet/Community/EventView">EVENT</a>
-				</li>
-				
-				
-				
-			
+				<li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;커뮤니티</a>
+					  <ul>
+					  	<li><a href="/IMPet/Community/AdminGalleryList">GALLERY</a></li>			
+						<li><a href="/IMPet/Community/AdminEventList">EVENT</a></li>					  						  
+					 </ul>
+				</li>				
 			</ul>
 		</div>
 	</div>
@@ -144,6 +140,18 @@
 			<c:when test="${adminCode==9}">
 				<div style="width: 90%; padding-top: 50px;">
 					<jsp:include page="/WEB-INF/serviceCenter/QnA/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==10}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/community/gallery/galleryList.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==11}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/community/Event/eventList.jsp"/>
 				</div>
 			</c:when>
 			
