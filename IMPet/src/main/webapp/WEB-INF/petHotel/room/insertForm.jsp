@@ -96,6 +96,7 @@ color: #ccc;
 	<br/>
 	<c:choose>
 		<c:when test="${view.ROOM_NO == null}">
+		
 			<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert">
 			<div align="left" style="width: 50%; color: gray;" >
 				

@@ -51,8 +51,6 @@
 		
 		<![CDATA[
 		
-		#{SQL}
-		
 			select 
    				 a.*
 			from
