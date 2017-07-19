@@ -34,6 +34,24 @@ public class FAQController {
 		mav.setViewName("FAQList");
 		return mav;
 	}
+	
+	// 자주묻는질문 리스트 관리자용
+	@RequestMapping(value = "/AdminFAQList")
+	public ModelAndView FAQListadmin()throws Exception{
+		
+		List<Map<String, Object>> list = fAQService.selectAll();
+		
+		mav.addObject("list",list);
+		
+		//관리자페이지 통합코드
+		int adminCode = 8;
+		mav.addObject("adminCode", adminCode);
+
+		mav.setViewName("AdminPage");
+		
+		return mav;
+	}
+
 
 	// 자주묻는질문 개별페이지
 	@RequestMapping(value = "/FAQView")

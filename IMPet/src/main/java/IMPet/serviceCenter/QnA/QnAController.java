@@ -32,6 +32,25 @@ public class QnAController {
 		mav.setViewName("QuestionList");
 		return mav;
 	}
+	
+	// Q&A리스트관리자용
+	@RequestMapping(value = "/AdminQuestionList")
+	public ModelAndView QuestionListAdmin() throws Exception {
+
+		List<Map<String, Object>> list = qnAService.selectAll();
+
+		mav.addObject("list", list);
+
+		mav.setViewName("QuestionList");
+		
+		//관리자페이지 통합코드
+		int adminCode = 9;
+		mav.addObject("adminCode", adminCode);
+
+		mav.setViewName("AdminPage");
+		
+		return mav;
+	}
 
 	// Q&A 개별페이지
 	@RequestMapping(value = "/QuestionView")

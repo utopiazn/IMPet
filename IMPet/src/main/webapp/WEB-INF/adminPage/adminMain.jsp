@@ -43,9 +43,12 @@
 </head>
 <body>
 <div class="adminMian" align="left" style="width:100%;" >
-	<div class="adminLeft" style="width: 19%;   float: left; ">
+	<div class="adminLeft" style="width: 19%;  float: left; ">
 		<div class="nestedsidemenu">
 			<ul>
+				 <li>&nbsp;관리자 페이지<br/>
+				 </li>
+				 
 				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
 				 </li>
 				 
@@ -65,12 +68,24 @@
 						  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li> 
 					 </ul>
 				</li>
-			
-				<li><a href="/IMPet/ServiceCenter/NoticeList">공지사항</a>
+				
+				<li><a href="/IMPet/ServiceCenter/AdminNoticeList">공지사항</a>
 				</li>
 				
-				<li><a href="/IMPet/ServiceCenter/FAQList">FAQ</a>
+				<li><a href="/IMPet/ServiceCenter/AdminFAQList">FAQ</a>
 				</li>
+				
+				<li><a href="/IMPet/ServiceCenter/AdminQuestionList">QnA</a>
+				</li>
+
+				<li><a href="/IMPet/Community/GalleryView">GALLERY</a>
+				</li>
+				
+				<li><a href="/IMPet/Community/EventView">EVENT</a>
+				</li>
+				
+				
+				
 			
 			</ul>
 		</div>
@@ -114,9 +129,30 @@
 				</div>
 			</c:when>
 			
+			<c:when test="${adminCode==7}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/notice/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==8}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/FAQ/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==9}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/QnA/list.jsp"/>
+				</div>
+			</c:when>
+			
+			
+			
+			
 			<c:otherwise>
-				<div style="width: 90%; height: 400px; margin-top: 50px; border: 1px solid lightgray;">
-					관리자페이지
+				<div style="width: 90%; height: 400px; margin-top: 50px;">
+					<img alt="admin" src="/IMPet/resources/image/admin.jpg">
 				</div>
 			</c:otherwise>
 			
