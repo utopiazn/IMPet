@@ -127,6 +127,10 @@ public class PetRoomReservationController {
 		/*String url = "petHotel/room/list";*/
 		String url = "AdminPage";
 		
+		//관리자페이지 통합코드
+		int adminCode = 3;
+		mav.addObject("adminCode", adminCode);
+
 		mav.addObject("list", list);
 		
 		mav.setViewName(url);

@@ -46,6 +46,28 @@ public class NoticeController {
 		mav.setViewName("NoticeList");
 		return mav;
 	}
+	
+	// 공지사항 리스트관리자용
+	@RequestMapping(value = "/AdminNoticeList")
+	public ModelAndView NoticeListadmin() throws Exception{
+		
+		List<Map<String, Object>> list = noticeService.selectAll();
+		
+		mav.addObject("list",list);
+
+		System.out.println("공지사항리스트");
+		
+		System.out.println(list);
+		
+		//관리자페이지 통합코드
+		int adminCode = 7;
+		mav.addObject("adminCode", adminCode);
+
+		mav.setViewName("AdminPage");
+		
+		
+		return mav;
+	}
 
 	// 공지사항 개별페이지
 	@RequestMapping(value = "/NoticeView")

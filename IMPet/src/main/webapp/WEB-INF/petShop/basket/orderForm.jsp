@@ -10,17 +10,15 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 
-
 <link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
 
 <script type="text/javascript">
 	
 
 	window.onload = function() {
-		$("input[name=order_trade_type1]").attr("disabled", true);  
+		$("input[name=ORDER_TYPE1]").attr("disabled", true);  
 	}
 	
 	/* 	
@@ -31,7 +29,7 @@
 
 	function chk_radio() { 
 		
-		if($("input[name=order_trade_payer]:radio:checked").length == 0){
+		if($("input[name=ORDER_PAYER]:radio:checked").length == 0){
 			
 		    alert("무통장 입금계좌를 선택하세요");
 		    document.order.order_trade_type.focus();
@@ -42,10 +40,7 @@
 			  frm.submit();
 			  return true;
 		 } 
-	}
-	
-	
-	
+	}	
 </script>
 
 
@@ -66,7 +61,7 @@
 
 	<div class="order_main">
 
-		 <c:if test="${count == 1}">
+	
 	
 			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
@@ -95,72 +90,23 @@
 						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
 						<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
-					</tr>
-				
+					</tr>				
 			</c:forEach>
 				<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <strong><fmt:formatNumber value="${sum}" type="number"/>  원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>  원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
-				</tfoot>
-				
+				</tfoot>				
 			</table>		 		
-	
-		</c:if>
-	
-		   <c:if test="${count == 0}">
-			<table class="order" style="margin-bottom:15px;">
-				<colgroup>
-					<col width="20%">
-					<col width="30%">
-					<col width="20%">
-					<col width="20%">
-					<col width="20%">
-				</colgroup>
-				
-				<thead>
-					<tr>
-						<th scope="col">이미지</th>
-						<th scope="col">상품명</th>
-						<th scope="col">단일금액</th>
-						<th scope="col">수량</th>
-						<th scope="col">합계</th>
-					</tr>
-				</thead>	
-							
-				 	<tr>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${orderView.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
-					</tr> 
-				
-				
-			 	<tfoot>
-					<tr style="height:30px;">
-						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
-							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
-						</td>
-					</tr>
-				</tfoot> 
-				
-			</table>		
-			</c:if>		 
-	
 	</div>
 </div>
 
 <form name="order" id="frm" method="post">
-<%-- <input type="hidden" name="order_sum_money" value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" />
-<input type="hidden" name="id" value="${member_ID}" />
-<input type="hidden" name="item_no" value="${orderView.ITEM_NO}" />
-<input type="hidden" name="basket_buycount" value="${orderView.BASKET_BUYCOUNT}"/> --%>
+<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
+
 
 
 <div class="orderArea">
@@ -190,7 +136,7 @@
      
 	<h3>배송지 정보
 		<label style="float: left;"> 
-			 <input type="checkbox" name="order" form="order_form" id="same" onclick="copydata()">주문자 정보 입력
+			 <input type="checkbox" name="order" form="order_form" onclick="copydata()">주문자 정보 입력
      	</label>
      </h3>
 		<div class="boardWrite">
@@ -211,8 +157,7 @@
 						<th scope="row">주소</th>
 						<td>
 
-							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''"
-							id="sample6_postcode" readonly value=""
+							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''" id="sample6_postcode" readonly value=""
 							style="margin-bottom: 2px;" /> <a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
 							<input type="text"  style="width:30%;margin-bottom:2px;" name="RECEIVE_ADDRESS" onclick="this.value=''" id="sample6_address" readonly value=""  style="margin-bottom:5px;"/>
                    	 		<input type="text" style="width:30%;" name="RECEIVE_ADDRESS2" onclick="this.value=''" id="sample6_address2" value="" />
@@ -225,8 +170,8 @@
 					</tr>
 					<tr>
 						<th scope="row" rowspan="2">결제방식</th>
-						<td><input type="radio" name="order_trade_type" value="무통장입금" checked="">무통장입금&nbsp;
-						<input type="radio"	name="order_trade_type1" value="카드결제"> 카드결제&nbsp;
+						<td><input type="radio" name="ORDER_TYPE" value="무통장입금" checked="">무통장입금&nbsp;
+						<input type="radio"	name="ORDER_TYPE1" value="카드결제"> 카드결제&nbsp;
 							</td>
 					</tr>   
 					<tr>
@@ -235,14 +180,14 @@
 					    		<div style="display:inline-block;">
 					    		
 						    		<div style="float:left;margin-top: 116px;">
-								    		<input type="radio" name="order_trade_payer" value="농협은행 : 1207-01-004061 박준영">
+								    		<input type="radio" name="ORDER_PAYER" value="우리은행 : 1002-053-209817 아임펫">
 								    		<br/><br/><br/><br/>
-											<input type="radio" name="order_trade_payer" value="우리은행 : 1002-834-406482 박준영">
+											<input type="radio" name="ORDER_PAYER" value="신한은행 : 110-419-047027 아임펫">
 											<br/><br/><br/><br/>
-											<input type="radio" name="order_trade_payer" value="경남은행 : 528-22-0247871 박준영">
+											<input type="radio" name="ORDER_PAYER" value="하나은행 : 762-910017-00507 아임펫">
 									</div>
 									
-						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.gif">
+						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.jpg">
 						    		</div>
 					    					    	   		
 					    		</div>

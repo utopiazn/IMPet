@@ -103,7 +103,7 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO" value="${basketList.BASKET_NO}"></td>
+						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}"></td>
 						<td align="center"><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
@@ -143,6 +143,7 @@
 			</div>		
 		</form>
 		</div>
+	
 </div>
 <script>
 function cartBuy(){
@@ -155,12 +156,13 @@ function cartBuy(){
 	};
 	
 	
-	fm.action = "/IMPet/PetShop/OrderFormB;"
+	fm.action = "/IMPet/PetShop/OrderFormB";
 	fm.method= "post";
 	fm.submit();
 }
 </script>
 <script>
+
 
 $(".check-all").click(function(){
 

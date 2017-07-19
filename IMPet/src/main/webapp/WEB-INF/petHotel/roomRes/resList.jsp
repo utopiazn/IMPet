@@ -32,7 +32,7 @@
 		</c:forEach>
 		</c:when>
 		<c:otherwise>
-		예약된 방이 없습니다.
+		예약한 방이 없습니다.
 		</c:otherwise>
 	</c:choose>
 </div>

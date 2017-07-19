@@ -7,8 +7,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
 
 import IMPet.member.MemberDAO;
@@ -54,9 +52,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
-		Map<String, Object> orderMap = orderDAO.selectOne(map);
+		List<Map<String, Object>> orderMap = new ArrayList<Map<String,Object>>();
 		
-		orderMap.put("BASKET_BUYCOUNT", map.get("BASKET_BUYCOUNT"));
+		orderMap.add(orderDAO.selectOne(map));	
+		orderMap.get(0).put("BASKET_BUYCOUNT", map.get("BASKET_BUYCOUNT").toString());
+		
 		Map<String, Object> memMap = memberDAO.selectOne(map);
 		
 		resultMap.put("orderView", orderMap);
@@ -78,9 +78,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> selectList(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
+		
+		return orderDAO.selectList(map);
 	}
 
 }
