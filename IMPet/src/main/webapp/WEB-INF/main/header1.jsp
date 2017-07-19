@@ -55,7 +55,7 @@
 		
 			<input class="button" value="마이페이지" type="button" onclick="location.href='/IMPet/MyPage'"/>
 			<input class="button" value="장바구니" type="button" onclick="location.href='/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}'"/>
-			<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Member/Logout'"/>
+			<input class="button" value="로그아웃" type="button" onclick="location.href='/IMPet/Loading'"/>
 				
 			<c:if test="${ sessionScope.member_Admin eq '1' }">
 			<!--관리자 권한일 경우 -->		
