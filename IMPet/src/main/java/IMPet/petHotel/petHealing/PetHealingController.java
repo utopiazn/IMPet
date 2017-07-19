@@ -52,6 +52,10 @@ public class PetHealingController {
 			
 			String url = "AdminPage";
 			
+			//관리자페이지 통합코드
+			int adminCode = 4;
+			mav.addObject("adminCode", adminCode);
+			
 			mav.addObject("list", list);
 			
 			mav.setViewName(url);
