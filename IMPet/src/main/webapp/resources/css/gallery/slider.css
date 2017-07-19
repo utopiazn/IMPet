@@ -32,7 +32,7 @@
 }
 
 .slide_wrap .btn_prev{
-	left:75px;
+	left:600px;
 	border-right:15px solid #c1ccd8
 }
 .slide_wrap .btn_prev:hover,.slide_wrap .btn_prev:focus{
@@ -40,7 +40,7 @@
 }
 
 .slide_wrap .btn_next{
-	right:75px;
+	right:600px;
 	border-left:15px solid #c1ccd8
 }
 
@@ -51,6 +51,9 @@
 .slide_wrap .slide_area{
 	overflow:hidden;
 	margin:0 auto;
+	
+	width: 550px;
+	height: 300px;
 }
 
 .slide_wrap .slide_box{
@@ -62,6 +65,12 @@
  	width:526px;
 	height:300px;
  }
+
+.indigator2 li a img{
+ 	width:100px;
+	height:100px;
+ }
+
 
 .slide_wrap .slide_box li{
 	float:left;
@@ -101,6 +110,12 @@
 	background-color:#256b9a;
 }
 
+
+.context label{
+	
+	
+	
+}
 
 
 

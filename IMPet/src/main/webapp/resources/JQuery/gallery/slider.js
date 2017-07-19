@@ -38,9 +38,15 @@ $('.slide_wrap').each(function(){
   function stopPlay() {
     clearInterval( $autoPlay );
   }
+  
+
+
+  
 
   /* 슬라이드 이벤트 함수 */
   function slideEvent() {
+	  
+	  
     stopPlay(); // 애니메이션 시간 초기화
     $autoPlay = setInterval(function(){ auto() }, 3000); // 애니메이션 다시 시작
 
@@ -49,7 +55,8 @@ $('.slide_wrap').each(function(){
     $control.children('li').removeClass('active'); 
     $control.children('li').eq($index).addClass('active');
 
-     alert($index+1);     
+    ImageIndex($index+1);
+    // alert($index+1);     
   }
 
   /* 인디게이터 클릭 이벤트 */
@@ -58,12 +65,13 @@ $('.slide_wrap').each(function(){
 
     slideEvent();    
     
-   // alert('인디게이터 클릭 이벤트 ');     
-
+  
+    
+   // ImageIndex();
     return false;
   });
-  
-  
+ 
+
   
 
   /*이미지클릭 이벤트 */
@@ -72,10 +80,13 @@ $('.slide_wrap').each(function(){
 	
     $index = $(this).parent('li').index();
 
-    alert( $index );     
+  /*  alert( $index );    */ 
     slideEvent();    
     
-    alert('인디게이터 클릭 이벤트 ');     
+  //  alert('이미지 클릭 이벤트 ');
+    
+      
+   // document.getElementById("imageIndex").value = $index;
 
     return false;
   });
@@ -92,7 +103,7 @@ $('.slide_wrap').each(function(){
     }
 
     slideEvent();
-    //alert('이전 버튼 클릭 이벤트 ');   
+ //   alert('이전 버튼 클릭 이벤트 ');   
   });
 
   /* 다음 버튼 클릭 이벤트 */
@@ -104,6 +115,6 @@ $('.slide_wrap').each(function(){
     }
 
     slideEvent();
-    //alert('이전 버튼 클릭 이벤트 ');   
+ //   alert('이전 버튼 클릭 이벤트 ');   
   });
 });
