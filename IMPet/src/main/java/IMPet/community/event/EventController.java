@@ -27,6 +27,24 @@ public class EventController {
 		return mav;
 	}
 	
+	//이벤트 리스트 관리자용
+	@RequestMapping(value="/AdminEventList")
+	public ModelAndView EventListAdmin(){
+
+
+		System.out.println("이벤트 리스트");
+
+		
+		//관리자페이지 통합코드
+		int adminCode = 11;
+		mav.addObject("adminCode", adminCode);
+
+		mav.setViewName("AdminPage");
+		
+		
+		return mav;
+	}
+	
 	
 	//이벤트 상세보기
 	@RequestMapping(value="/EventView")

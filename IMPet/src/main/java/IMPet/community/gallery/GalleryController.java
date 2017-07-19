@@ -28,6 +28,22 @@ public class GalleryController {
 		return mav;
 	}
 	
+	//커뮤니티 갤러리 리스트 관리자용
+	@RequestMapping(value="/AdminGalleryList")
+	public ModelAndView GalleryListAdmin(){
+
+
+		System.out.println("커뮤니티 갤러리 리스트");
+		
+		//관리자페이지 통합코드
+		int adminCode = 10;
+		mav.addObject("adminCode", adminCode);
+
+		mav.setViewName("AdminPage");
+		return mav;
+	}
+	
+	
 	
 	//갤러리  상세보기
 	@RequestMapping(value="/GalleryView")

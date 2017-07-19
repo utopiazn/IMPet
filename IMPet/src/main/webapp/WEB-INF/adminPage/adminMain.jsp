@@ -43,9 +43,12 @@
 </head>
 <body>
 <div class="adminMian" align="left" style="width:100%;" >
-	<div class="adminLeft" style="width: 19%;   float: left; ">
+	<div class="adminLeft" style="width: 19%;  float: left; ">
 		<div class="nestedsidemenu">
 			<ul>
+				 <li>&nbsp;관리자 페이지<br/>
+				 </li>
+				 
 				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
 				 </li>
 				 
@@ -65,13 +68,21 @@
 						  <li><a href="/IMPet/PetShop/AdminOrderList">회원 주문 내역 리스트</a></li> 
 					 </ul>
 				</li>
-			
-				<li><a href="/IMPet/ServiceCenter/NoticeList">공지사항</a>
-				</li>
 				
-				<li><a href="/IMPet/ServiceCenter/FAQList">FAQ</a>
-				</li>
-			
+				<li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;고객센터</a>
+					  <ul>
+					  	<li><a href="/IMPet/ServiceCenter/AdminNoticeList">공지사항</a></li>				
+						<li><a href="/IMPet/ServiceCenter/AdminFAQList">FAQ</a></li>				
+						<li><a href="/IMPet/ServiceCenter/AdminQuestionList">QnA</a></li>								  
+					 </ul>
+				</li>		
+				
+				<li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;커뮤니티</a>
+					  <ul>
+					  	<li><a href="/IMPet/Community/AdminGalleryList">GALLERY</a></li>			
+						<li><a href="/IMPet/Community/AdminEventList">EVENT</a></li>					  						  
+					 </ul>
+				</li>				
 			</ul>
 		</div>
 	</div>
@@ -114,9 +125,42 @@
 				</div>
 			</c:when>
 			
+			<c:when test="${adminCode==7}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/notice/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==8}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/FAQ/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==9}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/serviceCenter/QnA/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==10}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/community/gallery/galleryList.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==11}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/community/Event/eventList.jsp"/>
+				</div>
+			</c:when>
+			
+			
+			
+			
 			<c:otherwise>
-				<div style="width: 90%; height: 400px; margin-top: 50px; border: 1px solid lightgray;">
-					관리자페이지
+				<div style="width: 90%; height: 400px; margin-top: 50px;">
+					<img alt="admin" src="/IMPet/resources/image/admin.jpg">
 				</div>
 			</c:otherwise>
 			
