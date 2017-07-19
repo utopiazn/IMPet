@@ -66,8 +66,6 @@
   -webkit-transition: .7s;
   transition: .7s;
 }
-
-
 </style>
 
 <div>
@@ -120,11 +118,11 @@
 <div>
 	<div style="float: left; width: 100%; border:1px solid lightgray; margin-top: 10px;" >
 		<div style="float: left; ">
-		<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
+			<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
 		</div>
 		
 		<div style="float: left; padding-top: 35px; " >
-		&nbsp;&nbsp;방 소개 : ${view.ROOM_DETAIL}<br/>
+			&nbsp;&nbsp;${view.ROOM_DETAIL}<br/>
 		</div>
 	</div>
 		

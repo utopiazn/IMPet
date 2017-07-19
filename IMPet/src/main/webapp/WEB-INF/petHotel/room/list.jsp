@@ -1,11 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script type="text/javascript">
-
-
-</script>
-
 <style>
 .con{
 	margin-top: 5px;
@@ -63,16 +58,10 @@
 	<table style="width: 100%">
 		<c:forEach var="room" items="${list}">
 			<tr>
-				<!-- <td style="width: 30%;">
-					<div style="margin-top: 5px; border:1px solid lightgray; width: 100%; height: 220px; float:left;">
-						<img alt="s2" src="/IMPet/resources/image/dog1.jpg" style="width: 100%; height: 100%;">
-					</div>
-				</td> -->
-				
 				<td>
 					<div class="con">
-						<div> <!-- 사진 넣고 사진에도 바로 상세보기 갈 수 있는 링크 넣기 -->
-							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" style="padding-left : 8px; width: 30%; height: 250px; float:left; ">
+						<div>
+							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" onclick="ajaxRoomView(${room.ROOM_NO});" style="padding-left : 8px; width: 30%; height: 250px; float:left; ">
 						</div>
 						
 						<div>

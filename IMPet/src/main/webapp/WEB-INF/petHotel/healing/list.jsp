@@ -19,11 +19,38 @@
     text-align: center;
     text-decoration: none;
 }
+.button4{
+    display: block;
+    margin: 5px 1px;
+    height: 30px;
+    width: 100px;
+    background-color: transparent;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.button4:hover{
+  color: #fff;
+}
+
+.btn-4{
+  border: 2px solid #00B488;
+  color: #00B488;
+}
+.btn-4:hover{
+  background-color: #00B488;
+}
+
+
 </style>
 
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="right">
-<input value="힐링 추가" type="button" onclick="ajaxHealingInsertForm()"/>
+	<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxHealingInsertForm()"/>
 </div>
 </c:if>
 
@@ -33,13 +60,12 @@
 			<tr>
 				<td>
 					<div class="con">
-						<div> <!-- 사진 넣고 사진에도 바로 상세보기 갈 수 있는 링크 넣기 -->
-							<img alt="s2" src="/IMPet/resources/image/hotel/healingImg/${Healing.HEALING_IMG}" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+						<div>
+							<img alt="s2" src="/IMPet/resources/image/hotel/healingImg/${Healing.HEALING_IMG}" onclick="ajaxHealingView(${Healing.HEALING_NO});" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
 						</div>
 						
 						<div>
 							 <a href="javascript:ajaxHealingView(${Healing.HEALING_NO});" >
-							<%-- 방 번호 : ${room.ROOM_NO} --%>
 							 <h3>&nbsp;&nbsp; ${Healing.HEALING_NAME} <br/><br/></h3>
 							 &nbsp;&nbsp;${Healing.HEALING_DETAIL} <br/><br/></a>
 						</div>

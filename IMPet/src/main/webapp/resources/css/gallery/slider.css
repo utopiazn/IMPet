@@ -2,35 +2,115 @@
 
 
 /* reset */
-body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0} 
+/* body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0} 
 body,input,textarea,select,button,table{font-family:ng,'Malgun Gothic','맑은고딕','Apple SD Gothic Neo',Dotum,'돋음',sans-serif;font-size:14px;color:#282828;line-height:1;letter-spacing:-.5px;word-break:break-all} 
 img,fieldset{border:0} 
 ul,ol{list-style:none} 
 em,address{font-style:normal} 
 a{text-decoration:none} 
 a:hover,a:active,a:focus{text-decoration:none}
-table{width:100%;/*border-collapse:collapse;*/border-spacing:0}
+table{width:100%;border-collapse:collapse;border-spacing:0}
 label{vertical-align:middle}
 textarea{resize:none}
 fieldset,li,img{border:0;vertical-align:top}
 address,caption,em{font-style:normal}
 h1,h2,h3,h4,h5,h6{font-weight:normal}
-button{overflow:visible;border:0;/*outline:none;*/background-color:transparent;cursor:pointer}
+button{overflow:visible;border:0;outline:none;background-color:transparent;cursor:pointer}
 button::-moz-focus-inner{padding:0;border:0}
 .blind,legend{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;
-line-height:100px;white-space:nowrap}
+line-height:100px;white-space:nowrap} */
 /* reset */
 
-.slide_wrap{position:relative;}
-.slide_wrap .btn_prev,.slide_wrap .btn_next{position:absolute;top:50%;width:10px;height:20px;margin-top:-10px;border-top:15px solid transparent;border-bottom:15px solid transparent;font-size:0;transition:0.3s}
-.slide_wrap .btn_prev{left:75px;border-right:15px solid #c1ccd8}
-.slide_wrap .btn_prev:hover,.slide_wrap .btn_prev:focus{border-right-color:#256b9a}
-.slide_wrap .btn_next{right:75px;border-left:15px solid #c1ccd8}
-.slide_wrap .btn_next:hover,.slide_wrap .btn_next:focus{border-left-color:#256b9a}
-.slide_wrap .slide_area{overflow:hidden;margin:0 auto;}
-.slide_wrap .slide_box{overflow:hidden;position:relative}
-.slide_wrap .slide_box li{float:left;width:400px;height:200px;background-color:#c1ccd8;font-size:15px;font-weight:bold;color:#fff;line-height:200px;text-align:center}
-.slide_wrap .indigator{width:100%;margin-top:15px;font-size:0;text-align:center}
-.slide_wrap .indigator li{display:inline-block;margin:0 3px;}
-.slide_wrap .indigator li a{display:block;width:10px;height:10px;border-radius:5px;background-color:#c1ccd8;transition:0.3s}
-.slide_wrap .indigator li.active a{width:40px;background-color:#256b9a;}
+.slide_wrap button{
+	overflow:visible;
+	border:0;
+	outline:none;
+	background-color:transparent;
+	cursor:pointer
+}
+.slide_wrap button::-moz-focus-inner{
+	padding:0;
+	border:0
+}
+
+
+.slide_wrap{
+	position:relative;
+}
+
+.slide_wrap .btn_prev,.slide_wrap .btn_next{
+	position:absolute;
+	top:50%;
+	width:10px;
+	height:20px;
+	margin-top:-10px;
+	border-top:15px solid transparent;
+	border-bottom:15px solid transparent;
+	font-size:0;
+	transition:0.3s
+}
+
+.slide_wrap .btn_prev{
+	left:75px;
+	border-right:15px solid #c1ccd8
+}
+.slide_wrap .btn_prev:hover,.slide_wrap .btn_prev:focus{
+	border-right-color:#256b9a
+}
+
+.slide_wrap .btn_next{
+	right:75px;
+	border-left:15px solid #c1ccd8
+}
+
+.slide_wrap .btn_next:hover,.slide_wrap .btn_next:focus{
+	border-left-color:#256b9a
+}
+
+.slide_wrap .slide_area{
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.slide_wrap .slide_box{
+	overflow:hidden;
+	position:relative
+}
+
+.slide_wrap .slide_box li{
+	float:left;
+	width:400px;
+	height:200px;
+	background-color:#c1ccd8;
+	font-size:15px;
+	font-weight:bold;
+	color:#fff;
+	line-height:200px;
+	text-align:center
+}
+
+.slide_wrap .indigator{
+	width:100%;
+	margin-top:15px;
+	font-size:0;
+	text-align:center
+}
+
+.slide_wrap .indigator li{
+	display:inline-block;
+	margin:0 3px;
+}
+
+.slide_wrap .indigator li a{
+	display:block;
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background-color:#c1ccd8;
+	transition:0.3s
+	}
+
+.slide_wrap .indigator li.active a{
+	width:40px;
+	background-color:#256b9a;
+}
