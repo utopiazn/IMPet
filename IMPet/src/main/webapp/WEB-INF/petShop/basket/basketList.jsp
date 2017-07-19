@@ -155,7 +155,7 @@ function cartBuy(){
 	};
 	
 	
-	fm.action = "/IMPet/PetShop/OrderFormB;"
+	fm.action = "/IMPet/PetShop/OrderFormB";
 	fm.method= "post";
 	fm.submit();
 }

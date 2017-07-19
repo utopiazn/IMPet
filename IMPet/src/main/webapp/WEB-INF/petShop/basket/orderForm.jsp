@@ -10,11 +10,9 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 
-
 <link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
 
 <script type="text/javascript">
 	
@@ -42,10 +40,7 @@
 			  frm.submit();
 			  return true;
 		 } 
-	}
-	
-	
-	
+	}	
 </script>
 
 
@@ -95,18 +90,16 @@
 						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
 						<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
-					</tr>
-				
+					</tr>				
 			</c:forEach>
 				<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <strong><fmt:formatNumber value="${sum}" type="number"/>  원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>  원 </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
-				</tfoot>
-				
+				</tfoot>				
 			</table>		 		
 	
 		</c:if>
@@ -157,11 +150,10 @@
 </div>
 
 <form name="order" id="frm" method="post">
-<%-- <input type="hidden" name="order_sum_money" value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" />
-<input type="hidden" name="id" value="${member_ID}" />
-<input type="hidden" name="item_no" value="${orderView.ITEM_NO}" />
-<input type="hidden" name="basket_buycount" value="${orderView.BASKET_BUYCOUNT}"/> --%>
-
+<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
+	<c:forEach var="orderView" items="${orderView}">
+ <input type="hidden" name="BASKET_NO" value="${orderView.BASKET_NO}" />
+</c:forEach>
 
 <div class="orderArea">
 	<h3>결제자 정보</h3>
@@ -190,7 +182,7 @@
      
 	<h3>배송지 정보
 		<label style="float: left;"> 
-			 <input type="checkbox" name="order" form="order_form" id="same" onclick="copydata()">주문자 정보 입력
+			 <input type="checkbox" name="order" form="order_form" onclick="copydata()">주문자 정보 입력
      	</label>
      </h3>
 		<div class="boardWrite">
@@ -211,8 +203,7 @@
 						<th scope="row">주소</th>
 						<td>
 
-							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''"
-							id="sample6_postcode" readonly value=""
+							<input type="text" name="RECEIVE_ZIPCODE" onclick="this.value=''" id="sample6_postcode" readonly value=""
 							style="margin-bottom: 2px;" /> <a href="#none" title="우편번호(새창으로 열기)" onclick="return sample6_execDaumPostcode()" id="postBtn"><img style="margin-bottom:5px;" src="http://img.echosting.cafe24.com/design/skin/default/member/btn_zip.gif" alt="우편번호"></a><br>
 							<input type="text"  style="width:30%;margin-bottom:2px;" name="RECEIVE_ADDRESS" onclick="this.value=''" id="sample6_address" readonly value=""  style="margin-bottom:5px;"/>
                    	 		<input type="text" style="width:30%;" name="RECEIVE_ADDRESS2" onclick="this.value=''" id="sample6_address2" value="" />

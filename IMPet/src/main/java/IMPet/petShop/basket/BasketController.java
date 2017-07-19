@@ -82,23 +82,19 @@ public class BasketController {
 	
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
-	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
-
+	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
+	
 		Map<String, Object> map = orderService.selectAll(commandMap.getMap(), request);
 		
 		
-
-		System.out.println(map.size());
-	
-		System.out.println(commandMap.getMap());
-		System.out.println("펫샵장바구니전체주문폼");
-	
-		System.out.println(map);
+		session.setAttribute("orderView", map.get("orderView"));
+		session.setAttribute("member", map.get("member"));
 		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
 		mav.addObject("count", 1);
 		mav.setViewName("OrderFormB");
+		
 		return mav;
 	}
 	
@@ -157,9 +153,15 @@ public class BasketController {
 	
 	//펫상품결제진행
 	@RequestMapping(value="/OrderItemPay")
-	public ModelAndView OrderItemPay() {
+	public ModelAndView OrderItemPay(CommandMap commandMap, HttpServletRequest request) {
 		
 		System.out.println("펫상품결제진행");
+		String[] buy =  request.getParameterValues("BASKET_NO");
+		
+		for(String a: buy){
+			System.out.println("BASKET_NO"+a);
+		}
+		System.out.println(commandMap.getMap());
 				
 		mav.setViewName("OrderItemPay");
 		return mav;
