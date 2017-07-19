@@ -1,15 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <script type="text/javascript">
-/* $(window).load(function() {
-	  $('.flexslider').flexslider({
-	    /* animation: "slide" */
-	  });
-	});
-	 */
-/* function openWin(){  
+function openWin(){  
     window.open("/IMPet/Egg", "egg", "width=800, height=700" );  
-}   */
+}
 </script>
 
 
