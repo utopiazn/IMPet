@@ -9,6 +9,11 @@ $('.slide_wrap').each(function(){
   $control = $(this).find('.indigator'),	// 인디게이터
   $page = $control.find('a'),				// 인디게이터 button
   $index = 0;
+  $index1 =0 ;
+  
+  $control2 = $(this).find('.indigator2'),	// 인디게이터
+  $page2 = $control2.find('a'),				// 인디게이터 button
+
 
   /* overflow box width값 지정 */
   $wrap.width($liWidth); 
@@ -21,7 +26,7 @@ $('.slide_wrap').each(function(){
 
   function auto() {
     if( $index < $liLength-1 ){
-      $index++;
+      $index++;      
     }else{
       $index=0;
     }
@@ -44,16 +49,39 @@ $('.slide_wrap').each(function(){
     $control.children('li').removeClass('active'); 
     $control.children('li').eq($index).addClass('active');
 
+     alert($index+1);     
   }
 
   /* 인디게이터 클릭 이벤트 */
   $page.click(function() {
     $index = $(this).parent('li').index();
 
-    slideEvent();
+    slideEvent();    
+    
+   // alert('인디게이터 클릭 이벤트 ');     
 
     return false;
   });
+  
+  
+  
+
+  /*이미지클릭 이벤트 */
+  $page2.click(function() {
+	  
+	
+    $index = $(this).parent('li').index();
+
+    alert( $index );     
+    slideEvent();    
+    
+    alert('인디게이터 클릭 이벤트 ');     
+
+    return false;
+  });
+
+  
+  
 
   /* 이전 버튼 클릭 이벤트 */
   $btnPrev.click(function() {
@@ -64,6 +92,7 @@ $('.slide_wrap').each(function(){
     }
 
     slideEvent();
+    //alert('이전 버튼 클릭 이벤트 ');   
   });
 
   /* 다음 버튼 클릭 이벤트 */
@@ -75,5 +104,6 @@ $('.slide_wrap').each(function(){
     }
 
     slideEvent();
+    //alert('이전 버튼 클릭 이벤트 ');   
   });
 });
