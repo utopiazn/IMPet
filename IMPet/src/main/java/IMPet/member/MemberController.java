@@ -546,9 +546,10 @@ public class MemberController {
 		System.out.println("회원들의 정보 리스트 보여주기");
 
 		String url = "AdminPage";
-		
-		
-		
+
+		//관리자페이지 통합코드
+		int adminCode = 1;
+		mav.addObject("adminCode", adminCode);
 		
 		String pagingHtml = pagingHtml(commandMap,1);
 		commandMap.MapInfoList();

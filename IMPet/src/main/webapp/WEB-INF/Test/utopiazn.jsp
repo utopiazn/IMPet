@@ -29,15 +29,15 @@
 	<button type="button" class="btn_prev">이전</button>
 	<button type="button" class="btn_next">다음</button>
 
-	<div class="slide_area">
+	<div class="slide_area" style="width: 550px;height: 300px;" >
 	
 	<ul class="slide_box">	
 		<li>
-			<img src="/IMPet/resources/image/dog1.jpg" />
+			<img src="/IMPet/resources/image/dog1.jpg"   />
 		</li>
 		
 		<li>
-			<img src="/IMPet/resources/image/dog1.jpg" />
+			<img src="/IMPet/resources/image/dog1.jpg"   />
 	  	</li>
 	  
 	  	<li>
@@ -45,7 +45,7 @@
 	  	</li>
 	  
 	  	<li>
-	    	<img src="/IMPet/resources/image/dog1.jpg" />
+	    	<img src="/IMPet/resources/image/dog1.jpg"   />
 	    </li>
 	 </ul>
 	</div>
@@ -54,15 +54,23 @@
 	  <li><a href="#">2</a></li>
 	  <li><a href="#">3</a></li>
 	  <li><a href="#">4</a></li>
+	  <li><a href="#">5</a></li>
   </ul>
   
- 
+ 	<ul class="indigator2">	
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100px" width="100px" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100px" width="100px" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100px" width="100px" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100px" width="100px" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100px" width="100px" /></a></li>
+	</ul>
+ <!-- 
   	<ul class="indigator">	
 		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
 		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
 		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
 		<li><a href="#"><img src="/IMPet/resources/image/dog1.jpg" height="100"  /></a></li>
-	</ul>
+	</ul> -->
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>

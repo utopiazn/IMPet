@@ -76,42 +76,51 @@
 		</div>
 	</div>
 
-	<div class="adminCenter" align="center" style="width:80%; margin-left: 5px;  float: left;" >
-	
-		<c:if test="${listAll[0].MEMBER_ID!=null}">
-		<div style="width:90%; padding-top: 50px;">
-		<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
-		</div>
-		</c:if>
+	<div class="adminCenter" align="center" style="width: 80%; margin-left: 5px;  float: left;" >
 		
-		<c:if test="${list[0].ROOM_NO!=null}">
-		<div id="ContextHotel" style="width:90%; padding-top: 50px;">
-		<c:if test="${list[0].ROOM_NAME!=null}">
-		<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
-		</c:if>
-		<c:if test="${list[0].RES_NO!=null}">
-		<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
-		</c:if>
-		</div>
-		</c:if>
-		
-		<c:if test="${list[0].HEALING_NO!=null}">
-		<div id="ContextHotel" style="width:90%; padding-top: 50px;">
-		<jsp:include page="/WEB-INF/petHotel/healing/list.jsp"/>
-		</div>
-		</c:if>
-		
-		<c:if test="${Shop == 1}">
-		<div style="width:90%; padding-top: 50px;">
-		<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
-		</div>
-		</c:if>
-		
-		<c:if test="${form!=null}">
-		<div style="width:90%; padding-top: 50px;">
-		<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
-		</div>
-		</c:if>
+		<c:choose>
+			<c:when test="${adminCode==1}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==2 || adminCode==3}">
+				<div id="ContextHotel" style="width: 90%; padding-top: 50px;">
+					<c:if test="${adminCode==2}">
+						<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
+					</c:if>
+					<c:if test="${adminCode==3}">
+						<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
+					</c:if>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==4}">
+				<div id="ContextHotel" style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/petHotel/healing/list.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==5}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==6}">
+				<div style="width: 90%; padding-top: 50px;">
+					<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:otherwise>
+				<div style="width: 90%; height: 400px; margin-top: 50px; border: 1px solid lightgray;">
+					관리자페이지
+				</div>
+			</c:otherwise>
+			
+		</c:choose>
 		
 	</div>
 

@@ -48,7 +48,9 @@ public class AdminItemController {
 		
 		ModelAndView mav = new ModelAndView("AdminPage");
 		
-		mav.addObject("Shop", 1);
+		//관리자페이지 통합코드
+		int adminCode = 5;
+		mav.addObject("adminCode", adminCode);
 		
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
@@ -142,8 +144,9 @@ public class AdminItemController {
 	public ModelAndView AdminItemWriteForm() throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
-		//관리자페이지 구분인자
-		mav.addObject("form", 1);
+		//관리자페이지 통합코드
+		int adminCode = 6;
+		mav.addObject("adminCode", adminCode);
 		
 		mav.setViewName("AdminPage");
 		return mav;

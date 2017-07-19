@@ -1,25 +1,6 @@
  @CHARSET "UTF-8";
 
 
-/* reset */
-/* body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0} 
-body,input,textarea,select,button,table{font-family:ng,'Malgun Gothic','맑은고딕','Apple SD Gothic Neo',Dotum,'돋음',sans-serif;font-size:14px;color:#282828;line-height:1;letter-spacing:-.5px;word-break:break-all} 
-img,fieldset{border:0} 
-ul,ol{list-style:none} 
-em,address{font-style:normal} 
-a{text-decoration:none} 
-a:hover,a:active,a:focus{text-decoration:none}
-table{width:100%;border-collapse:collapse;border-spacing:0}
-label{vertical-align:middle}
-textarea{resize:none}
-fieldset,li,img{border:0;vertical-align:top}
-address,caption,em{font-style:normal}
-h1,h2,h3,h4,h5,h6{font-weight:normal}
-button{overflow:visible;border:0;outline:none;background-color:transparent;cursor:pointer}
-button::-moz-focus-inner{padding:0;border:0}
-.blind,legend{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;
-line-height:100px;white-space:nowrap} */
-/* reset */
 
 .slide_wrap button{
 	overflow:visible;
@@ -77,10 +58,15 @@ line-height:100px;white-space:nowrap} */
 	position:relative
 }
 
+ .slide_box li img{
+ 	width:526px;
+	height:300px;
+ }
+
 .slide_wrap .slide_box li{
 	float:left;
-	width:400px;
-	height:200px;
+	width:526px;
+	height:300px;
 	background-color:#c1ccd8;
 	font-size:15px;
 	font-weight:bold;
@@ -114,3 +100,37 @@ line-height:100px;white-space:nowrap} */
 	width:40px;
 	background-color:#256b9a;
 }
+
+
+
+
+
+
+.indigator2{
+	width:100%;
+	margin-top:15px;
+	font-size:0;
+	text-align:center
+}
+
+.indigator2 li{
+	display:inline-block;
+	margin:0 3px;
+}
+
+.indigator2 li a{
+	display:block;
+	width:100px;
+	height:100px;
+	border-radius:5px;
+	background-color:#c1ccd8;
+	transition:0.3s
+	}
+
+.indigator2 li.active a{
+	width:40px;
+	background-color:#256b9a;
+}
+
+
+
