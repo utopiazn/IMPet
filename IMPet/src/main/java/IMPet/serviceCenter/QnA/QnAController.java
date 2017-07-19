@@ -37,6 +37,10 @@ public class QnAController {
 	@RequestMapping(value = "/QuestionView")
 	public ModelAndView QuestionView(CommandMap commandMap) throws Exception {
 
+		
+		System.out.println(commandMap.getMap());
+
+		
 		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
 
 		System.out.println("자주묻는질문 개별페이지");

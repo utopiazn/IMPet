@@ -51,7 +51,7 @@
 
 <body>
 
-<div align="center">
+<%-- <div align="center">
 	<table border="1">
 		<c:forEach var="FAQ" items="${list}">
 			<tr><td>
@@ -63,10 +63,10 @@
 	</table>
 </div>
 <br/><br/><br/><br/><br/>
-
 <input value="자주묻는질문 추가" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQInsertForm'"/>
 
 
+ --%>
 <div align="center">
 		<table width="900" border="0" cellspacing="0" cellpadding="0"
 			align="center">
@@ -79,8 +79,9 @@
 		</table>
 		<div align="right" width="100%">
 
-			<input value="글쓰기" type="button" class="button3"
-				onclick="location.href='/IMPet/ServiceCenter/NoticeInsertForm'" /> <br />
+			<input value="글쓰기" class="button3" type="button" 
+			onclick="location.href='/IMPet/ServiceCenter/FAQInsertForm'"/>
+<br />
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"
 				align="center">
 
@@ -89,23 +90,19 @@
 
 					<td width="50"><strong>NO</strong></td>
 					<td width="350"><strong>제목</strong></td>
-					<td width="140"><strong>조회수</strong></td>
-					<td width="130"><strong>작성일</strong></td>
 				</tr>
 				<tr bgcolor="#00B488">
-					<td height="2" colspan="4"></td>
+					<td height="2" colspan="2"></td>
 				</tr>
 
-				<c:forEach var="notice" items="${list}">
+				<c:forEach var="FAQ" items="${list}">
 					<tr align="center" style="line-height: 3em;">
-						<td width="50"><strong>${notice.NOTICE_NO}</strong></td>
+						<td width="50"><strong>${FAQ.FAQ_NO}</strong></td>
 						<td width="350"><strong><a
-								href='/IMPet/ServiceCenter/NoticeView?notice_NO=${notice.NOTICE_NO}'>${notice.NOTICE_SUBJECT}</a></strong></td>
-						<td width="140"><strong>${notice.NOTICE_COUNT}</strong></td>
-						<td width="130"><strong>${notice.NOTICE_DATE}</strong></td>
+								href='/IMPet/ServiceCenter/FAQView?FAQ_NO=${FAQ.FAQ_NO}'>${FAQ.FAQ_SUBJECT}</a></strong></td>
 					</tr>
 					<tr bgcolor="#00B488">
-						<td height="1" colspan="4"></td>
+						<td height="1" colspan="2"></td>
 					</tr>
 				</c:forEach>
 			</table>
