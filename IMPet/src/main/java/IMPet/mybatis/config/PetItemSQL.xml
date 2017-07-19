@@ -50,6 +50,7 @@
 	<select id="selectBestMain" resultType="hashmap">
 		
 		<![CDATA[
+		
 			select 
    				 a.*
 			from

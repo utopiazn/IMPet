@@ -55,8 +55,8 @@
 <script type="text/javascript">
 
 setTimeout( function(){
-	location.href="/IMPet/Main";
-}, 3000);
+	location.href="/IMPet/Member/Logout";
+}, 30000);
 
 </script>
 
@@ -67,7 +67,9 @@ setTimeout( function(){
 <div class="loading-container">
   <div class="spinner"></div>
   <div class="spinner-center"></div>
-  <div class="loading-text">Loading...</div>
+  <!-- <div class="loading-text">Loading...</div> -->
+  <div class="loading-text">니가 로그아웃을 할수 있을 거 같아?</div>
+  
 </div>
 
 </body>

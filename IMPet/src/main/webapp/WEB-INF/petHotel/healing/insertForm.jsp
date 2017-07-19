@@ -1,38 +1,196 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<style type="text/css">
+
+.button2 {
+  background: #333;
+  color: #ccc;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+}
+.button:focus2 {
+  outline: 0;
+}
+.button2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:hover {
+  background: #727070;
+  cursor: pointer;
+}
+.button2:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+.button2:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+
+.healingIns{
+width : 40%;
+height : 28px;
+border : 1px solid lightgray;
+margin-bottom : 10px;
+margin-right : 30%;
+float: left;
+}
+
+.healingSub{
+width : 20%;
+height : 32px;
+text-align: center;
+vertical-align : middle;
+float: left;
+}
+
+</style>
+
 <div align="center">
 	<br/>
 	<c:choose>
 		<c:when test="${view.HEALING_NO == null}">
-			
-			힐링시설을 추가할때
 			<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="HealingInsert">
-				healing_NO : <input name="healing_NO" type="text"/>
-				healing_Name : <input name="healing_Name" type="text"/><br/>
-				healing_Detail : <input name="healing_Detail" type="text"/><br/>
-				healing_Time : <input name="healing_Time" type="text"/><br/>
-				healing_Guide : <input name="healing_Guide" type="text"/><br/>
-				healing_IMG : <input name="healing_IMG" type="file"><br/>
+			<div align="left" style="width: 50%; color: gray;" >
 				
-				<input value="힐링 추가" type="submit"/>
+				<h2 style="color: gray; border-bottom: 1px solid lightgray;">Pet Hotel Healing Insert</h2>
+				<div class="healingSub">
+					힐링 번호
+				</div>	
+				
+				<input class="healingIns" name="healing_NO" id=healing_NO type="text"/>
+				
+				<div class="healingSub">
+					힐링 이름
+				</div>
+				
+				<input class="healingIns" name="healing_Name" type="text"/>
+				
+				<div class="healingSub">
+					힐링 이미지
+				</div>
+				
+				<div class="healingIns" style="height: 30px;">
+					<input name="healing_IMG" type="file">
+				</div>
+				
+				<div class="healingSub">
+				 	힐링 이용시간
+				</div>
+				
+				<input class="healingIns" name="healing_Time" type="text"/>
+				
+				<div class="healingSub">
+					힐링 이용안내
+				</div>
+				
+				<input class="healingIns" name="healing_Guide" type="text"/>
+				
+				<div class="healingSub">
+					힐링 설명
+				</div>
+				
+				<textarea class="healingIns" name="healing_Detail" style="height: 70px;"></textarea>
+				
+				<div align="center" style="width: 100%; float: left; color: gray; border-top: 1px solid lightgray; padding-top: 10px;">
+					<input class="button2" value="힐링 추가" type="submit"/>
+					<input class="button2" value="뒤로가기" type="button" onclick="ajaxHealing()"/>
+				</div>
+			</div>
 			</form>
 		</c:when>
 		
 		
 		<c:otherwise>
-		
-			힐링시설을 수정할때
-			<form name="Modify" method="post">
-				healing_NO : ${view.HEALING_NO } <input name="healing_NO" type="hidden" value="${view.HEALING_NO }"/><br/>
-				healing_Name : <input name="healing_Name" type="text" value="${view.HEALING_NAME }"/><br/>
-				healing_Detail : <input name="healing_Detail" type="text" value="${view.HEALING_DETAIL}"/><br/>
-				healing_Time : <input name="healing_Time" type="text" value="${view.HEALING_TIME }"/><br/>
-				healing_Guide : <input name="healing_Guide" type="text" value="${view.HEALING_GUIDE }"/><br/>
-				<input name="healing_IMG" type="hidden" value="${view.HEALING_IMG }"/><br/>
+			
+			<form name="Modify" method="post" enctype="multipart/form-data">
+			
+			<div align="left" style="width: 50%; color: gray;" >
+				<input name="room_NO" type="hidden" value="${view.HEALING_NO }"/>
+				<input name="room_IMG" type="hidden" value="${view.HEALING_IMG}">
 				
-				<input value="힐링 수정" type="button" onclick="ajaxHealingModify();"/>
+				<h2 style="color: gray; border-bottom: 1px solid lightgray;">Pet Hotel Healing Modify</h2>
+				<div class="healingSub">
+					힐링 번호
+				</div>	
+				
+				<div class="healingIns" style="height : 32px; border : 1px solid white;">
+				${view.HEALING_NO } 
+				</div>
+				
+				<div class="healingSub">
+					힐링 이름
+				</div>
+				
+				<input class="healingIns" name="healing_Name" type="text" value="${view.HEALING_NAME }"/>
+				
+				<div class="healingSub">
+				 	힐링 이용시간
+				</div>
+				
+				<input class="healingIns" name="healing_Time" type="text" value="${view.HEALING_TIME }"/>
+				
+				<div class="healingSub">
+					힐링 이용안내
+				</div>
+				
+				<input class="healingIns" name="healing_Guide" type="text" value="${view.HEALING_GUIDE }"/>
+				
+				<div class="healingSub">
+					힐링 설명
+				</div>
+				
+				<textarea class="healingIns" name="healing_Detail" style="height: 70px;">${view.HEALING_DETAIL}</textarea>
+				
+				<div align="center" style="width: 100%; float: left; color: gray; border-top: 1px solid lightgray; padding-top: 10px;">
+					<input class="button2" value="힐링 수정" type="button" onclick="ajaxHealingModify()"/>
+					<input class="button2" value="뒤로가기" type="button" onclick="ajaxHealing()"/>
+				</div>
+			</div>
 			</form>
+			
 		</c:otherwise>
 	</c:choose>
 </div>

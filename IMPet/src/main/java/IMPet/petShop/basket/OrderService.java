@@ -15,5 +15,7 @@ public interface OrderService {
 	public void insert(Map<String, Object> map) throws Exception;
 	
 	public void delete(Map<String, Object> map) throws Exception;
+	
+	Map<String, Object> selectList(Map<String, Object> map) throws Exception;
 
 }
