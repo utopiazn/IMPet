@@ -3,7 +3,7 @@
 
 <mapper namespace="PetReceiveSQL">
 
-	<sql id="seletALL" > 
+	<sql id="selectAll" > 
 		<![CDATA[ SELECT * FROM PET_ITEM_RECEIVE ]]>
 	</sql>
 	

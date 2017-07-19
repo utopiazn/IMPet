@@ -3,8 +3,16 @@
 
 <mapper namespace="PetOrderSQL">
 
-	<sql id="seletALL" > 
+	<sql id="selectAll" > 
 		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
+	</sql>
+	
+	<sql id="where-no"> 
+		<![CDATA[ WHERE ORDER_NO = #{ORDER_NO} ]]>
+	</sql>
+	
+	<sql id="where-id"> 
+		<![CDATA[ WHERE MEMBER_ID = #{MEMBER_ID} ]]>
 	</sql>
 
 	
@@ -50,11 +58,19 @@
 				      #{ORDER_IMG})
 	</insert>
 	
-	<!-- 결제취소 -->
+	<!-- 펫샵구매취소 -->
 	<delete id="odDelete" parameterType="hashmap">
 		<![CDATA[
 			DELETE FROM PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO}
 		]]>
 	</delete>
+	
+	
+	<!-- 펫샵구매내역 -->
+	<select id="odList" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		<include refid="where-id" />
+		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
+	</select>
 
 </mapper>
