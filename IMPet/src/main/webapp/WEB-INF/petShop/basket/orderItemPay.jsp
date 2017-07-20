@@ -55,20 +55,12 @@
 
 </style>
 <script type="text/javascript">
-	
+var onPay = function(){
 
-function submit() { 
-	
-	alert("111");
-/* 	var frm = document.order;
-	
-	 frm.method = "post";
-	frm.action = "/IMPet/PetShop/OrderComplete";
-	frm.submit();
-	
-	return true; */ 
-	 
-}	
+	var id = "${sessionScope.member_ID}";
+	location.href = '/IMPet/PetShop/OrderComplete?MEMBER_ID='+id;
+		
+};
 </script>
 
 
@@ -169,10 +161,11 @@ function submit() {
 		</div>
 </div>
  
-
+	
 	<div class="basket_button" style="margin-top:5px;">
 		<%-- <a href="/IMPet/PetShop/OrderComplete?MEMBER_ID=${MEMBER_ID}"><span >결제하기</span></a> --%>
-		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="submit()" >					
+		 <!-- <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="submit()" > -->
+		 <a href="JavaScript:onPay()"><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" alt="결제하기"></a>					
 	</div>	
 
 </form> 
