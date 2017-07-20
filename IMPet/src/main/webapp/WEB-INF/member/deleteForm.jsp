@@ -33,9 +33,9 @@ color: black;
 <br/><br/>
 <input value="마이페이지로 이동" type="button" onclick="location.href='/IMPet/MyPage/Main'"/>
  -->
-<div style="padding-bottom:20px;">
+<div style="padding-bottom:20px; text-align: center;">
 	
-			<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ecf0f1">
+			<table  cellpadding="0" cellspacing="0" width="100%"> <!-- bgcolor="#ecf0f1" -->
 				<tbody>
 					<tr>
 						<td style="padding:20px 19px;">

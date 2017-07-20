@@ -77,7 +77,7 @@ function ajaxmemberdelete(){
 }
 function ajaxOrderList(id){
 	
-	alert('된다'+id);
+	
 	
 	var formdata = { MEMBER_ID : id};
 	
@@ -168,7 +168,7 @@ color: black;
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									
 																			
-											<!-- <script language="JavaScript">
+											<script language="JavaScript">
 												addOnloadEvent(function() {_ID('confirm_password').focus()});
 											</script> 
 											
@@ -219,7 +219,7 @@ color: black;
 														</table>
 													</div>
 												</form>
-											</div>	 -->																	
+											</div>																
 											</td>
 										</tr>
 									</tbody>	
