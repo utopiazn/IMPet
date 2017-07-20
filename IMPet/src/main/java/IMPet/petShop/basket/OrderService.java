@@ -12,11 +12,12 @@ public interface OrderService {
 	
 	Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
-	
 	public void delete(Map<String, Object> map) throws Exception;
 	
 	List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception;
 	
 	public void insert(Map<String,Object> map, HttpSession session) throws Exception;
+	
+	Map<String, Object> selectTwo(Map<String, Object> map) throws Exception;
 
 }

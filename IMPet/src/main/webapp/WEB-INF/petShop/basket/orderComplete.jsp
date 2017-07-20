@@ -44,7 +44,7 @@
 	        <p>고객님의 주문이<br/><br/>완료 되었습니다.</p>
 			<ul>
 				<li class="number">
-				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.RECEIVE_NO}</span>
+				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${orderPay.RECEIVE_NO}</span>
 				</li>
 				<li class="date">
 				<strong>주문일자</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${orderPay.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></span>
@@ -60,7 +60,7 @@
 	    <div style="margin-top:15px; text-align:center;">
 			<span class="btn btnC_04 btnP_04"><a href="/IMPet/Main"><input type="button" value="메인화면으로"></a></span>
 			<span class="btn btnC_04 btnP_04">
-			<a href="/IMPet/PetShop/OrderList?MEMBER_ID=${sessionScope.member_ID}"><input type="button" value="구매내역"></a>
+			<a href="/IMPet/MyPage#order" onclick="ajaxOrderList()">구매내역</a>
 			<%-- <a href="${contextPath}/IMPet/PetShop/OrderList"><input type="button" value="구매내역"></a> --%>	
 			</span>	
 		</div>

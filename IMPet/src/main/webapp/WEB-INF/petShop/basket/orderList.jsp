@@ -92,12 +92,13 @@ function delchk(){
    
 				<c:forEach var="orderList"  items="${orderList}" varStatus="status">	
 					<tr>
-						<td align="center"><fmt:formatDate value="${orderList.ORDER_DATE}" pattern="YY-MM-dd" /><br/>[ ${orderList.ORDER_NO} ]<br/><br/>
+						<td align="center"><fmt:formatDate value="${orderList.ORDER_DATE}" pattern="YY-MM-dd" /><br/>[ ${orderList.RECEIVE_NO} ]<br/><br/>
 						<%-- [ 송장 : ${order.order_trans_num} ] --%></td>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderList.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${orderList.ITEM_NO}"> ${orderList.ITEM_NAME}</a></td>
-						<td align="center">${orderList.BASKET_BUYCOUNT}EA</td>
+						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderList.ORDER_IMG}" width="90" height="90"></td>
+						<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${orderList.ITEM_NO}"> ${orderList.ORDER_NAME}</a></td>
+						<td align="center">${orderList.ORDER_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
+						
 						<td align="center">${orderList.ORDER_TYPE}</td>
 						<td align="center">
 							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
