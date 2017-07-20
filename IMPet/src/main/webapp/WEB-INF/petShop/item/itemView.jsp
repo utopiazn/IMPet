@@ -55,14 +55,14 @@
 	    var price="${view.ITEM_PRICE}";
 	    var value2 = $("#span1").html(price*amount); 
 	    var value3 = $("em").html(price*amount);
-	    var value4 = $("#am2").html("("+amount+"개)");
+	    var value4 = $("#am2").html("("+amount+"개)"); 
 	    
-	    $('em, #span1').each(
+	     $('em, #span1').each(
 				function() {
 					if (!isNaN(Number($(this).text())) && $(this).text())
 						$(this).text(
 								Number($(this).text()).toLocaleString().split('.')[0]);
-				});
+				}); 
 	   
 	}); 
 	

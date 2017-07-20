@@ -103,12 +103,12 @@
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
 						<td align="center"><input type="checkbox" name="BASKET_NO" id="BASKET_NO" value="${basketList.BASKET_NO}" required>
-											<input type="hidden" id="price" value="${basketList.ITEM_PRICE }">
+											<input type="hidden" id="price" value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT }">
 						</td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${basketList.BASKET_BUYCOUNT}EA
+						<td align="center">${basketList.BASKET_BUYCOUNT} 개
 						
 	                       
 	                    </td>
@@ -117,7 +117,7 @@
 						<td align="center">
 							<a href="/IMPet/PetShop/BasketDelete?BASKET_NO=${basketList.BASKET_NO}&MEMBER_ID=${basketList.MEMBER_ID}" onClick='return confirm("정말로 장바구니를 삭제하시겠습니까?");'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
 						</td>
-						<c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT)}"/>
+						<%-- <c:set var= "sum" value="${sum + (basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT)}"/> --%>
 					</tr>
 				</c:forEach>
 					<c:if test="${fn:length(basketList) <= 0}">
@@ -127,9 +127,9 @@
 					</c:if>
 				<tfoot>
 					<tr style="height:30px;">
-						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
+						<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
 							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ 기본배송 ]</strong>
-							상품구매금액 <strong><fmt:formatNumber value="${sum}" type="number"/> </strong> + 배송비 <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <fmt:formatNumber value="${sum}" type="number"/>원 </strong>&nbsp;&nbsp;&nbsp;
+							상품구매금액 <strong><label id="orderSum"> 0 원 </label> </strong> + 배송비 <strong>0 원</strong> = <strong style="color: #f8941d;font-size: 14px;">합계 : <label id="orderSum2"> 0 원 </label> </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tfoot>
@@ -175,11 +175,17 @@ var price = Number(0);
 	else {
 		price -= Number($(this).parent().find("#price").val());
 	     }
-		   
-	alert(price);
-});     
 	
 
+	
+	$("#orderSum").html(addComma(price));
+	$("#orderSum2").html(addComma(price));
+});     
+	
+ function addComma(x) {
+
+	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
 
 </script>
 <script>

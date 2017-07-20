@@ -87,7 +87,7 @@ public class GalleryController {
 			return "";
 		}
 		
-		StringTokenizer values = new StringTokenizer(strImage+"/","/");
+		StringTokenizer values = new StringTokenizer(strImage+Tokenizer,Tokenizer);
 		
 		int i =1;
 		
@@ -224,14 +224,14 @@ public class GalleryController {
 		
 			
 			
-			String mainImage = "";//imageSplit(strImage,i,"/");
+		String mainImage = "";//imageSplit(strImage,i,"/");
 			
 			
 		
 		if(!strTxt.equals("")){
 			
 			StringTokenizer valuesTxt = new StringTokenizer(strTxt+"##","##");	
-			txtCount = 0;valuesTxt.countTokens();
+			txtCount = valuesTxt.countTokens();
 			
 		}
 		
@@ -243,18 +243,30 @@ public class GalleryController {
 
 		
 		
-		String image01=imageSplit(strTxt,1,"##");
-		String image02=imageSplit(strTxt,2,"##");
-		String image03=imageSplit(strTxt,3,"##");
-		String image04=imageSplit(strTxt,4,"##");
-		String image05=imageSplit(strTxt,5,"##");		
+		String image01=imageSplit(strImage,1,"/");
+		String image02=imageSplit(strImage,2,"/");
+		String image03=imageSplit(strImage,3,"/");
+		String image04=imageSplit(strImage,4,"/");
+		String image05=imageSplit(strImage,5,"/");		
 		
-		String txt01=imageSplit(strTxt,1,"/");
-		String txt02=imageSplit(strTxt,2,"/");
-		String txt03=imageSplit(strTxt,3,"/");
-		String txt04=imageSplit(strTxt,4,"/");
-		String txt05=imageSplit(strTxt,5,"/");
+		String txt01=imageSplit(strTxt,1,"##");
+		String txt02=imageSplit(strTxt,2,"##");
+		String txt03=imageSplit(strTxt,3,"##");
+		String txt04=imageSplit(strTxt,4,"##");
+		String txt05=imageSplit(strTxt,5,"##");
 		
+		
+		
+		
+		System.out.println("txt01:"+txt01);
+
+		System.out.println("txt02:"+txt02);
+
+		System.out.println("txt03:"+txt03);
+
+		System.out.println("txt04:"+txt04);
+
+		System.out.println("txt05:"+txt05);
 		
 		
 		mav.addObject("Image01", image01);
