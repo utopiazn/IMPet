@@ -36,7 +36,10 @@
 	</select>
 	
 	<!-- 결제정보추가 -->
-	<insert id="odInsert" parameterType="hashmap">
+	<insert id="odInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="ORDER_NO">
+		<selectKey keyProperty="ORDER_NO" resultType="String" order="BEFORE">
+			SELECT ORDER_NO_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		insert into PET_ITEM_ORDER
 					 (ORDER_NO,
 					  ITEM_NO,
@@ -46,16 +49,20 @@
 					  ORDER_STATE,
 					  ORDER_DATE,
 					  ORDER_TYPE,
-					  ORDER_IMG)
-			values(ORDER_NO_SEQ.NEXTVAL,
+					  ORDER_IMG,
+					  ORDER_NAME)
+			values(
+					  #{ORDER_NO},
 					  #{ITEM_NO},
-					  #{ORDER_BUYCOUNT},
+					  #{BASKET_BUYCOUNT},
 				      #{MEMBER_ID},
-				      #{ORDER_PRICE},
-				      #{ORDER_STATE},
-				      #{ORDER_DATE},
-				      #{ORDER_TYPE},
-				      #{ORDER_IMG})
+				      #{ITEM_PRICE},
+				      1,
+				      sysdate,
+				      1,
+				      #{ITEM_IMG},
+				      #{ITEM_NAME})
+				      
 	</insert>
 	
 	<!-- 펫샵구매취소 -->
