@@ -60,9 +60,8 @@
 
 </style>
 
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 
 
 <div class="category_top">
@@ -103,7 +102,7 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO" onclick="priceSum();" value="${basketList.BASKET_NO}" required></td>
+						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}" required></td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
@@ -139,7 +138,10 @@
 				<a class="check-unall"> <span class="button-label">전체 해제</span></a>						
 				<button class="button"><span class="button-label">선택 삭제</span>	</button>					
 				<a href="/IMPet/PetShop/Main"><span >쇼핑계속하기</span></a>	
-				<a href="#" onClick="cartBuy()"><span>상품주문</span></a>  		
+			<!-- 	<a href="" onClick="cartBuy()"><span>상품주문</span></a>   -->
+	
+					<input type="button" value="주문하기" onclick="cartBuy()" />					
+						
 			</div>		
 		</form>
 		</div>
@@ -150,16 +152,22 @@ function cartBuy(){
 	
 	var fm = document.basketList;
 	
- 	if($("input:checkbox[name='BASKET_NO']").is(":checked") == false) {
-		alert("상품을 선택해 주세요");
-		fm.BASKET_NO.focus();
+	 if($("input:checkbox[name=BASKET_NO]").is(":checked") == false ){
 		
-	}; 
+	    alert("상품을 선택해 주세요");
+		return false;
+	    
+	} 
+	
+
+ 	else {
+		fm.action = "/IMPet/PetShop/OrderFormB";
+		fm.method= "post";
+		fm.submit();
+	} 
 	
 	
-	fm.action = "/IMPet/PetShop/OrderFormB";
-	fm.method= "post";
-	fm.submit();
+
 }
 
 

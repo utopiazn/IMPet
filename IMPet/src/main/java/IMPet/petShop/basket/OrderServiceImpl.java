@@ -7,9 +7,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Service;
 
 import IMPet.member.MemberDAO;
+import IMPet.module.CommandMap;
 
 @Service(value="orderService")
 public class OrderServiceImpl implements OrderService {
@@ -65,10 +68,22 @@ public class OrderServiceImpl implements OrderService {
 		return resultMap;
 	}
 
+
+
+	@SuppressWarnings("unchecked")
 	@Override
-	public void insert(Map<String, Object> map) throws Exception {
+	public void insert(Map<String, Object> map, HttpSession session) throws Exception {
+		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
-		orderDAO.insert(map);		
+		for(int i = 0; i<orderPay.size(); i++) {
+			orderPay.get(i).put("MEMBER_ID", map.get("MEMBER_ID"));
+			
+			System.out.println("주문내역리스트"+orderPay);
+			orderDAO.insert(orderPay.get(i));
+		}
+		
+		
+		
 	}
 
 	@Override

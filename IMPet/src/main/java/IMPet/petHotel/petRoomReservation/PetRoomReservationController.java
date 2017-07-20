@@ -144,7 +144,10 @@ public class PetRoomReservationController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		petRoomReservationService.resPayment(commandMap.getMap());
+		Map<String, Object> map = commandMap.getMap();
+		map.put("res_State", 1);
+		
+		petRoomReservationService.resPayment(map);
 		
 		System.out.println("호텔 룸 예약 결제상태 변경(관리자용)");
 		
@@ -174,7 +177,10 @@ public class PetRoomReservationController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		petRoomReservationService.resDelete(commandMap.getMap());
+		Map<String, Object> map = commandMap.getMap();
+		map.put("res_State", 2);
+		
+		petRoomReservationService.resPayment(map);
 		
 		System.out.println("룸 예약 취소(개인용)");
 		
