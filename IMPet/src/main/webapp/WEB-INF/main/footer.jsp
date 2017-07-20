@@ -327,12 +327,12 @@ footer {
 
 <footer class="flex-rw">
   
-<!--   <ul>
+  <ul>
   	<li>&nbsp;</li>
     <li class="footer-list-header">About</li>
     <li class="footer-list-header"><a href="javascript:openWin();">IMPET</a></li>
-    </ul>
-    -->
+  </ul>
+   
   <ul class="footer-list-top"> 
     <li><a href='/IMPet/Info' >COMPANY</a></li>
     <li>&nbsp;</li>
