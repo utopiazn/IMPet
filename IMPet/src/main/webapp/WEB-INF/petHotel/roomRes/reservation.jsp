@@ -36,8 +36,8 @@ HotelReservation
 	<input type="hidden" name="res_Requests" value="${res.res_Requests}">
 
 	<div class="resDIV2">
-		방번호 : ${res.room_NO} <br/>
-		방이름 : ${res.room_Name}
+		객실 번호 : ${res.room_NO} <br/>
+		객실 이름 : ${res.room_Name}
 	</div>
 	
 	<div class="resDIV2">
@@ -53,7 +53,7 @@ HotelReservation
 	</div>
 	
 	<div class="resDIV2">
-		남은 객실수 : ${retotal.NUM} / ${res.room_Total}
+		 이용가능 객실 수 : ${retotal.NUM} / ${res.room_Total}
 	</div>
 
 	<div class="resDIV2">
