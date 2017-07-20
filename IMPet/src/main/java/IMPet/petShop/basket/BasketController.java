@@ -1,5 +1,6 @@
 package IMPet.petShop.basket;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -155,14 +156,15 @@ public class BasketController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
+		//List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
 		orderService.insert(commandMap.getMap(), session);
-		 
+		Map<String, Object> map = orderService.selectTwo(commandMap.getMap());
 		
 		System.out.println("펫샵주문완료");
+		System.out.println(map);
 			
-		mav.addObject("orderPay", orderPay);
+		mav.addObject("orderPay", map);
 		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;

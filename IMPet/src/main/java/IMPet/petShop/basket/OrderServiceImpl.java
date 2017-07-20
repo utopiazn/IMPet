@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
 		for(int i = 0; i < orderPay.size(); i++) {
 			
 			orderPay.get(i).put("MEMBER_ID", map.get("MEMBER_ID"));
-			orderPay.get(i).put("ORDER_RECEIVE_NO", map.get("RECEIVE_NO"));
+			orderPay.get(i).put("RECEIVE_NO", map.get("RECEIVE_NO"));
 			
 			System.out.println("주문내역리스트"+orderPay);
 			
@@ -112,6 +112,12 @@ public class OrderServiceImpl implements OrderService {
 	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
 		
 		return orderDAO.selectList(map);
+	}
+
+	@Override
+	public Map<String, Object> selectTwo(Map<String, Object> map) throws Exception {
+		
+		return orderDAO.selectTwo(map);
 	}
 
 }

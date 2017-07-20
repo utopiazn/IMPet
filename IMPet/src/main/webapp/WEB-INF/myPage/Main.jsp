@@ -2,7 +2,7 @@
 <!-- <link rel="stylesheet" type="text/css" href="/IMPet/resources/css/admin/mypage.css" /> -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 
@@ -95,6 +95,15 @@ function ajaxOrderList(id){
 
     });
 }
+
+$(document).ready(function() {
+	var link = document.location.href;
+	var tab = link.split('MyPage').pop();
+
+
+		$('a[href$=' + tab + ']').trigger("click");
+
+});
 </script>
 
 
@@ -144,11 +153,11 @@ color: black;
 				
 				<table cellpadding="0" cellspacing="0">
 					<tbody><tr>
-						<td><a href="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
-						<td><a href="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
-						<td><a href="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
+						<td><a href=#member onclick="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
+						<td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
+						<td><a href=#order onclick="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
 						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
-						<td><a href="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
+						<td><a href=#delet onclick="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 						
 					</tr>
 				</tbody></table>

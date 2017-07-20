@@ -14,6 +14,10 @@
 	<sql id="where-id"> 
 		<![CDATA[ WHERE MEMBER_ID = #{MEMBER_ID} ]]>
 	</sql>
+	
+	<sql id="where-reNo"> 
+		<![CDATA[ WHERE RECEIVE_NO = #{RECEIVE_NO} ]]>
+	</sql>
 
 	
 	<!-- 장바구니 상품 선택 주문 -->
@@ -49,7 +53,7 @@
 					  ORDER_TYPE,
 					  ORDER_IMG,
 					  ORDER_NAME,
-					  ORDER_RECEIVE_NO)
+					  RECEIVE_NO)
 			values(
 					  ORDER_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
@@ -61,7 +65,7 @@
 				      1,
 				      #{ITEM_IMG},
 				      #{ITEM_NAME},
-				      #{ORDER_RECEIVE_NO})
+				      #{RECEIVE_NO})
 				      
 	</insert>
 	
@@ -78,6 +82,12 @@
 		<include refid="selectAll" />
 		<include refid="where-id" />
 		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
+	</select>
+	
+	<!-- 상품에서 바로 주문 -->
+	<select id="selectTwo" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" /> 
+		<include refid="where-reNo" />
 	</select>
 
 </mapper>
