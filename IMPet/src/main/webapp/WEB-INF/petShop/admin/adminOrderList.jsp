@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>관리자회원주문내역리스트</title>
 </head>
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <script>
 $( document ).ready(function() {
 	$('#dataTables-example').rowspan(0);
@@ -170,7 +171,8 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<td style="text-align:center;vertical-align:middle;">
 										
 										<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div></td>									
+										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div>
+										 </td>									
 									</tr>
 								</c:forEach>
 

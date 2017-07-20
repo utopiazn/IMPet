@@ -149,6 +149,7 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
