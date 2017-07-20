@@ -169,7 +169,7 @@ function ajaxPageView(page){
         },
        
         success : function(data) {  
-      		 $('#ContextEvent').html(data);          		
+      		 $('#ContextEvent2').html(data);          		
         }
         
       });        
@@ -200,6 +200,8 @@ function ajaxPageView(page){
 	  </div>
 	</div>
 	
+	<div id="ContextEvent2">
+	
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
 	
 		<c:if test="${sessionScope.member_Admin==1 }">
@@ -211,16 +213,14 @@ function ajaxPageView(page){
 				
 		<div align="center">
 			<table style="width: 100%">
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ11111111111
+			
 				<c:forEach var="Event" items="${listAll}">
-				
-				ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
 				
 					<tr>
 						<td>
 							<div class="con">
 								<div>
-									<img alt="s2" src="/IMPet/resources/image/event/${Event.EVENT_IMG}" onclick="ajaxHealingView(${Healing.HEALING_NO});" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+									<img alt="s2" src="/IMPet/resources/image/event/${Event.EVENT_IMG}"  style="padding-left : 8px; width: 30%; height: 100%; float:left;" >
 								</div>
 								
 								<div>
@@ -247,6 +247,7 @@ function ajaxPageView(page){
 	
 	
 	
+	</div>
 	</div>
 </div>
 
