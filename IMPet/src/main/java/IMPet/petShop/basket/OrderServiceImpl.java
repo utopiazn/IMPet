@@ -92,8 +92,9 @@ public class OrderServiceImpl implements OrderService {
 			
 			orderDAO.insert(orderPay.get(i));
 			
-			basketDAO.delete(orderPay.get(i));
-			
+			if(orderPay.get(i).get("BASKET_NO") != null){
+				basketDAO.delete(orderPay.get(i));
+			}
 		}
 		
 		session.removeAttribute("orderView");

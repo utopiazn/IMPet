@@ -154,11 +154,14 @@ public class BasketController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
+		
 		orderService.insert(commandMap.getMap(), session);
 		 
 		
 		System.out.println("펫샵주문완료");
 			
+		mav.addObject("orderPay", orderPay);
 		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;
