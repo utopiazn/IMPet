@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="GallerySQL">
+	
+
+
+	
+	<!--회원 특정 범위 리스트 -->
+	<select id="selectRangeAll" resultType="hashmap" parameterType="hashmap">
+		
+		<![CDATA[		
+			    
+   			select 
+   				aa.* 
+   			from (   			
+   			
+				select 
+			     	row_number() over(order by 	GALLERY_DATE) as NO, 
+		            a.gallery_NO,
+                	b.member_Nickname,
+		            a.gallery_Subject,
+		            a.gallery_Content,
+		            a.member_ID,
+		            a.gallery_IMG,
+		            a.gallery_Count,
+		            a.gallery_Date,
+		            (
+		            	select 
+		            		count(*) 
+		            	from 
+		            		PET_GALLERYCOMMENT 
+		            	where 
+		            		gallery_NO = a.gallery_NO 
+		            	
+		            ) as gallery_NUM  
+		        from 
+		        	PET_GALLERY a  RIGHT OUTER JOIN PET_MEMBER b     ON a.member_ID = b.member_ID  
+			 	) aa    
+			 where 
+			 	aa.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
+        	 order by 			 
+			 	aa.GALLERY_DATE
+        
+		]]>
+	</select>
+	
+		
+	
+	<!--전체 갤러리 카운터수-->
+	<select id="selectGalleryCount" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	PET_GALLERY 			
+			
+		]]>
+	</select>
+	
+	
+			
+	<!--갤러리 상세보기 본 횟수 -->
+	<update id="addViewNum" parameterType="hashmap">
+		<![CDATA[
+		
+			update 
+				PET_GALLERY 
+			set 
+				gallery_Count = gallery_Count+1 
+			where 
+				GALLERY_NO = #{GALLERY_NO}									
+
+		]]>
+			
+	</update>	
+	
+	
+	
+	
+</mapper>

@@ -41,6 +41,12 @@
 		
 		}
 		
+		if(frm.RECEIVE_ADDRESS2.value == ""){
+			alert("남은 주소를 입력해 주세요.");
+			return false;
+		
+		}
+		
 		if(frm.RECEIVE_TEL.value == ""){
 			alert("휴대폰 번호를 입력해 주세요");
 			return false;
