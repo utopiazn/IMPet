@@ -171,13 +171,16 @@ public class BasketController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		
 		System.out.println("펫샵구매내역");
+		System.out.println(commandMap.getMap());
+		
 		List<Map<String, Object>> list = orderService.selectList(commandMap.getMap());
 		
 		System.out.println("size"+list.size());
 		
 		mav.addObject("orderList", list);
-		mav.setViewName("OrderList");
+		mav.setViewName("petShop/basket/orderList");
 		return mav;
 	}
 	
