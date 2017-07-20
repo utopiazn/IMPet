@@ -11,7 +11,7 @@
 		<c:when test="${list[0].RES_NO != null}">
 		<c:forEach var="res" items="${list}">
 			<div style="border:1px solid lightgray; width: 100%; height: 100px; margin-bottom: 15px;">
-				<div style="border:1px solid lightgray; width: 90%; height: 88px; margin: 5px; float: left;">
+				<div style="border:1px solid lightgray; width: 88%; height: 88px; margin: 5px; float: left;">
 					예약 번호 : ${res.RES_NO} / 방 번호 : ${res.ROOM_NO} / 예약금 : ${res.RES_PRICE}<br/>
 					예약기간 : ${res.RES_FIRSTDATE} ~ ${res.RES_LASTDATE} / 특이사항 : ${res.RES_REQUESTS}<br/>
 					결재상태 : 
