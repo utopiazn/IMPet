@@ -68,7 +68,7 @@ public class GalleryController {
 			
 			System.out.println(i+":"+str);
 			
-			String mainImage =imageSplit(str,1);
+			String mainImage =imageSplit(str,1,"/");
 			
 			listAll.get(i).put("MAINIMAGE", mainImage);
 			
@@ -78,7 +78,7 @@ public class GalleryController {
 		
 	}
 	
-	public static String imageSplit(String strImage,int idx) throws Exception {
+	public static String imageSplit(String strImage,int idx,String Tokenizer) throws Exception {
 		
 		if(strImage == null || strImage.equals("")){
 			
@@ -122,7 +122,11 @@ public class GalleryController {
 		
 		
 		
-		int blockCount =5;
+		int blockCount =6;
+		
+		
+		
+		
 		
 		int totalCount=  galleryService.selectGalleryCount();	
 		
@@ -182,12 +186,18 @@ public class GalleryController {
 	
 	//갤러리  상세보기
 	@RequestMapping(value="/GalleryView")
-	public ModelAndView GalleryView(){
+	public ModelAndView GalleryView(CommandMap commandMap) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
-		
 		System.out.println("갤러리  상세보기");
+
+		
+		commandMap.MapInfoList();
+		
+		galleryService.addViewNum(commandMap.getMap());
+		
+		
 
 		
 		

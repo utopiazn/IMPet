@@ -26,5 +26,12 @@ public class GalleryServiceImpl implements GalleryService{
 		// TODO Auto-generated method stub
 		return galleryDAO.selectGalleryCount();
 	}
+
+	@Override
+	public void addViewNum(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+		galleryDAO.addViewNum(map);		
+	}
 	
 }

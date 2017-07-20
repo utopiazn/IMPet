@@ -14,5 +14,12 @@ public interface GalleryService {
 	
 	//갤러리 전체 리스트
 	public int  selectGalleryCount() throws Exception;
+
+	//갤러리 상세보기 본 횟수
+	public void addViewNum(Map<String, Object> map) throws Exception;
+	
+	
+	
+	
 	
 }

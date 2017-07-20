@@ -57,16 +57,16 @@
 <script type="text/javascript">
 	
 
-function submit() { 
+function order_sub() { 
 	
-	alert("111");
-/* 	var frm = document.order;
+
+ 	var frm = document.order;
 	
 	 frm.method = "post";
 	frm.action = "/IMPet/PetShop/OrderComplete";
 	frm.submit();
 	
-	return true; */ 
+	return true;  
 	 
 }	
 </script>
@@ -128,8 +128,17 @@ function submit() {
 	
 	</div>
 </div>
-<form name="order" method="post">
+<form name="order" id="frm" method="post">
 <input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
+<input type="hidden" name="RECEIVE_ZIPCODE" value="${receive.RECEIVE_ZIPCODE}">
+<input type="hidden" name="RECEIVE_ADDRESS" value="${receive.RECEIVE_ADDRESS}">
+<input type="hidden" name="RECEIVE_ADDRESS2" value="${receive.RECEIVE_ADDRESS2}">
+<input type="hidden" name="RECEIVE_NAME" value="${receive.RECEIVE_NAME}">
+<input type="hidden" name="RECEIVE_TEL" value="${receive.RECEIVE_TEL}">
+<input type="hidden" name="ORDER_TYPE" value="${receive.ORDER_TYPE}">
+<input type="hidden" name="ORDER_PAYER" value="${receive.ORDER_PAYER}">
+<input type="hidden" name="RECEIVE_REQUESTS" value="${receive.RECEIVE_REQUESTS}">
+
 
 <div class="orderArea">
 	<h3>배송지 정보</h3>
@@ -172,7 +181,7 @@ function submit() {
 
 	<div class="basket_button" style="margin-top:5px;">
 		<%-- <a href="/IMPet/PetShop/OrderComplete?MEMBER_ID=${MEMBER_ID}"><span >결제하기</span></a> --%>
-		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="submit()" >					
+		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()" >					
 	</div>	
 
 </form> 

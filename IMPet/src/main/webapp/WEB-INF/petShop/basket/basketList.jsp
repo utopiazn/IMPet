@@ -102,7 +102,9 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}" required></td>
+						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}" required>
+											<input type="hidden" id="price" value="${basketList.ITEM_PRICE }">
+						</td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
 						<td align="center">${basketList.ITEM_NAME}</td>
 						<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
