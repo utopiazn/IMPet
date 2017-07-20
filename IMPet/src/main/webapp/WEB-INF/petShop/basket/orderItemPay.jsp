@@ -62,7 +62,7 @@ function order_sub() {
 
  	var frm = document.order;
 	
-	 frm.method = "post";
+	frm.method = "post";
 	frm.action = "/IMPet/PetShop/OrderComplete";
 	frm.submit();
 	
@@ -170,8 +170,7 @@ function order_sub() {
 					</tr>     
 					<tr>
 						<th scope="row">배송요청사항</th>
-						<td>
-							${receive.RECEIVE_REQUESTS}</td>
+						<td>${receive.RECEIVE_REQUESTS}</td>
 					</tr>      
 				</tbody>
 			</table>
@@ -180,7 +179,6 @@ function order_sub() {
  
 
 	<div class="basket_button" style="margin-top:5px;">
-		<%-- <a href="/IMPet/PetShop/OrderComplete?MEMBER_ID=${MEMBER_ID}"><span >결제하기</span></a> --%>
 		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()" >					
 	</div>	
 

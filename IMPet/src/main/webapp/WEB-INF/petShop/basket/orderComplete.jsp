@@ -44,13 +44,13 @@
 	        <p>고객님의 주문이<br/><br/>완료 되었습니다.</p>
 			<ul>
 				<li class="number">
-				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${orderModel3.order_trade_num}</span>
+				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.RECEIVE_NO}</span>
 				</li>
 				<li class="date">
-				<strong>주문일자</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${orderModel3.order_trade_date}" pattern="YY.MM.dd HH:mm" /></span>
+				<strong>주문일자</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${orderPay.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></span>
 				</li>
-				<li class="date">
-				<strong>입금계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${orderModel3.order_trade_payer}</span>
+				<li class="number">
+				<strong>입금계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.ORDER_PAYER}</span>
 				</li>
 				
 			</ul>

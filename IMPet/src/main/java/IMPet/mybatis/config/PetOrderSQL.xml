@@ -29,14 +29,14 @@
 	<!-- 상품에서 바로 주문 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[ 
-			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE, a.ITEM_NO
 				FROM PET_ITEM a
 					WHERE a.ITEM_NO = #{ITEM_NO}
 	    ]]>
 	</select>
 	
 	<!-- 결제정보추가 -->
-	<insert id="odInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="ORDER_NO">
+	<insert id="odInsert" parameterType="hashmap" >
 
 		insert into PET_ITEM_ORDER
 					 (ORDER_NO,
