@@ -138,14 +138,19 @@ public class EventController {
 	
 	//이벤트 상세보기
 	@RequestMapping(value="/EventView")
-	public ModelAndView EventView(){
+	public ModelAndView EventView(CommandMap commandMap) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
+		//String url = "community/event/eventListAdd";
+		
+
+		String url = "community/event/eventView";
+
 
 		System.out.println("이벤트 상세보기");
 
 		
-		mav.setViewName("EventView");
+		mav.setViewName(url);
 		return mav;
 	}
 	
@@ -204,7 +209,7 @@ public class EventController {
 		System.out.println("이벤트 수정처리");
 
 		//이벤트 상세 보기로 이동
-		mav.setViewName("EventView");
+		mav.setViewName("EventView1");
 		return mav;
 	}
 	
@@ -218,7 +223,7 @@ public class EventController {
 		System.out.println("이벤트 삭제");
 
 		//이벤트 상세 보기로 이동
-		mav.setViewName("EventView");
+		mav.setViewName("EventView1");
 		return mav;
 	}
 	

@@ -116,14 +116,13 @@ function ajaxEvent(){
 		  
 	var url1 = "/IMPet/Community/EventList";
 	
-
 	var dataList =
 	{ 
-		"Event" : "1" 	
+		"Event" : "1"	
 	}	
 
 	
-	
+	 data : dataList,
     $.ajax({    
       type : "POST",
       url : url1,
@@ -142,6 +141,34 @@ function ajaxEvent(){
    
 }
 
+
+
+
+function EventView(EVENT_NO){
+		  
+	var url1 = "/IMPet/Community/EventView";
+	
+	 alert(EVENT_NO);     	
+
+	
+	
+    $.ajax({    
+      type : "POST",
+      url : url1,
+     
+      dataType : "text",      
+      error : function() {
+    	  
+    	 alert('오류임!');     	
+      },
+      success : function(data) {  
+    	 $('#ContextEvent').html(data);
+        		
+      }
+      
+    });    
+   
+}
 
 
 
@@ -187,8 +214,6 @@ function ajaxPageView(page){
 <br/><br/>
 
 
-	<c:if test="${ menu == 1}">
-
 <div align="center" style="width: 100%;">
 
 	<div style="width: 100%; float: left;" >
@@ -200,46 +225,20 @@ function ajaxPageView(page){
 	  </div>
 	</div>
 	
+	
+			
+	
+	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
+	
 		<c:if test="${sessionScope.member_Admin==1 }">
 			<div align="right">
 				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxHealingInsertForm()"/>
 			</div>
 		</c:if>	
-			
-	
-	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
 	
 	
 	 	<jsp:include page="/WEB-INF/community/event/eventListAdd.jsp"/>
-				
-	<%-- 	<div align="center">
-			<table style="width: 100%">
-			
-				<c:forEach var="Event" items="${listAll}">
-				
-					<tr>
-						<td>
-							<div class="con">
-								<div>
-									<img alt="s2" src="/IMPet/resources/image/event/${Event.EVENT_IMG}"  style="padding-left : 8px; width: 30%; height: 100%; float:left;" >
-								</div>
-								
-								<div>
-									 <a href="javascript:ajaxHealingView(${Event.EVENT_NO});" >
-									 <h3>&nbsp;&nbsp; ${Event.EVENT_SUBJECT} <br/><br/></h3>
-									 &nbsp;&nbsp;${Event.EVENT_CONTENT} <br/><br/></a>
-								</div>
-							</div>
-									
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-			
-			
-			<div class="paging">			
-				${pagingHtml} 
-			</div> --%>
+	
 	</div>			 					 
 		
 	
@@ -248,13 +247,8 @@ function ajaxPageView(page){
 	
 	
 	
-	</div>
-	
 </div>
-
-&nbsp;
-</c:if>
-
+	
 
 
 			

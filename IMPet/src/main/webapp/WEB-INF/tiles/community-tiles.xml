@@ -74,7 +74,7 @@
 		</definition>
 				
 		<!-- 이벤트 상세보기  -->	
-		<definition name="EventView" extends="Event_main">
+		<definition name="EventView1" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/event/eventView.jsp" />
 		</definition>
 				

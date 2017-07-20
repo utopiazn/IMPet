@@ -143,10 +143,6 @@
 
 		
 	
-	
-	
-	<%-- ${itemList.GALLERY_SUBJECT} 
-		<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>	 --%>
 	</c:forEach>
 					
 </div>
@@ -154,17 +150,7 @@
 
 	<div class="paging">
 	
-	
-	<!-- <strong>1</strong>   <a class='page' href='javascript:ajaxPageView(2);' >2</a>  --> 
-			
-	
-	
-	${pagingHtml} 
-			
-		
-		
-
-		
+		${pagingHtml} 		
 	</div>
 
 
