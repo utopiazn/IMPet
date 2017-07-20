@@ -61,7 +61,7 @@
 	<!-- 예약상태 수정 -->
 	<update id="resPayment" parameterType="hashmap">
 		<![CDATA[
-		UPDATE PET_ROOM_RESERVATION SET RES_STATE = 1
+		UPDATE PET_ROOM_RESERVATION SET RES_STATE = #{res_State}
 		]]>
 		<include refid="where-no"/>
 	</update>

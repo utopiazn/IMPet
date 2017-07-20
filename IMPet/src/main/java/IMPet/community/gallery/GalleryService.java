@@ -1,0 +1,18 @@
+package IMPet.community.gallery;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface GalleryService {
+	
+	
+	//갤러리 특정 범위 리스트
+	public List<Map<String, Object>> selectRangeAll(Map<String, Object> map) throws Exception;
+	
+	//갤러리 전체 리스트
+	public int  selectGalleryCount() throws Exception;
+	
+}

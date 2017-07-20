@@ -71,8 +71,13 @@
 		var num="${view.ITEM_NO}";
 		var amount = document.itemform.amount.value;
 		var id = "${sessionScope.member_ID}";
-		location.href = '/IMPet/PetShop/BasketInsert?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
-			
+		if(id == ""){
+			alert("로그인 후 이용이 가능합니다.");
+			location.href = '/IMPet/Member/LoginForm';
+		}
+		else {
+			location.href = '/IMPet/PetShop/BasketInsert?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+		}
 	};
 		
 	//주문처리
@@ -81,8 +86,15 @@
         var num="${view.ITEM_NO}";
         var amount = document.itemform.amount.value;
         var id = "${sessionScope.member_ID}";
-        location.href = '/IMPet/PetShop/OrderFormD?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
-         
+        
+    
+		if(id == ""){
+			alert("로그인 후 이용이 가능합니다.");
+			location.href = '/IMPet/Member/LoginForm';
+		}
+		else {
+     	   location.href = '/IMPet/PetShop/OrderFormD?ITEM_NO='+num+'&BASKET_BUYCOUNT='+amount+'&MEMBER_ID='+id;
+		}
     };
       
 

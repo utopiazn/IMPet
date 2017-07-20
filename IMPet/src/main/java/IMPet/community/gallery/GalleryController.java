@@ -2,31 +2,164 @@ package IMPet.community.gallery;
 
 
 
+
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.module.CommandMap;
 
+import java.util.StringTokenizer;
 
 @Controller 
 @RequestMapping(value="/Community")
 public class GalleryController {
 	
 	 
+	@Resource(name="galleryService")
+	private GalleryService galleryService;
+	
 	
 	//커뮤니티 갤러리 리스트
 	@RequestMapping(value="/GalleryList")
-	public ModelAndView GalleryList(){
+	public ModelAndView GalleryList(CommandMap commandMap) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 		
+		
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
 
+		
+		
+		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		
+		
+		imageSplitMain(listAll);
+		
+		
+		System.out.println(listAll.get(0));
+		
 		System.out.println("커뮤니티 갤러리 리스트");
 
 		
 		mav.setViewName("GalleryList");
 		return mav;
 	}
+	
+	private void imageSplitMain(List<Map<String,Object>> listAll) throws Exception{
+	
+		
+		for(int i=0; i<listAll.size();i++){
+			
+			
+			String str = listAll.get(i).get("GALLERY_IMG").toString();
+			
+			System.out.println(i+":"+str);
+			
+			String mainImage =imageSplit(str,1);
+			
+			listAll.get(i).put("MAINIMAGE", mainImage);
+			
+			System.out.println(i+":"+mainImage);
+			
+		}
+		
+	}
+	
+	public static String imageSplit(String strImage,int idx) throws Exception {
+		
+		if(strImage == null || strImage.equals("")){
+			
+			//System.out.println("이미지 자체가 없음"+strImage);
+			
+			return "";
+		}
+		
+		StringTokenizer values = new StringTokenizer(strImage+"/","/");
+		
+		int i =1;
+		
+		while(values.hasMoreElements()){
+						
+			String image =values.nextToken();
+					
+			//System.out.println( i+ ":"+ image);
+			
+			if(i== idx){
+				return image;
+			}
+			
+			/*switch (i) {
+			case 1:	this.image_01 =image; break;
+			case 2:	this.image_02 =image; break;
+			case 3:	this.image_03 =image; break;
+			case 4:	this.image_04 =image; break;
+			case 5:	this.image_05 =image; break;
+			default:
+				break;
+			}*/			
+			i++;
+		}
+		
+		return "";
+		
+	}
+	
+	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
+		
+		
+		
+		
+		int blockCount =5;
+		
+		int totalCount=  galleryService.selectGalleryCount();	
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
+		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}		
+		return pagingHtml.toString();
+		
+	}
+
+
 	
 	//커뮤니티 갤러리 리스트 관리자용
 	@RequestMapping(value="/AdminGalleryList")

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="GallerySQL">
+	
+
+
+	
+	<!--회원 특정 범위 리스트 -->
+	<select id="selectRangeAll" resultType="hashmap" parameterType="hashmap">
+		
+		<![CDATA[		
+			    
+   			select 
+   				aa.* 
+   			from (   			
+   			
+				select 
+			     	row_number() over(order by 	GALLERY_DATE) as NO, 
+		            a.gallery_NO,
+                	b.member_Nickname,
+		            a.gallery_Subject,
+		            a.gallery_Content,
+		            a.member_ID,
+		            a.gallery_IMG,
+		            a.gallery_Count,
+		            a.gallery_Date,
+		            (
+		            	select 
+		            		count(*) 
+		            	from 
+		            		PET_GALLERYCOMMENT 
+		            	where 
+		            		gallery_NO = a.gallery_NO 
+		            	
+		            ) as gallery_NUM  
+		        from 
+		        	PET_GALLERY a  RIGHT OUTER JOIN PET_MEMBER b     ON a.member_ID = b.member_ID  
+			 	) aa    
+			 where 
+			 	aa.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
+        	 order by 			 
+			 	aa.GALLERY_DATE
+        
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	<!-- 전체 회원 카운터수-->
+	<select id="selectGalleryCount" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	PET_GALLERY 			
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- 로그인 확인-->
+	<select id="selectLogInOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	* 
+			 from 
+			 	Pet_Member 
+			 where
+			 	member_ID = '${MEMBER_ID}'	and
+			 	member_PW = '${MEMBER_PW}'
+			
+		]]>
+	</select>
+	
+	
+	<!-- 회원 추가 -->
+	<insert id="insert" parameterType="hashmap">
+		<![CDATA[
+		
+			INSERT INTO 
+  				PET_MEMBER ( 							
+					MEMBER_ID,		MEMBER_PW,		MEMBER_NAME,	MEMBER_NICKNAME, 
+					MEMBER_ZIPCODE,	MEMBER_ADDRESS,	MEMBER_ADDRESS2, 
+					MEMBER_EMAIL,	MEMBER_TEL,   					 
+					MEMBER_ANIMAL_TYPE, 
+					MEMBER_REQUESTS, 
+					MEMBER_USERYN, 
+					MEMBER_ADMIN, 
+					MEMBER_JOIN_DATE					
+				 ) VALUES (
+				 	#{MEMBER_ID},		#{MEMBER_PW},		#{MEMBER_NAME},		#{MEMBER_NICKNAME},
+    			 	#{MEMBER_ZIPCODE},	#{MEMBER_ADDRESS},	#{MEMBER_ADDRESS2}, 
+				 	#{MEMBER_EMAIL},	#{MEMBER_TEL},
+				 	#{MEMBER_ANIMAL_TYPE},					 	
+				 	#{MEMBER_REQUESTS},	
+				 	#{MEMBER_USERYN},	
+				 	#{MEMBER_ADMIN},	
+   					sysdate 				 
+				 )		
+		
+		]]>
+	</insert>
+		
+		
+	<!-- 회원 수정 -->
+	<update id="update" parameterType="hashmap">
+		<![CDATA[
+			UPDATE 
+				PET_MEMBER 
+			SET 
+				MEMBER_PW = #{MEMBER_PW},
+				MEMBER_NAME = #{MEMBER_NAME},
+				MEMBER_NICKNAME = #{MEMBER_NICKNAME}, 
+				MEMBER_ZIPCODE = #{MEMBER_ZIPCODE},
+				MEMBER_ADDRESS = #{MEMBER_ADDRESS},
+				MEMBER_ADDRESS2 = #{MEMBER_ADDRESS2}, 
+				MEMBER_EMAIL = #{MEMBER_EMAIL},	
+				MEMBER_TEL = #{MEMBER_TEL},   					 
+				MEMBER_ANIMAL_TYPE = #{MEMBER_ANIMAL_TYPE}, 
+				MEMBER_REQUESTS = #{MEMBER_REQUESTS}
+			where
+				MEMBER_ID = #{MEMBER_ID}	 
+									
+
+		]]>
+			
+	</update>	
+	
+	<!--ID 찾기 정보 가져오기 확인-->
+	<select id="selectFindIDOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	* 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_NAME = '${MEMBER_NAME}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- ID 찾기 있는지 여부-->
+	<select id="selectFindIDCount" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_NAME = '${MEMBER_NAME}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+		
+	<!--Pw 찾기 정보 가져오기 확인-->
+	<select id="selectFindPwOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	* 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_ID = '${MEMBER_ID}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- ID 찾기 있는지 여부-->
+	<select id="selectFindPwCount" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_Member 
+			 where
+			 	MEMBER_ID = '${MEMBER_ID}'	and
+			 	MEMBER_TEL = '${MEMBER_TEL}' and
+			 	MEMBER_EMAIL = '${MEMBER_EMAIL}'
+			
+		]]>
+	</select>
+	
+	
+	
+	<!-- 회원 탈퇴 -->
+	<update id="updateUserYN" parameterType="hashmap">
+		<![CDATA[
+			UPDATE 
+				PET_MEMBER 
+			SET 
+				MEMBER_USERYN = #{MEMBER_USERYN}
+			where
+				MEMBER_ID = #{MEMBER_ID}	 
+									
+
+		]]>
+			
+	</update>	
+	
+	
+	
+	
+</mapper>
