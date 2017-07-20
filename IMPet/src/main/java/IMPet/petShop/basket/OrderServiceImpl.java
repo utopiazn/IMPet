@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import IMPet.member.MemberDAO;
+import IMPet.module.CommandMap;
 
 @Service(value="orderService")
 public class OrderServiceImpl implements OrderService {
@@ -57,7 +58,6 @@ public class OrderServiceImpl implements OrderService {
 		return resultMap;
 	}
 
-	
 	@Override
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
@@ -78,8 +78,9 @@ public class OrderServiceImpl implements OrderService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(Map<String, Object> map, HttpSession session) throws Exception {
+		
 		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
-		System.out.println(map);
+		
 		receiveDAO.insert(map);
 
 		for(int i = 0; i < orderPay.size(); i++) {
@@ -91,20 +92,21 @@ public class OrderServiceImpl implements OrderService {
 			
 			orderDAO.insert(orderPay.get(i));
 			
-			if(orderPay.get(i).get("BASKET_NO") != null){
-				basketDAO.delete(orderPay.get(i));
-			}
-		}	
+			basketDAO.delete(orderPay.get(i));
+			
+		}
+		
+		session.removeAttribute("orderView");
+		session.removeAttribute("member");
+				
 	}
 
-	
 	@Override
 	public void delete(Map<String, Object> map) throws Exception {
 
 		orderDAO.delete(map);		
 	}
 
-	
 	@Override
 	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
 		

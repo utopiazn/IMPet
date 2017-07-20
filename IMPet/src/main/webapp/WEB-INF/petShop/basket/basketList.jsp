@@ -102,7 +102,7 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO"  value="${basketList.BASKET_NO}" required>
+						<td align="center"><input type="checkbox" name="BASKET_NO" id="BASKET_NO" value="${basketList.BASKET_NO}" required>
 											<input type="hidden" id="price" value="${basketList.ITEM_PRICE }">
 						</td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
@@ -160,17 +160,25 @@ function cartBuy(){
 		return false;
 	    
 	} 
-	
-
  	else {
 		fm.action = "/IMPet/PetShop/OrderFormB";
 		fm.method= "post";
 		fm.submit();
 	} 
-	
-	
-
 }
+var price = Number(0);
+ $("input:checkbox").on('click', function() {  
+ 
+	if ( $(this).prop('checked') ) {
+		 price += Number($(this).parent().find("#price").val());
+	   } 
+	else {
+		price -= Number($(this).parent().find("#price").val());
+	     }
+		   
+	alert(price);
+});     
+	
 
 
 </script>

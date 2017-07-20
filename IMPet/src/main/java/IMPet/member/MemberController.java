@@ -448,7 +448,7 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 탈퇴폼");
 		
-		mav.setViewName("DeleteForm");
+		mav.setViewName("member/deleteForm");
 		return mav;
 	}
 	
