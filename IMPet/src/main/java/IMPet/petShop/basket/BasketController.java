@@ -149,7 +149,6 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
@@ -160,6 +159,7 @@ public class BasketController {
 		
 		System.out.println("펫샵주문완료");
 			
+		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;
 	}
@@ -170,13 +170,16 @@ public class BasketController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		
 		System.out.println("펫샵구매내역");
+		System.out.println(commandMap.getMap());
+		
 		List<Map<String, Object>> list = orderService.selectList(commandMap.getMap());
 		
 		System.out.println("size"+list.size());
 		
 		mav.addObject("orderList", list);
-		mav.setViewName("OrderList");
+		mav.setViewName("petShop/basket/orderList");
 		return mav;
 	}
 	

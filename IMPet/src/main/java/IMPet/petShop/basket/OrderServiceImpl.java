@@ -22,6 +22,12 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Resource(name="memberDAO")
 	private MemberDAO memberDAO;
+	
+	@Resource(name="receiveDAO")
+	private ReceiveDAO receiveDAO;
+	
+	@Resource(name="basketDAO")
+	private BasketDAO basketDAO;
 
 
 	@Override
@@ -69,21 +75,30 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(Map<String, Object> map, HttpSession session) throws Exception {
+		
 		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
-		for(int i = 0; i<orderPay.size(); i++) {
+		receiveDAO.insert(map);
+
+		for(int i = 0; i < orderPay.size(); i++) {
+			
 			orderPay.get(i).put("MEMBER_ID", map.get("MEMBER_ID"));
+			orderPay.get(i).put("ORDER_RECEIVE_NO", map.get("RECEIVE_NO"));
 			
 			System.out.println("주문내역리스트"+orderPay);
+			
 			orderDAO.insert(orderPay.get(i));
+			
+			basketDAO.delete(orderPay.get(i));
+			
 		}
 		
-		
-		
+		session.removeAttribute("orderView");
+		session.removeAttribute("member");
+				
 	}
 
 	@Override
