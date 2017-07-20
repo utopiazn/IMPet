@@ -40,6 +40,7 @@
 						</dt>
 						<dd>
 							<ul>
+								
 								<li class="prd-name">${bestList.ITEM_NAME}</li>
 								<c:if test="${bestList.ITEM_DCPRICE != null}">
 									<font color="gray" size="2"><del><li class="prd-price">₩<fmt:formatNumber value="${bestList.ITEM_PRICE}" type="number" />원</li></del></font>
@@ -66,7 +67,7 @@
 						<dt class="thumb"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${items.ITEM_NO}"><img class="item_image" src="/IMPet/resources/image/itemImg/${items.ITEM_IMG}" alt="상품 섬네일" title="${items.ITEM_NAME}"></a></dt>
 						<dd>
 							<ul>
-										
+								<li>${item.count }</li>		
 								<li class="prd-name">${items.ITEM_NAME}</li>
 								<c:if test="${items.ITEM_DCPRICE != null}">
 										<font color="gray" size="2"><del><li class="prd-price">₩<fmt:formatNumber value="${items.ITEM_PRICE}" type="number" />원</li></del></font>

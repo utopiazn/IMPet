@@ -84,10 +84,17 @@ public class OrderServiceImpl implements OrderService {
 		receiveDAO.insert(map);
 
 		for(int i = 0; i < orderPay.size(); i++) {
-			
+			 
 			orderPay.get(i).put("MEMBER_ID", map.get("MEMBER_ID"));
 			orderPay.get(i).put("RECEIVE_NO", map.get("RECEIVE_NO"));
 			
+			int price = Integer.parseInt(orderPay.get(i).get("ITEM_PRICE").toString());
+			int buyCount = Integer.parseInt(orderPay.get(i).get("BASKET_BUYCOUNT").toString());
+		
+			
+			orderPay.get(i).put("ITEM_PRICE", price * buyCount) ;
+			
+			System.out.println(price * buyCount);
 			System.out.println("주문내역리스트"+orderPay);
 			
 			orderDAO.insert(orderPay.get(i));

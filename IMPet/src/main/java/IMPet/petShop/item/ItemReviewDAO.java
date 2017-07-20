@@ -47,4 +47,10 @@ public class ItemReviewDAO extends AbstractDAO {
 		return (List<Map<String, Object>>) selectList("PetReviewSQL.selectList", map);
 	}
 	
+/*	public Map<String,Object> selectCount(Map<String,Object> map) throws Exception {
+		Map<String,Object> reuslt = selectOne("PetReviewSQL.selectCount", map);
+		System.out.println(reuslt);
+		return reuslt;
+	}*/
+	
 }

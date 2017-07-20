@@ -53,8 +53,16 @@ public class ItemServiceImpl implements ItemService{
 		List<Map<String, Object>> typeList = itemDAO.selectType(map);
 		
 		
+	/*	for(int i = 0 ; i<typeList.size(); i++) {
+			
+			typeList.get(i).put("count", itemReviewDAO.selectList(typeList.get(i)));
+				
+		}*/
+		
+		
 		resultMap.put("bestList", bestList);
 		resultMap.put("typeList", typeList);
+
 		
 		
 		return resultMap;

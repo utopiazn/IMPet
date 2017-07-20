@@ -58,6 +58,10 @@
 		<include refid="where-re"/>
 	</select>
 	
+	<select id="selectCount" parameterType="hashmap" resultType="hashmap">
+		select count(*) as count from PET_ITEM_REVIEW where ITEM_NO = #{ITEM_NO}
+	</select>
+	
 	<!-- 상품 후기 리스트 -->
 	<select id="selectList" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll"/>

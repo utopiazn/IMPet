@@ -73,9 +73,9 @@ $.fn.rowspan = function(colIdx, isStats) {
 </head>
 <body>
 <div class="row" style="padding-left:15px;width:100;">    
-	<h1 class="page-header">상품목록</h1>
+	<h1 class="page-header">주문 목록</h1>
 </div>
-<div class="row">
+<div class="row"> 
 	<div class="panel panel-default">
 		<div class="panel-heading">
                          [상품주문리스트] 입금 확인, 배송 상태, 주문 취소 하는 페이지 입니다.
@@ -97,12 +97,12 @@ $.fn.rowspan = function(colIdx, isStats) {
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">판매중</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=4&isSearch=0">품절상품</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">입금전</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=4&isSearch=0">입금완료</option>
 							</select>			
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=5&isSearch=0">재고량</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=5&isSearch=0">결제상태</option>
 								<option value ="/IMPet/PetShop/AdminItemList?searchNum=6&isSearch=0">판매량</option>
 							</select>											
 						</div>
@@ -119,16 +119,15 @@ $.fn.rowspan = function(colIdx, isStats) {
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row" style="vertical-align:middle;">
-										<th style="width: 5%; text-align:center;vertical-align:middle;">상품 번호</th>
+										<th style="width: 7%; text-align:center;vertical-align:middle;">주문 번호</th>
+										<th style="width: 7%; text-align:center;vertical-align:middle;">아이디</th>
 										<th style="width: 8%; text-align:center;vertical-align:middle;">상품 사진</th>										
 										<th style="width: 7%; text-align:center;vertical-align:middle;">카테 고리</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">상품명</th>
-										<th style="width: 8%; text-align:center;vertical-align:middle;">가격</th>
 										<th style="width: 7%; text-align:center;vertical-align:middle;">구입 수량</th>
-										<th style="width: 7%; text-align:center;vertical-align:middle;">배송 번호</th>
-										<th style="width: 7%; text-align:center;vertical-align:middle;">아이디</th>							
-										<th style="width: 13%; text-align:center;vertical-align:middle;">배송 상태</th>
-										<th style="width: 13%; text-align:center;vertical-align:middle;">결제 상태</th>
+										<th style="width: 8%; text-align:center;vertical-align:middle;">가격</th>
+										<th style="width: 8%; text-align:center;vertical-align:middle;">주문 날짜</th>																		
+										<th style="width: 13%; text-align:center;vertical-align:middle;">주문 상태</th>
 									</tr>
 								</thead>
 								<tbody>

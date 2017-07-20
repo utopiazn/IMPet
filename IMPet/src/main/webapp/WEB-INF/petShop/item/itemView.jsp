@@ -44,8 +44,8 @@
 		}
 		
 		document.itemform.amount.value=test;
-		var value2 = $("#span1").html(price*test); //숫자계산위해필요
-	    var value3 = $("em").html(price*test);//숫자계산위해필요
+		var value2 = $("#span1").html(addComma(price*test)); //숫자계산위해필요
+	    var value3 = $("em").html(addComma(price*test));//숫자계산위해필요
 	    var value4 = $("#am2").html("("+test+"개)");//숫자계산위해필요
 	}
 	
@@ -65,6 +65,11 @@
 				}); 
 	   
 	}); 
+	
+	 function addComma(x) {
+
+		   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
 	
 	//장바구니 처리
 	var onBasket = function(){
