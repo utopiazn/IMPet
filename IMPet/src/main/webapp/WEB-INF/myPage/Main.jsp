@@ -126,9 +126,9 @@ color: black;
 					<tbody><tr>
 						<td><a href="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
 						<td><a href="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
-						<td><a href="/IMPet/PetShop/OrderList"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
-						<td><a href="/IMPet/Member/DeleteForm"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
-						<td><a href="/IMPet/Member/DeleteForm"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
+						<td><a href="/IMPet/PetShop/OrderForm?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
+						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
+						<td><a href="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 						
 					</tr>
 				</tbody></table>
