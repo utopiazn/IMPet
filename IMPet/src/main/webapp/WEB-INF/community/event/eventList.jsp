@@ -169,7 +169,7 @@ function ajaxPageView(page){
         },
        
         success : function(data) {  
-      		 $('#ContextEvent2').html(data);          		
+      		 $('#ContextEvent').html(data);          		
         }
         
       });        
@@ -200,18 +200,19 @@ function ajaxPageView(page){
 	  </div>
 	</div>
 	
-	<div id="ContextEvent2">
-	
-	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
-	
 		<c:if test="${sessionScope.member_Admin==1 }">
 			<div align="right">
 				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxHealingInsertForm()"/>
 			</div>
 		</c:if>	
 			
+	
+	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
+	
+	
+	 	<jsp:include page="/WEB-INF/community/event/eventListAdd.jsp"/>
 				
-		<div align="center">
+	<%-- 	<div align="center">
 			<table style="width: 100%">
 			
 				<c:forEach var="Event" items="${listAll}">
@@ -238,7 +239,7 @@ function ajaxPageView(page){
 			
 			<div class="paging">			
 				${pagingHtml} 
-			</div>
+			</div> --%>
 	</div>			 					 
 		
 	
@@ -248,7 +249,7 @@ function ajaxPageView(page){
 	
 	
 	</div>
-	</div>
+	
 </div>
 
 &nbsp;

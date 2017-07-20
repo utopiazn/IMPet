@@ -36,7 +36,7 @@ public class EventController {
 		String Event= commandMap.get("Event").toString();
 		
 		if(Event.equals("1")){
-			url = "community/event/eventList";
+			url = "community/event/eventListAdd";
 			
 			System.out.println("111111111111");
 			
@@ -229,9 +229,9 @@ public class EventController {
 	public ModelAndView EventPageList(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("회원들의 정보 리스트 보여주기");
+		System.out.println("이벤트 정보 페이지 리스트");
 
-		String url = "community/event/eventList";
+		String url = "community/event/eventListAdd";
 		
 		int menu=0;
 		mav.addObject("menu", menu);
