@@ -87,7 +87,7 @@ public class GalleryController {
 			return "";
 		}
 		
-		StringTokenizer values = new StringTokenizer(strImage+"/","/");
+		StringTokenizer values = new StringTokenizer(strImage+Tokenizer,Tokenizer);
 		
 		int i =1;
 		
@@ -224,7 +224,7 @@ public class GalleryController {
 		
 			
 			
-			String mainImage = "";//imageSplit(strImage,i,"/");
+		String mainImage = "";//imageSplit(strImage,i,"/");
 			
 			
 		
@@ -255,6 +255,18 @@ public class GalleryController {
 		String txt04=imageSplit(strTxt,4,"##");
 		String txt05=imageSplit(strTxt,5,"##");
 		
+		
+		
+		
+		System.out.println("txt01:"+txt01);
+
+		System.out.println("txt02:"+txt02);
+
+		System.out.println("txt03:"+txt03);
+
+		System.out.println("txt04:"+txt04);
+
+		System.out.println("txt05:"+txt05);
 		
 		
 		mav.addObject("Image01", image01);
