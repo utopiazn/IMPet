@@ -1,9 +1,14 @@
 package IMPet.community.event;
 
 
+import javax.annotation.Resource;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import IMPet.module.CommandMap;
 
 
 
@@ -11,19 +16,43 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value="/Community")
 public class EventController {
 
-	
-	ModelAndView mav = new ModelAndView();
-	
+	@Resource(name="eventService")
+	private EventService eventService;
 	
 	//이벤트 리스트
 	@RequestMapping(value="/EventList")
-	public ModelAndView EventList(){
-
+	public ModelAndView EventList(CommandMap commandMap) throws Exception{
+	
+		ModelAndView mav = new ModelAndView();
+		
+		String url="EventList1";
 
 		System.out.println("이벤트 리스트");
 
+		int menu =1;
+		String Event= commandMap.get("Event").toString();
 		
-		mav.setViewName("EventList");
+		if(Event.equals("1")){
+			url = "community/event/eventList";
+			
+			System.out.println("111111111111");
+			
+			menu=0;
+			mav.addObject("menu", menu);
+			
+		}else{
+			
+			url = "EventList1";
+			
+			System.out.println("2222222222222222");
+			
+			menu=1;
+			mav.addObject("menu", menu);
+		}
+
+		commandMap.MapInfoList();
+		
+		mav.setViewName(url);
 		return mav;
 	}
 	
@@ -31,6 +60,7 @@ public class EventController {
 	@RequestMapping(value="/AdminEventList")
 	public ModelAndView EventListAdmin(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 리스트");
 
@@ -50,6 +80,7 @@ public class EventController {
 	@RequestMapping(value="/EventView")
 	public ModelAndView EventView(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 상세보기");
 
@@ -64,6 +95,7 @@ public class EventController {
 	@RequestMapping(value="/EventForm")
 	public ModelAndView EventForm(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 추가 폼");
 
@@ -78,6 +110,7 @@ public class EventController {
 	@RequestMapping(value="/EventInsert")
 	public ModelAndView EventInsert(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 추가 처리");
 
@@ -92,6 +125,7 @@ public class EventController {
 	@RequestMapping(value="/EventModifyForm")
 	public ModelAndView EventModifyForm(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 수정폼");
 
@@ -105,6 +139,7 @@ public class EventController {
 	@RequestMapping(value="/EventModify")
 	public ModelAndView EventModify(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 수정처리");
 
@@ -118,6 +153,7 @@ public class EventController {
 	@RequestMapping(value="/EventDelete")
 	public ModelAndView EventDelete(){
 
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 삭제");
 

@@ -151,7 +151,7 @@
 			
 			<c:when test="${adminCode==11}">
 				<div style="width: 90%; padding-top: 50px;">
-					<jsp:include page="/WEB-INF/community/Event/eventList.jsp"/>
+					<jsp:include page="/WEB-INF/community/event/eventList.jsp"/>
 				</div>
 			</c:when>
 			

@@ -189,8 +189,8 @@ ul.dropdown > li {
 	 	 	</li>
 		    <li><a href=/IMPet/Community/GalleryList>COMMU</a>
 		      <ul class="dropdown">
-		        <li><a href=/IMPet/Community/GalleryList>Gallery</a></li>
-		        <li><a href=/IMPet/Community/EventList>Event</a></li>
+		        <li><a href="/IMPet/Community/GalleryList" >Gallery</a></li>
+		        <li><a href="/IMPet/Community/EventList">Event</a></li>
 		       </ul>
 		     </li>
 	    </ul> 
