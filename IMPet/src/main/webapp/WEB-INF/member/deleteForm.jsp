@@ -39,7 +39,7 @@ color: black;
 				<tbody>
 					<tr>
 						<td style="padding:20px 19px;">
-							<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="border:1px #dee1e2 solid;">
+							<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
 								<tbody>
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									

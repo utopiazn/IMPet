@@ -75,6 +75,26 @@ function ajaxmemberdelete(){
 
     });
 }
+function ajaxOrderList(id){
+	
+	alert('된다'+id);
+	
+	var formdata = { MEMBER_ID : id};
+	
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/PetShop/OrderList",
+      data : formdata,
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
 </script>
 
 
@@ -126,7 +146,7 @@ color: black;
 					<tbody><tr>
 						<td><a href="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
 						<td><a href="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
-						<td><a href="/IMPet/PetShop/OrderForm?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
+						<td><a href="javascript:ajaxOrderList(${sessionScope.member_ID});"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
 						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
 						<td><a href="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 						
@@ -148,9 +168,9 @@ color: black;
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									
 																			
-											<script language="JavaScript">
+											<!-- <script language="JavaScript">
 												addOnloadEvent(function() {_ID('confirm_password').focus()});
-											</script>
+											</script> 
 											
 											<style type="text/css">
 												#cp_body form		{ padding:0px; margin:0px; }
@@ -199,7 +219,7 @@ color: black;
 														</table>
 													</div>
 												</form>
-											</div>																		
+											</div>	 -->																	
 											</td>
 										</tr>
 									</tbody>	
