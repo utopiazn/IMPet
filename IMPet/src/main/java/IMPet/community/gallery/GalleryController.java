@@ -224,7 +224,7 @@ public class GalleryController {
 		
 			
 			
-			String mainImage =imageSplit(strImage,i,"/");
+			String mainImage = "";//imageSplit(strImage,i,"/");
 			
 			
 		
