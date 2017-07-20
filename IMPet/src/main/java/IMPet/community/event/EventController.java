@@ -1,6 +1,9 @@
 package IMPet.community.event;
 
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 
@@ -52,9 +55,66 @@ public class EventController {
 
 		commandMap.MapInfoList();
 		
+		
+
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
+		
+	
+		
+		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
 		mav.setViewName(url);
 		return mav;
 	}
+	
+	
+	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
+		
+		
+		
+		
+		int blockCount =5;		
+		
+		int totalCount=  eventService.selectEventCount();	
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
+		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}		
+		return pagingHtml.toString();
+		
+	}
+	
 	
 	//이벤트 리스트 관리자용
 	@RequestMapping(value="/AdminEventList")
@@ -162,7 +222,39 @@ public class EventController {
 		return mav;
 	}
 	
+	
+
+	//이벤트 정보 페이지 리스트
+	@RequestMapping(value="/EventPageList")
+	public ModelAndView EventPageList(CommandMap commandMap) throws Exception{
 		
+		ModelAndView mav = new ModelAndView();
+		System.out.println("회원들의 정보 리스트 보여주기");
+
+		String url = "community/event/eventList";
+		
+		int menu=0;
+		mav.addObject("menu", menu);
+		
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		
+		mav.addObject("pagingHtml", pagingHtml);	
+
+
+		mav.setViewName(url);	
+		
+		return mav;
+	}
+
+
 	
 	
 }

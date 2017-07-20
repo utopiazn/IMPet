@@ -13,7 +13,7 @@
 		<![CDATA[		
 			    
    			select 
-   				aa.* 
+   				a.* 
    			from (   			
    			
 				select 
