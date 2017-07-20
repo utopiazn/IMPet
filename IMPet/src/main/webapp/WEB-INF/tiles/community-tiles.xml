@@ -15,6 +15,19 @@
 		<put-attribute name="body" 		value="/WEB-INF/main/body.jsp" />		
 		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
 	</definition>
+	
+	
+	
+	<!-- 서브메뉴 있음 -->
+	<definition name="Event_main" template="/WEB-INF/main/main.jsp">
+		<put-attribute name="title" 	value="Remedium Hotel[당신만을 위한 오리엔탈 프리미엄 에디션]" />
+		<put-attribute name="header1" 	value="/WEB-INF/main/header1.jsp" />
+		<put-attribute name="header2" 	value="/WEB-INF/main/header2.jsp" />
+		<put-attribute name="body" 		value="/WEB-INF/main/body.jsp" />		
+		<put-attribute name="footer" 	value="/WEB-INF/main/footer.jsp" />			
+	</definition>
+ 
+	
  
  	<!-- 커뮤니티 메인 -->	
 	<definition name="Community" extends="community_main">
@@ -56,22 +69,22 @@
 	<!-- 이벤트  -->
 		
 		<!-- 이벤트 리스트  -->	
-		<definition name="EventList" extends="community_main">
+		<definition name="EventList" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/Event/eventList.jsp" />
 		</definition>
 				
 		<!-- 이벤트 상세보기  -->	
-		<definition name="EventView" extends="community_main">
+		<definition name="EventView" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/Event/eventView.jsp" />
 		</definition>
 				
 		<!-- 이벤트 추가 폼  -->	
-		<definition name="EventForm" extends="community_main">
+		<definition name="EventForm" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/Event/eventForm.jsp" />
 		</definition>
 		
 		<!-- 이벤트 수정폼  -->	
-		<definition name="EventModifyForm" extends="community_main">
+		<definition name="EventModifyForm" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/Event/eventModifyForm.jsp" />
 		</definition>
 		

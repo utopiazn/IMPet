@@ -38,6 +38,7 @@
 	    <mapper resource="IMPet/mybatis/config/PetPaySQL.xml" />
 	    <mapper resource="IMPet/mybatis/config/PetReceiveSQL.xml" />
 	    <mapper resource="IMPet/mybatis/config/GallerySQL.xml" />
+	    <mapper resource="IMPet/mybatis/config/EventSQL.xml" />
 
 	</mappers>
 </configuration> 
