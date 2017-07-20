@@ -10,16 +10,13 @@
 <title>관리자회원주문내역리스트</title>
 </head>
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 $( document ).ready(function() {
-	$('#dataTables-example').rowspan(0);
-	$('#dataTables-example').rowspan(1);
-	$('#dataTables-example').rowspan(2);
-	$('#dataTables-example').rowspan(3);
-	$('#dataTables-example').rowspan(4);
-	$('#dataTables-example').rowspan(5);
-	$('#dataTables-example').rowspan(9);
-	$('#dataTables-example').rowspan(10);
+	$('#sum').rowspan(0);
+	$('#sum').rowspan(6);
+	
 });
 
 $.fn.rowspan = function(colIdx, isStats) {       
@@ -78,7 +75,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 <div class="row"> 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         [상품주문리스트] 입금 확인, 배송 상태, 주문 취소 하는 페이지 입니다.
+                         [주문 리스트] 입금 확인, 배송 상태, 주문 취소 하는 페이지 입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -88,23 +85,23 @@ $.fn.rowspan = function(colIdx, isStats) {
 						<div class="col-sm-6">
 							<a href="/IMPet/PetShop/AdminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
-								<option value ="">--카테고리--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=0">사료</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=1">간식</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=2">패션의류</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=3">목줄/야외</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=4">생활/잡화</option> 
+								<option value ="">--주문 상태--</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=0">입금전</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=1">입금완료</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=2">배송시작</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=3">배송완료</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=4">주문취소</option> 
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
-								<option value ="">--상품구분--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">입금전</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=4&isSearch=0">입금완료</option>
+								<option value ="">--주문 정렬--</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">주문번호</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=4&isSearch=0">주문날짜</option>
 							</select>			
-							<select class="form-control" name="select" onchange="window.open(value,'_self');">
+			<!-- 			<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
 								<option value ="/IMPet/PetShop/AdminItemList?searchNum=5&isSearch=0">결제상태</option>
 								<option value ="/IMPet/PetShop/AdminItemList?searchNum=6&isSearch=0">판매량</option>
-							</select>											
+							</select>	 -->										
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 상품수 : ${totalCount}</div>
@@ -113,16 +110,12 @@ $.fn.rowspan = function(colIdx, isStats) {
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<table
-								class="table  table-bordered table-hover dataTable no-footer"
-								id="dataTables-example" role="grid"
-								aria-describedby="dataTables-example_info">
+							<table 	class="table table-bordered table-hover dataTable no-footer" id="sum"> <!-- role="grid" 	aria-describedby="dataTables-example_info" -->
 								<thead>
 									<tr role="row" style="vertical-align:middle;">
 										<th style="width: 7%; text-align:center;vertical-align:middle;">주문 번호</th>
 										<th style="width: 7%; text-align:center;vertical-align:middle;">아이디</th>
 										<th style="width: 8%; text-align:center;vertical-align:middle;">상품 사진</th>										
-										<th style="width: 7%; text-align:center;vertical-align:middle;">카테 고리</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">상품명</th>
 										<th style="width: 7%; text-align:center;vertical-align:middle;">구입 수량</th>
 										<th style="width: 8%; text-align:center;vertical-align:middle;">가격</th>
@@ -132,51 +125,51 @@ $.fn.rowspan = function(colIdx, isStats) {
 								</thead>
 								<tbody>
 
-								<c:forEach var="itemList"  items="${itemList}" varStatus="stat">
-									<c:url var="viewURL" value="/PetShop/AdminItemModifyForm" >
+								<c:forEach var="orderList"  items="${orderList}" varStatus="stat">
+								<%-- 	<c:url var="viewURL" value="/PetShop/AdminItemModifyForm" >
 										<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />
 									</c:url>			
 															
 									<c:url var="viewURL2" value="/PetShop/AdminItemDelete" >
 										<c:param name="ITEM_NO" value="${itemList.ITEM_NO }" />							
-									</c:url>
+									</c:url> --%>
 									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NO}<div style='display:none;'>${itemList.ITEM_NO}</div></td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /><div style='display:none;'>${itemList.ITEM_NO}</div></td>
-										<td style="text-align:center;vertical-align:middle;">
-											<c:if test="${itemList.ITEM_TYPE eq 0 }">사료</c:if>
-											<c:if test="${itemList.ITEM_TYPE eq 1 }">간식</c:if>
-											<c:if test="${itemList.ITEM_TYPE eq 2 }">의류</c:if>
-											<c:if test="${itemList.ITEM_TYPE eq 3 }">장난감</c:if>
-											<c:if test="${itemList.ITEM_TYPE eq 4 }">잡화</c:if>
-											<div style='display:none;'>${itemList.ITEM_NO}</div>
-										</td>
-										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_NAME}<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<td style="text-align:center;vertical-align:middle;">${orderList.RECEIVE_NO}</td>
+										<td style="text-align:center;vertical-align:middle;">${orderList.MEMBER_ID}</td>											
+										<td style="text-align:center;vertical-align:middle;"><img src="/IMPet/resources/image/itemImg/${orderList.ORDER_IMG}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></td>
+			
+										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_NAME}</td>
+										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_BUYCOUNT} 개</td>
 
-										<c:if test="${itemList.ITEM_DCPRICE != null}">
+										
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</td>
+									
+										
+										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_DATE}</td>
 										<td style="text-align:center;vertical-align:middle;">
-												<del><fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<br/></del>
-												<fmt:formatNumber value="${itemList.ITEM_DCPRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<c:if test="${orderList.ORDER_TYPE eq 1 }">입금전  
+											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">입금 완료</a>]
 										</c:if>
-										<c:if test="${itemList.ITEM_DCPRICE == null}">
-											<td style="text-align:center;vertical-align:middle;">
-												<fmt:formatNumber value="${itemList.ITEM_PRICE}" type="number"/>원<div style='display:none;'>${itemList.ITEM_NO}</div></td>
+										<c:if test="${orderList.ORDER_TYPE eq 2 }">입금완료
+											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 시작</a>]
+										</c:if>
+										<c:if test="${orderList.ORDER_TYPE eq 3 }">배송시작
+											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 완료</a>]
+										</c:if>
+										<c:if test="${orderList.ORDER_TYPE eq 4 }">
+											배송완료
+										</c:if>
+										<c:if test="${orderList.ORDER_TYPE eq 5 }">
+											<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">주문 취소</a>
 										</c:if>
 										
-										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_TOTALCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_REMAINCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>
-										<td style="text-align:center;vertical-align:middle;">${itemList.ITEM_SELLCOUNT}개<div style='display:none;'>${itemList.ITEM_NO}</div></td>																	
-										<td style="text-align:center;vertical-align:middle;">
-										
-										<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a><div style='display:none;'>${itemList.ITEM_NO}</div>
-										 </td>									
+																								
 									</tr>
 								</c:forEach>
 
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(itemList) == 0}">
+									<c:if test="${fn:length(orderList) == 0}">
 									
 										<tr><td colspan="11" style="text-align:center;">해당 되는 상품이 없습니다</td></tr>
 									</c:if> 

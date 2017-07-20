@@ -23,7 +23,7 @@
 	<!-- 장바구니 상품 선택 주문 -->
 	<select id="selectAll" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE, a.ITEM_REMAINCOUNT, b.*
+			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE, b.*
 				FROM PET_ITEM a, PET_ITEM_BASKET b
 					WHERE b.basket_no = #{BASKET_NO} AND a.ITEM_NO = b.ITEM_NO
 					
@@ -81,6 +81,11 @@
 	<select id="odList" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
 		<include refid="where-id" />
+		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
+	</select>
+	
+	<select id="adminOdList" resultType="hashmap">
+		<include refid="selectAll" />
 		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
 	</select>
 	

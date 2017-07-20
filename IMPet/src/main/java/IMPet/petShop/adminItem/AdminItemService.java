@@ -43,5 +43,7 @@ public interface AdminItemService {
 		// 상품 판매량 많은순
 		public List<Map<String, Object>> itemSearch7(String isSearch) throws Exception;
 		
+		// 상품 주문 리스트
+		public List<Map<String, Object>> orderList(Map<String, Object> map) throws Exception;
 
 }

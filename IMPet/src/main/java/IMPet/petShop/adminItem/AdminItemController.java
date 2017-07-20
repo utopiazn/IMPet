@@ -209,12 +209,13 @@ public class AdminItemController {
 	
 	//관리자회원주문내역리스트
 	@RequestMapping(value="/AdminOrderList")
-	public ModelAndView AdminOrderList() {
+	public ModelAndView AdminOrderList(CommandMap commandMap) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("관리자회원주문내역리스트");
-	
+		List<Map<String,Object>> map = adminItemService.orderList(commandMap.getMap());
 		
+		mav.addObject("orderList", map);
 		mav.setViewName("AdminOrderList");
 		return mav;
 	}

@@ -75,6 +75,12 @@ public class AdminItemDAO extends AbstractDAO{
 	public List<Map<String,Object>> itemSearch7(String isSearch) throws Exception {
 		return itemSearch("PetItemSQL.itemSearch7",isSearch);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderList(Map<String,Object> map) throws Exception {
+		
+		return selectList("PetOrderSQL.adminOdList", map);
+	}
 
 
 }

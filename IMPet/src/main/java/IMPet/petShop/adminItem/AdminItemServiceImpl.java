@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import IMPet.petShop.basket.OrderDAO;
 import IMPet.util.ProjectUtil;
 
 @Service("adminItemService")
@@ -20,6 +21,9 @@ public class AdminItemServiceImpl implements AdminItemService{
 	
 	@Resource(name = "adminItemDAO")
 	private AdminItemDAO adminItemDAO;
+	
+	@Resource(name="orderDAO")
+	private OrderDAO orderDAO;
 
 	//뭔지모르겠
 //	@Resource(name = "goodsImageUtils")
@@ -125,6 +129,12 @@ public class AdminItemServiceImpl implements AdminItemService{
 	public List<Map<String, Object>> itemSearch7(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
 		return adminItemDAO.itemSearch7(isSearch);
+	}
+
+	@Override
+	public List<Map<String, Object>> orderList(Map<String, Object> map) throws Exception {
+		
+		return adminItemDAO.orderList(map);
 	}
 
 	
