@@ -176,7 +176,7 @@ var price = Number(0);
 		price -= Number($(this).parent().find("#price").val());
 	     }
 	
-/* 	 addComma(price); */
+
 	
 	$("#orderSum").html(addComma(price));
 	$("#orderSum2").html(addComma(price));
