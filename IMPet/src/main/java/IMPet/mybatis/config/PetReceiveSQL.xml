@@ -25,22 +25,31 @@
 	</select>
 	
 	<!-- 배송정보추가 -->
-	<insert id="receiveInsert" parameterType="hashmap">
+	<insert id="receiveInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="RECEIVE_NO">
+		<selectKey keyProperty="RECEIVE_NO" resultType="String" order="BEFORE">
+			SELECT RECEIVE_NO_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		insert into PET_ITEM_RECEIVE
 					 (RECEIVE_NO,
 					  MEMBER_ID,
 					  RECEIVE_NAME,
+					  RECEIVE_ZIPCODE,
 					  RECEIVE_ADDRESS,
 					  RECEIVE_ADDRESS2,
 					  RECEIVE_TEL,
 					  RECEIVE_REQUESTS)
-			values(ORDER_NO_SEQ.NEXTVAL,
+			values(
+					  #{RECEIVE_NO},
 				      #{MEMBER_ID},
-				      #{ORDER_PRICE},
-				      #{ORDER_STATE},
-				      #{ORDER_DATE},
-				      #{ORDER_TYPE},
-				      #{ORDER_IMG})
+				      #{RECEIVE_NAME},
+				       #{RECEIVE_ZIPCODE},
+				      #{RECEIVE_ADDRESS},
+				      #{RECEIVE_ADDRESS2},
+				      #{RECEIVE_TEL},
+				      #{RECEIVE_REQUESTS}
+				   )
+				      
+
 	</insert>
 	
 	<!-- 배송정보수정 -->

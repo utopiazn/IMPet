@@ -37,9 +37,7 @@
 	
 	<!-- 결제정보추가 -->
 	<insert id="odInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="ORDER_NO">
-		<selectKey keyProperty="ORDER_NO" resultType="String" order="BEFORE">
-			SELECT ORDER_NO_SEQ.NEXTVAL FROM DUAL
-		</selectKey>
+
 		insert into PET_ITEM_ORDER
 					 (ORDER_NO,
 					  ITEM_NO,
@@ -50,9 +48,10 @@
 					  ORDER_DATE,
 					  ORDER_TYPE,
 					  ORDER_IMG,
-					  ORDER_NAME)
+					  ORDER_NAME,
+					  ORDER_RECEIVE_NO)
 			values(
-					  #{ORDER_NO},
+					  ORDER_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
 					  #{BASKET_BUYCOUNT},
 				      #{MEMBER_ID},
@@ -61,7 +60,8 @@
 				      sysdate,
 				      1,
 				      #{ITEM_IMG},
-				      #{ITEM_NAME})
+				      #{ITEM_NAME},
+				      #{ORDER_RECEIVE_NO})
 				      
 	</insert>
 	
