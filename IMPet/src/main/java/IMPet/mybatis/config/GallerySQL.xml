@@ -79,5 +79,22 @@
 	
 	
 	
+	<!-- 갤러리 상세 정보-->
+	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
+			
+		<![CDATA[	
+			select
+				*
+			from 
+				PET_GALLERY
+			where
+				GALLERY_NO = #{GALLERY_NO}							
+			
+
+		]]>
+	</select>
+	
+	
+	
 	
 </mapper>

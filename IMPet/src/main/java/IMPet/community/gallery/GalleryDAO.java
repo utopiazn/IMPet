@@ -43,5 +43,15 @@ public class GalleryDAO extends AbstractDAO{
 		
 	}
 	
+	//갤러리 상세 정보
+	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("GallerySQL.selectOne", map);
+		
+		return view;
+	}
+	
+	
+	
 	
 }

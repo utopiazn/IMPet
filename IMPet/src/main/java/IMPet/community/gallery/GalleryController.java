@@ -49,7 +49,7 @@ public class GalleryController {
 		imageSplitMain(listAll);
 		
 		
-		System.out.println(listAll.get(0));
+		//System.out.println(listAll.get(0));
 		
 		System.out.println("커뮤니티 갤러리 리스트");
 
@@ -195,18 +195,74 @@ public class GalleryController {
 		
 		commandMap.MapInfoList();
 		
+		//상세보기 수 증가.
 		galleryService.addViewNum(commandMap.getMap());
 		
 		
+		//상세 정보 가져오기
+		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());			
+		
+		
+		System.out.println(view);
+
+		String strImage = view.get("GALLERY_IMG").toString();
+		String strTxt = view.get("GALLERY_CONTENT").toString();
+		
+		
+			
+		
+		int imageCount= 0;
+		int txtCount = 0;		
+		
+		
+		if(!strImage.equals("")){
+			
+			StringTokenizer valuesImage = new StringTokenizer(strImage+"/","/");	
+			imageCount= valuesImage.countTokens();	
+		
+		}
+		
+			
+			
+			String mainImage =imageSplit(strImage,i,"/");
+			
+			
+		
+		if(!strTxt.equals("")){
+			
+			StringTokenizer valuesTxt = new StringTokenizer(strTxt+"##","##");	
+			txtCount = 0;valuesTxt.countTokens();
+			
+		}
+		
+		
+		
+				
+		System.out.println("imageCount:"+imageCount);
+		System.out.println("txtCount:"+txtCount);
 
 		
 		
-		String txt01="나와라1111111";
-		String txt02="나와라!22222";
-		String txt03="나와라!33333";
-		String txt04="나와라!4444";
-		String txt05="나와라!55555";
+		String image01=imageSplit(strTxt,1,"##");
+		String image02=imageSplit(strTxt,2,"##");
+		String image03=imageSplit(strTxt,3,"##");
+		String image04=imageSplit(strTxt,4,"##");
+		String image05=imageSplit(strTxt,5,"##");		
 		
+		String txt01=imageSplit(strTxt,1,"/");
+		String txt02=imageSplit(strTxt,2,"/");
+		String txt03=imageSplit(strTxt,3,"/");
+		String txt04=imageSplit(strTxt,4,"/");
+		String txt05=imageSplit(strTxt,5,"/");
+		
+		
+		
+		mav.addObject("Image01", image01);
+		mav.addObject("Image02", image02);
+		mav.addObject("Image03", image03);
+		mav.addObject("Image04", image04);
+		mav.addObject("Image05", image05);
+	
 		
 		
 		mav.addObject("TxT01", txt01);
@@ -221,6 +277,8 @@ public class GalleryController {
 		return mav;
 	}
 
+	
+	
 
 	//갤러리 추가폼
 	@RequestMapping(value="/GalleryForm")

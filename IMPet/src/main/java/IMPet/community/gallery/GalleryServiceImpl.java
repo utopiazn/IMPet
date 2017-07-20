@@ -33,5 +33,11 @@ public class GalleryServiceImpl implements GalleryService{
 		
 		galleryDAO.addViewNum(map);		
 	}
+
+	@Override
+	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectOne(map);
+	}
 	
 }

@@ -132,7 +132,6 @@
 <input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
 
 
-
 <div class="orderArea">
 	<h3>결제자 정보</h3>
 		<div class="boardWrite">
@@ -204,14 +203,14 @@
 					    		<div style="display:inline-block;">
 					    		
 						    		<div style="float:left;margin-top: 116px;">
-								    		<input type="radio" name="ORDER_PAYER" value="농협은행 : 1207-01-004061 박준영" required>
+								    		<input type="radio" name="ORDER_PAYER" value="우리은행 : 1002-053-209817 아임펫" required>
 								    		<br/><br/><br/><br/>
-											<input type="radio" name="ORDER_PAYER" value="우리은행 : 1002-834-406482 박준영" required>
+											<input type="radio" name="ORDER_PAYER" value="신한은행 : 110-419-047027 아임펫" required>
 											<br/><br/><br/><br/>
-											<input type="radio" name="ORDER_PAYER" value="경남은행 : 528-22-0247871 박준영" required>
+											<input type="radio" name="ORDER_PAYER" value="하나은행 : 762-910017-00507 아임펫" required>
 									</div>
 									
-						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.gif">
+						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.jpg">
 						    		</div>
 					    					    	   		
 					    		</div>

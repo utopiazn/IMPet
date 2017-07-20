@@ -149,18 +149,17 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
-
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
-	
 		orderService.insert(commandMap.getMap(), session);
 		 
 		
 		System.out.println("펫샵주문완료");
 			
+		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;
 	}
