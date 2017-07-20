@@ -98,8 +98,18 @@ function delchk(){
 						<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${orderList.ITEM_NO}"> ${orderList.ORDER_NAME}</a></td>
 						<td align="center">${orderList.ORDER_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
-						
-						<td align="center">${orderList.ORDER_TYPE}</td>
+						<td>
+						<c:choose>
+						 <c:when test="${orderList.ORDER_TYPE eq 1}">입금전</c:when>
+						 <c:when test="${orderList.ORDER_TYPE eq 2}">입금확인</c:when>
+						 <c:when test="${orderList.ORDER_TYPE eq 3}">배송시작</c:when>
+						 <c:when test="${orderList.ORDER_TYPE eq 4}">배송완료</c:when>
+						 <c:when test="${orderList.ORDER_TYPE eq 5}">주문취소</c:when>
+						<c:otherwise>
+						오류
+						</c:otherwise>
+						</c:choose>
+						</td>
 						<td align="center">
 							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
 						</td>
