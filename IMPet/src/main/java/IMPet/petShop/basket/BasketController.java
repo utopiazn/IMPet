@@ -125,27 +125,6 @@ public class BasketController {
 	
 	}
 	
-	//결제정보추가
-	@RequestMapping(value="/OrderInsert")
-	public ModelAndView OrderInsert(CommandMap commandMap, HttpSession session) throws Exception {
-
-		ModelAndView mav = new ModelAndView();
-		
-		System.out.println("결제정보추가");
-		System.out.println(commandMap.getMap());
-		orderService.insert(commandMap.getMap());
-		
-		String id = session.getAttribute("member_ID").toString();
-		
-		mav.setViewName("redirect:/PetShop/OrderItemPay?MEMBER_ID="+id);
-		return mav;
-	}
-	
-	//////////////////////////////////////////////////////////////////////////////
-	//결제하기버튼을눌렀을때
-	/*memberService.update(map);
-	payService.insert(map);*/
-	//////////////////////////////////////////////////////////////////////////////
 	
 	//펫상품결제진행
 	@SuppressWarnings("unchecked")
@@ -170,10 +149,14 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/OrderComplete")
-	public ModelAndView OrderComplete() {
+	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
+		
+		orderService.insert(commandMap.getMap(), session);
+		 
 		
 		System.out.println("펫샵주문완료");
 			

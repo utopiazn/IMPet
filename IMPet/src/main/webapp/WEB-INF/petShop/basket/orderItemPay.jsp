@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<script type="text/javascript"></script>
+
 
 <style type="text/css">
 	.orderArea h3{
@@ -54,6 +54,22 @@
 	}
 
 </style>
+<script type="text/javascript">
+	
+
+function submit() { 
+	
+	alert("111");
+/* 	var frm = document.order;
+	
+	 frm.method = "post";
+	frm.action = "/IMPet/PetShop/OrderComplete";
+	frm.submit();
+	
+	return true; */ 
+	 
+}	
+</script>
 
 
 <div class="category_top">
@@ -112,7 +128,8 @@
 	
 	</div>
 </div>
-
+<form name="order" method="post">
+<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
 
 <div class="orderArea">
 	<h3>배송지 정보</h3>
@@ -152,28 +169,11 @@
 		</div>
 </div>
  
-<form action="/IMPet/PetShop/OrderComplete" method="post">
-<%-- <input type="hidden" name="order_goods_num" value="${orderModel.order_goods_num }" />
 
-<input type="hidden" name="order_goods_price" value="${goodsModel.goods_price}" />
-<input type="hidden" name="order_goods_amount" value="${orderModel.order_goods_amount }" />
-<input type="hidden" name="order_member_id" value="${orderModel.order_member_id }" />
-<input type="hidden" name="order_receive_name" value="${orderModel.order_receive_name }" />
-<input type="hidden" name="order_receive_addr" value="${orderModel.order_receive_addr }" />
-<input type="hidden" name="order_receive_mobile" value="${orderModel.order_receive_mobile }" />
-<input type="hidden" name="order_receive_zipcode" value="${orderModel.order_receive_zipcode }" />
-<input type="hidden" name="order_memo" value="${orderModel.order_memo }" />
-<input type="hidden" name="order_sum_money" value="${orderModel.order_sum_money }" />
-<input type="hidden" name="order_trade_type" value="${orderModel.order_trade_type }" />
-<input type="hidden" name="order_trade_payer" value="${orderModel.order_trade_payer }" />
-<input type="hidden" name="order_goods_name" value="${goodsModel.goods_name}" />
-<input type="hidden" name="order_goods_image" value="${goodsModel.goods_image}" /> --%>
+	<div class="basket_button" style="margin-top:5px;">
+		<%-- <a href="/IMPet/PetShop/OrderComplete?MEMBER_ID=${MEMBER_ID}"><span >결제하기</span></a> --%>
+		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="submit()" >					
+	</div>	
 
+</form> 
 
-<div class="basket_button" style="margin-top:5px;">
-
-
-		<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" value="submit" name="submit">					
-
-</div>	
-</form>
