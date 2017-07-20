@@ -8,6 +8,16 @@
 
 <!-- 이미지슬라이드 -->
 
+<script type="text/javascript">
+
+$(window).load(function() {
+	  $('.flexslider').flexslider({
+	    animation: "slide"
+	  });
+});
+
+</script>
+
 <style>
 .plus a {
 text-decoration: none;

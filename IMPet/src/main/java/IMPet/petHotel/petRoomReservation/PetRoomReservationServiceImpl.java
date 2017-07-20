@@ -80,28 +80,5 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 		
 		return list;
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
-		return petRoomReservationDAO.selectOne(map);
-	}
-	
-	@Override
-	public void update(Map<String, Object> map) throws Exception {
-		petRoomReservationDAO.update(map);
-	}
-
-	@Override
-	public void delete(Map<String, Object> map) throws Exception {
-		petRoomReservationDAO.delete(map);
-	}
-	
 	
 }

@@ -1,71 +1,78 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
-<html lang=ko>
-<head>
-<meta charset="UTF-8">
-<title>HotelReservation</title>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/reservation.css">
 
-<style type="text/css">
-.resDIV1{
-border: 1px solid black;
-width: 50%;
-margin-bottom: 10px;
-}
-
-.resDIV2{
-border: 1px solid black;
-}
-</style>
-
-</head>
-<body>
 <br/><br/>
-HotelReservation
-<br/><br/>
-
 
 <center>
 <form action="RoomResSuccess" method="post">
-<div class="resDIV1" >
-	<input type="hidden" name="room_NO" value="${res.room_NO}">
-	<input type="hidden" name="member_ID" value="${res.member_ID}">
-	<input type="hidden" name="res_FirstDate" value="${res.res_FirstDate}">
-	<input type="hidden" name="res_LastDate" value="${res.res_LastDate}">
-	<input type="hidden" name="res_Price" value="${res.res_Price}">
-	<input type="hidden" name="res_Requests" value="${res.res_Requests}">
 
-	<div class="resDIV2">
-		방번호 : ${res.room_NO} <br/>
-		방이름 : ${res.room_Name}
-	</div>
-	
-	<div class="resDIV2">
-		예약 아이디 : ${res.member_ID}
-	</div>
-	
-	<div class="resDIV2">
-		예약날짜 : ${res.res_FirstDate} ~ ${res.res_LastDate}
-	</div>
-	
-	<div class="resDIV2">
-		예약금 : ${res.res_Price}
-	</div>
-	
-	<div class="resDIV2">
-		남은 객실수 : ${retotal.NUM} / ${res.room_Total}
-	</div>
+<input type="hidden" name="room_NO" value="${res.room_NO}">
+<input type="hidden" name="member_ID" value="${res.member_ID}">
+<input type="hidden" name="res_FirstDate" value="${res.res_FirstDate}">
+<input type="hidden" name="res_LastDate" value="${res.res_LastDate}">
+<input type="hidden" name="res_Price" value="${res.res_Price}">
+<input type="hidden" name="res_Requests" value="${res.res_Requests}">
 
-	<div class="resDIV2">
-		기타 요구사항 : ${res.res_Requests}
-	</div>
+<div class="resArea" style="width: 50%">
+	<h3>예약 정보</h3>
+		<div class="boardWrite">
+			<table border="1" summary="">
+			
+				<tbody>
+					<tr>
+						<th scope="row">객실 타입 번호</th>
+						<td>${res.room_NO}</td>
+					</tr>
+					<tr>
+						<th scope="row">객실 이름</th>
+						<td>${res.room_Name}</td>
+					</tr>
+					<tr>
+						<th scope="row">예약 아이디</th>
+						<td>${res.member_ID}</td>
+					</tr>
+					<tr>
+						<th scope="row">예약 날짜</th>
+						<td>${res.res_FirstDate} ~ ${res.res_LastDate}</td>
+					</tr>
+					
+					<tr>
+						<th scope="row">예약금</th>
+						<td>${res.res_Price}원</td>
+					</tr>
+					<tr>
+						<th scope="row">이용가능 객실 수</th>
+						<td>${retotal.NUM} / ${res.room_Total}
+						<c:if test="${retotal.NUM == 0}">
+						&nbsp;&nbsp;<font style="color:#ff0000;">* 이용가능 객식이 없습니다. 날짜를 새로 조정해주십시오.</font>
+						</c:if>
+						</td>
+					</tr>              
+				</tbody>
+			</table>
+		</div>
+</div>
 
+<div class="resArea" style="width: 50%; margin-bottom: 15px;">
+	<h3>기타 요구사항</h3>
+	<div class="boardWrite">
+		<table border="1" summary="">
+		
+			<tbody>
+				<tr>
+					<td>${res.res_Requests}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <div align="center" style=" margin-bottom: 20px;">
-	<input value="예약 완료" type="submit" />
-	<input value="뒤로가기" type="button" onclick="window.history.go(-1);"/>
+	<c:if test="${retotal.NUM != 0}">
+	<input value="예약하기" class="button2" type="submit" />
+	</c:if>
+	<input value="뒤로가기" class="button2" type="button" onclick="window.history.go(-1);"/>
 </div>
 </form>
-</body>
-</html>

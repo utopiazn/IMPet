@@ -20,37 +20,5 @@ public interface PetRoomReservationService {
 	public List<Map<String, Object>> selectUserList(String str) throws Exception;
 	
 	public List<Map<String, Object>> selectAllList() throws Exception;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
-	
-	
-	public void update(Map<String, Object> map) throws Exception;
-	
-	public void delete(Map<String, Object> map) throws Exception;
-
-
 
 }
