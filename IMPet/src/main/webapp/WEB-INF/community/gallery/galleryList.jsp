@@ -91,7 +91,7 @@
 	
 		<div class="iframe-wrap loaded">
 		
-			<a href="/IMPet/Community/GalleryView" class="cover-link">
+			<a href="/IMPet/Community/GalleryView?GALLERY_NO=${itemList.GALLERY_NO}" class="cover-link">
 					<img alt="s2" src="/IMPet/resources/image/gallery/${itemList.MAINIMAGE}" width="100%" height="100%" >	
 			</a>			
 	
