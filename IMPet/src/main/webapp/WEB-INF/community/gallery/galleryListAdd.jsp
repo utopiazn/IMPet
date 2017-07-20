@@ -2,8 +2,6 @@
 
 
 
-	<!-- <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;  height: 300px;">
-	 -->
 	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;   height: 300px;"  >
 	
 		<div class="iframe-wrap loaded">
@@ -27,7 +25,7 @@
 		<div class="meta">
 			
 			<h3 class="item-title">
-				제목: 강아지 사진 테스트트	
+				제목:  ${itemList.GALLERY_SUBJECT} 
 				
 			</h3>
 			
@@ -36,7 +34,7 @@
 				<div class="user">
 			
 			  	<a class="username" href="/tailofmoon">
-			    		작성자 :<span>조장</span>
+			    		작성자 :<span>${itemList.MEMBER_NICKNAME}</span>
 			 	 </a>
 			</div>
 			
@@ -44,13 +42,13 @@
 			
 				<a class="single-stat views">
 				
-					41				
+					${itemList.GALLERY_COUNT}				
 					<img  src="/IMPet/resources/image/gallery/view.png" width="17px" height="12px" >
 				
 			  	</a>
 			
 			    <a class="single-stat comments">
-			    	0
+			    	${itemList.GALLERY_NUM}
 			    	<img  src="/IMPet/resources/image/gallery/comment.png" width="17px" height="12px" >
 			    </a>
 			

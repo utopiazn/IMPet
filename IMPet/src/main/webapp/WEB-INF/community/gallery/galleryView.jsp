@@ -23,19 +23,35 @@
 	function ImageIndex(index){
 		
 		
-		alert(index); 
+		//alert(index); 
 		
+		
+		var Txt = "데이터가 없습니다.";
 		
 		if(index==1){
+			Txt = "${TxT01}";
 			
-			$("#dd").html("ddddddddddd");
+		}else if(index==2){
+
+			Txt = "${TxT02}";
+			
+		}else if(index==3){
+			
+			Txt = "${TxT03}";
+			
+		}else if(index==4){
+			
+			Txt = "${TxT04}";
+			
+		}else if(index==5){
+			
+			Txt = "${TxT05}";
+			
 		}
 		
-		if(index==2){
-			
-			$("#dd").html("333333333333333");
-		}
-	 	
+		$("#dd").html(Txt);
+		
+		
 	//	var Txt =${TxT02};
 	//	$("#dd").html(Txt); 
 		
