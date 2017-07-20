@@ -59,7 +59,7 @@
 					  #{ITEM_NO},
 					  #{BASKET_BUYCOUNT},
 				      #{MEMBER_ID},
-				      #{ITEM_PRICE},
+				      #{ITEM_PRICE * BASKET_BUYCOUNT},
 				      1,
 				      sysdate,
 				      1,
