@@ -56,18 +56,30 @@
 </style>
 <script type="text/javascript">
 	
+function order_cancel() { 
+	
+	var frm = document.order;
+	
+	if (confirm("주문을 취소하시겠습니까?")){ 
+			frm.method = "post";
+			frm.action = "/IMPet/PetShop/Main";
+			frm.submit();
+	}else{ 
+			frm.method = "post";
+			frm.action = "/IMPet/PetShop/OrderItemPay";
+			frm.submit();
+	} 
+}	
 
 function order_sub() { 
-	
-
- 	var frm = document.order;
+ 	
+	var frm = document.order;
 	
 	frm.method = "post";
 	frm.action = "/IMPet/PetShop/OrderComplete";
 	frm.submit();
 	
-	return true;  
-	 
+	return true;
 }	
 </script>
 
@@ -176,10 +188,10 @@ function order_sub() {
 			</table>
 		</div>
 </div>
- 
 
 	<div class="basket_button" style="margin-top:5px;">
-		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()" >					
+		<input type="button" value="취소" onclick="order_cancel()" />
+		<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()">					
 	</div>	
 
 </form> 
