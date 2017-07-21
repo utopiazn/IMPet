@@ -36,13 +36,15 @@
 <div class="basket_list" style="margin-top:35px;margin-bottom:35px;">
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_end.gif" alt="장바구니"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 장바구니">
+		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
 		<div class="orderInfo">
 	        <div class="complete">
 	        <p>고객님의 주문이<br/><br/>완료 되었습니다.</p>
 			<ul>
+				<c:forEach var="orderPay"  items="${orderPay}" varStatus="status">
+				<c:if test="${status.first }">
 				<li class="number">
 				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${orderPay.RECEIVE_NO}</span>
 				</li>
@@ -52,6 +54,8 @@
 				<li class="number">
 				<strong>입금계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.ORDER_PAYER}</span>
 				</li>
+				</c:if>
+				</c:forEach>
 				
 			</ul>
 			</div>

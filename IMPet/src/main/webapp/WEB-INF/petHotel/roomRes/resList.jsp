@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+
 <br/><br/>
 
 
@@ -32,8 +34,8 @@
 				</div>
 				
 				<c:if test="${res.RES_STATE != 2}">
-				<div style="border:1px solid lightgray; width: 8%; height: 88px; margin: 5px; float: left;">
-					<input value="예약 취소" type="button" onclick="ajaxRoomResCancel(${res.RES_NO});"/>
+				<div style="width: 8%; height: 88px; margin: 5px; float: left;">
+					<input value="예약 취소" class="button2" type="button" onclick="ajaxRoomResCancel(${res.RES_NO});"/>
 				</div>
 				</c:if>
 			</div>

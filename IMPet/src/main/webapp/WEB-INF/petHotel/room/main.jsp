@@ -7,41 +7,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<style>
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
-.button3 {
-  position: relative;
-  padding: 14px 0;
-  border: 2px #00B488 solid;
-  float : left;
-  color: black;
-  cursor: pointer;
-  font-family: 'Noto sans KR', sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
-  transition: color 0.4s, background-color 0.4s;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1em;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 50%;
-  background-color: white;
-  height: 70px;
-}
-.button3:hover, .button3:focus {
-  transition: color 0.4s, background-color 0.4s;
-  color: white;
-  text-decoration: none;
-  background-color: #00B488;
-}
-</style>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 
 <script type="text/javascript">

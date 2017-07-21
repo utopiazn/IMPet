@@ -89,7 +89,7 @@
 	
 			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
-						<col width="20%">
+					<col width="20%">
 					<col width="30%">
 					<col width="20%">
 					<col width="20%">
@@ -159,8 +159,12 @@
      
 	<h3 style="padding-right: 100px;">배송지 정보
 		<label style="float: left;"> 
-			 <input type="checkbox" name="order" form="order_form" onclick="copydata()">주문자 정보 입력
-     	</label>
+			 <input type="checkbox" name="order"  form="order_form" onclick="copydata()">주문자 정보 동일
+		</label>
+		<label style="float: left;"> 
+			  <input type="checkbox" name="order2" form="order_form" onclick="copydata2()">최근 배송지
+		</label>
+     	
     </h3>
 		<div class="boardWrite">
 			<table border="1" summary="" >
@@ -231,6 +235,31 @@
 </form>
 
 <script>
+function copydata2() {
+	var rename = '${receive.RECEIVE_NAME}';
+	var retel = '${receive.RECEIVE_TEL}';
+	var rezipcode = '${receive.RECEIVE_ZIPCODE}';
+	var readdr = '${receive.RECEIVE_ADDRESS}';
+	var readdr2 = '${receive.RECEIVE_ADDRESS2}';
+	var request = '${receive.RECEIVE_REQUESTS}';
+	
+	if($('input[name="order2"]').prop('checked') === true){
+ 	 	
+    	$('input[name="RECEIVE_NAME"]').val(rename);
+        $('input[name="RECEIVE_TEL"]').val(retel);
+        $('input[name="RECEIVE_ZIPCODE"]').val(rezipcode);
+        $('input[name="RECEIVE_ADDRESS"]').val(readdr);
+        $('input[name="RECEIVE_ADDRESS2"]').val(readdr2);
+        $('input[name="RECEIVE_REQUESTS"]').val(request);
+       
+        $('input[name="order"]').not(this).prop("checked", false); 
+        
+    }
+    
+    else {
+    	frm.reset();
+    }
+}
 function copydata() {
 
 	
@@ -240,14 +269,23 @@ function copydata() {
 	var addr = '${member.MEMBER_ADDRESS}';
 	var addr2 = '${member.MEMBER_ADDRESS2}';
 	
+
+	
     if ($('input[name="order"]').prop('checked') === true) {
+    	
        $('input[name="RECEIVE_NAME"]').val(name);
        $('input[name="RECEIVE_TEL"]').val(tel);
        $('input[name="RECEIVE_ZIPCODE"]').val(zipcode);
        $('input[name="RECEIVE_ADDRESS"]').val(addr);
        $('input[name="RECEIVE_ADDRESS2"]').val(addr2);
-    } else {
+ 
+       $('input[name="order2"]').not(this).prop("checked", false);
+      
+    } 
+    else {
     	frm.reset();
     }
+    
  }
+ 
 </script>

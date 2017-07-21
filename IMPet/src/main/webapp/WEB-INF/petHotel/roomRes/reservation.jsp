@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="/IMPet/resources/css/hotel/reservation.css">
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 <br/><br/>
 
@@ -49,27 +49,17 @@
 						&nbsp;&nbsp;<font style="color:#ff0000;">* 이용가능 객식이 없습니다. 날짜를 새로 조정해주십시오.</font>
 						</c:if>
 						</td>
-					</tr>              
+					</tr>
+					<tr>
+						<th scope="row">기타 요구사항</th>
+						<td style="height: 200px;">${res.res_Requests}</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
 </div>
 
-<div class="resArea" style="width: 50%; margin-bottom: 15px;">
-	<h3>기타 요구사항</h3>
-	<div class="boardWrite">
-		<table border="1" summary="">
-		
-			<tbody>
-				<tr>
-					<td>${res.res_Requests}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-
-<div align="center" style=" margin-bottom: 20px;">
+<div align="center" style=" margin-bottom: 20px; margin-top: 20px;">
 	<c:if test="${retotal.NUM != 0}">
 	<input value="예약하기" class="button2" type="submit" />
 	</c:if>
