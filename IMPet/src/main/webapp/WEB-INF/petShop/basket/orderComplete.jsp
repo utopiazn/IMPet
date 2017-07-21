@@ -36,7 +36,7 @@
 <div class="basket_list" style="margin-top:35px;margin-bottom:35px;">
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_end.gif" alt="장바구니"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 장바구니">
+		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
 		<div class="orderInfo">

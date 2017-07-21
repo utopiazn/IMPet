@@ -72,12 +72,12 @@
 <div class="basket_list">
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/cart.gif" alt="장바구니"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep1.gif" alt="step 01 장바구니">
+		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep1.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
 	<form name="basketList" action="/IMPet/PetShop/BasketDelete" >
 	<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
-		<table class="basket" style="margin-bottom:15px;">
+		<table class="basket" style="margin-bottom:15px; width:100%;">
 				<colgroup>
 					<col width="5%">
 					<col width="20%">
@@ -106,7 +106,7 @@
 											<input type="hidden" id="price" value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT }">
 						</td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${basketList.ITEM_NAME}</td>
+						<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${basketList.ITEM_NO}">${basketList.ITEM_NAME}</a></td>
 						<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
 						<td align="center">${basketList.BASKET_BUYCOUNT} 개
 						

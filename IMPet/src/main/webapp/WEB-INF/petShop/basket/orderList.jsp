@@ -48,13 +48,20 @@ $.fn.rowspan = function(colIdx, isStats) {
 		
 	    return confirm("삭제하시겠습니까?");  
 	}
+	
+	function delchk_no() {
+		
+		alert("입금확인 후에는 주문취소가 불가합니다."); 
+		location.href = 'redirect:/IMPet/PetShop/OrderList';
+	}
 
 
 	function test(orderList) {
+		
 	    var div_test = document.getElementById('test');
 	    div_test.innerHTML = orderList.RECEIVE_NAME;      
 	}
-
+	 
 </script>
 
 <div class="category_top">
@@ -111,7 +118,12 @@ $.fn.rowspan = function(colIdx, isStats) {
 							</c:choose>
 						</td>
 						<td align="center">
-							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+							<c:choose>
+								<c:when test="${orderList.ORDER_TYPE eq 0}">
+									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+								</c:when>
+								<c:otherwise><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk_no()" ></c:otherwise>
+							</c:choose>
 						</td>
 					</tr>
 					
