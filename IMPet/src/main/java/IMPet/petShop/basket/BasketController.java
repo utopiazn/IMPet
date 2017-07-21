@@ -70,12 +70,16 @@ public class BasketController {
 	
 	//펫샵장바구니상품삭제
 	@RequestMapping(value="/BasketDelete")
-	public ModelAndView BasketDelete(CommandMap commandMap, HttpSession session) throws	Exception {
+	public ModelAndView BasketDelete(CommandMap commandMap, HttpSession session, HttpServletRequest request) throws	Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("controller" +commandMap.getMap());
-		basketService.delete(commandMap.getMap());
+		String[] no = request.getParameterValues("BASKET_NO");
+		for(String a : no) {
+			commandMap.put("BASKET_NO", a);
+			basketService.delete(commandMap.getMap());
+		}
+
 		System.out.println("펫샵장바구니상품삭제");
 			
 		String id = session.getAttribute("member_ID").toString();
@@ -101,6 +105,7 @@ public class BasketController {
 
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("receive", map.get("receive"));
 		
 		mav.setViewName("OrderFormB");
 		
@@ -114,12 +119,13 @@ public class BasketController {
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
-		
+
 		session.setAttribute("orderView", map.get("orderView"));
 		session.setAttribute("member", map.get("member"));
 		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("receive", map.get("receive"));
 		mav.setViewName("OrderFormD");
 		
 		return mav;
@@ -150,7 +156,6 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
-	
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
@@ -159,12 +164,12 @@ public class BasketController {
 		//List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
 		orderService.insert(commandMap.getMap(), session);
-		Map<String, Object> map = orderService.selectTwo(commandMap.getMap());
+		List<Map<String, Object>> two = orderService.selectTwo(commandMap.getMap());
 		
 		System.out.println("펫샵주문완료");
-		System.out.println(map);
+		System.out.println("size"+two.size());
 			
-		mav.addObject("orderPay", map);
+		mav.addObject("orderPay", two);
 		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;
@@ -199,9 +204,9 @@ public class BasketController {
 		System.out.println("controller" +commandMap.getMap());
 		orderService.delete(commandMap.getMap());
 			
-		String id = session.getAttribute("member_ID").toString();
+		//String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderList?MEMBER_ID="+id);
+		mav.setViewName("redirect:/MyPage#order");
 		return mav;
 	}
 	
