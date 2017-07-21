@@ -31,8 +31,15 @@
 	
 	//구매갯수 변환 함수
 	function count_change(temp){
-		var test=document.itemform.amount.value;		
-		var price="${view.ITEM_PRICE}";//숫자계산위해필요
+		var test=document.itemform.amount.value;	
+		var price = null
+			if("${view.ITEM_DCPRICE}" != ""){
+				price="${view.ITEM_DCPRICE}";
+			}
+			else {
+				price="${view.ITEM_PRICE}";//숫자계산위해필요
+			}
+
 			if(temp==0){
 				test++;
 			}else if(temp==1){
@@ -52,7 +59,13 @@
 	//span값변경
 	$(window).load(function(){ 
 	    var amount=document.itemform.amount.value;
-	    var price="${view.ITEM_PRICE}";
+		var price = null;
+	    if("${view.ITEM_DCPRICE}" != ""){
+			price="${view.ITEM_DCPRICE}";
+		}
+		else {
+			price="${view.ITEM_PRICE}";//숫자계산위해필요
+		}
 	    var value2 = $("#span1").html(price*amount); 
 	    var value3 = $("em").html(price*amount);
 	    var value4 = $("#am2").html("("+amount+"개)"); 

@@ -27,7 +27,7 @@ function validateForm() {
 
 <!-- 메뉴 시작 -->
 
-<div class="row" style="padding-left:15px;width:100;text-align:left;">    
+<div class="row" style="padding-left:15px;width:100;">    
 	<h1 class="page-header">상품수정</h1>
 </div>
 
@@ -116,7 +116,7 @@ function validateForm() {
                             <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>
                         </div>
 						<button type="submit" class="btn btn-success">상품수정</button>
-						<button type="reset" class="btn btn-default">작성취소</button>					
+						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>					
 				</form>
 			</div>
 	</div>

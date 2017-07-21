@@ -108,12 +108,23 @@
 				
 			<c:forEach var="orderView" items="${orderView}">			
 					<tr>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${orderView.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
+						<c:if test="${orderView.ITEM_DCPRICE == null }">
+							<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
+							<td align="center">${orderView.ITEM_NAME}</td>
+							<td align="center"><fmt:formatNumber value="${orderView.ITEM_PRICE}" type="number"/>원</td>
+							<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
+							<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+							<c:set var= "sum" value="${sum + (orderView.ITEM_PRICE * orderView.BASKET_BUYCOUNT)}"/> 
+						</c:if>
+						
+						<c:if test="${orderView.ITEM_DCPRICE != null }">
+							<td align="center"><img src="/IMPet/resources/image/itemImg/${orderView.ITEM_IMG}" width="90" height="90"></td>
+							<td align="center">${orderView.ITEM_NAME}</td>
+							<td align="center"><fmt:formatNumber value="${orderView.ITEM_DCPRICE}" type="number"/>원</td>
+							<td align="center">${orderView.BASKET_BUYCOUNT}EA</td>
+							<td align="center"><strong id="id2"><fmt:formatNumber value="${orderView.ITEM_DCPRICE * orderView.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+							<c:set var= "sum" value="${sum + (orderView.ITEM_DCPRICE * orderView.BASKET_BUYCOUNT)}"/> 
+						</c:if>
 					</tr>				
 			</c:forEach>
 				<tfoot>

@@ -2,7 +2,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+<script type="text/javascript">
+function ajaxPageView(page){	
+	
+	alert(page);  
+	var dataList =
+	{ 
+		"PAGE" : page	
+	}	
 
+	var url1 = "/IMPet/PetHotel/RoomResAllListPage";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('페이징 오류');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextHotel').html(data);          		
+        }
+        
+      });        
+
+}
+</script>
 <br/><br/>
 <div align="center">
 	<h1 class="listsub">펫호텔 예약 목록</h1>
@@ -93,6 +123,8 @@
 						</c:otherwise>
 					</c:choose>
 				</table>
-
+				<div class="paging">
+				${pagingHtml} 
+				</div>
 		
 </div>

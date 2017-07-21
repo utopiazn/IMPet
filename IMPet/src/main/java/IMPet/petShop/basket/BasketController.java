@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.member.MemberService;
 import IMPet.module.CommandMap;
+import IMPet.module.Paging;
 
 @Controller
 @RequestMapping(value="/PetShop")
@@ -175,12 +176,27 @@ public class BasketController {
 		return mav;
 	}
 	
-	//펫샵구매내역
+	//펫샵주문내역
 	@RequestMapping(value="/OrderList")
-	public ModelAndView OrderList(CommandMap commandMap) throws Exception {
+	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		
+		int searchNum = 0; // 검색 유형
+		String isSearch = null; // 검색어
+		int currentPage; // 현재 페이지
+		int totalCount; // 총 게시글 수
+		int blockCount = 5; // 한 화면에 보여줄 게시글 수
+		int blockPage = 5; // 한 화면에 보여줄 페이지 수 
+		String pagingHtml;
+		Paging page;
 		
 		ModelAndView mav = new ModelAndView();
 		
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
 		
 		System.out.println("펫샵구매내역");
 		System.out.println(commandMap.getMap());
@@ -188,6 +204,23 @@ public class BasketController {
 		List<Map<String, Object>> list = orderService.selectList(commandMap.getMap());
 		
 		System.out.println("size"+list.size());
+		
+		totalCount = list.size();
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "OrderList",searchNum, isSearch);
+		pagingHtml = page.getPagingHtml().toString();
+
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		list = list.subList(page.getStartCount(), lastCount);
+
+
+		mav.addObject("totalCount", totalCount);
+		mav.addObject("pagingHtml", pagingHtml);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("orderList", list);
 		
 		mav.addObject("orderList", list);
 		mav.setViewName("petShop/basket/orderList");

@@ -46,12 +46,12 @@ $.fn.rowspan = function(colIdx, isStats) {
 
 	function delchk() {
 		
-	    return confirm("삭제하시겠습니까?");  
+	    return confirm("주문 취소 하시겠습니까?");  
 	}
 	
 	function delchk_no() {
 		
-		alert("입금확인 후에는 주문취소가 불가합니다."); 
+		alert("입금 확인 후에는 주문 취소가 불가합니다."); 
 		location.href = 'redirect:/IMPet/PetShop/OrderList';
 	}
 
@@ -63,7 +63,21 @@ $.fn.rowspan = function(colIdx, isStats) {
 	}
 	 
 </script>
-
+<style type="text/css">
+.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
+.paging a,
+.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
+-webkit-border-radius:3px;
+   -moz-border-radius:3px;
+		border-radius:3px;
+-webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+}
+.paging a:first-child{margin-left:0;}
+.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
+.paging .page_arw{font-size:11px;line-height:30px;}
+</style>
 <div class="category_top">
 	<ul>
 	 	<li>강아지 ></li><li>주문리스트</li>			
@@ -147,11 +161,14 @@ $.fn.rowspan = function(colIdx, isStats) {
 						</td>
 					</tr>
 				</tfoot>
-				
 			</table>
-			<div class="basket_button">
-										
-					<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>  		
+			
+			<div class="paging">
+				${pagingHtml}
+			</div>
+			
+			<div class="basket_button">					
+				<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>  		
 			</div>		
 		</form>
 		</div>

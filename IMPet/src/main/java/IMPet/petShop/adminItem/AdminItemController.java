@@ -169,9 +169,11 @@ public class AdminItemController {
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String,Object> map = adminItemService.itemSelect(commandMap.getMap());
-	
+		
+		int adminCode = 13;
 		mav.addObject("itemList", map);
-		mav.setViewName("AdminItemModifyForm");
+		mav.addObject("adminCode", adminCode);
+		mav.setViewName("AdminPage");
 		return mav;
 	}
 	
