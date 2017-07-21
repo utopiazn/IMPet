@@ -258,23 +258,52 @@ function ajaxEventDelete(EVENT_NO){
 
 
 
+function ajaxEventDelete(EVENT_NO){
+	
+		
+		var url1 = "/IMPet/Community/EventDelete";
+		
+		 //alert(EVENT_NO);     	
+	
+		 var dataList =
+			{ 
+				"EVENT_NO" : EVENT_NO	
+			}	
+	
+		
+		
+	    $.ajax({    
+	      type : "POST",
+	      url : url1,
+	      data : dataList,
+	      dataType : "text",      
+	      error : function() {
+	    	  
+	    	 alert('오류임!');     	
+	      },
+	      success : function(data) {  
+	    	 $('#ContextEvent').html(data);
+	        		
+	      }
+	      
+	    });    		 
+   
+}
 
 
-function ajaxPageView(page){	
+
+
+function ajaxeventForm(){	
 	
 	alert(page);  
-	var dataList =
-	{ 
-		"PAGE" : page	
-	}	
+	
 
-	var url1 = "/IMPet/Community/EventPageList";
+	var url1 = "/IMPet/Community/EventInsert";
 	
     $.ajax({    
      
     	type : "POST",
-        url : url1,
-        data : dataList,
+        url : url1,        
         dataType : "text",      
         
         error : function() {
@@ -319,7 +348,7 @@ function ajaxPageView(page){
 	
 		<c:if test="${sessionScope.member_Admin==1 }">
 			<div align="right">
-				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxHealingInsertForm()"/>
+				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm()"/>
 			</div>
 		</c:if>	
 	

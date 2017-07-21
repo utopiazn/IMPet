@@ -168,6 +168,7 @@ public class EventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		String url = "community/event/eventForm";
 		System.out.println("이벤트 추가 폼");
 
 		
@@ -182,9 +183,11 @@ public class EventController {
 	public ModelAndView EventInsert(){
 
 		ModelAndView mav = new ModelAndView();
-
+		String url ="";
 		System.out.println("이벤트 추가 처리");
 
+		
+		
 		
 		mav.setViewName("EventList1");
 		return mav;
