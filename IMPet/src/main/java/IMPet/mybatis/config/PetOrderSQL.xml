@@ -7,15 +7,11 @@
 		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
 	</sql>
 	
-	<sql id="where-no"> 
-		<![CDATA[ WHERE ORDER_NO = #{ORDER_NO} ]]>
-	</sql>
-	
 	<sql id="where-id"> 
 		<![CDATA[ WHERE MEMBER_ID = #{MEMBER_ID} ]]>
 	</sql>
 	
-	<sql id="where-reNo"> 
+	<sql id="where-no"> 
 		<![CDATA[ WHERE RECEIVE_NO = #{RECEIVE_NO} ]]>
 	</sql>
 
@@ -87,10 +83,10 @@
 		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
 	</select>
 	
-	<!-- 상품에서 바로 주문 -->
+	<!-- 주문확인 -->
 	<select id="selectTwo" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" /> 
-		<include refid="where-reNo" />
+		<include refid="where-no" />
 	</select>
 	
 	<!-- 주문 아이디 -->

@@ -75,7 +75,7 @@
 		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep1.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
-	<form name="basketList" >
+	<form name="basketList" action="/IMPet/PetShop/BasketDelete" >
 	<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
 		<table class="basket" style="margin-bottom:15px;">
 				<colgroup>
@@ -102,7 +102,7 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-						<td align="center"><input type="checkbox" name="BASKET_NO" id="BASKET_NO" value="${basketList.BASKET_NO}" required>
+						<td align="center"><input type="checkbox" name="BASKET_NO" id="BASKET_NO" value="${basketList.BASKET_NO}" >
 											<input type="hidden" id="price" value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT }">
 						</td>
 						<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
@@ -200,7 +200,7 @@ $(".basket_main input:checkbox[name='BASKET_NO']:checked").trigger("click");
 });
 
 $("form[name=basketList]").submit(function(){
-if (!$(".basket_main input:checkbox[name='BASKET_NO']").is(":checked")){
+if ($("input:checkbox[name=BASKET_NO]").is(":checked") == false){
 	alert("삭제하실 상품을 선택해주세요");
 	return false;
 }

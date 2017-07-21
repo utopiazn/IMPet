@@ -44,10 +44,13 @@ public class OrderDAO extends AbstractDAO {
 	}
 	
 	
-	//상품바로주문
-	public Map<String, Object> selectTwo(Map<String, Object> map) throws Exception {
+	//주문확인
+	public List<Map<String, Object>> selectTwo(Map<String, Object> map) throws Exception {
 		
-		return selectOne("PetOrderSQL.selectTwo", map);	
+		@SuppressWarnings("unchecked")
+		List<Map<String, Object>> two = (List<Map<String, Object>>) selectList("PetOrderSQL.selectTwo", map);
+		
+		return two;	
 	}
 
 }

@@ -126,9 +126,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Map<String, Object> selectTwo(Map<String, Object> map) throws Exception {
+	public List<Map<String, Object>> selectTwo(Map<String, Object> map) throws Exception {
 		
 		return orderDAO.selectTwo(map);
 	}
-
+ 
 }
