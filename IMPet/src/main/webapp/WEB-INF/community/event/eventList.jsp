@@ -52,6 +52,7 @@
     float: left;
     padding-top: 8px;
     padding-bottom: 15px;
+     cursor: pointer;
     }
 
 .con a:link,
@@ -150,12 +151,17 @@ function EventView(EVENT_NO){
 	
 	 alert(EVENT_NO);     	
 
+	 var dataList =
+		{ 
+			"EVENT_NO" : EVENT_NO	
+		}	
+
 	
 	
     $.ajax({    
       type : "POST",
       url : url1,
-     
+      data : dataList,
       dataType : "text",      
       error : function() {
     	  
@@ -169,6 +175,87 @@ function EventView(EVENT_NO){
     });    
    
 }
+
+
+
+
+
+function ajaxEventModifyForm(EVENT_NO){
+		  
+	var url1 = "/IMPet/Community/EventModifyForm";
+	
+	 alert(EVENT_NO);     	
+
+	 var dataList =
+		{ 
+			"EVENT_NO" : EVENT_NO	
+		}	
+
+	
+	
+    $.ajax({    
+      type : "POST",
+      url : url1,
+      data : dataList,
+      dataType : "text",      
+      error : function() {
+    	  
+    	 alert('오류임!');     	
+      },
+      success : function(data) {  
+    	 $('#ContextEvent').html(data);
+        		
+      }
+      
+    });    
+   
+}
+
+
+function EventDelete(EVENT_NO){
+	alert(EVENT_NO);     
+	if( confirm("현재 이베트를  삭제하시겠습니까?") ){	
+		
+		ajaxEventDelete(EVENT_NO);
+	}
+	
+}
+	
+	
+
+
+function ajaxEventDelete(EVENT_NO){
+	
+		
+		var url1 = "/IMPet/Community/EventDelete";
+		
+		 //alert(EVENT_NO);     	
+	
+		 var dataList =
+			{ 
+				"EVENT_NO" : EVENT_NO	
+			}	
+	
+		
+		
+	    $.ajax({    
+	      type : "POST",
+	      url : url1,
+	      data : dataList,
+	      dataType : "text",      
+	      error : function() {
+	    	  
+	    	 alert('오류임!');     	
+	      },
+	      success : function(data) {  
+	    	 $('#ContextEvent').html(data);
+	        		
+	      }
+	      
+	    });    		 
+   
+}
+
 
 
 

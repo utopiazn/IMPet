@@ -37,25 +37,19 @@ public class EventController {
 		
 		if(Event.equals("1")){
 			url = "community/event/eventListAdd";
-			
-			System.out.println("111111111111");
-			
+					
 			menu=0;
 			mav.addObject("menu", menu);
 			
-		}else{
-			
+		}else{			
 			url = "EventList1";
-			
-			System.out.println("2222222222222222");
 			
 			menu=1;
 			mav.addObject("menu", menu);
 		}
 
 		commandMap.MapInfoList();
-		
-		
+			
 
 		String pagingHtml =pagingHtml(commandMap,1);
 		commandMap.MapInfoList();
@@ -146,9 +140,21 @@ public class EventController {
 
 		String url = "community/event/eventView";
 
-
+		commandMap.MapInfoList();
 		System.out.println("이벤트 상세보기");
+		
+		//상세보기 수 증가.
+		eventService.addViewNum(commandMap.getMap());
+		
+		//상세 정보 가져오기
+		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
+		System.out.println(view);
 
+		//String strImage = view.get("EVENT_IMG").toString();
+	
+		//mav.addObject("eventImage", strImage);
+		
+		mav.addObject("view", view);
 		
 		mav.setViewName(url);
 		return mav;
@@ -165,7 +171,7 @@ public class EventController {
 		System.out.println("이벤트 추가 폼");
 
 		
-		mav.setViewName("EventForm");
+		mav.setViewName("EventForm1");
 		return mav;
 	}
 	
@@ -180,7 +186,7 @@ public class EventController {
 		System.out.println("이벤트 추가 처리");
 
 		
-		mav.setViewName("EventList");
+		mav.setViewName("EventList1");
 		return mav;
 	}
 	
@@ -188,21 +194,25 @@ public class EventController {
 			
 	//이벤트 수정폼
 	@RequestMapping(value="/EventModifyForm")
-	public ModelAndView EventModifyForm(){
+	public ModelAndView EventModifyForm(CommandMap commandMap) throws Exception{
+
 
 		ModelAndView mav = new ModelAndView();
-
+		String url = "community/event/eventModifyForm";
 		System.out.println("이벤트 수정폼");
 
 		
-		mav.setViewName("EventModifyForm");
+		//mav.setViewName("EventModifyForm");
+		mav.setViewName(url);
+		
 		return mav;
 	}
 	
 	
 	//이벤트 수정처리
 	@RequestMapping(value="/EventModify")
-	public ModelAndView EventModify(){
+	public ModelAndView EventModify(CommandMap commandMap) throws Exception{
+
 
 		ModelAndView mav = new ModelAndView();
 
@@ -216,14 +226,38 @@ public class EventController {
 		
 	//이벤트 삭제
 	@RequestMapping(value="/EventDelete")
-	public ModelAndView EventDelete(){
+	public ModelAndView EventDelete(CommandMap commandMap) throws Exception{
+
 
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 삭제");
+		
+	
+	
+		String url = "community/event/eventListAdd";
+					
+		int	menu=0;
+		mav.addObject("menu", menu);
+			
+		
+		commandMap.MapInfoList();
+			
 
-		//이벤트 상세 보기로 이동
-		mav.setViewName("EventView1");
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();	
+	
+		
+		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		mav.setViewName(url);
+		
+
+		
 		return mav;
 	}
 	

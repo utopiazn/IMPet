@@ -19,11 +19,12 @@
 				select 
 			     	row_number() over(order by 	event_Date) as NO, 
 			     	event_NO,
-					event_Subject,
-					event_Content,
+					event_Subject,					
 					event_IMG,
 					event_Count,
-					event_Date							           
+					event_Date,
+					event_Content,
+					event_Time							           
 		          
 		        from 
 		        	PET_EVENT 
@@ -61,7 +62,7 @@
 			set 
 				event_Count = event_Count+1 
 			where 
-				event_NO = #{event_NO}									
+				event_NO = #{EVENT_NO}									
 
 		]]>
 			
@@ -78,7 +79,7 @@
 			from 
 				PET_EVENT
 			where
-				event_NO = #{event_NO}							
+				event_NO = #{EVENT_NO}							
 			
 
 		]]>

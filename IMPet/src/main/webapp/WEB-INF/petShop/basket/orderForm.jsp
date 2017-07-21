@@ -89,7 +89,7 @@
 	
 			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
-						<col width="20%">
+					<col width="20%">
 					<col width="30%">
 					<col width="20%">
 					<col width="20%">
