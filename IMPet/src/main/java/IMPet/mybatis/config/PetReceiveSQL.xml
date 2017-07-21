@@ -24,6 +24,21 @@
 		<include refid="where-no"/>
 	</select>
 	
+	<select id="selectReceive" resultType="hashmap" parameterType="hashmap">
+		select * from 
+			pet_item_receive
+		 where 
+		 	receive_no = 
+		 	
+		 	(select 
+		 		max(receive_no) 
+		 	from 
+		 		pet_item_receive 
+		 	where
+		 		 member_id = #{MEMBER_ID})
+
+	</select>
+	
 	<!-- 배송정보추가 -->
 	<insert id="receiveInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="RECEIVE_NO">
 		<selectKey keyProperty="RECEIVE_NO" resultType="String" order="BEFORE">

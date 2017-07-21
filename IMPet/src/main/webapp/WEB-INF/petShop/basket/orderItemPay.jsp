@@ -56,18 +56,30 @@
 </style>
 <script type="text/javascript">
 	
+function order_cancel() { 
+	
+	var frm = document.order;
+	
+	if (confirm("주문을 취소하시겠습니까?")){ 
+			frm.method = "post";
+			frm.action = "/IMPet/PetShop/Main";
+			frm.submit();
+	}else{ 
+			frm.method = "post";
+			frm.action = "redirect:/IMPet/PetShop/OrderItemPay";
+			frm.submit();
+	} 
+}	
 
 function order_sub() { 
-	
-
- 	var frm = document.order;
+ 	
+	var frm = document.order;
 	
 	frm.method = "post";
 	frm.action = "/IMPet/PetShop/OrderComplete";
 	frm.submit();
 	
-	return true;  
-	 
+	return true;
 }	
 </script>
 
@@ -99,7 +111,7 @@ function order_sub() {
 					<tr>
 						<th scope="col">이미지</th>
 						<th scope="col">상품명</th>
-						<th scope="col">단일금액</th>
+						<th scope="col">상품금액</th>
 						<th scope="col">수량</th>
 						<th scope="col">합계</th>
 					</tr>
@@ -107,12 +119,22 @@ function order_sub() {
 				
 			<c:forEach var="orderPay" items="${orderPay}">			
 					<tr>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderPay.ITEM_IMG}" width="90" height="90"></td>
-						<td align="center">${orderPay.ITEM_NAME}</td>
-						<td align="center"><fmt:formatNumber value="${orderPay.ITEM_PRICE}" type="number"/>원</td>
-						<td align="center">${orderPay.BASKET_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
-						<c:set var= "sum" value="${sum + (orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT)}"/> 
+						<c:if test="${orderPay.ITEM_DCPRICE == null }">
+							<td align="center"><img src="/IMPet/resources/image/itemImg/${orderPay.ITEM_IMG}" width="90" height="90"></td>
+							<td align="center">${orderPay.ITEM_NAME}</td>
+							<td align="center"><fmt:formatNumber value="${orderPay.ITEM_PRICE}" type="number"/>원</td>
+							<td align="center">${orderPay.BASKET_BUYCOUNT}EA</td>
+							<td align="center"><strong id="id2"><fmt:formatNumber value="${orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+							<c:set var= "sum" value="${sum + (orderPay.ITEM_PRICE * orderPay.BASKET_BUYCOUNT)}"/> 
+						</c:if>
+						<c:if test="${orderPay.ITEM_DCPRICE != null }">
+							<td align="center"><img src="/IMPet/resources/image/itemImg/${orderPay.ITEM_IMG}" width="90" height="90"></td>
+							<td align="center">${orderPay.ITEM_NAME}</td>
+							<td align="center"><fmt:formatNumber value="${orderPay.ITEM_DCPRICE}" type="number"/>원</td>
+							<td align="center">${orderPay.BASKET_BUYCOUNT}EA</td>
+							<td align="center"><strong id="id2"><fmt:formatNumber value="${orderPay.ITEM_DCPRICE * orderPay.BASKET_BUYCOUNT}" type="number"/>원</strong></td>						
+							<c:set var= "sum" value="${sum + (orderPay.ITEM_DCPRICE * orderPay.BASKET_BUYCOUNT)}"/> 
+						</c:if>
 					</tr>				
 			</c:forEach>
 				<tfoot>
@@ -176,10 +198,10 @@ function order_sub() {
 			</table>
 		</div>
 </div>
- 
 
 	<div class="basket_button" style="margin-top:5px;">
-		 <input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()" >					
+		<input type="button" value="취소" onclick="order_cancel()" />
+		<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onClick="order_sub()">					
 	</div>	
 
 </form> 

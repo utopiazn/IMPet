@@ -63,9 +63,11 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 	}
 
 	@Override
-	public List<Map<String, Object>> selectAllList() throws Exception {
+	public List<Map<String, Object>> selectAllList(Map<String, Object> map) throws Exception {
 		
-		List<Map<String, Object>> list = petRoomReservationDAO.selectAllList(); 
+		System.out.println("서비스"+map);
+		
+		List<Map<String, Object>> list = petRoomReservationDAO.selectAllList(map); 
 		
 		//DB에 들어간 날짜들 표출할때 시간빼고 yyyy-MM-dd 형식으로 만듬
 		for(int i=0; i<list.size(); i++){
@@ -79,6 +81,12 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 		};
 		
 		return list;
+	}
+	
+	@Override
+	public int selectResCount() throws Exception {
+		// TODO Auto-generated method stub
+		return petRoomReservationDAO.selectResCount();
 	}
 	
 }

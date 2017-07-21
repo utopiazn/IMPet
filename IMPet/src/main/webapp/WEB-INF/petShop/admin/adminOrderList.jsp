@@ -83,19 +83,19 @@ $.fn.rowspan = function(colIdx, isStats) {
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px; text-align:left;">
 						<div class="col-sm-6">
-							<a href="/IMPet/PetShop/AdminItemList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<a href="/IMPet/PetShop/AdminOrderList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--주문 상태--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=0">입금전</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=1">입금완료</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=2">배송시작</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=3">배송완료</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=4">주문취소</option> 
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=2&isSearch=0">입금전</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=2&isSearch=1">입금완료</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=2&isSearch=2">배송시작</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=2&isSearch=3">배송완료</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=2&isSearch=4">주문취소</option> 
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--주문 정렬--</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=3&isSearch=0">주문번호</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=4&isSearch=0">주문날짜</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=3&isSearch=0">주문번호</option>
+								<option value ="/IMPet/PetShop/AdminOrderList?searchNum=4&isSearch=0">주문상태</option>
 							</select>			
 			<!-- 			<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
@@ -148,20 +148,25 @@ $.fn.rowspan = function(colIdx, isStats) {
 										
 										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_DATE}</td>
 										<td style="text-align:center;vertical-align:middle;">
-										<c:if test="${orderList.ORDER_TYPE eq 1 }">입금전  
-											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">입금 완료</a>]
+										<c:url var="viewURL" value="/PetShop/AdminOrderPay" >
+											<c:param name="ORDER_TYPE" value="${orderList.ORDER_TYPE + 1 }" />
+											<c:param name="RECEIVE_NO" value="${orderList.RECEIVE_NO }"/>
+										</c:url>
+										
+										<c:if test="${orderList.ORDER_TYPE eq 0 }">입금전  
+											[<a href="${viewURL }" >입금 완료</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 2 }">입금완료
-											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 시작</a>]
+										<c:if test="${orderList.ORDER_TYPE eq 1 }">입금완료
+											[<a href="${viewURL }" >배송 시작</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 3 }">배송시작
-											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 완료</a>]
+										<c:if test="${orderList.ORDER_TYPE eq 2 }">배송시작
+											[<a href="${viewURL }" >배송 완료</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 4 }">
+										<c:if test="${orderList.ORDER_TYPE eq 3 }">
 											배송완료
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 5 }">
-											<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">주문 취소</a>
+										<c:if test="${orderList.ORDER_TYPE eq 4 }">주문취소
+											[<a href="${viewURL }" >삭 제</a>]
 										</c:if>
 										
 																								
@@ -185,8 +190,8 @@ $.fn.rowspan = function(colIdx, isStats) {
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action=""> 
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">상품명</option>
-										<option value="1">상품번호</option>
+										<option value="0">아이디</option>
+										<option value="1">상품명</option>
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>

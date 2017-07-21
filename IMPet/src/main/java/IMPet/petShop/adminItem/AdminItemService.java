@@ -45,5 +45,23 @@ public interface AdminItemService {
 		
 		// 상품 주문 리스트
 		public List<Map<String, Object>> orderList(Map<String, Object> map) throws Exception;
+		
+		// 아이디
+		public List<Map<String, Object>> orderSearch1(String isSearch) throws Exception;
+		
+		// 상품 명
+		public List<Map<String, Object>> orderSearch2(String isSearch) throws Exception;
+		
+		// 주문 상태
+		public List<Map<String, Object>> orderSearch3(String isSearch) throws Exception;
+		
+		// 주문 번호 정렬
+		public List<Map<String, Object>> orderSearch4(String isSearch) throws Exception;
+		
+		// 주문 날짜 정렬
+		public List<Map<String, Object>> orderSearch5(String isSearch) throws Exception;
+		
+		public void orderType(Map<String,Object> map) throws Exception;
+		
 
 }

@@ -117,7 +117,7 @@ public class ProjectUtil {
 			
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
 			
-			if (multipartFile.isEmpty() == false) {
+			if (multipartFile.isEmpty() == false) {  
 				
 				originalFileName = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
 				
@@ -134,7 +134,7 @@ public class ProjectUtil {
 														
 						File file = new File(uploadPath, storedFileName);
 						multipartFile.transferTo(file);
-												
+						
 						commandMap.put(multipartFile.getName().substring(0,multipartFile.getName().lastIndexOf("I")-1), storedFileName);
 			
 					}

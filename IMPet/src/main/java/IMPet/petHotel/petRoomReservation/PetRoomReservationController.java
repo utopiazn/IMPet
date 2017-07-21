@@ -114,23 +114,61 @@ public class PetRoomReservationController {
 	
 	//호텔 룸 예약리스트(관리자용)
 	@RequestMapping(value="RoomResAllList")
-	public ModelAndView resAllList() throws Exception{
+	public ModelAndView resAllList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("호텔 룸 예약리스트(관리자용)");
+
+		//관리자페이지 통합코드
+		int adminCode = 3;
+		mav.addObject("adminCode", adminCode);
+
+		int page = 1;
+		
+		System.out.print("페이지 넘버:"+page);
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());
+		
+		System.out.println(list);
+		
+		String url = "AdminPage";
+		
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
+		
+		return mav;
+	}
+	
+	//호텔 룸 예약리스트(관리자용/페이징)
+	@RequestMapping(value="RoomResAllListPage")
+	public ModelAndView resAllListPage(CommandMap commandMap) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 예약리스트(관리자용)");
 		
-		List<Map<String, Object>> list = petRoomReservationService.selectAllList();
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		System.out.print("페이지 넘버:"+page);
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());
 		
 		System.out.println(list);
 		
-		/*String url = "petHotel/room/list";*/
-		String url = "AdminPage";
-		
-		//관리자페이지 통합코드
-		int adminCode = 3;
-		mav.addObject("adminCode", adminCode);
+		String url = "petHotel/roomRes/resAllList";
 
+		mav.addObject("pagingHtml", pagingHtml);	
+		
 		mav.addObject("list", list);
 		
 		mav.setViewName(url);
@@ -189,5 +227,49 @@ public class PetRoomReservationController {
 		return mav;
 	}
 	
+	
+	//페이징 메소드
+	private String pagingHtml(CommandMap commandMap, int pageNo) throws Exception{		
+		
+		int blockCount =5;
+		
+
+		int totalCount=  petRoomReservationService.selectResCount();	
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
+		System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}
+		
+
+		
+		return pagingHtml.toString();
+		
+	}
 	
 }

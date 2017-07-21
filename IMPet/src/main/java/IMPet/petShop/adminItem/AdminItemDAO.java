@@ -81,6 +81,34 @@ public class AdminItemDAO extends AbstractDAO{
 		
 		return selectList("PetOrderSQL.adminOdList", map);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderSearch1(String isSearch) throws Exception {
+		return itemSearch("PetOrderSQL.orderSearch1",isSearch);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderSearch2(String isSearch) throws Exception {
+		return itemSearch("PetOrderSQL.orderSearch2",isSearch);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderSearch3(String isSearch) throws Exception {
+		return itemSearch("PetOrderSQL.orderSearch3",isSearch);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderSearch4(String isSearch) throws Exception {
+		return itemSearch("PetOrderSQL.orderSearch4",isSearch);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String,Object>> orderSearch5(String isSearch) throws Exception {
+		return itemSearch("PetOrderSQL.orderSearch5",isSearch);
+	}
+	
+	public void orderType(Map<String,Object> map) throws Exception {
+		update("PetOrderSQL.orderType", map);
+	}
 
 
 }

@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	$('#sum').rowspan(0);
 });
 
+
 $.fn.rowspan = function(colIdx, isStats) {       
 	return this.each(function(){      
 		var that;     
@@ -41,20 +42,42 @@ $.fn.rowspan = function(colIdx, isStats) {
 		});    
 	});  
 }; 
-function delchk(){
-    return confirm("삭제하시겠습니까?");
-    
-    
-}
- function test(orderList)
- {
-         var div_test = document.getElementById('test');
-         div_test.innerHTML = orderList.RECEIVE_NAME;
-        
- }
- 
-</script>
 
+
+	function delchk() {
+		
+	    return confirm("주문 취소 하시겠습니까?");  
+	}
+	
+	function delchk_no() {
+		
+		alert("입금 확인 후에는 주문 취소가 불가합니다."); 
+		location.href = 'redirect:/IMPet/PetShop/OrderList';
+	}
+
+
+	function test(orderList) {
+		
+	    var div_test = document.getElementById('test');
+	    div_test.innerHTML = orderList.RECEIVE_NAME;      
+	}
+	 
+</script>
+<style type="text/css">
+.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
+.paging a,
+.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
+-webkit-border-radius:3px;
+   -moz-border-radius:3px;
+		border-radius:3px;
+-webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+}
+.paging a:first-child{margin-left:0;}
+.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
+.paging .page_arw{font-size:11px;line-height:30px;}
+</style>
 <div class="category_top">
 	<ul>
 	 	<li>강아지 ></li><li>주문리스트</li>			
@@ -99,35 +122,38 @@ function delchk(){
 						<td align="center">${orderList.ORDER_BUYCOUNT}EA</td>
 						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
 						<td>
-						<c:choose>
-						 <c:when test="${orderList.ORDER_TYPE eq 1}">입금전</c:when>
-						 <c:when test="${orderList.ORDER_TYPE eq 2}">입금확인</c:when>
-						 <c:when test="${orderList.ORDER_TYPE eq 3}">배송시작</c:when>
-						 <c:when test="${orderList.ORDER_TYPE eq 4}">배송완료</c:when>
-						 <c:when test="${orderList.ORDER_TYPE eq 5}">주문취소</c:when>
-						<c:otherwise>
-						오류
-						</c:otherwise>
-						</c:choose>
+							<c:choose>
+								<c:when test="${orderList.ORDER_TYPE eq 0}">입금전</c:when>
+								<c:when test="${orderList.ORDER_TYPE eq 1}">입금확인</c:when>
+								<c:when test="${orderList.ORDER_TYPE eq 2}">배송시작</c:when>
+								<c:when test="${orderList.ORDER_TYPE eq 3}">배송완료</c:when>
+								<c:when test="${orderList.ORDER_TYPE eq 4}">주문취소</c:when>
+								<c:otherwise>오류</c:otherwise>
+							</c:choose>
 						</td>
 						<td align="center">
-							<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+							<c:choose>
+								<c:when test="${orderList.ORDER_TYPE eq 0}">
+									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+								</c:when>
+								<c:otherwise><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk_no()" ></c:otherwise>
+							</c:choose>
 						</td>
-				
 					</tr>
+					
 					<c:if test="${orderList[status.index].ORDER_NO != orderList[status.index+1].ORDER_NO}">
-					<tr style="height:30px;">
-						<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;">
-							
-						</td>
-					</tr>
-					</c:if>
-				</c:forEach>
-					<c:if test="${fn:length(orderList) <= 0}">
-						<tr>
-							<td colspan="7" align="center"><font size="2">주문리스트 담긴 상품이 없습니다.</font></td>
+						<tr style="height:30px;">
+							<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;"></td>
 						</tr>
 					</c:if>
+				</c:forEach>
+				
+				<c:if test="${fn:length(orderList) <= 0}">
+					<tr>
+						<td colspan="7" align="center"><font size="2">주문리스트 담긴 상품이 없습니다.</font></td>
+					</tr>
+				</c:if>
+				
 				<tfoot>
 					<tr style="height:1px;">
 						<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
@@ -135,11 +161,14 @@ function delchk(){
 						</td>
 					</tr>
 				</tfoot>
-				
 			</table>
-			<div class="basket_button">
-										
-					<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>  		
+			
+			<div class="paging">
+				${pagingHtml}
+			</div>
+			
+			<div class="basket_button">					
+				<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>  		
 			</div>		
 		</form>
 		</div>

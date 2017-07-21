@@ -13,10 +13,18 @@
 	<sql id="where-no"><![CDATA[ WHERE RES_NO = #{res_NO}]]></sql>
 	
 	<!-- 예약리스트(관리자용) -->
-	<select id="selectAllList" resultType="hashmap">
-		<include refid="seletClass"/>
+	<select id="selectAllList" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[
-		ORDER BY RES_NO DESC
+		select a.* from (
+  		     select  
+  		     		row_number() over(order by 	RES_NO DESC) as NO,
+				 	RES_NO, ROOM_NO, RES_FIRSTDATE, RES_LASTDATE,
+		  			MEMBER_ID, RES_PRICE, RES_REQUESTS, RES_STATE
+			 from 
+			 	PET_ROOM_RESERVATION ) a    
+			 where 
+			 	a.NO between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
+			 ORDER BY RES_NO DESC
 		]]>
 	</select>
 	
@@ -72,5 +80,17 @@
 		DELETE FROM PET_ROOM_RESERVATION WHERE RES_NO = #{res_NO}
 		]]>
 	</delete>
+	
+	<!-- 예약 전체 갯수 -->
+	<select id="selectResCount" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	PET_ROOM_RESERVATION 			
+			
+		]]>
+	</select>
 	
 </mapper>
