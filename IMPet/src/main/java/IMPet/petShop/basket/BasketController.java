@@ -70,12 +70,16 @@ public class BasketController {
 	
 	//펫샵장바구니상품삭제
 	@RequestMapping(value="/BasketDelete")
-	public ModelAndView BasketDelete(CommandMap commandMap, HttpSession session) throws	Exception {
+	public ModelAndView BasketDelete(CommandMap commandMap, HttpSession session, HttpServletRequest request) throws	Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("controller" +commandMap.getMap());
-		basketService.delete(commandMap.getMap());
+		String[] no = request.getParameterValues("BASKET_NO");
+		for(String a : no) {
+			commandMap.put("BASKET_NO", a);
+			basketService.delete(commandMap.getMap());
+		}
+
 		System.out.println("펫샵장바구니상품삭제");
 			
 		String id = session.getAttribute("member_ID").toString();
