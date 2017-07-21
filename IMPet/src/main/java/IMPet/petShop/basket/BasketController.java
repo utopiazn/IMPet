@@ -198,7 +198,7 @@ public class BasketController {
 		System.out.println("controller" +commandMap.getMap());
 		orderService.delete(commandMap.getMap());
 			
-		String id = session.getAttribute("member_ID").toString();
+		//String id = session.getAttribute("member_ID").toString();
 		
 		mav.setViewName("redirect:/MyPage#order");
 		return mav;

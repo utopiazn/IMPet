@@ -66,7 +66,7 @@ function order_cancel() {
 			frm.submit();
 	}else{ 
 			frm.method = "post";
-			frm.action = "/IMPet/PetShop/OrderItemPay";
+			frm.action = "redirect:/IMPet/PetShop/OrderItemPay";
 			frm.submit();
 	} 
 }	
