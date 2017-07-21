@@ -150,7 +150,6 @@ public class BasketController {
 	}
 	
 	//펫샵주문완료
-	
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
@@ -159,12 +158,12 @@ public class BasketController {
 		//List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
 		orderService.insert(commandMap.getMap(), session);
-		Map<String, Object> map = orderService.selectTwo(commandMap.getMap());
+		List<Map<String, Object>> two = orderService.selectTwo(commandMap.getMap());
 		
 		System.out.println("펫샵주문완료");
-		System.out.println(map);
+		System.out.println("size"+two.size());
 			
-		mav.addObject("orderPay", map);
+		mav.addObject("orderPay", two);
 		mav.addObject("receive", commandMap.getMap());
 		mav.setViewName("OrderComplete");
 		return mav;

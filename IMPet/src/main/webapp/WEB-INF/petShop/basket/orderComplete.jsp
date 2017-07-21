@@ -43,6 +43,8 @@
 	        <div class="complete">
 	        <p>고객님의 주문이<br/><br/>완료 되었습니다.</p>
 			<ul>
+				<c:forEach var="orderPay"  items="${orderPay}" varStatus="status">
+				<c:if test="${status.first }">
 				<li class="number">
 				<strong>주문번호</strong>&nbsp;&nbsp;&nbsp;<span>${orderPay.RECEIVE_NO}</span>
 				</li>
@@ -52,6 +54,8 @@
 				<li class="number">
 				<strong>입금계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.ORDER_PAYER}</span>
 				</li>
+				</c:if>
+				</c:forEach>
 				
 			</ul>
 			</div>
