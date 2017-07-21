@@ -48,7 +48,6 @@
 					  ORDER_BUYCOUNT,
 					  MEMBER_ID,
 					  ORDER_PRICE,
-					  ORDER_STATE,
 					  ORDER_DATE,
 					  ORDER_TYPE,
 					  ORDER_IMG,
@@ -60,9 +59,8 @@
 					  #{BASKET_BUYCOUNT},
 				      #{MEMBER_ID},
 				      #{ITEM_PRICE},
-				      1,
 				      sysdate,
-				      1,
+				      0,
 				      #{ITEM_IMG},
 				      #{ITEM_NAME},
 				      #{RECEIVE_NO})

@@ -15,11 +15,11 @@
 	</properties>
 
  
-	<repositories>  
-		<repository> 
+	<repositories>   
+		<repository>  
 			<id>mvn2</id>
 			<url>http://repo1.maven.org/maven2/</url>
-			<releases>
+			<releases> 
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>   

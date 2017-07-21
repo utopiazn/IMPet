@@ -148,20 +148,20 @@ $.fn.rowspan = function(colIdx, isStats) {
 										
 										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_DATE}</td>
 										<td style="text-align:center;vertical-align:middle;">
-										<c:if test="${orderList.ORDER_TYPE eq 1 }">입금전  
+										<c:if test="${orderList.ORDER_TYPE eq 0 }">입금전  
 											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">입금 완료</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 2 }">입금완료
+										<c:if test="${orderList.ORDER_TYPE eq 1 }">입금완료
 											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 시작</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 3 }">배송시작
+										<c:if test="${orderList.ORDER_TYPE eq 2 }">배송시작
 											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">배송 완료</a>]
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 4 }">
+										<c:if test="${orderList.ORDER_TYPE eq 3 }">
 											배송완료
 										</c:if>
-										<c:if test="${orderList.ORDER_TYPE eq 5 }">
-											<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">주문 취소</a>
+										<c:if test="${orderList.ORDER_TYPE eq 4 }">주문취소
+											[<a href="/IMPet/PetShop/AdminOrderPay" onclick="pay_chk()">삭 제</a>]
 										</c:if>
 										
 																								
@@ -185,8 +185,8 @@ $.fn.rowspan = function(colIdx, isStats) {
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action=""> 
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">상품명</option>
-										<option value="1">상품번호</option>
+										<option value="0">아이디</option>
+										<option value="1">상품명</option>
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>
