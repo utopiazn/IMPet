@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
 	private BasketDAO basketDAO;
 
 
-	@Override
+	@Override // 장바구니에서 선택한 상품만 가져오기
 	public Map<String, Object> selectAll(Map<String, Object> map,HttpServletRequest request) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		List<Map<String, Object>> orderMap = new ArrayList<Map<String,Object>>();
@@ -51,14 +51,16 @@ public class OrderServiceImpl implements OrderService {
 		System.out.println("장바구니사이즈"+orderMap.size());
 
 		Map<String, Object> memMap = memberDAO.selectOne(map);
+		Map<String, Object> receiveMap = receiveDAO.selectReceive(map);
 		
+		resultMap.put("receive", receiveMap);
 		resultMap.put("orderView", orderMap);
 		resultMap.put("member", memMap);
 		
 		return resultMap;
 	}
 
-	@Override
+	@Override // 상품 바로 구매
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		List<Map<String, Object>> orderMap = new ArrayList<Map<String,Object>>();
@@ -67,9 +69,11 @@ public class OrderServiceImpl implements OrderService {
 		orderMap.get(0).put("BASKET_BUYCOUNT", map.get("BASKET_BUYCOUNT").toString());
 		
 		Map<String, Object> memMap = memberDAO.selectOne(map);
+		Map<String, Object> receiveMap = receiveDAO.selectReceive(map);
 		
 		resultMap.put("orderView", orderMap);
 		resultMap.put("member", memMap);
+		resultMap.put("receive", receiveMap);
 		
 		return resultMap;
 	}

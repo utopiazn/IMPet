@@ -19,5 +19,7 @@ public interface OrderService {
 	public void insert(Map<String,Object> map, HttpSession session) throws Exception;
 	
 	Map<String, Object> selectTwo(Map<String, Object> map) throws Exception;
+	
+
 
 }

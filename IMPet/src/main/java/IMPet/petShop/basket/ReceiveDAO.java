@@ -23,6 +23,11 @@ public class ReceiveDAO extends AbstractDAO {
 		return (Map<String, Object>) selectOne("PetReceiveSQL.selectOne", map);	
 	}
 	
+	public Map<String, Object> selectReceive(Map<String, Object> map) throws Exception {
+		
+		return  selectOne("PetReceiveSQL.selectReceive", map);	
+	}
+	
 	//배송정보추가
 	public void insert(Map<String, Object> map) throws Exception {
 		

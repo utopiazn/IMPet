@@ -101,6 +101,7 @@ public class BasketController {
 
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("receive", map.get("receive"));
 		
 		mav.setViewName("OrderFormB");
 		
@@ -114,12 +115,13 @@ public class BasketController {
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = orderService.selectOne(commandMap.getMap());
-		
+
 		session.setAttribute("orderView", map.get("orderView"));
 		session.setAttribute("member", map.get("member"));
 		
 		mav.addObject("member", map.get("member"));
 		mav.addObject("orderView", map.get("orderView"));
+		mav.addObject("receive", map.get("receive"));
 		mav.setViewName("OrderFormD");
 		
 		return mav;

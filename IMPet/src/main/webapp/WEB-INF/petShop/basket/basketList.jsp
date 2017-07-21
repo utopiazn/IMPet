@@ -204,6 +204,6 @@ if (!$(".basket_main input:checkbox[name='BASKET_NO']").is(":checked")){
 	alert("삭제하실 상품을 선택해주세요");
 	return false;
 }
-return confirm("정말로 장바구니를 삭제하시겠습니까?");	
+return confirm("정말로 장바구니를 삭제하시겠습니까?")
 });
 </script>
