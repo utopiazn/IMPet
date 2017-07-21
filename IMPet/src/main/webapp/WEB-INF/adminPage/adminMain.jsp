@@ -131,6 +131,12 @@
 				</div>
 			</c:when>
 			
+			<c:when test="${adminCode==13}">
+				<div style="width: 90%; padding-top: 50px;">
+						<jsp:include page="/WEB-INF/petShop/admin/adminItemModify.jsp"/>
+				</div>
+			</c:when>
+			
 			<c:when test="${adminCode==7}">
 				<div style="width: 90%; padding-top: 50px;">
 					<jsp:include page="/WEB-INF/serviceCenter/notice/list.jsp"/>

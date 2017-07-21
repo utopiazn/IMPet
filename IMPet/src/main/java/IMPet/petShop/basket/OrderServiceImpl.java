@@ -94,12 +94,17 @@ public class OrderServiceImpl implements OrderService {
 			
 			int price = Integer.parseInt(orderPay.get(i).get("ITEM_PRICE").toString());
 			int buyCount = Integer.parseInt(orderPay.get(i).get("BASKET_BUYCOUNT").toString());
-		
 			
-			orderPay.get(i).put("ITEM_PRICE", price * buyCount) ;
+	
+			if(orderPay.get(i).get("ITEM_DCPRICE") == null) {
+				orderPay.get(i).put("ITEM_PRICE", price * buyCount) ;
+			}
 			
-			System.out.println(price * buyCount);
-			System.out.println("주문내역리스트"+orderPay);
+			else if(orderPay.get(i).get("ITEM_DCPRICE") != null) {
+				
+				int dcprice = Integer.parseInt(orderPay.get(i).get("ITEM_DCPRICE").toString());
+				orderPay.get(i).put("ITEM_PRICE", dcprice * buyCount) ;
+			}
 			
 			orderDAO.insert(orderPay.get(i));
 			
