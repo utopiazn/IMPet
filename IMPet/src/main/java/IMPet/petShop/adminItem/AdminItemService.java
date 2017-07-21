@@ -61,5 +61,7 @@ public interface AdminItemService {
 		// 주문 날짜 정렬
 		public List<Map<String, Object>> orderSearch5(String isSearch) throws Exception;
 		
+		public void orderType(Map<String,Object> map) throws Exception;
+		
 
 }
