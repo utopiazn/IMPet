@@ -140,33 +140,40 @@ public class AdminItemServiceImpl implements AdminItemService{
 	@Override
 	public List<Map<String, Object>> orderSearch1(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return adminItemDAO.orderSearch1(isSearch);
 	}
 
 	@Override
 	public List<Map<String, Object>> orderSearch2(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return adminItemDAO.orderSearch2(isSearch);
 	}
 
 	@Override
 	public List<Map<String, Object>> orderSearch3(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return adminItemDAO.orderSearch3(isSearch);
 	}
 
 	@Override
 	public List<Map<String, Object>> orderSearch4(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return adminItemDAO.orderSearch4(isSearch);
 	}
 
 	@Override
 	public List<Map<String, Object>> orderSearch5(String isSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return adminItemDAO.orderSearch5(isSearch);
 	}
 
+	@Override
+	public void orderType(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		adminItemDAO.orderType(map);
+	}
+	
+	
 	
 	
 	

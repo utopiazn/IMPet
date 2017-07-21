@@ -246,17 +246,16 @@ public class AdminItemController {
 
 			System.out.println("getMap : " + commandMap.getMap());
 			
-			if (searchNum == 0){ // 아이디
-				orderList = adminItemService.itemSearch1(isSearch);
-			}
+			if (searchNum == 0) // 아이디
+				orderList = adminItemService.orderSearch1(isSearch);
 			else if (searchNum == 1) // 상품명
-				orderList = adminItemService.itemSearch2(isSearch);
+				orderList = adminItemService.orderSearch2(isSearch);
 			else if (searchNum == 2) // 주문 상태
-				orderList = adminItemService.itemSearch3(isSearch);
+				orderList = adminItemService.orderSearch3(isSearch);
 			else if (searchNum == 3) // 주문 번호
-				orderList = adminItemService.itemSearch4(isSearch);
+				orderList = adminItemService.orderSearch4(isSearch);
 			else if (searchNum == 4) // 주문 날짜
-				orderList = adminItemService.itemSearch5(isSearch);
+				orderList = adminItemService.orderSearch5(isSearch);
 
 
 			
@@ -312,13 +311,12 @@ public class AdminItemController {
 	
 	//관리자회원주문결제상태
 	@RequestMapping(value="/AdminOrderPay")
-	public ModelAndView AdminOrderPay() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView AdminOrderPay(CommandMap commandMap) throws Exception {
+		ModelAndView mav = new ModelAndView("redirect:/PetShop/AdminOrderList");
 		
-		System.out.println("관리자회원주문결제상태");
+		adminItemService.orderType(commandMap.getMap()); 
 	
-		
-		mav.setViewName("AdminOrderPay");
+
 		return mav;
 	}
 

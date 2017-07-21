@@ -92,5 +92,39 @@
 		<include refid="selectAll" /> 
 		<include refid="where-reNo" />
 	</select>
+	
+	<!-- 주문 아이디 -->
+	<select id="orderSearch1" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where MEMBER_ID LIKE '%'||#{isSearch}||'%'
+	</select>
+
+	<!-- 주문 상품명 -->
+	<select id="orderSearch2" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where ORDER_NAME LIKE '%'||#{isSearch}||'%'
+	</select>
+
+	<!-- 주문 상태 -->
+	<select id="orderSearch3" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where ORDER_TYPE = #{isSearch}
+	</select>
+
+	<!-- 주문 번호 -->
+	<select id="orderSearch4" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		<![CDATA[ ORDER BY RECEIVE_NO ASC ]]>
+	</select>
+
+	<!-- 주문 상태 정렬-->
+	<select id="orderSearch5" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		<![CDATA[ ORDER BY ORDER_TYPE  ]]>
+	</select>
+	
+	<update id="orderType" parameterType="hashmap">
+		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} where RECEIVE_NO = #{RECEIVE_NO}
+	</update>
 
 </mapper>
