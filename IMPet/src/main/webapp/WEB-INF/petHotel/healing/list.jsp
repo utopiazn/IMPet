@@ -1,52 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<style>
-.con{
-	margin-top: 5px;
-    border: 1px solid lightgray;
-    width: 100%;
-    height: 100%;
-    float: left;
-    padding-top: 8px;
-    padding-bottom: 15px;
-    }
-
-.con a:link,
-.con a:visited
-{
-    color: black;
-    text-align: center;
-    text-decoration: none;
-}
-.button4{
-    display: block;
-    margin: 5px 1px;
-    height: 30px;
-    width: 100px;
-    background-color: transparent;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-.button4:hover{
-  color: #fff;
-}
-
-.btn-4{
-  border: 2px solid #00B488;
-  color: #00B488;
-}
-.btn-4:hover{
-  background-color: #00B488;
-}
-
-
-</style>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 <c:if test="${sessionScope.member_Admin==1 }">
 <div align="right">

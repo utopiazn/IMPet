@@ -7,15 +7,11 @@
 		<![CDATA[ SELECT * FROM PET_ITEM_ORDER ]]>
 	</sql>
 	
-	<sql id="where-no"> 
-		<![CDATA[ WHERE ORDER_NO = #{ORDER_NO} ]]>
-	</sql>
-	
 	<sql id="where-id"> 
 		<![CDATA[ WHERE MEMBER_ID = #{MEMBER_ID} ]]>
 	</sql>
 	
-	<sql id="where-reNo"> 
+	<sql id="where-no"> 
 		<![CDATA[ WHERE RECEIVE_NO = #{RECEIVE_NO} ]]>
 	</sql>
 
@@ -48,7 +44,6 @@
 					  ORDER_BUYCOUNT,
 					  MEMBER_ID,
 					  ORDER_PRICE,
-					  ORDER_STATE,
 					  ORDER_DATE,
 					  ORDER_TYPE,
 					  ORDER_IMG,
@@ -60,9 +55,8 @@
 					  #{BASKET_BUYCOUNT},
 				      #{MEMBER_ID},
 				      #{ITEM_PRICE},
-				      1,
 				      sysdate,
-				      1,
+				      0,
 				      #{ITEM_IMG},
 				      #{ITEM_NAME},
 				      #{RECEIVE_NO})
@@ -89,10 +83,44 @@
 		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
 	</select>
 	
-	<!-- 상품에서 바로 주문 -->
+	<!-- 주문확인 -->
 	<select id="selectTwo" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" /> 
-		<include refid="where-reNo" />
+		<include refid="where-no" />
 	</select>
+	
+	<!-- 주문 아이디 -->
+	<select id="orderSearch1" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where MEMBER_ID LIKE '%'||#{isSearch}||'%'
+	</select>
+
+	<!-- 주문 상품명 -->
+	<select id="orderSearch2" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where ORDER_NAME LIKE '%'||#{isSearch}||'%'
+	</select>
+
+	<!-- 주문 상태 -->
+	<select id="orderSearch3" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		where ORDER_TYPE = #{isSearch}
+	</select>
+
+	<!-- 주문 번호 -->
+	<select id="orderSearch4" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		<![CDATA[ ORDER BY RECEIVE_NO ASC ]]>
+	</select>
+
+	<!-- 주문 상태 정렬-->
+	<select id="orderSearch5" resultType="hashmap" parameterType="hashmap">
+		<include refid="selectAll" />
+		<![CDATA[ ORDER BY ORDER_TYPE  ]]>
+	</select>
+	
+	<update id="orderType" parameterType="hashmap">
+		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} where RECEIVE_NO = #{RECEIVE_NO}
+	</update>
 
 </mapper>

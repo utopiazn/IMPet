@@ -18,11 +18,11 @@ function validateForm() {
 
 <!-- 메뉴 시작 -->
 
-<div class="row" style="padding-left:15px;width:100%;">    
+<div class="row" style="padding-left:15px;width:100;">    
 	<h1 class="page-header">상품등록</h1>
 </div>
 
-<div class="row" style="padding-left:15px;width:100%;" id="right">
+<div class="row" style="padding-left:15px;width:100%; text-align:left;" id="right">
 	<div class="panel panel-default">
 		<div class="panel-heading">상품등록 페이지입니다. 빠짐없이 입력하셔야합니다</div>
 			<div class="panel-body">
@@ -92,7 +92,7 @@ function validateForm() {
 		                     <input type="text" readonly="readonly" title="File Route" id="file_route">
 		                </div>          -->
 						<button type="submit" class="btn btn-success">상품등록</button>
-						<button type="reset" class="btn btn-default">작성취소</button>					
+						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>					
 				</form>
 			</div>
 	</div>

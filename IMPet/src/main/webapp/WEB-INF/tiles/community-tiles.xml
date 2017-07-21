@@ -79,12 +79,12 @@
 		</definition>
 				
 		<!-- 이벤트 추가 폼  -->	
-		<definition name="EventForm" extends="Event_main">
+		<definition name="EventForm1" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/event/eventForm.jsp" />
 		</definition>
 		
 		<!-- 이벤트 수정폼  -->	
-		<definition name="EventModifyForm" extends="Event_main">
+		<definition name="EventModifyForm1" extends="Event_main">
 			<put-attribute name="body" value="/WEB-INF/community/event/eventModifyForm.jsp" />
 		</definition>
 		

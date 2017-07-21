@@ -1,72 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<style>
-.button2 {
-  background: #333;
-  color: #ccc;
-  width: 100px;
-  height: 30px;
-  border: 0;
-  font-size: 15px;
-  border-radius: 4px;
-  font-family: 'Noto sans KR', sans-serif;
-  -webkit-transition: .6s;
-  transition: .6s;
-  overflow: hidden;
-}
-.button:focus2 {
-  outline: 0;
-}
-.button2:before {
-  content: '';
-  display: block;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
-  width: 60px;
-  height: 100%;
-  left: 0;
-  top: 0;
-  opacity: .5;
-  -webkit-filter: blur(30px);
-          filter: blur(30px);
-  -webkit-transform: translateX(-100px) skewX(-15deg);
-          transform: translateX(-100px) skewX(-15deg);
-}
-.button2:after {
-  content: '';
-  display: block;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.2);
-  width: 30px;
-  height: 100%;
-  left: 30px;
-  top: 0;
-  opacity: 0;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
-  -webkit-transform: translateX(-100px) skewX(-15deg);
-          transform: translateX(-100px) skewX(-15deg);
-}
-.button2:hover {
-  background: #727070;
-  cursor: pointer;
-}
-.button2:hover:before {
-  -webkit-transform: translateX(300px) skewX(-15deg);
-          transform: translateX(300px) skewX(-15deg);
-  opacity: 0.6;
-  -webkit-transition: .7s;
-  transition: .7s;
-}
-.button2:hover:after {
-  -webkit-transform: translateX(300px) skewX(-15deg);
-          transform: translateX(300px) skewX(-15deg);
-  opacity: 1;
-  -webkit-transition: .7s;
-  transition: .7s;
-}
-</style>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 <div>
 	<div style="float:left; width:70%; /* border:1px solid black; */ margin-top: 10px; margin-right: 1px; height:500px;">
