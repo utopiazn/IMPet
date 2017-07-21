@@ -17,7 +17,7 @@
 		<![CDATA[
 		select a.* from (
   		     select  
-  		     		row_number() over(order by 	RES_NO) as NO,
+  		     		row_number() over(order by 	RES_NO DESC) as NO,
 				 	RES_NO, ROOM_NO, RES_FIRSTDATE, RES_LASTDATE,
 		  			MEMBER_ID, RES_PRICE, RES_REQUESTS, RES_STATE
 			 from 

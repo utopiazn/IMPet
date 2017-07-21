@@ -46,7 +46,7 @@ public class PetRoomReservationDAO extends AbstractDAO{
 		
 		System.out.println("DAO"+map);
 		
-		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectAllList");
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectAllList", map);
 		
 		return list;  
 	}
