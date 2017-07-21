@@ -200,7 +200,7 @@ public class BasketController {
 			
 		String id = session.getAttribute("member_ID").toString();
 		
-		mav.setViewName("redirect:/PetShop/OrderList?MEMBER_ID="+id);
+		mav.setViewName("redirect:/MyPage#order");
 		return mav;
 	}
 	

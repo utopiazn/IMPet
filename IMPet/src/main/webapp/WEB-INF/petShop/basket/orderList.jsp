@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	$('#sum').rowspan(0);
 });
 
+
 $.fn.rowspan = function(colIdx, isStats) {       
 	return this.each(function(){      
 		var that;     
@@ -41,18 +42,19 @@ $.fn.rowspan = function(colIdx, isStats) {
 		});    
 	});  
 }; 
-function delchk(){
-    return confirm("삭제하시겠습니까?");
-    
-    
-}
- function test(orderList)
- {
-         var div_test = document.getElementById('test');
-         div_test.innerHTML = orderList.RECEIVE_NAME;
-        
- }
- 
+
+
+	function delchk() {
+		
+	    return confirm("삭제하시겠습니까?");  
+	}
+
+
+	function test(orderList) {
+	    var div_test = document.getElementById('test');
+	    div_test.innerHTML = orderList.RECEIVE_NAME;      
+	}
+
 </script>
 
 <div class="category_top">
