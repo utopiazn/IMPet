@@ -172,7 +172,7 @@ public class EventController {
 		System.out.println("이벤트 추가 폼");
 
 		
-		mav.setViewName("EventForm1");
+		mav.setViewName(url);
 		return mav;
 	}
 	

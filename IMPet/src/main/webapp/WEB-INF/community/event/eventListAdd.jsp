@@ -1,8 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
+<c:if test="${sessionScope.member_Admin==1 }">
+			<div align="right">
+				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
+			</div>
+		</c:if>		
 	
-	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
-	
+	<!-- <div id="ContextEvent" align="center" style="width:100%;  float: left;">
+	 -->
 				
 		<div align="center">
 			<table style="width: 100%">
@@ -48,8 +56,8 @@
 	
 	
 	
-	
-	</div>
+	<!-- 
+	</div> -->
 	
 
 

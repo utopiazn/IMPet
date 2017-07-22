@@ -295,15 +295,45 @@ function ajaxEventDelete(EVENT_NO){
 
 function ajaxeventForm(){	
 	
-	alert(page);  
+	
 	
 
-	var url1 = "/IMPet/Community/EventInsert";
+	var url1 = "/IMPet/Community/EventForm";
 	
     $.ajax({    
      
     	type : "POST",
         url : url1,        
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextEvent').html(data);          		
+        }
+        
+      });        
+
+}
+
+function ajaxPageView(page){	
+	
+	alert(page);  
+	var dataList =
+	{ 
+		"PAGE" : page	
+	}	
+
+	var url1 = "/IMPet/Community/EventPageList";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
         dataType : "text",      
         
         error : function() {
@@ -341,20 +371,16 @@ function ajaxeventForm(){
 	  </div>
 	</div>
 	
-	
-			
-	
+
+
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
 	
-		<c:if test="${sessionScope.member_Admin==1 }">
-			<div align="right">
-				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm()"/>
-			</div>
-		</c:if>	
+		
+		
+			
 	
-	
-	 	<jsp:include page="/WEB-INF/community/event/eventListAdd.jsp"/>
-	
+		<jsp:include page="/WEB-INF/community/event/eventListAdd.jsp"/>
+		
 	</div>			 					 
 		
 	

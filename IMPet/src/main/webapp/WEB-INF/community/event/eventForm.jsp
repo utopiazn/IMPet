@@ -3,7 +3,6 @@
 
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
-<!-- 
 <script type="text/javascript">
 function validateForm() {
     var x = document.forms["joinform"]["goods_name"].value;
@@ -14,86 +13,55 @@ function validateForm() {
 }
 </script>
 
- -->
 
 <!-- 메뉴 시작 -->
 
 <div class="row" style="padding-left:15px;width:100%;">    
-	<h1 class="page-header">상품등록</h1>
+	<h1 class="page-header">이벤트 추가</h1>
 </div>
 
-<div class="row" style="padding-left:15px;width:100%;" id="right">
+<div class="row" style="padding-left:15px;width:100%; text-align:left;"  id="right">
 	<div class="panel panel-default">
-		<div class="panel-heading">상품등록 페이지입니다. 빠짐없이 입력하셔야합니다</div>
+		<div class="panel-heading">이벤트 생성 페이지 입니다. 빠짐없이 입력하셔야합니다</div>
 			<div class="panel-body">
-				<form action="AdminItemWrite" enctype="multipart/form-data" method="post" name="joinform" onsubmit="return validateForm()">	
-						<div class="form-group">
-                            <label>카테고리</label>	                            
-                            <select name="ITEM_TYPE" class="form-control" style="width:initial;" >
-								<option value="0" label="사료" />
-								<option value="1" label="간식" />
-								<option value="2" label="패션의류" />
-								<option value="3" label="목줄/야외" />
-								<option value="4" label="생활/잡화" />
-							</select>
-                        </div>
+				
+				<form action="/IMPet/Community/EventInsert" enctype="multipart/form-data" method="post" name="joinform" onsubmit="return validateForm()">	
+						
                         
                         <div class="form-group">
-                            <label>상품명</label>
-                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="상품명을 입력하세요" style="width:500px;"/>
+                            <label>제목</label>
+                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="제목을 입력하세요" style="width:500px;"/>
                         </div>
                         
+                         <div class="form-group">
+                            <label>설명</label>
+                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="설명을 입력하세요" style="width:500px;"/>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label>이벤트 기간</label>
+                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        </div>
+                        
+                        
+                        
                         <div class="file_input">
-                        	메인 상품 이미지 <br/>
+                        	이벤트 이미지 <br/>
                              <label>파일 첨부 
-                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
                             <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route">
-                            <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
+                           
                         </div>
                         
-                        <div class="form-group">
-                            <label>상품수량</label>
-                            <input type="text" class="form-control" id="ITEM_TOTALCOUNT" name="ITEM_TOTALCOUNT" placeholder="상품수량을 입력해주세요" value="1" style="width:107px;"/>
-                        </div>
+              
                         
-                        <div class="form-group">
-                            <label>판매가격</label>
-                            <input type="text" class="form-control" id="ITEM_PRICE" name="ITEM_PRICE" style="width:initial;"/>
-                            <p class="help-block">판매가격 입력하세요. 0원으로 그대로 갈 경우 큰일납니다</p>
-                        </div>
-                        
-                         <div class="file_input">
-                        	상품 내용 이미지 <br/>
-                             <label>파일 첨부 
-                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_DETAILIMG" onchange="javascript:document.getElementById('file_route1').value=this.value">                          
-                            </label>
-                            <input type="text" readonly="readonly" title="File Route" id="file_route1">
-                            <p class="help-block">상품설명 이미지 입니다 1000x(2500~3800)사이즈 권장</p>
-                        </div>
-                        
-                        <div class="file_input">
-                        	배송 내용 이미지 <br/>
-                            <label>파일 첨부 
-                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_BASKETIMG" onchange="javascript:document.getElementById('file_route2').value=this.value">                          
-                            </label>
-                            <input type="text" readonly="readonly" title="File Route" id="file_route2">
-                            <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>
-                        </div> 
-                                  
-                        <!-- <div class="file_input">
-		                     <label>
-		                        	파일첨부
-		                        <input type="file" onchange="javascript:document.getElementById('file_route').value=this.value">
-		                     </label>
-		                     <input type="text" readonly="readonly" title="File Route" id="file_route">
-		                </div>          -->
+                    
 						<button type="submit" class="btn btn-success">상품등록</button>
 						<button type="reset" class="btn btn-default">작성취소</button>					
 				</form>
+				
+				
 			</div>
 	</div>
 </div>
