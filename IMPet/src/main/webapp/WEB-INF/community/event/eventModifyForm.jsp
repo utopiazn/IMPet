@@ -17,35 +17,42 @@
 	<div class="panel panel-default">
 		<div class="panel-heading" >상품수정 페이지입니다. 이미지 확인하십시오</div>
 			<div class="panel-body" style=text-align:left;>
-				<form action="AdminItemModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
+				<form action="/IMPet/Community/EventModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
 				
 				
                         <div class="form-group">
                             <label>제목</label>
-                            <input type="text" class="form-control" name="ITEM_REMAINCOUNT"  value="${itemList.ITEM_REMAINCOUNT}" style="width:70%;"/>
+                            <input type="text" class="form-control" name="EVENT_SUBJECT"  value="${view.EVENT_SUBJECT}" style="width:70%;"/>
                         </div>
                         
+
                         
                         <div class="form-group">
-                            <label>내용</label>
-                            <input type="text" class="form-control" name="ITEM_REMAINCOUNT"  value="${itemList.ITEM_REMAINCOUNT}" style="width:70%;"/>
+                            <label>설명</label>
+                            <input type="text" class="form-control" name="EVENT_CONTENT"  value="${view.EVENT_CONTENT}" style="width:70%;"/>
+                        </div>
+                        
+                            
+                        <div class="form-group">
+                            <label>이벤트 기간</label>
+                            <input type="text" class="form-control" name="EVENT_TIME"  value="${view.EVENT_TIME}" style="width:70%;"/>
                         </div>
                         
                         <div class="file_input">
                         	이벤트 이미지 <br/>
                         	 
-                        	 <c:if test="${!empty itemList.ITEM_IMG}">
+                        	 <c:if test="${!empty view.EVENT_IMG}">
                             	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 :
                             		
-                            		<img src="/IMPet/resources/image/itemImg/${itemList.ITEM_IMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                      		 
-                            		<input type="hidden"  name="ORIGINALIMG" value="${itemList.ITEM_IMG}">
-                            		<input type="hidden"  name="ITEM_IMG" value="${itemList.ITEM_IMG}">
+                            		<img src="/IMPet/resources/image/event/${view.EVENT_IMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                      		 
+                            		<input type="hidden"  name="ORIGINALIMG" value="${view.EVENT_IMG}">
+                            		<input type="hidden"  name="ITEM_IMG" value="${view.EVENT_IMG}">
                             	</p>
                             </c:if>
                              
                              <label>파일 첨부 
                          
-                            <input type="file" name="ITEM_IMG_${itemList.ITEM_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
+                            <input type="file" name="ITEM_IMG_${itemList.EVENT_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>

@@ -205,6 +205,7 @@ public class EventController {
 		
 		Map<String,Object> resultMap = util.UploadFile_Event(commandMap.getMap(), request, uploadPath,num);
 		
+		System.out.println(resultMap);	
 	
 		eventService.insert(resultMap);
 		System.out.println(resultMap);	
@@ -226,6 +227,13 @@ public class EventController {
 		String url = "community/event/eventModifyForm";
 		System.out.println("이벤트 수정폼");
 
+		commandMap.MapInfoList();
+		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
+		System.out.println(view);
+		
+		System.out.println(view);
+		
+		mav.addObject("view", view);
 		
 		//mav.setViewName("EventModifyForm");
 		mav.setViewName(url);
