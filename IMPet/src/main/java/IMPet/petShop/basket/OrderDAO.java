@@ -52,5 +52,13 @@ public class OrderDAO extends AbstractDAO {
 		
 		return two;	
 	}
+	
+	public int selectCount(Map<String,Object> map) throws Exception {
+		Map<String,Object> count =  selectOne("PetOrderSQL.odListCount", map);
+		
+		int odList = Integer.parseInt(count.get("COUNT").toString());
+		
+		return odList;
+	}
 
 }

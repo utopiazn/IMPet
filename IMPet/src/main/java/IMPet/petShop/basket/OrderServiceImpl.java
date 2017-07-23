@@ -129,6 +129,13 @@ public class OrderServiceImpl implements OrderService {
 		
 		return orderDAO.selectList(map);
 	}
+		
+
+	@Override
+	public int selectCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return orderDAO.selectCount(map);
+	}
 
 	@Override
 	public List<Map<String, Object>> selectTwo(Map<String, Object> map) throws Exception {

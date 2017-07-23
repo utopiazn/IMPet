@@ -61,6 +61,37 @@ $.fn.rowspan = function(colIdx, isStats) {
 	    var div_test = document.getElementById('test');
 	    div_test.innerHTML = orderList.RECEIVE_NAME;      
 	}
+	
+	function ajaxPageView(page){	
+		
+		alert(page);  
+		var dataList =
+		{ 
+			"PAGE" : page	
+		}	
+
+		var url1 = "/IMPet/PetShop/OrderList";
+		
+	    $.ajax({    
+	     
+	    	type : "POST",
+	        url : url1,
+	        data : dataList,
+	        dataType : "text",      
+	        
+	        error : function() {
+	      	  
+	      		alert('오류임!');     	
+	        },
+	       
+	        success : function(data) {  
+	        	alert("들어옴");
+	      		 $('#ContextMyPage').html(data);
+	        }
+	        
+	      });        
+
+	}
 	 
 </script>
 <style type="text/css">

@@ -73,9 +73,35 @@
 	
 	<!-- 펫샵구매내역 -->
 	<select id="odList" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll" />
-		<include refid="where-id" />
-		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
+			select a.* from  ( 
+        select 	row_number() over(order by 	ORDER_NO) as NO, 
+              ORDER_NO,
+                ITEM_NO,
+                ORDER_BUYCOUNT,
+                MEMBER_ID,
+                ORDER_PRICE,
+                ORDER_DATE,
+                ORDER_TYPE,
+                ORDER_IMG,
+                ORDER_NAME,
+                RECEIVE_NO
+          from pet_item_order) a
+           where 
+			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} ) and MEMBER_ID = #{MEMBER_ID}
+			 order by 			 
+			 RECEIVE_NO
+	</select>
+	
+	<select id="odListCount" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	Pet_ITEM_ORDER
+			 where MEMBER_ID = #{MEMBER_ID}		
+			
+		]]>
 	</select>
 	
 	<select id="adminOdList" resultType="hashmap">

@@ -95,7 +95,7 @@ public class BasketController {
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
 
-	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
+	public ModelAndView OrderBasket(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
 	
 		ModelAndView mav = new ModelAndView();
 		
@@ -176,52 +176,34 @@ public class BasketController {
 		return mav;
 	}
 	
+	
 	//펫샵주문내역
 	@RequestMapping(value="/OrderList")
-	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		
-		int searchNum = 0; // 검색 유형
-		String isSearch = null; // 검색어
-		int currentPage; // 현재 페이지
-		int totalCount; // 총 게시글 수
-		int blockCount = 5; // 한 화면에 보여줄 게시글 수
-		int blockPage = 5; // 한 화면에 보여줄 페이지 수 
-		String pagingHtml;
-		Paging page;
-		
+	public ModelAndView OrderList(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
-		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
-				|| request.getParameter("currentPage").equals("0")) {
-			currentPage = 1;
+		int page ;
+		
+		if (request.getParameter("PAGE") == null || request.getParameter("PAGE").trim().isEmpty()
+				|| request.getParameter("PAGE").equals("0")) {
+			page = 1;
 		} else {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+			page = Integer.parseInt(request.getParameter("PAGE"));
 		}
 		
 		System.out.println("펫샵구매내역");
+		String id = session.getAttribute("member_ID").toString();
+		commandMap.put("MEMBER_ID", id);
 		System.out.println(commandMap.getMap());
 		
+		System.out.println("페이지 숫자"+page);
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		
+
 		List<Map<String, Object>> list = orderService.selectList(commandMap.getMap());
 		
-		System.out.println("size"+list.size());
-		
-		totalCount = list.size();
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "OrderList",searchNum, isSearch);
-		pagingHtml = page.getPagingHtml().toString();
-
-		int lastCount = totalCount;
-
-		if (page.getEndCount() < totalCount)
-			lastCount = page.getEndCount() + 1;
-
-		list = list.subList(page.getStartCount(), lastCount);
-
-
-		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
-		mav.addObject("currentPage", currentPage);
-		mav.addObject("orderList", list);
-		
 		mav.addObject("orderList", list);
 		mav.setViewName("petShop/basket/orderList");
 		return mav;
@@ -241,6 +223,53 @@ public class BasketController {
 		
 		mav.setViewName("redirect:/MyPage#order");
 		return mav;
+	}
+	
+	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
+		
+	
+		
+		int blockCount =10;
+	
+		
+		int totalCount=  orderService.selectCount(commandMap.getMap());
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
+		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 
+		commandMap.put("TOTALCOUNT", totalCount);
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}
+		
+
+		
+		return pagingHtml.toString();
+		
 	}
 	
 }
