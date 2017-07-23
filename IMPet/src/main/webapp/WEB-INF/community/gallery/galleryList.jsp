@@ -116,6 +116,43 @@ function GalleryView(GALLERY_NO){
 
 
 
+function ajaxComment(){	
+	
+	  
+	var obj =document.jform1;
+	alert(obj.comment.value); 	 
+
+	
+	alert(page);  
+	var dataList =
+	{ 
+		"GALLERYCOMMENT_CONTENT" :obj.comment.value,
+		"GALLERY_NO" :obj.GALLERY_NO.value
+	}	
+
+	var url1 = "/IMPet/Community/galleryViewComment"; 
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextEvent').html(data);          		
+        }
+        
+      });  
+     
+
+}
+
 
 function ajaxPageView(page){	
 	
@@ -144,46 +181,6 @@ function ajaxPageView(page){
         }
         
       });  
-    
-    
-
-	function ImageIndex(index){
-		
-		
-		//alert(index); 
-		
-		
-		var Txt = "데이터가 없습니다.";
-		
-		if(index==1){
-			Txt = "${TxT01}";
-			
-		}else if(index==2){
-
-			Txt = "${TxT02}";
-			
-		}else if(index==3){
-			
-			Txt = "${TxT03}";
-			
-		}else if(index==4){
-			
-			Txt = "${TxT04}";
-			
-		}else if(index==5){
-			
-			Txt = "${TxT05}";
-			
-		}
-		
-		$("#dd").html(Txt);
-		
-
- 		
-	}
-
-
-
 }
 
 

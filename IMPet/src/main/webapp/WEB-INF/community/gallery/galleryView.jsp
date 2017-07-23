@@ -2,15 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-	
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
- -->
-
-<!-- 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
-  
 <script type="text/javascript">
 
 
@@ -52,7 +43,6 @@
 
 
 </script>
-
 
 
 <style>
@@ -117,7 +107,6 @@ under_content h2 {
 
 
 
-
 <br/><br/>
 
 
@@ -156,11 +145,11 @@ under_content h2 {
   </ul>
    -->
  	<ul class="indigator2">	
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/dog1.jpg" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/dog2.jpg" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/dog1.jpg" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/dog2.jpg" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/dog1.jpg" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image01}" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image02}" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image03}" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image04}" /></a></li>
+		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image05}" /></a></li>
 	</ul>
 
 </div>
@@ -180,60 +169,52 @@ under_content h2 {
 
 
 
-<div>
-	<label>댓글</label> <br/>
-	<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea> 
-</div>
-	<button type="button" class="btn1 btn-primary1" onclick="onComment()">입력</button>
-
-
-
 <div id="comments" class="box">
+
+	<h2 class="under_content accent_header">
 	
-	<h2 class="under_content accent_header">댓글 남기기</h2>
+	
+		<label>댓글 쓰기</label> <br/>
+
+<form name="jform1" method="post">	
+		<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea> 
+		
+		<input type="hidden" id ="GALLERY_NO"  value="${GALLERY_NO}"> 
+</form>	
+		<button type="button"  onclick="ajaxComment();">댓글 달기</button>
+	
+	
+	</h2>
+
+	
+	<h2 class="under_content accent_header">댓글 리스트</h2>
 
 	<ul>
-		<li class="compost" id="comment-46">
+	
+	
+	<div id="ContextGallery" align="center" style="width:100%;  float: left;">	
+	
+		<c:forEach var="comment" items="${commentList}">
+				
+	
+		
+		<li class="compost">
 		
 			<div class="combody">
-				<p>감사합니다 참고해서 사용해볼까해요 ㅠㅠ 감사해요!!</p>
+				<p>${comment.GALLERYCOMMENT_CONTENT }</p>
 			</div>
 			
 			<p class="cominfo">
-				by 뉴뉴뉴　2017년 4월 20일  2:06 오후	</p>
+				by&nbsp; ${comment.MEMBER_ID}　&nbsp;&nbsp;  	${comment.GALLERYCOMMENT_DATE} &nbsp;&nbsp;&nbsp;<a>[삭제]</a>
+				
+				</p>
 		</li>
 		
-		<li class="compost" id="comment-46">
-		
-			<div class="combody">
-				<p>감사합니다 참고해서 사용해볼까해요 ㅠㅠ 감사해요!!</p>
-			</div>
-			
-			<p class="cominfo">
-				by 뉴뉴뉴　2017년 4월 20일  2:06 오후	</p>
-		</li>
-		<li class="compost" id="comment-46">
-		
-			<div class="combody">
-				<p>감사합니wwwwwwwwwwwwwww다 참고해서 사용해볼까해요 ㅠㅠ 감사해요!!</p>
-			</div>
-			
-			<p class="cominfo">
-				by 뉴뉴뉴　2017년 4월 20일  2:06 오후	</p>
-		</li>
-		<li class="compost" id="comment-46">
-		
-			<div class="combody">
-				<p>감사합니다 참고해서 사용해볼까해wwwwwwwwwwwww요 ㅠㅠ 감사해요!!</p>
-			</div>
-			
-			<p class="cominfo">
-				by 뉴뉴뉴　2017년 4월 wwwwwwwwwwwwwwww20일  2:06 오후	</p>
-		</li>
-
+		</c:forEach>
+		</div>
+	
 	</ul>
 
-	
 </div>
 
 

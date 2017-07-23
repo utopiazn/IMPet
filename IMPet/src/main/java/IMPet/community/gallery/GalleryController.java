@@ -199,7 +199,9 @@ public class GalleryController {
 		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());			
 		
 		
-		System.out.println(view);
+		
+		mav.addObject("view", view);
+		System.out.println("view:"+view);
 
 		String strImage = view.get("GALLERY_IMG").toString();
 		String strTxt = view.get("GALLERY_CONTENT").toString();
@@ -279,6 +281,9 @@ public class GalleryController {
 		//댓글 리스트
 		
 		String gallery_NO = view.get("GALLERY_NO").toString();
+		
+		mav.addObject("GALLERY_NO", gallery_NO);
+		
 		
 		System.out.println(gallery_NO);
 		
