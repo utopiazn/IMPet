@@ -39,17 +39,22 @@ function ajaxRoomResCancel(no){
     });
 }
 
-function ajaxmembermodify(){
+function ajaxmembermodify(No){	
+	 
+
+	var obj = document.confirmForm;
 	
 	
 	var dataList =
 		{
-			"Mypage" : "1"
+			"Mypage" : "1",
+			"No"     :No,
+			"MEMBER_PW" :obj.confirm_password.value
 		}
 	
     $.ajax({
       type : "POST",
-      url : "/IMPet/Member/ModifiedForm",
+      url : "/IMPet/MemberModifiedForm",
       data : dataList,
       dataType : "text",
       error : function() {
@@ -61,6 +66,36 @@ function ajaxmembermodify(){
 
     });
 }
+
+
+
+function ajaxmembermodify2(){	
+	 
+
+	//var obj = document.confirmForm;
+	
+	
+	var dataList =
+		{
+			"Mypage" : "1",
+			"No"     :1
+			}
+	
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/MemberModifiedForm",
+      data : dataList,
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
+
 function ajaxmemberdelete(){
     $.ajax({
       type : "POST",
@@ -153,8 +188,8 @@ color: black;
 				
 				<table cellpadding="0" cellspacing="0">
 					<tbody><tr>
-						<td><a href=#member onclick="javascript:ajaxmembermodify();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
-						<td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
+						 <td><a href=#member onclick="javascript:ajaxmembermodify2();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
+						 <td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
 						<td><a href=#order onclick="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
 						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
 						<td><a href=#delet onclick="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
@@ -167,16 +202,19 @@ color: black;
 </div>
 		
 	<div style="padding-bottom:20px;">
-	
+ 	
 			<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ecf0f1">
 				<tbody>
 					<tr>
 						<td style="padding:20px 19px;">
+						
+						
+						
 							<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="border:1px #dee1e2 solid;">
 								<tbody>
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									
-																			
+									<!-- 										
 											<script language="JavaScript">
 												addOnloadEvent(function() {_ID('confirm_password').focus()});
 											</script> 
@@ -192,43 +230,11 @@ color: black;
 												#cp_text1			{ color:#FF0000; font-family:dotum; font-size:12px; padding-top:10px; }
 												#cp_button			{ padding:20px 0px; text-align:center; }
 											</style>
+											 -->
 											
-											<div id="cp_body">
-												<form name="confirmForm" method="post" action="/shop/member/indb.confirm.php?&amp;">
-												<input type="hidden" name="mode" id="mode" value="confirmPassword">
-													<div id="cp_title"><img src="/IMPet/resources/image/c.png">
-													</div>
-													
-													<div id="cp_form_border">
-														<div id="cp_form">
-															<table cellpadding="4" cellspacing="0" border="0" align="center">
-																<tbody>
-																<tr align="left">
-																	<td width="70" class="cp_formTitle">비밀번호</td>
-																	<td width="130"><input type="password" name="confirm_password" id="confirm_password"></td>
-																</tr>
-																
-																<tr align="left">
-																	<td colspan="4" id="cp_text1">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.</td>
-																</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-													
-													<div id="cp_button">
-														<table align="center" border="0" cellpadding="0" cellspacing="0">
-															<tbody>
-																<tr class="ok">
-																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">확인</a></td>
-																	<td width="5"></td>
- 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">취소</a></td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-												</form>
-											</div>																
+											
+												<jsp:include page="/WEB-INF/myPage/PasswordCheck.jsp"/>
+		
 											</td>
 										</tr>
 									</tbody>	

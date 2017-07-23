@@ -145,7 +145,7 @@ function ajaxComment(){
         },
        
         success : function(data) {  
-      		 $('#ContextEvent').html(data);          		
+      		 $('#ContextGallery').html(data);          		
         }
         
       });  
