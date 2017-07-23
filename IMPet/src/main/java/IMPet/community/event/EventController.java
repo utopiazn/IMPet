@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
 
+import javax.servlet.http.HttpServletRequest;
+import IMPet.util.ProjectUtil;
 
 
 @Controller
@@ -180,16 +182,37 @@ public class EventController {
 			
 	//이벤트 추가 처리
 	@RequestMapping(value="/EventInsert")
-	public ModelAndView EventInsert(){
-
+	public ModelAndView EventInsert(CommandMap commandMap,HttpServletRequest request) throws Exception {
+		
+		
 		ModelAndView mav = new ModelAndView();
-		String url ="";
+		
+		ProjectUtil util = new ProjectUtil();
+		
+		String url ="redirect:/Community/EventList?Event='1'";
 		System.out.println("이벤트 추가 처리");
+		
+		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
 
+		int num =eventService.selectKey();
 		
 		
+		commandMap.MapInfoList();		
 		
-		mav.setViewName("EventList1");
+		commandMap.put("EVENT_NO", num);
+		
+		
+		Map<String,Object> resultMap = util.UploadFile_Event(commandMap.getMap(), request, uploadPath,num);
+		
+		System.out.println(resultMap);	
+	
+		eventService.insert(resultMap);
+		System.out.println(resultMap);	
+		
+		//eventService.
+		
+		mav.setViewName(url);
 		return mav;
 	}
 	
@@ -204,6 +227,13 @@ public class EventController {
 		String url = "community/event/eventModifyForm";
 		System.out.println("이벤트 수정폼");
 
+		commandMap.MapInfoList();
+		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
+		System.out.println(view);
+		
+		System.out.println(view);
+		
+		mav.addObject("view", view);
 		
 		//mav.setViewName("EventModifyForm");
 		mav.setViewName(url);

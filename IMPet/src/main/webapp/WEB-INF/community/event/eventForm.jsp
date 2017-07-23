@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 function validateForm() {
-    var x = document.forms["joinform"]["goods_name"].value;
+    var x = document.forms["joinform"]["EVENT_CONTENT"].value;
     if (x == null || x == "") {
         alert("상품명은 입력해야합니다");
         return false;
@@ -30,17 +30,17 @@ function validateForm() {
                         
                         <div class="form-group">
                             <label>제목</label>
-                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="제목을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="EVENT_SUBJECT" class="form-control" id="EVENT_SUBJECT"  placeholder="제목을 입력하세요" style="width:500px;"/>
                         </div>
                         
                          <div class="form-group">
                             <label>설명</label>
-                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="설명을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="EVENT_CONTENT" class="form-control" id="EVENT_CONTENT"  placeholder="설명을 입력하세요" style="width:500px;"/>
                         </div>
                         
                          <div class="form-group">
                             <label>이벤트 기간</label>
-                            <input type="text" name="ITEM_NAME" class="form-control" id="ITEM_NAME"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="EVENT_TIME" class="form-control" id="EVENT_TIME"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
                         </div>
                         
                         
@@ -48,7 +48,7 @@ function validateForm() {
                         <div class="file_input">
                         	이벤트 이미지 <br/>
                              <label>파일 첨부 
-                            <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value">                          
+                            <input type="file" name="EVENT_IMG" onchange="javascript:document.getElementById('file_route').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route">
                            

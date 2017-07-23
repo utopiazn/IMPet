@@ -67,6 +67,44 @@ public class ProjectUtil {
 	 * //파일 정보 업데이트. sqlMapper.update(sql, paramClass);
 	 * System.out.println("이미지 정보 업데이트."); }catch(Exception e){} }
 	 */
+	
+	
+	public Map<String, Object> UploadFile_Event(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath,
+			int num) throws IOException {
+		
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+		MultipartFile multipartFile = null;
+		String originalFileName = null;
+		String originalFileExtension = null;
+		String storedFileName = null;
+		int count = 0;
+		
+		
+		
+		
+		while (iterator.hasNext()) {
+			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			System.out.println("파일이름" + multipartFile.getName());
+			
+			if (multipartFile.isEmpty() == false) {
+				originalFileName = multipartFile.getOriginalFilename();
+				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+				storedFileName = "IMAGE_" + num + "_" + count++ + originalFileExtension;
+				
+				
+				System.out.println(storedFileName);
+				
+				File file = new File(uploadPath + storedFileName);
+				multipartFile.transferTo(file);
+				
+				commandMap.put(multipartFile.getName(), storedFileName);
+			}
+		}
+		return commandMap;
+	}
+
+	
 
 	// 상품 추가
 	public Map<String, Object> UploadFile(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath,

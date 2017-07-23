@@ -21,6 +21,10 @@ public interface EventService {
 	//이벤트 상세 정보
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 		
-		
+	//이벤트 키 가져오기
+	public int selectKey() throws Exception; 	
+	
+	//이벤트 추가
+	public void insert(Map<String, Object> map) throws Exception; 
 	
 }
