@@ -39,5 +39,19 @@ public class EventServiceImpl implements EventService{
 		// TODO Auto-generated method stub
 		return EventDAO.selectOne(map);
 	}
+
+	@Override
+	public int selectKey() throws Exception {
+		// TODO Auto-generated method stub
+		return EventDAO.selectKey();
+	}
+
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+		EventDAO.insert(map);
+		
+	}
 	
 }

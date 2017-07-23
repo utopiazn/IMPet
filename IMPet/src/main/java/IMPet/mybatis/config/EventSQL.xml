@@ -17,7 +17,7 @@
    			from (   			
    			
 				select 
-			     	row_number() over(order by 	event_Date) as NO, 
+			     	row_number() over(order by 	event_Date desc) as NO, 
 			     	event_NO,
 					event_Subject,					
 					event_IMG,
@@ -32,7 +32,7 @@
 			 where 
 			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
         	 order by 			 
-			 	a.event_Date
+			 	a.event_Date desc
         
 		]]>
 	</select>
@@ -84,6 +84,42 @@
 
 		]]>
 	</select>
+	
+	
+	<select id="selectKey" resultType="hashmap">
+			SELECT PET_EVENT_NO_SEQ.NEXTVAL as ITEM_NO FROM DUAL
+	</select>
+	
+	
+	
+	
+	
+	<insert id="insert" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO 
+		  PET_EVENT
+		    (
+		      EVENT_NO, 
+		      EVENT_SUBJECT, 
+		      EVENT_IMG, 
+		      EVENT_COUNT,
+		      EVENT_DATE,
+		      EVENT_CONTENT,
+		      EVENT_TIME
+		    ) 
+		    
+		    VALUES 
+		      (
+		        #{EVENT_NO},
+		        #{EVENT_SUBJECT},
+		        #{EVENT_IMG}, 
+		        0,
+		        SYSDATE,
+		        #{EVENT_CONTENT}, 
+		        #{EVENT_TIME}
+		      )
+		]]>
+	</insert>
 	
 	
 	

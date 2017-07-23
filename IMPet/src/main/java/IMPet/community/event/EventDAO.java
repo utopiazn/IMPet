@@ -53,5 +53,22 @@ public class EventDAO extends AbstractDAO{
 	}
 	
 	
+	//이벤트 키 가져오기
+	public int selectKey() throws Exception {
+		
+		Map<String, Object> view=  selectOne("EventSQL.selectKey");
+		
+		int key = Integer.parseInt(view.get("ITEM_NO").toString());		
+		
+		
+		return  key;
+	}
+	
+	
+	
+	// 이벤트 추가
+	public void insert(Map<String, Object> map) throws Exception {
+		insert("EventSQL.insert", map);
+	}
 	
 }
