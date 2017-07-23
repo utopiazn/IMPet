@@ -19,7 +19,8 @@
 			<div class="panel-body" style=text-align:left;>
 				<form action="/IMPet/Community/EventModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
 				
-				
+						<input type="hidden" name="EVENT_NO" value="${view.EVENT_NO}"/>
+				 
                         <div class="form-group">
                             <label>제목</label>
                             <input type="text" class="form-control" name="EVENT_SUBJECT"  value="${view.EVENT_SUBJECT}" style="width:70%;"/>
@@ -46,13 +47,13 @@
                             		
                             		<img src="/IMPet/resources/image/event/${view.EVENT_IMG}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                      		 
                             		<input type="hidden"  name="ORIGINALIMG" value="${view.EVENT_IMG}">
-                            		<input type="hidden"  name="ITEM_IMG" value="${view.EVENT_IMG}">
+                            		<input type="hidden"  name="EVENT_IMG" value="${view.EVENT_IMG}">
                             	</p>
                             </c:if>
                              
                              <label>파일 첨부 
                          
-                            <input type="file" name="ITEM_IMG_${itemList.EVENT_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
+                            <input type="file" name="EVENT_IMG_${view.EVENT_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
@@ -68,7 +69,7 @@
 
 
 
-
+<!-- 
 커뮤니티 이벤트 수정 폼
 
 <br/><br/><br/><br/><br/>
@@ -76,5 +77,5 @@
 <input value="수정 완료" type="button" onclick="location.href='/IMPet/Community/EventModify'"/> 
 
 <input value="이벤트 리스트 중 한개의 상세보기 이동" type="button" onclick="location.href='/IMPet/Community/EventView'"/> 
-
+ -->
 

@@ -26,8 +26,18 @@
 	<mvc:interceptors> 
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean id="loggerInterceptor" class="IMPet.module.LoggerInterceptor"/>
+			<bean id="loggerInterceptor" class="IMPet.module.LoggerInterceptor">
+				<!-- <property name="cacheSeconds" value="0"/> -->
+			</bean>
 		</mvc:interceptor>
+		
+		 <mvc:interceptor>
+          <mvc:mapping path="/api/**/*"/>
+          <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+               <property name="cacheSeconds" value="0"/>
+          </bean>
+     	</mvc:interceptor>
+		
 	</mvc:interceptors>
 	
     <bean

@@ -103,6 +103,61 @@ public class ProjectUtil {
 		}
 		return commandMap;
 	}
+	
+	public Map<String, Object> UpdateFile_Event(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath) throws IOException {
+		
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+		MultipartFile multipartFile = null;
+		String originalFileName = null;
+		String originalFile = null;
+		String originalFileExtension = null;
+		String storedFileName = null;
+
+	
+		String[] originalImg = request.getParameterValues("ORIGINALIMG");
+		
+		
+		System.out.println( originalImg[0]);
+		
+		while (iterator.hasNext()) {
+			
+			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+			
+			
+			if (multipartFile.isEmpty() == false) {  
+				
+				originalFileName = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
+				
+				for(String a : originalImg){
+					
+					
+					if(originalFileName.equals(a)) {
+																
+						File removeFile = new File(uploadPath, a);
+						
+						
+					
+						removeFile.delete();
+						
+						originalFile = multipartFile.getOriginalFilename();
+						originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
+						storedFileName = a.substring(0, a.lastIndexOf(".")) + originalFileExtension;
+														
+						File file = new File(uploadPath, storedFileName);
+						multipartFile.transferTo(file);
+						
+						commandMap.put(multipartFile.getName().substring(0,multipartFile.getName().lastIndexOf("I")-1), storedFileName);
+			
+					}
+							
+				}
+								
+			}
+				
+		}
+		return commandMap;
+	}
 
 	
 

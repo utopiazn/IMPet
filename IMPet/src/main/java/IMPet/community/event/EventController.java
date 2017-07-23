@@ -1,12 +1,15 @@
 package IMPet.community.event;
 
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+//import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,9 +28,19 @@ public class EventController {
 	private EventService eventService;
 	
 	//이벤트 리스트
+
 	@RequestMapping(value="/EventList")
-	public ModelAndView EventList(CommandMap commandMap) throws Exception{
-	
+	public ModelAndView EventList(CommandMap commandMap,HttpServletResponse response) throws Exception{
+		
+		
+	/*	
+		response.setHeader("pragma","No-cache");
+		response.setHeader("Cache-Control","no-cache");
+		response.addHeader("Cache-Control","No-store");
+		response.setDateHeader("Expires",1L);
+
+		
+		response.reset();*/
 		ModelAndView mav = new ModelAndView();
 		
 		String url="EventList1";
@@ -37,14 +50,19 @@ public class EventController {
 		int menu =1;
 		String Event= commandMap.get("Event").toString();
 		
+	
+		
 		if(Event.equals("1")){
 			url = "community/event/eventListAdd";
-					
+			//System.out.println("222222222222222222222222222222222222222222222222");
+			
 			menu=0;
 			mav.addObject("menu", menu);
 			
 		}else{			
 			url = "EventList1";
+			
+			//System.out.println("11111111111111111111111111111111111111");
 			
 			menu=1;
 			mav.addObject("menu", menu);
@@ -244,15 +262,37 @@ public class EventController {
 	
 	//이벤트 수정처리
 	@RequestMapping(value="/EventModify")
-	public ModelAndView EventModify(CommandMap commandMap) throws Exception{
+	public ModelAndView EventModify(CommandMap commandMap,HttpServletRequest request)  throws Exception {
 
 
 		ModelAndView mav = new ModelAndView();
 
 		System.out.println("이벤트 수정처리");
 
-		//이벤트 상세 보기로 이동
-		mav.setViewName("EventView1");
+	
+		
+		
+		ProjectUtil util = new ProjectUtil();
+		
+		String url ="redirect:/Community/EventList?Event='1'";
+		
+		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
+
+	
+		commandMap.MapInfoList();		
+		
+		
+		
+		Map<String,Object> map = util.UpdateFile_Event(commandMap.getMap(), request, uploadPath);
+		System.out.println(map);	
+	
+		eventService.update(map);
+		
+		
+		mav.setViewName(url);
+		
+		
 		return mav;
 	}
 	
@@ -264,21 +304,41 @@ public class EventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		
+		ProjectUtil util = new ProjectUtil();
 		System.out.println("이벤트 삭제");
 		
-	
-	
-		String url = "community/event/eventListAdd";
-					
-		int	menu=0;
-		mav.addObject("menu", menu);
-			
 		
+		String url = "community/event/eventListAdd";
+		
+		int menu=0;
+		mav.addObject("menu", menu);
+													
+		
+		
+		commandMap.MapInfoList();
+
+		eventService.delete(commandMap.getMap());
+		
+		String imgName = commandMap.get("EVENT_IMG").toString();
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
+		
+		File removeFile = new File(uploadPath, imgName);
+		removeFile.delete();
+		
+		mav.setViewName(url);
+		
+		
+	
+			
+	
+
 		commandMap.MapInfoList();
 			
 
 		String pagingHtml =pagingHtml(commandMap,1);
-		commandMap.MapInfoList();	
+		commandMap.MapInfoList();
+		
 	
 		
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
@@ -288,7 +348,6 @@ public class EventController {
 		mav.addObject("pagingHtml", pagingHtml);	
 		
 		mav.setViewName(url);
-		
 
 		
 		return mav;

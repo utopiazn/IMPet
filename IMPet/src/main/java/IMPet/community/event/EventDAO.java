@@ -71,4 +71,16 @@ public class EventDAO extends AbstractDAO{
 		insert("EventSQL.insert", map);
 	}
 	
+	
+	// 이벤트 추가
+	public void update(Map<String, Object> map) throws Exception {
+		insert("EventSQL.update", map);
+	}
+	
+	//이벤트 삭제
+	public void delete(Map<String, Object> map) throws Exception{
+		delete("EventSQL.delete", map);
+		
+	}
+	
 }
