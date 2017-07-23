@@ -38,9 +38,9 @@
 		    
 		    VALUES(
 		    	PET_GALLERY_COMMENT_NO_SEQ.NEXTVAL,
-		    	#{gallery_NO},
-		    	#{galleryComment_Content},
-		    	#{member_ID}		    	
+		    	#{GALLERY_NO},
+		    	#{GALLERYCOMMENT_CONTENT},
+		    	#{MEMBER_ID}		    	
 		    	SYSDATE
 		    	)
 		    
@@ -54,7 +54,7 @@
 		DELETE FROM 
 			PET_GALLERYCOMMENT 
 		WHERE 
-			galleryComment_NO  = #{ galleryComment_NO }	 
+			galleryComment_NO  = #{ GALLERYCOMMENT_NO }	 
 	]]>
 	</delete>
 	

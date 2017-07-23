@@ -276,15 +276,31 @@ public class GalleryController {
 		mav.addObject("TxT05", txt05);
 	
 		
+		//댓글 리스트
+		
+		String gallery_NO = view.get("GALLERY_NO").toString();
+		
+		System.out.println(gallery_NO);
+		
+		
+		List<Map<String,Object>> commentList =commentList(Integer.parseInt(gallery_NO));
+		mav.addObject("commentList", commentList);
+		
 		
 		mav.setViewName(url);
 		return mav;
 	}
 
-	public void commentList(int commemtNo){
+	public List<Map<String,Object>>  commentList(int gallery_NO) throws Exception{
+		
+		CommandMap commandMap = new CommandMap() ;
+		commandMap.put("GALLERY_NO",gallery_NO);
+		
+		List<Map<String,Object>> listAll = galleryService.selectCommemtList(commandMap.getMap());
 		
 		
-		
+		System.out.println(listAll.get(0));
+		return listAll;
 	}
 	
 

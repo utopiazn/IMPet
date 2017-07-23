@@ -56,7 +56,9 @@ public class GalleryDAO extends AbstractDAO{
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectCommemtList(Map<String, Object> map) throws Exception {
 		
-	List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("EventSQL.selectRangeAll",map);
+		System.out.println(map);
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>) selectList("CommemtGallerySQL.selectCommemtList",map);
 		
 		return list;
 	}
