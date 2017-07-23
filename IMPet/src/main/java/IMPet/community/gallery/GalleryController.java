@@ -186,7 +186,8 @@ public class GalleryController {
 
 		ModelAndView mav = new ModelAndView();
 		System.out.println("갤러리  상세보기");
-
+		
+		String url = "community/gallery/galleryView";
 		
 		commandMap.MapInfoList();
 		
@@ -217,11 +218,7 @@ public class GalleryController {
 		
 		}
 		
-			
-			
-		String mainImage = "";//imageSplit(strImage,i,"/");
-			
-			
+	
 		
 		if(!strTxt.equals("")){
 			
@@ -280,11 +277,15 @@ public class GalleryController {
 	
 		
 		
-		mav.setViewName("GalleryView");
+		mav.setViewName(url);
 		return mav;
 	}
 
-	
+	public void commentList(int commemtNo){
+		
+		
+		
+	}
 	
 
 	//갤러리 추가폼

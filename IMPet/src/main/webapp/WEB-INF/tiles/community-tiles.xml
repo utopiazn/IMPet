@@ -43,7 +43,7 @@
 		
 		
 		<!-- 커뮤니티 갤러리 상세보기 -->	
-		<definition name="GalleryView" extends="community_main">
+		<definition name="GalleryView1" extends="community_main">
 			<put-attribute name="body" value="/WEB-INF/community/gallery/galleryView.jsp" />
 		</definition>
 		

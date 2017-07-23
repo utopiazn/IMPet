@@ -5,10 +5,14 @@
 <script src="/IMPet/resources/ajax/HotelAjax.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
 <link rel="stylesheet" href="/IMPet/resources/css/gallery/gallery.css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
 
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
@@ -77,6 +81,42 @@
 <script type="text/javascript">
 
 
+
+function GalleryView(GALLERY_NO){
+		  
+	var url1 = "/IMPet/Community/GalleryView";
+	
+	 alert(GALLERY_NO);     	
+
+	 var dataList =
+		{ 
+			"GALLERY_NO" : GALLERY_NO	
+		}	
+
+	
+	
+    $.ajax({    
+      type : "POST",
+      url : url1,
+      data : dataList,
+      dataType : "text",      
+      error : function() {
+    	  
+    	 alert('오류임!');     	
+      },
+      success : function(data) {  
+    	 $('#ContextEvent').html(data);
+        		
+      }
+      
+    });    
+   
+}
+
+
+
+
+
 function ajaxPageView(page){	
 	
 	alert(page);  
@@ -103,7 +143,46 @@ function ajaxPageView(page){
       		 $('#ContextEvent').html(data);          		
         }
         
-      });        
+      });  
+    
+    
+
+	function ImageIndex(index){
+		
+		
+		//alert(index); 
+		
+		
+		var Txt = "데이터가 없습니다.";
+		
+		if(index==1){
+			Txt = "${TxT01}";
+			
+		}else if(index==2){
+
+			Txt = "${TxT02}";
+			
+		}else if(index==3){
+			
+			Txt = "${TxT03}";
+			
+		}else if(index==4){
+			
+			Txt = "${TxT04}";
+			
+		}else if(index==5){
+			
+			Txt = "${TxT05}";
+			
+		}
+		
+		$("#dd").html(Txt);
+		
+
+ 		
+	}
+
+
 
 }
 

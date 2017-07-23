@@ -52,8 +52,8 @@
 	overflow:hidden;
 	margin:0 auto;
 	
-	width: 550px;
-	height: 300px;
+	width: 1550px;
+	height: 1300px;
 }
 
 .slide_wrap .slide_box{
@@ -62,8 +62,8 @@
 }
 
  .slide_box li img{
- 	width:526px;
-	height:300px;
+ 	width:1526px;
+	height:1300px;
  }
 
 .indigator2 li a img{
@@ -74,8 +74,10 @@
 
 .slide_wrap .slide_box li{
 	float:left;
-	width:526px;
-	height:300px;
+	
+	width:1526px;
+	height:1300px;
+	
 	background-color:#c1ccd8;
 	font-size:15px;
 	font-weight:bold;
