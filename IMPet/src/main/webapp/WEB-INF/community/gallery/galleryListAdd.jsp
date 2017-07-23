@@ -1,24 +1,30 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+	
+	
+	<c:if test="${sessionScope.member_Admin==1 }">
+			<div align="right">
+				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
+			</div>
+	</c:if>		
+		
+	
+<div class="search-results pen-grid" style="padding-bottom: 0px;margin-top: 5px;" >
 
-	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;   height: 300px;"  >
+	
+	<c:forEach var="itemList" items="${listAll}"  varStatus="stat">
+	
+		
+	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 31%;   height: 31%;"  >
 	
 		<div class="iframe-wrap loaded">
 		
-			<a href="/IMPet/Community/GalleryView" class="cover-link">
-						<img alt="s2" src="/IMPet/resources/image/dog1.jpg" width="100%" height="100%" >	
-			</a>
-			
+			<a href="/IMPet/Community/GalleryView?GALLERY_NO=${itemList.GALLERY_NO}" class="cover-link">
+					<img alt="s2" src="/IMPet/resources/image/gallery/${itemList.MAINIMAGE}" width="100%" height="100%" >	
+			</a>			
 	
-	<!--     	<iframe id="iframe_embed_3915307" name="pen-aOBgpj" title="slider"  data-slug-hash="aOBgpj" data-username="/tailofmoon" data-title="slider" allowtransparency="true" frameborder="0" scrolling="no" sandbox="allow-scripts allow-pointer-lock allow-same-origin">
-	      	</iframe> 
-	
-	
-			<div class="meta-overlay">	
-		  		<div class="pen-actions">
-			  	</div>			
-			</div>			 -->
 			
 		</div>
 			
@@ -59,10 +65,15 @@
 		
 		</div>
 	
+	</div>	
+	
+	</c:forEach>
+	
+	
+					
+</div>	
+
+	<div class="paging">			
+				${pagingHtml} 
 	</div>
-
-
-
-
-
 

@@ -1,27 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
 
 
-<html lang="ko">
-<head>
-
-
-<meta charset="UTF-8">
-<title>커뮤니티 갤러리 리스트</title>
-
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-
+<script src="/IMPet/resources/ajax/HotelAjax.js" charset="utf-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
- -->
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="/IMPet/resources/css/gallery/gallery.css">
 
 
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
 .button3 {
   position: relative;
   padding: 14px 0;
@@ -29,8 +19,8 @@
   float : left;
   color: black;
   cursor: pointer;
-  font-family: 'KoPub Batang' sans-serif;
-  font-size: .9em;
+  font-family: 'Noto sans KR', sans-serif;
+  font-size: 30px;
   text-transform: uppercase;
   transition: color 0.4s, background-color 0.4s;
   display: inline-block;
@@ -53,107 +43,105 @@
   text-decoration: none;
   background-color: #00B488;
 }
+
+.button4{
+    display: block;
+    margin: 5px 1px;
+    height: 30px;
+    width: 100px;
+    background-color: transparent;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.button4:hover{
+  color: #fff;
+}
+
+.btn-4{
+  border: 2px solid #00B488;
+  color: #00B488;
+}
+.btn-4:hover{
+  background-color: #00B488;
+}
+
+
 </style> 
 
 
+<script type="text/javascript">
 
 
-</head>
-<body>
+function ajaxPageView(page){	
+	
+	alert(page);  
+	var dataList =
+	{ 
+		"PAGE" : page	
+	}	
+
+	var url1 = "/IMPet/Community/galleryPageList";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextEvent').html(data);          		
+        }
+        
+      });        
+
+}
+
+
+</script>
 
 
 <br/><br/>
 
 
+<div align="center" style="width: 100%;">
 
-
-
-<div class="search-results pen-grid" style=" margin-left: 24.5%;   margin-right: 24.5%;" >
-
-
-	<div align="center" style="width: 100%;">
-	
-		<div style="width: 100%; float: left;" >
-		  <div role="group">
-		    <button type="button" class="button3" onclick="ajaxRoom();">ROOM</button>
-		  </div>
-		  <div role="group">
-		    <button type="button" class="button3" onclick="ajaxHealing();">HEALING</button>
-		  </div>
-		</div>		
+	<div style="width: 100%; float: left;" >
+	  <div role="group">
+	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/GalleryList'">갤러리</button>
+	  </div>
+	  <div role="group">
+	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/EventList'">이벤트</button>
+	  </div>
 	</div>
 	
-	
-	<c:forEach var="itemList" items="${listAll}"  varStatus="stat">
-	
-		
-	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 300px;   height: 300px;"  >
-	
-		<div class="iframe-wrap loaded">
-		
-			<a href="/IMPet/Community/GalleryView?GALLERY_NO=${itemList.GALLERY_NO}" class="cover-link">
-					<img alt="s2" src="/IMPet/resources/image/gallery/${itemList.MAINIMAGE}" width="100%" height="100%" >	
-			</a>			
-	
-			
-		</div>
-			
-		<div class="meta">
-			
-			<h3 class="item-title">
-				제목:  ${itemList.GALLERY_SUBJECT} 
-				
-			</h3>
-			
-			<div class="user-and-stats">
-			
-				<div class="user">
-			
-			  	<a class="username" href="/tailofmoon">
-			    		작성자 :<span>${itemList.MEMBER_NICKNAME}</span>
-			 	 </a>
-			</div>
-			
-			<div class="stats">
-			
-				<a class="single-stat views">
-				
-					${itemList.GALLERY_COUNT}				
-					<img  src="/IMPet/resources/image/gallery/view.png" width="17px" height="12px" >
-				
-			  	</a>
-			
-			    <a class="single-stat comments">
-			    	${itemList.GALLERY_NUM}
-			    	<img  src="/IMPet/resources/image/gallery/comment.png" width="17px" height="12px" >
-			    </a>
-			
-			
-			</div>
-			
-		  </div>
-		
-		</div>
-	
-	</div>
 
 
 
-
-
-		
+	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
 	
-	</c:forEach>
+
+	
+	
+		<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>
+
+
 					
-</div>
-
-
-	<div class="paging">
+   </div>
 	
-		${pagingHtml} 		
-	</div>
+</div>	
 
-
+<!-- 
 
 커뮤니티 갤러리 리스트
 
@@ -162,7 +150,5 @@
 <input value="갤러리 리스트 중 한개의 상세보기 이동" type="button" onclick="location.href='/IMPet/Community/GalleryView'"/> 
 
 <input value="갤러리  추가" type="button" onclick="location.href='/IMPet/Community/GalleryForm'"/> 
-
  -->
-</body>
-</html>
+

@@ -120,8 +120,6 @@ public class GalleryController {
 	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
 		
 		
-		
-		
 		int blockCount =6;
 		
 		
@@ -131,9 +129,6 @@ public class GalleryController {
 		int totalCount=  galleryService.selectGalleryCount();	
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
-		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
-		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
-		
 		String PAGIN = String.valueOf(blockCount);	
 		String PAGINGNO = String.valueOf(pageNo);		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
@@ -413,6 +408,50 @@ public class GalleryController {
 
 
 
+	
+
+	//갤러리 정보 페이지 리스트
+	@RequestMapping(value="/galleryPageList")
+	public ModelAndView galleryPageList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		System.out.println("이벤트 정보 페이지 리스트");
+
+		String url = "community/gallery/galleryListAdd";
+		
+	
+		
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		
+		
+		
+		
+		
+		
+		
+		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		
+		
+		imageSplitMain(listAll);
+		
+		
+
+		mav.setViewName(url);	
+		
+		return mav;
+	}
+
+
+	
 
 
 	
