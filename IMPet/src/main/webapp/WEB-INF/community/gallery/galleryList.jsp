@@ -297,7 +297,6 @@ function ImageIndex(index){
 </script>
 
 
-<br/><br/>
 
 
 
@@ -307,6 +306,8 @@ function ImageIndex(index){
 
 <div id="ContextEvent2">
 
+
+<br/><br/>
 	<div style="width: 100%; float: left;" >
 	  <div role="group">
 	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/GalleryList'">갤러리</button>
