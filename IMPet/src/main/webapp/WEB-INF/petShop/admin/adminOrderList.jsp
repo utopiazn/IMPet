@@ -151,6 +151,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<c:url var="viewURL" value="/PetShop/AdminOrderPay" >
 											<c:param name="ORDER_TYPE" value="${orderList.ORDER_TYPE + 1 }" />
 											<c:param name="RECEIVE_NO" value="${orderList.RECEIVE_NO }"/>
+											<c:param name="ORDER_NO" value="${orderList.ORDER_NO }"/>
 										</c:url>
 										
 										<c:if test="${orderList.ORDER_TYPE eq 0 }">입금전  

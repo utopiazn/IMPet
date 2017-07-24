@@ -57,6 +57,20 @@
 	float:right;
 	margin-bottom: 50px;
 }
+#button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 70px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}
 
 </style>
 
@@ -80,7 +94,7 @@
 		<table class="basket" style="margin-bottom:15px; width:100%;">
 				<colgroup>
 					<col width="5%">
-					<col width="20%">
+					<col width="15%">
 					<col width="30%">
 					<col width="15%">
 					<col width="15%">
@@ -96,7 +110,6 @@
 						<th scope="col">단일금액</th>
 						<th scope="col">할인적용</th>
 						<th scope="col">수량</th>
-						<th scope="col">합계</th>
 						<th scope="col">삭제</th>
 					</tr>
 				</thead>
@@ -153,16 +166,21 @@
 				</tfoot>
 	
 			</table>
-			<div class="basket_button">
-				<a class="check-all"> <span class="button-label">전체 선택</span></a> 
-				<a class="check-unall"> <span class="button-label">전체 해제</span></a>						
-				<button class="button"><span class="button-label">선택 삭제</span>	</button>					
-				<a href="/IMPet/PetShop/Main"><span >쇼핑계속하기</span></a>	
-			<!-- 	<a href="" onClick="cartBuy()"><span>상품주문</span></a>   -->
+			<div class="basket_button" style="float:left">
 	
-					<input type="button" value="주문하기" onclick="cartBuy()" />					
+				<input type="button" class="check-all" value="전체선택" id="button"/>
+				<input type="button" class="check-unall" value="전체해제" id="button"/>				
+				<button class="button2" id="button"><span class="button-label">선택삭제</span>	</button>					
+			<!-- 	<a href="/IMPet/PetShop/Main"><span >쇼핑계속하기</span></a>	
+
+	
+					<input type="button" value="주문하기" onclick="cartBuy()" />	 -->				
 						
-			</div>		
+			</div>
+			<div style="float:right">		
+			<input type="button" value="쇼핑계속하기" onclick="location.href='/IMPet/PetShop/Main'" id="button" style="width:100px;"/>	
+			<input type="button" value="주문하기" onclick="cartBuy()" id="button"/>	
+			</div>
 		</form>
 		</div>
 	
