@@ -85,7 +85,7 @@
 		]]>
 	</select>
 	
-	
+	<!-- 키값 가져오기 -->
 	<select id="selectKey" resultType="hashmap">
 			SELECT PET_EVENT_NO_SEQ.NEXTVAL as ITEM_NO FROM DUAL
 	</select>
@@ -93,7 +93,7 @@
 	
 	
 	
-	
+	<!-- 이벤트 추가 -->
 	<insert id="insert" parameterType="hashmap">
 		<![CDATA[
 		INSERT INTO 
@@ -122,6 +122,33 @@
 	</insert>
 	
 	
+	<!-- 이밴트 수정 -->
+	<update id="update" parameterType="hashmap">
+		<![CDATA[
+			UPDATE 
+				PET_EVENT 
+			SET 
+			  EVENT_SUBJECT = #{EVENT_SUBJECT}, 
+		      EVENT_IMG = #{EVENT_IMG},		   
+		      EVENT_DATE = SYSDATE,
+		      EVENT_CONTENT = #{EVENT_CONTENT},
+		      EVENT_TIME = #{EVENT_TIME}
+			where
+				 EVENT_NO  = #{ EVENT_NO }	 
+									
+
+		]]>
+			
+	</update>	
+
+	<!-- 이벤트 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+		DELETE FROM PET_EVENT WHERE EVENT_NO  = #{ EVENT_NO }	 
+	]]>
+	</delete>
 	
+
 	
+
 </mapper>

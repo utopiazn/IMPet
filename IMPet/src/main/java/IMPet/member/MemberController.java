@@ -22,7 +22,6 @@ public class MemberController {
 	private MemberService memberService;
 	
 	
-	ModelAndView mav = new ModelAndView();
 	
 	
 	List<Map<String,Object>> listAll =null;
@@ -34,6 +33,8 @@ public class MemberController {
 	@RequestMapping(value="/LoginForm")
 	public ModelAndView loginForm(){
 
+
+		ModelAndView mav = new ModelAndView();
 		String url = "LoginForm1";
 		
 		System.out.println("로그인 폼");		
@@ -85,6 +86,7 @@ public class MemberController {
 	@RequestMapping(value="/Logout")
 	public ModelAndView Logout(HttpSession session) throws Exception{
 
+		ModelAndView mav = new ModelAndView();
 		//메인 하면으로 이동
 		String url = "redirect:/Main";		
 		
@@ -115,6 +117,7 @@ public class MemberController {
 	@RequestMapping(value="/JoinMain")
 	public ModelAndView JoinMain(){
 
+		ModelAndView mav = new ModelAndView();
 		String url = "JoinMain";
 
 		System.out.println("회원 가입 계약");

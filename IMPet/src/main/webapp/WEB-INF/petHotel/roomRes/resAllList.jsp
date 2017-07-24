@@ -5,7 +5,6 @@
 <script type="text/javascript">
 function ajaxPageView(page){	
 	
-	alert(page);  
 	var dataList =
 	{ 
 		"PAGE" : page	
@@ -123,8 +122,10 @@ function ajaxPageView(page){
 						</c:otherwise>
 					</c:choose>
 				</table>
+				<c:if test="${list[0].RES_NO != null}">
 				<div class="paging">
 				${pagingHtml} 
 				</div>
+				</c:if>
 		
 </div>

@@ -53,5 +53,21 @@ public class EventServiceImpl implements EventService{
 		EventDAO.insert(map);
 		
 	}
+
+	@Override
+	public void update(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+		EventDAO.update(map);
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		EventDAO.delete(map);
+	}
+	
+	
+	
 	
 }

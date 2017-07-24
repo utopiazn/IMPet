@@ -20,7 +20,16 @@ public interface GalleryService {
 	
 	//갤러리 상세 정보
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
-		
+	
+	
+	//댓글 리스트
+	public List<Map<String, Object>> selectCommemtList(Map<String, Object> map) throws Exception;	
+	
+	//댓글 추가
+	public void CommemtGalleryInsert(Map<String, Object> map) throws Exception;
+	
+	//댓글 삭제
+	public void CommemtGalleryDelete(Map<String, Object> map) throws Exception;
 		
 	
 }

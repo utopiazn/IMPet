@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="CommemtGallerySQL">
+	
+	
+		<select id="selectCommemtList" resultType="hashmap" parameterType="hashmap">
+		
+		<![CDATA[		
+			    
+			   			
+			select 
+				* 
+			from 
+				PET_GALLERYCOMMENT  
+			where  
+				GALLERY_NO =#{GALLERY_NO} order by GALLERYCOMMENT_DATE desc
+			        
+		]]>
+	</select>
+	
+	
+	
+	<!-- 이벤트 추가 -->
+	<insert id="CommemtGalleryInsert" parameterType="hashmap">
+		<![CDATA[
+			
+			INSERT INTO 
+		  		PET_GALLERYCOMMENT
+		    (
+		    	galleryComment_NO,
+				gallery_NO
+				galleryComment_Content
+				member_ID
+				galleryComment_Date
+		    ) 
+		    
+		    VALUES(
+		    	PET_GALLERY_COMMENT_NO_SEQ.NEXTVAL,
+		    	#{GALLERY_NO},
+		    	#{GALLERYCOMMENT_CONTENT},
+		    	#{MEMBER_ID}		    	
+		    	SYSDATE
+		    	)
+		    
+		]]>
+	</insert>
+	
+	
+	<!-- 이벤트 삭제 -->
+	<delete id="CommemtGalleryDelete" parameterType="hashmap">
+	<![CDATA[
+		DELETE FROM 
+			PET_GALLERYCOMMENT 
+		WHERE 
+			galleryComment_NO  = #{ GALLERYCOMMENT_NO }	 
+	]]>
+	</delete>
+	
+	
+	
+	
+</mapper>

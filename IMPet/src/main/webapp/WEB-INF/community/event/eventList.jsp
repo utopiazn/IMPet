@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
+
 <script src="/IMPet/resources/ajax/HotelAjax.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -213,7 +216,11 @@ function ajaxEventModifyForm(EVENT_NO){
 
 
 function EventDelete(EVENT_NO){
-	alert(EVENT_NO);     
+	
+	
+	
+	/* alert(EVENT_NO);     
+	alert(EVENT_IMG);      */
 	if( confirm("현재 이베트를  삭제하시겠습니까?") ){	
 		
 		ajaxEventDelete(EVENT_NO);
@@ -263,11 +270,17 @@ function ajaxEventDelete(EVENT_NO){
 		
 		var url1 = "/IMPet/Community/EventDelete";
 		
-		 //alert(EVENT_NO);     	
+		 	  
+	 	var obj =document.jform;
+	
+	 	
+	 	alert(	obj.EVENT_IMG.value);     	
+	
 	
 		 var dataList =
 			{ 
-				"EVENT_NO" : EVENT_NO	
+				"EVENT_NO" : EVENT_NO,	
+				"EVENT_IMG" : obj.EVENT_IMG.value
 			}	
 	
 		
@@ -394,7 +407,7 @@ function ajaxPageView(page){
 
 
 			
-
+<!-- 
 
 커뮤니티 이벤트 리스트
 
@@ -404,4 +417,4 @@ function ajaxPageView(page){
 
 <input value="이벤트 추가 " type="button" onclick="location.href='/IMPet/Community/EventForm'"/> 
 
-
+ -->

@@ -51,7 +51,30 @@ public class GalleryDAO extends AbstractDAO{
 		return view;
 	}
 	
+	//댓글 리스트
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectCommemtList(Map<String, Object> map) throws Exception {
+		
+		System.out.println(map);
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>) selectList("CommemtGallerySQL.selectCommemtList",map);
+		
+		return list;
+	}
+	
+	
+	//댓글 추가
+	public void CommemtGalleryInsert(Map<String, Object> map) throws Exception {
+		insert("CommemtGallerySQL.CommemtGalleryInsert", map);
+	}
+	
+
+	//댓글 삭제
+	public void CommemtGalleryDelete(Map<String, Object> map) throws Exception{
+		delete("CommemtGallerySQL.CommemtGalleryDelete", map);
+		
+	}
 	
 	
 }

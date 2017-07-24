@@ -67,9 +67,9 @@ function validateForm() {
 </div>
 
 
-<input value="추가" type="button" onclick="location.href='/IMPet/Community/EventInsert'"/> /
+<!-- <input value="추가" type="button" onclick="location.href='/IMPet/Community/EventInsert'"/> /
 <input value="커뮤니티  이벤트 리스트  이동" type="button" onclick="location.href='/IMPet/Community/EventList'"/> 
 
-
+ -->
 
 

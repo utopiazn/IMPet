@@ -36,7 +36,7 @@
 		            	
 		            ) as gallery_NUM  
 		        from 
-		        	PET_GALLERY a  RIGHT OUTER JOIN PET_MEMBER b     ON a.member_ID = b.member_ID  
+		        	PET_GALLERY a  INNER JOIN  PET_MEMBER b     ON a.member_ID = b.member_ID  
 			 	) aa    
 			 where 
 			 	aa.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )

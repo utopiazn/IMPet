@@ -14,6 +14,7 @@ public class GalleryServiceImpl implements GalleryService{
 
 	@Resource(name="galleryDAO")
 	private GalleryDAO galleryDAO;
+	
 
 	@Override
 	public List<Map<String, Object>> selectRangeAll(Map<String, Object> map) throws Exception {
@@ -38,6 +39,26 @@ public class GalleryServiceImpl implements GalleryService{
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return galleryDAO.selectOne(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectCommemtList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectCommemtList(map);
+	}
+
+	@Override
+	public void CommemtGalleryInsert(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		galleryDAO.CommemtGalleryInsert(map);
+	}
+
+	@Override
+	public void CommemtGalleryDelete(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		
+		galleryDAO.CommemtGalleryDelete(map);
+		
 	}
 	
 }

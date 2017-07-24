@@ -74,8 +74,10 @@
 
 .slide_wrap .slide_box li{
 	float:left;
+	
 	width:526px;
 	height:300px;
+	
 	background-color:#c1ccd8;
 	font-size:15px;
 	font-weight:bold;
