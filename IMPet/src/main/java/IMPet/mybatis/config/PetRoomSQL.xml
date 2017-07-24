@@ -16,7 +16,7 @@
 	<select id="selectAll" resultType="hashmap">
 		<include refid="seletClass"/>
 		<![CDATA[
-		ORDER BY ROOM_NO DESC
+		ORDER BY ROOM_NO ASC
 		]]>
 	</select>
 	
