@@ -84,6 +84,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 	        },
 	       
 	        success : function(data) {  
+
 	      		 $('#ContextMyPage').html(data);
 	        }
 	        
