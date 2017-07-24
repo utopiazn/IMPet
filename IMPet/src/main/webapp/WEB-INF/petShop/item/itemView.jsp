@@ -12,6 +12,12 @@
 <link href="/pet/resources/css/reset.css" rel="stylesheet">
 <link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet"> --> 
 
+<style>
+	.category_top{height: 80px;}
+	.category_top ul{float: right;}
+	.category_top ul li{float: left; padding: 0px 2px;}
+	
+</style>
 <script type="text/javascript">
 
 	//숫자,표시 함수

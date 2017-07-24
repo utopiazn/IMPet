@@ -215,7 +215,7 @@ public class ProjectUtil {
 				originalFileName = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
 				
 				for(String a : originalImg){
-					
+
 					if(originalFileName.equals(a)) {
 																
 						File removeFile = new File(uploadPath, a);

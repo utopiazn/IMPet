@@ -13,6 +13,7 @@
 -webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
 	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
 		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  text-decoration:none;
 }
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}

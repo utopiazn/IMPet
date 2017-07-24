@@ -85,9 +85,9 @@
                 ORDER_IMG,
                 ORDER_NAME,
                 RECEIVE_NO
-          from pet_item_order) a
+          from pet_item_order where MEMBER_ID = #{MEMBER_ID}) a
            where 
-			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} ) and MEMBER_ID = #{MEMBER_ID}
+			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
 			 order by 			 
 			 RECEIVE_NO
 	</select>
