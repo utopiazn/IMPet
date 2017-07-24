@@ -64,7 +64,6 @@ $.fn.rowspan = function(colIdx, isStats) {
 	
 	function ajaxPageView(page){	
 		
-		alert(page);  
 		var dataList =
 		{ 
 			"PAGE" : page	
@@ -85,7 +84,6 @@ $.fn.rowspan = function(colIdx, isStats) {
 	        },
 	       
 	        success : function(data) {  
-	        	alert("들어옴");
 	      		 $('#ContextMyPage').html(data);
 	        }
 	        
