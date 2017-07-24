@@ -255,6 +255,21 @@
     	width: 30px;
 	}
 	
+
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+
+	
 </style>
 
 </head>
@@ -409,94 +424,25 @@
 							
 							<!-- 로그인전 -->
 							<c:if test="${sessionScope.member_ID == null}">
-                  				<input type="text" style="align:center; margin: 10px; width: 950px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
+                  				<input type="text" style="align:center; margin: 10px; width: 850px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
 	      	 				</c:if>
 	      	 				
 	      	 				<!-- 로그인후 -->
 	      	 				<c:if test="${sessionScope.member_ID != null}">
-								<!-- <div class="review_explanation" style="align: center">
-									  <img src="/IMPet/resources/image/review/commentlogo.png"></img>
-										<ul>
-											<li><input type="radio" name="REVIEW_STAR" value="1" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									      	</li>
-									       
-									      	<li><input type="radio" name="REVIEW_STAR" value="2" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									     	</li>
-									       
-									      	<li><input type="radio" name="REVIEW_STAR" value="3" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									      	</li>
-									      
-									     	<li><input type="radio" name="REVIEW_STAR" value="4" height="1" class="radio">
-									     		 <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									       	</li>
-									       	
-									      	<li><input type="radio" name="REVIEW_STAR" value="5" height="1" checked="" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
-											</li>
-										</ul>			
-			 					</div> -->
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-<style type="text/css">
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
 
-</style>
-
-
-
-<p class="star_rating" id="star_rating">
-    <a href="#" onclick="rateup(1);" class="on">★</a>
-    <a href="#" onclick="rateup(2);" >★</a>
-    <a href="#" onclick="rateup(3);" >★</a>
-    <a href="#" onclick="rateup(4);" >★</a>
-    <a href="#" onclick="rateup(5);" >★</a>
-</p>
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-							
-								<div class="REVIEW_CONTENT" style="width: 1000px;" align="left">
+								<p class="star_rating" id="star_rating">
+								    <a href="#" onclick="rateup(1);" class="on">★</a>
+								    <a href="#" onclick="rateup(2);" >★</a>
+								    <a href="#" onclick="rateup(3);" >★</a>
+								    <a href="#" onclick="rateup(4);" >★</a>
+								    <a href="#" onclick="rateup(5);" >★</a>
+								</p>
+						
+								<div class="REVIEW_CONTENT" style="width: 100%;" align="left">
 									<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/> &nbsp;작성자 : ${sessionScope.member_ID}
-									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 849px; height: 55px;" placeholder="내용을 입력하세요"></textarea><button type="button" class="btn1 btn-primary1" onclick="onComment()">입력</button>
+									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 850px; height: 55px;" placeholder="내용을 입력하세요"></textarea>
 								</div>
+								<button type="button" class="btn1 btn-primary1" onclick="onComment()" style="float:right;">입력</button>
 							</c:if>
 						</div>
 						
