@@ -63,6 +63,6 @@
 	<c:if test="${retotal.NUM != 0}">
 	<input value="예약하기" class="button2" type="submit" />
 	</c:if>
-	<input value="뒤로가기" class="button2" type="button" onclick="window.history.go(-1);"/>
+	<input value="예약취소" class="button2" type="button" onclick="jsHotel(1);"/>
 </div>
 </form>

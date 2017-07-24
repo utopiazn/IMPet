@@ -55,7 +55,7 @@
 
 <br/><br/>
 
-<div align="center" style="width: 100%;">
+<div> <!-- align="center">  --><!-- style="width: 100%;"> -->
 
 	<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 	
