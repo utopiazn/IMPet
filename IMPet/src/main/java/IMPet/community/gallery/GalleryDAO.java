@@ -77,4 +77,16 @@ public class GalleryDAO extends AbstractDAO{
 	}
 	
 	
+	//댓글 카운트
+	public int selectCommemtCount(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("CommemtGallerySQL.selectCommemtCount",map);
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	
+	
 }

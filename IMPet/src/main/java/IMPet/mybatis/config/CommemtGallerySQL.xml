@@ -21,6 +21,24 @@
 	</select>
 	
 	
+		<select id="selectCommemtCount" resultType="hashmap" parameterType="hashmap">
+		
+		<![CDATA[		
+			    
+			   			
+			select 
+				count(*) as count 
+			from 
+				PET_GALLERYCOMMENT  
+			where  
+				GALLERY_NO =#{GALLERY_NO} order by GALLERYCOMMENT_DATE desc
+			        
+		]]>
+	</select>
+	
+	
+	
+	
 	
 	<!-- 이벤트 추가 -->
 	<insert id="CommemtGalleryInsert" parameterType="hashmap">
@@ -30,9 +48,9 @@
 		  		PET_GALLERYCOMMENT
 		    (
 		    	galleryComment_NO,
-				gallery_NO
-				galleryComment_Content
-				member_ID
+				gallery_NO,
+				galleryComment_Content,
+				member_ID,
 				galleryComment_Date
 		    ) 
 		    
@@ -40,7 +58,7 @@
 		    	PET_GALLERY_COMMENT_NO_SEQ.NEXTVAL,
 		    	#{GALLERY_NO},
 		    	#{GALLERYCOMMENT_CONTENT},
-		    	#{MEMBER_ID}		    	
+		    	#{MEMBER_ID},		    	
 		    	SYSDATE
 		    	)
 		    

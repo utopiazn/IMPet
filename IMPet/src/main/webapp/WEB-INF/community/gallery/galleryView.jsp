@@ -119,21 +119,38 @@ under_content h2 {
 	<div class="slide_area" style="width: 80%; height: 35%; " >
 	
 	<ul class="slide_box" style="width: 100%; height: 100%;" >	
-		<li>
-			<img src="/IMPet/resources/image/gallery/${Image01}"   />
-		</li>		
-		<li>
-			<img src="/IMPet/resources/image/gallery/${Image02}"   />
-	  	</li>	  
-	  	<li>
-	    	<img src="/IMPet/resources/image/gallery/${Image03}"   />
-	  	</li>	  
-	  	<li>
-	    	<img src="/IMPet/resources/image/gallery/${Image04}"   />
-	    </li>
-	    <li>
-	    	<img src="/IMPet/resources/image/gallery/${Image05}"   />
-	    </li>
+	
+	
+		<c:if test="${ Image01 ne ''}">
+			<li>
+				<img src="/IMPet/resources/image/gallery/${Image01}"   />
+			</li>
+		</c:if>
+		
+		<c:if test="${ Image02 ne ''}">
+			<li>
+				<img src="/IMPet/resources/image/gallery/${Image02}"   />
+			</li>
+		</c:if>
+		
+		<c:if test="${ Image03 ne ''}">
+			<li>
+				<img src="/IMPet/resources/image/gallery/${Image03}"   />
+			</li>
+		</c:if>
+		
+		<c:if test="${ Image04 ne ''}">
+			<li>
+				<img src="/IMPet/resources/image/gallery/${Image04}"   />
+			</li>
+		</c:if>
+		
+		<c:if test="${ Image05 ne ''}">
+			<li>
+				<img src="/IMPet/resources/image/gallery/${Image05}"   />
+			</li>
+		</c:if>
+		
 	 </ul>
 	</div>
 <!--   <ul class="indigator">
@@ -145,11 +162,28 @@ under_content h2 {
   </ul>
    -->
  	<ul class="indigator2">	
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image01}" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image02}" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image03}" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image04}" /></a></li>
-		<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image05}" /></a></li>
+ 	
+		<c:if test="${ Image01 ne ''}">
+			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image01}" /></a></li>
+		</c:if> 	
+ 	
+ 		<c:if test="${ Image02 ne ''}">
+			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image02}" /></a></li>
+		</c:if> 	
+		
+		<c:if test="${ Image03 ne ''}">
+			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image03}" /></a></li>
+		</c:if> 	
+ 	
+ 		<c:if test="${ Image04 ne ''}">
+			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image04}" /></a></li>
+		</c:if> 	
+		
+		
+		<c:if test="${ Image05 ne ''}">
+			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image05}" /></a></li>
+		</c:if> 	
+
 	</ul>
 
 </div>
@@ -171,22 +205,24 @@ under_content h2 {
 
 <div id="comments" class="box">
 
-	<h2 class="under_content accent_header">
-	
-	
-		<label>댓글 쓰기</label> <br/>
-
-<form name="jform1" method="post">	
-		<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea> 
+<form name="jform1" method="post">
+	<c:if test="${ sessionScope.member_ID  != null }">
+		<h2 class="under_content accent_header">
 		
-		<input type="hidden" id ="GALLERY_NO"  value="${GALLERY_NO}"> 
-</form>	
-		<button type="button"  onclick="ajaxComment();">댓글 달기</button>
+		
+			<label>댓글 쓰기</label> <br/>
 	
-	
-	</h2>
-
-	
+				
+				<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea> 
+					
+				<input type="hidden" id ="GALLERY_NO"  value="${GALLERY_NO}"> 
+			
+			<button type="button"  onclick="ajaxComment();">댓글 달기</button>
+		
+		
+		</h2>
+	</c:if>
+</form>		
 	<h2 class="under_content accent_header">댓글 리스트</h2>
 
 	<ul>
@@ -194,24 +230,13 @@ under_content h2 {
 	
 	<div id="ContextGallery" align="center" style="width:100%;  float: left;">	
 	
-		<c:forEach var="comment" items="${commentList}">
-				
 	
-		
-		<li class="compost">
-		
-			<div class="combody">
-				<p>${comment.GALLERYCOMMENT_CONTENT }</p>
-			</div>
-			
-			<p class="cominfo">
-				by&nbsp; ${comment.MEMBER_ID}　&nbsp;&nbsp;  	${comment.GALLERYCOMMENT_DATE} &nbsp;&nbsp;&nbsp;<a>[삭제]</a>
-				
-				</p>
-		</li>
-		
-		</c:forEach>
-		</div>
+	
+	
+		<jsp:include page="/WEB-INF/community/gallery/galleryCommentAdd.jsp"/>
+	
+	
+	</div>
 	
 	</ul>
 

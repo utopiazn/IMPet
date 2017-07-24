@@ -17,7 +17,7 @@
    			from (   			
    			
 				select 
-			     	row_number() over(order by 	GALLERY_DATE) as NO, 
+			     	row_number() over(order by 	GALLERY_DATE desc) as NO, 
 		            a.gallery_NO,
                 	b.member_Nickname,
 		            a.gallery_Subject,
@@ -41,7 +41,7 @@
 			 where 
 			 	aa.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
         	 order by 			 
-			 	aa.GALLERY_DATE
+			 	aa.GALLERY_DATE desc
         
 		]]>
 	</select>
@@ -82,13 +82,31 @@
 	<!-- 갤러리 상세 정보-->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 			
-		<![CDATA[	
+		<![CDATA[
+		
+		
 			select
-				*
+				 a.gallery_NO,
+                	b.member_Nickname,
+		            a.gallery_Subject,
+		            a.gallery_Content,
+		            a.member_ID,
+		            a.gallery_IMG,
+		            a.gallery_Count,
+		            a.gallery_Date,
+		            (
+		            	select 
+		            		count(*) 
+		            	from 
+		            		PET_GALLERYCOMMENT 
+		            	where 
+		            		gallery_NO = a.gallery_NO 
+		            	
+		            ) as gallery_NUM  
 			from 
-				PET_GALLERY
+				PET_GALLERY a  INNER JOIN  PET_MEMBER b     ON a.member_ID = b.member_ID  
 			where
-				GALLERY_NO = #{GALLERY_NO}							
+				a.GALLERY_NO = #{GALLERY_NO}							
 			
 
 		]]>

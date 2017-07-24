@@ -86,7 +86,7 @@ function GalleryView(GALLERY_NO){
 		  
 	var url1 = "/IMPet/Community/GalleryView";
 	
-	 alert(GALLERY_NO);     	
+	// alert(GALLERY_NO);     	
 
 	 var dataList =
 		{ 
@@ -120,17 +120,17 @@ function ajaxComment(){
 	
 	  
 	var obj =document.jform1;
-	alert(obj.comment.value); 	 
+	//alert(obj.comment.value); 	 
 
 	
-	alert(page);  
+	//alert(page);  
 	var dataList =
 	{ 
 		"GALLERYCOMMENT_CONTENT" :obj.comment.value,
 		"GALLERY_NO" :obj.GALLERY_NO.value
 	}	
 
-	var url1 = "/IMPet/Community/galleryViewComment"; 
+	var url1 = "/IMPet/Community/GalleryComment"; 
 	
     $.ajax({    
      
@@ -152,6 +152,47 @@ function ajaxComment(){
      
 
 }
+
+
+
+
+function ajaxCommentDel(GALLERYCOMMENT_NO){	
+	
+	
+	
+	var  GALLERY_NO=  document.getElementById('GALLERY_NO').value;
+	
+ 	var dataList =
+	{ 
+		"GALLERYCOMMENT_NO" : GALLERYCOMMENT_NO,
+		"GALLERY_NO" : GALLERY_NO
+		
+	}	
+
+	var url1 = "/IMPet/Community/GalleryCommentDelete"; 
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextGallery').html(data);          		
+        }
+        
+      });  
+    
+
+}
+
+
 
 
 function ajaxPageView(page){	
@@ -183,6 +224,44 @@ function ajaxPageView(page){
       });  
 }
 
+/* 
+
+function ImageIndex(index){
+	
+	
+	//alert(index); 
+	
+	
+	var Txt = "데이터가 없습니다.";
+	
+	if(index==1){
+		Txt = "${TxT01}";
+		
+	}else if(index==2){
+
+		Txt = "${TxT02}";
+		
+	}else if(index==3){
+		
+		Txt = "${TxT03}";
+		
+	}else if(index==4){
+		
+		Txt = "${TxT04}";
+		
+	}else if(index==5){
+		
+		Txt = "${TxT05}";
+		
+	}
+	
+	$("#dd").html(Txt);
+	
+
+		
+}
+ */
+
 
 </script>
 
@@ -201,7 +280,6 @@ function ajaxPageView(page){
 	  </div>
 	</div>
 	
-
 
 
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">

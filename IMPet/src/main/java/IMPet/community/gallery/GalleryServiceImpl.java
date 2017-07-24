@@ -60,5 +60,11 @@ public class GalleryServiceImpl implements GalleryService{
 		galleryDAO.CommemtGalleryDelete(map);
 		
 	}
+
+	@Override
+	public int selectCommemtCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectCommemtCount(map);
+	}
 	
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -206,8 +207,9 @@ public class GalleryController {
 		String strImage = view.get("GALLERY_IMG").toString();
 		String strTxt = view.get("GALLERY_CONTENT").toString();
 		
+		int gallery_NUM = Integer.parseInt(view.get("GALLERY_NUM").toString());
 		
-			
+
 		
 		int imageCount= 0;
 		int txtCount = 0;		
@@ -241,16 +243,18 @@ public class GalleryController {
 		String image02=imageSplit(strImage,2,"/");
 		String image03=imageSplit(strImage,3,"/");
 		String image04=imageSplit(strImage,4,"/");
-		String image05=imageSplit(strImage,5,"/");		
+		String image05=imageSplit(strImage+"/",5,"/");		
 		
 		String txt01=imageSplit(strTxt,1,"##");
 		String txt02=imageSplit(strTxt,2,"##");
 		String txt03=imageSplit(strTxt,3,"##");
 		String txt04=imageSplit(strTxt,4,"##");
-		String txt05=imageSplit(strTxt,5,"##");
+		String txt05=imageSplit(strTxt+"##",5,"##");
 		
 		
+
 		
+		System.out.println("image05:"+image05);
 		
 		System.out.println("txt01:"+txt01);
 
@@ -286,10 +290,18 @@ public class GalleryController {
 		
 		
 		System.out.println(gallery_NO);
+
+		System.out.println("gallery_NUM:"+gallery_NUM);
 		
 		
-		List<Map<String,Object>> commentList =commentList(Integer.parseInt(gallery_NO));
-		mav.addObject("commentList", commentList);
+		if(gallery_NUM>0){
+		
+			List<Map<String,Object>> commentList =commentList(Integer.parseInt(gallery_NO));
+			mav.addObject("commentList", commentList);
+			
+		}
+		
+		mav.addObject("GALLERY_NUM", gallery_NUM);
 		
 		
 		mav.setViewName(url);
@@ -400,31 +412,80 @@ public class GalleryController {
 	
 	//갤러리 댓글
 	@RequestMapping(value="/GalleryComment")
-	public ModelAndView GalleryComment(){
+	public ModelAndView GalleryComment(CommandMap commandMap,HttpSession session ) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
+		String url = "community/gallery/galleryCommentAdd";
+		
 		
 		System.out.println("갤러리 댓글");
+		
+		
+		
+		String member_ID = session.getAttribute("member_ID").toString();
+		System.out.println(member_ID);		
+		commandMap.put("MEMBER_ID", member_ID);
+		
+		
+		commandMap.MapInfoList();
+		
+		galleryService.CommemtGalleryInsert(commandMap.getMap());
+	
+		
+		String gallery_NO = commandMap.get("GALLERY_NO").toString();
+		mav.addObject("GALLERY_NO", gallery_NO);
+		
+		
+		
+		//System.out.println(gallery_NO);
+		
+		int count = galleryService.selectCommemtCount(commandMap.getMap());
+		
+		if(count >0){
+		
+			List<Map<String,Object>> commentList =commentList(Integer.parseInt(gallery_NO));
+			mav.addObject("commentList", commentList);
+		}
 
 		//상세보기
-		mav.setViewName("GalleryView");
+		mav.setViewName(url);
 	
 		return mav;
 	}
 
 	//갤러리 댓글 삭제
 	@RequestMapping(value="/GalleryCommentDelete")
-	public ModelAndView GalleryCommentDelete(){
+	public ModelAndView GalleryCommentDelete(CommandMap commandMap) throws Exception{
 
 
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();	
+		
+		commandMap.MapInfoList();
+		
+		galleryService.CommemtGalleryDelete(commandMap.getMap());
 		
 		System.out.println("갤러리 삭제 처리");
+		
+		String url = "community/gallery/galleryCommentAdd";
+		
+		
+		int count = galleryService.selectCommemtCount(commandMap.getMap());
+		
+		String gallery_NO = commandMap.get("GALLERY_NO").toString();
+		mav.addObject("GALLERY_NO", gallery_NO);
+		
+		
+		if(count >0){
+		
+			List<Map<String,Object>> commentList =commentList(Integer.parseInt(gallery_NO));
+			mav.addObject("commentList", commentList);
+		}
 
-		//상세 보기
-		mav.setViewName("GalleryView");
-	
+		//상세보기
+		mav.setViewName(url);
+		
+		
 		return mav;
 	}
 

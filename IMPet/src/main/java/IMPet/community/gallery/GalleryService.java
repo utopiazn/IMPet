@@ -30,6 +30,9 @@ public interface GalleryService {
 	
 	//댓글 삭제
 	public void CommemtGalleryDelete(Map<String, Object> map) throws Exception;
-		
+	
+	//댓글 카운터
+	public int selectCommemtCount(Map<String, Object> map) throws Exception;
+	
 	
 }
