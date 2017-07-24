@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="/IMPet/resources/css/member/joinForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
+
 
 
 <script type="text/javascript">
@@ -89,6 +91,57 @@
 
 
 <body >
+
+
+
+<div class="orderArea">
+
+	<div class="boardWrite" align="center">
+	
+		<table border="1" summary="" style="width: 40%">
+		
+			<tbody>
+					
+					<tr>						
+						<th scope="row">아이디</th>
+						<td>
+							<input  name="MEMBER_ID" type="text" equired autofocus>		
+							<input  type="button" value="ID중복확인"  onclick="openConfirmid(this.form)">			
+						</td>						
+					</tr>
+					
+						
+					<tr>						
+						<th scope="row">비밀번호</th>
+						<td>
+							<input  name="MEMBER_PW" type="password"  required>			
+						</td>						
+					</tr>
+					
+					<tr>						
+						<th scope="row">비밀번호 확인</th>
+						<td>
+							<input name="MEMBER_PW2" type="password" required>	
+						</td>						
+					</tr>		
+					
+					<tr>						
+						<th scope="row">이름</th>
+						<td>
+							<input name="MEMBER_NAME" type="text" placeholder="5자미만 공백없이"  required>
+						</td>						
+					</tr>		
+					
+			</tbody>		
+		
+		
+		</table>
+	
+	
+	</div>
+
+
+</div>
 
 
 <br/><br/><br/><br/><br/><br/><br/>
