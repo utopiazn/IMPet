@@ -148,7 +148,7 @@
 	</select>
 	
 	<update id="orderType" parameterType="hashmap">
-		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} where RECEIVE_NO = #{RECEIVE_NO}
+		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} where RECEIVE_NO = #{RECEIVE_NO} and ORDER_NO = #{ORDER_NO}
 	</update>
 
 </mapper>
