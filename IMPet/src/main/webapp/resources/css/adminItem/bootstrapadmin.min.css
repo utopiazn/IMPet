@@ -194,7 +194,7 @@ td, th {
 	padding: 0
 } */
 	/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
-@media print {
+/* @media print {
 	*, :after, :before {
 		color: #000 !important;
 		text-shadow: none !important;
@@ -253,7 +253,7 @@ td, th {
 		border: 1px solid #ddd !important
 	}
 }
-
+ */
 @font-face {
 	font-family: 'Glyphicons Halflings';
 	src: url(../fonts/glyphicons-halflings-regular.eot);
