@@ -50,7 +50,7 @@ ul.nav > li {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   height: 60px;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   text-transform: uppercase;
   line-height: 50px;
@@ -163,10 +163,10 @@ ul.dropdown > li {
 
 
  
-<div align="center" style="height: 60%">
+<div align="center" style="height: 100%; margin: 0 auto; padding-top: 0;">
 
 <br/><br/>
-<img style="cursor: pointer;" alt="logo" src="/IMPet/resources/image/logo.png" onclick="location.href='/IMPet/Main'">
+<img style="cursor: pointer; margin-top: 0; height: 150px;" alt="logo" src="/IMPet/resources/image/logo.png" onclick="location.href='/IMPet/Main'">
 <br/><br/>
 </div>
 
