@@ -43,7 +43,7 @@
 	                        	 
 	                             <label>파일 첨부 
 	                         
-	                            <input type="file" name="room_IMG">                          
+	                            <input type="file" name="room_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
 	                            </label>
 	                            <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
 	                            <p class="help-block">객실 이미지 입니다 800x800 사이즈 권장합니다</p>
