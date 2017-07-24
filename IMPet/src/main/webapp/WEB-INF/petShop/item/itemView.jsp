@@ -16,7 +16,13 @@
 	.category_top{height: 80px;}
 	.category_top ul{float: right;}
 	.category_top ul li{float: left; padding: 0px 2px;}
-	
+	.item_imagedetail{float: left;    width: 364px;}
+	.infoarea{    margin: 0 0px 0 0px;    padding: 0 0 6px;}
+	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;}
+	.product_ex{clear: both; margin-top:50px; }
+	.itemform{float: left;     margin-left: 100px; text-align: left; }
+	.custom{text-decoration: line-through;    color: #999;    margin: 0 0 -5px;    font-size: 23px;  text-align: left; }
+	.custom{color: #ff140a;    font-family: Verdana,Geneva,sans-serif;    font-weight: bold;    font-size: 38px;  text-align: left;     display: inline-block;    line-height: 27px;    height: 27px;    margin: -5px 0 0px;    vertical-align: middle;}
 </style>
 <script type="text/javascript">
 
@@ -285,20 +291,16 @@
 				<img src="/IMPet/resources/image/itemImg/${view.ITEM_IMG}" onerror="this.src='/IMPet/resources/image/test/noimg_130.gif'" />
 			</div>
 		</div>
-		<form name="itemform" action="#" method="post" >
+		<form name="itemform" action="#" method="post" class="itemform">
 			<!-- 상세정보및 주문 영역 -->
 			<div class="infoarea">
-				<div class="iconb"></div>
-			
-				<div class="icon">
-					<img src="/IMPet/resources/image/test/sale5.gif" />
-				</div>
+				
 		            <h3>${view.ITEM_NAME}</h3>
-				<dd class="price" align="left">
+				<div class="price" align="left">
 		
 					<c:if test="${view.ITEM_DCPRICE != null}">
 					<p class="custom"><del><font color="gray"><fmt:formatNumber value="${view.ITEM_PRICE}" type="number"/>원</font></del></p>
-					<p>
+					<p class="custom2">
 						<font color="red"><span id="price">${view.ITEM_DCPRICE}</span>원</font>
 					</p>
 					</c:if>
@@ -308,7 +310,7 @@
 						<span id="price">${view.ITEM_PRICE}</span>원
 					</p>
 					</c:if>
-				</dd>
+				</div>
 				<div id="totalProducts" class="">
 					<p class="info "><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/ico_information.gif" alt="" />
 						수량을 선택해주세요.

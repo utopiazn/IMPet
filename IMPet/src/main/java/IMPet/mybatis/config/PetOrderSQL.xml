@@ -64,18 +64,19 @@
 	</insert>
 	
 	<!-- 펫샵구매취소 -->
-	<delete id="odDelete" parameterType="hashmap">
-		<![CDATA[
-			DELETE FROM PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO}
-		]]>
-	</delete>
+	<update id="odDelete" parameterType="hashmap">
+	
+			UPDATE PET_ITEM_ORDER SET
+			ORDER_TYPE = #{ORDER_TYPE}
+			WHERE ORDER_NO = #{ORDER_NO}
+	</update>
 	
 	
 	<!-- 펫샵구매내역 -->
 	<select id="odList" resultType="hashmap" parameterType="hashmap">
 			select a.* from  ( 
-        select 	row_number() over(order by 	ORDER_NO) as NO, 
-              ORDER_NO,
+        select 	row_number() over(order by 	RECEIVE_NO DESC) as NO, 
+              	ORDER_NO,
                 ITEM_NO,
                 ORDER_BUYCOUNT,
                 MEMBER_ID,
@@ -89,7 +90,7 @@
            where 
 			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
 			 order by 			 
-			 RECEIVE_NO
+			 RECEIVE_NO DESC
 	</select>
 	
 	<select id="odListCount" resultType="hashmap">
@@ -104,6 +105,7 @@
 		]]>
 	</select>
 	
+	<!-- 관리자_주문리스트 -->
 	<select id="adminOdList" resultType="hashmap">
 		<include refid="selectAll" />
 		<![CDATA[ ORDER BY ORDER_NO DESC ]]>
