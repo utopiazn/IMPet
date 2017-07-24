@@ -16,7 +16,7 @@
 				<td>
 					<div class="con">
 						<div>
-							<img alt="s2" src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" onclick="ajaxRoomView(${room.ROOM_NO});" style="padding-left : 8px; width: 30%; height: 250px; float:left; ">
+							<img alt="s2"  src="/IMPet/resources/image/hotel/roomImg/${room.ROOM_IMG}" onclick="ajaxRoomView(${room.ROOM_NO});" style="padding-left : 8px; width: 30%; height: 250px; float:left; cursor: pointer;">
 						</div>
 						
 						<div>
