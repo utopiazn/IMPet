@@ -123,31 +123,31 @@ under_content h2 {
 	
 		<c:if test="${ Image01 ne ''}">
 			<li>
-				<img src="/IMPet/resources/image/gallery/${Image01}"   />
+				<img src="/IMPet/resources/image/gallery/${Image01}" />
 			</li>
 		</c:if>
 		
 		<c:if test="${ Image02 ne ''}">
 			<li>
-				<img src="/IMPet/resources/image/gallery/${Image02}"   />
+				<img src="/IMPet/resources/image/gallery/${Image02}"  />
 			</li>
 		</c:if>
 		
 		<c:if test="${ Image03 ne ''}">
 			<li>
-				<img src="/IMPet/resources/image/gallery/${Image03}"   />
+				<img src="/IMPet/resources/image/gallery/${Image03}"  />
 			</li>
 		</c:if>
 		
 		<c:if test="${ Image04 ne ''}">
 			<li>
-				<img src="/IMPet/resources/image/gallery/${Image04}"   />
+				<img src="/IMPet/resources/image/gallery/${Image04}" />
 			</li>
 		</c:if>
 		
 		<c:if test="${ Image05 ne ''}">
 			<li>
-				<img src="/IMPet/resources/image/gallery/${Image05}"   />
+				<img src="/IMPet/resources/image/gallery/${Image05}"  />
 			</li>
 		</c:if>
 		

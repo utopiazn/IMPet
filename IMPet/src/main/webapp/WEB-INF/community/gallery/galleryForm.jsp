@@ -1,42 +1,144 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<!DOCTYPE html>
 
 
-<html lang="ko">
-<head>
-
-
-<meta charset="UTF-8">
-<title>커뮤니티 갤러리 추가 폼</title>
-
-
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
 <script type="text/javascript">
-
-
-
-
-
-
+function validateForm() {
+    var x = document.forms["joinform"]["EVENT_CONTENT"].value;
+    if (x == null || x == "") {
+        alert("상품명은 입력해야합니다");
+        return false;
+    }
+}
 </script>
 
 
+<!-- 메뉴 시작 -->
+
+<div class="row" style="padding-left:15px;width:100%;">    
+	<h1 class="page-header">갤러리 추가</h1>
+</div>
+
+<div class="row" style="padding-left:15px;width:100%; text-align:left;"  id="right">
+	<div class="panel panel-default">
+		<div class="panel-heading">이벤트 생성 페이지 입니다. 빠짐없이 입력하셔야합니다</div>
+			<div class="panel-body">
+				
+				<form action="/IMPet/Community/GalleryInsert" enctype="multipart/form-data" method="post" name="joinform" onsubmit="return validateForm()">	
+						
+                        
+                        <div class="form-group">
+                            <label>제목</label>
+                            <input type="text" name="GALLERY_SUBJECT" class="form-control" id="GALLERY_SUBJECT"  placeholder="제목을 입력하세요" style="width:500px;"/>
+                            <br/>
+                        </div>
+                        
+                       
+                         <div class="form-group">
+                            <label>1번째 이미지</label>
+                            <input type="text" name="GALLERY_CONTENT1" class="form-control" id="GALLERY_CONTENT1"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        </div>                       
+                        
+                        
+                        <div class="file_input">
+                        	1번째 이미지 <br/>
+                             <label>파일 첨부 
+                            <input type="file" name="GALLERY_IMG1" onchange="javascript:document.getElementById('file_route').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route">
+                           	<br/><br/>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label>2번째 이미지</label>
+                            <input type="text" name="GALLERY_CONTENT2" class="form-control" id="GALLERY_CONTENT2"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        </div>                       
+                        
+                        
+                        <div class="file_input">
+                        	2번째 이미지 <br/>
+                             <label>파일 첨부 
+                            <input type="file" name="GALLERY_IMG2" onchange="javascript:document.getElementById('file_route2').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route2">
+                           	<br/><br/>
+                        </div>                      
+                        
+                        <div class="form-group">
+                            <label>3번째 이미지</label>
+                            <input type="text" name="GALLERY_CONTENT3" class="form-control" id="GALLERY_CONTENT3"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        </div>                       
+                        
+                        
+                        <div class="file_input">
+                        	3번째 이미지 <br/>
+                             <label>파일 첨부 
+                            <input type="file" name="GALLERY_IMG3" onchange="javascript:document.getElementById('file_route3').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route3">
+                           <br/><br/>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label>4번째 이미지</label>
+                            <input type="text" name="GALLERY_CONTENT4" class="form-control" id="GALLERY_CONTENT4"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        </div>                       
+                        
+                        
+                        <div class="file_input">
+                        	4번째 이미지 <br/>
+                             <label>파일 첨부 
+                            <input type="file" name="GALLERY_IMG4" onchange="javascript:document.getElementById('file_route4').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route4">
+                           <br/><br/>
+                        </div>
+                        
+                       
+                       
+                       
+                                  
+                   
+                       	<div class="form-group">
+                            <label>5번째 이미지</label>
+                            <input type="text" name="GALLERY_CONTENT5" class="form-control" id="GALLERY_CONTENT5"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                        	
+                        </div>                       
+                        
+                        
+                        <div class="file_input">
+                        	5번째 이미지 <br/>
+                            <label>파일 첨부 
+                            	<input type="file" name="GALLERY_IMG5" onchange="javascript:document.getElementById('file_route5').value=this.value">                          
+                            </label>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route5">
+                           	<br/><br/>
+                        </div>
+                        
+                      
+                    
+						<button type="submit" class="btn btn-success">상품등록</button>
+						<button type="reset" class="btn btn-default">작성취소</button>					
+				</form>
+				
+				
+			</div>
+	</div>
+</div>
 
 
-</head>
-<body>
 
 
 
-
-커뮤니티 갤러리 추가 폼
-
-<br/><br/><br/><br/><br/>
+<!-- <br/><br/><br/><br/><br/>
 
 <input value="추가" type="button" onclick="location.href='/IMPet/Community/GalleryInsert'"/> /
 <input value="커뮤니티 갤러리 리스트  이동" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
-
+ -->
 
 
 

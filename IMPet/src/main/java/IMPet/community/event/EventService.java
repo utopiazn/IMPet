@@ -27,10 +27,10 @@ public interface EventService {
 	//이벤트 추가
 	public void insert(Map<String, Object> map) throws Exception; 
 	
-	//이벤트 추가
+	//이벤트 수정
 	public void update(Map<String, Object> map) throws Exception;
 	
-	//이벤트 추가
+	//이벤트 삭제
 	public void delete(Map<String, Object> map) throws Exception;
 	
 }

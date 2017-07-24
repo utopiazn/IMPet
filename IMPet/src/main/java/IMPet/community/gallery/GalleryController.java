@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import IMPet.module.CommandMap;
 
 import java.util.StringTokenizer;
+
+import IMPet.util.ProjectUtil;
 
 @Controller 
 @RequestMapping(value="/Community")
@@ -328,10 +331,12 @@ public class GalleryController {
 
 		ModelAndView mav = new ModelAndView();
 		
+		String url = "community/gallery/galleryForm";
+		
 		System.out.println("갤러리 추가폼");
 
 		
-		mav.setViewName("GalleryForm");
+		mav.setViewName(url);
 		return mav;
 	}
 
@@ -339,17 +344,66 @@ public class GalleryController {
 
 	//갤러리 추가 처리
 	@RequestMapping(value="/GalleryInsert")
-	public ModelAndView GalleryInsert(){
-
+	public ModelAndView GalleryInsert(CommandMap commandMap,HttpSession session,HttpServletRequest request) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
+		ProjectUtil util = new ProjectUtil();
+		
+		String url ="redirect:/Community/GalleryList";
 		System.out.println("갤러리 추가 처리");
+		
 
-		//상세보기로 이동
-		mav.setViewName("redirect:GalleryList");
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/gallery/";
+		
+		
+		commandMap.MapInfoList();
+		
+		int num = galleryService.selectKey();
+		
+	
+		
+		
+		Map<String,Object> resultMap = util.UploadFile_Event(commandMap.getMap(), request, uploadPath,num);
+		
+		
+		
+
+		String member_ID = session.getAttribute("member_ID").toString();
+	
+		String GALLERY_SUBJECT =  commandMap.get("GALLERY_SUBJECT").toString();	
+
+		String imageList = resultMap.get("imageList").toString();	
+		
+		String GALLERY_CONTENT ="";
+		GALLERY_CONTENT = commandMap.get("GALLERY_CONTENT1").toString();	
+		GALLERY_CONTENT += "##"+commandMap.get("GALLERY_CONTENT2").toString();	
+		GALLERY_CONTENT += "##"+commandMap.get("GALLERY_CONTENT3").toString();	
+		GALLERY_CONTENT += "##"+commandMap.get("GALLERY_CONTENT4").toString();	
+		GALLERY_CONTENT += "##"+commandMap.get("GALLERY_CONTENT5").toString();	
+				
+		
+		
+		resultMap.put("GALLERY_NO", num);
+		resultMap.put("GALLERY_SUBJECT", GALLERY_SUBJECT);
+		resultMap.put("MEMBER_ID", member_ID);		
+		resultMap.put("GALLERY_IMG",imageList);
+		resultMap.put("GALLERY_CONTENT",GALLERY_CONTENT);
+		
+		
+		System.out.println(resultMap);
+			
+		
+		galleryService.insert(resultMap);
+		
+		
+		mav.setViewName(url);
 		return mav;
 	}
+	
+	
+	
+	
 	
 	//갤러리 수정폼
 	@RequestMapping(value="/GalleryModifyForm")

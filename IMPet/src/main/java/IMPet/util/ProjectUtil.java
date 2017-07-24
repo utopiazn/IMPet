@@ -81,7 +81,9 @@ public class ProjectUtil {
 		int count = 0;
 		
 		
+		String imageList ="";
 		
+		int imageCount = 0;
 		
 		while (iterator.hasNext()) {
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
@@ -99,8 +101,19 @@ public class ProjectUtil {
 				multipartFile.transferTo(file);
 				
 				commandMap.put(multipartFile.getName(), storedFileName);
+				
+				if(imageCount ==0){
+					imageList =storedFileName;
+				}else{
+					imageList += "/"+storedFileName;
+				}
+					
+				imageCount++;
 			}
 		}
+		
+		commandMap.put("imageList", imageList);
+		
 		return commandMap;
 	}
 	

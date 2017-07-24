@@ -66,5 +66,17 @@ public class GalleryServiceImpl implements GalleryService{
 		// TODO Auto-generated method stub
 		return galleryDAO.selectCommemtCount(map);
 	}
+
+	@Override
+	public int selectKey() throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectKey();
+	}
+
+	@Override
+	public void insert(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		galleryDAO.insert(map);
+	}
 	
 }

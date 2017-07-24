@@ -113,6 +113,43 @@
 	</select>
 	
 	
+	<!-- 키값 가져오기 -->
+	<select id="selectKey" resultType="hashmap">
+			SELECT PET_GALLERY_NO_SEQ.NEXTVAL as ITEM_NO FROM DUAL
+	</select>
+	
+	
+	
+	
+	<!--갤러리  추가 -->
+	<insert id="insert" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO 
+		  PET_GALLERY
+		    (
+		      GALLERY_NO, 
+		      GALLERY_SUBJECT, 
+		      GALLERY_CONTENT, 
+		      MEMBER_ID,
+		      GALLERY_IMG,
+		      GALLERY_COUNT,
+		      GALLERY_DATE
+		    ) 
+		    
+		    VALUES 
+		      (
+		        #{GALLERY_NO},
+		        #{GALLERY_SUBJECT},
+		        #{GALLERY_CONTENT}, 
+		        #{MEMBER_ID}, 
+		        #{GALLERY_IMG}, 
+		        0, 
+		        SYSDATE
+		      )
+		]]>
+	</insert>
+	
+	
 	
 	
 </mapper>

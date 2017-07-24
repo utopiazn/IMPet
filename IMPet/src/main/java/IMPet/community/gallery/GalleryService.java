@@ -35,4 +35,11 @@ public interface GalleryService {
 	public int selectCommemtCount(Map<String, Object> map) throws Exception;
 	
 	
+	//갤러리 키 가져오기
+	public int selectKey() throws Exception; 	
+		
+	//갤러리 추가
+	public void insert(Map<String, Object> map) throws Exception; 
+	
+	
 }

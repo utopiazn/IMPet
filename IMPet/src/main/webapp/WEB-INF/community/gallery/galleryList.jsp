@@ -106,7 +106,7 @@ function GalleryView(GALLERY_NO){
     	 alert('오류임!');     	
       },
       success : function(data) {  
-    	 $('#ContextEvent').html(data);
+    	 $('#ContextEvent2').html(data);
         		
       }
       
@@ -196,6 +196,36 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 
 
 
+
+function ajaxgalleryForm(){	
+	
+	
+	
+
+	var url1 = "/IMPet/Community/GalleryForm";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,        
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextEvent2').html(data);          		
+        }
+        
+      });        
+
+}
+
+
+
+
 function ajaxPageView(page){	
 	
 	alert(page);  
@@ -270,7 +300,12 @@ function ImageIndex(index){
 <br/><br/>
 
 
+
+
 <div align="center" style="width: 100%;">
+
+
+<div id="ContextEvent2">
 
 	<div style="width: 100%; float: left;" >
 	  <div role="group">
@@ -292,6 +327,8 @@ function ImageIndex(index){
 
 
 					
+   </div>
+   
    </div>
 	
 </div>	
