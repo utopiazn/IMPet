@@ -32,7 +32,7 @@
 }
 
 .slide_wrap .btn_prev{
-	left:600px;
+	left:860px;
 	border-right:15px solid #c1ccd8
 }
 .slide_wrap .btn_prev:hover,.slide_wrap .btn_prev:focus{
@@ -40,7 +40,7 @@
 }
 
 .slide_wrap .btn_next{
-	right:600px;
+	right:860px;
 	border-left:15px solid #c1ccd8
 }
 
@@ -62,7 +62,7 @@
 }
 
  .slide_box li img{
- 	width:826px;
+ 	width:860px;
 	height:400px;
  }
 
@@ -75,7 +75,7 @@
 .slide_wrap .slide_box li{
 	float:left;
 	
-	width:826px;
+	width:860px;
 	height:400px;
 	
 	background-color:#c1ccd8;

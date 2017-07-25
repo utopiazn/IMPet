@@ -142,7 +142,6 @@
 <form name="order" id="frm" method="post">
 <input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
 
-
 <div class="orderArea">
 	<h3>결제자 정보</h3>
 		<div class="boardWrite">
@@ -166,8 +165,7 @@
 		</div>
 </div>
 <div class="orderArea">
-
-     
+    
 	<h3 style="padding-right: 100px;">배송지 정보
 		<label style="float: left;"> 
 			 <input type="checkbox" name="order"  form="order_form" onclick="copydata()">주문자 정보 동일

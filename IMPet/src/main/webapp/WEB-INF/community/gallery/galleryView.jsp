@@ -130,9 +130,9 @@ under_content h2 {
 	<button type="button" class="btn_prev">이전</button>
 	<button type="button" class="btn_next">다음</button>
 
-	<div class="slide_area" style="width: 80%; height: 35%; " >
+	<div class="slide_area" style="width: 100%; height: 35%; " >
 	
-	<ul class="slide_box" style="width: 100%; height: 100%;" >	
+	<ul class="slide_box" style="width: 100%; height: 100%;left: -900px;" >	
 	
 	
 		<c:if test="${ Image01 ne ''}">

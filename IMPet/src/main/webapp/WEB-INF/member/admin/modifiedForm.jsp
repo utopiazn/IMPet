@@ -72,13 +72,19 @@
 <body>
 
 <br/><br/>
-<div id ="ContextJoinForm">
+<div id ="ContextJoinForm" align="left" style="
+    padding-left: 23%;">
 
 
-
-	<div class="boardWrite" align="center">
+<div class="orderArea">
+		<div class="order_list_top">
+		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/join.gif" alt="장바구니"></h2>
+		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymallSkin/title/join.gif" alt="step 01 장바구니">
+	</div>
+	<div class="boardWrite">
 <form name="jform" >	
-		<table border="1" summary="" style="width: 53%">
+
+		<table border="1" summary="" style="width: 60%">
 		
 		<tbody>		
 			
@@ -119,8 +125,23 @@
 							<input name="MEMBER_NICKNAME" type="text" value="${memberInfo.MEMBER_NICKNAME}" required>
 						</td>						
 					</tr>		
-				
-				
+					
+					
+					<tr>						
+						<th scope="row">연락처</th>
+						<td>
+							<input name="MEMBER_TEL" type="tel" value="${memberInfo.MEMBER_TEL}" autocomplete="off">
+							
+						</td>						
+					</tr>
+					
+					<tr>						
+						<th scope="row">메일 주소</th>
+						<td>
+							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" value="${memberInfo.MEMBER_EMAIL}" required autocomplete="off">				   
+						</td>						
+					</tr>	
+					
 					<tr>						
 						<th scope="row">우편번호</th>
 						<td>
@@ -133,34 +154,19 @@
 						<th scope="row">주소</th>
 						<td>
 							<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly >
-						</td>						
-					</tr>	
+												
 					
-					<tr>						
-						<th scope="row">상제 주소</th>
-						<td>
+					
+										
+			
+					
 							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required >
 						</td>						
 					</tr>		
 					
 					
-					<tr>						
-						<th scope="row">메일 주소</th>
-						<td>
-							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" value="${memberInfo.MEMBER_EMAIL}" required autocomplete="off">				   
-						</td>						
-					</tr>		
 					
-			
-					<tr>						
-						<th scope="row">연락처</th>
-						<td>
-							<input name="MEMBER_TEL" type="tel" value="${memberInfo.MEMBER_TEL}" autocomplete="off">
-							
-						</td>						
-					</tr>	
-					
-					
+								
 					
 					<tr>						
 						<th scope="row">반려동물종류</th>
@@ -176,7 +182,7 @@
 					
 					
 					<tr>						
-						<th scope="row">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
+						<th scope="row">요구사항<br/>(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
 						<td>
 							<textarea name="MEMBER_REQUESTS"  style="width:100%;" rows="10" required >${memberInfo.MEMBER_REQUESTS}</textarea>
 			
@@ -194,7 +200,7 @@
 	
 </form>
 	</div>	
-
+</div>
 </div>
 
 
