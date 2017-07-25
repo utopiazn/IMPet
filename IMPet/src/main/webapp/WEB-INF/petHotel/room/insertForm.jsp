@@ -65,85 +65,52 @@
 			</div>
 		</c:when>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<c:otherwise>		
-			<form name="Modify" method="post" enctype="multipart/form-data">
-			<input name="room_NO" type="hidden" value="${view.ROOM_NO }"/>
-			<input name="room_IMG" type="hidden" value="${view.ROOM_IMG}">
-			<div style="border: 1px solid lightgray; width: 100%; height: 360px;">
-				<div class="resArea" style="width: 50%">
-					<h3>Pet Hotel Room Modify</h3>
-					<div class="boardWrite">
-						<table border="1" summary="">
-						
-							<tbody>
-								<tr>
-									<th scope="row">객실 번호</th>
-									<td>${view.ROOM_NO }</td>
-								</tr>
-								<tr>
-									<th scope="row">객실 이름</th>
-									<td><input name="room_Name" type="text" value="${view.ROOM_NAME }"/></td>
-								</tr>
-								<tr>
-									<th scope="row">하루 요금</th>
-									<td><input name="room_Price" type="text" value="${view.ROOM_PRICE }"/> 원</td>
-								</tr>
-								
-								<tr>
-									<th scope="row">전체 객실 수</th>
-									<td><input name="room_Total" type="text" value="${view.ROOM_TOTAL }"/></td>
-								</tr>
-								
-								<tr>
-									<th scope="row">객실 설명</th>
-									<td>
-									<textarea name="room_Detail" style="width: 80%; height: 70px;">${view.ROOM_DETAIL}</textarea>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+		
+			<div class="row" style="padding-left:15px;width:100;text-align:left;">
 				
-				<div align="center" style="width: 50%; float: inherit; color: gray; border-top: 1px solid lightgray; padding-top: 10px;">
-					<input class="button2" value="객실 수정" type="button" onclick="ajaxRoomModify()"/>
-						<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoom()"/>
+				<form name="Modify" method="post" enctype="multipart/form-data">
+				<input name="room_NO" type="hidden" value="${view.ROOM_NO }"/>
+				<input name="room_IMG" type="hidden" value="${view.ROOM_IMG}">
+				<div class="panel panel-default">
+					<div class="panel-heading" >PetHotel Room 수정 페이지입니다. 이미지 확인하십시오</div>
+					
+						
+					<div class="panel-body" style=text-align:left;>
+	                        <div class="form-group">
+	                            <label>객실 번호</label><br/>
+	                            ${view.ROOM_NO }
+	                        </div>
+	                        
+	                        
+	                        <div class="form-group">
+	                            <label>객실 이름</label>
+	                            <input type="text" class="form-control" name="room_Name" value="${view.ROOM_NAME }" style="width:40%;"/>
+	                        </div>
+	                        
+	                        <div class="form-group">
+	                            <label>하루 요금</label>
+	                            <input type="text" class="form-control" name="room_Price" value="${view.ROOM_PRICE }" style="width:40%;"/>
+	                        </div>
+	                        
+	                        <div class="form-group">
+	                            <label>전체 객실 수</label>
+	                            <input type="text" class="form-control" name="room_Total" value="${view.ROOM_TOTAL }" style="width:40%;"/>
+	                        </div>
+	                     	
+	                     	<div class="form-group">
+	                            <label>객실 설명</label>
+	                            <textarea class="form-control" name="room_Detail" style="width:70%;">${view.ROOM_DETAIL}</textarea>
+	                        </div>
+	                 </div>      
 				</div>
+				<div align="center" style="width: 100%;">
+				<input class="button2" value="객실 수정" type="button" onclick="ajaxRoomModify()"/>
+				<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoom()"/>
+				</div>
+				</form>
+				
 			</div>
-			</form>	
 		</c:otherwise>
 	</c:choose>
 </div>
