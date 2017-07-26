@@ -135,6 +135,22 @@ function ajaxOrderList(id){
     });
 }
 
+function ajaxMyWriting(){
+	
+    $.ajax({
+      type : "POST",
+      url : "/IMPet/MyWriting",
+      dataType : "text",
+      error : function() {
+        alert('오류발생!!');
+      },
+      success : function(data) {
+        $('#ContextMyPage').html(data);
+      }
+
+    });
+}
+
 $(document).ready(function() {
 	var link = document.location.href;
 	var tab = link.split('MyPage').pop();
@@ -195,7 +211,7 @@ color: black;
 						 <td><a href=#member onclick="javascript:ajaxmembermodify2();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
 						 <td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
 						<td><a href=#order onclick="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
-						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
+						<td><a href=#writing onclick="javascript:ajaxMyWriting();"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
 						<td><a href=#delete onclick="javascript:ajaxmemberdelete('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 						
 					</tr>
@@ -218,35 +234,16 @@ color: black;
 								<tbody>
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									
-									<!-- 										
-											<script language="JavaScript">
-												addOnloadEvent(function() {_ID('confirm_password').focus()});
-											</script> 
+											<jsp:include page="/WEB-INF/myPage/PasswordCheck.jsp"/>
 											
-											<style type="text/css">
-												#cp_body form		{ padding:0px; margin:0px; }
-												#cp_title			{ padding:20px 0px; text-align:center; }
-												#cp_form_border		{ border:1px solid #DEDEDE; }
-												#cp_form			{ border:4px solid #F3F3F3; color:#404040; padding:33px 0px; text-align:center; }
-												.cp_formTitle		{ color:#5D5D5D; font-weight:bold; }
-												.cp_formValue		{ color:#008AE0; }
-												#confirm_password	{ border:1px solid #CCCCCC; width:120px; }
-												#cp_text1			{ color:#FF0000; font-family:dotum; font-size:12px; padding-top:10px; }
-												#cp_button			{ padding:20px 0px; text-align:center; }
-											</style>
-											 -->
-											
-											
-												<jsp:include page="/WEB-INF/myPage/PasswordCheck.jsp"/>
-		
-											</td>
-										</tr>
-									</tbody>	
-								</table>																	
-							</td>
-						</tr>
-					</tbody>
-				</table>
+										</td>
+									</tr>
+								</tbody>	
+							</table>																	
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		
 		</div>
 
@@ -259,6 +256,25 @@ color: black;
 	</tbody>
 	</table>
 	</div>
+
+
+<!-- 										
+<script language="JavaScript">
+	addOnloadEvent(function() {_ID('confirm_password').focus()});
+</script> 
+
+<style type="text/css">
+	#cp_body form		{ padding:0px; margin:0px; }
+	#cp_title			{ padding:20px 0px; text-align:center; }
+	#cp_form_border		{ border:1px solid #DEDEDE; }
+	#cp_form			{ border:4px solid #F3F3F3; color:#404040; padding:33px 0px; text-align:center; }
+	.cp_formTitle		{ color:#5D5D5D; font-weight:bold; }
+	.cp_formValue		{ color:#008AE0; }
+	#confirm_password	{ border:1px solid #CCCCCC; width:120px; }
+	#cp_text1			{ color:#FF0000; font-family:dotum; font-size:12px; padding-top:10px; }
+	#cp_button			{ padding:20px 0px; text-align:center; }
+</style>
+ -->
 
 
 <!-- <div align="right">
