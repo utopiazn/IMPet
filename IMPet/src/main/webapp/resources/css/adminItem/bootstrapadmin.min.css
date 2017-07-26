@@ -1338,11 +1338,8 @@ td, th {
 	box-sizing: border-box
 }
 
-html {
-	font-size: 10px;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-}
 
+/* 
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -1350,8 +1347,8 @@ body {
 	color: #333;
 	background-color: #fff
 }
-
-button, input, select, textarea {
+ */
+/* button, input, select, textarea {
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit
@@ -1365,9 +1362,9 @@ a {
 a:focus, a:hover {
 	color: #23527c;
 	text-decoration: none;
-}
+} */
 
-a:focus {
+/* a:focus {
 	outline: thin dotted;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px
@@ -1379,7 +1376,7 @@ figure {
 
 img {
 	vertical-align: middle
-}
+} */
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive,
 	.thumbnail a>img, .thumbnail>img {
@@ -4362,7 +4359,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	margin-left: -1px
 }
 
-.nav {
+/* .nav {
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none
@@ -5168,8 +5165,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	{
 	color: #444
 }
-
-.breadcrumb {
+ */
+/* .breadcrumb {
 	padding: 8px 15px;
 	margin-bottom: 20px;
 	list-style: none;
@@ -5307,7 +5304,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	text-decoration: none;
 	background-color: #eee
 }
-
+ */
 .pager .next>a, .pager .next>span {
 	float: right
 }
@@ -5447,9 +5444,9 @@ a.badge:focus, a.badge:hover {
 	margin-right: 5px
 }
 
-.nav-pills>li>a>.badge {
+/* .nav-pills>li>a>.badge {
 	margin-left: 3px
-}
+} */
 
 .jumbotron {
 	padding-top: 30px;
@@ -7169,7 +7166,7 @@ button.close {
 	}
 }
 
-.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before,
+/* .btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before,
 	.btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before,
 	.container-fluid:after, .container-fluid:before, .container:after,
 	.container:before, .dl-horizontal dd:after, .dl-horizontal dd:before,
@@ -7190,7 +7187,7 @@ button.close {
 	.pager:after, .panel-body:after, .row:after {
 	clear: both
 }
-
+ */
 .center-block {
 	display: block;
 	margin-right: auto;

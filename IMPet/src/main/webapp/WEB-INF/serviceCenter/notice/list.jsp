@@ -12,6 +12,8 @@
 <title>공지사항 리스트</title>
 
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .button3 {
 	position: relative;
 	padding: 1px 0;
@@ -19,7 +21,7 @@
 	float: right;
 	color: black;
 	cursor: pointer;
-	font-family: 'KoPub Batang' sans-serif;
+	font-family: 'Noto Sans KR' sans-serif;
 	font-size: .9em;
 	text-transform: uppercase;
 	transition: color 0.4s, background-color 0.4s;
@@ -44,52 +46,37 @@
 	text-decoration: none;
 	background-color: #00B488;
 }
+table a{
+text-decoration: none;
+color: black;
+}
 </style>
 
 </head>
 <body>
 
-	<%-- <div align="center">
-	<table border="1">
-	
-	
-		<c:forEach var="notice" items="${list}">
-			<tr><td>
-			<h2>공지사항 번호 : ${notice.NOTICE_NO}</h2><br/>
-			<input value="공지사항 개별페이지" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeView?notice_NO=${notice.NOTICE_NO}'"/>
-			<h2>공지사항 제목 : ${notice.NOTICE_SUBJECT}</h2><br/>
-			<h2>공지사항 조회수 : ${notice.NOTICE_COUNT}</h2><br/>
-			<h2>공지사항 작성일 : ${notice.NOTICE_DATE}</h2><br/>
-			</td></tr>
-		</c:forEach>
-	</table>
-</div> --%>
-
-	<div align="center">
-		<table width="900" border="0" cellspacing="0" cellpadding="0"
-			align="center">
-			<tr>
-				<td align="center"><h2>공지사항</h2></td>
-			</tr>
-			<tr>
-				<td height="20"></td>
-			</tr>
-		</table>
+	<div align="center" style="height: 500px;">
+		<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+		<br/>
+		공지사항
+		<br/>
+		<hr width="80%;" color="lightgray;" size=""> 
+		<br/>
+		</div>
+			
 		<div align="right" width="100%">
+	
+			<c:if test="${sessionScope.member_Admin==1 }">
+			<input value="글쓰기" type="button" class="button3" onclick="location.href='/IMPet/ServiceCenter/NoticeInsertForm'" /></c:if>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 
-			<input value="글쓰기" type="button" class="button3"
-				onclick="location.href='/IMPet/ServiceCenter/NoticeInsertForm'" /> <br />
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				align="center">
-
-				<br />
 				<tr align="center" style="line-height: 3em;">
-
 					<td width="50"><strong>NO</strong></td>
 					<td width="350"><strong>제목</strong></td>
 					<td width="140"><strong>조회수</strong></td>
 					<td width="130"><strong>작성일</strong></td>
 				</tr>
+				
 				<tr bgcolor="#00B488">
 					<td height="2" colspan="4"></td>
 				</tr>
@@ -97,8 +84,8 @@
 				<c:forEach var="notice" items="${list}">
 					<tr align="center" style="line-height: 3em;">
 						<td width="50"><strong>${notice.NOTICE_NO}</strong></td>
-						<td width="350"><strong><a
-								href='/IMPet/ServiceCenter/NoticeView?notice_NO=${notice.NOTICE_NO}'>${notice.NOTICE_SUBJECT}</a></strong></td>
+						<td width="350"><strong>
+						<a href='/IMPet/ServiceCenter/NoticeView?notice_NO=${notice.NOTICE_NO}'>${notice.NOTICE_SUBJECT}</a></strong></td>
 						<td width="140"><strong>${notice.NOTICE_COUNT}</strong></td>
 						<td width="130"><strong>${notice.NOTICE_DATE}</strong></td>
 					</tr>

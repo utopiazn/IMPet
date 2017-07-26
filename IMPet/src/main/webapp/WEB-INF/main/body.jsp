@@ -45,11 +45,11 @@ color: hotpink;
 		    </li> -->
 		    
 		    <li>
-				<img alt="s2" src="/IMPet/resources/image/main/main1.png" style="width: 100%; height: 380px;">
+				<img alt="s2" src="/IMPet/resources/image/main/main1.png" style="width: 100%; height: 500px;">
 		    </li>
 		    
 		    <li>
-				<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 100%; height: 380px;">
+				<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 100%; height: 500px;">
 		    </li>
 	
 		</ul>

@@ -13,118 +13,56 @@
 <title>서비스센터 메인</title>
 
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-/* .button3 {
-  position: relative; 
-  border: 1px #00B488 solid;
- /*  float : l; 
-  color: black;
-  cursor: pointer;
-  font-family: 'KoPub Batang' sans-serif;
-  font-size: 15px;
-  text-transform: uppercase;
-  transition: color 0.4s, background-color 0.4s;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1em;
-  outline: none;
-  text-align: l;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 80%;
-  margin: 15px 20px;
-  background-color: white;
-/*   height: 20px; 
-   padding: 50px 30px;
-     -webkit-transition: all 0.2s linear 0s;
-  transition: all 0.2s linear 0s;
-}
-.button3:hover, .button3:focus {
-  transition: color 0.4s, background-color 0.4s;
-  color: white;
-  text-decoration: none;
-  background-color: #00B488;
-}
-
-.button3:AFTER {
-  content: ">"; 
-  font-family:  sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0px;
-  height: 100%;
-  width: 30px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 0 50% 50% 0;
-  -webkit-transform: scale(0, 1);
-          transform: scale(0, 1);
-  -webkit-transform-origin: left center;
-          transform-origin: left center;
-  -webkit-transition: all 0.2s linear 0s;
-  transition: all 0.2s linear 0s;
-}
-.button3:hover {
-  text-indent: 15px;
-}
-.button3 hover:before {
-  -webkit-transform: scale(3, 1);
-          transform: scale(1, 1);
-  text-indent:0px;
-  }
- */
- 
- .hvr-bubble-float-right {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px transparent;
-    position: relative;
-    margin: .4em;
-    padding: 1em;
-    cursor: pointer;
-    background: #e1e1e1;
-    text-decoration: none;
-    color: #666;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-font-smoothing: antialiased;
-}
-.hvr-bubble-float-right:before {
- pointer-events: none;
+.button4
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #0C5;
+    font-size: 15px;
+    font-family: "Noto Sans KR", sans-serif; */
+    font-weight: 300;
+    margin: 1em auto;
     position: absolute;
-    z-index: -1;
-    content: '';
-    border-style: solid;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    top: calc(50% - 10px);
+    top: 0;
     right: 0;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #e1e1e1;
-}
-.hvr-bubble-float-right:hover, .hvr-bubble-float-right:focus, .hvr-bubble-float-right:active {
-  -webkit-transform: translateX(-10px);
-  transform: translateX(-10px);
-}
-.hvr-bubble-float-right:hover:before, .hvr-bubble-float-right:focus:before, .hvr-bubble-float-right:active:before {
-  -webkit-transform: translateX(10px);
-  transform: translateX(10px);
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+    width: 50%;
+    height: 80px;
+    background: white;
+    border: 2px solid #00B488;
+    color: black;
+    overflow: hidden;
+    transition: all 0.5s;
+    display: inline-block;
+    position: relative;
+    padding-right: 0;
+    transition: padding-right 0.5s;
 }
 
+.button4:hover, .button4:active 
+{
+	
+  text-decoration: none;
+  color: #00B488;
+  border-color: #00B488;
+  background: #FFF;
+}
+
+
+.button4:hover:after, .button4:active:after 
+{
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  opacity: 1;
+  border-color: #00B488;
+  right: 0;
+  top: 50%;
+}
+ 
 </style>
 </head>
 <body>
@@ -145,12 +83,12 @@
 
 	<br/><br/>	
 	
-	<div style="height: 500px;">
+	<div style="height: 500px;" class="sub-main">
 	
-	<input class="hvr-bubble-float-right" value="Q&A" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/><br/>
-	<input class="hvr-bubble-float-right" value="FAQ" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/><br/>
-	<input class="hvr-bubble-float-right" value="공지사항" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
-	
+	<input class="button4" value="공지사항" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
+	<input class=button4 value="FAQ" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+	<input class="button4" value="Q&A" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>
+
 	</div>
 </div>
 
