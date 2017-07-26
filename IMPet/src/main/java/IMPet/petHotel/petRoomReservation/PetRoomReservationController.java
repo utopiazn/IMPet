@@ -81,7 +81,7 @@ public class PetRoomReservationController {
 		
 		petRoomReservationService.resInsert(commandMap.getMap());
 		
-		String url = "redirect:/MyPage";
+		String url = "redirect:/MyPage#room";
 
 		mav.setViewName(url);
 		

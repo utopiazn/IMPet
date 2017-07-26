@@ -30,9 +30,12 @@
 	
 	<!-- 예약리스트(고객용) -->
 	<select id="selectUserList" parameterType="String" resultType="hashmap">
-		<include refid="seletClass"/>
 		<![CDATA[
-		WHERE MEMBER_ID = #{member_ID} 
+		SELECT
+			  a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, NVL(b.ROOM_NAME ,'')  as ROOM_NAME
+		FROM PET_ROOM_RESERVATION a LEFT join PET_ROOM b on a.ROOM_NO = b.ROOM_NO
+		WHERE MEMBER_ID = #{member_ID}
 		ORDER BY RES_NO DESC
 		]]>
 	</select>
@@ -94,3 +97,58 @@
 	</select>
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+<!--
+
+
+	레프트 조인 ( null 값 처리로직 추가)
+	 SELECT
+			   a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, NVL(b.ROOM_NAME ,'')  as ROOM_NAME
+		FROM PET_ROOM_RESERVATION a LEFT join PET_ROOM b on a.ROOM_NO = b.ROOM_NO 
+		WHERE MEMBER_ID = 'utopiazn'
+		ORDER BY RES_NO DESC
+	
+	
+	
+
+	레프트 조인	
+     SELECT
+			   a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, b.ROOM_NAME
+		FROM PET_ROOM_RESERVATION a LEFT join PET_ROOM b on a.ROOM_NO = b.ROOM_NO 
+		WHERE MEMBER_ID = 'utopiazn'
+		ORDER BY RES_NO DESC
+    
+
+
+	서브쿼리
+    SELECT
+			   a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE,(select ROOM_NAME from PET_ROOM b where b.ROOM_NO =  a.ROOM_NO ) as ROOM_NAME
+		FROM PET_ROOM_RESERVATION a  
+		WHERE MEMBER_ID = 'utopiazn'
+		ORDER BY RES_NO DESC
+		
+	
+	
+	크로스 조인	
+	SELECT
+			   a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, b.ROOM_NAME
+		FROM PET_ROOM_RESERVATION a, PET_ROOM b 
+		WHERE a.MEMBER_ID = 'utopiazn' and a.ROOM_NO = b.ROOM_NO
+		ORDER BY a.RES_NO DESC
+     -->
+
+
+
+

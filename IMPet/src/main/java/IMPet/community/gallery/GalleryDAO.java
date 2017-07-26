@@ -106,5 +106,14 @@ public class GalleryDAO extends AbstractDAO{
 		insert("GallerySQL.insert", map);
 	}
 
+	
+	//갤러리 마이페이지 본인 글 보기
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectMy(String id) throws Exception {
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("GallerySQL.selectMy", id);
+		
+		return list;
+	}
 
 }

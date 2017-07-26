@@ -14,12 +14,10 @@
 <input type="hidden" name="res_LastDate" value="${res.res_LastDate}">
 <input type="hidden" name="res_Price" value="${res.res_Price}">
 <input type="hidden" name="res_Requests" value="${res.res_Requests}">
-
 <div class="resArea" style="width: 50%">
 	<h3>예약 정보</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
-			
 				<tbody>
 					<tr>
 						<th scope="row">객실 타입 번호</th>

@@ -149,7 +149,19 @@
 		]]>
 	</insert>
 	
-	
+	<!--마이페이지 본인 글 리스트 -->
+	<select id="selectMy" resultType="hashmap" parameterType="String">
+		
+		<![CDATA[		
+			    
+   			select 
+   				* 
+   			from PET_GALLERY
+			where member_id = #{member_ID}
+			order by GALLERY_DATE desc
+        
+		]]>
+	</select>
 	
 	
 </mapper>

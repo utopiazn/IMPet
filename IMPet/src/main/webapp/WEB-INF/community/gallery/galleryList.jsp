@@ -114,6 +114,37 @@ function GalleryView(GALLERY_NO){
    
 }
 
+function ajaxGalleryModifyForm(GALLERY_NO){
+		  
+	var url1 = "/IMPet/Community/GalleryModifyForm";
+	
+	 //alert(GALLERY_NO);     	
+
+	 var dataList =
+		{ 
+			"GALLERY_NO" : GALLERY_NO	
+		}	
+
+	
+	
+    $.ajax({    
+      type : "POST",
+      url : url1,
+      data : dataList,
+      dataType : "text",      
+      error : function() {
+    	  
+    	 alert('오류임!!!');     	
+      },
+      success : function(data) {  
+    	 $('#ContextEvent2').html(data);
+        		
+      }
+      
+    });    
+   
+}
+
 
 
 
@@ -330,7 +361,7 @@ function ImageIndex(index){
 					
    </div>
    
-   </div>
+ </div>
 	
 </div>	
 

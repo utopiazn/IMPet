@@ -20,7 +20,7 @@
 				<div align="left" style="padding-left: 15px;">
 					<br/>
 					<%-- <font>방 번호 : ${view.ROOM_NO}</font><br/> --%>
-					<font size="10px" style="font-weight: bolder;"> ${view.ROOM_NAME}</font><br/>
+					<font size="6px" style="font-weight: bolder;"> ${view.ROOM_NAME}</font><br/>
 					<font size="5px" style="border-bottom: 1px solid lightgray;"> ${view.ROOM_PRICE}원</font><br/>
 				</div>
 				
