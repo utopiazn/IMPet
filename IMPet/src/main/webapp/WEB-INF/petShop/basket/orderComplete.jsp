@@ -39,7 +39,7 @@
  	width:353px;
  	
  }
- #button  {
+ 	#button  {
   background: #f6f6f6;
   color: #11111;
   width: 70px;
@@ -88,8 +88,8 @@
 			<span class="btn btnC_04 btnP_04"><input type="button" value="메인화면" onclick="location.href='/IMPet/Main'" id="button"/>	</span>
 			<span class="btn btnC_04 btnP_04">
 			
-			<input type="button" value="구매내역" onclick="ajaxOrderList()" id="button"/>
-			<%-- <a href="${contextPath}/IMPet/PetShop/OrderList"><input type="button" value="구매내역"></a> --%>	
+			<input type="button" value="구매내역" onclick="location.href='/IMPet/MyPage#order'" id="button"/>
+
 			</span>	
 		</div>
 	</div>
