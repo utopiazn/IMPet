@@ -316,8 +316,14 @@ public class AdminItemController {
 	public ModelAndView AdminOrderPay(CommandMap commandMap) throws Exception {
 		ModelAndView mav = new ModelAndView("redirect:/PetShop/AdminOrderList");
 		
-		adminItemService.orderType(commandMap.getMap()); 
-	
+		int type = Integer.parseInt(commandMap.get("ORDER_TYPE").toString());
+		
+		if(type == 4){
+			adminItemService.orderDelete(commandMap.getMap()); 
+		}
+		else {
+			adminItemService.orderType(commandMap.getMap()); 
+		}
 
 		return mav;
 	}

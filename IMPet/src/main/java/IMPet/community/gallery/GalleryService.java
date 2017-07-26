@@ -39,7 +39,9 @@ public interface GalleryService {
 	public int selectKey() throws Exception; 	
 		
 	//갤러리 추가
-	public void insert(Map<String, Object> map) throws Exception; 
+	public void insert(Map<String, Object> map) throws Exception;
 	
+	//갤러리 마이페이지 본인 글 보기
+	public List<Map<String, Object>> selectMy(String id) throws Exception; 
 	
 }

@@ -86,7 +86,7 @@
                 ORDER_IMG,
                 ORDER_NAME,
                 RECEIVE_NO
-          from pet_item_order where MEMBER_ID = #{MEMBER_ID}) a
+          from pet_item_order where MEMBER_ID = #{MEMBER_ID} and not ORDER_TYPE = 4) a
            where 
 			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
 			 order by 			 
@@ -100,7 +100,7 @@
 			 	count(*) as count 
 			 from 
 			 	Pet_ITEM_ORDER
-			 where MEMBER_ID = #{MEMBER_ID}		
+			 where MEMBER_ID = #{MEMBER_ID}	and not ORDER_TYPE = 4	
 			
 		]]>
 	</select>
@@ -148,7 +148,10 @@
 	</select>
 	
 	<update id="orderType" parameterType="hashmap">
-		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} where RECEIVE_NO = #{RECEIVE_NO} and ORDER_NO = #{ORDER_NO}
+		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} + 1 where RECEIVE_NO = #{RECEIVE_NO} and ORDER_NO = #{ORDER_NO}
 	</update>
-
+	
+	<delete id="orderDelete" parameterType="hashmap">
+		delete from PET_ITEM_ORDER where ORDER_NO = #{ORDER_NO} and RECEIVE_NO = #{RECEIVE_NO}
+	</delete>
 </mapper>

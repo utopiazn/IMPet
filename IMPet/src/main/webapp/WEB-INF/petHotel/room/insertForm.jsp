@@ -106,7 +106,7 @@
 				</div>
 				<div align="center" style="width: 100%;">
 				<input class="button2" value="객실 수정" type="button" onclick="ajaxRoomModify()"/>
-				<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoom()"/>
+				<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoomView(${view.ROOM_NO})"/>
 				</div>
 				</form>
 				

@@ -1,5 +1,8 @@
 package IMPet.mypage;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -7,18 +10,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import IMPet.community.gallery.GalleryService;
 import IMPet.member.MemberService;
 import IMPet.module.CommandMap;
+import IMPet.serviceCenter.QnA.QnAService;
 
 @Controller
 public class MypageController {
-	
-	
-	
 
 	@Resource(name="memberService")
 	private MemberService memberService;
 	
+	@Resource(name = "qnAService")
+	private QnAService qnAService;	
+
+	@Resource(name="galleryService")
+	private GalleryService galleryService;
 	
 	@RequestMapping(value="/MyPage")
 	public ModelAndView mypage(){
@@ -35,6 +42,36 @@ public class MypageController {
 		mav.setViewName("MyPage");
 		return mav;
 	}
+	
+	@RequestMapping(value="/MyWriting")
+	public ModelAndView myWriting(HttpSession session) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		System.out.println("내가 쓴 글 보기");
+		
+		String member_ID = session.getAttribute("member_ID").toString();
+		
+		List<Map<String, Object>> QNAlist = qnAService.selectMy(member_ID);
+		
+		System.out.println("마이페이지 리스트 1"+QNAlist);
+		
+		mav.addObject("QNAlist", QNAlist);
+		
+		List<Map<String,Object>> GALlist = galleryService.selectMy(member_ID);		
+		
+		System.out.println("마이페이지 리스트 2"+GALlist);
+		mav.addObject("GALlist", GALlist);
+		/*
+		 QnA 본인 질문, 답변 
+		 갤러리 본인이 쓴 글
+		 
+		  
+		 */
+		
+		mav.setViewName("myPage/myWriting");
+		return mav;
+	}
+	
+	
 	
 
 	@RequestMapping(value="/MemberModifiedForm")

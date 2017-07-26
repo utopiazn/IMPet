@@ -1,6 +1,7 @@
 
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .paging{
 	text-align:center;
@@ -192,12 +193,17 @@
 	margin: 0 auto;
 }
 
+.res table{
+	font-family: 'Noto sans KR', sans-serif;
+	background: #f6f6f6;
+}
+
 .res th {
 	padding: 6px 0 4px;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	background: #f6f6f6;
-	font-weight: normal;
+	background: #ffffff;
+	font-weight: bold;
 	font-size: 15px;
 	color: #000000;
 }
@@ -207,6 +213,7 @@
 	border-top: 1px dotted #e3e3e3;
 	line-height: 140%;
 	text-align: center;
+	background: #ffffff;
 }
 
 .button2 {

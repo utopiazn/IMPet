@@ -109,6 +109,10 @@ public class AdminItemDAO extends AbstractDAO{
 	public void orderType(Map<String,Object> map) throws Exception {
 		update("PetOrderSQL.orderType", map);
 	}
+	
+	public void orderDelete(Map<String, Object> map) throws Exception {
+		delete("PetOrderSQL.orderDelete", map);
+	}
 
 
 }

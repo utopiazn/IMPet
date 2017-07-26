@@ -33,7 +33,7 @@ function ajaxPageView(page){
 }
 </script>
 <br/><br/>
-<div align="center">
+<div class="res" align="center">
 	<h1 class="listsub">펫호텔 예약 목록</h1>
 				<table style="border:1px solid lightgray;">
 					<thead>
@@ -53,31 +53,31 @@ function ajaxPageView(page){
 							<tbody>
 							<c:forEach var="res" items="${list}">
 								<tr style="vertical-align:middle; border:1px solid lightgray;">
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.RES_NO}
-									</th>
+									</td>
 									
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.MEMBER_ID}
-									</th>
+									</td>
 									
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.ROOM_NO}
-									</th>
+									</td>
 									
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.RES_PRICE}원
-									</th>
+									</td>
 									
-									<th style="width: 10%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 10%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.RES_FIRSTDATE} ~ ${res.RES_LASTDATE}
-									</th>
+									</td>
 									
-									<th style="width: 15%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 15%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									${res.RES_REQUESTS}
-									</th>
+									</td>
 									
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;"> 
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;"> 
 									<c:choose>
 										<c:when test="${res.RES_STATE == 0}">
 										입금 대기중
@@ -95,9 +95,9 @@ function ajaxPageView(page){
 										결재 오류
 										</c:otherwise>
 									</c:choose>
-									</th>
+									</td>
 									
-									<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 										<c:if test="${res.RES_STATE != 1 && res.RES_STATE != 2}">
 										<input value="입금 확인" class="button2" type="button"
 										 style="margin: 5px;" onclick="location.href='/IMPet/PetHotel/RoomResPayment?res_NO=${res.RES_NO}'"/>
@@ -105,7 +105,7 @@ function ajaxPageView(page){
 										</c:if>
 										<input value="예약 삭제" class="button2" type="button"
 										 style="margin: 5px;" onclick="location.href='/IMPet/PetHotel/RoomResDelete?res_NO=${res.RES_NO}'"/>
-									</th>
+									</td>
 								</tr>
 							</c:forEach>
 							</tbody>
@@ -114,9 +114,9 @@ function ajaxPageView(page){
 						<c:otherwise>
 							<tbody>
 								<tr>
-									<th colspan="8" style="width: 100%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+									<td colspan="8" style="width: 100%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 									예약된 방이 없습니다.
-									</th>
+									</td>
 								</tr>
 							</tbody>
 						</c:otherwise>

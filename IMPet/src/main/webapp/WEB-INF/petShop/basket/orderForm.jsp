@@ -65,7 +65,35 @@
 			  return true;
 		 } 
 	}	
+
+	function order_cancel() { 
+		
+		var frm = document.order;
+		
+		if (confirm("주문을 취소하시겠습니까?")){ 
+				frm.method = "post";
+				frm.action = "/IMPet/PetShop/Main";
+				frm.submit();
+		}
+	}	
+
 </script>
+<style>
+#button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 70px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}
+</style>
 
 
 
@@ -79,7 +107,7 @@
 <div  class="order_list">
 
 	<div class="order_list_top">
-		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>
+		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니" style="padding-left: 110px;"></h2>
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
 	</div>
 
@@ -166,7 +194,7 @@
 </div>
 <div class="orderArea">
     
-	<h3 style="padding-right: 100px;">배송지 정보
+	<h3 style="padding-right: 180px;">배송지 정보
 		<label style="float: left;"> 
 			 <input type="checkbox" name="order"  form="order_form" onclick="copydata()">주문자 정보 동일
 		</label>
@@ -236,9 +264,13 @@
 </div>
 
 
-			<div class="basket_button" style="margin-top:5px;">
-					<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="chk_radio()" >					
-			</div>	
+
+			<div class="basket_button" style="padding-bottom: 17px; padding-top: 17px;"">
+				<input type="button" class="check-all" value="취소하기" id="button" onclick="history.go(-1);"/>&nbsp;
+				<input type="button" class="check-all" value="주문하기" id="button" onclick="chk_radio()"/>	
+			</div>
+			
+
 
 
 </form>

@@ -40,8 +40,8 @@ function delchk(){
 		<div class="panel-heading">
                          [상품목록페이지] 상품을 검색, 수정, 삭제 기능하는 페이지입니다.
         </div>
-        <div class="panel-body">
-			<div class="dataTable_wrapper">
+        <div >
+			<div >
 				<div id="dataTables-example_wrapper"
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px; text-align:left;">
@@ -72,7 +72,7 @@ function delchk(){
 						
 					</div>
 					<div class="row">
-						<div class="col-sm-12">
+						<div>
 							<table
 								class="table  table-bordered table-hover dataTable no-footer"
 								id="dataTables-example" role="grid"
