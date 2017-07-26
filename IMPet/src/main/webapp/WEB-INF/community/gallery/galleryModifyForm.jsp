@@ -79,14 +79,14 @@ function validateForm() {
                         
                         <div class="form-group">
                             <label>3번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT3_${Image03}" class="form-control" id="GALLERY_CONTENT3" value="${TxT03}" placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="GALLERY_CONTENT3" class="form-control" id="GALLERY_CONTENT3" value="${TxT03}" placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
                         </div>                       
                         
                         
                         <div class="file_input">
                         	3번째 이미지 <br/>
                              <label>파일 첨부 
-                            <input type="file" name="GALLERY_IMG3" onchange="javascript:document.getElementById('file_route3').value=this.value">                          
+                            <input type="file" name="GALLERY_IMG3_${Image03}" onchange="javascript:document.getElementById('file_route3').value=this.value">                          
                             </label>
                            	<p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/gallery/${Image03}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                   
                             <input type="hidden"  name="ORIGINALIMG" value="${Image03}">
@@ -98,14 +98,14 @@ function validateForm() {
                         
                         <div class="form-group">
                             <label>4번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT4_${Image04}" class="form-control" id="GALLERY_CONTENT4" value="${TxT04}"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="GALLERY_CONTENT4" class="form-control" id="GALLERY_CONTENT4" value="${TxT04}"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
                         </div>                       
                         
                         
                         <div class="file_input">
                         	4번째 이미지 <br/>
                              <label>파일 첨부 
-                            <input type="file" name="GALLERY_IMG4" onchange="javascript:document.getElementById('file_route4').value=this.value">                          
+                            <input type="file" name="GALLERY_IMG4_${Image04}" onchange="javascript:document.getElementById('file_route4').value=this.value">                          
                             </label>
                             <p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/gallery/${Image04}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                    
                             <input type="hidden"  name="ORIGINALIMG" value="${Image04}">
@@ -122,7 +122,7 @@ function validateForm() {
                    
                        	<div class="form-group">
                             <label>5번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT5_${Image05}" class="form-control" id="GALLERY_CONTENT5" value="${TxT05}" placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
+                            <input type="text" name="GALLERY_CONTENT5" class="form-control" id="GALLERY_CONTENT5" value="${TxT05}" placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
                         	
                         </div>                       
                         
@@ -130,7 +130,7 @@ function validateForm() {
                         <div class="file_input">
                         	5번째 이미지 <br/>
                             <label>파일 첨부 
-                            	<input type="file" name="GALLERY_IMG5" onchange="javascript:document.getElementById('file_route5').value=this.value">                          
+                            	<input type="file" name="GALLERY_IMG5_${Image05}" onchange="javascript:document.getElementById('file_route5').value=this.value">                          
                             </label>
                             <p style="border-bottom: 1px dotted #999;width:203px;">현재 등록된 이미지 : <img src="/IMPet/resources/image/gallery/${Image05}" width="60" height="60" alt="" onerror="this.src='/IMPet/resources/image/noimg_130.gif'" />                                                
                             <input type="hidden"  name="ORIGINALIMG" value="${Image05}">
@@ -138,9 +138,9 @@ function validateForm() {
                             <input type="text" readonly="readonly" title="File Route" id="file_route5">
                            	<br/><br/>
                         </div>
-                        
-                        
-                    <%--     <input type="hidden" name="" value="${}"/> --%>
+                                       
+						 <input type="hidden" name="GALLERY_NO" value="${view.GALLERY_NO}"/>
+                      	 <input type="hidden" name="GALLERY_IMG" value="${view.GALLERY_IMG}"/>
                       
                     
 						<button type="submit" class="btn btn-success">수정</button>

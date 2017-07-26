@@ -115,5 +115,18 @@ public class GalleryDAO extends AbstractDAO{
 		
 		return list;
 	}
+	
+	
+	// 이벤트 추가
+	public void update(Map<String, Object> map) throws Exception {
+		insert("GallerySQL.update", map);
+	}
+	
+	//이벤트 삭제
+	public void delete(Map<String, Object> map) throws Exception{
+		delete("GallerySQL.delete", map);
+		
+	}
+	
 
 }

@@ -83,5 +83,17 @@ public class GalleryServiceImpl implements GalleryService{
 	public List<Map<String, Object>> selectMy(String id) throws Exception {
 		return galleryDAO.selectMy(id);
 	}
+
+	@Override
+	public void update(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		galleryDAO.update(map);
+	}
+
+	@Override
+	public void delete(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		galleryDAO.delete(map);
+	}
 	
 }

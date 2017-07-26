@@ -200,9 +200,30 @@ public class GalleryController {
 		
 		
 		//상세 정보 가져오기
+		SettingView(commandMap,mav);
+		
+		mav.setViewName(url);
+		return mav;
+	}
+
+	public List<Map<String,Object>>  commentList(int gallery_NO) throws Exception{
+		
+		CommandMap commandMap = new CommandMap() ;
+		commandMap.put("GALLERY_NO",gallery_NO);
+		
+		List<Map<String,Object>> listAll = galleryService.selectCommemtList(commandMap.getMap());
+		
+		
+		System.out.println(listAll.get(0));
+		return listAll;
+	}
+	
+	
+	
+	
+	public void SettingView(CommandMap commandMap,ModelAndView mav) throws Exception{
+		
 		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());			
-		
-		
 		
 		mav.addObject("view", view);
 		System.out.println("view:"+view);
@@ -212,34 +233,8 @@ public class GalleryController {
 		
 		int gallery_NUM = Integer.parseInt(view.get("GALLERY_NUM").toString());
 		
-
-		
-		int imageCount= 0;
-		int txtCount = 0;		
-		
-		
-		if(!strImage.equals("")){
-			
-			StringTokenizer valuesImage = new StringTokenizer(strImage+"/","/");	
-			imageCount= valuesImage.countTokens();	
-		
-		}
-		
 	
-		
-		if(!strTxt.equals("")){
-			
-			StringTokenizer valuesTxt = new StringTokenizer(strTxt+"##","##");	
-			txtCount = valuesTxt.countTokens();
-			
-		}
-		
-		
-		
-				
-		System.out.println("imageCount:"+imageCount);
-		System.out.println("txtCount:"+txtCount);
-
+	
 		
 		
 		String image01=imageSplit(strImage,1,"/");
@@ -253,22 +248,7 @@ public class GalleryController {
 		String txt03=imageSplit(strTxt,3,"##");
 		String txt04=imageSplit(strTxt,4,"##");
 		String txt05=imageSplit(strTxt+"##",5,"##");
-		
-		
-
-		
-		System.out.println("image05:"+image05);
-		
-		System.out.println("txt01:"+txt01);
-
-		System.out.println("txt02:"+txt02);
-
-		System.out.println("txt03:"+txt03);
-
-		System.out.println("txt04:"+txt04);
-
-		System.out.println("txt05:"+txt05);
-		
+			
 		
 		mav.addObject("Image01", image01);
 		mav.addObject("Image02", image02);
@@ -289,13 +269,7 @@ public class GalleryController {
 		
 		String gallery_NO = view.get("GALLERY_NO").toString();
 		
-		mav.addObject("GALLERY_NO", gallery_NO);
-		
-		
-		System.out.println(gallery_NO);
-
-		System.out.println("gallery_NUM:"+gallery_NUM);
-		
+		mav.addObject("GALLERY_NO", gallery_NO);		
 		
 		if(gallery_NUM>0){
 		
@@ -306,21 +280,6 @@ public class GalleryController {
 		
 		mav.addObject("GALLERY_NUM", gallery_NUM);
 		
-		
-		mav.setViewName(url);
-		return mav;
-	}
-
-	public List<Map<String,Object>>  commentList(int gallery_NO) throws Exception{
-		
-		CommandMap commandMap = new CommandMap() ;
-		commandMap.put("GALLERY_NO",gallery_NO);
-		
-		List<Map<String,Object>> listAll = galleryService.selectCommemtList(commandMap.getMap());
-		
-		
-		System.out.println(listAll.get(0));
-		return listAll;
 	}
 	
 
@@ -339,6 +298,7 @@ public class GalleryController {
 		mav.setViewName(url);
 		return mav;
 	}
+
 
 
 
@@ -480,17 +440,52 @@ public class GalleryController {
 	
 	//갤러리 수정 처리
 	@RequestMapping(value="/GalleryModify")
-	public ModelAndView GalleryModify(CommandMap commandMap) throws Exception{
+	public ModelAndView GalleryModify(CommandMap commandMap, HttpServletRequest request)  throws Exception {
 
 
 		ModelAndView mav = new ModelAndView();
-		
-		
-		String GALLERY_NO = commandMap.get("GALLERY_NO").toString();
-		
-		String url ="redirect:/Community/GalleryView?GALLERY_NO='"+ GALLERY_NO +"'";
-		
 		System.out.println("갤러리 수정 처리");
+	
+		String url = "GalleryViewNew";
+
+		
+		int count = 0;
+		
+		int  num = Integer.parseInt(commandMap.get("GALLERY_NO").toString());
+		
+		
+		StringTokenizer values = new StringTokenizer(commandMap.get("GALLERY_IMG").toString()+"/","/");
+		count = values.countTokens();
+		
+		System.out.println("num:"+num);
+		
+		ProjectUtil util = new ProjectUtil();		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/gallery/";	
+		Map<String,Object> map = util.UpdateFile_Event2(commandMap.getMap(), request, uploadPath,num,count);
+	
+		System.out.println(map);
+		
+	/*	
+		{GALLERY_CONTENT1=1번째 이미지22, 
+		GALLERY_CONTENT2=2번째 이미지, 
+		GALLERY_CONTENT3_IMAGE_29_2.png=3번째 이미지, GA
+		LLERY_CONTENT4_IMAGE_29_3.png=4번째 이미지, GALLERY_CONTENT5_IMAGE_29_4.png=5번째 이미지, 
+		
+		GALLERY_NO=29, 
+		GALLERY_SUBJECT=제목11, 
+		GALLERY_IMG1=IMAGE_29_0.png, 
+		GALLERY_IMG3=IMAGE_29_2.png, 
+		GALLERY_IMG2=IMAGE_29_1.png, 
+		GALLERY_IMG5=IMAGE_29_4.png, 
+		GALLERY_IMG4=IMAGE_29_3.png}*/
+
+		
+	//	galleryService.update(map);
+		
+		
+		SettingView(commandMap, mav);
+		
+		
 
 		//상세보기로 이동
 		mav.setViewName(url);

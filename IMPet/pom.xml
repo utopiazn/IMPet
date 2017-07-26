@@ -22,7 +22,7 @@
 			<releases> 
 				<enabled>true</enabled>
 			</releases>
-			<snapshots>   
+			<snapshots>    
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
