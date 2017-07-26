@@ -177,12 +177,12 @@ public class ProjectUtil {
 				
 				if(icheck==0){
 					
-					System.out.println("11111111:"+originalFileName);
-					
+					System.out.println("3333333:"+originalFileName);
+					System.out.println("5555555555555555:"+multipartFile.getName());
 					
 					originalFileName = multipartFile.getOriginalFilename();
 					originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-					storedFileName = "IMAGE_" + num + "_" + ++count + originalFileExtension;
+					storedFileName = "IMAGE_" + num + "_" + count++ + originalFileExtension;
 					
 					
 					System.out.println("이미지 추가"+storedFileName);
