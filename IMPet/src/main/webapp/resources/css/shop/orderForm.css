@@ -91,3 +91,17 @@
 	line-height: 140%;
 	text-align: center;
 }
+.basket_button #button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 70px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}

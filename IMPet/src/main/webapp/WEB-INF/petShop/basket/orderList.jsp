@@ -3,47 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-
-$( document ).ready(function() {
-	$('#sum').rowspan(0);
-});
-
-
-$.fn.rowspan = function(colIdx, isStats) {       
-	return this.each(function(){      
-		var that;     
-		$('tr', this).each(function(row) {      
-			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
-				
-				if ($(this).html() == $(that).html()
-					&& (!isStats 
-							|| isStats && $(this).prev().html() == $(that).prev().html()
-							)
-					) {            
-					rowspan = $(that).attr("rowspan") || 1;
-					rowspan = Number(rowspan)+1;
-
-					$(that).attr("rowspan",rowspan);
-					
-					// do your action for the colspan cell here            
-					$(this).hide();
-					
-					//$(this).remove(); 
-					// do your action for the old cell here
-					
-				} else {            
-					that = this;         
-				}          
-				
-				// set the that if not already set
-				that = (that == null) ? this : that;      
-			});     
-		});    
-	});  
-}; 
-
-
 	function delchk() {
 		
 	    return confirm("주문 취소 하시겠습니까?");  
@@ -94,6 +57,46 @@ $.fn.rowspan = function(colIdx, isStats) {
 	}
 	 
 </script>
+<script>
+$( document ).ready(function() {
+
+	$("#sum").rowspan(0);
+	
+});
+
+$.fn.rowspan = function(colIdx, isStats) {       
+	return this.each(function(){      
+		var that;     
+		$('tr', this).each(function(row) {      
+			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+				
+				if ($(this).html() == $(that).html()
+					&& (!isStats 
+							|| isStats && $(this).prev().html() == $(that).prev().html()
+							)
+					) {            
+					rowspan = $(that).attr("rowspan") || 1;
+					rowspan = Number(rowspan)+1;
+
+					$(that).attr("rowspan",rowspan);
+					
+					// do your action for the colspan cell here            
+					$(this).hide();
+					
+					//$(this).remove(); 
+					// do your action for the old cell here
+					
+				} else {            
+					that = this;         
+				}          
+				
+				// set the that if not already set
+				that = (that == null) ? this : that;      
+			});     
+		});    
+	});  
+}; 
+</script>
 <style type="text/css">
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
 .paging a,
@@ -114,14 +117,16 @@ $.fn.rowspan = function(colIdx, isStats) {
 	 	<li>강아지 ></li><li>주문리스트</li>			
 	</ul>
 </div>
-<div class="basket_list">
-	<div class="basket_list_top">
+<div class="panel-body">
+	<div class="dataTable_wrapper" style="text-align:center;">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_list.gif" alt="장바구니"></h2>
 	</div>
-	<div class="basket_main">
-	<form name="basketList" method="post">
-	<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
-		<table class="basket" style="margin-bottom:15px;" id="sum">
+	<div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+		<form name="basketList" method="post">
+			<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">
+		<table id="sum" style="margin-bottom:15px; text-align:center;" class="table  table-bordered table-hover dataTable no-footer"
+								role="grid"
+								aria-describedby="dataTables-example_info">
 				<colgroup>
 					<col width="18%">
 					<col width="10%">
@@ -132,37 +137,36 @@ $.fn.rowspan = function(colIdx, isStats) {
 					<col width="10%">
 				</colgroup>
 				<thead>
-					<tr>
-						<th scope="col">주문일자<br/>[주문번호]</th>
-						<th scope="col">이미지</th>
-						<th scope="col">상품명</th>
-						<th scope="col">수량</th>
-						<th scope="col">상품구매금액</th>
-						<th scope="col">주문처리상태</th>
-						<th scope="col">주문취소</th>
+					<tr role="row" style="vertical-align:middle;" >
+						<th scope="col" style="text-align:center;vertical-align:middle;">주문일자<br/>[주문번호]</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">이미지</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">상품명</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">수량</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">상품구매금액</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">주문처리상태</th>
+						<th scope="col" style="text-align:center;vertical-align:middle;">주문취소</th>
 					</tr>
 				</thead>
 				
    
 				<c:forEach var="orderList"  items="${orderList}" varStatus="status">	
 					<tr>
-						<td align="center"><fmt:formatDate value="${orderList.ORDER_DATE}" pattern="YY-MM-dd" /><br/>[ ${orderList.RECEIVE_NO} ]<br/><br/>
+						<td align="center" style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${orderList.ORDER_DATE}" pattern="YY-MM-dd" /><br/>[ ${orderList.RECEIVE_NO} ]<br/><br/>
 						<%-- [ 송장 : ${order.order_trans_num} ] --%></td>
-						<td align="center"><img src="/IMPet/resources/image/itemImg/${orderList.ORDER_IMG}" width="90" height="90"></td>
-						<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${orderList.ITEM_NO}"> ${orderList.ORDER_NAME}</a></td>
-						<td align="center">${orderList.ORDER_BUYCOUNT}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
-						<td>
+						<td align="center" style="text-align:center;vertical-align:middle;"><img src="/IMPet/resources/image/itemImg/${orderList.ORDER_IMG}" width="90" height="90"></td>
+						<td align="center" style="text-align:center;vertical-align:middle;"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${orderList.ITEM_NO}"> ${orderList.ORDER_NAME}</a></td>
+						<td align="center" style="text-align:center;vertical-align:middle;">${orderList.ORDER_BUYCOUNT}EA</td>
+						<td align="center" style="text-align:center;vertical-align:middle;"><strong id="id2"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</strong></td>
+						<td style="text-align:center;vertical-align:middle;">
 							<c:choose>
 								<c:when test="${orderList.ORDER_TYPE eq 0}">입금전</c:when>
 								<c:when test="${orderList.ORDER_TYPE eq 1}">입금확인</c:when>
 								<c:when test="${orderList.ORDER_TYPE eq 2}">배송시작</c:when>
 								<c:when test="${orderList.ORDER_TYPE eq 3}">배송완료</c:when>
-								<c:when test="${orderList.ORDER_TYPE eq 4}">주문취소</c:when>
-								<c:otherwise>오류</c:otherwise>
+						
 							</c:choose>
 						</td>
-						<td align="center">
+						<td align="center" style="text-align:center;vertical-align:middle;">
 							<c:choose>
 								<c:when test="${orderList.ORDER_TYPE eq 0}">
 									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}&ORDER_TYPE=4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
@@ -174,7 +178,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 					
 					<c:if test="${orderList[status.index].ORDER_NO != orderList[status.index+1].ORDER_NO}">
 						<tr style="height:30px;">
-							<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;"></td>
+							<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; text-align:center;vertical-align:middle;"></td>
 						</tr>
 					</c:if>
 				</c:forEach>
@@ -185,13 +189,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 					</tr>
 				</c:if>
 				
-				<tfoot>
-					<tr style="height:1px;">
-						<td colspan="7" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
-							
-						</td>
-					</tr>
-				</tfoot>
+			
 			</table>
 			
 			<div class="paging">

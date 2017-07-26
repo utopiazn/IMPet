@@ -144,9 +144,13 @@ function chk_radio() {
 		                     </label>
 		                     <input type="text" readonly="readonly" title="File Route" id="file_route">
 		                </div>          -->
-						<button type="submit" class="btn btn-success" onclick="chk_radio()">상품등록</button>
-						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>					
+								
 				</form>
 			</div>
+				
+	</div>
+	<div style="text-align:center;">
+		<button type="submit" class="btn btn-success" onclick="chk_radio()" >상품등록</button>
+		<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'" >작성취소</button>
 	</div>
 </div>

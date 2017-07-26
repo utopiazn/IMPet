@@ -14,35 +14,58 @@
     color: #202020; 	
  }
  .orderInfo .complete{
- 	width: 323px;
-    height: 151px;
+ 	 width: 327px;
+    height: 157px;
     margin: 0 auto;
-    padding: 30px 0 0 160px;
+    padding: 24px 31px 0 160px;
     background: url("http://img.echosting.cafe24.com/design/skin/default/order/bg_complete.gif") no-repeat 0 0;
  }
  .orderInfo p{
     padding: 0 70px 0 0;
-    background: url("http://img.echosting.cafe24.com/design/skin/default/order/ico_complete.gif") no-repeat 240px 0;
     font-weight: bold;
     font-size: 30px;
     color: #464c4e;
     height: 70px;
+    margin: 0 auto;
  }
  .orderInfo li{
- 	margin: 5px 0 0;	
+ 	margin: 5px 0 0;
+ 		
  }
+ 
+  .orderInfo ul{
+  padding-left:0;
+ 	text-align:left;
+ 	width:353px;
+ 	
+ }
+ #button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 70px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}
 </style>
 
-<div class="basket_list" style="margin-top:35px;margin-bottom:35px;">
+<div class="basket_list" style="margin-bottom:35px;">
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_end.gif" alt="장바구니"></h2>
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 장바구니">
 	</div>
 	<div class="basket_main">
 		<div class="orderInfo">
-	        <div class="complete">
-	        <p>고객님의 주문이<br/><br/>완료 되었습니다.</p>
-			<ul>
+		    <p>고객님의 주문이 완료 되었습니다.</p>
+	        <div class="complete" >
+	      
+			<ul >
 				<c:forEach var="orderPay"  items="${orderPay}" varStatus="status">
 				<c:if test="${status.first }">
 				<li class="number">
@@ -52,7 +75,7 @@
 				<strong>주문일자</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${orderPay.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></span>
 				</li>
 				<li class="number">
-				<strong>입금계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.ORDER_PAYER}</span>
+				<strong>계좌번호</strong>&nbsp;&nbsp;&nbsp;<span>${receive.ORDER_PAYER}</span>
 				</li>
 				</c:if>
 				</c:forEach>
@@ -62,9 +85,10 @@
 	    </div>
 	    
 	    <div style="margin-top:15px; text-align:center;">
-			<span class="btn btnC_04 btnP_04"><a href="/IMPet/Main"><input type="button" value="메인화면으로"></a></span>
+			<span class="btn btnC_04 btnP_04"><input type="button" value="메인화면" onclick="location.href='/IMPet/Main'" id="button"/>	</span>
 			<span class="btn btnC_04 btnP_04">
-			<a href="/IMPet/MyPage#order" onclick="ajaxOrderList()">구매내역</a>
+			
+			<input type="button" value="구매내역" onclick="ajaxOrderList()" id="button"/>
 			<%-- <a href="${contextPath}/IMPet/PetShop/OrderList"><input type="button" value="구매내역"></a> --%>	
 			</span>	
 		</div>

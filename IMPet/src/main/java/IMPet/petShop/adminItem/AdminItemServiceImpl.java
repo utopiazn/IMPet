@@ -172,6 +172,15 @@ public class AdminItemServiceImpl implements AdminItemService{
 		// TODO Auto-generated method stub
 		adminItemDAO.orderType(map);
 	}
+
+	@Override
+	public void orderDelete(Map<String, Object> map) throws Exception {
+		
+		adminItemDAO.orderDelete(map);
+		
+	}
+	
+	
 	
 	
 	

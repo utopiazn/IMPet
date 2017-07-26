@@ -15,12 +15,14 @@ window.onload = function(){
 	}
 }
 
-function validateForm() {
-    var x = document.forms["joinform"]["ITEM_NAME"].value;
-    if (x == null || x == "") {
-        alert("상품명은 입력해야합니다");
-        return false;
-    }
+function chk_radio() {
+	var frm = document.modifyForm;
+	
+	  frm.method = "post";
+	  frm.action = "/IMPet/PetShop/AdminItemModify";
+	  frm.enctype= "multipart/form-data";
+	  frm.submit();
+	  return true;
 }
 </script>
 </head>
@@ -35,7 +37,7 @@ function validateForm() {
 	<div class="panel panel-default">
 		<div class="panel-heading" >상품수정 페이지입니다. 이미지 확인하십시오</div>
 			<div class="panel-body" style=text-align:left;>
-				<form action="AdminItemModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
+				<form name="modifyForm">	
 				<input type="hidden" name="ITEM_NO" value="${itemList.ITEM_NO}">	
 							
 						<div class="form-group">
@@ -115,10 +117,14 @@ function validateForm() {
                             <input type="text" readonly="readonly" title="File Route" id="file_route2" value="">
                             <p class="help-block">배송 상품  이미지 입니다 1000x1000사이즈 권장</p>
                         </div>
-						<button type="submit" class="btn btn-success">상품수정</button>
-						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>					
+										
 				</form>
 			</div>
+			
+	</div>
+	<div style="text-align:center;">
+						<button type="submit" class="btn btn-success" onclick="chk_radio()">상품수정</button>
+						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>	
 	</div>
 </div>
 

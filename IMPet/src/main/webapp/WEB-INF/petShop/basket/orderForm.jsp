@@ -65,6 +65,16 @@
 			  return true;
 		 } 
 	}	
+	function order_cancel() { 
+		
+		var frm = document.order;
+		
+		if (confirm("주문을 취소하시겠습니까?")){ 
+				frm.method = "post";
+				frm.action = "/IMPet/PetShop/Main";
+				frm.submit();
+		}
+	}	
 </script>
 
 
@@ -236,8 +246,11 @@
 </div>
 
 
-			<div class="basket_button" style="margin-top:5px;">
-					<input type="image" src="http://okidogki.com/web/upload/goodymallSkin/product/btn_payment.gif" onclick="chk_radio()" >					
+			<div class="basket_button" style="padding-bottom: 17px; padding-top: 17px;">
+				
+					
+					<input type="button" value="결제하기" onClick="chk_radio()" id="button"/>	
+					<input type="button" value="취소" onclick="order_cancel()" id="button"/>				
 			</div>	
 
 
