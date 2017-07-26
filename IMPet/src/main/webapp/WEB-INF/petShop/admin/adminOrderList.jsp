@@ -149,7 +149,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_DATE}</td>
 										<td style="text-align:center;vertical-align:middle;">
 										<c:url var="viewURL" value="/PetShop/AdminOrderPay" >
-											<c:param name="ORDER_TYPE" value="${orderList.ORDER_TYPE}" />
+											<c:param name="ORDER_TYPE" value="${orderList.ORDER_TYPE }" />
 											<c:param name="RECEIVE_NO" value="${orderList.RECEIVE_NO }"/>
 											<c:param name="ORDER_NO" value="${orderList.ORDER_NO }"/>
 										</c:url>
