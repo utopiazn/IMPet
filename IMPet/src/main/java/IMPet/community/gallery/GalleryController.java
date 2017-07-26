@@ -550,6 +550,28 @@ public class GalleryController {
 		return mav;
 	}
 
+	
+	//갤러리 수정 처리
+		@RequestMapping(value="/GalleryView2")
+		public ModelAndView GalleryView2(CommandMap commandMap ,HttpSession session)  throws Exception {
+
+
+			ModelAndView mav = new ModelAndView();
+			System.out.println("갤러리 뷰2");
+		
+			String url = "GalleryViewNew";
+
+			//상세 정보 가져오기
+			SettingView(commandMap,mav);
+			
+			
+			//상세보기로 이동
+			mav.setViewName(url);
+			
+			return mav;
+		}
+
+	
 /*	//갤러리 삭제폼
 	@RequestMapping(value="/GalleryDeleteForm")
 	public ModelAndView GalleryDeleteForm(){

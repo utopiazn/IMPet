@@ -61,7 +61,7 @@
 				</td>
 				
 				<td style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
-				<a href='/IMPet/Community/GalleryView?GALLERY_NO=${GAL.GALLERY_NO}'>
+				<a href='/IMPet/Community/GalleryView2?GALLERY_NO=${GAL.GALLERY_NO}'>
 				${GAL.GALLERY_SUBJECT}</a>
 				</td>
 				
