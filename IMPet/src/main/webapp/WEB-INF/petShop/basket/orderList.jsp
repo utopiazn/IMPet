@@ -165,9 +165,9 @@ $.fn.rowspan = function(colIdx, isStats) {
 						<td align="center">
 							<c:choose>
 								<c:when test="${orderList.ORDER_TYPE eq 0}">
-									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}&ORDER_TYPE=4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk()" ></a>
+									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}&ORDER_TYPE=4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()" ></a>
 								</c:when>
-								<c:otherwise><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"onclick="return delchk_no()" ></c:otherwise>
+								<c:otherwise><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk_no()" ></c:otherwise>
 							</c:choose>
 						</td>
 					</tr>
