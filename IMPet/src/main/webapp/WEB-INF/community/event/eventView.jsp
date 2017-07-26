@@ -80,7 +80,7 @@
 
 	
 	<div align="right" style="float: right; width:100%; margin-top: 10px;">
-		<c:if test="${sessionScope.member_Admin==1 }">
+		<c:if test="${sessionScope.member_ID != null }">
 			<input value="이벤트 수정" class="button2" type="button" onclick="ajaxEventModifyForm(${view.EVENT_NO})"/>
 			<input value="이벤트 삭제" class="button2" type="button" onclick="EventDelete(${view.EVENT_NO})"/>			
 		

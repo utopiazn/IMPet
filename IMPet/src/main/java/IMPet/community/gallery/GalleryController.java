@@ -407,14 +407,73 @@ public class GalleryController {
 	
 	//갤러리 수정폼
 	@RequestMapping(value="/GalleryModifyForm")
-	public ModelAndView GalleryModifyForm(){
+	public ModelAndView GalleryModifyForm(CommandMap commandMap) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
+		String url ="community/gallery/galleryModifyForm";
 		
-		System.out.println("갤러리 수정폼");
+		System.out.println("갤러리 수정폼!!!");
+		
+		
+		//상세 정보 가져오기
+		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());				
+		
+		mav.addObject("view", view);
+		
 
-		mav.setViewName("GalleryModifyForm");
+		
+		System.out.println("view:"+view);
+		
+		String strImage = view.get("GALLERY_IMG").toString();
+		String strTxt = view.get("GALLERY_CONTENT").toString();
+			
+		
+		String image01=imageSplit(strImage,1,"/");
+		String image02=imageSplit(strImage,2,"/");
+		String image03=imageSplit(strImage,3,"/");
+		String image04=imageSplit(strImage,4,"/");
+		String image05=imageSplit(strImage+"/",5,"/");		
+		
+		String txt01=imageSplit(strTxt,1,"##");
+		String txt02=imageSplit(strTxt,2,"##");
+		String txt03=imageSplit(strTxt,3,"##");
+		String txt04=imageSplit(strTxt,4,"##");
+		String txt05=imageSplit(strTxt+"##",5,"##");
+		
+		
+
+		
+		System.out.println("image05:"+image05);
+		
+		System.out.println("txt01:"+txt01);
+
+		System.out.println("txt02:"+txt02);
+
+		System.out.println("txt03:"+txt03);
+
+		System.out.println("txt04:"+txt04);
+
+		System.out.println("txt05:"+txt05);
+		
+		
+		mav.addObject("Image01", image01);
+		mav.addObject("Image02", image02);
+		mav.addObject("Image03", image03);
+		mav.addObject("Image04", image04);
+		mav.addObject("Image05", image05);	
+		
+		
+		mav.addObject("TxT01", txt01);
+		mav.addObject("TxT02", txt02);
+		mav.addObject("TxT03", txt03);
+		mav.addObject("TxT04", txt04);
+		mav.addObject("TxT05", txt05);
+	
+		
+		//댓글 리스트
+
+		mav.setViewName(url);
 		return mav;
 	}
 	
@@ -590,6 +649,6 @@ public class GalleryController {
 
 	
 
-
+		
 	
 }

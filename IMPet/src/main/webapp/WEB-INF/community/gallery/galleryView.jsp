@@ -48,6 +48,73 @@
 
 <style>
 
+
+.button2 {
+  background: #333;
+  color: #ccc;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+}
+.button:focus2 {
+  outline: 0;
+}
+.button2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transform: translateX(-100px) skewX(-15deg);
+          transform: translateX(-100px) skewX(-15deg);
+}
+.button2:hover {
+  background: #727070;
+  cursor: pointer;
+}
+.button2:hover:before {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+.button2:hover:after {
+  -webkit-transform: translateX(300px) skewX(-15deg);
+          transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+
 #comments ul {
     list-style: none;
     padding-left: 0;
@@ -117,14 +184,18 @@ under_content h2 {
 <h1 class="page-header"> ${view.GALLERY_SUBJECT }</h1>
 
 
+
+<div style=" float: left; margin-left: 10%;" >
 작성자 : ${view.MEMBER_NICKNAME } (${view.MEMBER_ID}) 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+
+<div style=" float: right; margin-right: 10% " >
 작성일 : ${view.GALLERY_DATE }
+</div>
+
+
+
 
 <div class="slide_wrap">
 	<button type="button" class="btn_prev">이전</button>
@@ -215,6 +286,15 @@ under_content h2 {
 <script src="/IMPet/resources/JQuery/gallery/slider.js"></script> 
 
 
+<h1 class="page-header"></h1>
+
+<div align="right" style=" width:100%; margin-top: 10px;">
+	<c:if test="${sessionScope.member_ID  != null }">
+		<input value="갤러리 수정" class="button2" type="button" onclick="ajaxGalleryModifyForm(${GALLERY_NO})"/>
+		<input value="갤러리 삭제" class="button2" type="button" onclick="GalleryDelete(${GALLERY_NO})"/>					
+	</c:if>
+	<input value="목록으로" class="button2" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
+</div>
 
 
 <div id="comments" class="box">
