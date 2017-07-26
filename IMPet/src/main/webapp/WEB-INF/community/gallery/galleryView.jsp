@@ -287,15 +287,16 @@ under_content h2 {
 
 
 <h1 class="page-header"></h1>
-
+<form action="/IMPet/Community/GalleryDelete"  method="post">
 <div align="right" style=" width:100%; margin-top: 10px;">
 	<c:if test="${sessionScope.member_ID  != null }">
 		<input value="갤러리 수정" class="button2" type="button" onclick="ajaxGalleryModifyForm(${GALLERY_NO})"/>
-		<input value="갤러리 삭제" class="button2" type="button" onclick="GalleryDelete(${GALLERY_NO})"/>					
+		<input value="갤러리 삭제" class="button2" type="submit" />
+		<input type="hidden" name ="GALLERY_NO"  value="${GALLERY_NO}">					
 	</c:if>
 	<input value="목록으로" class="button2" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
 </div>
-
+</form>
 
 <div id="comments" class="box">
 

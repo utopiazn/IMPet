@@ -3,6 +3,7 @@ package IMPet.community.gallery;
 
 
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -566,14 +567,46 @@ public class GalleryController {
 
 	//갤러리 삭제 처리
 	@RequestMapping(value="/GalleryDelete")
-	public ModelAndView GalleryDelete(){
+	public ModelAndView GalleryDelete(CommandMap commandMap ) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
-		
+		String url ="redirect:/Community/GalleryList";
 		System.out.println("갤러리 삭제 처리");
+		
+		ProjectUtil util = new ProjectUtil();	
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/gallery/";	
+		
+		
+		commandMap.MapInfoList();
+		
+		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());	
+		
+		
 
-		mav.setViewName("GalleryList");
+		System.out.println(view);
+		
+		
+		StringTokenizer values = new StringTokenizer(view.get("GALLERY_IMG").toString()+"/","/");
+		int count = values.countTokens();
+		
+		System.out.println("count:"+count);
+		
+		
+		while(values.hasMoreElements()){
+			
+			String image =values.nextToken();
+					
+			System.out.println("image:"+image);
+			
+			File removeFile = new File(uploadPath, image);	
+			removeFile.delete();
+			
+		}
+
+		galleryService.delete(commandMap.getMap());
+
+		mav.setViewName(url);
 	
 		return mav;
 	}
