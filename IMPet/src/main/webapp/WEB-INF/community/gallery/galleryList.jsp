@@ -106,6 +106,8 @@ function GalleryView(GALLERY_NO){
     	 alert('오류임!');     	
       },
       success : function(data) {  
+    	  
+    	  
     	 $('#ContextEvent2').html(data);
         		
       }

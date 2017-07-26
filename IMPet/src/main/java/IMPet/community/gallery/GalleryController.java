@@ -480,15 +480,20 @@ public class GalleryController {
 	
 	//갤러리 수정 처리
 	@RequestMapping(value="/GalleryModify")
-	public ModelAndView GalleryModify(){
+	public ModelAndView GalleryModify(CommandMap commandMap) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
 		
+		
+		String GALLERY_NO = commandMap.get("GALLERY_NO").toString();
+		
+		String url ="redirect:/Community/GalleryView?GALLERY_NO='"+ GALLERY_NO +"'";
+		
 		System.out.println("갤러리 수정 처리");
 
 		//상세보기로 이동
-		mav.setViewName("GalleryView");
+		mav.setViewName(url);
 		
 		return mav;
 	}
