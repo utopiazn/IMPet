@@ -139,8 +139,9 @@ function validateForm() {
                            	<br/><br/>
                         </div>
                         
-                        
-                    <%--     <input type="hidden" name="" value="${}"/> --%>
+                 
+                 ${view.GALLERY_NO}
+						  <input type="hidden" name="GALLERY_NO" value="${view.GALLERY_NO}"/>
                       
                     
 						<button type="submit" class="btn btn-success">수정</button>

@@ -488,7 +488,7 @@ public class GalleryController {
 		
 		String GALLERY_NO = commandMap.get("GALLERY_NO").toString();
 		
-		String url ="redirect:/Community/GalleryView?GALLERY_NO='"+ GALLERY_NO +"'";
+		String url ="redirect:/Community/GalleryView?GALLERY_NO="+ GALLERY_NO ;
 		
 		System.out.println("갤러리 수정 처리");
 
