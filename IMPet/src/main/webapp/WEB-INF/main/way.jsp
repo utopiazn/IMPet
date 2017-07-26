@@ -16,5 +16,9 @@
 
 <img alt="찾아오시는 길" src="/IMPet/resources/image/way.png">
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
 </body>
 </html>

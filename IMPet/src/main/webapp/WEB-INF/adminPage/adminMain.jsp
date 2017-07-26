@@ -46,7 +46,7 @@
 	<div class="adminLeft" style="width: 19%;  float: left; ">
 		<div class="nestedsidemenu">
 			<ul>
-				 <li>&nbsp;관리자 페이지<br/>
+				 <li style="line-height: 2em;">&nbsp;관리자 페이지<br/>
 				 </li>
 				 
 				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
@@ -91,13 +91,13 @@
 		
 		<c:choose>
 			<c:when test="${adminCode==1}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; padding-top: 10px;">
 					<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==2 || adminCode==3}">
-				<div id="ContextHotel" style="width: 90%; padding-top: 50px;">
+				<div id="ContextHotel" style="width: 90%; padding-top: 10px;">
 					<c:if test="${adminCode==2}">
 						<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
 					</c:if>
@@ -108,61 +108,61 @@
 			</c:when>
 			
 			<c:when test="${adminCode==4}">
-				<div id="ContextHotel" style="width: 90%; padding-top: 50px;">
+				<div id="ContextHotel" style="width: 90%; ">
 					<jsp:include page="/WEB-INF/petHotel/healing/list.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==5}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; ">
 					<jsp:include page="/WEB-INF/petShop/admin/adminItemList.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==6}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%;">
 					<jsp:include page="/WEB-INF/petShop/admin/adminItemWrite.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==12}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; height: 1400px;">
 						<jsp:include page="/WEB-INF/petShop/admin/adminOrderList.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==13}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; ">
 						<jsp:include page="/WEB-INF/petShop/admin/adminItemModify.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==7}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%;">
 					<jsp:include page="/WEB-INF/serviceCenter/notice/list.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==8}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; padding-top: 10px;">
 					<jsp:include page="/WEB-INF/serviceCenter/FAQ/list.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==9}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; padding-top: 10px;">
 					<jsp:include page="/WEB-INF/serviceCenter/QnA/list.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==10}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; ">
 					<jsp:include page="/WEB-INF/community/gallery/galleryList.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==11}">
-				<div style="width: 90%; padding-top: 50px;">
+				<div style="width: 90%; ">
 					<jsp:include page="/WEB-INF/community/event/eventList.jsp"/>
 				</div>
 			</c:when>
@@ -171,7 +171,7 @@
 			
 			
 			<c:otherwise>
-				<div style="width: 90%; height: 400px; margin-top: 50px;">
+				<div style="width: 90%; height: 400px; margin-top: 10px;">
 					<img alt="admin" src="/IMPet/resources/image/admin.jpg">
 				</div>
 			</c:otherwise>

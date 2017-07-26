@@ -5,10 +5,9 @@
 
 <div class="res" align="center">
 	<h3>QnA 내가 쓴 글</h3>
-	<table style="border:1px solid lightgray;">
+	<table style="border:1px solid lightgray;" class="haha">
 		<thead>
-			<tr style="vertical-align:middle; border:1px solid lightgray;">
-		
+			<tr style="vertical-align:middle; border:1px solid lightgray;">		
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">NO</th>
 				<th style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">제목</th>
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">조회수</th>
@@ -16,11 +15,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="QNA" items="${QNAlist}">
+			<c:forEach var="QNA" items="${QNAlist}" >
 			<tr style="vertical-align:middle; border:1px solid lightgray;">
 				<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 				${QNA.QNA_NO}
-				</td>
+				</td> 
 				
 				<td style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 				<a href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'>
@@ -40,19 +39,20 @@
 		</tbody>
 	</table>
 </div>
+
 <br><br>
 <div class="res" align="center">
 	<h3>갤러리 내가 쓴 글</h3>
 	<table style="border:1px solid lightgray;">
 		<thead>
-			<tr style="vertical-align:middle; border:1px solid lightgray;">
-		
+			<tr style="vertical-align:middle; border:1px solid lightgray;">		
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">NO</th>
 				<th style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">제목</th>
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">조회수</th>
 				<th style="width: 10%; text-align:center;vertical-align:middle; border:1px solid lightgray;">작성일</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<c:forEach var="GAL" items="${GALlist}">
 			<tr style="vertical-align:middle; border:1px solid lightgray;">

@@ -30,7 +30,7 @@
 														<div id="cp_form">
 															<table cellpadding="4" cellspacing="0" border="0" align="center">
 																<tbody>
-																<tr align="left">
+																<tr align="center">
 																	<td width="70" class="cp_formTitle">비밀번호</td>
 																	<td width="130"><input type="password" name="confirm_password" id="confirm_password">																		
 																	</td>
