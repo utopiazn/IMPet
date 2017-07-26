@@ -440,20 +440,52 @@ public class GalleryController {
 	
 	//갤러리 수정 처리
 	@RequestMapping(value="/GalleryModify")
-	public ModelAndView GalleryModify(CommandMap commandMap) throws Exception{
+	public ModelAndView GalleryModify(CommandMap commandMap, HttpServletRequest request)  throws Exception {
 
 
 		ModelAndView mav = new ModelAndView();
-		
+		System.out.println("갤러리 수정 처리");
+	
 		String url = "GalleryViewNew";
+
+		
+		int count = 0;
+		
+		int  num = Integer.parseInt(commandMap.get("GALLERY_NO").toString());
+		
+		
+		StringTokenizer values = new StringTokenizer(commandMap.get("GALLERY_IMG").toString()+"/","/");
+		count = values.countTokens();
+		
+		System.out.println("num:"+num);
+		
+		ProjectUtil util = new ProjectUtil();		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/gallery/";	
+		Map<String,Object> map = util.UpdateFile_Event2(commandMap.getMap(), request, uploadPath,num,count);
+	
+		System.out.println(map);
+		
+	/*	
+		{GALLERY_CONTENT1=1번째 이미지22, 
+		GALLERY_CONTENT2=2번째 이미지, 
+		GALLERY_CONTENT3_IMAGE_29_2.png=3번째 이미지, GA
+		LLERY_CONTENT4_IMAGE_29_3.png=4번째 이미지, GALLERY_CONTENT5_IMAGE_29_4.png=5번째 이미지, 
+		
+		GALLERY_NO=29, 
+		GALLERY_SUBJECT=제목11, 
+		GALLERY_IMG1=IMAGE_29_0.png, 
+		GALLERY_IMG3=IMAGE_29_2.png, 
+		GALLERY_IMG2=IMAGE_29_1.png, 
+		GALLERY_IMG5=IMAGE_29_4.png, 
+		GALLERY_IMG4=IMAGE_29_3.png}*/
+
+		
+	//	galleryService.update(map);
+		
+		
 		SettingView(commandMap, mav);
 		
 		
-		/*String GALLERY_NO = commandMap.get("GALLERY_NO").toString();
-		
-		String url ="redirect:/Community/GalleryView?GALLERY_NO="+ GALLERY_NO ;
-		*/
-		System.out.println("갤러리 수정 처리");
 
 		//상세보기로 이동
 		mav.setViewName(url);

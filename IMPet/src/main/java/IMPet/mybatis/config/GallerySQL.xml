@@ -164,4 +164,27 @@
 	</select>
 	
 	
+	<!-- 갤러리 수정 -->
+	<update id="update" parameterType="hashmap">
+	
+		UPDATE 
+		  PET_GALLERY
+		SET 
+		  GALLERY_SUBJECT = #{GALLERY_SUBJECT}
+		  GALLERY_CONTENT = #{GALLERY_CONTENT} 
+		  GALLERY_IMG = #{GALLERY_IMG}
+		WHERE GALLERY_NO = #{GALLERY_NO}
+			
+	</update>	
+
+	<!-- 갤러리 삭제 -->
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+		DELETE FROM PET_GALLERY WHERE GALLERY_NO  = #{ GALLERY_NO }	 
+	]]>
+	</delete>
+	
+			
+	
+	
 </mapper>

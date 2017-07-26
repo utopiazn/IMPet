@@ -119,7 +119,7 @@
 			  
 		var url1 = "/IMPet/Community/GalleryModifyForm";
 		
-		 //alert(GALLERY_NO);     	
+		// alert(GALLERY_NO);     	
 
 		 var dataList =
 			{ 
@@ -366,6 +366,11 @@ under_content h2 {
 
 </style>
 
+<div align="center" style="width: 100%;">
+
+
+<div id="ContextEvent2">
+
 
 <h1 class="page-header"> ${view.GALLERY_SUBJECT }</h1>
 
@@ -477,7 +482,7 @@ under_content h2 {
 
 <div align="right" style=" width:100%; margin-top: 10px;">
 	<c:if test="${sessionScope.member_ID  != null }">
-		<input value="갤러리 수정" class="button2" type="button" onclick="ajaxGalleryModifyForm(${GALLERY_NO})"/>
+ 		<input value="갤러리 수정" class="button2" type="button" onclick="ajaxGalleryModifyForm(${GALLERY_NO})"/> 
 		<input value="갤러리 삭제" class="button2" type="button" onclick="GalleryDelete(${GALLERY_NO})"/>					
 	</c:if>
 	<input value="목록으로" class="button2" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
@@ -525,3 +530,5 @@ under_content h2 {
 
 </div>
 
+</div>
+</div>

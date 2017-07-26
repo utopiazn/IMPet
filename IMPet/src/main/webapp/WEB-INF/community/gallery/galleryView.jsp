@@ -203,7 +203,7 @@ under_content h2 {
 
 	<div class="slide_area" style="width: 100%; height: 35%; " >
 	
-	<ul class="slide_box" style="width: 100%; height: 100%;left: -900px;" >	
+	<ul class="slide_box" style="width: 100%; height: 100%;" >	
 	
 	
 		<c:if test="${ Image01 ne ''}">
