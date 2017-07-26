@@ -44,7 +44,7 @@ a:active, a:hover {
 abbr[title] {
 	border-bottom: 1px dotted
 }
- */
+ 
  b, strong {
 	font-weight: 700
 }
@@ -192,9 +192,9 @@ table {
 
 td, th {
 	padding: 0
-} 
+} */
 	/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
- @media print {
+ /* @media print {
 	*, :after, :before {
 		color: #000 !important;
 		text-shadow: none !important;
@@ -1325,7 +1325,7 @@ td, th {
 .glyphicon-menu-up:before {
 	content: "\e260"
 }
-
+*/
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -1339,7 +1339,7 @@ td, th {
 }
 
 
-/* 
+
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -1347,7 +1347,7 @@ body {
 	color: #333;
 	background-color: #fff
 }
- */
+ 
  button, input, select, textarea {
 	font-family: inherit;
 	font-size: inherit;
@@ -1506,7 +1506,7 @@ p {
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.4
-}
+}*/
 
 @media ( min-width :768px) {
 	.lead {

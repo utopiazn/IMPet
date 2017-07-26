@@ -397,7 +397,7 @@
 	<div class="product_ex">
 		<div id="preDetail">
 			<ul class="link">
-				<img src="/IMPet/resources/image/test/detail_14tit.jpg" alt="상품정보">
+				<img src="/IMPet/resources/image/test/detail_14tit.jpg" alt="상품정보"/>
 				&nbsp;<br/>
 			</ul>
 			<div class="de_detail">
@@ -405,24 +405,14 @@
 			</div>
 		</div>
 		<div id="preDetail">
-			<ul class="link">
-				<img src="/IMPet/resources/image/test/detail_17tit.jpg" alt="배송정보">
+			<ul class="link" >
+				<img src="/IMPet/resources/image/test/detail_17tit.jpg" alt="배송정보" />
 			</ul>
 			<div class="de_detail">
-				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}"></p>
+				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}" style="width:90%;"></p>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
 
 <div id="wrapper">
 	<div id="page-wrapper">
