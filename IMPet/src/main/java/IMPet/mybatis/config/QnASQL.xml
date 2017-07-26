@@ -64,4 +64,15 @@
 	]]>
 	</insert>
 
+	<!--QnA 리스트 -->
+	<select id="selectMy" resultType="hashmap" parameterType="String">
+		<include refid="seletClass" />
+		<![CDATA[
+		WHERE MEMBER_ID = #{member_ID}
+		
+		ORDER BY QnA_Ref DESC, QnA_Reply
+		]]>
+	</select>
+
+	
 </mapper>

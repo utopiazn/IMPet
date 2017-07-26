@@ -11,7 +11,7 @@
 		<div>
 				<div align="left" style="padding-left: 15px;">
 					<br/>
-					<font size="10px" style="font-weight: bolder;"> ${view.HEALING_NAME}</font><br/>
+					<font size="6px" style="font-weight: bolder;"> ${view.HEALING_NAME}</font><br/>
 					<font size="5px" style="border-bottom: 1px solid lightgray;"> ${view.HEALING_TIME}</font><br/>
 				</div>
 				

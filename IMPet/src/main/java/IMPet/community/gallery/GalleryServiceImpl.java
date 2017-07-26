@@ -79,4 +79,9 @@ public class GalleryServiceImpl implements GalleryService{
 		galleryDAO.insert(map);
 	}
 	
+	@Override
+	public List<Map<String, Object>> selectMy(String id) throws Exception {
+		return galleryDAO.selectMy(id);
+	}
+	
 }
