@@ -96,10 +96,14 @@ function ajaxmembermodify2(){
     });
 }
 
-function ajaxmemberdelete(){
+function ajaxmemberdelete(id){
+	
+	var formdata = { MEMBER_ID : id};
+	
     $.ajax({
       type : "POST",
       url : "/IMPet/Member/DeleteForm",
+      data : formdata,
       dataType : "text",
       error : function() {
         alert('오류발생!!');
@@ -192,7 +196,7 @@ color: black;
 						 <td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
 						<td><a href=#order onclick="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
 						<td><a href="/IMPet/PetShop/BasketList?MEMBER_ID=${sessionScope.member_ID}"><img src="/IMPet/resources/image/mypage/cart.png" border="0" ></a></td>
-						<td><a href=#delet onclick="javascript:ajaxmemberdelete();"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
+						<td><a href=#delete onclick="javascript:ajaxmemberdelete('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 						
 					</tr>
 				</tbody></table>
