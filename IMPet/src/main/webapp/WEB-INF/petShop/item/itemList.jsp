@@ -23,7 +23,7 @@
 	.main_itemlist .item-cont dl dd ul li.prd-price {width:100%; height:20px; position:relative;list-style:none; text-align:right;}
 	.main_itemlist .item-cont dl:nth-child(4n){width:250px !important;}
 	.main_itemlist .section-head { width:100%;   position: relative;    text-align: center;   }
-	.main_itemlist .section-head h3{        position: relative;    display: inline-block;    font-size: 17px;   line-height: 1.3846153846;    text-transform: uppercase;    color: #808080;    z-index: 5;    padding: 0 5px;    background-color: #fff;    margin-top: 0px;    } 
+	.main_itemlist .section-head h3{        position: relative;    display: inline-block;    font-size: 17px;   line-height: 1.3846153846;    text-transform: uppercase;    color: #808080;    z-index: 2;    padding: 0 5px;    background-color: #fff;    margin-top: 0px;    } 
 	.main_itemlist .section-head .border {display: block;  margin-top:5px;  height: 3px;    width: 100%;    background-color: #c8c8c8;    position: absolute;    top: 7px;    left: 0;    z-index: 1; }
 </style>
 
