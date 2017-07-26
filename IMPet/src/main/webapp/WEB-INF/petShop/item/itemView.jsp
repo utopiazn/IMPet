@@ -13,16 +13,34 @@
 <link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet"> --> 
 
 <style>
+	table{border-collapse:collapse;}
 	.category_top{height: 80px;}
 	.category_top ul{float: right;}
-	.category_top ul li{float: left; padding: 0px 2px;}
+	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 11px; letter-spacing: 0px; float: left;}
 	.item_imagedetail{float: left;    width: 364px;}
 	.infoarea{    margin: 0 0px 0 0px;    padding: 0 0 6px;}
-	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;}
+	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;width: 420px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
 	.product_ex{clear: both; margin-top:50px; }
 	.itemform{float: left;     margin-left: 100px; text-align: left; }
-	.custom{text-decoration: line-through;    color: #999;    margin: 0 0 -5px;    font-size: 23px;  text-align: left; }
-	.custom{color: #ff140a;    font-family: Verdana,Geneva,sans-serif;    font-weight: bold;    font-size: 38px;  text-align: left;     display: inline-block;    line-height: 27px;    height: 27px;    margin: -5px 0 0px;    vertical-align: middle;}
+	.custom{text-decoration: line-through;    color: #999;    font-size: 23px;  text-align: left; }
+	.custom2{color: #ff140a;    font-family: Verdana,Geneva,sans-serif;    font-weight: bold;    font-size: 38px;  text-align: left;     display: inline-block;    line-height: 27px;    height: 27px;    margin: -5px 0 0px;    vertical-align: middle;}
+	td .quantity {display: inline-block;    position: relative;    width: 50px;    vertical-align: top;}
+	td .quantity input {    width: 29px;    height: 20px;    padding: 0 2px 0 3px;    line-height: 23px;    border: 1px solid #d4d8d9;    border-radius: 3px 0 0 3px;}
+	td .quantity .down {position: absolute;    left: 35px;    top: 12px;}
+	td .quantity .up {position: absolute;    left: 35px;    top: 1px; }
+	.left {padding: 9px;}
+	.right{width: 1125px; height: 100%; font-family:'Noto sans KR', sans-serif; color: #353535; vertical-align: middle; text-align: center; margin: 0 auto; clear: both; line-height: 18px; vertical-align: middle; word-wrap: break-word; word-break: break-all; padding: 9px 0;}
+	.info{   margin-top: 45px; font-size: 11px;    color: #f65b54;    line-height: 14px;}
+	.totalProducts{border-top: 1px solid #e1e1e1;    border-bottom: 1px solid #e1e1e1; border-collapse:collapse;}
+	.totalProducts span{width: 266px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
+	.total{    color: #ff140a;}
+	.main_itemView{    width: 960px;    margin: 0 auto;}
+	.clear:after{content:".";height:0;font-size:0;visibility:hidden;display:block;clear:both;}
+	.clear{display:inline-block;}
+	
+	* html .clear{height:0;}
+	.clear{display:block;}
+	.clear-both{clear:both;}
 </style>
 <script type="text/javascript">
 
@@ -299,7 +317,7 @@
 	</div>
 	
 	<!-- /* 상품이미지 및 주문하기 */ -->
-	<div class="main_itemView">
+	<div class="main_itemView clear">
 		<!-- 메인이미지영역 -->
 		<div class="item_image">
 			<div class="item_imagedetail">
@@ -326,25 +344,26 @@
 					</p>
 					</c:if>
 				</div>
-				<div id="totalProducts" class="">
+				<div id="totalProducts">
 					<p class="info "><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/ico_information.gif" alt="" />
 						수량을 선택해주세요.
 					</p>
-					<table summary="">
+					<table summary="" >
 						
 						<colgroup>
 							<col style="width: 284px;" />
-							<col style="width: 80px;" />
+							
 							<col style="width: 110px;" />
 						</colgroup>
 						<tbody class="">
 							<tr>
-								<td class="left">${view.ITEM_NAME}</td>
+								<td class="left totalProducts" ><span>${view.ITEM_NAME}</span></td>
 								
-								<td><p class="quantity">
-								<input type="text" name="amount" class="quantity_opt" value="1" style="text-align: center; ime-mode:Disabled;" onkeypress="checknum()" readonly  />
-								<a href="JavaScript:count_change(0)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" alt="수량증가" class="up" /></a>
-	                            <a href="JavaScript:count_change(1)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" alt="수량감소" class="down" /></a></p>
+								
+								<td class="totalProducts"><p class="quantity" style="margin: 0; padding: 0;">
+									<input type="text" name="amount" class="quantity_opt" value="1" style="text-align: center; ime-mode:Disabled;" onkeypress="checknum()" readonly  />
+									<a href="JavaScript:count_change(0)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" alt="수량증가" class="up" /></a>
+	                            	<a href="JavaScript:count_change(1)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" alt="수량감소" class="down" /></a>
 									
 								</td>
 								
@@ -352,13 +371,13 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
+								<td colspan="3" style="text-align:right; font-size: 12px; padding: 25px 0px; "><strong>총 상품금액</strong>(수량) : <span class="total" style="font-size: 14px; "><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
 				<div class="cartbuy">
-					<div class="img_on">
+					<div class="img_on" style="text-align:right;">
 						<!-- 잔여수량이 0 이면 솔드아웃 처리 -->
 						<c:if test="${view.ITEM_REMAINCOUNT > 0 }">						
 						<a href="JavaScript:onOrder()"><img src="http://okidogki.com/web/upload/goodymall15/layout/btn_prdOrder.gif" alt="바로 구매하기"></a>
@@ -430,7 +449,7 @@
 	      	 				<!-- 로그인후 -->
 	      	 				<c:if test="${sessionScope.member_ID != null}">
 
-								<p class="star_rating" id="star_rating">
+								<p class="star_rating" id="star_rating" style="width: 300px;">
 								    <a href="#" onclick="rateup(1);" class="on">★</a>
 								    <a href="#" onclick="rateup(2);" >★</a>
 								    <a href="#" onclick="rateup(3);" >★</a>
@@ -438,11 +457,21 @@
 								    <a href="#" onclick="rateup(5);" >★</a>
 								</p>
 						
-								<div class="REVIEW_CONTENT" style="width: 100%;" align="left">
-									<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/> &nbsp;작성자 : ${sessionScope.member_ID}
-									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 850px; height: 55px;" placeholder="내용을 입력하세요"></textarea>
+								<div class="REVIEW_CONTENT" style="width: 900px; margin-left: 160px;" align="left">
+									<div>
+										<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/> &nbsp;작성자 : ${sessionScope.member_ID}
+										<p class="star_rating" id="star_rating" style="width: 250px;">
+										    <a href="#" onclick="rateup(1);" class="on">★</a>
+										    <a href="#" onclick="rateup(2);" >★</a>
+										    <a href="#" onclick="rateup(3);" >★</a>
+										    <a href="#" onclick="rateup(4);" >★</a>
+										    <a href="#" onclick="rateup(5);" >★</a>
+										</p>
+									</div>
+									
+									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 700px; height: 55px;" placeholder="내용을 입력하세요"></textarea>
+									<button type="button" class="btn1 btn-primary1" onclick="onComment()" style="float:right;">입력</button>
 								</div>
-								<button type="button" class="btn1 btn-primary1" onclick="onComment()" style="float:right;">입력</button>
 							</c:if>
 						</div>
 						
