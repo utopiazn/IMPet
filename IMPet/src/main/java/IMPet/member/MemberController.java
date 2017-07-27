@@ -491,8 +491,12 @@ public class MemberController {
 		
 		memberService.updateUserYN(commandMap.getMap());		
 		
+
+		String Page = commandMap.get("PAGE").toString(); 
+		
 	
-		String pagingHtml =pagingHtml(commandMap,1);
+			
+		String pagingHtml =pagingHtml(commandMap,Integer.parseInt(Page));
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
@@ -592,6 +596,9 @@ public class MemberController {
 		mav.addObject("adminCode", adminCode);
 		
 		String pagingHtml = pagingHtml(commandMap,1);
+		
+		String Page ="1"; 
+		mav.addObject("Page", Page);	
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
@@ -616,7 +623,11 @@ public class MemberController {
 		String url = "member/admin/memberList";	
 		
 		
-		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		String Page = commandMap.get("PAGE").toString(); 
+		
+		mav.addObject("Page", Page);	
+		
+		int page =  Integer.parseInt( Page);
 		
 		String pagingHtml = pagingHtml(commandMap,page);
 		commandMap.MapInfoList();
