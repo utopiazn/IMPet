@@ -66,10 +66,19 @@
   -webkit-transition: .7s;
   transition: .7s;
 }
+
+.page-header {
+	padding-bottom: 9px;
+	margin: 40px 0 20px;
+	border-bottom: 1px solid #eee
+}
+
+
 </style>
 
 
   	
+<h1 class="page-header"> ${view.EVENT_SUBJECT }</h1>
 	
 	<div style="float: left; width:100%; height:800px; margin-top: 10px;">
 	<img alt="s2" src="/IMPet/resources/image/event/${view.EVENT_IMG}" style="width: 100%; height: 100%;">
@@ -80,11 +89,9 @@
 
 	
 	<div align="right" style="float: right; width:100%; margin-top: 10px;">
-		<c:if test="${sessionScope.member_ID != null }">
+		<c:if test="${sessionScope.member_Admin eq '1' }">
 			<input value="이벤트 수정" class="button2" type="button" onclick="ajaxEventModifyForm(${view.EVENT_NO})"/>
-			<input value="이벤트 삭제" class="button2" type="button" onclick="EventDelete(${view.EVENT_NO})"/>			
-		
-		
+			<input value="이벤트 삭제" class="button2" type="button" onclick="EventDelete(${view.EVENT_NO})"/>
 		</c:if>
 		<input value="목록으로" class="button2" type="button" onclick="ajaxEvent()"/>
 	</div>

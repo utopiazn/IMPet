@@ -3,17 +3,11 @@
 
 
 <script src="/IMPet/resources/ajax/HotelAjax.js" charset="utf-8"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
- -->
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="/IMPet/resources/css/gallery/gallery.css">
+<link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
- --><link rel="stylesheet" href="/IMPet/resources/css/gallery/slider.css">
-<!-- <link rel="stylesheet" href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css">
- -->
-<!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
@@ -341,15 +335,12 @@ function ImageIndex(index){
 
 
 <br/><br/>
-	<div style="width: 100%; float: left;" >
-	  <div role="group">
-	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/GalleryList'">갤러리</button>
-	  </div>
-	  <div role="group">
-	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/EventList'">이벤트</button>
-	  </div>
-	</div>
+
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+	갤러리 게시판
+	<hr width="80%;" color="lightgray;" size="">
 	
+	</div>
 
 
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">

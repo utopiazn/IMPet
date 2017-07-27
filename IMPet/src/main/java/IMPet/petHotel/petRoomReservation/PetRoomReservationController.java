@@ -169,7 +169,7 @@ public class PetRoomReservationController {
 		
 		System.out.print("페이지 넘버:"+page);
 		
-		String pagingHtml = pagingHtml(commandMap,page,1);
+		String pagingHtml = pagingHtml(commandMap,page,1,"");
 		commandMap.MapInfoList();
 		
 		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());
@@ -199,7 +199,7 @@ public class PetRoomReservationController {
 		
 		System.out.print("페이지 넘버:"+page);
 		
-		String pagingHtml = pagingHtml(commandMap,page,1);
+		String pagingHtml = pagingHtml(commandMap,page,1,"");
 		commandMap.MapInfoList();
 		
 		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());

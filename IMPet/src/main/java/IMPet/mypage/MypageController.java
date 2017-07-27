@@ -52,14 +52,14 @@ public class MypageController {
 		
 		List<Map<String, Object>> QNAlist = qnAService.selectMy(member_ID);
 		
-		System.out.println("마이페이지 리스트 1"+QNAlist);
+		System.out.println("마이페이지 리스트"+QNAlist);
 		
 		mav.addObject("QNAlist", QNAlist);
 		
-		List<Map<String,Object>> GALlist = galleryService.selectMy(member_ID);		
+		/*List<Map<String,Object>> GALlist = galleryService.selectMy(member_ID);		
 		
 		System.out.println("마이페이지 리스트 2"+GALlist);
-		mav.addObject("GALlist", GALlist);
+		mav.addObject("GALlist", GALlist);*/
 		/*
 		 QnA 본인 질문, 답변 
 		 갤러리 본인이 쓴 글

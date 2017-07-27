@@ -187,7 +187,7 @@ ul.dropdown > li {
 					<li><a href="/IMPet/PetShop/Main#stuff1" onclick="javascript:tab(4)">잡화 </a></li>
 			    </ul>
 	 	 	</li>
-		    <li><a href=/IMPet/Community/GalleryList>COMMU</a>
+		    <li><a href=/IMPet/Community/Main>COMMUNITY</a>
 		      <ul class="dropdown">
 		        <li><a href="/IMPet/Community/GalleryList" >Gallery</a></li>
 		        <li><a href="/IMPet/Community/EventList">Event</a></li>
