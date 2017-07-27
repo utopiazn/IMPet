@@ -229,7 +229,7 @@ function EventDelete(EVENT_NO){
 }
 	
 	
-
+/* 
 
 function ajaxEventDelete(EVENT_NO){
 	
@@ -263,7 +263,7 @@ function ajaxEventDelete(EVENT_NO){
    
 }
 
-
+ */
 
 function ajaxEventDelete(EVENT_NO){
 	

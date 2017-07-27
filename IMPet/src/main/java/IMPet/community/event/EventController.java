@@ -284,7 +284,7 @@ public class EventController {
 		
 		
 		
-		Map<String,Object> map = util.UpdateFile_Event(commandMap.getMap(), request, uploadPath);
+		Map<String,Object> map = util.UpdateFile(commandMap.getMap(), request, uploadPath);
 		System.out.println(map);	
 	
 		eventService.update(map);

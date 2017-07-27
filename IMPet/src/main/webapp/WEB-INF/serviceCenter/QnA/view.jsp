@@ -7,34 +7,100 @@
 
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+.name{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+
+}
+.sub{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: right;
+  float: right;
+  width: 50%;	
+  font-size: 20px;
+  padding-bottom: 5px;
+  font-weight: bolder;
+  
+}
+.sub2{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: left;
+  float: left;
+  width: 50%;	
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.con2{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  width: 50%;	
+  margin: 0 auto;
+  font-size: 25px;
+  padding-bottom: 5px;
+  height: 50%;
+}
+
+
+</style>
 
 <meta charset="UTF-8">
 <title>QnA 개별페이지</title>
 </head>
 <body>
-			<h2>아이디 : ${view.MEMBER_ID}</h2>
-			<h2>번호 : ${view.QNA_NO}</h2><br/>
-			<h2>제목 : ${view.QNA_SUBJECT}</h2><br/>
-			<h2>내용 : ${view.QNA_CONTENT}</h2><br/>
-			<h2>이미지 : ${view.QNA_IMG}</h2><br/>
-			<h2>조회수 : ${view.QNA_COUNT}</h2><br/>
-			<h2>작성일 : ${view.QNA_DATE}</h2><br/>
 
-QnA 개별페이지
+<div style="height: 1200px;">
 
-<br/><br/><br/><br/><br/>
-<input value="Q&A 답글쓰기" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+		<br/>
+		QnA
+		<br/>
+		<hr width="80%;" color="lightgray;" size=""> 
+		<br/>
+		</div>
+	
+	<div align="right">
+            <input class="button2" name="list" type="button" value="목록" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>
+    </div>
+    	
+	<div class="name">
+ 		${view.QNA_SUBJECT}
+ 	</div>
+ 	
+ 	<div class="sub">
+ 		${view.MEMBER_ID}
+ 	</div>
+ 	<div class="sub2">
+ 		작성일 : ${view.QNA_DATE}
+ 	</div>
+ 	<div class="sub2">
+ 		조회수 : ${view.QNA_COUNT}
+ 	</div>
+ 	
+ 	<div style="clear: both;"></div>
+ 	
+ 	<div style="width: 50%; margin: 0 auto;">
+	 ${view.QNA_IMG}
+ 	</div>
+ 	
+ 	<div class="con2">
+ 	${view.QNA_CONTENT}
+ 	</div>
+ 	
+ 	<div>
+ 	<br/><br/><br/><br/><br/>
+	<input value="답글" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
+	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/> 	
+ 	</div>
+ 	
 
-
-<input value="Q&A 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
-
-<br/><br/><br/><br/><br/>
-
-<input value="Q&A 삭제" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/>
-
-<br/><br/><br/><br/><br/>
-
-<input value="Q&A 리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>
+</div>			
+					
 
 </body>

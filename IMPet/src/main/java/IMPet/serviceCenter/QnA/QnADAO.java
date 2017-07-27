@@ -60,4 +60,16 @@ public class QnADAO  extends AbstractDAO {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectMy(String id) throws Exception {
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("QnASQL.selectMy", id);
+		return list;  
+	}
+	
+	public void addViewNum(Map<String, Object> map) throws Exception{
+		
+		update("QnASQL.addViewNum", map);
+		
+	}
 }

@@ -17,10 +17,19 @@ $(document).ready(function() {
 	if(tab == ""){
 
 		$('a[href=#feed]').trigger("click");
+		
+		
 	}else  
 	{
 		$('a[href$=' + tab + ']').trigger("click");
 	}
+
+	$(".my-account li").click(function() {
+		alert("!1");
+		$(".my-account li").removeClass("selected");
+
+		$(this).addClass("selected");
+	}); 
 });
 </script>
 
@@ -90,41 +99,40 @@ $(document).ready(function() {
 	text-align: left;
 }
 
-.account-nav {
-	display: block;
+.my-account .clear {
+	 padding-left: 0px;
+	border: 1px;
 }
 
 .my-account ul li {
-	width: 20%;
 	float: left;
-	border-right: 1px solid #ccc;
 	box-sizing: border-box;
+	
+	display:inline-block;
+    font-variant:small-caps;
+    font-size:.9em;
+    padding:5px;
+    text-align:center;
+    width:20%;
+    line-height:1.8em;
+    font-weight:700;
+    border-radius:3px 3px 0 0;
+ 
+    color:#777;
+    border:1px solid #ccc;
+    border-width:1px 1px 1px 1px;
 }
 
-.my-account ul li:last-child {
-	border-right: none !important;
-}
+.selected { background:#ccc }
+
+
+
+
 
 .my-account ul li a {
 	text-decoration: none;
 }
 
-@media ( max-width : 767px) {
-	.account-nav ul li {
-		width: 25%;
-		float: left;
-		border: 1px solid #000;
-		margin-right: -1px;
-		margin-bottom: -1px;
-		border-radius: 0 !important;
-		padding: 5px 0;
-	}
-	.account-nav ul li.m-1 {
-		margin-left: -1px;
-	}
-	.account-nav ul li.xx {
-		width: 33.333%;
-	}
 	.clear:after {
 		content: ".";
 		height: 0;
@@ -135,12 +143,17 @@ $(document).ready(function() {
 	}
 	.clear {
 		display: inline-block;
+		
 	}
 	* html .clear {
 		height: 0;
 	}
 	.clear {
 		display: block;
+	}
+
+   
+		
 	}
 	.clear-both {
 		clear: both;
@@ -151,21 +164,16 @@ $(document).ready(function() {
 <div class="personal-account-info container">
 	<div class="my-account row">
 		<ul class="clear">
-			<li class=" col-sm-3 xx"><a href="#feed" onclick="javascript:tab(0)">사료 <em class="badge badge-point"></em></a></li>
-			<li class="col-sm-3 xx"><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
-			<li class="col-sm-3 xx m-1"><a href="#clothing"	onclick="javascript:tab(2)">의류<span></span></a></li>
-			<li class=" col-sm-3"><a href="#toy" onclick="javascript:tab(3)">장난감<em class="badge badge-point"></em></a></li>		
-			<li class=" col-sm-3"><a href="#stuff" onclick="javascript:tab(4)">잡화 <em class="badge">${newAlarm }</em></a>
-			</li>
+			<li class="tabs"><a href="#feed" onclick="javascript:tab(0)">사료</a></li>
+			<li class="tabs"><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
+			<li class="tabs"><a href="#clothing"	onclick="javascript:tab(2)">의류</a></li>
+			<li class="tabs"><a href="#toy" onclick="javascript:tab(3)">장난감</a></li>		
+			<li class="tabs"><a href="#stuff" onclick="javascript:tab(4)">잡화 </a></li>
 		</ul>
-
 	</div>
+	
 	<div id="account-contentsWrap" class="account-contentsWrap">
 		
 	</div>
 </div>
-<script>
-	$(".account-individual-list tr.brief").click(function() {
-		$(this).next().toggle();
-	});
-</script>
+

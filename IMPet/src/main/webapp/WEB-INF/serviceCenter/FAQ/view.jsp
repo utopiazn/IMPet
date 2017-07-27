@@ -7,30 +7,84 @@
 
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+.name{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+
+}
+.sub{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: right;
+  float: right;
+  width: 50%;	
+  font-size: 20px;
+  padding-bottom: 5px;
+  font-weight: bolder;
+  
+}
+.sub2{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: left;
+  float: left;
+  width: 50%;	
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.con2{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  width: 50%;	
+  margin: 0 auto;
+  font-size: 30px;
+  padding-bottom: 5px;
+  height: 50%;
+  padding-top: 10px;
+}
+
+
+</style>
 
 <meta charset="UTF-8">
 <title>자주묻는질문 개별페이지</title>
 </head>
 <body>
+<div style="height: 1000px;">
 
-            <h2>자주묻는질문 번호 : ${view.FAQ_NO}</h2><br/>
-			<h2>자주묻는질문 제목 : ${view.FAQ_SUBJECT}</h2><br/>
-			<h2>자주묻는질문 내용 : ${view.FAQ_CONTENT}</h2><br/>
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+		<br/>
+		FAQ
+		<br/>
+		<hr width="80%;" color="lightgray;" size=""> 
+		<br/>
+	</div>
+		
+	<div align="right">
+            <input class="button2" name="list" type="button" value="목록"  onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+    </div>
+		
+	<div class="name">
+ 	${view.FAQ_SUBJECT}
+ 	</div>
+ 	
+ 	<div class="con2">
+ 	${view.FAQ_CONTENT}
+ 	</div>
+ 	
+ 	<div>
+ 	<br/><br/><br/><br/><br/>
+	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQModifyForm?FAQ_NO=${view.FAQ_NO}'"/>
+	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQDelete?FAQ_NO=${view.FAQ_NO}'"/> 	
+ 	</div>
+ 	
+ 
+</div>		
 
 
-자주묻는질문 개별페이지
-
-<br/><br/><br/><br/><br/>
-
-<input value="자주묻는질문 수정" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQModifyForm?FAQ_NO=${view.FAQ_NO}'"/>
-
-<br/><br/><br/><br/><br/>
-
-<input value="자주묻는질문 삭제" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQDelete?FAQ_NO=${view.FAQ_NO}'"/>
-
-<br/><br/><br/><br/><br/>
-
-<input value="자주묻는질문 리스트" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
 
 </body>

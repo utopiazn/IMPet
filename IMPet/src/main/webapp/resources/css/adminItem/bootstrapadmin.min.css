@@ -14,7 +14,7 @@ body {
 	margin: 0
 }
  */
-/* article, aside, details, figcaption, figure, footer, header, hgroup,
+/*'' article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, menu, nav, section, summary {
 	display: block
 }
@@ -44,8 +44,8 @@ a:active, a:hover {
 abbr[title] {
 	border-bottom: 1px dotted
 }
-
-b, strong {
+ 
+ b, strong {
 	font-weight: 700
 }
 
@@ -194,7 +194,7 @@ td, th {
 	padding: 0
 } */
 	/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
-@media print {
+ /* @media print {
 	*, :after, :before {
 		color: #000 !important;
 		text-shadow: none !important;
@@ -253,7 +253,7 @@ td, th {
 		border: 1px solid #ddd !important
 	}
 }
-
+ 
 @font-face {
 	font-family: 'Glyphicons Halflings';
 	src: url(../fonts/glyphicons-halflings-regular.eot);
@@ -1325,11 +1325,11 @@ td, th {
 .glyphicon-menu-up:before {
 	content: "\e260"
 }
-
+*/
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box
+	box-sizing: border-box;
 }
 
 :after, :before {
@@ -1338,10 +1338,7 @@ td, th {
 	box-sizing: border-box
 }
 
-html {
-	font-size: 10px;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-}
+
 
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1350,8 +1347,8 @@ body {
 	color: #333;
 	background-color: #fff
 }
-
-button, input, select, textarea {
+ 
+ button, input, select, textarea {
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit
@@ -1365,9 +1362,8 @@ a {
 a:focus, a:hover {
 	color: #23527c;
 	text-decoration: none;
-}
-
-a:focus {
+} 
+ a:focus {
 	outline: thin dotted;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px
@@ -1379,7 +1375,7 @@ figure {
 
 img {
 	vertical-align: middle
-}
+} 
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive,
 	.thumbnail a>img, .thumbnail>img {
@@ -1510,7 +1506,7 @@ p {
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.4
-}
+}*/
 
 @media ( min-width :768px) {
 	.lead {
@@ -1650,14 +1646,14 @@ a.bg-danger:focus, a.bg-danger:hover {
 	border-bottom: 1px solid #eee
 }
 
-ol, ul {
+/* ol, ul {
 	margin-top: 0;
 	margin-bottom: 10px
 }
 
 ol ol, ol ul, ul ol, ul ul {
 	margin-bottom: 0
-}
+} */
 
 .list-unstyled {
 	padding-left: 0;
@@ -3853,7 +3849,7 @@ tbody.collapse.in {
 	border-left: 4px solid transparent
 }
 
-.dropdown, .dropup {
+/* .dropdown, .dropup {
 	position: relative
 }
 
@@ -3894,9 +3890,9 @@ tbody.collapse.in {
 	margin: 9px 0;
 	overflow: hidden;
 	background-color: #e5e5e5
-}
+} */
 
-.dropdown-menu>li>a {
+/* .dropdown-menu>li>a {
 	display: block;
 	padding: 3px 20px;
 	clear: both;
@@ -3910,9 +3906,9 @@ tbody.collapse.in {
 	color: #262626;
 	text-decoration: none;
 	background-color: #f5f5f5
-}
+} */
 
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
+/* .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover
 	{
 	color: #fff;
 	text-decoration: none;
@@ -3985,7 +3981,7 @@ tbody.collapse.in {
 	top: auto;
 	bottom: 100%;
 	margin-bottom: 2px
-}
+} */
 
 @media ( min-width :768px) {
 	.navbar-right .dropdown-menu {
@@ -4362,7 +4358,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	margin-left: -1px
 }
 
-.nav {
+/* .nav {
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none
@@ -4438,7 +4434,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-bottom-color: transparent
-}
+} */
 
 .nav-tabs.nav-justified {
 	width: 100%;
@@ -5168,8 +5164,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	{
 	color: #444
 }
-
-.breadcrumb {
+ */
+/* .breadcrumb {
 	padding: 8px 15px;
 	margin-bottom: 20px;
 	list-style: none;
@@ -5189,7 +5185,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 
 .breadcrumb>.active {
 	color: #777
-}
+}*/
 
 .pagination {
 	display: inline-block;
@@ -5447,9 +5443,9 @@ a.badge:focus, a.badge:hover {
 	margin-right: 5px
 }
 
-.nav-pills>li>a>.badge {
+/* .nav-pills>li>a>.badge {
 	margin-left: 3px
-}
+} */
 
 .jumbotron {
 	padding-top: 30px;
@@ -7190,7 +7186,7 @@ button.close {
 	.pager:after, .panel-body:after, .row:after {
 	clear: both
 }
-
+ 
 .center-block {
 	display: block;
 	margin-right: auto;

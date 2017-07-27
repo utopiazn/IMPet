@@ -13,10 +13,34 @@
 <link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet"> --> 
 
 <style>
+	table{border-collapse:collapse;}
 	.category_top{height: 80px;}
 	.category_top ul{float: right;}
-	.category_top ul li{float: left; padding: 0px 2px;}
+	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 11px; letter-spacing: 0px; float: left;}
+	.item_imagedetail{float: left;    width: 364px;}
+	.infoarea{    margin: 0 0px 0 0px;    padding: 0 0 6px;}
+	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;width: 420px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
+	.product_ex{clear: both; margin-top:50px; }
+	.itemform{float: left;     margin-left: 100px; text-align: left; }
+	.custom{text-decoration: line-through;    color: #999;    font-size: 23px;  text-align: left; }
+	.custom2{color: #ff140a;    font-family: Verdana,Geneva,sans-serif;    font-weight: bold;    font-size: 38px;  text-align: left;     display: inline-block;    line-height: 27px;    height: 27px;    margin: -5px 0 0px;    vertical-align: middle;}
+	td .quantity {display: inline-block;    position: relative;    width: 50px;    vertical-align: top;}
+	td .quantity input {    width: 29px;    height: 20px;    padding: 0 2px 0 3px;    line-height: 23px;    border: 1px solid #d4d8d9;    border-radius: 3px 0 0 3px;}
+	td .quantity .down {position: absolute;    left: 35px;    top: 12px;}
+	td .quantity .up {position: absolute;    left: 35px;    top: 1px; }
+	.left {padding: 9px;}
+	.right{width: 1125px; height: 100%; font-family:'Noto sans KR', sans-serif; color: #353535; vertical-align: middle; text-align: center; margin: 0 auto; clear: both; line-height: 18px; vertical-align: middle; word-wrap: break-word; word-break: break-all; padding: 9px 0;}
+	.info{   margin-top: 45px; font-size: 11px;    color: #f65b54;    line-height: 14px;}
+	.totalProducts{border-top: 1px solid #e1e1e1;    border-bottom: 1px solid #e1e1e1; border-collapse:collapse;}
+	.totalProducts span{width: 266px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
+	.total{    color: #ff140a;}
+	.main_itemView{    width: 960px;    margin: 0 auto;}
+	.clear:after{content:".";height:0;font-size:0;visibility:hidden;display:block;clear:both;}
+	.clear{display:inline-block;}
 	
+	* html .clear{height:0;}
+	.clear{display:block;}
+	.clear-both{clear:both;}
 </style>
 <script type="text/javascript">
 
@@ -249,6 +273,21 @@
     	width: 30px;
 	}
 	
+
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+.review_title span{padding:0px 10px;}
+	
 </style>
 
 </head>
@@ -278,27 +317,23 @@
 	</div>
 	
 	<!-- /* 상품이미지 및 주문하기 */ -->
-	<div class="main_itemView">
+	<div class="main_itemView clear">
 		<!-- 메인이미지영역 -->
 		<div class="item_image">
 			<div class="item_imagedetail">
 				<img src="/IMPet/resources/image/itemImg/${view.ITEM_IMG}" onerror="this.src='/IMPet/resources/image/test/noimg_130.gif'" />
 			</div>
 		</div>
-		<form name="itemform" action="#" method="post" >
+		<form name="itemform" action="#" method="post" class="itemform">
 			<!-- 상세정보및 주문 영역 -->
 			<div class="infoarea">
-				<div class="iconb"></div>
-			
-				<div class="icon">
-					<img src="/IMPet/resources/image/test/sale5.gif" />
-				</div>
+				
 		            <h3>${view.ITEM_NAME}</h3>
-				<dd class="price" align="left">
+				<div class="price" align="left">
 		
 					<c:if test="${view.ITEM_DCPRICE != null}">
 					<p class="custom"><del><font color="gray"><fmt:formatNumber value="${view.ITEM_PRICE}" type="number"/>원</font></del></p>
-					<p>
+					<p class="custom2">
 						<font color="red"><span id="price">${view.ITEM_DCPRICE}</span>원</font>
 					</p>
 					</c:if>
@@ -308,26 +343,27 @@
 						<span id="price">${view.ITEM_PRICE}</span>원
 					</p>
 					</c:if>
-				</dd>
-				<div id="totalProducts" class="">
+				</div>
+				<div id="totalProducts">
 					<p class="info "><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/ico_information.gif" alt="" />
 						수량을 선택해주세요.
 					</p>
-					<table summary="">
+					<table summary="" >
 						
 						<colgroup>
 							<col style="width: 284px;" />
-							<col style="width: 80px;" />
+							
 							<col style="width: 110px;" />
 						</colgroup>
 						<tbody class="">
 							<tr>
-								<td class="left">${view.ITEM_NAME}</td>
+								<td class="left totalProducts" ><span>${view.ITEM_NAME}</span></td>
 								
-								<td><p class="quantity">
-								<input type="text" name="amount" class="quantity_opt" value="1" style="text-align: center; ime-mode:Disabled;" onkeypress="checknum()" readonly  />
-								<a href="JavaScript:count_change(0)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" alt="수량증가" class="up" /></a>
-	                            <a href="JavaScript:count_change(1)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" alt="수량감소" class="down" /></a></p>
+								
+								<td class="totalProducts"><p class="quantity" style="margin: 0; padding: 0;">
+									<input type="text" name="amount" class="quantity_opt" value="1" style="text-align: center; ime-mode:Disabled;" onkeypress="checknum()" readonly  />
+									<a href="JavaScript:count_change(0)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" alt="수량증가" class="up" /></a>
+	                            	<a href="JavaScript:count_change(1)"><img src="http://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" alt="수량감소" class="down" /></a>
 									
 								</td>
 								
@@ -335,13 +371,13 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="3"><strong>총 상품금액</strong>(수량) : <span class="total"><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
+								<td colspan="3" style="text-align:right; font-size: 12px; padding: 25px 0px; "><strong>총 상품금액</strong>(수량) : <span class="total" style="font-size: 14px; "><strong><em>555</em>원&nbsp;</strong><span id="am2">(${BASKET_BUYCOUNT}개)</span></span></td>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
 				<div class="cartbuy">
-					<div class="img_on">
+					<div class="img_on" style="text-align:right;">
 						<!-- 잔여수량이 0 이면 솔드아웃 처리 -->
 						<c:if test="${view.ITEM_REMAINCOUNT > 0 }">						
 						<a href="JavaScript:onOrder()"><img src="http://okidogki.com/web/upload/goodymall15/layout/btn_prdOrder.gif" alt="바로 구매하기"></a>
@@ -361,7 +397,7 @@
 	<div class="product_ex">
 		<div id="preDetail">
 			<ul class="link">
-				<img src="/IMPet/resources/image/test/detail_14tit.jpg" alt="상품정보">
+				<img src="/IMPet/resources/image/test/detail_14tit.jpg" alt="상품정보"/>
 				&nbsp;<br/>
 			</ul>
 			<div class="de_detail">
@@ -369,24 +405,14 @@
 			</div>
 		</div>
 		<div id="preDetail">
-			<ul class="link">
-				<img src="/IMPet/resources/image/test/detail_17tit.jpg" alt="배송정보">
+			<ul class="link" >
+				<img src="/IMPet/resources/image/test/detail_17tit.jpg" alt="배송정보" />
 			</ul>
 			<div class="de_detail">
-				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}"></p>
+				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}" style="width:90%;"></p>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
 
 <div id="wrapper">
 	<div id="page-wrapper">
@@ -395,105 +421,38 @@
 	<!-- 코멘트 달기 -->
 	<div class="inner">
 		<!-- review_grp -->
-		<form class="commentForm" method="post">
+		<form class="commentForm" method="post" style="width: 900px;">
 		<input type="hidden" name="ITEM_NO" value="${view.ITEM_NO}"/>
 		<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}"/>
 		<input type="hidden" name="REVIEW_IMG" value="1"/>
 	
-				<div class="review_grp">
+				<div class="review_grp" style="margin-left: 10px;">
 					<div class="review_form">
 				
 						<div class="review_write">
 							
 							<!-- 로그인전 -->
 							<c:if test="${sessionScope.member_ID == null}">
-                  				<input type="text" style="align:center; margin: 10px; width: 950px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
+                  				<input type="text" style="align:center; margin: 10px; width: 850px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
 	      	 				</c:if>
 	      	 				
 	      	 				<!-- 로그인후 -->
 	      	 				<c:if test="${sessionScope.member_ID != null}">
-								<!-- <div class="review_explanation" style="align: center">
-									  <img src="/IMPet/resources/image/review/commentlogo.png"></img>
-										<ul>
-											<li><input type="radio" name="REVIEW_STAR" value="1" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									      	</li>
-									       
-									      	<li><input type="radio" name="REVIEW_STAR" value="2" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									     	</li>
-									       
-									      	<li><input type="radio" name="REVIEW_STAR" value="3" height="1" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									      	</li>
-									      
-									     	<li><input type="radio" name="REVIEW_STAR" value="4" height="1" class="radio">
-									     		 <img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_off1.gif" border="0">
-									       	</li>
-									       	
-									      	<li><input type="radio" name="REVIEW_STAR" value="5" height="1" checked="" class="radio">
-									      		<img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0"><img src="/IMPet/resources/image/review/star_on1.gif" border="0">
-											</li>
-										</ul>			
-			 					</div> -->
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-<style type="text/css">
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
-
-</style>
-
-
-
-<p class="star_rating" id="star_rating">
-    <a href="#" onclick="rateup(1);" class="on">★</a>
-    <a href="#" onclick="rateup(2);" >★</a>
-    <a href="#" onclick="rateup(3);" >★</a>
-    <a href="#" onclick="rateup(4);" >★</a>
-    <a href="#" onclick="rateup(5);" >★</a>
-</p>
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-			 					
-							
-								<div class="REVIEW_CONTENT" style="width: 1000px;" align="left">
-									<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/> &nbsp;작성자 : ${sessionScope.member_ID}
-									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 849px; height: 55px;" placeholder="내용을 입력하세요"></textarea><button type="button" class="btn1 btn-primary1" onclick="onComment()">입력</button>
+						
+								<div class="REVIEW_CONTENT" style="width: 900px; margin-left: 160px;" align="left">
+									<div>
+										<input type="text" name="REVIEW_SUBJECT" placeholder="제목을 입력하세요" maxlength="15" style="margin-left: 10px;"/>
+										<p class="star_rating" id="star_rating" style="float: right;width: 250px;margin-right: 450px;">
+										    <a href="#" onclick="rateup(1);" class="on">★</a>
+										    <a href="#" onclick="rateup(2);" >★</a>
+										    <a href="#" onclick="rateup(3);" >★</a>
+										    <a href="#" onclick="rateup(4);" >★</a>
+										    <a href="#" onclick="rateup(5);" >★</a>
+										</p>
+									</div>
+									
+									<textarea name="REVIEW_CONTENT" style="margin: 10px; width: 700px; height: 55px;" placeholder="내용을 입력하세요"></textarea>
+									<button type="button" class="btn1 btn-primary1" onclick="onComment()" style="float:right;margin-right: 90px;">입력</button>
 								</div>
 							</c:if>
 						</div>
@@ -513,33 +472,32 @@
 						<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
 						
 						<!-- 후기리스트영역 -->
-						<div class="review_view">
+						<div class="review_view" style="margin-left: 165px;">
 							
 							<!-- 후기타이틀영역 -->
-							<div class="review_title">
-								<div class="REVIEW_SUBJECT"><strong>${comment.REVIEW_SUBJECT} </strong>|
-								<div class="MEMBER_ID"><strong>${comment.MEMBER_ID} </strong>님  
-									<div class="REVIEW_STAR">
-										  <c:if test='${comment.REVIEW_STAR == 1}'>
-									      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
-									      </c:if>
-									      <c:if test='${comment.REVIEW_STAR == 2}'>
-									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-									      </c:if>
-									      <c:if test='${comment.REVIEW_STAR == 3}'>
-									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-									      </c:if>
-									      <c:if test='${comment.REVIEW_STAR == 4}'>
-									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-									      </c:if>
-									      <c:if test='${comment.REVIEW_STAR == 5}'>
-									      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-									      </c:if>
-									      
-									<fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate>
-									</div>
+							<div class="review_title" style="text-align: left;">
+								<div class="REVIEW_STAR" style="float: left;">
+									  <c:if test='${comment.REVIEW_STAR == 1}'>
+								      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
+								      </c:if>
+								      <c:if test='${comment.REVIEW_STAR == 2}'>
+								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								      </c:if>
+								      <c:if test='${comment.REVIEW_STAR == 3}'>
+								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								      </c:if>
+								      <c:if test='${comment.REVIEW_STAR == 4}'>
+								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								      </c:if>
+								      <c:if test='${comment.REVIEW_STAR == 5}'>
+								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
+								      </c:if>									      									
 								</div>
-								</div>
+								<span class="REVIEW_SUBJECT" style=" "><strong>${comment.REVIEW_SUBJECT} </strong></span>
+								<span class="MEMBER_ID" style=""><strong>${comment.MEMBER_ID} </strong>님</span>
+								<span><fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate></span>
+								
+								
 			
 							</div>
 							
@@ -551,7 +509,7 @@
 									<span class="btn btnC_05 review_btn">삭제</span>
 								</a> --%>
 								
-								<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="btn btnC_01 btnP_02">
+								<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="btn btnC_01 btnP_02" style="    float: right;">
 									<span class="btn btnC_05 review_btn">삭제</span>
 								</a>
 								</c:if>

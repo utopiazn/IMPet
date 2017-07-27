@@ -81,7 +81,9 @@ public class ProjectUtil {
 		int count = 0;
 		
 		
+		String imageList ="";
 		
+		int imageCount = 0;
 		
 		while (iterator.hasNext()) {
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
@@ -99,12 +101,23 @@ public class ProjectUtil {
 				multipartFile.transferTo(file);
 				
 				commandMap.put(multipartFile.getName(), storedFileName);
+				
+				if(imageCount ==0){
+					imageList =storedFileName;
+				}else{
+					imageList += "/"+storedFileName;
+				}
+					
+				imageCount++;
 			}
 		}
+		
+		commandMap.put("imageList", imageList);
+		
 		return commandMap;
 	}
 	
-	public Map<String, Object> UpdateFile_Event(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath) throws IOException {
+	public Map<String, Object> UpdateFile_Event2(Map<String, Object> commandMap, HttpServletRequest request, String uploadPath ,int num ,int count) throws IOException {
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
@@ -114,20 +127,28 @@ public class ProjectUtil {
 		String originalFileExtension = null;
 		String storedFileName = null;
 
+		
+		
 	
 		String[] originalImg = request.getParameterValues("ORIGINALIMG");
 		
 		
-		System.out.println( originalImg[0]);
+		//System.out.println( originalImg[0]);
 		
 		while (iterator.hasNext()) {
 			
 			multipartFile = multipartHttpServletRequest.getFile(iterator.next());
 			
 			
+			
 			if (multipartFile.isEmpty() == false) {  
 				
 				originalFileName = multipartFile.getName().substring(multipartFile.getName().lastIndexOf("I"));
+				
+				System.out.println("11111111:"+originalFileName);
+				
+				
+				int icheck = 0;
 				
 				for(String a : originalImg){
 					
@@ -136,7 +157,7 @@ public class ProjectUtil {
 																
 						File removeFile = new File(uploadPath, a);
 						
-						
+						System.out.println("::::::::::"+a);
 					
 						removeFile.delete();
 						
@@ -148,9 +169,29 @@ public class ProjectUtil {
 						multipartFile.transferTo(file);
 						
 						commandMap.put(multipartFile.getName().substring(0,multipartFile.getName().lastIndexOf("I")-1), storedFileName);
-			
-					}
 							
+						 icheck ++;
+					}				
+					
+				}
+				
+				if(icheck==0){
+					
+					System.out.println("3333333:"+originalFileName);
+					System.out.println("5555555555555555:"+multipartFile.getName());
+					
+					originalFileName = multipartFile.getOriginalFilename();
+					originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+					storedFileName = "IMAGE_" + num + "_" + count++ + originalFileExtension;
+					
+					
+					System.out.println("이미지 추가"+storedFileName);
+					
+					File file = new File(uploadPath + storedFileName);
+					multipartFile.transferTo(file);
+					
+					commandMap.put(multipartFile.getName(), storedFileName);
+					
 				}
 								
 			}

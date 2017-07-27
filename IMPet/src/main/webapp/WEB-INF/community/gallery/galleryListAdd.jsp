@@ -6,7 +6,7 @@
 	
 	<c:if test="${sessionScope.member_Admin==1 }">
 			<div align="right">
-				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
+				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxgalleryForm();"/>
 			</div>
 	</c:if>		
 		

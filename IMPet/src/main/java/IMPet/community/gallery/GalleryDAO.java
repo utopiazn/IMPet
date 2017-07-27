@@ -88,5 +88,45 @@ public class GalleryDAO extends AbstractDAO{
 	}
 	
 	
+	//갤러리 키 가져오기
+	public int selectKey() throws Exception {
+		
+		Map<String, Object> view=  selectOne("GallerySQL.selectKey");
+		
+		int key = Integer.parseInt(view.get("ITEM_NO").toString());		
+		
+		
+		return  key;
+	}
 	
+	
+	
+	//갤러리 추가
+	public void insert(Map<String, Object> map) throws Exception {
+		insert("GallerySQL.insert", map);
+	}
+
+	
+	//갤러리 마이페이지 본인 글 보기
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectMy(String id) throws Exception {
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("GallerySQL.selectMy", id);
+		
+		return list;
+	}
+	
+	
+	// 이벤트 추가
+	public void update(Map<String, Object> map) throws Exception {
+		insert("GallerySQL.update", map);
+	}
+	
+	//이벤트 삭제
+	public void delete(Map<String, Object> map) throws Exception{
+		delete("GallerySQL.delete", map);
+		
+	}
+	
+
 }

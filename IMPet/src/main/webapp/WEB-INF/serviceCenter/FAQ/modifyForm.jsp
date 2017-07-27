@@ -7,24 +7,38 @@
 
 <html lang="ko">
 <head>
-
-
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 <meta charset="UTF-8">
 <title>자주묻는질문 수정 폼</title>
 </head>
 <body>
-
+<center>
 <form action="FAQModify" method="post">
-
+<br/><br/><br/>
+	<div class="panel panel-default" style="width: 80%;">
+		<div class="panel-heading" >자주묻는 질문 추가 페이지입니다. </div>						
+							
+		<div class="panel-body" style=text-align:left;>
+		  <div class="form-group">
+		      <label> 제목 </label>
+		      <input type="text" class="form-control" value="${view.FAQ_SUBJECT}" name="FAQ_Subject" style="width:70%;"/>
+		   </div>
+		   
+		   <div class="form-group">
+		      <label> 내용 </label>
+		        <textarea class="form-control" value="${view.FAQ_CONTENT}" name="FAQ_Content" style="width:70%;"></textarea>
+		   </div>
+		   
+		</div>                     
+	 </div>   
 <input name="FAQ_NO" type=hidden value="${view.FAQ_NO}">
 
-<h2>자주묻는질문 제목 : <input type="text" name=FAQ_Subject value="${view.FAQ_SUBJECT}"  maxlength="15"></h2><br/>
-<h2>자주묻는질문 내용 : <input type="text" name=FAQ_Content value="${view.FAQ_CONTENT}"></h2><br/>
-<input  value="자주묻는질문 수정" type="submit">
+<input class="button2" style="width: 140px;" value="자주묻는질문 수정" type="submit">
+<input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
 
 </form>
 
-자주묻는질문 수정 폼
 
 <br/><br/><br/><br/><br/>
 

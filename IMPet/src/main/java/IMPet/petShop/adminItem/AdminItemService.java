@@ -63,5 +63,7 @@ public interface AdminItemService {
 		
 		public void orderType(Map<String,Object> map) throws Exception;
 		
+		public void orderDelete(Map<String, Object> map) throws Exception;
+		
 
 }

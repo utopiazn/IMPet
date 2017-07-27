@@ -47,18 +47,23 @@
 			<put-attribute name="body" value="/WEB-INF/community/gallery/galleryView.jsp" />
 		</definition>
 		
+		<!-- 커뮤니티 갤러리 상세보기2 -->	
+		<definition name="GalleryViewNew" extends="community_main">
+			<put-attribute name="body" value="/WEB-INF/community/gallery/galleryViewNew.jsp" />
+		</definition>
+		
 		
 		
 		
 		<!-- 커뮤니티 갤러리 추가 폼 -->	
-		<definition name="GalleryForm" extends="community_main">
+		<definition name="GalleryForm1" extends="community_main">
 			<put-attribute name="body" value="/WEB-INF/community/gallery/galleryForm.jsp" />
 		</definition>
 		
 		
 		
 		<!-- 갤러리 수정폼 -->	
-		<definition name="GalleryModifyForm" extends="community_main">
+		<definition name="GalleryModifyForm1" extends="community_main">
 			<put-attribute name="body" value="/WEB-INF/community/gallery/galleryModifyForm.jsp" />
 		</definition>
 		

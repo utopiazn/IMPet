@@ -14,12 +14,10 @@
 <input type="hidden" name="res_LastDate" value="${res.res_LastDate}">
 <input type="hidden" name="res_Price" value="${res.res_Price}">
 <input type="hidden" name="res_Requests" value="${res.res_Requests}">
-
 <div class="resArea" style="width: 50%">
 	<h3>예약 정보</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
-			
 				<tbody>
 					<tr>
 						<th scope="row">객실 타입 번호</th>
@@ -63,6 +61,6 @@
 	<c:if test="${retotal.NUM != 0}">
 	<input value="예약하기" class="button2" type="submit" />
 	</c:if>
-	<input value="뒤로가기" class="button2" type="button" onclick="window.history.go(-1);"/>
+	<input value="예약취소" class="button2" type="button" onclick="jsHotel(1);"/>
 </div>
 </form>

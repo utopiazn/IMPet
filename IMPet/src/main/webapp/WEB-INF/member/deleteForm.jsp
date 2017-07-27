@@ -21,7 +21,7 @@ color: black;
 
 <meta charset="UTF-8">
 <title>회원 탈퇴 폼</title>
-</head>
+</head>"src/main/webapp/WEB-INF/myPage/Main.jsp"
 <body>
 
 <!-- 휘원 탈퇴 폼
@@ -33,16 +33,16 @@ color: black;
 <br/><br/>
 <input value="마이페이지로 이동" type="button" onclick="location.href='/IMPet/MyPage/Main'"/>
  -->
-<div style="padding-bottom:20px; text-align: center;">
+<div style=" text-align: center;">
 	
 			<table  cellpadding="0" cellspacing="0" width="100%"> <!-- bgcolor="#ecf0f1" -->
 				<tbody>
 					<tr>
-						<td style="padding:20px 19px;">
+						<td><!-- style="padding:10px 19px;"> -->
 							<table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
 								<tbody>
 									<tr>
-										<td id="ContextMyPage" style="padding:20px;">									
+										<td id="ContextMyPage">									
 																			
 											<script language="JavaScript">
 												addOnloadEvent(function() {_ID('confirm_password').focus()});
@@ -63,8 +63,7 @@ color: black;
 											<div id="cp_body">
 												<form name="confirmForm" method="post" action="/shop/member/indb.confirm.php?&amp;">
 												<input type="hidden" name="mode" id="mode" value="confirmPassword">
-													<div id="cp_title"><img src="/IMPet/resources/image/delete.png">
-													</div>
+													<div id="cp_title"><img src="/IMPet/resources/image/delete.png"></div>
 													
 													<div id="cp_form_border">
 														<div id="cp_form">
