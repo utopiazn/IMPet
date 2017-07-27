@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+
 <!DOCTYPE html>
 
 
@@ -8,73 +10,86 @@
 
 
 <meta charset="UTF-8">
-<title>커뮤니티 메인</title>
-
+<title>서비스센터 메인</title>
 
 <style>
-.button3 {
-  position: relative;
-  padding: 14px 0;
-  border: 2px #00B488 solid;
-  float : left;
-  color: black;
-  cursor: pointer;
-  font-family: 'KoPub Batang' sans-serif;
-  font-size: .9em;
-  text-transform: uppercase;
-  transition: color 0.4s, background-color 0.4s;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1em;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 50%;
-  background-color: white;
-  height: 70px;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.button4
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #0C5;
+    font-size: 15px;
+    font-family: "Noto Sans KR", sans-serif; */
+    font-weight: 300;
+    margin: 1em auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+    width: 50%;
+    height: 80px;
+    background: white;
+    border: 2px solid #00B488;
+    color: black;
+    overflow: hidden;
+    transition: all 0.5s;
+    display: inline-block;
+    position: relative;
+    padding-right: 0;
+    transition: padding-right 0.5s;
 }
-.button3:hover, .button3:focus {
-  transition: color 0.4s, background-color 0.4s;
-  color: white;
+
+.button4:hover, .button4:active 
+{
+	
   text-decoration: none;
-  background-color: #00B488;
+  color: #00B488;
+  border-color: #00B488;
+  background: #FFF;
 }
+
+
+.button4:hover:after, .button4:active:after 
+{
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  opacity: 1;
+  border-color: #00B488;
+  right: 0;
+  top: 50%;
+}
+ 
 </style>
-
-
-
 </head>
 <body>
-
-
-
-
 <br/><br/>
 
-<div> <!-- align="center">  --><!-- style="width: 100%;"> -->
-
-	<jsp:include page="/WEB-INF/member/admin/memberList.jsp"/>
+<div>
 	
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+	커뮤니티
+	<hr width="80%;" color="lightgray;" size=""> 
+	<br/>
+	</div>
+	
+	<div style="font-size: 15px; width: 80%; margin: 0 auto;">
+	갤러리 및 이벤트 게시판 입니다.
+	비방이나 불법적인 게시물은 경고 조치 및 삭제 합니다.
+	</div>
+
+	<br/><br/>	
+	
+	<div style="height: 500px;" class="sub-main">
+	
+	<input class="button4" value="갤러리 게시판" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
+	<input class=button4 value="이벤트 게시판" type="button" onclick=""location.href='/IMPet/Community/EventList'"/>
+	
+	</div>
 </div>
-
-&nbsp;
-
-
-
-커뮤니티 메인
-
-<br/><br/><br/><br/><br/>
-
-<input value="갤러리 리스트" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
-<br/> <br/> 
-<input value="이벤트 리스트" type="button" onclick="location.href='/IMPet/Community/EventList'"/>  
-
-
-
 
 
 </body>
