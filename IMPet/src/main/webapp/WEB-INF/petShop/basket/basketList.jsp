@@ -113,14 +113,13 @@
    
 				<c:forEach var="basketList"  items="${basketList}" varStatus="stat">	
 					<tr>
-
 						<c:if test="${basketList.ITEM_DCPRICE == null }">
 							<td align="center">
 								<input type="checkbox" name="BASKET_NO" id="BASKET_NO" value="${basketList.BASKET_NO}" >
 								<input type="hidden" id="price" value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT }">
 							</td>
 							<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
-							<td align="center">${basketList.ITEM_NAME}</td>
+							<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${basketList.ITEM_NO}">${basketList.ITEM_NAME}</a></td>
 							<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_PRICE}" type="number"/>원</td>
 							<td align="center">${basketList.BASKET_BUYCOUNT} 개 </td>
 							<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_PRICE * basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>
@@ -134,7 +133,7 @@
 								<input type="hidden" id="price" value="${basketList.ITEM_DCPRICE * basketList.BASKET_BUYCOUNT }">
 							</td>
 							<td align="center" ><img src="/IMPet/resources/image/itemImg/${basketList.ITEM_IMG}" width="90" height="90"></td>
-							<td align="center">${basketList.ITEM_NAME}</td>
+							<td align="center"><a href="/IMPet/PetShop/ItemView?ITEM_NO=${basketList.ITEM_NO}">${basketList.ITEM_NAME}</a></td>
 							<td align="center" id="price"><fmt:formatNumber value="${basketList.ITEM_DCPRICE}" type="number"/>원</td>
 							<td align="center">${basketList.BASKET_BUYCOUNT} 개 </td>
 							<td align="center"><strong id="id2"><fmt:formatNumber value="${basketList.ITEM_DCPRICE * basketList.BASKET_BUYCOUNT}" type="number"/>원</strong></td>
@@ -142,7 +141,6 @@
 								<a href="/IMPet/PetShop/BasketDelete?BASKET_NO=${basketList.BASKET_NO}&MEMBER_ID=${basketList.MEMBER_ID}" onClick='return confirm("정말로 장바구니를 삭제하시겠습니까?");'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" ></a>
 							</td>
 						</c:if>
-
 					</tr>
 					
 					

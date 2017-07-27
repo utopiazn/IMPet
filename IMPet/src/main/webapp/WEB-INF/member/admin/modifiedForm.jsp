@@ -13,7 +13,39 @@
 
 
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
+<style>
+#button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+}
 
+#zipcode   {
+  background: #f6f6f6;
+  color: gray;
+  width: 100px;
+  height: 20px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+}
+</style>
 
 <!-- <link rel="stylesheet" href="/IMPet/resources/css/member/admin/joinForm.css">
  -->
@@ -72,14 +104,12 @@
 <body>
 
 <br/><br/>
-<div id ="ContextJoinForm" align="left" style="
-    padding-left: 23%;">
+<div id ="ContextJoinForm" align="center" >
 
 
 <div class="orderArea">
 		<div class="order_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/join.gif" alt="장바구니"></h2>
-		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymallSkin/title/join.gif" alt="step 01 장바구니">
 	</div>
 	<div class="boardWrite">
 <form name="jform" >	
@@ -145,8 +175,8 @@
 					<tr>						
 						<th scope="row">우편번호</th>
 						<td>
-							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly >
-							<input  type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />
+							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly>
+							<input  type="button" id="zipcode" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />
 						</td>						
 					</tr>		
 					
@@ -196,7 +226,7 @@
 	
 	</table>
 	
-	<input value="회원 수정하기" type="button"  onclick="ajaxJoinUpdateView();"/>
+	<input value="회원 수정하기" type="button" id="button" onclick="ajaxJoinUpdateView();"/>
 	
 </form>
 	</div>	

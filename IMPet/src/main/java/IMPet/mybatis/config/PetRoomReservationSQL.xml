@@ -35,7 +35,7 @@
 			  a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
 		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, NVL(b.ROOM_NAME ,'')  as ROOM_NAME
 		FROM PET_ROOM_RESERVATION a LEFT join PET_ROOM b on a.ROOM_NO = b.ROOM_NO
-		WHERE MEMBER_ID = #{member_ID}
+		WHERE MEMBER_ID = #{member_ID} and  res_state <> 2
 		ORDER BY RES_NO DESC
 		]]>
 	</select>
