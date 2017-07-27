@@ -16,7 +16,7 @@
 	table{border-collapse:collapse;}
 	.category_top{height: 80px;}
 	.category_top ul{float: right;}
-	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 11px; letter-spacing: 0px; float: left;}
+	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 15px; letter-spacing: 0px; float: left;}
 	.item_imagedetail{float: left;    width: 364px;}
 	.infoarea{    margin: 0 0px 0 0px;    padding: 0 0 6px;}
 	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;width: 420px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
@@ -47,6 +47,8 @@
 	.img{text-align: left; }
 	.comment td{text-align: center; vertical-align: middle; font-size: 12px;     padding: 5px 0px; border-bottom: 1px dotted #e1e1e1; }
 	.comment th{font-size: 12px;     padding: 5px 0px;     border-top: 1px dotted #e1e1e1;    border-bottom: 1px dotted #e1e1e1;    background: #f2f2f2;} 
+	.link{text-align: left;    border-bottom: 1px solid #e1e1e1;    width: 885px;    margin: 0 auto;}
+	
 </style>
 <script type="text/javascript">
 
@@ -279,6 +281,9 @@
     	margin-top: 14px;
     	width: 30px;
 	}
+	.contents{
+display: none;
+}
 	
 
 .star_rating {font-size:0; letter-spacing:-4px;}
@@ -418,18 +423,18 @@
 	<!-- 상품정보 -->
 	<div class="product_ex">
 		<div id="preDetail">
-			<ul class="link">
-				<img src="/IMPet/resources/image/shop/detail_14tit.jpg" alt="상품정보"/>
+			<div class="link">
+				<img src="/IMPet/resources/image/shop/item_detail.png" alt="상품정보" style="width: 150px;"/>
 				&nbsp;<br/>
-			</ul>
+			</div>
 			<div class="de_detail">
 				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_DETAILIMG}"></p>
 			</div>
 		</div>
 		<div id="preDetail">
-			<ul class="link" >
-				<img src="/IMPet/resources/image/shop/detail_17tit.jpg" alt="배송정보" />
-			</ul>
+			<div class="link" >
+				<img src="/IMPet/resources/image/shop/item_delivery.png" alt="배송정보" style="width: 150px;"/>
+			</div>
 			<div class="de_detail">
 				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}" style="width:90%;"></p>
 			</div>
@@ -442,7 +447,7 @@
 		 
 	<!-- 코멘트 달기 -->
 	<div class="inner" align="center">
- 		<div class="img"><img src="/IMPet/resources/image/review/commentlogo.png" alt="후기로고" /></div>
+ 		<div class="img"><img src="/IMPet/resources/image/review/review.png" alt="리뷰로고" /></div>
 		
 		<!-- review_grp -->
 		<form class="commentForm" method="post" style="width: 100%;">
@@ -514,34 +519,60 @@
 					
 						<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
 						<tr>
-							<td></td>
+							<td>${comment.RNUM }</td>
 							<td class="REVIEW_STAR" style="foloat:left;">
 								  <c:if test='${comment.REVIEW_STAR == 1}'>
-								      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 2}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 3}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 4}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 5}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-								      </c:if>	
+								      <img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 2}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 3}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 4}'>
+								      <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								 <c:if test='${comment.REVIEW_STAR == 5}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
+								 </c:if>	
 							</td>
-							<td style="text-align: left !important; ">${comment.REVIEW_SUBJECT}</td>
+							<td style="text-align: left !important; " class="title">${comment.REVIEW_SUBJECT}
+								<input type="hidden" id="content" value="${comment.RNUM }">
+							</td>
 							<td >${comment.MEMBER_ID}</td>
 							<td ><fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
 							<%-- <td >
 								<c:if test="${member_ID == comment.MEMBER_ID}">
 									<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="button" style=" ">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" >
 										<span id="button">삭제</span>
 									</a>
 								</c:if>
 							<td> --%>
+						</tr>
+						<tr>
+							<td id="${comment.RNUM }" class="contents" colspan="5">
+								<table width="100%" >
+									<colgroup>
+										<col width="85%">
+										<col width="15%">
+									</colgroup>
+									<tr style="border: none !important;">
+										<td style="text-align:left;padding-left: 50px; border: none; ">${comment.REVIEW_CONTENT}</td>
+										<td style="text-align: center; border: none; ">
+											<c:if test="${member_ID == comment.MEMBER_ID}">
+												<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" style="text-decoration: none; color:black;">
+													<img src="/IMPet/resources/image/review/review_delete.png">
+												</a>
+											</c:if>
+										</td>
+									</tr>
+								
+								</table>
+								
+							</td>
+						
 						</tr>
 						<!-- 후기리스트영역 -->
 						<%-- <div class="review_view" style="margin-left: 165px;">
@@ -596,4 +627,25 @@
 </div>	
 
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".title").click(function(){
+			
+			var i =$(this).parent().find("#content").val();  
+			$("#"+i).toggle(); 
+			
+/* 			if($("#"+i) == true){ // state가 none 상태일경우
+				$("#"+i).show(); // ID가 moreMenu인 요소를 show();
+	        }else{ // 그 외에는
+	        	$("#"+i).hide(); // ID가 moreMenu인 요소를 hide();        
+	        } */
+
+			
+		});
+	    $(".title").mouseover(function(){
+	    	$(this).css("cursor","pointer");
+	    });
+	});
+</script>
 </html>
+

@@ -2,10 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
-<div class="res" align="center">
-	<h3>QnA 내가 쓴 글</h3>
-	<table style="border:1px solid lightgray;" class="haha">
+<div id="dataTables-example_wrapper" class="panel-body">
+	<h3>[QnA]내가 쓴 글</h3>
+	<table class="table  table-bordered table-hover dataTable no-footer"
+				id="dataTables-example" role="grid"
+				aria-describedby="dataTables-example_info">
 		<thead>
 			<tr style="vertical-align:middle; border:1px solid lightgray;">		
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">NO</th>
@@ -14,6 +17,9 @@
 				<th style="width: 10%; text-align:center;vertical-align:middle; border:1px solid lightgray;">작성일</th>
 			</tr>
 		</thead>
+		
+		<c:choose>
+		<c:when test="${QNAlist[0] != null}">
 		<tbody>
 			<c:forEach var="QNA" items="${QNAlist}" >
 			<tr style="vertical-align:middle; border:1px solid lightgray;">
@@ -37,13 +43,26 @@
 			</tr>
 			</c:forEach>
 		</tbody>
+		</c:when>
+		<c:otherwise>
+		<tbody>
+			<tr style="vertical-align:middle; border:1px solid lightgray;">
+				<td colspan="4" style="width: 100%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+				작성한 게시글이 없습니다.
+				</td>
+			</tr>
+		</tbody>		
+		</c:otherwise>
+		</c:choose>
 	</table>
 </div>
 
 <br><br>
-<div class="res" align="center">
-	<h3>갤러리 내가 쓴 글</h3>
-	<table style="border:1px solid lightgray;">
+<div id="dataTables-example_wrapper" class="panel-body">
+	<h3>[갤러리]내가 쓴 글</h3>
+	<table class="table  table-bordered table-hover dataTable no-footer"
+				id="dataTables-example" role="grid"
+				aria-describedby="dataTables-example_info">
 		<thead>
 			<tr style="vertical-align:middle; border:1px solid lightgray;">		
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">NO</th>
@@ -53,6 +72,9 @@
 			</tr>
 		</thead>
 		
+		
+		<c:choose>
+		<c:when test="${GALlist[0] != null}">
 		<tbody>
 			<c:forEach var="GAL" items="${GALlist}">
 			<tr style="vertical-align:middle; border:1px solid lightgray;">
@@ -75,5 +97,16 @@
 			</tr>
 			</c:forEach>
 		</tbody>
+		</c:when>
+		<c:otherwise>
+		<tbody>
+			<tr style="vertical-align:middle; border:1px solid lightgray;">
+				<td colspan="4" style="width: 100%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
+				작성한 게시글이 없습니다.
+				</td>
+			</tr>
+		</tbody>		
+		</c:otherwise>
+		</c:choose>
 	</table>
 </div>

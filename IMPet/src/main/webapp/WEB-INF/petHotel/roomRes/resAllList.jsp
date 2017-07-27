@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <script type="text/javascript">
 function ajaxPageView(page){	
 	
@@ -33,9 +34,20 @@ function ajaxPageView(page){
 }
 </script>
 <br/><br/>
-<div class="res" align="center">
-	<h1 class="listsub">펫호텔 예약 목록</h1>
-				<table style="border:1px solid lightgray;">
+<div class="row" >
+	<h1 class="page-header">펫호텔 예약 목록</h1>
+</div>
+	
+<div class="row">
+	<div class="panel panel-default">
+	 <div class="panel-heading">
+                         [펫호텔 예약목록] 펫호텔 예약 관리 페이지 입니다.
+        </div>
+	
+	<div id="dataTables-example_wrapper" class="panel-body">
+				<table class="table  table-bordered table-hover dataTable no-footer"
+				id="dataTables-example" role="grid"
+				aria-describedby="dataTables-example_info">
 					<thead>
 						<tr style="vertical-align:middle; border:1px solid lightgray;">
 							<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">예 약 번 호</th>
@@ -127,5 +139,6 @@ function ajaxPageView(page){
 				${pagingHtml} 
 				</div>
 				</c:if>
-		
+		</div>
+		</div>
 </div>

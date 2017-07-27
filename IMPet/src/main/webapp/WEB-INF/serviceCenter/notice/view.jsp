@@ -84,7 +84,7 @@
  	<div style="clear: both;"></div>
  	
  	<div style="width: 50%; margin: 0 auto;">
-	 ${view.NOTICE_IMG}
+	 <img alt="s2" src="/IMPet/resources/image/notice/${view.NOTICE_IMG}" style="width: 100%; height: 100%;">
  	</div>
  	
  	<div class="con2">
@@ -92,7 +92,7 @@
  	</div>
  	
  	<div>
- 	<br/><br/><br/><br/><br/>
+ 	
 	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeModifyForm?notice_NO=${view.NOTICE_NO}'"/>
 	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/NoticeDelete?notice_NO=${view.NOTICE_NO}'"/> 	
  	</div>

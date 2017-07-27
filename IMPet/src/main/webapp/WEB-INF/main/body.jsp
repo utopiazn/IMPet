@@ -69,10 +69,10 @@ color: hotpink;
 		<div style="width:100%;" class="flexslider">
 		 <ul class="slides" style="width: 100%; height: 100%">
 			    <li>
-					<img alt="s2" src="/IMPet/resources/image/main/main1.png" style="width: 100%; height: 300px;">
+					<img alt="s2" src="/IMPet/resources/image/event/eventsmall.jpg" style="width: 830px; height: 300px; cursor: pointer;" onclick="location.href='/IMPet/Community/EventList'">
 			    </li>
 			    <li>
-					<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 100%; height: 300px;">
+					<img alt="s4" src="/IMPet/resources/image/event/eventsmall2.png" style="width: 830px; height: 300px; cursor: pointer;" onclick="location.href='/IMPet/Community/EventList'">
 			    </li>
 		  </ul>
 		</div>

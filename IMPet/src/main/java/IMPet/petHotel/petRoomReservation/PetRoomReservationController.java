@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
+import IMPet.module.Paging;
 import IMPet.petHotel.petRoomReservation.PetRoomReservationService;
 
 @Controller
@@ -123,7 +124,7 @@ public class PetRoomReservationController {
 		//관리자페이지 통합코드
 		int adminCode = 3;
 		mav.addObject("adminCode", adminCode);
-
+		
 		int page = 1;
 		
 		System.out.print("페이지 넘버:"+page);
@@ -265,8 +266,6 @@ public class PetRoomReservationController {
 			}
 			
 		}
-		
-
 		
 		return pagingHtml.toString();
 		
