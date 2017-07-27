@@ -1,10 +1,11 @@
 package IMPet.serviceCenter.notice;
 
-import java.sql.Date;
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,21 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public void insert(Map<String, Object> map) throws Exception {
-		noticeDAO.insert(map);
+	public void insert(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		
+		ProjectUtil util = new ProjectUtil();
+		
+		System.out.println("여기부터 시작입니다.");
+		System.out.println("request : "+request.getParameter("room_IMG"));
+		System.out.println("여기부터 끝입니다.");
+		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/notice/";
+		
+		Map<String,Object> reMap = util.UploadFile(map, request, uploadPath, Integer.parseInt((String) map.get("notice_NO")));
+			
+		
+		
+		noticeDAO.insert(reMap);
 		
 	}
 
@@ -44,6 +58,19 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void delete(Map<String, Object> map) throws Exception {
+		
+		ProjectUtil util = new ProjectUtil();
+		
+		Map<String, Object> reMap = noticeDAO.selectOne(map);
+		
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/notice/";
+		System.out.println(reMap.get("NOTICE_IMG").toString());
+		File f = new File(uploadPath+reMap.get("NOTICE_IMG").toString());
+		if(f.delete()){
+			System.out.println("이미지 삭제 성공");
+		}else{
+			System.out.println("이미지 삭제 실패");
+		}
 		noticeDAO.delete(map);
 		
 	}

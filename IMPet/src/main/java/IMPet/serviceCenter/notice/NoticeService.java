@@ -3,6 +3,8 @@ package IMPet.serviceCenter.notice;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,7 +14,7 @@ public interface NoticeService {
 
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception;
 	
-	public void insert(Map<String, Object> map) throws Exception;
+	public void insert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	public void update(Map<String, Object> map) throws Exception;
 	
