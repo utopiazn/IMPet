@@ -1,18 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-
-<!DOCTYPE html>
-
-
-<html lang="ko">
-<head>
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
-<meta charset="UTF-8">
-<title>공지사항 추가 폼</title>
-</head>
-<body>
+
 <center>
 <form action="NoticeInsert" method="post" enctype="multipart/form-data">
 <br/><br/><br/>
@@ -31,7 +21,7 @@
 		   </div>
 		   
 		    <div class="file_input">
-               	<!-- <b>공지사항 이미지</b><br/>
+               	<b>공지사항 이미지</b><br/>
                	 
                     <label>파일 첨부 
                 
@@ -39,9 +29,7 @@
                    </label>
                    <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                    <p class="help-block">공지사항 이미지 입니다 800x800 사이즈 권장합니다</p>
-                    -->
-                    
-                    <input type="file" name="notice_IMG">
+
             </div>
 		   
 		</div>                     
@@ -53,5 +41,3 @@
 
 
 <br/><br/><br/><br/><br/>
-
-</body>
