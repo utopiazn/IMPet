@@ -162,7 +162,7 @@ $(document).ready(function() {
 </style>
 
 <div class="personal-account-info container">
-	<div class="my-account row">
+	<div class="my-account row" style="margin-top: 5%;">
 		<ul class="clear">
 			<li class="tabs"><a href="#feed" onclick="javascript:tab(0)">사료</a></li>
 			<li class="tabs"><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
