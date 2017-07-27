@@ -112,11 +112,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
 </style>
-<div class="category_top">
-	<ul>
-	 	<li>강아지 ></li><li>주문리스트</li>			
-	</ul>
-</div>
+
 <div class="panel-body">
 	<div class="dataTable_wrapper" style="text-align:center;">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_list.gif" alt="장바구니"></h2>
