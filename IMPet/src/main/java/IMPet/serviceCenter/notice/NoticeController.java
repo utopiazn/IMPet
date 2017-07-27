@@ -101,7 +101,7 @@ public class NoticeController {
 	public ModelAndView NoticeInsert(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		
         ModelAndView mav = new ModelAndView();
-		
+		System.out.println("맵입니당"+commandMap.getMap()+"  파일입니당"+request);
 		noticeService.insert(commandMap.getMap(), request);
 		
 
