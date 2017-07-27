@@ -203,7 +203,7 @@ under_content h2 {
 
 	<div class="slide_area" style="width: 100%; height: 35%; " >
 	
-	<ul class="slide_box" style="width: 100%; height: 100%;" >	
+	<ul class="slide_box" style="width: 100%; height: 100%; padding-left: 0px;" >	
 	
 	
 		<c:if test="${ Image01 ne ''}">
@@ -246,7 +246,7 @@ under_content h2 {
 	  <li><a href="#">5</a></li>
   </ul>
    -->
- 	<ul class="indigator2">	
+ 	<ul class="indigator2" style="padding-left: 0px;">	
  	
 		<c:if test="${ Image01 ne ''}">
 			<li><a href="#"><img src="/IMPet/resources/image/gallery/${Image01}" /></a></li>

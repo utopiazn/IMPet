@@ -14,7 +14,7 @@
 </head>
 <body>
 <center>
-<form action="NoticeInsert" method="post">
+<form action="NoticeInsert" method="post" enctype="multipart/form-data">
 <br/><br/><br/>
 	<div class="panel panel-default" style="width: 80%;">
 		<div class="panel-heading" >공지사항 추가 페이지입니다. </div>						
@@ -31,7 +31,7 @@
 		   </div>
 		   
 		    <div class="file_input">
-               	<b>공지사항 이미지</b><br/>
+               	<!-- <b>공지사항 이미지</b><br/>
                	 
                     <label>파일 첨부 
                 
@@ -39,7 +39,9 @@
                    </label>
                    <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
                    <p class="help-block">공지사항 이미지 입니다 800x800 사이즈 권장합니다</p>
-                   
+                    -->
+                    
+                    <input type="file" name="notice_IMG">
             </div>
 		   
 		</div>                     

@@ -21,4 +21,6 @@ public interface QnAService {
 	public void insertRef(Map<String, Object> map) throws Exception;
 
 	public List<Map<String, Object>> selectMy(String id) throws Exception;
+
+	public void addViewNum(Map<String, Object> map) throws Exception;
 }

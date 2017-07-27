@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -97,11 +98,11 @@ public class NoticeController {
 
 	// 공지사항 추가
 	@RequestMapping(value = "/NoticeInsert")
-	public ModelAndView NoticeInsert(CommandMap commandMap) throws Exception {
+	public ModelAndView NoticeInsert(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		
         ModelAndView mav = new ModelAndView();
-		
-		noticeService.insert(commandMap.getMap());
+		System.out.println("맵입니당"+commandMap.getMap()+"  파일입니당"+request);
+		noticeService.insert(commandMap.getMap(), request);
 		
 
 		System.out.println("공지사항 추가");

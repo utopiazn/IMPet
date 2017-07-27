@@ -59,6 +59,10 @@ public class QnAServiceImpl implements QnAService{
 		return qnADAO.selectMy(id);
 	}
 	
-	
+	@Override
+	public void addViewNum(Map<String, Object> map) throws Exception {
+		qnADAO.addViewNum(map);
+		
+	}
 
 }
