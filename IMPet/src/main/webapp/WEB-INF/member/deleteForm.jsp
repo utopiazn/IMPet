@@ -19,9 +19,46 @@ color: black;
 </style>
 
 
+
+<script>
+
+function deleteMember(){
+	
+	
+	
+	var memberPW= "${MEMBER_PW}";
+	
+	var value = $('#confirm_password').val();
+	
+	
+	if(memberPW == value ){
+		
+		if(confirm( " 정말로 진정!! 탈퇴 하시겠습니까~? ")){		  
+			
+			location.href="Member/DeleteMember";
+
+		
+			
+		}
+	
+	}else{
+		
+		document.getElementById("msg").innerHTML = " 비밀 번호가 틀렸습니다 다시 입력해주세요!!";
+		 
+			
+		
+	}
+	
+/* 	alert('우헤헤헤헤헤ㅔ11'+memberPW);   
+	 alert('우헤헤헤헤헤ㅔ2'+value);      */
+}
+
+</script>
+
+
 <meta charset="UTF-8">
 <title>회원 탈퇴 폼</title>
-</head>"src/main/webapp/WEB-INF/myPage/Main.jsp"
+</head>
 <body>
 
 <!-- 휘원 탈퇴 폼
@@ -75,7 +112,10 @@ color: black;
 																</tr>
 																
 																<tr align="left">
-																	<td colspan="4" id="cp_text1">회원 탈퇴 전 비밀번호를 다시 한 번 확인합니다.</td>
+																	<td colspan="4" id="cp_text1">
+																	
+																	<label id="msg">회원 탈퇴 전 비밀번호를 다시 한 번 확인합니다.</label>
+																	</td>
 																</tr>
 																</tbody>
 															</table>
@@ -86,9 +126,8 @@ color: black;
 														<table align="center" border="0" cellpadding="0" cellspacing="0">
 															<tbody>
 																<tr class="ok">
-																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">확인</a></td>
-																	<td width="5"></td>
- 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">취소</a></td>
+																	<td valign="top"><a href="javascript:javascript:deleteMember();">확인</a></td>
+																	
 																</tr>
 															</tbody>
 														</table>
