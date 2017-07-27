@@ -34,9 +34,11 @@ public class PetRoomReservationDAO extends AbstractDAO{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> selectUserList(String str) throws Exception {
+	public List<Map<String, Object>> selectUserList(Map<String, Object> map, String str) throws Exception {
 		
-		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectUserList", str);
+		map.put("member_ID", str);
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectUserList", map);
 		
 		return list;  
 	}

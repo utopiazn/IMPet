@@ -91,20 +91,59 @@ public class PetRoomReservationController {
 	
 	//호텔 룸 예약리스트(고객용)
 	@RequestMapping(value="RoomResList")
-	public ModelAndView resList(HttpSession session) throws Exception{
+	public ModelAndView resList(CommandMap commandMap, HttpSession session) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("호텔 룸 예약리스트(고객용)");
 		
+		int page = 1;
+		
+		System.out.print("페이지 넘버:"+page);
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
 		System.out.println("Controller:"+session.getAttribute("member_ID"));
 		
-		List<Map<String, Object>> list = petRoomReservationService.selectUserList((String)session.getAttribute("member_ID"));
+		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), (String)session.getAttribute("member_ID"));
 		
 		System.out.println(list);
 		
 		String url = "petHotel/roomRes/resList";
 		/*String url = "PetHotelReservation_List";*/
+		
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
+		
+		return mav;
+	}
+	
+	//호텔 룸 예약리스트(고객용/페이징)
+	@RequestMapping(value="RoomResListPage")
+	public ModelAndView resListPage(CommandMap commandMap, HttpSession session) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("호텔 룸 예약리스트(고객용)");
+		
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		System.out.print("페이지 넘버:"+page);
+		
+		String pagingHtml = pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+		
+		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), (String)session.getAttribute("member_ID"));
+		
+		System.out.println(list);
+		
+		String url = "petHotel/roomRes/resList";
+
+		mav.addObject("pagingHtml", pagingHtml);	
 		
 		mav.addObject("list", list);
 		
