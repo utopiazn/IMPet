@@ -72,7 +72,7 @@ color: hotpink;
 					<img alt="s2" src="/IMPet/resources/image/event/eventsmall.jpg" style="width: 830px; height: 300px; cursor: pointer;" onclick="location.href='/IMPet/Community/EventList'">
 			    </li>
 			    <li>
-					<img alt="s4" src="/IMPet/resources/image/main/main2.png" style="width: 830px; height: 300px; cursor: pointer;" onclick="location.href='/IMPet/Community/EventList'">
+					<img alt="s4" src="/IMPet/resources/image/event/eventsmall2.png" style="width: 830px; height: 300px; cursor: pointer;" onclick="location.href='/IMPet/Community/EventList'">
 			    </li>
 		  </ul>
 		</div>
