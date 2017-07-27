@@ -39,7 +39,8 @@
  	width:353px;
  	
  }
- 	#button  {
+ 
+ #button  {
   background: #f6f6f6;
   color: #11111;
   width: 70px;
@@ -85,12 +86,8 @@
 	    </div>
 	    
 	    <div style="margin-top:15px; text-align:center;">
-			<span class="btn btnC_04 btnP_04"><input type="button" value="메인화면" onclick="location.href='/IMPet/Main'" id="button"/>	</span>
-			<span class="btn btnC_04 btnP_04">
-			
-			<input type="button" value="구매내역" onclick="location.href='/IMPet/MyPage#order'" id="button"/>
-
-			</span>	
+			<span class="btn btnC_04 btnP_04"><input type="button" value="메인화면" onclick="location.href='/IMPet/PetShop/Main'" id="button"/></span>&nbsp;
+			<span class="btn btnC_04 btnP_04"><input type="button" value="구매내역" onclick="location.href='/IMPet/MyPage#order'" id="button"/></span>	
 		</div>
 	</div>
 </div>

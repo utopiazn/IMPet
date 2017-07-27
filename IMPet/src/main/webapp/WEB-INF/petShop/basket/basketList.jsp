@@ -78,16 +78,12 @@
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 
 
-<div class="category_top">
-	<ul>
-	 	<li>펫샵 ></li><li>장바구니</li>			
-	</ul>
-</div>
-<div class="basket_list">
+
+<div class="basket_list" style="margin: 3%.0.3%.0;">
 	<div class="basket_list_top">
-		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/cart.gif" alt="장바구니"></h2>
+		<h2 class="basketcart" ><img src="http://okidogki.com/web/upload/goodymallSkin/title/cart.gif" alt="장바구니"></h2>
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep1.gif" alt="step 01 장바구니">
-	</div>
+	</div> 
 	<div class="basket_main">
 	<form name="basketList" action="/IMPet/PetShop/BasketDelete" >
 	<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}">

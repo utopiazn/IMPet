@@ -212,8 +212,9 @@ function order_sub() {
 
 	<div class="basket_button" style="padding-bottom: 17px; padding-top: 17px;">
 	
+		<input type="button" value="취소하기" onclick="order_cancel()" id="button"/>&nbsp;
 		<input type="button" value="결제하기" onClick="order_sub()" id="button"/>
-			<input type="button" value="취소" onclick="order_cancel()" id="button"/>
+			
 			
 	</div>	
 
