@@ -107,8 +107,8 @@
 	                 </div>      
 				</div>
 				<div align="center" style="width: 100%;">
-				<input class="button2" value="힐링 수정" type="button" onclick="ajaxHealingModify()"/>
-				<input class="button2" value="뒤로가기" type="button" onclick="ajaxHealing()"/>
+				<input class="btn btn-success" value="힐링 수정" type="button" onclick="ajaxHealingModify()"/>
+				<input class="btn btn-default"  value="뒤로가기" type="button" onclick="ajaxHealing()"/>
 				</div>
 				</form>
 				
