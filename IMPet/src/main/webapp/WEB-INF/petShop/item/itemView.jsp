@@ -16,7 +16,7 @@
 	table{border-collapse:collapse;}
 	.category_top{height: 80px;}
 	.category_top ul{float: right;}
-	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 11px; letter-spacing: 0px; float: left;}
+	.category_top ul li{padding: 0 0 0 0; margin: 0 0 0 5px; color: #999; font-size: 15px; letter-spacing: 0px; float: left;}
 	.item_imagedetail{float: left;    width: 364px;}
 	.infoarea{    margin: 0 0px 0 0px;    padding: 0 0 6px;}
 	.infoarea h3{margin: 10px 0 20px;    padding: 0 0 5px;    font-size: 30px;    font-family: "Malgun Gothic","Gulim","Tahoma","Verdana","Arial","sans-serif";    color: #1c1c1c;    font-weight: bold;width: 420px;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    word-wrap: normal !important;    display: block;    line-height: 30px;}
@@ -559,8 +559,8 @@ display: none;
 										<col width="15%">
 									</colgroup>
 									<tr style="border: none !important;">
-										<td style="text-align:left;padding-left: 50px;">${comment.REVIEW_CONTENT}</td>
-										<td style="text-align: center; ">
+										<td style="text-align:left;padding-left: 50px; border: none; ">${comment.REVIEW_CONTENT}</td>
+										<td style="text-align: center; border: none; ">
 											<c:if test="${member_ID == comment.MEMBER_ID}">
 												<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" style="text-decoration: none; color:black;">
 													<img src="/IMPet/resources/image/review/review_delete.png">
