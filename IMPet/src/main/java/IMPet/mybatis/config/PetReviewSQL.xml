@@ -73,9 +73,9 @@
 			REVIEW_IMG ,
 			REVIEW_STAR ,
 			REVIEW_DATE, 
-			row_number() over (order by REVIEW_NO desc) as rnum FROM PET_ITEM_REVIEW  			 
+			row_number() over (order by REVIEW_NO) as rnum FROM PET_ITEM_REVIEW  			 
 		  WHERE 
-		  	ITEM_NO = #{ITEM_NO} order by review_no
+		  	ITEM_NO = #{ITEM_NO} order by review_no desc
 	</select>
 	
 </mapper>
