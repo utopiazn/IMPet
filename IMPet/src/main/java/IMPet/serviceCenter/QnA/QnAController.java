@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,13 +55,27 @@ public class QnAController {
 
 	// Q&A 개별페이지
 	@RequestMapping(value = "/QuestionView")
-	public ModelAndView QuestionView(CommandMap commandMap) throws Exception {
+	public ModelAndView QuestionView(CommandMap commandMap, HttpSession session) throws Exception {
 
 		
 		System.out.println(commandMap.getMap());
 
 		
 		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
+		
+		
+		String loginID = session.getAttribute("member_ID").toString();
+		String viewID = map.get("MEMBER_ID").toString();
+		
+		System.out.println("session:"+loginID+", view:"+viewID);
+		
+		if(!loginID.equals(viewID)){
+			qnAService.addViewNum(commandMap.getMap());
+			System.out.println("조회수를 증가");
+		}else{
+			System.out.println("본인이기에 증가하지 않음");
+		}
+		
 
 		System.out.println("자주묻는질문 개별페이지");
 

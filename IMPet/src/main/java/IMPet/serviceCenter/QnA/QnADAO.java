@@ -66,4 +66,10 @@ public class QnADAO  extends AbstractDAO {
 		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("QnASQL.selectMy", id);
 		return list;  
 	}
+	
+	public void addViewNum(Map<String, Object> map) throws Exception{
+		
+		update("QnASQL.addViewNum", map);
+		
+	}
 }
