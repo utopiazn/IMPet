@@ -375,15 +375,11 @@ function ajaxPageView(page){
 
 <div align="center" style="width: 100%;">
 
-	<div style="width: 100%; float: left;" >
-	  <div role="group">
-	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/GalleryList'">갤러리</button>
-	  </div>
-	  <div role="group">
-	    <button type="button" class="button3" onclick="ajaxEvent();">이벤트</button>
-	  </div>
-	</div>
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+	이벤트 게시판
+	<hr width="80%;" color="lightgray;" size="">
 	
+	</div>
 
 
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">

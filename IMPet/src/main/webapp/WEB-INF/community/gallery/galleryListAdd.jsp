@@ -4,7 +4,7 @@
 
 	
 	
-	<c:if test="${sessionScope.member_Admin==1 }">
+	<c:if test="${sessionScope.member_ID ne null }">
 			<div align="right">
 				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxgalleryForm();"/>
 			</div>

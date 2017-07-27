@@ -341,15 +341,12 @@ function ImageIndex(index){
 
 
 <br/><br/>
-	<div style="width: 100%; float: left;" >
-	  <div role="group">
-	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/GalleryList'">갤러리</button>
-	  </div>
-	  <div role="group">
-	    <button type="button" class="button3" onclick="location.href='/IMPet/Community/EventList'">이벤트</button>
-	  </div>
-	</div>
+
+	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+	갤러리 게시판
+	<hr width="80%;" color="lightgray;" size="">
 	
+	</div>
 
 
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
