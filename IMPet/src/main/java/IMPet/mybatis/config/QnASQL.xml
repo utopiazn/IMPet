@@ -74,5 +74,19 @@
 		]]>
 	</select>
 
+	<!--QnA 상세보기 본 횟수 -->
+	<update id="addViewNum" parameterType="hashmap">
+		<![CDATA[
+		
+			update 
+				PET_QNA 
+			set 
+				QNA_COUNT = QNA_COUNT+1 
+			where 
+				QNA_NO = #{QnA_NO}									
+
+		]]>
+			
+	</update>	
 	
 </mapper>
