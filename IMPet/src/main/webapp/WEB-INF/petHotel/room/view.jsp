@@ -53,7 +53,7 @@
 <div>
 	<div style="float: left; width: 100%; border:1px solid lightgray; margin-top: 10px;" >
 		<div style="float: left; ">
-			<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">	
+			<img alt="healing" src="/IMPet/resources/image/hotel/roomImg/hotel.png">	
 		</div>
 		
 		<div style="float: left; padding-top: 35px; " >
