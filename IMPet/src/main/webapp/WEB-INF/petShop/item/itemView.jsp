@@ -563,7 +563,7 @@ display: none;
 										<td style="text-align: center; ">
 											<c:if test="${member_ID == comment.MEMBER_ID}">
 												<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" style="text-decoration: none; color:black;">
-													X
+													<img src="/IMPet/resources/image/review/review_delete.png">
 												</a>
 											</c:if>
 										</td>
