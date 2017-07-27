@@ -301,7 +301,7 @@ under_content h2 {
 
 <div id="comments" class="box">
 	<ul>
-		<div id="ContextGallery" align="center" style="width:100%;  float: left;">	
+		<div id="ContextGallery" align="center" style="width:100%;  float: left; margin: 3%;">	
 			<jsp:include page="/WEB-INF/community/gallery/galleryCommentAdd.jsp"/>	
 		</div>
 	</ul>
