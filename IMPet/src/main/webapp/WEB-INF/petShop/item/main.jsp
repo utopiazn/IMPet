@@ -25,7 +25,7 @@ $(document).ready(function() {
 	}
 
 	$(".my-account li").click(function() {
-		alert("!1");
+		
 		$(".my-account li").removeClass("selected");
 
 		$(this).addClass("selected");
