@@ -446,10 +446,23 @@ public class MemberController {
 	
 	//회원 탈퇴 폼
 	@RequestMapping(value="/DeleteForm")
-	public ModelAndView DeleteForm(CommandMap commandMap) throws Exception{
+	public ModelAndView DeleteForm(CommandMap commandMap,HttpSession session) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 		System.out.println("로그인 탈퇴폼");
+		
+		
+		
+		String member_ID = session.getAttribute("member_ID").toString();
+		commandMap.put("MEMBER_ID",member_ID);
+		
+		Map<String,Object>  list = memberService.selectOne(commandMap.getMap());	
+		
+		System.out.println(list);
+		
+		String MEMBER_PW = list.get("MEMBER_PW").toString();
+		
+		mav.addObject("MEMBER_PW", MEMBER_PW);
 		
 		mav.setViewName("member/deleteForm");
 		return mav;
@@ -462,7 +475,7 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 		String url = "member/admin/memberList";
-		System.out.println("로그인 탈퇴 처리 후 메인으로 이동");
+		System.out.println("회원 탈퇴 처리");
 
 		
 		commandMap.MapInfoList();
@@ -490,6 +503,30 @@ public class MemberController {
 		return mav;
 	}
 	
+
+	//회원 탈퇴 처리
+	@RequestMapping(value="/DeleteMember")
+	public ModelAndView DeleteMember(CommandMap commandMap,HttpSession session) throws Exception{
+
+		ModelAndView mav = new ModelAndView();
+		String url = "redirect:/Main";
+		System.out.println("회원 탈퇴 처리");
+
+		String member_ID = session.getAttribute("member_ID").toString();
+		commandMap.put("MEMBER_ID",member_ID);
+		
+		//사용 여부 Y:사용 N: 미사용
+		String userYN ="N";
+		commandMap.put("MEMBER_USERYN",userYN);
+		
+		
+		memberService.updateUserYN(commandMap.getMap());		
+		
+		mav.setViewName(url);
+		return mav;
+	}
+	
+
 	
 	
 

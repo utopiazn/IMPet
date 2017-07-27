@@ -112,7 +112,7 @@
 			 	Pet_Member 
 			 where
 			 	member_ID = '${MEMBER_ID}'	and
-			 	member_PW = '${MEMBER_PW}'
+			 	member_PW = '${MEMBER_PW}'  and MEMBER_USERYN ='Y'
 			
 		]]>
 	</select>
@@ -144,7 +144,7 @@
 			 	Pet_Member 
 			 where
 			 	member_ID = '${MEMBER_ID}'	and
-			 	member_PW = '${MEMBER_PW}'
+			 	member_PW = '${MEMBER_PW}' and MEMBER_USERYN ='Y'
 			
 		]]>
 	</select>
