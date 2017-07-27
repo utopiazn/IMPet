@@ -424,7 +424,7 @@ display: none;
 	<div class="product_ex">
 		<div id="preDetail">
 			<div class="link">
-				<img src="/IMPet/resources/image/shop/detail.png" alt="상품정보" style="width: 150px;"/>
+				<img src="/IMPet/resources/image/shop/item_detail.png" alt="상품정보" style="width: 150px;"/>
 				&nbsp;<br/>
 			</div>
 			<div class="de_detail">
@@ -433,7 +433,7 @@ display: none;
 		</div>
 		<div id="preDetail">
 			<div class="link" >
-				<img src="/IMPet/resources/image/shop/itemicon.png" alt="배송정보" style="width: 150px;"/>
+				<img src="/IMPet/resources/image/shop/item_delivery.png" alt="배송정보" style="width: 150px;"/>
 			</div>
 			<div class="de_detail">
 				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}" style="width:90%;"></p>
@@ -447,7 +447,7 @@ display: none;
 		 
 	<!-- 코멘트 달기 -->
 	<div class="inner" align="center">
- 		<div class="img"><img src="/IMPet/resources/image/review/commentlogo.png" alt="후기로고" /></div>
+ 		<div class="img"><img src="/IMPet/resources/image/review/review.png" alt="리뷰로고" /></div>
 		
 		<!-- review_grp -->
 		<form class="commentForm" method="post" style="width: 100%;">
