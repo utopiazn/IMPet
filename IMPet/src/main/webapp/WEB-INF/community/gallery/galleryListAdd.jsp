@@ -3,7 +3,7 @@
 
 
 	<c:if test="${sessionScope.member_ID ne null }">
-			<div align="right">
+			<div align="right" style="margin-right: 2%;">
 				<input value="글쓰기" class="button4 btn-4" type="button" onclick="ajaxgalleryForm();"/>
 			</div>
 	</c:if>		
