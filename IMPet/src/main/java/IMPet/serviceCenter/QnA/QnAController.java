@@ -63,19 +63,28 @@ public class QnAController {
 		
 		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
 		
-		
-		String loginID = session.getAttribute("member_ID").toString();
-		String viewID = map.get("MEMBER_ID").toString();
-		
-		System.out.println("session:"+loginID+", view:"+viewID);
-		
-		if(!loginID.equals(viewID)){
-			qnAService.addViewNum(commandMap.getMap());
-			System.out.println("조회수를 증가");
+		if(session.getAttribute("member_ID")!=null){
+			String loginID = session.getAttribute("member_ID").toString();
+			String viewID = map.get("MEMBER_ID").toString();
+			int Admin = Integer.parseInt(session.getAttribute("member_Admin").toString());
+			
+			System.out.println("session:"+loginID+", view:"+viewID);
+			
+			if(!loginID.equals(viewID)){
+				if(Admin!=1){
+					qnAService.addViewNum(commandMap.getMap());
+					System.out.println("조회수를 증가");
+				}else{
+					System.out.println("관리자는 조회수에 영향을 주지않음.");
+				}
+			}else if(loginID.equals(viewID)){
+				System.out.println("본인이기에 증가하지 않음");
+			}else {
+				System.out.println("요건 오류니깐 무효");
+			}
 		}else{
-			System.out.println("본인이기에 증가하지 않음");
+			System.out.println("비로그인은 조회수가 증가하지 않음.");
 		}
-		
 
 		System.out.println("자주묻는질문 개별페이지");
 
