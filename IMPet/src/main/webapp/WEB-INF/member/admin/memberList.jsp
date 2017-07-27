@@ -120,7 +120,7 @@ function ajaxdeleteView(memberID){
 
 function ajaxPageView(page){	
 	
-	alert(page);  
+	//alert(page);  
 	var dataList =
 	{ 
 		"PAGE" : page	
@@ -164,7 +164,13 @@ function ajaxPageView(page){
 </div>
 
 <div class="row">
-	<div class="col-sm-12">
+	<div class="panel panel-default">
+	 <div class="panel-heading">
+                         [회원목록] 회원 목록, 검색, 수정 페이지 입니다.
+        </div>
+	
+	<div id="dataTables-example_wrapper" class="panel-body">
+	
 	
 		<table class="table  table-bordered table-hover dataTable no-footer"
 				id="dataTables-example" role="grid"
@@ -172,15 +178,15 @@ function ajaxPageView(page){
 			
 			<thead>
 				<tr role="row" style="vertical-align:middle;">
-					<th style="width: 10 %; text-align:center;vertical-align:middle;">번호</th>
+					<th style="width: 7%; text-align:center;vertical-align:middle;">번호</th>
 					<th style="width: 15%; text-align:center;vertical-align:middle;">ID</th>										
 					<th style="width: 10%; text-align:center;vertical-align:middle;">이름</th>
-					<th style="width: 10%; text-align:center;vertical-align:middle;">별칭</th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">닉네임</th>
 					<th style="width: 15%; text-align:center;vertical-align:middle;">전화번호 </th>
 					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
 					<th style="width: 8%; text-align:center;vertical-align:middle;">사용여부</th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">관리</th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">관리</th>
 					
 					
 				</tr>
@@ -193,44 +199,45 @@ function ajaxPageView(page){
 					
 					<tr>
 					
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.NO}
 						</td>
 						
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_ID}
-						</td>						
+						</td >						
 							
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_NAME}
 						</td>
 						
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_NICKNAME}
 						</td>
-						<td>
+						
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_TEL}
 						</td>		
 						
 							
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList. MEMBER_EMAIL}
 						</td>
 						
 								
 						
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_JOIN_DATE}
 						</td>
 						
 						
-						<td>
+						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_USERYN}
 						</td>
 					
 					
 						
-						<td>	
+						<td style="text-align:center;vertical-align:middle;">
 							<a name='Modified'>							
 								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
 								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
@@ -250,8 +257,8 @@ function ajaxPageView(page){
 		</table>						
 	
 	
-	
-	</div>
+	<!-- 
+	</div> -->
 
 
 </div>
@@ -268,6 +275,8 @@ function ajaxPageView(page){
 		
 	</div>
 
+</div>
+</div>
 </div>
 
 
