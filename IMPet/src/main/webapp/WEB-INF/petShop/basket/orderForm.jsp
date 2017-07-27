@@ -251,7 +251,7 @@
 											<input type="radio" name="ORDER_PAYER" value="하나은행 : 762-910017-00507 아임펫" required>
 									</div>
 									
-						    		<div style="float:left;"><img src="/IMPet/resources/image/test/paybank.jpg">
+						    		<div style="float:left;"><img src="/IMPet/resources/image/shop/paybank.jpg">
 						    		</div>
 					    					    	   		
 					    		</div>

@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 	function delchk() {
 		
@@ -96,6 +96,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 		});    
 	});  
 }; 
+
 </script>
 <style type="text/css">
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
@@ -111,6 +112,21 @@ $.fn.rowspan = function(colIdx, isStats) {
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
+
+ #button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 100px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}
 </style>
 <div class="category_top">
 	<ul>
@@ -197,7 +213,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 			</div>
 			
 			<div class="basket_button">					
-				<a href="/IMPet/PetShop/Main" ><img src="http://okidogki.com/web/upload/goodymallSkin/product/btn_order_ing.gif" alt="쇼핑계속하기"></a>  		
+				<a href="/IMPet/PetShop/Main"><input type="button" value="쇼핑계속하기" id="button" style="float: right;"/></a>  		
 			</div>		
 		</form>
 		</div>
