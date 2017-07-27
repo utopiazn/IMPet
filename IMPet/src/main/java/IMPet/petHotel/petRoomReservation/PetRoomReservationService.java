@@ -17,7 +17,7 @@ public interface PetRoomReservationService {
 
 	public void resDelete(Map<String, Object> map) throws Exception;
 	
-	public List<Map<String, Object>> selectUserList(String str) throws Exception;
+	public List<Map<String, Object>> selectUserList(Map<String, Object> map, String str) throws Exception;
 	
 	public List<Map<String, Object>> selectAllList(Map<String, Object> map) throws Exception;
 
