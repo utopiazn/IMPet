@@ -279,6 +279,9 @@
     	margin-top: 14px;
     	width: 30px;
 	}
+	.contents{
+display: none;
+}
 	
 
 .star_rating {font-size:0; letter-spacing:-4px;}
@@ -514,25 +517,27 @@
 					
 						<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
 						<tr>
-							<td></td>
+							<td>${comment.RNUM }</td>
 							<td class="REVIEW_STAR" style="foloat:left;">
 								  <c:if test='${comment.REVIEW_STAR == 1}'>
-								      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 2}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 3}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 4}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 5}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-								      </c:if>	
+								      <img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 2}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 3}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								  <c:if test='${comment.REVIEW_STAR == 4}'>
+								      <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
+								  </c:if>
+								 <c:if test='${comment.REVIEW_STAR == 5}'>
+								       <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
+								 </c:if>	
 							</td>
-							<td style="text-align: left !important; ">${comment.REVIEW_SUBJECT}</td>
+							<td style="text-align: left !important; " class="title">${comment.REVIEW_SUBJECT}
+								<input type="hidden" id="content" value="${comment.RNUM }">
+							</td>
 							<td >${comment.MEMBER_ID}</td>
 							<td ><fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
 							<%-- <td >
@@ -542,6 +547,29 @@
 									</a>
 								</c:if>
 							<td> --%>
+						</tr>
+						<tr>
+							<td id="${comment.RNUM }" class="contents" colspan="5">
+								<table width="100%" >
+									<colgroup>
+										<col width="85%">
+										<col width="15%">
+									</colgroup>
+									<tr style="border: none !important;">
+										<td style="text-align:left;padding-left: 50px;">${comment.REVIEW_CONTENT}</td>
+										<td style="text-align: center; ">
+											<c:if test="${member_ID == comment.MEMBER_ID}">
+												<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" style="text-decoration: none; color:black;">
+													X
+												</a>
+											</c:if>
+										</td>
+									</tr>
+								
+								</table>
+								
+							</td>
+						
 						</tr>
 						<!-- 후기리스트영역 -->
 						<%-- <div class="review_view" style="margin-left: 165px;">
@@ -596,4 +624,25 @@
 </div>	
 
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".title").click(function(){
+			
+			var i =$(this).parent().find("#content").val();  
+			$("#"+i).toggle(); 
+			
+/* 			if($("#"+i) == true){ // state가 none 상태일경우
+				$("#"+i).show(); // ID가 moreMenu인 요소를 show();
+	        }else{ // 그 외에는
+	        	$("#"+i).hide(); // ID가 moreMenu인 요소를 hide();        
+	        } */
+
+			
+		});
+	    $(".title").mouseover(function(){
+	    	$(this).css("cursor","pointer");
+	    });
+	});
+</script>
 </html>
+
