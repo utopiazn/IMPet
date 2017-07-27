@@ -18,10 +18,18 @@ $(document).ready(function() {
 
 		$('a[href=#feed]').trigger("click");
 		
+		
 	}else  
 	{
 		$('a[href$=' + tab + ']').trigger("click");
 	}
+
+	$(".my-account li").click(function() {
+		alert("!1");
+		$(".my-account li").removeClass("selected");
+
+		$(this).addClass("selected");
+	}); 
 });
 </script>
 
@@ -91,9 +99,6 @@ $(document).ready(function() {
 	text-align: left;
 }
 
-.account-nav {
-	display: block;
-}
 .my-account .clear {
 	 padding-left: 0px;
 	border: 1px;
@@ -128,22 +133,6 @@ $(document).ready(function() {
 	text-decoration: none;
 }
 
-@media ( max-width : 767px) {
-	.account-nav ul li {
-		width: 25%;
-		float: left;
-		border: 1px solid #000;
-		margin-right: -1px;
-		margin-bottom: -1px;
-		border-radius: 0 !important;
-		padding: 5px 0;
-	}
-	.account-nav ul li.m-1 {
-		margin-left: -1px;
-	}
-	.account-nav ul li.xx {
-		width: 33.333%;
-	}
 	.clear:after {
 		content: ".";
 		height: 0;
@@ -175,11 +164,11 @@ $(document).ready(function() {
 <div class="personal-account-info container">
 	<div class="my-account row">
 		<ul class="clear">
-			<li class="tabs"><a href="#feed" onclick="javascript:tab(0)">사료 <em class="badge badge-point"></em></a></li>
+			<li class="tabs"><a href="#feed" onclick="javascript:tab(0)">사료</a></li>
 			<li class="tabs"><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
-			<li class="tabs"><a href="#clothing"	onclick="javascript:tab(2)">의류<span></span></a></li>
-			<li class="tabs"><a href="#toy" onclick="javascript:tab(3)">장난감<em class="badge badge-point"></em></a></li>		
-			<li class="tabs"><a href="#stuff" onclick="javascript:tab(4)">잡화 <em class="badge">${newAlarm }</em></a></li>
+			<li class="tabs"><a href="#clothing"	onclick="javascript:tab(2)">의류</a></li>
+			<li class="tabs"><a href="#toy" onclick="javascript:tab(3)">장난감</a></li>		
+			<li class="tabs"><a href="#stuff" onclick="javascript:tab(4)">잡화 </a></li>
 		</ul>
 	</div>
 	
@@ -187,16 +176,4 @@ $(document).ready(function() {
 		
 	</div>
 </div>
-<script>
-    $(document).ready(function () {
-        $("li").each(function () {
-            $(this).click(function () {
-                $(this).addClass("selected");                      //클릭된 부분을 상단에 정의된 CCS인 selected클래스로 적용
-                $(this).siblings().removeClass("selected");  //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
-            });
-        });
-    });
 
-
-
-</script>

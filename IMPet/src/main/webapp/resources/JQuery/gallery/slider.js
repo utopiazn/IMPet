@@ -50,7 +50,7 @@ $('.slide_wrap').each(function(){
     stopPlay(); // 애니메이션 시간 초기화
     $autoPlay = setInterval(function(){ auto() }, 3000); // 애니메이션 다시 시작
 
-    $ul.stop().animate({left:-($liWidth*$index)}, 700, 'easeInOutExpo'); // ul 위치값 이동
+    $ul.stop().animate({left:-($liWidth*$index)}, 900, 'easeInOutExpo'); // ul 위치값 이동
 
     $control.children('li').removeClass('active'); 
     $control.children('li').eq($index).addClass('active');
