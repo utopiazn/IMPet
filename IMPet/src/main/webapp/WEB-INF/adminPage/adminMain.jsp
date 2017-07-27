@@ -157,13 +157,13 @@
 			
 			<c:when test="${adminCode==10}">
 				<div style="width: 90%; ">
-					<jsp:include page="/WEB-INF/community/gallery/galleryList.jsp"/>
+					<jsp:include page="/WEB-INF/community/admin/galleryMemberList.jsp"/>
 				</div>
 			</c:when>
 			
 			<c:when test="${adminCode==11}">
 				<div style="width: 90%; ">
-					<jsp:include page="/WEB-INF/community/event/eventList.jsp"/>
+					<jsp:include page="/WEB-INF/community/admin/eventMemberList.jsp"/>
 				</div>
 			</c:when>
 			

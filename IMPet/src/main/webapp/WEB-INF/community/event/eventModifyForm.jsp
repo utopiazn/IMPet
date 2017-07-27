@@ -13,11 +13,13 @@
 	<h1 class="page-header">이벤트 수정</h1>
 </div>
 
+
+	<form action="/IMPet/Community/EventModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
 <div class="row" style="padding-left:15px;width:100;text-align:left;">
 	<div class="panel panel-default">
 		<div class="panel-heading" >상품수정 페이지입니다. 이미지 확인하십시오</div>
 			<div class="panel-body" style=text-align:left;>
-				<form action="/IMPet/Community/EventModify" enctype="multipart/form-data" method="post" name="modifyForm" onsubmit="return validateForm()">	
+			
 				
 						<input type="hidden" name="EVENT_NO" value="${view.EVENT_NO}"/>
 				 
@@ -59,14 +61,25 @@
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
                             
                      </div>
+                     
+                     	 <c:if test="${ADMIN eq '1'}">
+                            	<input type="hidden"  name="ADMIN" value="${ADMIN}">
+                            	xxxxxxxxxxxxxxxxxxxxx
+                          </c:if>
+                     
                        
-						<button type="submit" class="btn btn-success">이벤트수정</button>
-						<button type="reset" class="btn btn-default">작성취소</button>					
-				</form>
+				
 			</div>
+			
+				
 	</div>
-</div>
+	
+</div>  
 
+	<button type="submit" class="btn btn-success">이벤트수정</button>
+					<button type="reset" class="btn btn-default">작성취소</button>					
+				
+</form>
 
 
 <!-- 

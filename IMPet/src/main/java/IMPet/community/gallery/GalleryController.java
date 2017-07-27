@@ -167,7 +167,7 @@ public class GalleryController {
 	
 	//커뮤니티 갤러리 리스트 관리자용
 	@RequestMapping(value="/AdminGalleryList")
-	public ModelAndView GalleryListAdmin(){
+	public ModelAndView GalleryListAdmin(CommandMap commandMap) throws Exception{
 
 
 		ModelAndView mav = new ModelAndView();
@@ -177,6 +177,26 @@ public class GalleryController {
 		//관리자페이지 통합코드
 		int adminCode = 10;
 		mav.addObject("adminCode", adminCode);
+		
+		
+		
+		
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
+
+		
+		
+		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		
+		
+		imageSplitMain(listAll);
+		
+		System.out.println(listAll);
 
 		mav.setViewName("AdminPage");
 		return mav;

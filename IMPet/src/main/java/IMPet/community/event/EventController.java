@@ -54,15 +54,12 @@ public class EventController {
 		
 		if(Event.equals("1")){
 			url = "community/event/eventListAdd";
-			//System.out.println("222222222222222222222222222222222222222222222222");
 			
 			menu=0;
 			mav.addObject("menu", menu);
 			
 		}else{			
-			url = "EventList1";
-			
-			//System.out.println("11111111111111111111111111111111111111");
+			url = "EventList1";			
 			
 			menu=1;
 			mav.addObject("menu", menu);
@@ -132,7 +129,7 @@ public class EventController {
 	
 	//이벤트 리스트 관리자용
 	@RequestMapping(value="/AdminEventList")
-	public ModelAndView EventListAdmin(){
+	public ModelAndView EventListAdmin(CommandMap commandMap) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 
@@ -142,6 +139,20 @@ public class EventController {
 		//관리자페이지 통합코드
 		int adminCode = 11;
 		mav.addObject("adminCode", adminCode);
+		
+		
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
+		
+	
+		
+		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		System.out.println(listAll);
 
 		mav.setViewName("AdminPage");
 		
@@ -244,6 +255,13 @@ public class EventController {
 		ModelAndView mav = new ModelAndView();
 		String url = "community/event/eventModifyForm";
 		System.out.println("이벤트 수정폼");
+		
+		
+		if(!commandMap.get("ADMIN").toString().equals("")){
+			
+			System.out.println("ADMIN"+commandMap.get("ADMIN").toString());
+			mav.addObject("ADMIN", commandMap.get("ADMIN").toString());
+		}
 
 		commandMap.MapInfoList();
 		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
@@ -269,12 +287,24 @@ public class EventController {
 
 		System.out.println("이벤트 수정처리");
 
-	
+		String url ="redirect:/Community/EventList?Event='1'";
+
+
+		//String url ="redirect:/Community/EventList?Event=1";
+		  
+		
+		if(!commandMap.get("ADMIN").toString().equals("")){
+			
+			
+			
+			url ="redirect:/Community/AdminEventList";
+			
+		}
+		
 		
 		
 		ProjectUtil util = new ProjectUtil();
 		
-		String url ="redirect:/Community/EventList?Event='1'";
 		
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
