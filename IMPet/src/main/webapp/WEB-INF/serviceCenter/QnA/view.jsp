@@ -7,6 +7,9 @@
 
 <html lang="ko">
 <head>
+<link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css"
+	rel="stylesheet" style="text/css">
+
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -54,7 +57,7 @@
 </head>
 <body>
 
-<div style="height: 1200px;">
+<%-- <div style="height: 1200px;">
 
 	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
 		<br/>
@@ -100,7 +103,57 @@
  	</div>
  	
 
-</div>			
+</div>			 --%>
+
+
+<div align="right">
+			<input class="button2" name="list" type="button" value="목록"
+				onclick="location.href='/IMPet/ServiceCenter/QuestionList'" />
+		<br/><br/>
+		</div>
+		
+
+		<div class="panel panel-default"
+			style="font-size: 15px; text-align: center; width: 100%;">
+			<div class="panel-heading">QnA</div>
+
+			<div class="panel-body" style="text-align: left;">
+			
+				<div class="form-group"; style="text-align: center;">
+					<h3>- ${view.QNA_SUBJECT} - </h3>
+					</div>
+					<br /><br />
 					
+					<div class="form-group">
+						<label> ID:</label> ${view.MEMBER_ID}
+					</div>
+					<div class="form-group">
+						<label> 작성일 :</label> ${view.QNA_DATE}
+					</div>
+					<div class="form-group">
+						<label> 조회수 :</label> ${view.QNA_COUNT}
+					</div>
+					
+					<div class="form-group">
+						<label> 내용 :</label> ${view.QNA_CONTENT}
+					</div>
+					
+					
+					
+					</div>
+							
+					</div>
+					
+<div align=center>
+		<input value="답글" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
+	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/> 	
+ 	
+</div>
+
+
+<br /><br /><br /><br /><br />			
 
 </body>
+
+</html>
