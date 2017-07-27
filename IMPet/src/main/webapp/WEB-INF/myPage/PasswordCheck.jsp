@@ -16,6 +16,8 @@
 												#confirm_password	{ border:1px solid #CCCCCC; width:120px; }
 												#cp_text1			{ color:#FF0000; font-family:dotum; font-size:12px; padding-top:10px; }
 												#cp_button			{ padding:20px 0px; text-align:center; }
+												
+												 #button  {  background: #f6f6f6;  color: #11111;  width: 70px;  height: 30px;  border: 0;  font-size: 15px;  border-radius: 4px;  font-family: 'Noto sans KR', sans-serif;  -webkit-transition: .6s;  transition: .6s;  overflow: hidden;  cursor: pointer;}
 											</style>
 											
 
@@ -48,9 +50,12 @@
 														<table align="center" border="0" cellpadding="0" cellspacing="0">
 															<tbody>
 																<tr class="ok">
-																	<td valign="top"><a href="javascript:;" onclick="javascript:ajaxmembermodify(2); ">확인</a></td>
-																	<td width="5"></td>
- 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">취소</a></td>
+																	<td valign="top">
+																		
+																		<input type="button" id="button" onclick="javascript:ajaxmembermodify(2);" value="확인">
+																	</td>
+													
+ 																
 																</tr>
 															</tbody>
 														</table>

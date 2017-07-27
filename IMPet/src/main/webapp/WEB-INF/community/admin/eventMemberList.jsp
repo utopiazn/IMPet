@@ -64,7 +64,7 @@ function ajaxEventModifyForm(EVENT_NO){
 		  
 	var url1 = "/IMPet/Community/EventModifyForm";
 	
-	 alert(EVENT_NO);     	
+   	
 
 	 var dataList =
 		{ 
@@ -105,7 +105,7 @@ function ajaxEventDelete(EVENT_NO){
  	var obj =document.jform;
 
  	
- 	alert(	obj.EVENT_IMG.value);     	
+
 
 
 	 var dataList =

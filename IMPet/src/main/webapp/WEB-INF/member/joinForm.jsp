@@ -99,7 +99,7 @@
 	<div class="boardWrite" align="center">
 
 <form name="jform" >	
-		<table border="1" summary="" style="width: 53%">
+		<table border="1" summary="" style="width: 75%">
 		
 			<tbody>
 					
@@ -157,7 +157,7 @@
 					</tr>	
 					
 					<tr>						
-						<th scope="row">상제 주소</th>
+						<th scope="row">상세 주소</th>
 						<td>
 							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text" required>
 						</td>						
@@ -195,9 +195,9 @@
 					
 					
 					<tr>						
-						<th scope="row">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
+						<th scope="row">요구사항<br/>(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
 						<td>
-								<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required ></textarea>
+								<textarea name="MEMBER_REQUESTS"  cols="80" rows="10" required ></textarea>
 						</td>						
 					</tr>	
 			
@@ -219,8 +219,10 @@
 	<br/><br/>
 		<!-- <input value="가입 완료" type="button" onclick="ajaxJoinInsertView();"/>	
 		 -->
-		<div class="btnArea">				
-			<a class="effect effect-5"  title="가입 완료" onclick="ajaxJoinInsertView();">다음 단계로 이동</a>
+		<div class="btnArea" style="float: right;">				
+			<a class="effect2 effect-6"  title="가입 완료" onclick="ajaxJoinInsertView();">다음 단계로 이동</a>
+		<br></br>
+		
 		</div>	
 	<br></br>
 </div>	

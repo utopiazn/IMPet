@@ -29,14 +29,17 @@
 	</select>
 	
 	<!-- 예약리스트(고객용) -->
-	<select id="selectUserList" parameterType="String" resultType="hashmap">
+	<select id="selectUserList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
+		select c.* from (
 		SELECT
-			  a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
+			  row_number() over(order by a.RES_NO DESC) as NO, a.RES_NO, a.ROOM_NO, a.RES_FIRSTDATE, a.RES_LASTDATE,
 		  	   a.MEMBER_ID, a.RES_PRICE, a.RES_REQUESTS, a.RES_STATE, NVL(b.ROOM_NAME ,'')  as ROOM_NAME
 		FROM PET_ROOM_RESERVATION a LEFT join PET_ROOM b on a.ROOM_NO = b.ROOM_NO
-		WHERE MEMBER_ID = #{member_ID}
-		ORDER BY RES_NO DESC
+		WHERE MEMBER_ID = #{member_ID} and  res_state <> 2) c
+		where 
+			c.NO between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
+		 ORDER BY RES_NO DESC
 		]]>
 	</select>
 	
@@ -84,14 +87,27 @@
 		]]>
 	</delete>
 	
-	<!-- 예약 전체 갯수 -->
-	<select id="selectResCount" resultType="hashmap">
+	<!-- 예약 전체 갯수(admin) -->
+	<select id="selectResAdminCount" resultType="hashmap">
 			
 		<![CDATA[		
 			 select 
 			 	count(*) as count 
 			 from 
 			 	PET_ROOM_RESERVATION 			
+			
+		]]>
+	</select>
+	
+	<!-- 예약 전체 갯수(고객) -->
+	<select id="selectResCount" parameterType="String" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	PET_ROOM_RESERVATION 
+			 WHERE MEMBER_ID = #{member_ID} and  res_state <> 2			
 			
 		]]>
 	</select>

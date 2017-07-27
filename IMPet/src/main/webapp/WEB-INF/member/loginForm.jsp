@@ -118,9 +118,11 @@ function ajaxFindPwView(){
 <body>
 
 <div id ="Context">
-	
+	<br/><br/>
+	<font color="red">
 	${ errorMsg }
-	<br/><br/><br/>
+	</font>
+	<br/><br/>
 	 
 	<form name="jform" method="post">	
 	 

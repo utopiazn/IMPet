@@ -5,7 +5,7 @@
 	padding: 0 0 0 0;
     margin: 0 0 0 5px;
     color: #999;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 0px;
     float:left;
     list-style:none;
@@ -17,26 +17,26 @@
 
 .orderArea h3 {
 	margin: 30px 0 5px 5px;
-	font-size: 12px;
+	font-size: 14px;
 	color: #888;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .orderArea .boardWrite table {
 	table-layout: fixed;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	font-size: 12px;
+	font-size: 14px;
 	width: 100%;
 	border: 0;
 	border-spacing: 0;
 	border-collapse: collapse;
-	font-weight: 800;
+/* 	font-weight: 800; */
 	text-align: left;
 }
 
 .orderArea .boardWrite table th {
-	width: 140px;
+	width: 200px;
 	padding: 5px 0 5px 22px;
 	border-top: 1px solid #e7e7e7;
 	background: #FAFAFA;
@@ -44,6 +44,7 @@
 	text-align: left;
 	line-height: 140%;
 	border-left: 0px;
+	font-weight: 400;
 }
 
 .orderArea .boardWrite table td {
@@ -52,20 +53,20 @@
 	border-top: 1px solid #e7e7e7;
 	color: #8f8f8f;
 	line-height: 140%;
-	font-size: 12px;
+	font-size: 14px;
 	border-right: 0px;
 }
 
 .boardWrite input[type="text"] {
 	text-indent: 5px;
-	font-size: 12px;
+	font-size: 15px;
 	border: 1px solid #cfcecd;
 	background: #fff;
 }
 
 .order_main .order {
 	color: #8f8f8f;
-	font-size: 13px;
+	font-size: 14px;
 	border-bottom: 1px solid #e5e5e5;
 	width: 1000px;
 	margin: 0 auto;
@@ -80,7 +81,7 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	background: #f6f6f6;
-	font-weight: normal;
+	/* font-weight: normal; */
 	font-size: 15px;
 	color: #888;
 }
@@ -105,3 +106,56 @@
   overflow: hidden;
   cursor: pointer;
 }
+.effect2 {
+  text-align: center;
+ display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: #FFDC4C;
+    font-family: 'hanna', sans-serif;
+    font-size: 18px;
+    padding: 12px 0px;
+    width: 145px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.effect2.effect-6 {
+  -webkit-transition: all 0.2s linear 0s;
+  transition:  0pxall 0.2s linear 0s;
+}
+.effect2.effect-6:before {
+  content: ">"; 
+  font-family:  sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 100%;
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0 50% 50% 0;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.effect2.effect-6:hover {
+  text-indent: 15px;
+}
+.effect2.effect-6:hover:before {
+  -webkit-transform: scale(3, 1);
+          transform: scale(1, 1);
+  text-indent:0px;
+  }

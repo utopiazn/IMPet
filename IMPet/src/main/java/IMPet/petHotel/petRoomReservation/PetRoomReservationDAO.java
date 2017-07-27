@@ -34,9 +34,11 @@ public class PetRoomReservationDAO extends AbstractDAO{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> selectUserList(String str) throws Exception {
+	public List<Map<String, Object>> selectUserList(Map<String, Object> map, String str) throws Exception {
 		
-		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectUserList", str);
+		map.put("member_ID", str);
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("PetRoomReservationSQL.selectUserList", map);
 		
 		return list;  
 	}
@@ -66,9 +68,19 @@ public class PetRoomReservationDAO extends AbstractDAO{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public int selectResCount() throws Exception {
+	public int selectResAdminCount() throws Exception {
 		
-		Map<String, Object> view= (Map<String, Object>)selectOne("PetRoomReservationSQL.selectResCount");
+		Map<String, Object> view= (Map<String, Object>)selectOne("PetRoomReservationSQL.selectResAdminCount");
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public int selectResCount(String id) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("PetRoomReservationSQL.selectResCount", id);
 			
 		int count = Integer.parseInt(view.get("COUNT").toString());		
 		
