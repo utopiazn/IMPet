@@ -64,9 +64,18 @@
 	
 	<!-- 상품 후기 리스트 -->
 	<select id="selectList" resultType="hashmap" parameterType="hashmap">
-		<include refid="selectAll"/>
-		<![CDATA[ WHERE ITEM_NO = #{ITEM_NO} ]]>
-		<![CDATA[ ORDER BY REVIEW_NO DESC ]]>
+		SELECT 
+			REVIEW_NO ,
+			ITEM_NO ,
+			REVIEW_SUBJECT ,
+			REVIEW_CONTENT ,
+			MEMBER_ID ,
+			REVIEW_IMG ,
+			REVIEW_STAR ,
+			REVIEW_DATE, 
+			row_number() over (order by REVIEW_NO desc) as rnum FROM PET_ITEM_REVIEW  			 
+		  WHERE 
+		  	ITEM_NO = #{ITEM_NO} order by review_no
 	</select>
 	
 </mapper>
