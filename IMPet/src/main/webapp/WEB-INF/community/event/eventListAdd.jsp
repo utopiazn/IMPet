@@ -3,62 +3,85 @@
 
 
 
-<c:if test="${sessionScope.member_Admin==1 }">
-			<div align="right">
-				<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
-			</div>
-		</c:if>		
+	<c:if test="${sessionScope.member_ID ne null }">
+		<div align="right">
+			<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
+		</div>
+	</c:if>		
+
+
+
+
+
+<div class="search-results pen-grid" style="padding-bottom: 0px;margin-top: 5px;" >
+
 	
-	<!-- <div id="ContextEvent" align="center" style="width:100%;  float: left;">
-	 -->
+	<c:forEach var="Event" items="${listAll}"  varStatus="stat">
+	
+		
+	 <div class="single-pen" data-slug-hash="aOBgpj" style="width: 31%;   height: 31%;"  >
+	
+		<div class="iframe-wrap loaded">
+		
+			<a href="javascript:EventView(${Event.EVENT_NO});" class="cover-link">
+					<img alt="s2" src="/IMPet/resources/image/event/${Event.EVENT_IMG}" width="100%" height="100%" >	
+			</a>			
+	
+			
+		</div>
+			
+		<div class="meta">
+			
+			<h3 class="item-title">
+				제목:   ${Event.EVENT_SUBJECT}
 				
-		<div align="center">
-			<table style="width: 100%">
+			</h3>
 			
-				<c:forEach var="Event" items="${listAll}">
+			<div class="user-and-stats">
+			
+				<div class="user">
+			
+			  	<a class="username" href="/tailofmoon">
+			    		이벤트 기간 :<span>${Event.EVENT_TIME}</span>
+			 	 </a>
+			</div>
+			
+			<div class="stats">
+			
+				<a class="single-stat views">
 				
-					<tr>
-						<td>
-							<div class="con">
-								<div>
-									<img alt="s2" src="/IMPet/resources/image/event/${Event.EVENT_IMG}" onclick="EventView(${Event.EVENT_NO});" style="padding-left : 8px; width: 30%; height: 100%; float:left;" >
-								</div>
-								
-								<div>
-									 <a href="javascript:EventView(${Event.EVENT_NO});" >
-									 
-									 <h3>&nbsp;&nbsp; ${Event.EVENT_SUBJECT}</h3>	
-									 								 
-									 <div  style="text-align:right; "> 조회수: ${Event.EVENT_COUNT}&nbsp;&nbsp;&nbsp; </div>
-									 
-									  <br/>
-									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Event.EVENT_TIME} <br/>									 
-									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Event.EVENT_CONTENT} <br/>
-									 
-									 
-									 </a>
-								</div>
-							</div>
-									
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
+					${Event.EVENT_COUNT}				
+					<img  src="/IMPet/resources/image/gallery/view.png" width="17px" height="12px" >
+				
+			  	</a>
 			
 			
-			<div class="paging">			
+			
+			</div>
+			
+		  </div>
+		
+		</div>
+	
+	</div>	
+	
+	</c:forEach>
+	
+	
+					
+</div>	
+
+	<div class="paging">			
 				${pagingHtml} 
-			</div>
-	</div>			 					 
-		
-	
-		
-	
-	
-	
-	<!-- 
-	</div> -->
-	
+	</div>
+
+
+
+
+
+
+
+
 
 
 		

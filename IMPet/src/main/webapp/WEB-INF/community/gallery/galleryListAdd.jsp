@@ -73,7 +73,7 @@
 					
 </div>	
 
-	<div class="paging">			
-				${pagingHtml} 
-	</div>
+<div class="paging">			
+	${pagingHtml} 
+</div>
 

@@ -8,6 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<link rel="stylesheet" href="/IMPet/resources/css/gallery/gallery.css">
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
@@ -110,8 +111,6 @@
 </style>
 
 
-
-
 <script type="text/javascript">
 
 
@@ -150,10 +149,8 @@ function ajaxEvent(){
 
 function EventView(EVENT_NO){
 		  
-	var url1 = "/IMPet/Community/EventView";
+	var url1 = "/IMPet/Community/EventView";	
 	
-	 alert(EVENT_NO);     	
-
 	 var dataList =
 		{ 
 			"EVENT_NO" : EVENT_NO	
@@ -216,54 +213,14 @@ function ajaxEventModifyForm(EVENT_NO){
 
 
 function EventDelete(EVENT_NO){
-	
-	
-	
-	/* alert(EVENT_NO);     
-	alert(EVENT_IMG);      */
-	if( confirm("현재 이베트를  삭제하시겠습니까?") ){	
+
+	if( confirm("현재 이벤트를  삭제하시겠습니까?") ){	
 		
 		ajaxEventDelete(EVENT_NO);
 	}
 	
 }
 	
-	
-/* 
-
-function ajaxEventDelete(EVENT_NO){
-	
-		
-		var url1 = "/IMPet/Community/EventDelete";
-		
-		 //alert(EVENT_NO);     	
-	
-		 var dataList =
-			{ 
-				"EVENT_NO" : EVENT_NO	
-			}	
-	
-		
-		
-	    $.ajax({    
-	      type : "POST",
-	      url : url1,
-	      data : dataList,
-	      dataType : "text",      
-	      error : function() {
-	    	  
-	    	 alert('오류임!');     	
-	      },
-	      success : function(data) {  
-	    	 $('#ContextEvent').html(data);
-	        		
-	      }
-	      
-	    });    		 
-   
-}
-
- */
 
 function ajaxEventDelete(EVENT_NO){
 	
@@ -274,7 +231,7 @@ function ajaxEventDelete(EVENT_NO){
 	 	var obj =document.jform;
 	
 	 	
-	 	alert(	obj.EVENT_IMG.value);     	
+	 	//alert(	obj.EVENT_IMG.value);     	
 	
 	
 		 var dataList =
@@ -334,7 +291,7 @@ function ajaxeventForm(){
 
 function ajaxPageView(page){	
 	
-	alert(page);  
+	//alert(page);  
 	var dataList =
 	{ 
 		"PAGE" : page	
@@ -370,22 +327,23 @@ function ajaxPageView(page){
 
 
 
-<br/><br/>
 
 
 <div align="center" style="width: 100%;">
 
-	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
-	이벤트 게시판
-	<hr width="80%;" color="lightgray;" size="">
-	
-	</div>
 
 
-	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
+
+	<div id="ContextEvent" align="center" style="width:100%;  float: left;">	
 	
+	
+<br/><br/>	
+		<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+		이벤트 게시판
+		<hr width="80%;" color="lightgray;" size="">
 		
-		
+		</div>
+			
 			
 	
 		<jsp:include page="/WEB-INF/community/event/eventListAdd.jsp"/>
