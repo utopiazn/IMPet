@@ -1,5 +1,6 @@
 package IMPet.serviceCenter.notice;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
@@ -101,9 +104,8 @@ public class NoticeController {
 	public ModelAndView NoticeInsert(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		
         ModelAndView mav = new ModelAndView();
-		System.out.println("맵입니당"+commandMap.getMap()+"  파일입니당"+request);
+        
 		noticeService.insert(commandMap.getMap(), request);
-		
 
 		System.out.println("공지사항 추가");
 

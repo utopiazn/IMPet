@@ -47,6 +47,8 @@
 	.img{text-align: left; }
 	.comment td{text-align: center; vertical-align: middle; font-size: 12px;     padding: 5px 0px; border-bottom: 1px dotted #e1e1e1; }
 	.comment th{font-size: 12px;     padding: 5px 0px;     border-top: 1px dotted #e1e1e1;    border-bottom: 1px dotted #e1e1e1;    background: #f2f2f2;} 
+	.link{text-align: left;    border-bottom: 1px solid #e1e1e1;    width: 885px;    margin: 0 auto;}
+	
 </style>
 <script type="text/javascript">
 
@@ -421,18 +423,18 @@ display: none;
 	<!-- 상품정보 -->
 	<div class="product_ex">
 		<div id="preDetail">
-			<ul class="link">
-				<img src="/IMPet/resources/image/shop/detail_14tit.jpg" alt="상품정보"/>
+			<div class="link">
+				<img src="/IMPet/resources/image/shop/detail.png" alt="상품정보" style="width: 150px;"/>
 				&nbsp;<br/>
-			</ul>
+			</div>
 			<div class="de_detail">
 				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_DETAILIMG}"></p>
 			</div>
 		</div>
 		<div id="preDetail">
-			<ul class="link" >
-				<img src="/IMPet/resources/image/shop/detail_17tit.jpg" alt="배송정보" />
-			</ul>
+			<div class="link" >
+				<img src="/IMPet/resources/image/shop/itemicon.png" alt="배송정보" style="width: 150px;"/>
+			</div>
 			<div class="de_detail">
 				<p align="center"><img src="/IMPet/resources/image/itemImg/${view.ITEM_BASKETIMG}" style="width:90%;"></p>
 			</div>
@@ -543,6 +545,7 @@ display: none;
 							<%-- <td >
 								<c:if test="${member_ID == comment.MEMBER_ID}">
 									<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="button" style=" ">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" >
 										<span id="button">삭제</span>
 									</a>
 								</c:if>

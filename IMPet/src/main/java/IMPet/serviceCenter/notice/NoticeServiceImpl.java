@@ -37,16 +37,20 @@ public class NoticeServiceImpl implements NoticeService {
 		ProjectUtil util = new ProjectUtil();
 		
 		System.out.println("여기부터 시작입니다.");
-		System.out.println("request : "+request.getParameter("notice_IMG"));
-		System.out.println("여기부터 끝입니다.");
+		
+		Map<String,Object> key = noticeDAO.selectKey();
+		
+		int num = Integer.parseInt(key.get("NOTICE_NO").toString());
+		
+		System.out.println("key"+num);
+		
+		map.put("NOTICE_NO", num);
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/notice/";
 		
+		Map<String,Object> reMap = util.UploadFile(map, request, uploadPath, num);
 		
-		
-		Map<String,Object> reMap = util.UploadFile(map, request, uploadPath, Integer.parseInt((String) map.get("notice_NO")));
-			
-		
+		System.out.println("여기부터 끝입니다.");
 		
 		noticeDAO.insert(reMap);
 		

@@ -25,14 +25,18 @@
 		<include refid="seletClass" />
 		<include refid="where-no" />
 	</select>
-
+	
+	<select id="selectKey" resultType="hashmap">
+			SELECT pet_notice_no_seq.NEXTVAL as NOTICE_NO FROM DUAL
+	</select>
+	
 	<!-- 공지사항 추가 -->
 	<insert id="insert" parameterType="hashmap">
 	<![CDATA[
-	INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT, NOTICE_IMG,
-	NOTICE_COUNT, NOTICE_DATE)
-	VALUES (pet_notice_no_seq.nextval, #{notice_Subject}, #{notice_Content}, #{notice_IMG}, 
-	'0', sysdate)
+		INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT, NOTICE_IMG,
+		NOTICE_COUNT, NOTICE_DATE)
+		VALUES (#{NOTICE_NO}, #{notice_Subject}, #{notice_Content}, #{notice_IMG}, 
+		'0', sysdate)
 	]]>
 	</insert>
 	

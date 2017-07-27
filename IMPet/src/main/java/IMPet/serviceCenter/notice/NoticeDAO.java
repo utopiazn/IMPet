@@ -58,6 +58,10 @@ import IMPet.module.AbstractDAO;
 		}
 		
 		
+		public Map<String, Object> selectKey() throws Exception {
+			
+			return selectOne("NoticeSQL.selectKey");
+		}
 		
 	}	
 

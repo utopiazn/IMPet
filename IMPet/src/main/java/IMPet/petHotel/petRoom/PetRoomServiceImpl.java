@@ -39,7 +39,6 @@ public class PetRoomServiceImpl implements PetRoomService {
 	public void insert(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		
 		System.out.println("여기부터 시작입니다.");
-		System.out.println("request : "+request.getParameter("room_IMG"));
 		System.out.println("여기부터 끝입니다.");
 		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/hotel/roomImg/";
