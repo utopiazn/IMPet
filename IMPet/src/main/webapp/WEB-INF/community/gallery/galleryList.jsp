@@ -70,6 +70,25 @@
 }
 
 
+
+legend{display: none;}
+fieldset{border: 0;}
+
+/* 검색 */
+.sub_sps_sch { box-sizing: border-box;background-color: #f4f4f4; margin-bottom: 10px;}
+.sub_sps_sch div.select-box{width:100px; height:26px;display:inline-block; border:1px solid #c9c9c9; vertical-align: middle;}
+
+.sub_sps_sch select {height: 26px; width: 100px; color: #666; border:0;}
+.sub_sps_sch .search_box{position:relative;display:inline-block;}
+.sub_sps_sch .search_box input[type="text"]{height:26px;width:280px;padding-right:20px; margin-right: 2px; border:1px solid #c9c9c9; background-color: #fff;}
+.sub_sps_sch .btn_submit{width: 60px; line-height: 26px; background-color: #848484; color: #fff; text-align: center; border: 0; font-size: 13px;}
+
+/* 셀렉트박스 */
+.select-box { position: relative;width: 200px;height: 26px; background: #fff url('http://unibell.jnkworks.com/img/sub/search_arrow.png') no-repeat right top; border:none;}
+div.select-box label { position: absolute;    font-size: 12px;  font-weight:bold; color: #525252;    top: 6px;    left: 10px;    letter-spacing: 1px;}
+div.select-box select { width: 100%;    height: 26px;    min-height: 26px;    line-height: 26px;    padding: 0 10px;    opacity: 0;    filter: alpha(opacity=0); /* IE 8 */ background-color: #fff;}
+	
+
 </style> 
 
 
@@ -282,43 +301,14 @@ function ajaxPageView(page){
       });  
 }
 
-/* 
 
-function ImageIndex(index){
-	
-	
-	//alert(index); 
-	
-	
-	var Txt = "데이터가 없습니다.";
-	
-	if(index==1){
-		Txt = "${TxT01}";
-		
-	}else if(index==2){
-
-		Txt = "${TxT02}";
-		
-	}else if(index==3){
-		
-		Txt = "${TxT03}";
-		
-	}else if(index==4){
-		
-		Txt = "${TxT04}";
-		
-	}else if(index==5){
-		
-		Txt = "${TxT05}";
-		
-	}
-	
-	$("#dd").html(Txt);
-	
-
-		
-}
- */
+$(document).ready(function(){
+    var select = $("select.select-cus");
+    select.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+ });
 
 
 </script>
@@ -345,9 +335,10 @@ function ImageIndex(index){
 
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
 	
+	
+	
 
-	
-	
+		
 		<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>
 
 
