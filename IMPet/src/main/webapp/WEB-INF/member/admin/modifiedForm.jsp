@@ -226,7 +226,7 @@
 	
 	</table>
 	
-	<input value="회원 수정하기" type="button" id="button" onclick="ajaxJoinUpdateView();"/>
+	<input value="회원 수정하기" type="button" id="button" onclick="javascript:ajaxJoinUpdateView();"/>
 	
 </form>
 	</div>	

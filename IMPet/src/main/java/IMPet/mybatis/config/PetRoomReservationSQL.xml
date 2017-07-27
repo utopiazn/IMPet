@@ -87,14 +87,27 @@
 		]]>
 	</delete>
 	
-	<!-- 예약 전체 갯수 -->
-	<select id="selectResCount" resultType="hashmap">
+	<!-- 예약 전체 갯수(admin) -->
+	<select id="selectResAdminCount" resultType="hashmap">
 			
 		<![CDATA[		
 			 select 
 			 	count(*) as count 
 			 from 
 			 	PET_ROOM_RESERVATION 			
+			
+		]]>
+	</select>
+	
+	<!-- 예약 전체 갯수(고객) -->
+	<select id="selectResCount" parameterType="String" resultType="hashmap">
+			
+		<![CDATA[		
+			 select 
+			 	count(*) as count 
+			 from 
+			 	PET_ROOM_RESERVATION 
+			 WHERE MEMBER_ID = #{member_ID} and  res_state <> 2			
 			
 		]]>
 	</select>

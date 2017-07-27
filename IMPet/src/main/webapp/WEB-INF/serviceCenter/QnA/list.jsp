@@ -88,7 +88,7 @@ color: black;
 						<td width="50"><strong>${QNA.QNA_NO}</strong></td>
 						<td width="350"><strong>
 						<a href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'>
-						<c:if test="${QNA.QNA_REPLY==1}">ㄴ[답글]</c:if>
+						<c:if test="${QNA.QNA_REPLY==1}"><font color=RED>Re : </font>[답글]</c:if>
 						${QNA.QNA_SUBJECT}</a></strong></td>
 						<td width="120"><strong>${QNA.MEMBER_ID}</strong></td>
 						<td width="140"><strong>${QNA.QNA_COUNT}</strong></td>

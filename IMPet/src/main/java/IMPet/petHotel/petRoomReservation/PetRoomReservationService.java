@@ -21,6 +21,8 @@ public interface PetRoomReservationService {
 	
 	public List<Map<String, Object>> selectAllList(Map<String, Object> map) throws Exception;
 
-	int selectResCount() throws Exception;
+	public int selectResAdminCount() throws Exception;
+	
+	public int selectResCount(String id) throws Exception;
 
 }

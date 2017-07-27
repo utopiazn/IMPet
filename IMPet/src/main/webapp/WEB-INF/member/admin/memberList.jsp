@@ -48,9 +48,11 @@ $(document).ready(function(){
 	  
  	$("a[name='delete']").on("click", function(e){ //삭제 
     
-		var id =$(this).parent().find("#MEMBER_ID").val();	     	
+		var id =$(this).parent().find("#MEMBER_ID").val();	  	
+ 	
  		if(confirm(id +"의 회원 정보를 삭제하시겠습니까?")){		    		
-
+			
+ 		
  			e.preventDefault();   
     		ajaxdeleteView(id);
  		} 	
@@ -88,10 +90,15 @@ function ajaxModifiedFormView(memberID){
 
 function ajaxdeleteView(memberID){	
 	
+	 var value = $('#PAGE').val();
+
+	//alert(value);     
 	var dataList =
 	{ 
 		"MEMBER_ID" : memberID,
-		"ADMIN" : 	"1" 	
+		"ADMIN" : 	"1", 	
+		"PAGE"  :	value
+		
 	}	
 
 	var url1 = "/IMPet/Member/Delete";
@@ -246,7 +253,7 @@ function ajaxPageView(page){
 					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
 					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
 					 		
-					 	
+					 			<input type="hidden" name="PAGE" id="PAGE" value="${Page}" >
 					 	</td>
 					 	
 					 	
