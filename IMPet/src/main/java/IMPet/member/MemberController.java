@@ -72,7 +72,7 @@ public class MemberController {
 			
 		}else{ //로그인 실패시
 			
-			String errorMsg ="아이디 또는 비밀번호가 잘못 되었습니다 다시 확인해주세요";			
+			String errorMsg ="아이디 또는 비밀번호가 틀립니다. 다시 확인해주세요.";			
 			mav.addObject("errorMsg", errorMsg);	
 			
 		}
