@@ -4,6 +4,44 @@
 <script type="text/javascript">
 
 
+function ajaxComment(){	
+	
+	  
+	var obj =document.jform1;
+	//alert(obj.comment.value); 	 
+
+	
+	//alert(page);  
+	var dataList =
+	{ 
+		"GALLERYCOMMENT_CONTENT" :obj.comment.value,
+		"GALLERY_NO" :obj.GALLERY_NO.value
+	}	
+
+	var url1 = "/IMPet/Community/GalleryComment"; 
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('오류임!');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextGallery').html(data);          		
+        }
+        
+      });  
+     
+
+}
+
+
 function ajaxCommentDel(GALLERYCOMMENT_NO){	
 	
 	
@@ -79,47 +117,36 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 	
 </style>
 
-<div id="wrapper">
-	<div id="page-wrapper">
 
-		 
+
+<div id="wrapper">
+<div id="page-wrapper">
+
 	<!-- 코멘트 달기 -->
 	<div class="inner" align="center">
  		<div class="img"><img src="/IMPet/resources/image/review/review.png" alt="리뷰로고" /></div>
-		
-		<!-- review_grp -->
-		<form class="commentForm" method="post" style="width: 100%;">
-		<input type="hidden" name="GALLERY_NO" value="${GALLERY_NO}"/>
-		<input type="hidden" name="MEMBER_ID" value="${sessionScope.member_ID}"/>
 	
-				<div class="review_grp" >
-					<div class="review_form">
-				
-						<div class="review_write">
-						
-							<!-- 로그인전 -->
-							<c:if test="${sessionScope.member_ID == null}">
-                  				<input type="text" style="width: 100%; height: 55px;" value="로그인 후에 댓글 작성이 가능합니다." readonly="readonly"/>
-	      	 				</c:if>
-	      	 				
-	      	 				<!-- 로그인후 -->
-	      	 				<c:if test="${sessionScope.member_ID != null}">
-						
-								<div class="GALLERYCOMMENT_CONTENT" style="width: 100%;" align="center">
-									<div style="clear: both; text-align: left; position: relative ">
-										<textarea name="GALLERYCOMMENT_CONTENT" style="height: 65px; width: 89%;" placeholder="내용을 입력하세요" ></textarea>
-										<button type="button" class="btn1 btn-primary1" onclick="ajaxComment();" style="position: absolute; right: 0px; top: 0px;">입력</button>
-									</div>
-								</div>
-							</c:if>
-						</div>
-						
-					</div> &nbsp; &nbsp;
+		<form name="jform1" method="post" style="width: 100%;">
+			<input type="hidden" id ="GALLERY_NO"  value="${GALLERY_NO}">
+			
+	 		<!-- 로그인전 -->
+			<c:if test="${sessionScope.member_ID == null}">
+	        	<input type="text" style="width: 100%; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
+		    </c:if>	
+			
+			<!-- 로그인후 -->
+			<c:if test="${sessionScope.member_ID != null}">
+				<div class="GALLERYCOMMENT_CONTENT" style="width: 100%;" align="center">
+					<div style="clear: both;text-align: left;position: relative;padding: 3%;">
+						<textarea id="comment" name="comment" style="height: 65px; width: 89%;" placeholder="내용을 입력하세요" ></textarea>
+						<button type="button"  class="btn1 btn-primary1" onclick="ajaxComment();" style="float: right;">입력</button>
+					</div>
+				</div>
+			</c:if>
 
-				<table class="comment" style="margin-bottom:15px; width:100%;">
+			<table class="comment" style="margin-bottom:15px; width:100%;">
 				<colgroup>
 					<col width="5%">
-					<%-- <col width="15%"> --%>
 					<col width="">
 					<col width="15%">
 					<col width="15%">
@@ -128,7 +155,6 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
-						<!-- <th scope="col">만족도</th> -->
 						<th scope="col">상품평</th>
 						<th scope="col">작성자</th>
 						<th scope="col">작성일</th>
@@ -136,70 +162,28 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 					</tr>
 				</thead>
 									 
-					<c:forEach var="comment" items="${commentList}" varStatus="stat">
+				<c:forEach var="comment" items="${commentList}" varStatus="stat">
 					
-						<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
-						<tr>
-							<td>${comment.GALLERYCOMMENT_NO }</td>
-							<td style="text-align: left !important; " class="content">${comment.GALLERYCOMMENT_CONTENT}
-								<%-- <input type="hidden" id="content" value="${comment.RNUM }"> --%>
-							</td>
-							<td >${comment.MEMBER_ID}</td>
-							<td ><fmt:formatDate value="${comment.GALLERYCOMMENT_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
-							<td style="text-align: center; border: none; ">
-								<c:if test="${member_ID == comment.MEMBER_ID}">
-									<a href="javascript:ajaxCommentDel( ${comment.GALLERYCOMMENT_NO});" style="text-decoration: none; color:black;">
-										<img src="/IMPet/resources/image/review/review_delete.png">
-									</a>
-								</c:if>
-							</td>
-						</tr>			
-					</c:forEach>
-				</table>
-				</div><!-- // review_grp -->
+					<!-- <p class="review_num">댓글 수 <strong>1</strong></p> -->
+					<tr>
+						<td>${comment.GALLERYCOMMENT_NO }</td>
+						<td style="text-align: left !important; " class="content">${comment.GALLERYCOMMENT_CONTENT}
+							<%-- <input type="hidden" id="content" value="${comment.RNUM }"> --%>
+						</td>
+						<td >${comment.MEMBER_ID}</td>
+						<td ><fmt:formatDate value="${comment.GALLERYCOMMENT_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
+						<td style="text-align: center; border: none; ">
+							<c:if test="${member_ID == comment.MEMBER_ID}">
+								<a href="javascript:ajaxCommentDel( ${comment.GALLERYCOMMENT_NO});" style="text-decoration: none; color:black;">
+									<img src="/IMPet/resources/image/review/review_delete.png">
+								</a>
+							</c:if>
+						</td>
+					</tr>			
+				</c:forEach>
+			</table>
 		</form>
 	</div>
 </div>
 </div>
 
-
-
-<%-- ---------------------------------------------------------------------
-
-	<input type ="hidden" id = "GALLERY_NO" value="${GALLERY_NO}"/>
-
-	${GALLERY_NO }
-
-<c:choose>
-
-
-
-	<c:when test="${GALLERY_NUM == 0}">
-	
-		댓글 정보가 없습니다.
-	
-	</c:when>
-	
-	<c:otherwise>
-		
-		<c:forEach var="comment" items="${commentList}">
-					
-		
-			
-			<li class="compost">
-			
-				<div class="combody">
-					<p>${comment.GALLERYCOMMENT_CONTENT }</p>
-				</div>
-				
-				<p class="cominfo">
-					by&nbsp; ${comment.MEMBER_ID}　&nbsp;&nbsp;  	${comment.GALLERYCOMMENT_DATE} &nbsp;&nbsp;&nbsp;
-					<a href="javascript:ajaxCommentDel( ${comment.GALLERYCOMMENT_NO});" >
-					
-					[삭제]</a>
-					
-				</p>
-			</li>
-		</c:forEach>
-	</c:otherwise>
-</c:choose> --%>
