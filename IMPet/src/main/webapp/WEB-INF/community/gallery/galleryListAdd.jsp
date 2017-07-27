@@ -1,8 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-	
+<!DOCTYPE html>
+<meta charset="UTF-8">	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<c:if test="${sessionScope.member_ID ne null }">
 			<div align="right">
@@ -14,23 +15,27 @@
 	
 	
 <div class="sub_sps_sch">
-								<form action="">
-									<fieldset>
-									<legend>검색창</legend>
-										<div class="select-box">
-											<label for="">제목</label>
-											<select name="key" class="select-cus">
-												<option value="wr_subject">제목</option>
-												<option value="wr_content">내용</option>
-											</select>
-										</div>
-										<div class="search_box">
-											<input type="text" name="search_name" value="" required="" id="stx" class="search_name frm_input" size="15" maxlength="20" placeholder="검색어를 입력하세요" title="검색어를 입력하는 요소">
-											<input type="button" value="검색" class="btn_submit btn_submit_" title="검색을 누르는 버튼">
-										</div>
-									</fieldset>
-								</form>
-							</div>
+	<form action="">
+		<fieldset>
+			
+			<legend>검색창</legend>
+			
+			<div class="select-box">
+				<label for="">제목</label>
+				<select name="key" class="select-cus">
+					<option value="1">제목</option>
+					<option value="2">작성자</option>
+				</select>
+			</div>
+			
+			<div class="search_box">
+				<input type="text" name="search_name" value="" required="" id="stx" class="search_name frm_input" size="15" maxlength="20" placeholder="검색어를 입력하세요" title="검색어를 입력하는 요소">
+				<input type="submit" value="검색" class="btn_submit btn_submit_" title="검색을 누르는 버튼">
+			</div>
+			
+		</fieldset>
+	</form>
+</div>
 		
 	
 <div class="search-results pen-grid" style="padding-bottom: 0px;margin-top: 5px;" >

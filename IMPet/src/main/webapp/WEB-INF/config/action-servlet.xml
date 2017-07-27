@@ -44,6 +44,8 @@
     	class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2" 
     	p:viewClass="org.springframework.web.servlet.view.JstlView" 
     	p:prefix="/WEB-INF/" p:suffix=".jsp">
+    	 <property name="contentType" value="text/html; charset=UTF-8"/>
+
    	</bean>   
        
     
