@@ -84,9 +84,13 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 	}
 	
 	@Override
-	public int selectResCount() throws Exception {
-		// TODO Auto-generated method stub
-		return petRoomReservationDAO.selectResCount();
+	public int selectResAdminCount() throws Exception {
+		return petRoomReservationDAO.selectResAdminCount();
+	}
+	
+	@Override
+	public int selectResCount(String id) throws Exception {
+		return petRoomReservationDAO.selectResCount(id);
 	}
 	
 }

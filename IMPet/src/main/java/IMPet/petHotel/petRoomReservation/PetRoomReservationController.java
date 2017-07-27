@@ -100,13 +100,14 @@ public class PetRoomReservationController {
 		int page = 1;
 		
 		System.out.print("페이지 넘버:"+page);
+		String id = (String)session.getAttribute("member_ID");
 		
-		String pagingHtml = pagingHtml(commandMap,page);
+		String pagingHtml = pagingHtml(commandMap,page,0,id);
 		commandMap.MapInfoList();
 		
 		System.out.println("Controller:"+session.getAttribute("member_ID"));
 		
-		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), (String)session.getAttribute("member_ID"));
+		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), id);
 		
 		System.out.println(list);
 		
@@ -131,13 +132,13 @@ public class PetRoomReservationController {
 		System.out.println("호텔 룸 예약리스트(고객용)");
 		
 		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
-		
+		String id = (String)session.getAttribute("member_ID");
 		System.out.print("페이지 넘버:"+page);
 		
-		String pagingHtml = pagingHtml(commandMap,page);
+		String pagingHtml = pagingHtml(commandMap,page,0,id);
 		commandMap.MapInfoList();
 		
-		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), (String)session.getAttribute("member_ID"));
+		List<Map<String, Object>> list = petRoomReservationService.selectUserList(commandMap.getMap(), id);
 		
 		System.out.println(list);
 		
@@ -168,7 +169,7 @@ public class PetRoomReservationController {
 		
 		System.out.print("페이지 넘버:"+page);
 		
-		String pagingHtml = pagingHtml(commandMap,page);
+		String pagingHtml = pagingHtml(commandMap,page,1);
 		commandMap.MapInfoList();
 		
 		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());
@@ -198,7 +199,7 @@ public class PetRoomReservationController {
 		
 		System.out.print("페이지 넘버:"+page);
 		
-		String pagingHtml = pagingHtml(commandMap,page);
+		String pagingHtml = pagingHtml(commandMap,page,1);
 		commandMap.MapInfoList();
 		
 		List<Map<String, Object>> list = petRoomReservationService.selectAllList(commandMap.getMap());
@@ -269,12 +270,15 @@ public class PetRoomReservationController {
 	
 	
 	//페이징 메소드
-	private String pagingHtml(CommandMap commandMap, int pageNo) throws Exception{		
+	private String pagingHtml(CommandMap commandMap, int pageNo, int admin, String id) throws Exception{		
 		
 		int blockCount =5;
-		
-
-		int totalCount=  petRoomReservationService.selectResCount();	
+		int totalCount;
+		if(admin==1){
+			totalCount=  petRoomReservationService.selectResAdminCount();	
+		}else{
+			totalCount=  petRoomReservationService.selectResCount(id);
+		}
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
 		System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
