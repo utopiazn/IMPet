@@ -128,7 +128,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 }
 </style>
 
-<div class="panel-body">
+<div class="panel-body" style="padding:0px;">
 	<div class="dataTable_wrapper" style="text-align:center;">
 		<h2 class="basketcart" style="margin-top: 20px;margin-bottom: 20px;"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_list.gif" alt="장바구니"></h2>
 	</div>

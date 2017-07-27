@@ -4,6 +4,37 @@
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
+<script type="text/javascript">
+function ajaxPageView(page){	
+	
+	var dataList =
+	{ 
+		"PAGE" : page	
+	}	
+
+	var url1 = "/IMPet/PetHotel/RoomResListPage";
+	
+    $.ajax({    
+     
+    	type : "POST",
+        url : url1,
+        data : dataList,
+        dataType : "text",      
+        
+        error : function() {
+      	  
+      		alert('페이징 오류');     	
+        },
+       
+        success : function(data) {  
+      		 $('#ContextMyPage').html(data);          		
+        }
+        
+      });        
+
+}
+</script>
+
 <div id="dataTables-example_wrapper" class="panel-body">
 		<table class="table  table-bordered table-hover dataTable no-footer"
 				id="dataTables-example" role="grid"
@@ -92,4 +123,9 @@
 			</c:otherwise>
 			</c:choose>
 		</table>
+		<c:if test="${list[0].RES_NO != null}">
+		<div class="paging">
+		${pagingHtml} 
+		</div>
+		</c:if>
 </div>

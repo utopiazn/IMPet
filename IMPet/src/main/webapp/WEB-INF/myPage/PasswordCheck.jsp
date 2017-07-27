@@ -49,8 +49,8 @@
 															<tbody>
 																<tr class="ok">
 																	<td valign="top"><a href="javascript:;" onclick="javascript:ajaxmembermodify(2); ">확인</a></td>
-																	<td width="5"></td>
- 																	<td valign="top"><a href="javascript:;" onclick="history.go(-1);">취소</a></td>
+													
+ 																
 																</tr>
 															</tbody>
 														</table>

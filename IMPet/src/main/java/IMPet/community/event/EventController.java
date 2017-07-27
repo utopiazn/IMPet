@@ -408,6 +408,7 @@ public class EventController {
 		mav.addObject("listAll", listAll);	
 		
 		mav.addObject("pagingHtml", pagingHtml);	
+		mav.addObject("pageNo", page);
 
 
 		mav.setViewName(url);	

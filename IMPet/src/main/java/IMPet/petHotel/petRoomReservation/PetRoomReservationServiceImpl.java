@@ -44,9 +44,9 @@ public class PetRoomReservationServiceImpl implements PetRoomReservationService 
 	}
 
 	@Override
-	public List<Map<String, Object>> selectUserList(String str) throws Exception {
+	public List<Map<String, Object>> selectUserList(Map<String, Object> map, String str) throws Exception {
 		
-		List<Map<String, Object>> list = petRoomReservationDAO.selectUserList(str); 
+		List<Map<String, Object>> list = petRoomReservationDAO.selectUserList(map, str); 
 		
 		//DB에 들어간 날짜들 표출할때 시간빼고 yyyy-MM-dd 형식으로 만듬
 		for(int i=0; i<list.size(); i++){
