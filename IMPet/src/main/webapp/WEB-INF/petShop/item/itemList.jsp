@@ -11,8 +11,7 @@
 <title>펫샵상품리스트</title>
 </head>
 <style>
-	.main_itemlist {clear:both; width:100%; height:auto; overflow:hidden;    padding-bottom: 20px;
-	 }
+	.main_itemlist {clear:both; width:100%; height:auto; overflow:hidden;    padding-bottom: 3%; }
 	.main_itemlist .item-cont {width:  1125px;    height: auto;    margin: 0 auto; }
 	.main_itemlist .item-cont dl {float:left; width:281px;}
 	.main_itemlist .item-cont dl dt {width:250px; height:250px; border:1px solid #ececec; box-sizing:border-box;     margin: 0 auto;}

@@ -95,13 +95,7 @@ function order_sub() {
 </script>
 
 
-<div class="category_top">
-	<ul>
-	 	<li>펫샵 ></li><li>주문하기</li>			
-	</ul>
-</div>
-
-<div  class="basket_list">
+<div  class="basket_list" style="margin: 3%.0.3%.0;">
 
 	<div class="basket_list_top">
 		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>

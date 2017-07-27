@@ -165,7 +165,7 @@
 			<div class="basket_button" style="float:left">
 	
 				<input type="button" class="check-all" value="전체선택" id="button"/>
-				<input type="button" class="check-unall" value="전체해제" id="button"/>				
+				<input type="button" class="check-unall" value="선택해제" id="button"/>			
 				<button class="button2" id="button"><span class="button-label">선택삭제</span>	</button>					
 			<!-- 	<a href="/IMPet/PetShop/Main"><span >쇼핑계속하기</span></a>	
 
@@ -174,7 +174,7 @@
 						
 			</div>
 			<div style="float:right">		
-			<input type="button" value="쇼핑계속하기" onclick="location.href='/IMPet/PetShop/Main'" id="button" style="width:100px;"/>	
+			<input type="button" value="쇼핑계속하기" onclick="location.href='/IMPet/PetShop/Main'" id="button" style="width:100px;"/>
 			<input type="button" value="주문하기" onclick="cartBuy()" id="button"/>	
 			</div>
 		</form>

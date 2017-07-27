@@ -538,6 +538,7 @@
 							<%-- <td >
 								<c:if test="${member_ID == comment.MEMBER_ID}">
 									<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="button" style=" ">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" >
 										<span id="button">삭제</span>
 									</a>
 								</c:if>

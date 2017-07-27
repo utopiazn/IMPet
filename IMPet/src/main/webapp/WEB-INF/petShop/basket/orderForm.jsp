@@ -97,17 +97,10 @@
 
 
 
-<div class="category_top">
-	<ul>
-	 	<li>펫샵 ></li><li>주문하기</li>			
-	</ul>
-</div>
-
-
-<div  class="order_list">
+<div  class="order_list" style="margin: 3%.0.3%.0;">
 
 	<div class="order_list_top">
-		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니" style="padding-left: 110px;"></h2>
+		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="장바구니"></h2>
 		<img style="width:100%;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 장바구니">
 	</div>
 
