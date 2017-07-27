@@ -195,9 +195,9 @@
 					
 					
 					<tr>						
-						<th scope="row">요구사항(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
+						<th scope="row">요구사항<br/>(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
 						<td>
-								<textarea name="MEMBER_REQUESTS"  cols="53" rows="10" required ></textarea>
+								<textarea name="MEMBER_REQUESTS"  cols="80" rows="10" required ></textarea>
 						</td>						
 					</tr>	
 			
