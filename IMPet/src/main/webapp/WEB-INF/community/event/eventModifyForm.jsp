@@ -64,7 +64,7 @@
                      
                      	 <c:if test="${ADMIN eq '1'}">
                             	<input type="hidden"  name="ADMIN" value="${ADMIN}">
-                            	xxxxxxxxxxxxxxxxxxxxx
+                            	
                           </c:if>
                      
                        
