@@ -29,7 +29,9 @@
 				
 				<td style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 				<a href='/IMPet/ServiceCenter/QuestionView?QnA_NO=${QNA.QNA_NO}'>
-				<c:if test="${QNA.QNA_REPLY==1}">[답글]</c:if>
+				<c:if test="${QNA.QNA_REPLY==1}">
+				<font color=RED>Re : </font>[답글]
+				</c:if>
 				${QNA.QNA_SUBJECT}</a>
 				</td>
 				

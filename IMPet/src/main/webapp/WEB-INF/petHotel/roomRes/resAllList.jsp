@@ -11,7 +11,7 @@ function ajaxPageView(page){
 		"PAGE" : page	
 	}	
 
-	var url1 = "/IMPet/PetHotel/RoomResListPage";
+	var url1 = "/IMPet/PetHotel/RoomResAllListPage";
 	
     $.ajax({    
      

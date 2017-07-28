@@ -70,7 +70,7 @@
 		SELECT QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
 	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE FROM Pet_QnA
 		
-		WHERE MEMBER_ID = #{member_ID}
+		where QNA_REF in (select QNA_NO from Pet_QnA where  MEMBER_ID = #{member_ID})
 		
 		ORDER BY QnA_Ref DESC, QnA_Reply
 		]]>
