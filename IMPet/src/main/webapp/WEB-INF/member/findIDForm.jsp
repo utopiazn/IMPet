@@ -56,9 +56,14 @@ function ajaxFindIDView(){
 </head>
 <body>
 
-
-<div id ="ContextFindID">
+<div class="title">
 	<br/><br/>
+	아이디 찾기
+	<br/>
+<!-- 	<hr width="50%;" color="lightgray" size=""> 	 -->
+</div>
+<div id ="ContextFindID">
+	
 	<font color="red">
 	${msg }
 	</font>
