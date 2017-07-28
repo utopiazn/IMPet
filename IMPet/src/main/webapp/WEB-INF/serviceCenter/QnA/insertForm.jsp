@@ -18,7 +18,7 @@
 <center>
 <c:choose>
 	<c:when test="${view.QnA_Reply!=null}">
-		<form id="insertForm"  action="QnAInsert" method="post">
+		<form id="insertForm"  action="QuestionInsertRef" method="post">
 		<br/><br/><br/>
 			<div class="panel panel-default" style="width: 80%;">
 				<div class="panel-heading" >QnA 페이지입니다. </div>						
@@ -46,7 +46,7 @@
 				   
 				    <div class="file_input">
                			<b>QnA 이미지</b><br/>               	 
-                    	<label>파일 첨부                 
+                    	<label style="background-color: #333;  border-color: #ccc;">파일 첨부                 
                    			<input type="file" name="QnA_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
                    		</label>
                   	 <input type="text" readonly="readonly" title="File Route" id="file_route" value="">

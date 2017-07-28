@@ -48,37 +48,69 @@ function ajaxFindPwView(){
 }
 
 
+function ajaxFindIDView(){
+	  
+
+ 
+	var url1 = "/IMPet/Member/FindIDForm";
+	
+   $.ajax({
+   
+     type : "POST",
+     url : url1,             
+     dataType : "text",
+     
+     error : function() {    	  
+   	 	alert('오류임!');     	
+     },
+     success : function(data) {  
+   	 $('#Context').html(data);
+       		
+     }
+     
+   });    
+  
+}
 
 
 </script>
+<link rel="stylesheet" type="text/css" href="/IMPet/resources/css/member/loginForm.css" />
 
 
 </head>
 <body>
-
-
-
-<div id ="ContextFindPw">
-
-<br/><br/><br/>
-${msg }
-
-<form name="findPwform" method="post">	
-	<br/>	
-	ID:	<input  name="MEMBER_ID" type="text" equired autofocus>			
-	<br/>
-	전화 번호: <input name="MEMBER_TEL" type="tel" autocomplete="off">
-	<br/>
-	메일:<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off">
+<div class="title">
 	<br/><br/>
-	
-	<input   TYPE="button"  onclick="ajaxFindPwView();" value="비밀번호번 찾기" />	
-</form>
-	<input value="로그인 창으로 이동" type="button" onclick="location.href='/IMPet/Member/LoginForm'"/>
-	
-
+	비밀번호 찾기
+	<br/>
+<!-- 	<hr width="50%;" color="lightgray" size=""> 	 -->
 </div>
 
+<div id ="ContextFindPw">
+	
+	<font color="red">
+	${msg }
+	</font>
+	<br/><br/>
+
+	<form name="findPwform" method="post">	
+		<div class="login2">
+		 아이디 :  <input  name="MEMBER_ID" type="text" equired autofocus><br/>		
+		 연락처 :  <input name="MEMBER_TEL" type="tel" autocomplete="off"><br/>
+		 이메일 :  <input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off">
+		<input   TYPE="button"  onclick="ajaxFindPwView();" value="PW 찾기" />
+		
+		<div class="help">			    
+			<a class="font" href="javascript:ajaxFindIDView();">아이디 찾기</a>   
+		    <span class="font">|</span>			    
+			<a class="font" href="/IMPet/Member/LoginForm">로그인하기</a>				    
+		</div>
+		</div>			
+	</form>
+		
+	<br/><br/>
+	<br/><br/>
+</div>
 
 
 

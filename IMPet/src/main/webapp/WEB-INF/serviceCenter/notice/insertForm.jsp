@@ -23,7 +23,7 @@
 		    <div class="file_input">
                	<b>공지사항 이미지</b><br/>
                	 
-                    <label>파일 첨부 
+                    <label >파일 첨부 
                 
                    <input type="file" name="notice_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
                    </label>
@@ -34,8 +34,8 @@
 		   
 		</div>                     
 	 </div>
-<input class="button2" value="공지사항 추가" type="submit">
-<input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
+<input class="btn btn-success"  value="공지사항 추가" type="submit">
+<input class="btn btn-default"  name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/NoticeList'"/>
 </form>
 
 

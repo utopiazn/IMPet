@@ -3,10 +3,25 @@
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
+<script type="text/javascript">
+function resGo(){
+	
+		
+		if(confirm("예약 하시겠습니까?")){		  
+			alert("예약되었습니다.");
+		}else{
+			alert("예약을 취소하셨습니다.");
+			return false;
+		}
+}
+
+</script>
+
+
 <br/><br/>
 
 <center>
-<form action="RoomResSuccess" method="post">
+<form action="RoomResSuccess" method="post" onsubmit="return resGo();">
 
 <input type="hidden" name="room_NO" value="${res.room_NO}">
 <input type="hidden" name="member_ID" value="${res.member_ID}">

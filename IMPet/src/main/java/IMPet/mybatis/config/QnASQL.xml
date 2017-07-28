@@ -20,7 +20,7 @@
 		]]>
 	</select>
 
-	<!-- Qn                       A 상세보기 -->
+	<!-- QnA 상세보기 -->
 	<select id="selectOne" resultType="hashmap" parameterType="hashmap">
 		<include refid="seletClass" />
 		<include refid="where-no" />
@@ -64,13 +64,13 @@
 	]]>
 	</insert>
 
-	<!--QnA 리스트 -->
+	<!--QnA 마이페이지 리스트 -->
 	<select id="selectMy" resultType="hashmap" parameterType="String">
 		<![CDATA[
 		SELECT QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
 	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE FROM Pet_QnA
 		
-		WHERE MEMBER_ID = #{member_ID}
+		where QNA_REF in (select QNA_NO from Pet_QnA where  MEMBER_ID = #{member_ID})
 		
 		ORDER BY QnA_Ref DESC, QnA_Reply
 		]]>

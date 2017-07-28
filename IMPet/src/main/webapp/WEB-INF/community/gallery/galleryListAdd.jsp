@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 
 
@@ -9,7 +9,7 @@
 
 	<c:if test="${sessionScope.member_ID ne null }">
 			<div align="right" style="margin-right: 2%;">
-				<input value="글쓰기" class="button4 btn-4" type="button" onclick="ajaxgalleryForm();"/>
+				<input value="글쓰기" class="button2" type="button" onclick="ajaxgalleryForm();"/>
 			</div>
 	</c:if>		
 	
@@ -17,7 +17,7 @@
 	
 	
 <div class="sub_sps_sch"    style=" margin-left: 1.105%;  margin-right: 1.6%;">
-	<form action="">
+	<form action="" style="margin: 10px;">
 		<fieldset>
 			
 			<legend>검색창</legend>
