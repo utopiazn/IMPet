@@ -10,7 +10,7 @@
 		</div>
 
 
-<c:choose>
+<%-- <c:choose>
 
 	<c:when test="${sessionScope.member_ID ne null }">
 
@@ -23,8 +23,8 @@
 		<br/>
 	</c:otherwise>
 
-</c:choose>
-
+</c:choose> --%>
+<br/>
 <div class="search-results pen-grid" style="padding-bottom: 0px;margin-top: 5px;" >
 
 	
