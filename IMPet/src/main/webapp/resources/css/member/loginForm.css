@@ -151,7 +151,7 @@
 }
 .login2 input[type="button"] {
     width: 145px;
-    height: 85px;
+    height: 95px;
     display: block;
     font-family: Arial, "Helvetica", sans-serif;
     font-size: 18px;
@@ -162,7 +162,7 @@
     text-align: center;
     text-shadow: 1px 1px 0px #37a69b;
     padding-top: 0px;
-    margin: -140px 17px 0px 40px;
+    margin: -152px 17px 0px 40px;
     position: relative;
     cursor: pointer;
     border: none;
@@ -206,6 +206,12 @@
   font-size: 14px;
   text-decoration: none;  
 
+}
+.title{
+	font-size: 25px;
+	font-weight: bolder;
+	text-align: center; 
+	width: 100%;
 }
 
 

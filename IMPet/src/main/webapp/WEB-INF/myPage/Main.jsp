@@ -212,7 +212,7 @@ color: black;
 						 <td><a href=#member onclick="javascript:ajaxmembermodify2();"><img src="/IMPet/resources/image/mypage/member.png" border="0"></a></td>
 						 <td><a href=#room onclick="javascript:ajaxRoomResList();"><img src="/IMPet/resources/image/mypage/res.png" border="0"></a></td>
 						 <td><a href=#order onclick="javascript:ajaxOrderList('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/item.png" border="0" ></a></td>
-						 <td><a href=#writing onclick="javascript:ajaxMyWriting();"><img src="/IMPet/resources/image/mypage/my.png" border="0" ></a></td>
+						 <td><a href=#writing onclick="javascript:ajaxMyWriting();"><img src="/IMPet/resources/image/mypage/muni.png" border="0" ></a></td>
 						 <td><a href=#delete onclick="javascript:ajaxmemberdelete('${sessionScope.member_ID}');"><img src="/IMPet/resources/image/mypage/out.png" border="0" ></a></td>
 					</tr>
 				</tbody></table>
@@ -234,8 +234,8 @@ color: black;
 								<tbody>
 									<tr>
 										<td id="ContextMyPage" style="padding:20px;">									
-											<jsp:include page="/WEB-INF/myPage/PasswordCheck.jsp"/>
-											
+											<jsp:include page="/WEB-INF/myPage/PasswordCheck.jsp"/>		
+																				
 										</td>
 									</tr>
 								</tbody>	
