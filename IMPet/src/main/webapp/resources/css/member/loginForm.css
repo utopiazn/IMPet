@@ -10,7 +10,7 @@
   width: 500px;
 }
 
-
+/* 로그인창 */
 .login input[type="text"]
  {
   background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
@@ -41,13 +41,6 @@
   width: 240px;
 	
 }
-.login input[type="password"]:focus,
-.login input[type="text"]:focus {
-  box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
-  outline: 0;
-}
-
-
 .login input[type="button"] {
     width: 145px;
     height: 85px;
@@ -80,6 +73,124 @@
   top:3px;
   box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
 }
+
+.login input[type="password"]:focus,
+.login input[type="text"]:focus {
+  box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+  outline: 0;
+}
+
+/* 아이디찾기 */
+.login2 {
+  background: #eceeee;
+  border: 1px solid #00B488;
+  border-radius: 6px;
+  height: 257px;
+  margin: 20px auto 0;
+  width: 500px;
+}
+.login2 input[type="text"]
+ {
+  background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 35px;
+  margin: 25px 180px 20px 29px;
+  margin-left: 0;
+  padding-left: 18px;
+  transition: box-shadow 0.3s;
+  width: 240px;
+}
+.login2 input[type="password"]{
+	background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 35px;
+  margin: 0px 180px 20px 29px;
+  margin-left: 0;
+  padding-left: 18px;
+  transition: box-shadow 0.3s;
+  width: 240px;
+}
+
+.login2 input[type="tel"]{
+	background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 35px;
+  margin: 0px 180px 20px 29px;
+  margin-left: 0;
+  padding-left: 18px;
+  transition: box-shadow 0.3s;
+  width: 240px;
+	
+}
+.login2 input[type="email"]{
+	background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 35px;
+  margin: 0px 180px 30px 29px;
+  margin-left: 0;
+  padding-left: 18px;
+  transition: box-shadow 0.3s;
+  width: 240px;
+	
+}
+.login2 input[type="button"] {
+    width: 145px;
+    height: 85px;
+    display: block;
+    font-family: Arial, "Helvetica", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 1px 1px 0px #37a69b;
+    padding-top: 0px;
+    margin: -140px 17px 0px 40px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background-color: #00B488;
+    background-image: linear-gradient(top,#3db0a6,#3111);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+    float: right;
+    /* clear: both; */
+}
+
+.login2 input[type="button"]:active {
+  top:3px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
+}
+
+
+
+.login2 input[type="password"]:focus,
+.login2 input[type="text"]:focus {
+  box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+  outline: 0;
+}
+
+
 
 
 
