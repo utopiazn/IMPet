@@ -131,13 +131,13 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 			
 	 		<!-- 로그인전 -->
 			<c:if test="${sessionScope.member_ID == null}">
-	        	<input type="text" style="width: 100%; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
+	        	<input type="text" style="width: 100%; height: 55px; margin-bottom: 3%;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
 		    </c:if>	
 			
 			<!-- 로그인후 -->
 			<c:if test="${sessionScope.member_ID != null}">
 				<div class="GALLERYCOMMENT_CONTENT" style="width: 100%;" align="center">
-					<div style="clear: both;text-align: left;position: relative;padding: 3%;">
+					<div style="clear: both;text-align: left; position: relative; margin-bottom: 3%;">
 						<textarea id="comment" name="comment" style="height: 65px; width: 89%;" placeholder="내용을 입력하세요" ></textarea>
 						<button type="button"  class="btn1 btn-primary1" onclick="ajaxComment();" style="float: right;">입력</button>
 					</div>
