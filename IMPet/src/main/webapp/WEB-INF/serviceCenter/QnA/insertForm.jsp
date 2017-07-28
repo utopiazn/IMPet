@@ -46,7 +46,7 @@
 				   
 				    <div class="file_input">
                			<b>QnA 이미지</b><br/>               	 
-                    	<label>파일 첨부                 
+                    	<label style="background-color: #333;  border-color: #ccc;">파일 첨부                 
                    			<input type="file" name="QnA_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
                    		</label>
                   	 <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
