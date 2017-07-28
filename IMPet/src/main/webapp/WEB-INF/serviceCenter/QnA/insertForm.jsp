@@ -18,7 +18,7 @@
 <center>
 <c:choose>
 	<c:when test="${view.QnA_Reply!=null}">
-		<form id="insertForm"  action="QnAInsert" method="post">
+		<form id="insertForm"  action="QuestionInsertRef" method="post">
 		<br/><br/><br/>
 			<div class="panel panel-default" style="width: 80%;">
 				<div class="panel-heading" >QnA 페이지입니다. </div>						
