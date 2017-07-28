@@ -85,8 +85,8 @@
 	
 	<div style="height: 500px;" class="sub-main">
 	
-	<input class="button4" value="갤러리 게시판" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
-	<input class="button4" value="이벤트 게시판" type="button" onclick="location.href='/IMPet/Community/EventList'"/>
+	<input class="button4" value="갤러리" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
+	<input class="button4" value="이벤트" type="button" onclick="location.href='/IMPet/Community/EventList'"/>
 	
 	</div>
 </div>
