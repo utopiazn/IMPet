@@ -66,7 +66,7 @@
 		INSERT INTO PET_ROOM_RESERVATION 
 		( RES_NO, ROOM_NO, RES_FIRSTDATE, RES_LASTDATE,
 		  MEMBER_ID, RES_PRICE, RES_REQUESTS, RES_STATE)
-		VALUES ( PET_ROOM_RESERVATION_SEQ.nextval, #{room_NO}, #{res_FirstDate},
+		VALUES ( PET_ROOM_RESERVATION_NO_SEQ.nextval, #{room_NO}, #{res_FirstDate},
 		 #{res_LastDate}, #{member_ID}, #{res_Price}, #{res_Requests}, 0)
 		
 		]]>

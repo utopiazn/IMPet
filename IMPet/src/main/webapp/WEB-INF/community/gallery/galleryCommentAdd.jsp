@@ -171,7 +171,7 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 							<%-- <input type="hidden" id="content" value="${comment.RNUM }"> --%>
 						</td>
 						<td >${comment.MEMBER_ID}</td>
-						<td ><fmt:formatDate value="${comment.GALLERYCOMMENT_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
+						<td >${comment.GALLERYCOMMENT_DATE}</td>
 						<td style="text-align: center; ">
 							<c:if test="${member_ID == comment.MEMBER_ID}">
 								<a href="javascript:ajaxCommentDel( ${comment.GALLERYCOMMENT_NO});" style="text-decoration: none; color:black;">

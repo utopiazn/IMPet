@@ -95,5 +95,17 @@ public class GalleryServiceImpl implements GalleryService{
 		// TODO Auto-generated method stub
 		galleryDAO.delete(map);
 	}
+
+	@Override
+	public List<Map<String, Object>> selectSearchRangeAll(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectSearchRangeAll(map);
+	}
+
+	@Override
+	public int selectSearchGalleryCount(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return galleryDAO.selectSearchGalleryCount(map);
+	}
 	
 }

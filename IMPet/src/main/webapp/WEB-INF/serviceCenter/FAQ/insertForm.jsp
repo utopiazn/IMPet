@@ -37,8 +37,9 @@
 	 </div>   
 	                     
 
-<input class="button2" value="자주묻는질문" type="submit" >
-<input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+<input class="btn btn-success" value="자주묻는질문" type="submit" >
+<input class="btn btn-default" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+
 
 </form>
 

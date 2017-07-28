@@ -48,11 +48,6 @@
 		<put-attribute name="body" value="/WEB-INF/petShop/item/itemView.jsp" />
 	</definition>
 	
-	<!-- 펫샵상품후기상세보기 -->
-	<definition name="ItemCommentView" extends="petShop_main">
-		<put-attribute name="body" value="/WEB-INF/petShop/item/itemCommentView.jsp" />
-	</definition>
-	
 	<!-- 펫샵상품후기수정 -->
 	<definition name="ItemCommentModify" extends="petShop_main">
 		<put-attribute name="body" value="/WEB-INF/petShop/item/itemView.jsp" />

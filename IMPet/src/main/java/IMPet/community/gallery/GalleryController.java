@@ -38,12 +38,96 @@ public class GalleryController {
 		ModelAndView mav = new ModelAndView();
 		
 		
-		String pagingHtml =pagingHtml(commandMap,1);
+		int key = 0;
+		String search_name="";
+		String selectName="전체";
+		
+		
+		String searchWhere="";
+		
+		
+		
+		if(commandMap.get("key").toString().equals("")){
+			
+			System.out.println("dddddddddddddd");
+			
+			key = 0;
+			selectName="전체";
+			search_name="";
+			
+				
+		}else if(commandMap.get("key").toString().equals("0")){
+			
+			System.out.println("00000000000000000000000000");
+			
+			key = 0;
+			selectName="전체";
+			
+			
+			
+			
+		}else if(commandMap.get("key").toString().equals("1")){
+			System.out.println("11111111111111111111111111111");
+			
+			key = 1;
+			selectName="제목";
+			
+			String search= commandMap.get("search_name").toString();
+			
+			searchWhere = "GALLERY_SUBJECT like '%"+  search + "%'";
+			
+		}else if(commandMap.get("key").toString().equals("2")){
+			System.out.println("222222222222222222222222222222222222");
+			
+			
+			key = 2;
+			selectName="작성자";
+			
+			String search= commandMap.get("search_name").toString();
+			
+			searchWhere = "member_Nickname like '%"+  search + "%'";
+			
+			
+		}
+		
+		
+		
+		String pagingHtml="";
+		  
+		List<Map<String,Object>> listAll;
+		
+		
+		if( key==1 || key==2 ){
+			search_name= commandMap.get("search_name").toString() ;
+		
+			pagingHtml=pagingHtmlSeach(commandMap, 1, searchWhere);
+			listAll = galleryService.selectSearchRangeAll(commandMap.getMap());	
+			
+		}else{
+		
+			
+			pagingHtml=pagingHtml(commandMap,1);
+			listAll = galleryService.selectRangeAll(commandMap.getMap());		
+			search_name = "";
+		}
+		
+		System.out.println("Key:"+key+"   serchName:"+selectName  +"   searchWhere:"+searchWhere );
+
+		mav.addObject("Key", key);			
+		mav.addObject("SelectName", selectName);		
+		mav.addObject("Search_name", search_name);
+		
+
+		int count = listAll.size();
+		
+		mav.addObject("listAllCount", count);	
+		
+		
+		
 		commandMap.MapInfoList();
 
 		
 		
-		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
 		
 		
 		mav.addObject("listAll", listAll);	
@@ -138,6 +222,49 @@ public class GalleryController {
 		String PAGINGNO = String.valueOf(pageNo);		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
+		
+		StringBuffer pagingHtml = new StringBuffer();
+		
+		for(int i=1; i<=totalPage;i++ ){			
+			
+			if(i==pageNo){
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);						
+				pagingHtml.append("</strong>  ");
+			
+			}else{
+				
+				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
+				pagingHtml.append(i);				
+				pagingHtml.append("</a> ");
+				
+			}
+			
+		}		
+		return pagingHtml.toString();
+		
+	}
+	
+	private String pagingHtmlSeach(CommandMap commandMap,int pageNo ,String where) throws Exception{		
+		
+		
+		int blockCount =6;
+		
+		
+		commandMap.put("WHERE",where); //페이지의 리스트 수
+		
+		
+		
+		int totalCount=  galleryService.selectSearchGalleryCount(commandMap.getMap());	
+		
+		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		String PAGIN = String.valueOf(blockCount);	
+		String PAGINGNO = String.valueOf(pageNo);		
+		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
+		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
+		
 		
 		
 		StringBuffer pagingHtml = new StringBuffer();

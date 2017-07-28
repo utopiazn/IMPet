@@ -272,11 +272,13 @@ public class PetRoomReservationController {
 	//페이징 메소드
 	private String pagingHtml(CommandMap commandMap, int pageNo, int admin, String id) throws Exception{		
 		
-		int blockCount =5;
+		int blockCount;
 		int totalCount;
 		if(admin==1){
+			blockCount =10;
 			totalCount=  petRoomReservationService.selectResAdminCount();	
 		}else{
+			blockCount =5;
 			totalCount=  petRoomReservationService.selectResCount(id);
 		}
 		
