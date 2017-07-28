@@ -46,7 +46,7 @@
 	<div class="adminLeft" style="width: 19%;  float: left; ">
 		<div class="nestedsidemenu">
 			<ul>
-				 <li style="line-height: 2em;">&nbsp;관리자 페이지<br/>
+				 <li style="line-height: 2em; text-align: center; vertical-align: middle;">&nbsp;관리자 페이지<br/>
 				 </li>
 				 
 				 <li><a href="/IMPet/Member/MemberList">회원 관리</a>
