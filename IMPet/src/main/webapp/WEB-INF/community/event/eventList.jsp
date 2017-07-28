@@ -337,12 +337,7 @@ function ajaxPageView(page){
 	<div id="ContextEvent" align="center" style="width:100%;  float: left;">	
 	
 	
-<br/><br/>	
-		<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
-		이벤트 게시판
-		<hr width="80%;" color="lightgray;" size="">
-		
-		</div>
+
 			
 			
 	

@@ -2,17 +2,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+<br/><br/>	
+		<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
+		이벤트 게시판
+		<hr width="80%;" color="lightgray;" size="">
+		
+		</div>
 
-	<c:if test="${sessionScope.member_ID ne null }">
-		<div align="right">
+
+<%-- <c:choose>
+
+	<c:when test="${sessionScope.member_ID ne null }">
+
+		<div align="right" style="margin-right: 1.4%;">
 			<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxeventForm();"/>
 		</div>
-	</c:if>		
 
+	</c:when>
+	<c:otherwise>
+		<br/>
+	</c:otherwise>
 
-
-
-
+</c:choose> --%>
+<br/>
 <div class="search-results pen-grid" style="padding-bottom: 0px;margin-top: 5px;" >
 
 	
@@ -30,7 +42,7 @@
 			
 		</div>
 			
-		<div class="meta">
+		<div class="meta"  style="padding-left: 13px;">
 			
 			<h3 class="item-title">
 				제목:   ${Event.EVENT_SUBJECT}
@@ -41,7 +53,7 @@
 			
 				<div class="user">
 			
-			  	<a class="username" href="/tailofmoon">
+			  	<a class="username">
 			    		이벤트 기간 :<span>${Event.EVENT_TIME}</span>
 			 	 </a>
 			</div>

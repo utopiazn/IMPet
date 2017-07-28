@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+
+
+
+
+
 	<c:if test="${sessionScope.member_ID ne null }">
 			<div align="right" style="margin-right: 2%;">
 				<input value="글쓰기" class="button4 btn-4" type="button" onclick="ajaxgalleryForm();"/>
@@ -11,7 +16,7 @@
 	
 	
 	
-<div class="sub_sps_sch"    style=" margin-left: 1.105%;  margin-right: 2%;">
+<div class="sub_sps_sch"    style=" margin-left: 1.105%;  margin-right: 1.6%;">
 	<form action="">
 		<fieldset>
 			
@@ -20,6 +25,7 @@
 			<div class="select-box">
 				<label for="">제목</label>
 				<select name="key" class="select-cus">
+					<option value="0">전체</option>
 					<option value="1">제목</option>
 					<option value="2">작성자</option>
 				</select>
@@ -52,7 +58,7 @@
 			
 		</div>
 			
-		<div class="meta">
+		<div class="meta"  style="padding-left: 13px;">
 			
 			<h3 class="item-title">
 				제목:  ${itemList.GALLERY_SUBJECT} 
@@ -63,7 +69,7 @@
 			
 				<div class="user">
 			
-			  	<a class="username" href="/tailofmoon">
+			  	<a class="username">
 			    		작성자 :<span>${itemList.MEMBER_NICKNAME}</span>
 			 	 </a>
 			</div>
