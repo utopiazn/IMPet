@@ -17,7 +17,7 @@
 	
 	
 <div class="sub_sps_sch"    style=" margin-left: 1.105%;  margin-right: 1.6%;">
-	<form action="" style="margin: 10px;">
+	<form action="" method="post" style="margin: 10px;" >
 		<fieldset>
 			
 			<legend>검색창</legend>
