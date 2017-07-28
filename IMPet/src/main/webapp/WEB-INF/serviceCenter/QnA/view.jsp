@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
@@ -138,17 +138,19 @@
 						<label> 내용 :</label> ${view.QNA_CONTENT}
 					</div>
 					
-					
-					
 					</div>
 							
 					</div>
 					
 <div align=center>
-		<input value="답글" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+	<c:if test="${sessionScope.member_Admin == 1}">
+	<input value="답글" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
+	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/>
+	</c:if>
+	<c:if test="${sessionScope.member_ID eq view.MEMBER_ID}">
 	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
 	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/> 	
- 	
+ 	</c:if>
 </div>
 
 
