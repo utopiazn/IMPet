@@ -5,13 +5,6 @@
 
 
 <script type="text/javascript">
-function validateForm() {
-    var x = document.forms["joinform"]["goods_name"].value;
-    if (x == null || x == "") {
-        alert("상품명은 입력해야합니다");
-        return false;
-    }
-}
 function chk_radio() { 
 	alert("111");
 	
@@ -93,10 +86,9 @@ function chk_radio() {
                         <div class="file_input">
                         	메인 상품 이미지 <br/>
                              <label>파일 첨부 
-                           <!--  <input type="file" name="ITEM_BASKETIMG" size="30" value='' class="fileBtn"/> -->
-                            <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" required>                          
+                           		 <input type="file" name="ITEM_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" required>                          
                             </label>
-                            <input type="text" readonly="readonly" title="File Route" id="file_route">
+                           		 <input type="text" readonly="readonly" title="File Route" id="file_route">
                             <p class="help-block">메인상품 이미지 입니다 800x800 사이즈 권장합니다</p>
                         </div>
                         

@@ -80,7 +80,8 @@
 				<li><a href="javascript:vold(0)">&nbsp;&nbsp;&nbsp;커뮤니티</a>
 					  <ul>
 					  	<li><a href="/IMPet/Community/AdminGalleryList">GALLERY</a></li>			
-						<li><a href="/IMPet/Community/AdminEventList">EVENT</a></li>					  						  
+						<li><a href="/IMPet/Community/AdminEventList">EVENT</a></li>	
+						<li><a href="/IMPet/Community/EventForm">EVENT 추가</a></li>					  						  
 					 </ul>
 				</li>				
 			</ul>
@@ -134,6 +135,12 @@
 			<c:when test="${adminCode==13}">
 				<div style="width: 90%; ">
 						<jsp:include page="/WEB-INF/petShop/admin/adminItemModify.jsp"/>
+				</div>
+			</c:when>
+			
+			<c:when test="${adminCode==14}">
+				<div style="width: 90%; ">
+						<jsp:include page="/WEB-INF/community/event/eventForm.jsp"/>
 				</div>
 			</c:when>
 			
