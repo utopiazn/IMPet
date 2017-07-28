@@ -36,6 +36,29 @@ public class GalleryDAO extends AbstractDAO{
 	}
 	
 	
+	//갤러리 특정 범위 리스트
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> selectSearchRangeAll(Map<String, Object> map) throws Exception{
+		
+		List<Map<String, Object>> list= (List<Map<String, Object>>)selectList("GallerySQL.selectSearchRangeAll",map);
+		
+		return list;
+	}
+	
+	
+	//갤러리 전체 리스트
+	public int selectSearchGalleryCount(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> view= (Map<String, Object>)selectOne("GallerySQL.selectSearchGalleryCount",map);
+			
+		int count = Integer.parseInt(view.get("COUNT").toString());		
+		
+		return count;
+	}
+	
+	
+	
+	
 	//갤러리 상세보기 본 횟수 
 	public void addViewNum(Map<String, Object> map) throws Exception {
 		

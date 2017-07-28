@@ -44,7 +44,7 @@ function validateForm() {
                         
                         <div class="file_input">
                         	1번째 이미지 <br/>
-                             <label>파일 첨부 
+                             <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG1" onchange="javascript:document.getElementById('file_route').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route">
@@ -60,7 +60,7 @@ function validateForm() {
                         
                         <div class="file_input">
                         	2번째 이미지 <br/>
-                             <label>파일 첨부 
+                             <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG2" onchange="javascript:document.getElementById('file_route2').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route2">
@@ -75,7 +75,7 @@ function validateForm() {
                         
                         <div class="file_input">
                         	3번째 이미지 <br/>
-                             <label>파일 첨부 
+                             <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG3" onchange="javascript:document.getElementById('file_route3').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route3">
@@ -91,7 +91,7 @@ function validateForm() {
                         
                         <div class="file_input">
                         	4번째 이미지 <br/>
-                             <label>파일 첨부 
+                             <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG4" onchange="javascript:document.getElementById('file_route4').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route4">
@@ -112,7 +112,7 @@ function validateForm() {
                         
                         <div class="file_input">
                         	5번째 이미지 <br/>
-                            <label>파일 첨부 
+                            <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             	<input type="file" name="GALLERY_IMG5" onchange="javascript:document.getElementById('file_route5').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route5">

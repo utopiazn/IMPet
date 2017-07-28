@@ -74,7 +74,7 @@ function chk_radio() {
                      
                         <div class="file_input">
                         	이벤트 이미지 <br/>
-                           <label>파일 첨부 
+                           <label >파일 첨부 
                            		 <input type="file" name="EVENT_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" required>                          
                             </label>
                            		 <input type="text" readonly="readonly" title="File Route" id="file_route">
