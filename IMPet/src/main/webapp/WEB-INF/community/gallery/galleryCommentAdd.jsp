@@ -172,7 +172,7 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 						</td>
 						<td >${comment.MEMBER_ID}</td>
 						<td ><fmt:formatDate value="${comment.GALLERYCOMMENT_DATE}" pattern="yy.MM.dd"></fmt:formatDate></td>
-						<td style="text-align: center; border: none; ">
+						<td style="text-align: center; ">
 							<c:if test="${member_ID == comment.MEMBER_ID}">
 								<a href="javascript:ajaxCommentDel( ${comment.GALLERYCOMMENT_NO});" style="text-decoration: none; color:black;">
 									<img src="/IMPet/resources/image/review/review_delete.png">

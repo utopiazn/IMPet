@@ -24,12 +24,17 @@ $(document).ready(function() {
 		$('a[href$=' + tab + ']').trigger("click");
 	}
 
-	$(".my-account li").click(function() {
-		
-		$(".my-account li").removeClass("selected");
+	 $(document).ready(function () {
+         $("li > a").each(function () {
+             $(this).click(function () {
+                                    
+                 $(this).parent().siblings().removeClass("selected");
+                 $(this).parent().addClass("selected");  //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
+             });
+         });
+     });
 
-		$(this).addClass("selected");
-	}); 
+
 });
 </script>
 
