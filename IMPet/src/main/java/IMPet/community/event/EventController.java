@@ -199,11 +199,12 @@ public class EventController {
 
 		ModelAndView mav = new ModelAndView();
 
-		String url = "community/event/eventForm";
+		int adminCode = 14;
+	
 		System.out.println("이벤트 추가 폼");
 
-		
-		mav.setViewName(url);
+		mav.addObject("adminCode", adminCode);
+		mav.setViewName("AdminPage");
 		return mav;
 	}
 	
