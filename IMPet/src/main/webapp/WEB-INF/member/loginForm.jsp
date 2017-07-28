@@ -118,11 +118,16 @@ function ajaxFindPwView(){
 <body>
 
 <div id ="Context">
-	<br/><br/>
+	<div class="title">
+		<br/><br/>
+		LOGIN
+		<br/>
+	</div>
+	
 	<font color="red">
 	${ errorMsg }
 	</font>
-	<br/><br/>
+		<br/><br/>
 	 
 	<form name="jform" method="post">	
 	 
@@ -134,10 +139,10 @@ function ajaxFindPwView(){
 		 	<br/>	  		  
 		    <div class="help">
 		     
-			    <a class="font" href="javascript:ajaxFindIDView();" >아이디 찾기</a>
+			    <a class="font" href="javascript:ajaxFindIDView();" >&nbsp;아이디 찾기</a>&nbsp;
 			    
 			    <span class="font">|</span>			    
-			    <a class="font" href="javascript:ajaxFindPwView();">비밀번호 찾기</a>
+			    <a class="font" href="javascript:ajaxFindPwView();">&nbsp;비밀번호 찾기</a>&nbsp;
 			    
 			    <span class="font">|</span>			    
 			    <a class="font" href="/IMPet/Member/JoinMain">회원가입</a>
