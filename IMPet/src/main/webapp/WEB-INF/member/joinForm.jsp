@@ -92,14 +92,14 @@
 <body>
 
 <div id ="ContextJoinForm">
-
+ 회원가입
 <br/><br/>
 <div class="orderArea">
 
 	<div class="boardWrite" align="center">
 
 <form name="jform" >	
-		<table border="1" summary="" style="width: 75%">
+		<table border="1" summary="" style="width: 75%" >
 		
 			<tbody>
 					

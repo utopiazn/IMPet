@@ -79,14 +79,16 @@
 	<div style="font-size: 15px; width: 80%; margin: 0 auto;">
 	갤러리 및 이벤트 게시판 입니다.
 	비방이나 불법적인 게시물은 경고 조치 및 삭제 합니다.
+	
+	
 	</div>
 
 	<br/><br/>	
 	
 	<div style="height: 500px;" class="sub-main">
 	
-	<input class="button4" value="갤러리 게시판" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
-	<input class="button4" value="이벤트 게시판" type="button" onclick="location.href='/IMPet/Community/EventList'"/>
+	<input class="button4" value="갤러리" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/>
+	<input class="button4" value="이벤트" type="button" onclick="location.href='/IMPet/Community/EventList'"/>
 	
 	</div>
 </div>
