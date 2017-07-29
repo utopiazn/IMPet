@@ -106,7 +106,7 @@
 					<tr>						
 						<th scope="row">아이디</th>
 						<td>
-							<input  name="MEMBER_ID" type="text" equired autofocus>		
+							<input  name="MEMBER_ID" type="text" required autofocus>		
 							<input  type="button" value="ID중복확인"  onclick="openConfirmid(this.form)">			
 						</td>						
 					</tr>
