@@ -18,7 +18,7 @@
 <center>
 <c:choose>
 	<c:when test="${view.QnA_Reply!=null}">
-		<form id="insertForm"  action="QuestionInsertRef" method="post">
+		<form name="insertForm">
 		<br/><br/><br/>
 			<div class="panel panel-default" style="width: 80%;">
 				<div class="panel-heading" >QnA 페이지입니다. </div>						
@@ -36,12 +36,12 @@
 				   
 				  <div class="form-group">		  
 				      <label> 제목 </label>
-				      <input type="text" class="form-control" name="QnA_Subject" style="width:70%;"/>
+				      <input type="text" class="form-control" name="QnA_Subject" required style="width:70%;"/>
 				   </div>
 				   
 				   <div class="form-group">
 				      <label> 내용 </label>
-				        <textarea class="form-control" name="QnA_Content" style="width:70%;"></textarea>
+				        <textarea class="form-control" name="QnA_Content" required style="width:70%;"></textarea>
 				   </div>
 				   
 				    <div class="file_input">
@@ -57,8 +57,10 @@
 				</div>                     
 			 </div>
 			 <br/><br/>
-			 <input class="button2"  value="QnA 답글추가" type="submit">
-			 <input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>
+			 <div style="text-align:center; padding-bottom: 3%;" >
+		<button type="submit" class="btn btn-success" onClick="chk_radio();" >답글 추가</button>
+		<button type="reset" class="btn btn-default" onclick="location.href='/IMPet/ServiceCenter/QuestionList'">작성취소</button>	
+	</div>
 			 
 		
 		</form>
@@ -66,7 +68,7 @@
 	</c:when>
 
 	<c:otherwise>
-	<form action="QuestionInsert" method="post">
+	<form name="QuestionInsert">
 	<br/><br/><br/>
 	<div class="panel panel-default" style="width: 80%;">
 	
@@ -80,12 +82,12 @@
 			   
 			  <div class="form-group">
 			      <label> 제목 </label>
-			      <input type="text" class="form-control" name="QnA_Subject" style="width:70%;"/>
+			      <input type="text" class="form-control" name="QnA_Subject" required style="width:70%;"/>
 			   </div>
 			   
 			   <div class="form-group">
 			      <label> 내용 </label>
-			        <textarea class="form-control" name="QnA_Content" style="width:70%;"></textarea>
+			        <textarea class="form-control" name="QnA_Content" required style="width:70%;"></textarea>
 			   </div>
 			   
 			    <div class="file_input">
@@ -101,8 +103,12 @@
 		<br/><br/>
 			
 	</div>	
-	<input class="button2" value="QnA 추가" type="submit">	
-				 <input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/QuestionList'"/>	
+
+			 
+	<div style="text-align:center; padding-bottom: 3%;" >
+		<button type="submit" class="btn btn-success" onClick="chk_radio();" >QnA 추가</button>
+		<button type="reset" class="btn btn-default" onclick="location.href='/IMPet/ServiceCenter/QuestionList'">작성취소</button>	
+	</div>	
 					
 </form>
 </c:otherwise>
@@ -112,3 +118,46 @@
 <br/><br/><br/><br/><br/>
 
 </body>
+<script>
+function chk_radio() { 
+	
+	
+	var reply = "${view.QnA_Reply}";
+	alert(reply);
+	var url;
+	var frm ;
+	
+	if(reply == 0){
+		url = "/IMPet/ServiceCenter/QuestionInsertRef";
+		frm = document.insertForm;
+	}
+	else { 
+		url = "/IMPet/ServiceCenter/QuestionInsert";
+		frm = document.QuestionInsert;
+	}
+	
+	 
+	
+	 
+	if(frm.QnA_Subject.value == ""){
+		alert("제목을 입력해 주세요.");
+		return false;
+	}
+	
+	 if(frm.QnA_Content.value == ""){
+		alert("내용을 입력해 주세요.");
+		return false;
+	}
+
+	
+	
+	else{
+		  frm.method = "post";
+		  frm.action = url;
+		  frm.enctype= "multipart/form-data";
+		  frm.submit();
+		  return true;
+	 } 
+
+}	
+</script>

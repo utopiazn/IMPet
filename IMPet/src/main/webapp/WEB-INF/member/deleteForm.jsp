@@ -33,7 +33,7 @@ function deleteMember(){
 	
 	if(memberPW == value ){
 		
-		if(confirm( " 정말로 진정!! 탈퇴 하시겠습니까~? ")){		  
+		if(confirm( " 회원을 탈퇴 하시겠습니까? ")){		  
 			
 			location.href="Member/DeleteMember";
 

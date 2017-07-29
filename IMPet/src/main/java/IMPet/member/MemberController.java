@@ -94,7 +94,7 @@ public class MemberController {
 		System.out.println("로그인 된 아이디::"+session.getAttribute("member_ID"));
 
 		//로그인 되어 있을 경우
-		if(session.getAttribute("member_ID")!= null){
+		if(session.getAttribute("member_ID") != null){
 			
 			session.invalidate();  //session 값을 모두 지움			
 		}
@@ -525,6 +525,11 @@ public class MemberController {
 		
 		
 		memberService.updateUserYN(commandMap.getMap());		
+		
+		if(session.getAttribute("member_ID") != null){
+			
+			session.invalidate();  //session 값을 모두 지움			
+		}
 		
 		mav.setViewName(url);
 		return mav;

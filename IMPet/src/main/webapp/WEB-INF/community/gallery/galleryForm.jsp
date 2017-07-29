@@ -115,10 +115,7 @@ function validateForm() {
 			</div>
 	</div>
 	
-	<div style="text-align:center; padding-bottom: 3%;" >
-		<button type="submit" class="button2" onClick="chk_radio();" >상품등록</button>
-		<button type="reset" class="button2" onClick="location.href='/IMPet/Community/GalleryList'">작성취소</button>	
-	</div>	
+	
 </div>
 
 

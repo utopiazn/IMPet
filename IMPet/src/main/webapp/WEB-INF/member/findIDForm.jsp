@@ -38,11 +38,35 @@ function ajaxFindIDView(){
       	 alert('오류임!');     	
         },
         success : function(data) {  
-      	 $('#ContextFindID').html(data);
+      	 $('#Context').html(data);
           		
         }
         
       });  
+}
+
+function ajaxFindPwView(){
+	  
+
+	 
+	var url1 = "/IMPet/Member/FindPw";
+	
+   $.ajax({
+   
+     type : "POST",
+     url : url1,             
+     dataType : "text",
+     
+     error : function() {    	  
+   	 	alert('오류임!');     	
+     },
+     success : function(data) {  
+   	 $('#Context').html(data);
+       		
+     }
+     
+   });    
+  
 }
 
 
@@ -56,14 +80,14 @@ function ajaxFindIDView(){
 </head>
 <body>
 
-<div class="title">
+
+<div id ="ContextFindID">
+	<div class="title">
 	<br/><br/>
 	아이디 찾기
 	<br/>
 <!-- 	<hr width="50%;" color="lightgray" size=""> 	 -->
 </div>
-<div id ="ContextFindID">
-	
 	<font color="red">
 	${msg }
 	</font>

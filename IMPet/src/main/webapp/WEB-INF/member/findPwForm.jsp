@@ -40,7 +40,7 @@ function ajaxFindPwView(){
       	 alert('오류임!');     	
         },
         success : function(data) {  
-      	 $('#ContextFindPw').html(data);
+      	 $('#Context').html(data);
           		
         }
         
@@ -79,15 +79,15 @@ function ajaxFindIDView(){
 
 </head>
 <body>
-<div class="title">
-	<br/><br/>
-	비밀번호 찾기
-	<br/>
-<!-- 	<hr width="50%;" color="lightgray" size=""> 	 -->
-</div>
+
 
 <div id ="ContextFindPw">
-	
+	<div class="title">
+		<br/><br/>
+		비밀번호 찾기
+		<br/>
+		<!-- 	<hr width="50%;" color="lightgray" size=""> 	 -->
+	</div>
 	<font color="red">
 	${msg }
 	</font>
@@ -95,7 +95,7 @@ function ajaxFindIDView(){
 
 	<form name="findPwform" method="post">	
 		<div class="login2">
-		 아이디 :  <input  name="MEMBER_ID" type="text" equired autofocus><br/>		
+		 아이디 :  <input  name="MEMBER_ID" type="text" required autofocus><br/>		
 		 연락처 :  <input name="MEMBER_TEL" type="tel" autocomplete="off"><br/>
 		 이메일 :  <input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off">
 		<input   TYPE="button"  onclick="ajaxFindPwView();" value="PW 찾기" />
