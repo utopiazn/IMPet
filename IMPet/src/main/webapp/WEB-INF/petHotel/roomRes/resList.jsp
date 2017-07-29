@@ -40,6 +40,10 @@ function ajaxPageView(page){
 				id="dataTables-example" role="grid"
 				aria-describedby="dataTables-example_info">
 			<thead>
+				<tr>
+				<center>
+				<img src="/IMPet/resources/image/hotel/hotelres.png" style="margin-top: -35px;">
+				</tr>
 				<tr style="vertical-align:middle; border:1px solid lightgray;">
 					<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">예 약<br>번 호</th>
 					<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">객 실<br>번 호</th>

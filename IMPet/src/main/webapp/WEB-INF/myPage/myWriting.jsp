@@ -5,11 +5,15 @@
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 
 <div id="dataTables-example_wrapper" class="panel-body">
-	<h3>[QnA]내가 쓴 글</h3>
+	<!-- <h3>[QnA]내가 쓴 글</h3> -->
 	<table class="table  table-bordered table-hover dataTable no-footer"
 				id="dataTables-example" role="grid"
 				aria-describedby="dataTables-example_info">
 		<thead>
+				<tr>
+				<center>
+				<img src="/IMPet/resources/image/mypage/qna.png" style="margin-top: -35px;">
+				</tr>
 			<tr style="vertical-align:middle; border:1px solid lightgray;">		
 				<th style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">NO</th>
 				<th style="width: 20%; text-align:center;vertical-align:middle; border:1px solid lightgray;">제목</th>
