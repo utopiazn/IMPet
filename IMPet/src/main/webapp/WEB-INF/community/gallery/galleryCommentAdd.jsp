@@ -124,7 +124,7 @@ function ajaxCommentDel(GALLERYCOMMENT_NO){
 
 	<!-- 코멘트 달기 -->
 	<div class="inner" align="center">
- 		<div class="img"><img src="/IMPet/resources/image/review/review.png" alt="리뷰로고" /></div>
+
 	
 		<form name="jform1" method="post" style="width: 100%;">
 			<input type="hidden" id ="GALLERY_NO"  value="${GALLERY_NO}">

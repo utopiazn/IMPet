@@ -3,6 +3,7 @@
 
 
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
+<link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
 <script type="text/javascript">
 function validateForm() {
@@ -35,27 +36,21 @@ function validateForm() {
                             <br/>
                         </div>
                         
-                       
-                         <div class="form-group">
-                            <label>1번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT1" class="form-control" id="GALLERY_CONTENT1"  placeholder="이미지 내용을 입력해 주세요" style="width:500px;"/>
-                        </div>                       
-                        
-                        
+
                         <div class="file_input">
                         	1번째 이미지 <br/>
                              <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG1" onchange="javascript:document.getElementById('file_route').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route">
-                           	<br/><br/>
                         </div>
                         
+                          <div class="form-group">                      
+                            <input type="text" name="GALLERY_CONTENT1" class="form-control" id="GALLERY_CONTENT1"  placeholder="1번째 이미지 내용을 입력해 주세요" style="width:500px;"/>
+                        </div>   
                         
-                        <div class="form-group">
-                            <label>2번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT2" class="form-control" id="GALLERY_CONTENT2"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
-                        </div>                       
+                        <br/>
+                                          
                         
                         
                         <div class="file_input">
@@ -64,13 +59,13 @@ function validateForm() {
                             <input type="file" name="GALLERY_IMG2" onchange="javascript:document.getElementById('file_route2').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route2">
-                           	<br/><br/>
                         </div>                      
                         
-                        <div class="form-group">
-                            <label>3번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT3" class="form-control" id="GALLERY_CONTENT3"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
-                        </div>                       
+                           <div class="form-group">                 
+                            <input type="text" name="GALLERY_CONTENT2" class="form-control" id="GALLERY_CONTENT2"  placeholder="2번째 이미지 내용을 입력해 주세요" style="width:500px;"/>
+                        </div>  
+                        <br/>
+                                        
                         
                         
                         <div class="file_input">
@@ -78,16 +73,13 @@ function validateForm() {
                              <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             <input type="file" name="GALLERY_IMG3" onchange="javascript:document.getElementById('file_route3').value=this.value">                          
                             </label>
-                            <input type="text" readonly="readonly" title="File Route" id="file_route3">
-                           <br/><br/>
+                            <input type="text" readonly="readonly" title="File Route" id="file_route3">            
                         </div>
                         
-                        
-                        <div class="form-group">
-                            <label>4번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT4" class="form-control" id="GALLERY_CONTENT4"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
-                        </div>                       
-                        
+                         <div class="form-group">
+                            <input type="text" name="GALLERY_CONTENT3" class="form-control" id="GALLERY_CONTENT3"  placeholder="3번째 이미지 내용을 입력해 주세요" style="width:500px;"/>
+                        </div>    
+                            <br/>     
                         
                         <div class="file_input">
                         	4번째 이미지 <br/>
@@ -95,30 +87,25 @@ function validateForm() {
                             <input type="file" name="GALLERY_IMG4" onchange="javascript:document.getElementById('file_route4').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route4">
-                           <br/><br/>
                         </div>
                         
-                       
-                       
-                       
-                                  
-                   
-                       	<div class="form-group">
-                            <label>5번째 이미지</label>
-                            <input type="text" name="GALLERY_CONTENT5" class="form-control" id="GALLERY_CONTENT5"  placeholder="이벤트 기간을 입력하세요" style="width:500px;"/>
-                        	
-                        </div>                       
-                        
-                        
+                         <div class="form-group">
+                            <input type="text" name="GALLERY_CONTENT4" class="form-control" id="GALLERY_CONTENT4"  placeholder="4번째 이미지 내용을 입력해 주세요" style="width:500px;"/>
+                        </div>  
+                       <br/>
+                    
                         <div class="file_input">
                         	5번째 이미지 <br/>
                             <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
                             	<input type="file" name="GALLERY_IMG5" onchange="javascript:document.getElementById('file_route5').value=this.value">                          
                             </label>
                             <input type="text" readonly="readonly" title="File Route" id="file_route5">
-                           	<br/><br/>
                         </div>
                         
+                         	<div class="form-group">
+                            <input type="text" name="GALLERY_CONTENT5" class="form-control" id="GALLERY_CONTENT5"  placeholder="5번째 이미지 내용을 입력해 주세요" style="width:500px;"/>
+                        	
+                        </div>   
                       
                     
 						
@@ -128,9 +115,9 @@ function validateForm() {
 			</div>
 	</div>
 	
-	<div style="text-align:center;">
-		<button type="submit" class="btn btn-success" onClick="chk_radio();" >상품등록</button>
-		<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/Community/GalleryList'">작성취소</button>	
+	<div style="text-align:center; padding-bottom: 3%;" >
+		<button type="submit" class="button2" onClick="chk_radio();" >상품등록</button>
+		<button type="reset" class="button2" onClick="location.href='/IMPet/Community/GalleryList'">작성취소</button>	
 	</div>	
 </div>
 

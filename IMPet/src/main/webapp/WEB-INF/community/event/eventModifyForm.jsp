@@ -76,7 +76,7 @@
 	
 </div>  
 
-	<button type="submit" class="btn btn-success">이벤트수정</button>
+				<button type="submit" class="btn btn-success">이벤트수정</button>
 					<button type="reset" class="btn btn-default">작성취소</button>					
 				
 </form>
