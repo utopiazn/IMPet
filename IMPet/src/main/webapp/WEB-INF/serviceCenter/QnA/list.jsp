@@ -73,7 +73,7 @@ color: black;
 <body>
 
 
-<div align="center" style="height: 500px;">
+<div align="center" style="height: 100%;">
 
 	<div style="font-size: 25px; font-weight: bolder; text-align: center; width: 100%; ">
 		<br/>
@@ -118,6 +118,7 @@ color: black;
 			</c:forEach>
 		</table>
 	</form>
+	<br/><br/>
 	</div>
 </div>
 </body>
