@@ -108,7 +108,7 @@ function deleteMember(){
 																<tbody>
 																<tr align="left">
 																	<td width="70" class="cp_formTitle">비밀번호</td>
-																	<td width="130"><input type="password" name="confirm_password" id="confirm_password"></td>
+																	<td width="130"><input type="password" name="confirm_password" id="confirm_password" onkeypress="if(event.keyCode==13) {javascript:deleteMember(); return false;}"></td>
 																</tr>
 																
 																<tr align="left">
@@ -126,7 +126,7 @@ function deleteMember(){
 														<table align="center" border="0" cellpadding="0" cellspacing="0">
 															<tbody>
 																<tr class="ok">
-																	<td valign="top"><a href="javascript:javascript:deleteMember();">확인</a></td>
+																	<td valign="top"><a href="javascript:deleteMember();">확인</a></td>
 																	
 																</tr>
 															</tbody>

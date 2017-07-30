@@ -34,7 +34,7 @@
 																<tbody>
 																<tr align="center">
 																	<td width="70" class="cp_formTitle">비밀번호</td>
-																	<td width="130"><input type="password" name="confirm_password" id="confirm_password">																		
+																	<td width="130"><input type="password" name="confirm_password" id="confirm_password"   onkeypress="if(event.keyCode==13) {javascript:ajaxmembermodify(2); return false;}">																		
 																	</td>
 																</tr>
 																
