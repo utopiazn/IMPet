@@ -394,8 +394,9 @@ public class MemberController {
 
 		System.out.println("비번 찾기 폼");
 		String url ="member/findPwForm";
-		
-		
+		/*
+		String msg="";
+		mav.addObject("msg", msg);*/
 		
 		mav.setViewName(url);
 		

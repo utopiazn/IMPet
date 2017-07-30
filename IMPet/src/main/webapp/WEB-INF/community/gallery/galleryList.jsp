@@ -274,10 +274,20 @@ function ajaxgalleryForm(){
 
 function ajaxPageView(page){	
 	
-	alert(page);  
+	//alert(page);  
+	
+	
+	
+		  
+	var obj =document.jform;
+		
+	
 	var dataList =
 	{ 
-		"PAGE" : page	
+		"PAGE" : page,	
+		"search_name" :obj.search_name.value,
+		
+		
 	}	
 
 	var url1 = "/IMPet/Community/galleryPageList";
@@ -314,10 +324,6 @@ $(document).ready(function(){
 </script>
 
 
-
-
-
-
 <div align="center" style="width: 100%;">
 
 
@@ -332,31 +338,12 @@ $(document).ready(function(){
 	
 	</div>
 
-
-	<div id="ContextEvent" align="center" style="width:100%;  float: left;">
-	
-	
-	
-
-		
-		<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>
-
-
-					
+	<div id="ContextEvent" align="center" style="width:100%;  float: left;">		
+		<jsp:include page="/WEB-INF/community/gallery/galleryListAdd.jsp"/>					
    </div>
    
  </div>
 	
 </div>	
 
-<!-- 
-
-커뮤니티 갤러리 리스트
-
-<br/><br/><br/><br/><br/>
-
-<input value="갤러리 리스트 중 한개의 상세보기 이동" type="button" onclick="location.href='/IMPet/Community/GalleryView'"/> 
-
-<input value="갤러리  추가" type="button" onclick="location.href='/IMPet/Community/GalleryForm'"/> 
- -->
 

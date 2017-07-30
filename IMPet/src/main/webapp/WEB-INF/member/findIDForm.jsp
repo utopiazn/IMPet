@@ -49,7 +49,7 @@ function ajaxFindPwView(){
 	  
 
 	 
-	var url1 = "/IMPet/Member/FindPw";
+	var url1 = "/IMPet/Member/FindPwForm";
 	
    $.ajax({
    
