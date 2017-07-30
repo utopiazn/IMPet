@@ -286,6 +286,7 @@ function ajaxPageView(page){
 	{ 
 		"PAGE" : page,	
 		"search_name" :obj.search_name.value,
+		"key" :obj.key.value
 		
 		
 	}	

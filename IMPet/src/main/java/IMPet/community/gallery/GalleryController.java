@@ -43,50 +43,33 @@ public class GalleryController {
 		String selectName="전체";
 		
 		
-		String searchWhere="";
-		
+		String searchWhere="";	
 		
 		
 		if(commandMap.get("key").toString().equals("")){
-			
-			System.out.println("dddddddddddddd");
 			
 			key = 0;
 			selectName="전체";
 			search_name="";
 			
 				
-		}else if(commandMap.get("key").toString().equals("0")){
-			
-			System.out.println("00000000000000000000000000");
-			
+		}else if(commandMap.get("key").toString().equals("0")){			
 			key = 0;
-			selectName="전체";
-			
-			
-			
+			selectName="전체";		
 			
 		}else if(commandMap.get("key").toString().equals("1")){
-			System.out.println("11111111111111111111111111111");
 			
 			key = 1;
 			selectName="제목";
 			
-			String search= commandMap.get("search_name").toString();
-			
+			String search= commandMap.get("search_name").toString();			
 			searchWhere = "GALLERY_SUBJECT like '%"+  search + "%'";
 			
-		}else if(commandMap.get("key").toString().equals("2")){
-			System.out.println("222222222222222222222222222222222222");
-			
-			
+		}else if(commandMap.get("key").toString().equals("2")){							
 			key = 2;
-			selectName="작성자";
-			
-			String search= commandMap.get("search_name").toString();
-			
-			searchWhere = "member_Nickname like '%"+  search + "%'";
-			
+			selectName="작성자";			
+			String search= commandMap.get("search_name").toString();			
+			searchWhere = "member_Nickname like '%"+  search + "%'";			
 			
 		}
 		
@@ -219,6 +202,11 @@ public class GalleryController {
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
 		String PAGIN = String.valueOf(blockCount);	
+		
+		if(totalPage <pageNo){
+			pageNo = totalPage;
+		}
+		
 		String PAGINGNO = String.valueOf(pageNo);		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
@@ -260,7 +248,18 @@ public class GalleryController {
 		int totalCount=  galleryService.selectSearchGalleryCount(commandMap.getMap());	
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
+		
+		
+		
+		
 		String PAGIN = String.valueOf(blockCount);	
+		
+		System.out.println("totalPage:"+totalPage  +"  pageNo:"+pageNo);
+		
+		if(totalPage <pageNo){
+			pageNo = totalPage;
+		}
+		
 		String PAGINGNO = String.valueOf(pageNo);		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
@@ -875,23 +874,88 @@ public class GalleryController {
 		
 	
 		
-		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());		
 		
-		String pagingHtml = pagingHtml(commandMap,page);
+		int key = 0;
+		String search_name="";
+		String selectName="전체";
+		
+		
+		String searchWhere="";	
+		
+		
+		if(commandMap.get("key").toString().equals("")){
+			
+			key = 0;
+			selectName="전체";
+			search_name="";
+			
+				
+		}else if(commandMap.get("key").toString().equals("0")){			
+			key = 0;
+			selectName="전체";		
+			
+		}else if(commandMap.get("key").toString().equals("1")){
+			
+			key = 1;
+			selectName="제목";
+			
+			String search= commandMap.get("search_name").toString();			
+			searchWhere = "GALLERY_SUBJECT like '%"+  search + "%'";
+			
+		}else if(commandMap.get("key").toString().equals("2")){							
+			key = 2;
+			selectName="작성자";			
+			String search= commandMap.get("search_name").toString();			
+			searchWhere = "member_Nickname like '%"+  search + "%'";			
+			
+		}
+		
+		
+		
+		
+		String pagingHtml="";
+		  
+		List<Map<String,Object>> listAll;
+		
+		
+		if( key==1 || key==2 ){
+			search_name= commandMap.get("search_name").toString() ;
+		
+			pagingHtml=pagingHtmlSeach(commandMap, page, searchWhere);
+			listAll = galleryService.selectSearchRangeAll(commandMap.getMap());	
+			
+		}else{
+		
+			
+			pagingHtml=pagingHtml(commandMap,page);
+			listAll = galleryService.selectRangeAll(commandMap.getMap());		
+			search_name = "";
+		}
+		
+		System.out.println("Key:"+key+"   serchName:"+selectName  +"   searchWhere:"+searchWhere );
+
+		mav.addObject("Key", key);			
+		mav.addObject("SelectName", selectName);		
+		mav.addObject("Search_name", search_name);
+		
+
+		int count = listAll.size();
+		
+		mav.addObject("listAllCount", count);	
+		
+		
+		
 		commandMap.MapInfoList();
-		
-		
-		
-		
-		
-		
-		
-		
-		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+
 		
 		
 		mav.addObject("listAll", listAll);	
-		mav.addObject("pagingHtml", pagingHtml);	
+		mav.addObject("pagingHtml", pagingHtml);		
+		
+	
+		commandMap.MapInfoList();		
+		
 		
 		
 		
