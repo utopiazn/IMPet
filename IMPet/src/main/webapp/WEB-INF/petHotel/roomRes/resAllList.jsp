@@ -33,7 +33,6 @@ function ajaxPageView(page){
 
 }
 </script>
-<br/><br/>
 <div class="row" >
 	<h1 class="page-header">펫호텔 예약 목록</h1>
 </div>
@@ -41,7 +40,7 @@ function ajaxPageView(page){
 <div class="row">
 	<div class="panel panel-default">
 	 <div class="panel-heading">
-                         [펫호텔 예약목록] 펫호텔 예약 관리 페이지 입니다.
+                         [펫호텔 예약 목록] 펫호텔 예약 관리 페이지 입니다.
         </div>
 	
 	<div id="dataTables-example_wrapper" class="panel-body">

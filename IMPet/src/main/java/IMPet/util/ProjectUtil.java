@@ -3,7 +3,9 @@ package IMPet.util;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -36,9 +38,22 @@ public class ProjectUtil {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		String cDate = dateFormat.format(currentDate);
-		// System.out.println("현재날짜 : "+cDate);
+		//System.out.println("현재날짜 : "+cDate);
 
 		return cDate;
+	}
+	
+	// 내일 날짜 : java에서는 이 함수 호출
+	public String getNextDate() {
+		
+		Calendar cal = new GregorianCalendar();
+		cal.add(Calendar.DATE, 1);
+		Date nextDate = cal.getTime();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String nDate = dateFormat.format(nextDate);
+		//System.out.println("내일날짜 : "+nDate);
+
+		return nDate;
 	}
 
 	// 프로젝트 위치 경로

@@ -3,12 +3,6 @@
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
-<c:if test="${sessionScope.member_Admin==1 }">
-<div align="right">
-	<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxRoomInsertForm()"/>
-</div>
-</c:if>
-
 <div align="center">
 	<table style="width: 100%">
 		<c:forEach var="room" items="${list}">

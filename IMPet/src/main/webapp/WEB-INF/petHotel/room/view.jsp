@@ -27,8 +27,9 @@
 				<div align="left" style="margin-bottom:10px;">
 					<br/>
 					<c:set var="cDate" value="<%=new IMPet.util.ProjectUtil().getDate()%>"/>
+					<c:set var="nDate" value="<%=new IMPet.util.ProjectUtil().getNextDate()%>"/>
 					<input name="curDate" type="hidden" value="${cDate}"/>
-					&nbsp;&nbsp;&nbsp;입실날짜 : <input name="res_FirstDate" type="date" style="width:60%; margin-bottom:3px;"/><br/>
+					&nbsp;&nbsp;&nbsp;입실날짜 : <input name="res_FirstDate" type="date" style="width:60%; margin-bottom:3px;" value="${nDate}"/><br/>
 					&nbsp;&nbsp;&nbsp;퇴실날짜 : <input name="res_LastDate" type="date" style="width:60%;"/><br/>
 				</div>
 				
@@ -64,10 +65,6 @@
 	<br/>
 	
 	<div align="right" style="float: right; width:100%; margin-top: 10px;">
-		<c:if test="${sessionScope.member_Admin==1 }">
-		<input value="룸 수정" class="button2" type="button" onclick="ajaxRoomModifyForm(${view.ROOM_NO})"/>
-		<input value="룸 삭제" class="button2" type="button" onclick="ajaxRoomDelete(${view.ROOM_NO})"/>
-		</c:if>
 		<input value="목록으로" class="button2" type="button" onclick="ajaxRoom()"/>
 	</div>
 </div>

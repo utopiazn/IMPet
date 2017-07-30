@@ -82,6 +82,27 @@ public class PetRoomController {
 		
 		return mav;
 	}
+	
+	//호텔 admin 룸 리스트(ajax용)
+		@RequestMapping(value="RoomAdminListAjax")
+		public ModelAndView roomAdminListAjax() throws Exception{
+			
+			ModelAndView mav = new ModelAndView();
+			
+			System.out.println("호텔 admin 룸 리스트(ajax용)");
+
+			List<Map<String, Object>> list = petRoomService.selectAll();
+			
+			System.out.println(list);
+			
+			String url = "petHotel/room/adminList";
+
+			mav.addObject("list", list);
+			
+			mav.setViewName(url);
+			
+			return mav;
+		}
 
 	//호텔 룸 상세
 	@RequestMapping(value="RoomView")
@@ -165,9 +186,7 @@ public class PetRoomController {
 		
 		petRoomService.update(commandMap.getMap());
 		
-		String no = commandMap.get("room_NO").toString();
-		
-		String url = "redirect:RoomView?room_NO="+no;
+		String url = "redirect:RoomAdminListAjax";
 		
 		mav.setViewName(url);
 		
@@ -184,7 +203,7 @@ public class PetRoomController {
 		
 		petRoomService.delete(commandMap.getMap());
 		
-		String url = "redirect:RoomList";
+		String url = "redirect:RoomAdminListAjax";
 		
 		mav.setViewName(url);
 		

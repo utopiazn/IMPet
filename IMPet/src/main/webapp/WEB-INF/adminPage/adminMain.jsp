@@ -100,7 +100,7 @@
 			<c:when test="${adminCode==2 || adminCode==3}">
 				<div id="ContextHotel" style="width: 90%; padding-top: 10px;">
 					<c:if test="${adminCode==2}">
-						<jsp:include page="/WEB-INF/petHotel/room/list.jsp"/>
+						<jsp:include page="/WEB-INF/petHotel/room/adminList.jsp"/>
 					</c:if>
 					<c:if test="${adminCode==3}">
 						<jsp:include page="/WEB-INF/petHotel/roomRes/resAllList.jsp"/>
@@ -110,7 +110,7 @@
 			
 			<c:when test="${adminCode==4}">
 				<div id="ContextHotel" style="width: 90%; ">
-					<jsp:include page="/WEB-INF/petHotel/healing/list.jsp"/>
+					<jsp:include page="/WEB-INF/petHotel/healing/adminList.jsp"/>
 				</div>
 			</c:when>
 			

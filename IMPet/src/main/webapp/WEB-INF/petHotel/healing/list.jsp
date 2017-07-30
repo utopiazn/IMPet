@@ -3,12 +3,6 @@
 
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
-<c:if test="${sessionScope.member_Admin==1 }">
-<div align="right">
-	<input value="+ Add" class="button4 btn-4" type="button" onclick="ajaxHealingInsertForm()"/>
-</div>
-</c:if>
-
 <div align="center">
 	<table style="width: 100%">
 		<c:forEach var="Healing" items="${list}">
@@ -16,7 +10,7 @@
 				<td>
 					<div class="con">
 						<div>
-							<img alt="s2" src="/IMPet/resources/image/hotel/healingImg/${Healing.HEALING_IMG}" onclick="ajaxHealingView(${Healing.HEALING_NO});" style="padding-left : 8px; width: 30%; height: 100%; float:left; ">
+							<img alt="s2" src="/IMPet/resources/image/hotel/healingImg/${Healing.HEALING_IMG}" onclick="ajaxHealingView(${Healing.HEALING_NO});" style="padding-left : 8px; width: 30%; height: 100%; float:left;  cursor: pointer;">
 						</div>
 						
 						<div>

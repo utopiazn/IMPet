@@ -41,27 +41,47 @@ public class PetHealingController {
 	}
 	
 	//호텔 admin 힐링 리스트
-		@RequestMapping(value="HealingAdminList")
-		public ModelAndView healingAdminList() throws Exception{
-			
-			ModelAndView mav = new ModelAndView();
-			
-			System.out.println("호텔 Admin 힐링 리스트");
-			
-			List<Map<String, Object>> list = petHealingService.selectAll();
-			
-			String url = "AdminPage";
-			
-			//관리자페이지 통합코드
-			int adminCode = 4;
-			mav.addObject("adminCode", adminCode);
-			
-			mav.addObject("list", list);
-			
-			mav.setViewName(url);
-			
-			return mav;
-		}
+	@RequestMapping(value="HealingAdminList")
+	public ModelAndView healingAdminList() throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("호텔 Admin 힐링 리스트");
+		
+		List<Map<String, Object>> list = petHealingService.selectAll();
+		
+		String url = "AdminPage";
+		
+		//관리자페이지 통합코드
+		int adminCode = 4;
+		mav.addObject("adminCode", adminCode);
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
+		
+		return mav;
+	}
+		
+	//호텔 admin 힐링 리스트(ajax용)
+	@RequestMapping(value="HealingAdminListAjax")
+	public ModelAndView healingAdminListAjax() throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("호텔 Admin 힐링 리스트(ajax용)");
+		
+		List<Map<String, Object>> list = petHealingService.selectAll();
+		
+		String url = "petHotel/healing/adminList";
+		
+		mav.addObject("list", list);
+		
+		mav.setViewName(url);
+		
+		return mav;
+	}
+
 	
 	//호텔 힐링 상세
 	@RequestMapping(value="HealingView")
@@ -141,13 +161,9 @@ public class PetHealingController {
 
 		System.out.println("호텔 힐링 수정");
 		
-		mav.setViewName("redirect:HealingView");
-		
 		petHealingService.update(commandMap.getMap());
 		
-		String no = commandMap.get("healing_NO").toString();
-		
-		String url = "redirect:HealingView?healing_NO="+no;
+		String url = "redirect:HealingAdminListAjax";
 		
 		mav.setViewName(url);
 		
@@ -164,7 +180,7 @@ public class PetHealingController {
 		
 		petHealingService.delete(commandMap.getMap());
 		
-		String url = "redirect:HealingList";
+		String url = "redirect:HealingAdminListAjax";
 		
 		mav.setViewName(url);
 		

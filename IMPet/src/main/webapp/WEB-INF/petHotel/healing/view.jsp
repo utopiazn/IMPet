@@ -36,10 +36,6 @@
 	</div>
 	
 	<div align="right" style="float: right; width:100%; margin-top: 10px;">
-		<c:if test="${sessionScope.member_Admin==1 }">
-		<input value="힐링 수정" class="button2" type="button" onclick="ajaxHealingModifyForm(${view.HEALING_NO})"/>
-		<input value="힐링 삭제" class="button2" type="button" onclick="ajaxHealingDelete(${view.HEALING_NO})"/>
-		</c:if>
 		<input value="목록으로" class="button2" type="button" onclick="ajaxHealing()"/>
 	</div>
 </div>
