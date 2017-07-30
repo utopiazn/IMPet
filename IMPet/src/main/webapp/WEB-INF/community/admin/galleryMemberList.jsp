@@ -39,80 +39,55 @@
  
 $(document).ready(function(){
 
- 	$("a[name='Modified']").on("click", function(e){ //수정
-    	
- 		e.preventDefault(); 	 		
-    	var id =$(this).parent().find("#MEMBER_ID").val();    
-   		ajaxModifiedFormView(id);    	
-	});	  
-	  
+ 
  	$("a[name='delete']").on("click", function(e){ //삭제 
     
 		var id =$(this).parent().find("#MEMBER_ID").val();	     	
  		if(confirm(id +"의 회원 정보를 삭제하시겠습니까?")){		    		
 
  			e.preventDefault();   
-    		ajaxdeleteView(id);
+ 			ajaxGalleryAdminDelete(id);
  		} 	
 	});
 });	
 
 
-function ajaxModifiedFormView(memberID){	
+function ajaxGalleryAdminDelete(EVENT_NO){
 	
-	var dataList =
-	{ 
-		"MEMBER_ID" : memberID 	
-	}	
-
-	var url1 = "/IMPet/Member/ModifiedForm";
 	
-    $.ajax({     	
-    
-        type : "POST",
-        url : url1,
-        data : dataList,
-        dataType : "text",      
-        
-        error : function() {
-      	  
-      		alert('오류임!');     	
-        },
-        
-        success : function(data) {  
-      		 $('#ContextModifiedForm').html(data);          		
-        }
-        
-      });        
-}
-
-function ajaxdeleteView(memberID){	
+	var url1 = "/IMPet/Community/GalleryAdminDelete";
 	
-	var dataList =
-	{ 
-		"MEMBER_ID" : memberID,
-		"ADMIN" : 	"1" 	
-	}	
+	 	  
+ 	var obj =document.jform;
 
-	var url1 = "/IMPet/Member/Delete";
+ 	
+
+
+
+	 var dataList =
+		{ 
+			"EVENT_NO" : EVENT_NO,	
+			"EVENT_IMG" : obj.EVENT_IMG.value,			
+			"PAGE"  : obj.PAGE.value
+		}	
+
+	
 	
     $.ajax({    
-     
-    	type : "POST",
-        url : url1,
-        data : dataList,
-        dataType : "text",      
-        
-        error : function() {
-      	  
-      		alert('오류임!');     	
-        },
-       
-        success : function(data) {  
-      		 $('#ContextModifiedForm').html(data);          		
-        }
-        
-      });        
+      type : "POST",
+      url : url1,
+      data : dataList,
+      dataType : "text",      
+      error : function() {
+    	  
+    	 alert('오류임!');     	
+      },
+      success : function(data) {  
+    	 $('#ContextEvent').html(data);
+        		
+      }
+      
+    });    		 
 
 }
 
@@ -178,14 +153,11 @@ function ajaxPageView(page){
 			
 			<thead>
 				<tr role="row" style="vertical-align:middle;">
-					<th style="width: 7%; text-align:center;vertical-align:middle;">번호</th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">ID</th>										
-					<th style="width: 10%; text-align:center;vertical-align:middle;">이름</th>
-					<th style="width: 10%; text-align:center;vertical-align:middle;">닉네임</th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">전화번호 </th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
-					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
-					<th style="width: 8%; text-align:center;vertical-align:middle;">사용여부</th>
+					<th style="width: 7%; text-align:center;vertical-align:middle;">갤러리 번호</th>
+					<th style="width: 15%; text-align:center;vertical-align:middle;">작성자</th>															
+					<th style="width: 10%; text-align:center;vertical-align:middle;">닉네임</th>					
+					<th style="width: 15%; text-align:center;vertical-align:middle;">메인이미지</th>
+					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>					
 					<th style="width: 10%; text-align:center;vertical-align:middle;">관리</th>
 					
 					
@@ -200,7 +172,7 @@ function ajaxPageView(page){
 					<tr>
 					
 						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList.NO}
+						  ${itemList.GALLERY_NO}
 						</td>
 						
 						<td style="text-align:center;vertical-align:middle;">
@@ -208,41 +180,24 @@ function ajaxPageView(page){
 						</td >						
 							
 						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList.MEMBER_NAME}
-						</td>
-						
-						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_NICKNAME}
 						</td>
 						
 						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList.MEMBER_TEL}
+						<img src="/IMPet/resources/image/gallery/${itemList.MAINIMAGE}" width="90" height="90"> 
+						
+						</td>
+						
+						<td style="text-align:center;vertical-align:middle;">
+						  ${itemList.GALLERY_DATE}
 						</td>		
 						
 							
-						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList. MEMBER_EMAIL}
-						</td>
-						
-								
-						
-						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList.MEMBER_JOIN_DATE}
-						</td>
-						
-						
-						<td style="text-align:center;vertical-align:middle;">
-						  ${itemList.MEMBER_USERYN}
-						</td>
-					
 					
 						
 						<td style="text-align:center;vertical-align:middle;">
-							<a name='Modified'>							
-								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
-								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
-					 	&nbsp;&nbsp;					 	
-					 		 <a name='delete'>
+								 	
+					 		 <a name='delete'> 
 					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
 					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
 					 		

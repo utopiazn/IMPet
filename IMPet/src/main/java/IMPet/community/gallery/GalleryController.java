@@ -780,6 +780,56 @@ public class GalleryController {
 	}
 	
 	
+	
+
+
+	//갤러리 삭제 처리
+	@RequestMapping(value="/GalleryAdminDelete")
+	public ModelAndView GalleryAdminDelete(CommandMap commandMap ) throws Exception{
+
+
+		ModelAndView mav = new ModelAndView();
+		String url ="redirect:/Community/GalleryAdminDelete";
+		System.out.println("갤러리 삭제 처리");
+		
+		ProjectUtil util = new ProjectUtil();	
+		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/gallery/";	
+		
+		
+		commandMap.MapInfoList();
+		
+		Map<String,Object>  view = galleryService.selectOne(commandMap.getMap());	
+		
+		
+
+		System.out.println(view);
+		
+		
+		StringTokenizer values = new StringTokenizer(view.get("GALLERY_IMG").toString()+"/","/");
+		int count = values.countTokens();
+		
+		System.out.println("count:"+count);
+		
+		
+		while(values.hasMoreElements()){
+			
+			String image =values.nextToken();
+					
+			System.out.println("image:"+image);
+			
+			File removeFile = new File(uploadPath, image);	
+			removeFile.delete();
+			
+		}
+
+		galleryService.delete(commandMap.getMap());
+
+		mav.setViewName(url);
+	
+		return mav;
+	}
+	
+	
 	//갤러리 댓글
 	@RequestMapping(value="/GalleryComment")
 	public ModelAndView GalleryComment(CommandMap commandMap,HttpSession session ) throws Exception{
