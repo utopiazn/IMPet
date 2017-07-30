@@ -4,13 +4,95 @@
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
+<script type="text/javascript">
+function checkIns() { 
+	
+	var frm = document.Insert;
+	
+	if(frm.room_NO.value == ""){
+		alert("객실 번호를 입력해 주세요.");
+		return false;
+	}
+	
+	if(frm.room_Name.value == ""){
+		alert("객실의 이름을 입력해 해주세요.");
+		return false;
+	}
+	
+	if(frm.room_Price.value == ""){
+		alert("객실 요금을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.room_Total.value == ""){
+		alert("객실 총원을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.room_IMG.value == ""){
+		alert("객실 이미지를 선택해주세요");
+		return false;
+	}
+	
+	if(frm.room_Detail.value == ""){
+		alert("객실 설명를 입력해 주세요");
+		return false;
+	}
+	
+	else{
+		  return true;
+	 }
+
+}
+
+function checkMod() { 
+	
+	var frm = document.Modify;
+	
+	if(frm.room_NO.value == ""){
+		alert("객실 번호를 입력해 주세요.");
+		return false;
+	}
+	
+	if(frm.room_Name.value == ""){
+		alert("객실의 이름을 입력해 해주세요.");
+		return false;
+	}
+	
+	if(frm.room_Price.value == ""){
+		alert("객실 요금을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.room_Total.value == ""){
+		alert("객실 총원을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.room_Detail.value == ""){
+		alert("객실 설명를 입력해 주세요");
+		return false;
+	}
+	
+	else{
+		ajaxRoomModify();
+	 }
+
+}
+</script>
+
+
 <div align="center">
 	<br/>
 	<c:choose>
 		<c:when test="${view.ROOM_NO == null}">
 			<div class="row" style="padding-left:15px;width:100;text-align:left;">
 				
-				<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert">
+				<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="RoomInsert" onsubmit="return checkIns();">
 				
 				<div class="panel panel-default">
 					<div class="panel-heading" >PetHotel Room 추가 페이지입니다. 이미지 확인하십시오</div>
@@ -57,8 +139,8 @@
 	                 </div>      
 				</div>
 				<div align="center" style="width: 100%;">
-				<input class="button2" value="객실 추가" type="submit"/>
-				<input class="button2" value="뒤로가기" type="button" onclick="ajaxRoom()"/>
+				<input class="btn btn-success" value="객실 추가" type="submit"/>
+				<input class="btn btn-default" value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/RoomAdminList'"/>
 				</div>
 				</form>
 				
@@ -105,8 +187,8 @@
 	                 </div>      
 				</div>
 				<div align="center" style="width: 100%;">
-				<input class="btn btn-success" value="객실 수정" type="button" onclick="ajaxRoomModify()"/>
-				<input class="btn btn-default" value="뒤로가기" type="button" onclick="ajaxRoomView(${view.ROOM_NO})"/>
+				<input class="btn btn-success" value="객실 수정" type="button" onclick="checkMod();"/>
+				<input class="btn btn-default" value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/RoomAdminList'"/>
 				</div>
 				</form>
 				

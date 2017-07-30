@@ -4,6 +4,91 @@
 <link href="/IMPet/resources/css/adminItem/bootstrapadmin.min.css" rel="stylesheet" style="text/css">
 <link rel="stylesheet" href="/IMPet/resources/css/hotel/form.css">
 
+<script type="text/javascript">
+function checkIns() { 
+	
+	var frm = document.Insert;
+	
+	if(frm.healing_NO.value == ""){
+		alert("힐링 번호를 입력해 주세요.");
+		return false;
+	}
+	
+	if(frm.healing_Name.value == ""){
+		alert("힐링 이름을 입력해 해주세요.");
+		return false;
+	}
+	
+	if(frm.healing_Time.value == ""){
+		alert("힐링 이용시간을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.healing_Guide.value == ""){
+		alert("힐링 이용안내를 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.healing_IMG.value == ""){
+		alert("힐링 이미지를 선택해주세요");
+		return false;
+	}
+	
+	if(frm.healing_Detail.value == ""){
+		alert("힐링 설명를 입력해 주세요");
+		return false;
+	}
+	
+	else{
+		  return true;
+	 }
+
+}
+
+function checkMod() { 
+	
+	var frm = document.Modify;
+	
+	if(frm.healing_NO.value == ""){
+		alert("힐링 번호를 입력해 주세요.");
+		return false;
+	}
+	
+	if(frm.healing_Name.value == ""){
+		alert("힐링 이름을 입력해 해주세요.");
+		return false;
+	}
+	
+	if(frm.healing_Time.value == ""){
+		alert("힐링 이용시간을 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.healing_Guide.value == ""){
+		alert("힐링 이용안내를 입력해 주세요.");
+		return false;
+	
+	}
+	
+	if(frm.healing_IMG.value == ""){
+		alert("힐링 이미지를 선택해주세요");
+		return false;
+	}
+	
+	if(frm.healing_Detail.value == ""){
+		alert("힐링 설명를 입력해 주세요");
+		return false;
+	}
+	
+	else{
+		ajaxHealingModify();
+	}
+
+}
+</script>
 
 <div align="center">
 	<br/>
@@ -11,7 +96,7 @@
 		<c:when test="${view.HEALING_NO == null}">
 			<div class="row" style="padding-left:15px;width:100;text-align:left;">
 				
-				<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="HealingInsert">
+				<form id="insertForm" name="Insert" method="post" enctype="multipart/form-data" action="HealingInsert" onsubmit="return checkIns();">
 				
 				<div class="panel panel-default">
 					<div class="panel-heading" >PetHotel Healing 추가 페이지입니다. 이미지 확인하십시오</div>
@@ -58,8 +143,8 @@
 	                 </div>      
 				</div>
 				<div align="center" style="width: 100%;">
-				<input class="button2" value="힐링 추가" type="submit"/>
-				<input class="button2" value="뒤로가기" type="button" onclick="ajaxHealing()"/>
+				<input class="btn btn-success" value="힐링 추가" type="submit"/>
+				<input class="btn btn-default" value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/HealingAdminList'"/>
 				</div>
 				</form>
 				
@@ -107,8 +192,8 @@
 	                 </div>      
 				</div>
 				<div align="center" style="width: 100%;">
-				<input class="btn btn-success" value="힐링 수정" type="button" onclick="ajaxHealingModify()"/>
-				<input class="btn btn-default"  value="뒤로가기" type="button" onclick="ajaxHealing()"/>
+				<input class="btn btn-success" value="힐링 수정" type="button" onclick="checkMod()"/>
+				<input class="btn btn-default"  value="뒤로가기" type="button" onclick="location.href='/IMPet/PetHotel/HealingAdminList'"/>
 				</div>
 				</form>
 				
