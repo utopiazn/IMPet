@@ -120,7 +120,7 @@
 			<div class="panel-body" style="text-align: left;">
 			
 				<div class="form-group"; style="text-align: center;">
-					<h3>- ${view.QNA_SUBJECT} - </h3>
+					<h3>- <c:if test="${view.QNA_REPLY==1}"><font color=RED>Re : </font>[답글]</c:if>${view.QNA_SUBJECT} - </h3>
 					</div>
 					<br /><br />
 					
@@ -143,14 +143,19 @@
 					</div>
 					
 <div align=center>
-	<c:if test="${sessionScope.member_Admin == 1}">
+	<c:choose>
+	
+	<c:when test="${sessionScope.member_Admin == 1}">
+	<c:if test="${view.QNA_REPLY!=1}">
 	<input value="답글" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionInsertFormRef?QnA_Reply=${view.QNA_REPLY}&QnA_Ref=${view.QNA_REF}'"/>
-	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/>
 	</c:if>
-	<c:if test="${sessionScope.member_ID eq view.MEMBER_ID}">
+	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/>
+	</c:when>
+	<c:when test="${sessionScope.member_ID eq view.MEMBER_ID}">
 	<input value="수정" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionModifyForm?QnA_NO=${view.QNA_NO}'"/>
 	<input value="삭제" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/QuestionDelete?QnA_NO=${view.QNA_NO}'"/> 	
- 	</c:if>
+ 	</c:when>
+ 	</c:choose>
 </div>
 
 

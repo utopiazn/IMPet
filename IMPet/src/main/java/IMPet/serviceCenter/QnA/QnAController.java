@@ -88,7 +88,9 @@ public class QnAController {
 		}
 
 		System.out.println("자주묻는질문 개별페이지");
-
+		
+		System.out.println(map);
+		
 		mav.addObject("view", map);
 
 		mav.setViewName("QuestionView");
@@ -201,7 +203,7 @@ public class QnAController {
 
 		System.out.println("Q&A 답글 추가");
 
-		mav.setViewName("redirect:QuestionList");
+		mav.setViewName("redirect:AdminQuestionList");
 		return mav;
 	}
 
