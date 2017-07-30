@@ -115,23 +115,12 @@ function validateForm() {
 			</div>
 	</div>
 	
+	<div style="text-align:center; padding-bottom: 3%;">		
+		<button type="submit" class="button2" onClick="chk_radio();" >작석 완료</button>
+		<button type="reset" class="button2" onClick="location.href='/IMPet/Community/GalleryList'">작성취소</button>	
+	</div>	
 	
 </div>
-
-
-
-
-
-<!-- <br/><br/><br/><br/><br/>
-
-<input value="추가" type="button" onclick="location.href='/IMPet/Community/GalleryInsert'"/> /
-<input value="커뮤니티 갤러리 리스트  이동" type="button" onclick="location.href='/IMPet/Community/GalleryList'"/> 
- -->
-
-
-
-</body>
-</html>
 
 <script>
 
@@ -154,9 +143,7 @@ function chk_radio() {
 		alert("이미지는 1개 이상이여야 합니다..");
 		return false;
 	
-	}
-	
-	else{
+	}else{
 		  frm.method = "post";
 		  frm.action = "/IMPet/Community/GalleryInsert";
 		  frm.enctype= "multipart/form-data";
