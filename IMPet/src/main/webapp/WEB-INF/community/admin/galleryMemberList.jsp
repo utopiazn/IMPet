@@ -93,6 +93,7 @@ function ajaxGalleryAdminDelete(EVENT_NO){
 
 
 
+
 function ajaxPageView(page){	
 	
 	//alert(page);  
@@ -101,7 +102,7 @@ function ajaxPageView(page){
 		"PAGE" : page	
 	}	
 
-	var url1 = "/IMPet/Member/MemberPageList";
+	var url1 = "/IMPet/admin/galleryMemberList";
 	
     $.ajax({    
      
