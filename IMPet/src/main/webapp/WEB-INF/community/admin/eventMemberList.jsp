@@ -54,6 +54,8 @@ $(document).ready(function(){
 
  			e.preventDefault();   
  			ajaxEventDelete(id);
+ 		}else{
+ 			return false;
  		} 	
 	});
 });	
@@ -99,7 +101,7 @@ function ajaxEventModifyForm(EVENT_NO){
 function ajaxEventDelete(EVENT_NO){
 	
 	
-	var url1 = "/IMPet/Community/EventDelete";
+	var url1 = "/IMPet/Community/EventAdminDelete";
 	
 	 	  
  	var obj =document.jform;
@@ -111,7 +113,8 @@ function ajaxEventDelete(EVENT_NO){
 	 var dataList =
 		{ 
 			"EVENT_NO" : EVENT_NO,	
-			"EVENT_IMG" : obj.EVENT_IMG.value
+			"EVENT_IMG" : obj.EVENT_IMG.value,			
+			"PAGE"  : obj.PAGE.value
 		}	
 
 	
@@ -146,7 +149,7 @@ function ajaxPageView(page){
 		"PAGE" : page	
 	}	
 
-	var url1 = "/IMPet/Member/MemberPageList";
+	var url1 = "/IMPet/Community/EventAdminPageList";
 	
     $.ajax({    
      
@@ -192,6 +195,7 @@ function ajaxPageView(page){
 	<div id="dataTables-example_wrapper" class="panel-body">
 	
 	
+<form name="jform">		
 		<table class="table  table-bordered table-hover dataTable no-footer"
 				id="dataTables-example" role="grid"
 				aria-describedby="dataTables-example_info">
@@ -233,6 +237,7 @@ function ajaxPageView(page){
  							
 						<td style="text-align:center;vertical-align:middle;">						 
 							<img src="/IMPet/resources/image/event/${itemList.EVENT_IMG}" width="90" height="90"> 
+							<input type="hidden"  name="EVENT_IMG" value="${itemList.EVENT_IMG}"/>
 						</td>
 						
 						<td style="text-align:center;vertical-align:middle;">
@@ -266,8 +271,10 @@ function ajaxPageView(page){
 				</c:forEach>
 			</tbody>				
 								
-		</table>						
-	
+		</table>	
+		
+		<input type="hidden" name= "PAGE" value ="${PAGE}"/>					
+</form>	
 	
 	<!-- 
 	</div> -->
@@ -291,9 +298,3 @@ function ajaxPageView(page){
 </div>
 </div>
 
-
-<!-- 회원 리스트  선택 햇다 치고
-
-<br/><br/>
-<input value="회원 한면을 선택 행을 경우 회원 수정 폼으로 이동" type="button" onclick="location.href='/IMPet/Member/ModifiedForm'"/>
- -->

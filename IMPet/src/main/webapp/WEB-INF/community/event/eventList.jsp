@@ -184,7 +184,7 @@ function ajaxEventModifyForm(EVENT_NO){
 		  
 	var url1 = "/IMPet/Community/EventModifyForm";
 	
-	 alert(EVENT_NO);     	
+	// alert(EVENT_NO);     	
 
 	 var dataList =
 		{ 
@@ -355,15 +355,4 @@ function ajaxPageView(page){
 	
 
 
-			
-<!-- 
-
-커뮤니티 이벤트 리스트
-
-<br/><br/><br/><br/><br/>
-
-<input value="이벤트 리스트 중 한개의 상세보기 이동" type="button" onclick="location.href='/IMPet/Community/EventView'"/> 
-
-<input value="이벤트 추가 " type="button" onclick="location.href='/IMPet/Community/EventForm'"/> 
-
- -->
+	
