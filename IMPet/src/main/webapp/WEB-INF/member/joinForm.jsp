@@ -26,12 +26,89 @@
 <script type="text/javascript">
 
 
+
+	//아이디 중복 여부를 판다
+	function valueCheck(userinput){
+	//아이디를 입력했는지 검사
+	
+	
+		if(userinput.MEMBER_ID.value==""){
+			alert("아이디를 입력하세요");
+			return;
+		}
+	
+	}
+
+
 	
 	function ajaxJoinInsertView(){
 		
 		  
+	
 		  
 		var obj =document.jform;
+		
+		
+		if(obj.MEMBER_ID.value==""){
+			alert("아이디를 입력하세요");
+			return;
+		}
+		
+		if(obj.COMFIRMIDCHECK.value=="0"){
+			alert("ID 중복 확인을  해주세요.");
+			return;
+		}
+		
+		
+		if(obj.MEMBER_PW.value==""){
+			alert("비밀번호를  입력하세요");
+			return;
+		}
+		
+		if(obj.MEMBER_PW2.value==""){
+			alert("비밀번호 확인을  입력하세요");
+			return;
+		}
+		
+	
+		if(obj.MEMBER_PW.value != obj.MEMBER_PW2.value ){
+			alert("비밀번호와 비빌번호 환인이  서로 다릅니다.");
+			return;
+		}
+	
+		if(obj.MEMBER_NAME.value==""){
+			alert("이름을  입력하세요");
+			return;
+		}
+		
+		
+
+		if(obj.MEMBER_NICKNAME.value==""){
+			alert("닉내임을  입력하세요");
+			return;
+		}
+		
+		if(obj.MEMBER_ZIPCODE.value==""){
+			alert("우편 번호를   입력하세요");
+			return;
+		}
+		
+		if(obj.MEMBER_ADDRESS2.value==""){
+			alert("상세주소를   입력하세요");
+			return;
+		}
+		
+		if(obj.MEMBER_EMAIL.value==""){
+			alert("이메일을   입력하세요");
+			return;
+		}
+		
+		if(obj.MEMBER_TEL.value==""){
+			alert("전화번호를   입력하세요");
+			return;
+		}
+	
+	
 
 		//alert(obj.MEMBER_ID.value);     
 		
@@ -75,7 +152,8 @@
 	
 	function setChildValue(name){	
 		var obj =document.jform;	
-		obj.MEMBER_ID.value =  name;				
+		obj.MEMBER_ID.value =  name;
+		obj.COMFIRMIDCHECK.value ="1";
 	}
 	
 	
@@ -207,6 +285,9 @@
 		
 		
 		</table>
+		
+		<input type="hidden" name="COMFIRMIDCHECK" value="0"/>
+		
 </form>	
 	
 	</div>
