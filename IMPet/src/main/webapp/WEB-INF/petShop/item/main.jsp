@@ -10,10 +10,18 @@
  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script>
+$(function(){
+    $(".my-account li").click(function () {        
+         $(".my-account li").removeClass("selected");
+         $(this).addClass("selected");  
+       
+    });
+});
+
 $(document).ready(function() {
 	var link = document.location.href;
 	var tab = link.split('Main').pop();
-
+	
 	if(tab == ""){
 
 		$('a[href=#feed]').trigger("click");
@@ -24,18 +32,11 @@ $(document).ready(function() {
 		$('a[href$=' + tab + ']').trigger("click");
 	}
 
-	 $(document).ready(function () {
-         $("li > a").each(function () {
-             $(this).click(function () {
-                                    
-                 $(this).parent().siblings().removeClass("selected");
-                 $(this).parent().addClass("selected");  //siblings:형제요소들,    removeClass:선택된 클래스의 특성을 없앰
-             });
-         });
-     });
-
-
 });
+
+
+
+ 
 </script>
 
 <style>
@@ -136,6 +137,7 @@ $(document).ready(function() {
 
 .my-account ul li a {
 	text-decoration: none;
+	display:block;
 }
 
 	.clear:after {
@@ -146,10 +148,8 @@ $(document).ready(function() {
 		display: block;
 		clear: both;
 	}
-	.clear {
-		display: inline-block;
-		
-	}
+
+
 	* html .clear {
 		height: 0;
 	}
@@ -171,7 +171,7 @@ $(document).ready(function() {
 		<ul class="clear">
 			<li class="tabs"><a href="#feed" onclick="javascript:tab(0)">사료</a></li>
 			<li class="tabs"><a href="#snack" onclick="javascript:tab(1)">간식</a></li>
-			<li class="tabs"><a href="#clothing"	onclick="javascript:tab(2)">의류</a></li>
+			<li class="tabs"><a href="#clothing"	onclick="javascript:tab(2)">위생/배변</a></li>
 			<li class="tabs"><a href="#toy" onclick="javascript:tab(3)">장난감</a></li>		
 			<li class="tabs"><a href="#stuff" onclick="javascript:tab(4)">잡화 </a></li>
 		</ul>

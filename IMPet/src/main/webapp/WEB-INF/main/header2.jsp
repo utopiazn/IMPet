@@ -178,13 +178,13 @@ ul.dropdown > li {
 			        <li><a href=javascript:jsHotel(2);>HEALING</a></li>
 	    		</ul>
 	    	</li>
-	    	<li><a href=/IMPet/PetShop/Main>SHOP</a>
+	    	<li ><a href=/IMPet/PetShop/Main>SHOP</a>
 	    		<ul class="dropdown">
-			        <li><a href="/IMPet/PetShop/Main#feed1" onclick="javascript:tab(0)">사료</a></li>
-			        <li><a href="/IMPet/PetShop/Main#snack1" onclick="javascript:tab(1)">간식</a></li>
-			        <li><a href="/IMPet/PetShop/Main#clothing1"	onclick="javascript:tab(2)">의류</a></li>
-			        <li><a href="/IMPet/PetShop/Main#toy1" onclick="javascript:tab(3)">장난감</a></li>		
-					<li><a href="/IMPet/PetShop/Main#stuff1" onclick="javascript:tab(4)">잡화 </a></li>
+			        <li><a href="/IMPet/PetShop/Main#feed" onclick="javascript:tab(0)">사료</a></li>
+			        <li><a href="/IMPet/PetShop/Main#snack" onclick="javascript:tab(1)">간식</a></li>
+			        <li><a href="/IMPet/PetShop/Main#clothing"	onclick="javascript:tab(2)">위생/배변</a></li>
+			        <li><a href="/IMPet/PetShop/Main#toy" onclick="javascript:tab(3)">장난감</a></li>		
+					<li><a href="/IMPet/PetShop/Main#stuff" onclick="javascript:tab(4)">잡화 </a></li>
 			    </ul>
 	 	 	</li>
 		    <li><a href=/IMPet/Community/Main>COMMUNITY</a>
