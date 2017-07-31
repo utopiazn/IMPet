@@ -174,7 +174,7 @@
 					<tr>						
 						<th scope="row">아이디</th>
 						<td>
-							<input  name="MEMBER_ID" type="text" value="${memberInfo.MEMBER_ID}"  readonly autofocus>					
+							<input  name="MEMBER_ID" type="text" value="${memberInfo.MEMBER_ID}"  readonly autofocus style="font-size: 15px">					
 						</td>						
 					</tr>
 					
@@ -182,28 +182,28 @@
 					<tr>						
 						<th scope="row">비밀번호</th>
 						<td>
-							<input  name="MEMBER_PW" type="password"  value="${memberInfo.MEMBER_PW}"   required>
+							<input  name="MEMBER_PW" type="password"  value="${memberInfo.MEMBER_PW}"   required style="font-size: 15px">
 						</td>						
 					</tr>
 					
 					<tr>						
 						<th scope="row">비밀번호 확인</th>
 						<td>
-							<input name="MEMBER_PW2" type="password"  value="${memberInfo.MEMBER_PW}"  required>
+							<input name="MEMBER_PW2" type="password"  value="${memberInfo.MEMBER_PW}"  required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
 					<tr>						
 						<th scope="row">이름</th>
 						<td>
-							<input name="MEMBER_NAME" type="text" value="${memberInfo.MEMBER_NAME}" placeholder="5자미만 공백없이"  required>
+							<input name="MEMBER_NAME" type="text" value="${memberInfo.MEMBER_NAME}" placeholder="5자미만 공백없이"  required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
 					<tr>						
 						<th scope="row">닉네임</th>
 						<td>
-							<input name="MEMBER_NICKNAME" type="text" value="${memberInfo.MEMBER_NICKNAME}" required>
+							<input name="MEMBER_NICKNAME" type="text" value="${memberInfo.MEMBER_NICKNAME}" required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
@@ -211,7 +211,7 @@
 					<tr>						
 						<th scope="row">연락처</th>
 						<td>
-							<input name="MEMBER_TEL" type="tel" value="${memberInfo.MEMBER_TEL}" autocomplete="off">
+							<input name="MEMBER_TEL" type="tel" value="${memberInfo.MEMBER_TEL}" autocomplete="off" style="font-size: 15px">
 							
 						</td>						
 					</tr>
@@ -219,14 +219,14 @@
 					<tr>						
 						<th scope="row">메일 주소</th>
 						<td>
-							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" value="${memberInfo.MEMBER_EMAIL}" required autocomplete="off">				   
+							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" value="${memberInfo.MEMBER_EMAIL}" required autocomplete="off" style="font-size: 15px">				   
 						</td>						
 					</tr>	
 					
 					<tr>						
 						<th scope="row">우편번호</th>
 						<td>
-							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly>
+							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text"  value="${memberInfo.MEMBER_ZIPCODE}"  readonly style="font-size: 15px">
 							<input  type="button" id="zipcode" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />
 						</td>						
 					</tr>		
@@ -234,14 +234,14 @@
 					<tr>						
 						<th scope="row">주소</th>
 						<td>
-							<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly >
+							<input id="sample6_address" name="MEMBER_ADDRESS" type="text" value="${memberInfo.MEMBER_ADDRESS}" readonly style="font-size: 15px">
 												
 					
 					
 										
 			
 					
-							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required >
+							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text"  value="${memberInfo.MEMBER_ADDRESS2}"  required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
@@ -265,7 +265,7 @@
 					<tr>						
 						<th scope="row">요구사항<br/>(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
 						<td>
-							<textarea name="MEMBER_REQUESTS"  style="width:100%;" rows="10" required >${memberInfo.MEMBER_REQUESTS}</textarea>
+							<textarea name="MEMBER_REQUESTS"  style="width:100%;" rows="10" required style="font-size: 15px">${memberInfo.MEMBER_REQUESTS}</textarea>
 			
 						</td>						
 					</tr>			

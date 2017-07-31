@@ -27,7 +27,7 @@
 		   
 		   <div class="form-group">
 		      <label> 내용 </label>
-		        <textarea class="form-control" value="${view.QNA_CONTENT}" name="QnA_Content" style="width:70%;"></textarea>
+		        <textarea class="form-control" name="QnA_Content" style="width:70%;">${view.QNA_CONTENT}</textarea>
 		   </div>
 		   
 		    <div class="file_input">

@@ -184,7 +184,7 @@
 					<tr>						
 						<th scope="row">아이디</th>
 						<td>
-							<input  name="MEMBER_ID" type="text" required autofocus>		
+							<input  name="MEMBER_ID" type="text" required autofocus style="font-size: 15px">		
 							<input  type="button" value="ID중복확인"  onclick="openConfirmid(this.form)">			
 						</td>						
 					</tr>
@@ -193,28 +193,28 @@
 					<tr>						
 						<th scope="row">비밀번호</th>
 						<td>
-							<input  name="MEMBER_PW" type="password"  required>			
+							<input  name="MEMBER_PW" type="password"  required style="font-size: 15px">			
 						</td>						
 					</tr>
 					
 					<tr>						
 						<th scope="row">비밀번호 확인</th>
 						<td>
-							<input name="MEMBER_PW2" type="password" required>	
+							<input name="MEMBER_PW2" type="password" required style="font-size: 15px">	
 						</td>						
 					</tr>		
 					
 					<tr>						
 						<th scope="row">이름</th>
 						<td>
-							<input name="MEMBER_NAME" type="text" placeholder="5자미만 공백없이"  required>
+							<input name="MEMBER_NAME" type="text" placeholder="5자미만 공백없이"  required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
 					<tr>						
 						<th scope="row">닉네임</th>
 						<td>
-							<input name="MEMBER_NICKNAME" type="text" required>
+							<input name="MEMBER_NICKNAME" type="text" required style="font-size: 15px">
 						</td>						
 					</tr>		
 				
@@ -222,7 +222,7 @@
 					<tr>						
 						<th scope="row">우편번호</th>
 						<td>
-							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text" readonly value="">
+							<input id="sample6_postcode" name="MEMBER_ZIPCODE" type="text" readonly value="" style="font-size: 15px">
 							<input  type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기" />		
 						</td>						
 					</tr>		
@@ -230,14 +230,14 @@
 					<tr>						
 						<th scope="row">주소</th>
 						<td>
-							<input id="sample6_address" name="MEMBER_ADDRESS" type="text" readonly value="">
+							<input id="sample6_address" name="MEMBER_ADDRESS" type="text" readonly value="" style="font-size: 15px">
 						</td>						
 					</tr>	
 					
 					<tr>						
 						<th scope="row">상세 주소</th>
 						<td>
-							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text" required>
+							<input id="sample6_address2" name="MEMBER_ADDRESS2" type="text" required style="font-size: 15px">
 						</td>						
 					</tr>		
 					
@@ -245,7 +245,7 @@
 					<tr>						
 						<th scope="row">메일 주소</th>
 						<td>
-							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off">	
+							<input name="MEMBER_EMAIL" type="email" placeholder="abcd@domain.com" required autocomplete="off" style="font-size: 15px">	
 						</td>						
 					</tr>		
 					
@@ -253,7 +253,7 @@
 					<tr>						
 						<th scope="row">연락처</th>
 						<td>
-							<input name="MEMBER_TEL" type="tel" autocomplete="off">
+							<input name="MEMBER_TEL" type="tel" autocomplete="off" style="font-size: 15px">
 						</td>						
 					</tr>	
 					
@@ -275,7 +275,7 @@
 					<tr>						
 						<th scope="row">요구사항<br/>(반려동물에 대한 요구사항이 있을시 적어 주세요!)</th>
 						<td>
-								<textarea name="MEMBER_REQUESTS"  cols="80" rows="10" required ></textarea>
+								<textarea name="MEMBER_REQUESTS"  cols="80" rows="10" required style="font-size: 15px"></textarea>
 						</td>						
 					</tr>	
 			
