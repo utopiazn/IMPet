@@ -27,7 +27,7 @@
 		   
 		   <div class="form-group">
 		      <label> 내용 </label>
-		        <textarea class="form-control" value="${view.FAQ_CONTENT}" name="FAQ_Content" style="width:70%;"></textarea>
+		        <textarea class="form-control" name="FAQ_Content" style="width:70%;">${view.FAQ_CONTENT}</textarea>
 		   </div>
 		   
 		</div>                     

@@ -102,7 +102,7 @@ public class FAQController {
 		Map<String, Object> map = fAQService.selectOne(commandMap.getMap());
 		
 		System.out.println("자주묻는질문 수정 폼");
-		
+
 		mav.addObject("view", map);
 
 		mav.setViewName("FAQModifyForm");
