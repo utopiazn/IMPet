@@ -7,17 +7,37 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-	function delchk() {
-		
-	    return confirm("주문 취소 하시겠습니까?");  
-	}
-	
+
 	function delchk_no() {
 		
 		alert("입금 확인 후에는 주문 취소가 불가합니다."); 
 		location.href = 'redirect:/IMPet/PetShop/OrderList';
 	}
-
+	
+	function orderDelete(no){
+		var url1 = "/IMPet/PetShop/OrderDelete";
+		var num = no;
+		var formData = {"ORDER_NO" : num,
+						"ORDER_TYPE" : 4 }
+		
+		if(confirm("주문 취소 하시겠습니까?")){		  
+		    $.ajax({
+		      type : "POST",
+		      url : url1,
+		      data : formData,
+		      dataType : "text",
+		      error : function() {
+		        alert('오류발생!!');
+		      },
+		      success : function(data) {
+		        $('#ContextMyPage').html(data);
+		      }
+		    });
+		}else{
+			return false;
+		}
+		
+	}
 
 	function test(orderList) {
 		
@@ -180,7 +200,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 						<td align="center" style="text-align:center;vertical-align:middle;">
 							<c:choose>
 								<c:when test="${orderList.ORDER_TYPE eq 0}">
-									<a href="/IMPet/PetShop/OrderDelete?ORDER_NO=${orderList.ORDER_NO}&ORDER_TYPE=4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()" ></a>
+									<a href="javascript:orderDelete(${orderList.ORDER_NO});"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"></a>
 								</c:when>
 								<c:otherwise><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk_no()" ></c:otherwise>
 							</c:choose>
