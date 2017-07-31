@@ -30,17 +30,6 @@
 		        <textarea class="form-control" name="QnA_Content" style="width:70%;">${view.QNA_CONTENT}</textarea>
 		   </div>
 		   
-		    <div class="file_input">
-               	<b>QnA 이미지</b><br/>
-               	 
-                    <label style="background-color: #333;  border-color: #ccc;">파일 첨부 
-                
-                   <input type="file" name="QnA_IMG" value="${view.QNA_IMG}" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
-                   </label>
-                   <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
-                   <p class="help-block">QnA 이미지 입니다 800x800 사이즈 권장합니다</p>
-                   
-            </div>
 		   
 		</div>                     
 	 </div>
