@@ -15,9 +15,9 @@
 					<font size="5px" style="border-bottom: 1px solid lightgray;"> ${view.HEALING_TIME}</font><br/>
 				</div>
 				
-				<div align="left" style="margin-bottom:10px;">
+				<div align="left" style="margin-left:10px; margin-bottom:10px;">
 					<br/>
-					&nbsp;&nbsp;&nbsp;${view.HEALING_GUIDE}
+					${view.HEALING_GUIDE}
 				</div>
 		</div>
 	
@@ -30,8 +30,8 @@
 			<img alt="healing" src="/IMPet/resources/image/hotel/healingImg/healing.png">		
 		</div>
 			
-		<div style="float: left; padding-top: 35px; ">
-			&nbsp;&nbsp;${view.HEALING_DETAIL}<br/>
+		<div style="margin-left:10px; float: left; padding-top: 35px; ">
+			${view.HEALING_DETAIL}<br/>
 		</div>
 	</div>
 	

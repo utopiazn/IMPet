@@ -495,7 +495,7 @@ public class MemberController {
 
 		String Page = commandMap.get("PAGE").toString(); 
 		
-	
+		mav.addObject("Page", Page);	
 			
 		String pagingHtml =pagingHtml(commandMap,Integer.parseInt(Page));
 		commandMap.MapInfoList();
@@ -509,6 +509,49 @@ public class MemberController {
 	}
 	
 
+
+	
+	//회원 사용 해제 처리
+	@RequestMapping(value="/Insert")
+	public ModelAndView Insert(CommandMap commandMap) throws Exception{
+
+		ModelAndView mav = new ModelAndView();
+		String url = "member/admin/memberList";
+		System.out.println("회원 탈퇴 처리");
+
+		
+		commandMap.MapInfoList();
+		
+		//탈퇴 처리 추가 로직
+		
+		
+		//사용 여부 Y:사용 N: 미사용
+		String userYN ="Y";
+		commandMap.put("MEMBER_USERYN",userYN);
+		
+		//commandMap.MapInfoList();
+		
+		memberService.updateUserYN(commandMap.getMap());		
+		
+
+		String Page = commandMap.get("PAGE").toString(); 
+		
+		mav.addObject("Page", Page);	
+			
+		String pagingHtml =pagingHtml(commandMap,Integer.parseInt(Page));
+		commandMap.MapInfoList();
+		
+		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		mav.setViewName(url);
+		return mav;
+	}
+	
+
+	
+	
 	//회원 탈퇴 처리
 	@RequestMapping(value="/DeleteMember")
 	public ModelAndView DeleteMember(CommandMap commandMap,HttpSession session) throws Exception{
@@ -546,7 +589,7 @@ public class MemberController {
 		
 		
 		
-		int blockCount =3;
+		int blockCount =10;
 		
 
 		int totalCount=  memberService.selectMemberCount();	
@@ -554,6 +597,10 @@ public class MemberController {
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
 		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
 		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
+		
+		if( totalPage<pageNo){
+			pageNo = totalPage;
+		}
 		
 		String PAGIN = String.valueOf(blockCount);	
 		String PAGINGNO = String.valueOf(pageNo);		
