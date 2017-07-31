@@ -47,6 +47,7 @@
 
 	</select>
 	
+	<!-- 상품 베스트아이템 리스트 메인페이지 -->
 	<select id="selectBestMain" resultType="hashmap">
 		
 		<![CDATA[

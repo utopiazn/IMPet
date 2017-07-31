@@ -87,11 +87,11 @@ color: hotpink;
 		  <a href="/IMPet/PetShop/Main"> + 더보기&nbsp;&nbsp;</a>
 		</div>
 	
-		<div style="width: 100%; height: 100%; float: left;" class="flexslider">
+		<div style="border: 1px solid lightgray; width: 100%; height: 100%; float: left;" class="flexslider">
 		
 		<ul class="slides"> <!-- style="margin-bottom: 70px;"  -->
 		
-			<li style="border: 1px solid lightgray; height: 300px;">
+			<li style=" height: 300px;">
 				<c:forEach var="bestList" items="${bestList}" begin="0" end="2"> 		
 					<div style=" width: 33%; height: 200px; float: left;" >
 						<dl style="height: 100%; width:100%;">
@@ -111,7 +111,7 @@ color: hotpink;
 				</c:forEach>
 			</li>
 			
-			<li style="border: 1px solid lightgray; height: 300px;">
+			<li style=" height: 300px;">
 				<c:forEach var="bestList" items="${bestList}" begin="3" end="5"> 		
 					<div style=" width: 33%; height: 200px; float: left;" >
 						<dl style="height: 100%; width:100%;">
@@ -130,27 +130,6 @@ color: hotpink;
 					</div>
 				</c:forEach>
 			</li>	
-			
-				<li style="border: 1px solid lightgray; height: 300px;">
-				<c:forEach var="bestList" items="${bestList}" begin="6" end="8"> 		
-					<div style=" width: 33%; height: 200px; float: left;" >
-						<dl style="height: 100%; width:100%;">
-							<dt style="height: 100%; width:100%;">
-								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
-								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
-								${bestList.ITEM_NAME}<br/>
-								${bestList.ITEM_PRICE}원		
-							</dt>
-								
-							<%-- <dd>						
-								${bestList.ITEM_NAME}<br/>
-								${bestList.ITEM_PRICE}원						
-							</dd> --%>
-						</dl>
-					</div>
-				</c:forEach>
-			</li>	
-			
 		</ul>
 		</div>
 	
