@@ -72,4 +72,10 @@ public class QnADAO  extends AbstractDAO {
 		update("QnASQL.addViewNum", map);
 		
 	}
+	
+	public Map<String, Object> selectKey() throws Exception {
+		
+		
+		return selectOne("QnASQL.selectKey");
+	}
 }

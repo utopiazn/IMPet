@@ -3,6 +3,8 @@ package IMPet.serviceCenter.QnA;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -23,4 +25,6 @@ public interface QnAService {
 	public List<Map<String, Object>> selectMy(String id) throws Exception;
 
 	public void addViewNum(Map<String, Object> map) throws Exception;
+	
+
 }

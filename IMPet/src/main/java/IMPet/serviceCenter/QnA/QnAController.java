@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -118,6 +119,7 @@ public class QnAController {
 		System.out.println("Q&A 추가");
 
 		mav.setViewName("redirect:QuestionList");
+		
 		return mav;
 	}
 

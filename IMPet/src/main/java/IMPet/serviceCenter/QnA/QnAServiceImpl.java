@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+
+import IMPet.util.ProjectUtil;
 
 
 
@@ -31,6 +34,9 @@ public class QnAServiceImpl implements QnAService{
 
 	@Override
 	public void insert(Map<String, Object> map) throws Exception {
+		
+		
+		
 		qnADAO.insert(map);
 		
 	}

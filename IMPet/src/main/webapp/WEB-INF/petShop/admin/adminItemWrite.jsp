@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 function chk_radio() { 
-	alert("111");
+
 	
 	var frm = document.joinform;
 	

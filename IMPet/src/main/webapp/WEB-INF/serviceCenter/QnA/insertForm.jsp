@@ -44,21 +44,12 @@
 				        <textarea class="form-control" name="QnA_Content" required style="width:70%;"></textarea>
 				   </div>
 				   
-				    <div class="file_input">
-               			<b>QnA 이미지</b><br/>               	 
-                    	<label style="background-color: #333;  border-color: #ccc;">파일 첨부                 
-                   			<input type="file" name="QnA_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
-                   		</label>
-                  	 <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
-                  	 <p class="help-block">QnA 이미지 입니다 800x800 사이즈 권장합니다</p>
-                   
-           		 </div>
 				   
 				</div>                     
 			 </div>
 			 <br/><br/>
 			 <div style="text-align:center; padding-bottom: 3%;" >
-		<button type="submit" class="btn btn-success" onClick="chk_radio();" >답글 추가</button>
+		<button type="submit" class="btn btn-success" onClick="chk_update();" >답글 추가</button>
 		<button type="reset" class="btn btn-default" onclick="location.href='/IMPet/ServiceCenter/QuestionList'">작성취소</button>	
 	</div>
 			 
@@ -89,16 +80,7 @@
 			      <label> 내용 </label>
 			        <textarea class="form-control" name="QnA_Content" required style="width:70%;"></textarea>
 			   </div>
-			   
-			    <div class="file_input">
-           			<b>QnA 이미지</b><br/>               	 
-                	<label>파일 첨부                 
-               			<input type="file" name="QnA_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
-               		</label>
-              	 <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
-              	 <p class="help-block">QnA 이미지 입니다 800x800 사이즈 권장합니다</p>
-                   
-           	 </div>		   
+			   	   
 		</div>
 		<br/><br/>
 			
@@ -121,24 +103,9 @@
 <script>
 function chk_radio() { 
 	
+	var frm = document.QuestionInsert;
 	
-	var reply = "${view.QnA_Reply}";
-	alert(reply);
-	var url;
-	var frm ;
-	
-	if(reply == 0){
-		url = "/IMPet/ServiceCenter/QuestionInsertRef";
-		frm = document.insertForm;
-	}
-	else { 
-		url = "/IMPet/ServiceCenter/QuestionInsert";
-		frm = document.QuestionInsert;
-	}
-	
-	 
-	
-	 
+
 	if(frm.QnA_Subject.value == ""){
 		alert("제목을 입력해 주세요.");
 		return false;
@@ -148,12 +115,37 @@ function chk_radio() {
 		alert("내용을 입력해 주세요.");
 		return false;
 	}
+	
+	else{
+		
+		  frm.method = "post";
+		  frm.action = "/IMPet/ServiceCenter/QuestionInsert";
+		  frm.enctype= "multipart/form-data";
+		  frm.submit();
+		  return true;
+	 } 
 
+}	
+
+function chk_update() { 
+	
+	var frm = document.insertForm;
+	
+	if(frm.QnA_Subject.value == ""){
+		alert("제목을 입력해 주세요.");
+		return false;
+	}
+	
+	 if(frm.QnA_Content.value == ""){
+		alert("내용을 입력해 주세요.");
+		return false;
+	}
+	
 	
 	
 	else{
 		  frm.method = "post";
-		  frm.action = url;
+		  frm.action = "/IMPet/ServiceCenter/QuestionInsertRef";
 		  frm.enctype= "multipart/form-data";
 		  frm.submit();
 		  return true;
