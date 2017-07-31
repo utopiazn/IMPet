@@ -162,6 +162,13 @@
 		ITEM_BASKETIMG = #{ITEM_BASKETIMG}
 		<include refid="where-no" />
 	</update>
+	
+	<update id="sellCountUpdate" parameterType="hashmap">
+		update PET_ITEM set
+			ITEM_REMAINCOUNT = ITEM_REMAINCOUNT - #{BASKET_BUYCOUNT},
+			ITEM_SELLCOUNT = #{BASKET_BUYCOUNT}
+		where ITEM_NO = #{ITEM_NO}
+	</update>
 
 	<delete id="itemDelete" parameterType="hashmap">
 

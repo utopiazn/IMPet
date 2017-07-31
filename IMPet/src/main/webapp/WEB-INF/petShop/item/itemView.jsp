@@ -574,51 +574,12 @@ display: none;
 							</td>
 						
 						</tr>
-						<!-- 후기리스트영역 -->
-						<%-- <div class="review_view" style="margin-left: 165px;">
-							
-							<!-- 후기타이틀영역 -->
-							<div class="review_title" style="text-align: left;">
-								<div class="REVIEW_STAR" style="float: left;">
-									  <c:if test='${comment.REVIEW_STAR == 1}'>
-								      &nbsp;<img src="/IMPet/resources/image/review/star_on2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/><img src="/IMPet/resources/image/review/star_off2.gif" border="0"/>
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 2}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 3}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 4}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_off2.gif" border="0">
-								      </c:if>
-								      <c:if test='${comment.REVIEW_STAR == 5}'>
-								      &nbsp; <img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0"><img src="/IMPet/resources/image/review/star_on2.gif" border="0">
-								      </c:if>									      									
-								</div>
-								<span class="REVIEW_SUBJECT" style=""><strong>${comment.REVIEW_SUBJECT} </strong></span>
-								<span class="MEMBER_ID" style=""><strong>${comment.MEMBER_ID} </strong>님</span>
-								<span><fmt:formatDate value="${comment.REVIEW_DATE}" pattern="yy.MM.dd"></fmt:formatDate></span>
-								<c:if test="${member_ID == comment.MEMBER_ID}">
-									<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="button" style=" float: right;">
-										<span id="button">삭제</span>
-									</a>
-								</c:if>
-							</div>
-							
-							<!-- 후기내용영역 -->
-							<div class="REVIEW_CONTENT">
-								<p>${comment.REVIEW_CONTENT}</p>
-								<c:if test="${member_ID == comment.MEMBER_ID}">
-										
-								<a href="javascript:fn_ajax(${comment.REVIEW_NO},${view.ITEM_NO});" class="button" style=" float: right;">
-									<span class="button">삭제</span>
-								</a>
-								</c:if>
-							</div>
-						</div> --%>
-			
 					</c:forEach>
+					<c:if test="${fn:length(comment) == 0}">
+						<tr>
+							<td colspan="11" style="text-align:center;">해당 상품의 댓글이 없습니다.</td>
+						</tr>
+					</c:if> 
 				</table>
 				</div><!-- // review_grp -->
 		</form>

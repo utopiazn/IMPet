@@ -39,6 +39,21 @@
 
 	</select>
 	
+	<update id="receiveUpdate" parameterType="hashmap">
+		<![CDATA[
+		update PET_ITEM_RECEIVE set
+			RECEIVE_NAME = #{RECEIVE_NAME},
+			RECEIVE_TEL = #{RECEIVE_TEL},
+			RECEIVE_ZIPCODE = #{RECEIVE_ZIPCODE},
+			RECEIVE_ADDRESS = #{RECEIVE_ADDRESS},
+			RECEIVE_ADDRESS2 = #{RECEIVE_ADDRESS2},
+			RECEIVE_REQUESTS = #{RECEIVE_REQUESTS}
+		where 
+			RECEIVE_NO = #{RECEIVE_NO} and MEMBER_ID = #{MEMBER_ID}
+			
+		]]>
+	</update>
+	
 	<!-- 배송정보추가 -->
 	<insert id="receiveInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="RECEIVE_NO">
 		<selectKey keyProperty="RECEIVE_NO" resultType="String" order="BEFORE">
@@ -66,18 +81,6 @@
 				      
 
 	</insert>
-	
-	<!-- 배송정보수정 -->
-	<update id="receiveUpdate" parameterType="hashmap">
-		<![CDATA[
-		UPDATE PET_ITEM_RECEIVE SET
-		RECEIVE_NAME = #{RECEIVE_NAME},
-		RECEIVE_ADDRESS = #{RECEIVE_ADDRESS},
-		RECEIVE_ADDRESS2 = #{RECEIVE_ADDRESS2}, 
-		RECEIVE_TEL = #{RECEIVE_TEL},
-		RECEIVE_REQUESTS = #{RECEIVE_REQUESTS}
-		]]>
-		<include refid="where-no"/>
-	</update>
+
 
 </mapper>

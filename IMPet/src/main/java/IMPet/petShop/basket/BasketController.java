@@ -162,7 +162,7 @@ public class BasketController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		//List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
+		
 		
 		orderService.insert(commandMap.getMap(), session);
 		List<Map<String, Object>> two = orderService.selectTwo(commandMap.getMap());
