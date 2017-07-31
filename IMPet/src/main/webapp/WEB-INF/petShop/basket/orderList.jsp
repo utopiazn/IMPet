@@ -130,7 +130,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 
 <div class="panel-body" style="padding:0px;">
 	<div class="dataTable_wrapper" style="text-align:center;">
-		<h2 class="basketcart" style="margin-top: 20px;margin-bottom: 20px;"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_list.gif" alt="장바구니"></h2>
+		<h2 class="basketcart"><img src="/IMPet/resources/image/shop/orderlist.png" alt="장바구니"></h2>
 	</div>
 	<div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 		<form name="basketList" method="post">
