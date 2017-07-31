@@ -72,9 +72,9 @@ function chk_radio() {
                             <select name="ITEM_TYPE" class="form-control" style="width:initial;" >
 								<option value="0" label="사료" />
 								<option value="1" label="간식" />
-								<option value="2" label="패션의류" />
-								<option value="3" label="목줄/야외" />
-								<option value="4" label="생활/잡화" />
+								<option value="2" label="위생/배변" />
+								<option value="3" label="장난감" />
+								<option value="4" label="잡화" />
 							</select>
                         </div>
                         
@@ -141,7 +141,7 @@ function chk_radio() {
 			</div>
 				
 	</div>
-	<div style="text-align:center;">
+	<div style="text-align:center; padding-bottom: 3%;">
 		<button type="submit" class="btn btn-success" onclick="chk_radio()" >상품등록</button>
 		<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'" >작성취소</button>
 	</div>
