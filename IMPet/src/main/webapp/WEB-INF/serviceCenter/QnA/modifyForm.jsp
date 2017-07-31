@@ -28,9 +28,7 @@
 		   <div class="form-group">
 		      <label> 내용 </label>
 		        <textarea class="form-control" name="QnA_Content" style="width:70%;">${view.QNA_CONTENT}</textarea>
-		   </div>
-		   
-		   
+		   </div>   
 		</div>                     
 	 </div>
 	 <input  class="button2" value="QnA수정" type="submit">
