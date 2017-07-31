@@ -42,33 +42,36 @@ $(document).ready(function(){
  
  	$("a[name='delete']").on("click", function(e){ //삭제 
     
-		var id =$(this).parent().find("#MEMBER_ID").val();	     	
- 		if(confirm(id +"의 회원 정보를 삭제하시겠습니까?")){		    		
+		var GALLERY_NO =$(this).parent().find("#GALLERY_NO").val();	   
+		var GALLERY_IMG =$(this).parent().find("#GALLERY_IMG").val();	 
+		
+
+		// alert(GALLERY_IMG);     	
+		 	  
+ 	
+ 		if(confirm(GALLERY_NO +"의 갤러리를 삭제하시겠습니까?")){		    		
 
  			e.preventDefault();   
- 			ajaxGalleryAdminDelete(id);
+ 			ajaxGalleryAdminDelete(GALLERY_NO,GALLERY_IMG);
  		} 	
 	});
 });	
 
 
-function ajaxGalleryAdminDelete(EVENT_NO){
+function ajaxGalleryAdminDelete(GALLERY_NO,GALLERY_IMG){
 	
 	
 	var url1 = "/IMPet/Community/GalleryAdminDelete";
 	
-	 	  
- 	var obj =document.jform;
-
- 	
-
-
+	var PAGE = $('#PAGE').val();
+	
+	
 
 	 var dataList =
 		{ 
-			"EVENT_NO" : EVENT_NO,	
-			"EVENT_IMG" : obj.EVENT_IMG.value,			
-			"PAGE"  : obj.PAGE.value
+			"GALLERY_NO" : GALLERY_NO,	
+			"GALLERY_IMG" : GALLERY_IMG,			
+			"PAGE"  : PAGE
 		}	
 
 	
@@ -83,11 +86,11 @@ function ajaxGalleryAdminDelete(EVENT_NO){
     	 alert('오류임!');     	
       },
       success : function(data) {  
-    	 $('#ContextEvent').html(data);
+    	 $('#ContextGalleryAdminForm').html(data);
         		
       }
       
-    });    		 
+    });    		
 
 }
 
@@ -117,7 +120,7 @@ function ajaxPageView(page){
         },
        
         success : function(data) {  
-      		 $('#ContextModifiedForm').html(data);          		
+      		 $('#ContextGalleryAdminForm').html(data);          		
         }
         
       });        
@@ -133,7 +136,11 @@ function ajaxPageView(page){
 
 </script>
 
-<div id="ContextModifiedForm">
+<div id="ContextGalleryAdminForm">
+
+
+	<input type="hidden" id="PAGE" value="${PAGE}" >
+
 
 <div class="row" >    
 	<h1 class="page-header">갤러리 관리 목록</h1>
@@ -200,7 +207,9 @@ function ajaxPageView(page){
 								 	
 					 		 <a name='delete'> 
 					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
-					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 		 	<input type='hidden' name='GALLERY_NO' id='GALLERY_NO' value="${itemList.GALLERY_NO }">
+					 		 	<input type='hidden' name='GALLERY_IMG' id='GALLERY_IMG' value="${itemList.GALLERY_IMG }">					 		 	
+					 		 </a>
 					 		
 					 	
 					 	</td>
@@ -235,9 +244,3 @@ function ajaxPageView(page){
 </div>
 </div>
 
-
-<!-- 회원 리스트  선택 햇다 치고
-
-<br/><br/>
-<input value="회원 한면을 선택 행을 경우 회원 수정 폼으로 이동" type="button" onclick="location.href='/IMPet/Member/ModifiedForm'"/>
- -->

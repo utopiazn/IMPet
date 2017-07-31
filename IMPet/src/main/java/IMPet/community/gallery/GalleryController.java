@@ -314,7 +314,8 @@ public class GalleryController {
 		
 		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
 		
-		
+		int pageNo = 1;
+		mav.addObject("PAGE", pageNo);	
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
 		
@@ -789,7 +790,7 @@ public class GalleryController {
 
 
 		ModelAndView mav = new ModelAndView();
-		String url ="redirect:/Community/GalleryAdminDelete";
+		String url ="community/admin/galleryMemberList";
 		System.out.println("갤러리 삭제 처리");
 		
 		ProjectUtil util = new ProjectUtil();	
@@ -817,13 +818,40 @@ public class GalleryController {
 					
 			System.out.println("image:"+image);
 			
-			File removeFile = new File(uploadPath, image);	
-			removeFile.delete();
-			
+			if(image.equals("")){
+				File removeFile = new File(uploadPath, image);	
+				removeFile.delete();
+			}
 		}
 
 		galleryService.delete(commandMap.getMap());
+		
+		
+		
+		
+		String pagingHtml =pagingHtml(commandMap,1);
+		commandMap.MapInfoList();
 
+		
+		
+		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+		
+	
+		int pageNo = Integer.parseInt(commandMap.get("PAGINGNO").toString());
+		
+		mav.addObject("PAGE", pageNo);
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		
+		
+		imageSplitMain(listAll);
+		
+		System.out.println(listAll);
+
+		
+		
 		mav.setViewName(url);
 	
 		return mav;
@@ -926,17 +954,17 @@ public class GalleryController {
 			
 		
 		
-		int page =  Integer.parseInt( commandMap.get("PAGE").toString());		
+		int pageNo =  Integer.parseInt( commandMap.get("PAGE").toString());		
 	
 		
-		String pagingHtml =pagingHtml(commandMap,page);
+		String pagingHtml =pagingHtml(commandMap,pageNo);
 		commandMap.MapInfoList();
 
 		
 		
 		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
 		
-		
+		mav.addObject("PAGE", pageNo);	
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
 		
