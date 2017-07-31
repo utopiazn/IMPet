@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import IMPet.member.MemberDAO;
-import IMPet.module.CommandMap;
+import IMPet.petShop.item.ItemDAO;
 
 @Service(value="orderService")
 public class OrderServiceImpl implements OrderService {
@@ -28,6 +28,9 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Resource(name="basketDAO")
 	private BasketDAO basketDAO;
+	
+	@Resource(name="itemDAO")
+	private ItemDAO itemDAO;
 
 
 	@Override // 장바구니에서 선택한 상품만 가져오기
@@ -85,7 +88,21 @@ public class OrderServiceImpl implements OrderService {
 		
 		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		
-		receiveDAO.insert(map);
+		Map<String, Object> selectReceive = receiveDAO.selectReceive(map);
+		
+		System.out.println("오류나냐"+selectReceive == null);
+		if(selectReceive != null){
+			
+			int receiveNo = Integer.parseInt(selectReceive.get("RECEIVE_NO").toString());
+			
+			map.put("RECEIVE_NO", receiveNo);
+			receiveDAO.update(map);
+		}
+		else {
+			receiveDAO.insert(map);
+		}
+		
+		
 
 		for(int i = 0; i < orderPay.size(); i++) {
 			 
@@ -106,11 +123,13 @@ public class OrderServiceImpl implements OrderService {
 				orderPay.get(i).put("ITEM_PRICE", dcprice * buyCount) ;
 			}
 			
-			orderDAO.insert(orderPay.get(i));
+			orderDAO.insert(orderPay.get(i));					
 			
 			if(orderPay.get(i).get("BASKET_NO") != null){
 				basketDAO.delete(orderPay.get(i));
 			}
+			
+			itemDAO.sellCountUpdate(orderPay.get(i));
 		}
 		
 		session.removeAttribute("orderView");

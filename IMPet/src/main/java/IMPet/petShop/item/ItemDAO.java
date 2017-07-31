@@ -44,5 +44,9 @@ public class ItemDAO extends AbstractDAO {
 	public List<Map<String, Object>> selectBestMain() throws Exception {
 		return (List<Map<String, Object>>) selectList("PetItemSQL.selectBestMain");
 	}
+	
+	public void sellCountUpdate(Map<String,Object> map) throws Exception {
+		update("PetItemSQL.sellCountUpdate", map);
+	}
 
 }
