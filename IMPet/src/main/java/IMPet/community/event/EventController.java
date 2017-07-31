@@ -162,6 +162,9 @@ public class EventController {
 		
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
 		
+		int PAGE =1;
+		mav.addObject("PAGE", PAGE);	
+		
 		
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
@@ -417,24 +420,28 @@ public class EventController {
 		System.out.println("이벤트 삭제");
 		
 		
-	
 		commandMap.MapInfoList();
-
+		System.out.println("33333333333");
 		eventService.delete(commandMap.getMap());
-		
+		System.out.println("44444444444444444444444444444444");
 		String imgName = commandMap.get("EVENT_IMG").toString();
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
 		
-		File removeFile = new File(uploadPath, imgName);
-		removeFile.delete();			
-
+		if(!imgName.equals("")){
+			File removeFile = new File(uploadPath, imgName);
+			removeFile.delete();			
+		}
+		
 		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
+		
+		System.out.println("2222222222222222222222222222222");
 		String pagingHtml =pagingHtml(commandMap,page);
+		System.out.println("1111111111111111111");
 		commandMap.MapInfoList();
 				
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
 		
-		
+		mav.addObject("PAGE", commandMap.get("PAGE"));	
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
 		

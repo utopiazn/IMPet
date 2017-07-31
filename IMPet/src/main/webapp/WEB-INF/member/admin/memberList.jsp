@@ -57,7 +57,61 @@ $(document).ready(function(){
     		ajaxdeleteView(id);
  		} 	
 	});
+ 	
+ 	$("a[name='insert']").on("click", function(e){ //삭제 
+ 	    
+		var id =$(this).parent().find("#MEMBER_ID").val();	  	
+ 	
+ 		if(confirm(id +"의 회원 정보를 복구하시겠습니까?")){		    		
+			
+ 		
+ 			e.preventDefault();   
+ 			ajaxInsertView(id);
+ 		} 	
+	});
+ 	
+ 	
 });	
+
+
+function ajaxInsertView(memberID){
+	
+	
+	 	var value = $('#PAGE').val();
+
+		//alert(value);     
+		var dataList =
+		{ 
+			"MEMBER_ID" : memberID,
+			"ADMIN" : 	"1", 	
+			"PAGE"  :	value
+			
+		}	
+
+		var url1 = "/IMPet/Member/Insert";
+		
+	    $.ajax({    
+	     
+	    	type : "POST",
+	        url : url1,
+	        data : dataList,
+	        dataType : "text",      
+	        
+	        error : function() {
+	      	  
+	      		alert('오류임!');     	
+	        },
+	       
+	        success : function(data) {  
+	      		 $('#ContextModifiedForm').html(data);          		
+	        }
+	        
+	      });        
+
+
+	
+	
+}
 
 
 function ajaxModifiedFormView(memberID){	
@@ -248,10 +302,19 @@ function ajaxPageView(page){
 							<a name='Modified'>							
 								<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png">
 								<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
-					 	&nbsp;&nbsp;					 	
-					 		 <a name='delete'>
-					 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
-					 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 	&nbsp;&nbsp;	
+					 	
+					 		<c:if test="${itemList.MEMBER_USERYN eq 'Y'}">				 	
+						 		<a name='delete'>
+						 		 	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png">
+						 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 		</c:if>
+					 		
+					 		<c:if test="${itemList.MEMBER_USERYN eq 'N'}">				 	
+						 		<a name='insert'>
+						 		 	<input type="image" src="/IMPet/resources/image/member/Insert.png" width="28px" height="28px">
+						 		 	<input type='hidden' name='MEMBER_ID' id='MEMBER_ID' value="${itemList.MEMBER_ID }"></a>
+					 		</c:if>
 					 		
 					 			<input type="hidden" name="PAGE" id="PAGE" value="${Page}" >
 					 	</td>
