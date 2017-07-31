@@ -102,7 +102,7 @@ function ajaxPageView(page){
 		"PAGE" : page	
 	}	
 
-	var url1 = "/IMPet/admin/galleryMemberList";
+	var url1 = "/IMPet/Community/galleryAdminPageList";
 	
     $.ajax({    
      
@@ -136,13 +136,13 @@ function ajaxPageView(page){
 <div id="ContextModifiedForm">
 
 <div class="row" >    
-	<h1 class="page-header">회원 관리 목록</h1>
+	<h1 class="page-header">갤러리 관리 목록</h1>
 </div>
 
 <div class="row">
 	<div class="panel panel-default">
 	 <div class="panel-heading">
-                         [회원목록] 회원 목록, 검색, 수정 페이지 입니다.
+                         [갤러리 목록] 갤러리 목록, 삭제 페이지 입니다.
         </div>
 	
 	<div id="dataTables-example_wrapper" class="panel-body">

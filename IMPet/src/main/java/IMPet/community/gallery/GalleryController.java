@@ -910,6 +910,53 @@ public class GalleryController {
 	}
 
 
+	
+	
+
+	//갤러리 정보 페이지 리스트
+	@RequestMapping(value="/galleryAdminPageList")
+	public ModelAndView galleryAdminPageList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		System.out.println("이벤트 관리자 정보 페이지 리스트");
+		
+		commandMap.MapInfoList();
+
+		String url = "community/admin/galleryMemberList";
+			
+		
+		
+		int page =  Integer.parseInt( commandMap.get("PAGE").toString());		
+	
+		
+		String pagingHtml =pagingHtml(commandMap,page);
+		commandMap.MapInfoList();
+
+		
+		
+		List<Map<String,Object>> listAll = galleryService.selectRangeAll(commandMap.getMap());		
+		
+		
+		mav.addObject("listAll", listAll);	
+		mav.addObject("pagingHtml", pagingHtml);	
+		
+		
+		
+		imageSplitMain(listAll);
+		
+		System.out.println(listAll);
+
+	
+		
+		mav.setViewName(url);	
+		
+		return mav;
+	}
+
+
+	
+
+		
 
 	
 
