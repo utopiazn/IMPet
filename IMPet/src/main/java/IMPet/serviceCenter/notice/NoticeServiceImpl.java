@@ -32,7 +32,7 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public void insert(Map<String, Object> map, HttpServletRequest request) throws Exception {
+	public void insert(Map<String, Object> map) throws Exception {
 		
 		ProjectUtil util = new ProjectUtil();
 		
@@ -46,13 +46,9 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		map.put("NOTICE_NO", num);
 		
-		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/notice/";
-		
-		Map<String,Object> reMap = util.UploadFile(map, request, uploadPath, num);
-		
 		System.out.println("여기부터 끝입니다.");
 		
-		noticeDAO.insert(reMap);
+		noticeDAO.insert(map);
 		
 	}
 
@@ -69,14 +65,6 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		Map<String, Object> reMap = noticeDAO.selectOne(map);
 		
-		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/notice/";
-		System.out.println(reMap.get("NOTICE_IMG").toString());
-		File f = new File(uploadPath+reMap.get("NOTICE_IMG").toString());
-		if(f.delete()){
-			System.out.println("이미지 삭제 성공");
-		}else{
-			System.out.println("이미지 삭제 실패");
-		}
 		noticeDAO.delete(map);
 		
 	}

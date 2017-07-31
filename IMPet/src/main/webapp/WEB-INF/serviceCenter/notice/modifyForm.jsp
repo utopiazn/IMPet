@@ -29,20 +29,6 @@
 		      <label> 내용 </label>
 		        <textarea class="form-control" name="notice_Content" style="width:70%;">${view.NOTICE_CONTENT}</textarea>
 		   </div>
-		     
-		     
-		    <div class="file_input">
-               	<b>공지사항 이미지</b><br/>
-               	 
-                    <label >파일 첨부 
-                
-                   <input type="file" value="${view.NOTICE_IMG}" name="notice_IMG" onchange="javascript:document.getElementById('file_route').value=this.value" >                         
-                   </label>
-                   <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
-                   <p class="help-block">공지사항 이미지 입니다 800x800 사이즈 권장합니다</p>
-                   
-            </div>
-		   
 		</div>                     
 	 </div> 
 <input name="notice_NO" type=hidden value="${view.NOTICE_NO}">

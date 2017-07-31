@@ -33,9 +33,9 @@
 	<!-- 공지사항 추가 -->
 	<insert id="insert" parameterType="hashmap">
 	<![CDATA[
-		INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT, NOTICE_IMG,
+		INSERT INTO Pet_Notice ( NOTICE_NO, NOTICE_SUBJECT, NOTICE_CONTENT,
 		NOTICE_COUNT, NOTICE_DATE)
-		VALUES (#{NOTICE_NO}, #{notice_Subject}, #{notice_Content}, #{notice_IMG}, 
+		VALUES (#{NOTICE_NO}, #{notice_Subject}, #{notice_Content}, 
 		'0', sysdate)
 	]]>
 	</insert>
@@ -49,7 +49,6 @@
 	SET NOTICE_NO=#{notice_NO}, 
 	NOTICE_SUBJECT=#{notice_Subject}, 
 	NOTICE_CONTENT=#{notice_Content},
-	 NOTICE_IMG=#{notice_IMG},
 	NOTICE_COUNT=#{notice_Count},
 	 NOTICE_DATE=#{notice_Date}
 	

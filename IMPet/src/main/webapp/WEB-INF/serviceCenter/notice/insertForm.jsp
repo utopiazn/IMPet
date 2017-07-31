@@ -18,23 +18,11 @@
 		   <div class="form-group">
 		      <label> 내용 </label>
 		        <textarea class="form-control" name="notice_Content" id="notice_Content" style="width:70%;" required></textarea>
-		   </div>
-		   
-		    <div class="file_input">
-               	<b>공지사항 이미지</b><br/>
-               	 
-                    <label >파일 첨부 
-                
-                   <input type="file" name="notice_IMG" id="notice_IMG" required onchange="javascript:document.getElementById('file_route').value=this.value" >                         
-                   </label>
-                   <input type="text" readonly="readonly" title="File Route" id="file_route" value="">
-                   <p class="help-block">공지사항 이미지 입니다 800x800 사이즈 권장합니다</p>
-
-            </div>
+		   </div> 
 		   
 		</div>                     
-	 </div>
-	 	<div style="text-align:center; padding-bottom: 3%;" >
+	</div>
+	<div style="text-align:center; padding-bottom: 3%;" >
 		<button type="submit" class="btn btn-success" onClick="chk_radio();" >공지사항 추가</button>
 		<button type="reset" class="btn btn-default" onclick="location.href='/IMPet/ServiceCenter/NoticeList'">작성취소</button>	
 	</div>	

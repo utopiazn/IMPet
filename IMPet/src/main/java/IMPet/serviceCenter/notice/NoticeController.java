@@ -101,11 +101,11 @@ public class NoticeController {
 
 	// 공지사항 추가
 	@RequestMapping(value = "/NoticeInsert")
-	public ModelAndView NoticeInsert(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView NoticeInsert(CommandMap commandMap) throws Exception {
 		
         ModelAndView mav = new ModelAndView();
         
-		noticeService.insert(commandMap.getMap(), request);
+		noticeService.insert(commandMap.getMap());
 
 		System.out.println("공지사항 추가");
 

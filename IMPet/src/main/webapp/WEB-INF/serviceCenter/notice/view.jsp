@@ -121,11 +121,6 @@
 			<br />
 			<br />
 
-			<div class="form-group" style="width: 50%; margin: 0 auto;">
-				<img alt="s2" src="/IMPet/resources/image/notice/${view.NOTICE_IMG}"
-					style="width: 100%; height: 100%;">
-			</div>
-
 			<div class="form-group">
 				<label> 내용 </label> ${view.NOTICE_CONTENT}
 			</div>
