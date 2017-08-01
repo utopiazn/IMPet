@@ -122,7 +122,7 @@ function chk_radio() {
 			</div>
 			
 	</div>
-	<div style="text-align:center;">
+	<div style="text-align:center; padding-top: 1%; padding-bottom: 2%;">
 						<button type="submit" class="btn btn-success" onclick="chk_radio()">상품수정</button>
 						<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/PetShop/AdminItemList'">작성취소</button>	
 	</div>
