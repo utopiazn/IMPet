@@ -243,9 +243,10 @@ function ajaxPageView(page){
 					<th style="width: 15%; text-align:center;vertical-align:middle;">ID</th>										
 					<th style="width: 10%; text-align:center;vertical-align:middle;">이름</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">닉네임</th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">전화번호 </th>
-					<th style="width: 15%; text-align:center;vertical-align:middle;">메일</th>
+					<th style="width: 12%; text-align:center;vertical-align:middle;">전화번호 </th>
+					<th style="width: 12%; text-align:center;vertical-align:middle;">메일</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">가입일</th>
+					<th style="width: 8%; text-align:center;vertical-align:middle;">관리자 여부</th>
 					<th style="width: 8%; text-align:center;vertical-align:middle;">사용여부</th>
 					<th style="width: 10%; text-align:center;vertical-align:middle;">관리</th>
 					
@@ -290,6 +291,18 @@ function ajaxPageView(page){
 						<td style="text-align:center;vertical-align:middle;">
 						  ${itemList.MEMBER_JOIN_DATE}
 						</td>
+						
+						<td style="text-align:center;vertical-align:middle;">
+						
+							<c:if test="${itemList.MEMBER_ADMIN eq 1}">
+								관리자		
+						 	</c:if>
+						 	
+						 	<c:if test="${itemList.MEMBER_ADMIN eq 0}">		
+						 		일반
+						 	</c:if>
+						</td>
+						
 						
 						
 						<td style="text-align:center;vertical-align:middle;">

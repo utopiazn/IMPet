@@ -595,8 +595,8 @@ public class GalleryController {
 		System.out.println("갤러리 수정 처리");
 	
 		String url = "GalleryViewNew";
+		//String url = "community/gallery/galleryViewNew";
 
-		
 		int count = 0;
 		
 		String GALLERY_NO =commandMap.get("GALLERY_NO").toString();
@@ -768,9 +768,10 @@ public class GalleryController {
 					
 			System.out.println("image:"+image);
 			
-			File removeFile = new File(uploadPath, image);	
-			removeFile.delete();
-			
+			if(!image.equals("")){
+				File removeFile = new File(uploadPath, image);	
+				removeFile.delete();
+			}
 		}
 
 		galleryService.delete(commandMap.getMap());

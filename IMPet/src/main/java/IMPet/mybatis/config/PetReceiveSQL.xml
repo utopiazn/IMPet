@@ -36,7 +36,26 @@
 		 		pet_item_receive 
 		 	where
 		 		 member_id = #{MEMBER_ID})
-
+	
+	</select>
+	
+	<update id="receiveUpdate" parameterType="hashmap">
+		<![CDATA[
+		update PET_ITEM_RECEIVE set
+			RECEIVE_NAME = #{RECEIVE_NAME},
+			RECEIVE_TEL = #{RECEIVE_TEL},
+			RECEIVE_ZIPCODE = #{RECEIVE_ZIPCODE},
+			RECEIVE_ADDRESS = #{RECEIVE_ADDRESS},
+			RECEIVE_ADDRESS2 = #{RECEIVE_ADDRESS2},
+			RECEIVE_REQUESTS = #{RECEIVE_REQUESTS}
+		where 
+			RECEIVE_NO = #{RECEIVE_NO} and MEMBER_ID = #{MEMBER_ID}
+			
+		]]>
+	</update>
+	
+	<select id="selectKey" resultType="hashmap">
+		SELECT RECEIVE_NO_SEQ.NEXTVAL as RECEIVE_NO FROM DUAL  
 	</select>
 	
 	<!-- 배송정보추가 -->
@@ -57,7 +76,7 @@
 					  #{RECEIVE_NO},
 				      #{MEMBER_ID},
 				      #{RECEIVE_NAME},
-				       #{RECEIVE_ZIPCODE},
+				      #{RECEIVE_ZIPCODE},
 				      #{RECEIVE_ADDRESS},
 				      #{RECEIVE_ADDRESS2},
 				      #{RECEIVE_TEL},
@@ -66,18 +85,6 @@
 				      
 
 	</insert>
-	
-	<!-- 배송정보수정 -->
-	<update id="receiveUpdate" parameterType="hashmap">
-		<![CDATA[
-		UPDATE PET_ITEM_RECEIVE SET
-		RECEIVE_NAME = #{RECEIVE_NAME},
-		RECEIVE_ADDRESS = #{RECEIVE_ADDRESS},
-		RECEIVE_ADDRESS2 = #{RECEIVE_ADDRESS2}, 
-		RECEIVE_TEL = #{RECEIVE_TEL},
-		RECEIVE_REQUESTS = #{RECEIVE_REQUESTS}
-		]]>
-		<include refid="where-no"/>
-	</update>
+
 
 </mapper>
