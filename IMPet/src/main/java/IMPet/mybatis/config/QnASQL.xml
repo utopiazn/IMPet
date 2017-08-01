@@ -42,7 +42,7 @@
 	<![CDATA[
 		UPDATE PET_QNA SET QNA_NO=#{QnA_NO}, QNA_REF=#{QnA_Ref}, QNA_REPLY=#{QnA_Reply}, 
 		QNA_SUBJECT=#{QnA_Subject}, QNA_CONTENT=#{QnA_Content}, MEMBER_ID=#{member_ID}, 
-		QNA_IMG=#{QnA_IMG}, QNA_COUNT=#{QnA_Count}, QNA_DATE=#{QnA_Date}
+		QNA_COUNT=#{QnA_Count}, QNA_DATE=#{QnA_Date}
 		]]>
 		<include refid="where-no" />
 	</update>
@@ -68,7 +68,7 @@
 	<select id="selectMy" resultType="hashmap" parameterType="String">
 		<![CDATA[
 		SELECT QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
-	QNA_CONTENT, MEMBER_ID, QNA_IMG, QNA_COUNT, QNA_DATE FROM Pet_QnA
+	QNA_CONTENT, MEMBER_ID, QNA_COUNT, QNA_DATE FROM Pet_QnA
 		
 		where QNA_REF in (select QNA_NO from Pet_QnA where  MEMBER_ID = #{member_ID})
 		
