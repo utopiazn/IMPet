@@ -83,7 +83,7 @@ color: black;
 
 	<div align="right" width="100%">
 	<c:if test="${sessionScope.member_Admin==1 }">
-	<input value="글쓰기" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQInsertForm'"/></c:if>
+	<input value="글쓰기" class="button2" type="button" onclick="location.href='/IMPet/ServiceCenter/FAQInsertForm'" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"/></c:if>
 
 	<form class="commentForm" method="post" style="width: 100%; padding-top: 10px;">
 		<table class="comment" style="width: 100%;">
