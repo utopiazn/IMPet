@@ -24,7 +24,7 @@ function validateForm() {
 
 <div class="row" style="padding-left:15px;width:100%; text-align:left;"  id="right">
 	<div class="panel panel-default">
-		<div class="panel-heading">이벤트 생성 페이지 입니다. 빠짐없이 입력하셔야합니다</div>
+		<div class="panel-heading">갤러리 생성 페이지 입니다. 빠짐없이 입력하셔야합니다</div>
 			<div class="panel-body">
 				
 				<form name="joinform">	

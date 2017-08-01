@@ -116,9 +116,9 @@
 					</div>
 					
 <div align=center>
-<input value="수정" class="button2" type="button"
+<input value="수정" class="button2" type="button" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"
 		onclick="location.href='/IMPet/ServiceCenter/FAQModifyForm?FAQ_NO=${view.FAQ_NO}'" />
-	<input value="삭제" class="button2" type="button"
+	<input value="삭제" class="button2" type="button" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"
 		onclick="location.href='/IMPet/ServiceCenter/FAQDelete?FAQ_NO=${view.FAQ_NO}'" />
 </div>
 

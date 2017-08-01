@@ -34,8 +34,8 @@
 	 </div>   
 <input name="FAQ_NO" type=hidden value="${view.FAQ_NO}">
 
-<input class="button2" style="width: 140px;" value="자주묻는질문 수정" type="submit">
-<input class="button2" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
+<input class="btn btn-success" value="질문 수정" type="submit">
+<input class="btn btn-default" name="list" type="button" value="뒤로가기" onclick="location.href='/IMPet/ServiceCenter/FAQList'"/>
 
 </form>
 
