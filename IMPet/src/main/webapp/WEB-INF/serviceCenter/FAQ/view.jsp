@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
@@ -114,14 +114,14 @@
 					</div>
 							
 					</div>
-					
+<c:if test="${sessionScope.member_Admin==1 }">					
 <div align=center>
-<input value="수정" class="button2" type="button" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"
+	<input value="수정" class="button2" type="button" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"
 		onclick="location.href='/IMPet/ServiceCenter/FAQModifyForm?FAQ_NO=${view.FAQ_NO}'" />
 	<input value="삭제" class="button2" type="button" style="color: #fff; background-color: #5cb85c; border-color: #4cae4c;"
 		onclick="location.href='/IMPet/ServiceCenter/FAQDelete?FAQ_NO=${view.FAQ_NO}'" />
 </div>
-
+</c:if>
 <br /><br /><br /><br /><br /><br />
 
 
