@@ -59,7 +59,7 @@
 	<![CDATA[
 	INSERT INTO PET_QNA ( QNA_NO, QNA_REF, QNA_REPLY, QNA_SUBJECT,
 	QNA_CONTENT, MEMBER_ID,  QNA_COUNT, QNA_DATE)
-	VALUES (pet_faq_no_seq.nextval,#{QnA_Ref},1,#{QnA_Subject},
+	VALUES (pet_qna_no_seq.nextval,#{QnA_Ref},1,#{QnA_Subject},
 	#{QnA_Content},#{member_ID},0,sysdate)
 	]]>
 	</insert>
