@@ -48,12 +48,6 @@ function chk_radio() {
 		alert("내용을 입력해 주세요.");
 		return false;
 	}
-	 
-	 if(frm.notice_IMG.value == ""){
-			alert("이미지를 등록해 주세요.");
-			return false;
-		}
-	
 	
 	else{
 		  frm.method = "post";
