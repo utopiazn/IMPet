@@ -51,9 +51,9 @@ function delchk(){
 								<option value ="">--카테고리--</option>
 								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=0">사료</option>
 								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=1">간식</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=2">패션의류</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=3">목줄/야외</option>
-								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=4">생활/잡화</option> 
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=2">위생/배변</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=3">장난감</option>
+								<option value ="/IMPet/PetShop/AdminItemList?searchNum=2&isSearch=4">잡화</option> 
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>
@@ -107,7 +107,7 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">
 											<c:if test="${itemList.ITEM_TYPE eq 0 }">사료</c:if>
 											<c:if test="${itemList.ITEM_TYPE eq 1 }">간식</c:if>
-											<c:if test="${itemList.ITEM_TYPE eq 2 }">의류</c:if>
+											<c:if test="${itemList.ITEM_TYPE eq 2 }">위생/배변</c:if>
 											<c:if test="${itemList.ITEM_TYPE eq 3 }">장난감</c:if>
 											<c:if test="${itemList.ITEM_TYPE eq 4 }">잡화</c:if>
 											<div style='display:none;'>${itemList.ITEM_NO}</div>
