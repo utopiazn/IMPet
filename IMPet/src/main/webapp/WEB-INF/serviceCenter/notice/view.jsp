@@ -104,7 +104,7 @@
 
 	<div align="right">
 		<input class="button2" name="list" type="button" value="목록"
-			onclick="location.href='/IMPet/ServiceCenter/NoticeList'" /> <br />
+			onclick="location.href='/IMPet/ServiceCenter/NoticeList'" style="background: #5cb85c; color: #fdfdfd;" /> <br />
 		<br />
 	</div>
 
@@ -131,9 +131,9 @@
 
 	<div align=center>
 		<input value="수정" class="button2" type="button"
-			onclick="location.href='/IMPet/ServiceCenter/NoticeModifyForm?notice_NO=${view.NOTICE_NO}'" />
+			onclick="location.href='/IMPet/ServiceCenter/NoticeModifyForm?notice_NO=${view.NOTICE_NO}'" style="background: #5cb85c; color: #fdfdfd;"/>
 		<input value="삭제" class="button2" type="button"
-			onclick="location.href='/IMPet/ServiceCenter/NoticeDelete?notice_NO=${view.NOTICE_NO}'" />
+			onclick="location.href='/IMPet/ServiceCenter/NoticeDelete?notice_NO=${view.NOTICE_NO}'" style="background: #5cb85c; color: #fdfdfd;" />
 	</div>
 
 	<br />
