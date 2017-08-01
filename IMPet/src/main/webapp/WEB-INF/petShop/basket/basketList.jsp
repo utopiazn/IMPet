@@ -96,6 +96,7 @@
 					<col width="15%">
 					<col width="15%">
 					<col width="15%">
+					
 					<col width="10%">
 				</colgroup>
 				<thead>
@@ -104,8 +105,8 @@
 						<th scope="col">이미지</th>
 						<th scope="col">상품명</th>
 						<th scope="col">단일금액</th>
-						<th scope="col">할인적용</th>
 						<th scope="col">수량</th>
+						<th scope="col">합계금액</th>
 						<th scope="col">삭제</th>
 					</tr>
 				</thead>
