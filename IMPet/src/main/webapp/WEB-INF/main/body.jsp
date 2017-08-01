@@ -143,6 +143,85 @@ color: hotpink;
 					</div>
 				</c:forEach>
 			</li>	
+				<li style=" height: 300px;">
+				<c:forEach var="bestList" items="${bestList}" begin="6" end="8"> 		
+					<div style=" width: 33%; height: 200px; float: left;" >
+						<dl style="height: 100%; width:100%;">
+							<dt style="height: 100%; width:100%;">
+								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
+								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
+								${bestList.ITEM_NAME}<br/>
+								<c:if test="${bestList.ITEM_DCPRICE != null }">
+									<del>${bestList.ITEM_PRICE}원</del><br/>
+									${bestList.ITEM_DCPRICE}원	
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null }">
+									${bestList.ITEM_PRICE}원		
+								</c:if>
+								
+							</dt>
+								
+							<%-- <dd>						
+								${bestList.ITEM_NAME}<br/>
+								${bestList.ITEM_PRICE}원						
+							</dd> --%>
+						</dl>
+					</div>
+				</c:forEach>
+			</li>
+				<li style=" height: 300px;">
+				<c:forEach var="bestList" items="${bestList}" begin="9" end="11"> 		
+					<div style=" width: 33%; height: 200px; float: left;" >
+						<dl style="height: 100%; width:100%;">
+							<dt style="height: 100%; width:100%;">
+								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
+								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
+								${bestList.ITEM_NAME}<br/>
+								<c:if test="${bestList.ITEM_DCPRICE != null }">
+									<del>${bestList.ITEM_PRICE}원</del><br/>
+									${bestList.ITEM_DCPRICE}원	
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null }">
+									${bestList.ITEM_PRICE}원		
+								</c:if>
+								
+							</dt>
+								
+							<%-- <dd>						
+								${bestList.ITEM_NAME}<br/>
+								${bestList.ITEM_PRICE}원						
+							</dd> --%>
+						</dl>
+					</div>
+				</c:forEach>
+			</li>
+				<li style=" height: 300px;">
+				<c:forEach var="bestList" items="${bestList}" begin="12" end="14"> 		
+					<div style=" width: 33%; height: 200px; float: left;" >
+						<dl style="height: 100%; width:100%;">
+							<dt style="height: 100%; width:100%;">
+								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
+								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
+								${bestList.ITEM_NAME}<br/>
+								<c:if test="${bestList.ITEM_DCPRICE != null }">
+									<del>${bestList.ITEM_PRICE}원</del><br/>
+									${bestList.ITEM_DCPRICE}원	
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null }">
+									${bestList.ITEM_PRICE}원		
+								</c:if>
+								
+							</dt>
+								
+							<%-- <dd>						
+								${bestList.ITEM_NAME}<br/>
+								${bestList.ITEM_PRICE}원						
+							</dd> --%>
+						</dl>
+					</div>
+				</c:forEach>
+			</li>
+		
 		</ul>
 		</div>
 	

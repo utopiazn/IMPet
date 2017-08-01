@@ -168,8 +168,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										</c:if>
 										<c:if test="${orderList.ORDER_TYPE eq 4 }">주문취소
 											[<a href="${viewURL }" >삭 제</a>]
-										</c:if>
-										
+										</c:if>						
 																								
 									</tr>
 								</c:forEach>

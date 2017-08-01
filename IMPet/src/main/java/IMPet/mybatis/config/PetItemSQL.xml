@@ -62,9 +62,9 @@
    					 pet_item 
   						) a
 				where 
-					 a.sellcount =1
+					 a.sellcount < 4
 			order by 
-					  a.item_type 				
+					  a.item_type, a.sellcount				
 		]]>
 
 	</select>
