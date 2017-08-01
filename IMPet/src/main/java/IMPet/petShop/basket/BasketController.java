@@ -94,7 +94,6 @@ public class BasketController {
 	
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
-
 	public ModelAndView OrderBasket(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
 	
 		ModelAndView mav = new ModelAndView();

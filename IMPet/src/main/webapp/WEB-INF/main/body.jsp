@@ -99,7 +99,13 @@ color: hotpink;
 								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
 								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
 								${bestList.ITEM_NAME}<br/>
-								${bestList.ITEM_PRICE}원		
+								<c:if test="${bestList.ITEM_DCPRICE != null }">
+									<del>${bestList.ITEM_PRICE}원</del><br/>
+									${bestList.ITEM_DCPRICE}원	
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null }">
+									${bestList.ITEM_PRICE}원		
+								</c:if>
 							</dt>
 								
 							<%-- <dd>						
@@ -119,7 +125,14 @@ color: hotpink;
 								<a href="/IMPet/PetShop/ItemView?ITEM_NO=${bestList.ITEM_NO}">
 								<img class="item_image" src="/IMPet/resources/image/itemImg/${bestList.ITEM_IMG}" alt="상품 섬네일" title="${bestList.ITEM_NAME}" style="width: 100%; height:100%;"></a>
 								${bestList.ITEM_NAME}<br/>
-								${bestList.ITEM_PRICE}원		
+								<c:if test="${bestList.ITEM_DCPRICE != null }">
+									<del>${bestList.ITEM_PRICE}원</del><br/>
+									${bestList.ITEM_DCPRICE}원	
+								</c:if>
+								<c:if test="${bestList.ITEM_DCPRICE == null }">
+									${bestList.ITEM_PRICE}원		
+								</c:if>
+								
 							</dt>
 								
 							<%-- <dd>						

@@ -144,7 +144,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 
 										
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${orderList.ORDER_PRICE}" type="number"/>원</td>
-									
+					
 										
 										<td style="text-align:center;vertical-align:middle;">${orderList.ORDER_DATE}</td>
 										<td style="text-align:center;vertical-align:middle;">

@@ -82,31 +82,7 @@ public class ItemController {
 		return mav;
 	}
 	
-	
-	//펫샵상품후기상세보기
-	@RequestMapping(value="/ItemCommentView")
-	public ModelAndView ItemCommentView(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵상품후기상세보기");
-		Map<String, Object> map = itemReviewService.selectOne(commandMap.getMap());
-		
-		mav.addObject("commentView", map);
-		mav.setViewName("ItemCommentView");
-		return mav;
-	}
-	
-	
-	//펫샵상품후기수정
-	@RequestMapping(value="/ItemCommentModify")
-	public ModelAndView ItemCommentModify(CommandMap commandMap) throws	Exception {
-
-		System.out.println("펫샵상품후기수정");
-		
-		mav.setViewName("ItemCommentModify");
-		return mav;
-	}
-	
-	
 	//펫샵상품후기삭제
 	@RequestMapping(value="/ItemCommentDelete")
 	public ModelAndView ItemCommentDelete(CommandMap commandMap) throws	Exception {
