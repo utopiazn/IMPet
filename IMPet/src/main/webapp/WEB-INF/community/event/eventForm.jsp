@@ -44,11 +44,11 @@ function chk_radio() {
 
 <!-- 메뉴 시작 -->
 
-<div class="row" style="padding-left:15px;width:100%;">    
+<div class="row" style="padding-left:15px;width:60%;">    
 	<h1 class="page-header">이벤트 추가</h1>
 </div>
 
-<div class="row" style="padding-left:15px;width:100%; text-align:left;"  id="right">
+<div class="row" style="padding-left:15px;width:60%; text-align:left;"  id="right">
 	<div class="panel panel-default">
 		<div class="panel-heading">이벤트 생성 페이지 입니다. 빠짐없이 입력하셔야합니다</div>
 			<div class="panel-body">
@@ -93,8 +93,8 @@ function chk_radio() {
 	
 	</div>
 	<div style="text-align:center;">
-		<button type="submit" class="btn btn-success" onClick="chk_radio();" >상품등록</button>
-		<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/Community/AdminEventList'">작성취소</button>	
+		<button type="submit" class="btn btn-success" onClick="chk_radio();" >이벤트 추가</button>
+<!-- 		<button type="reset" class="btn btn-default" onClick="location.href='/IMPet/Community/AdminEventList'">작성취소</button>	 -->
 	</div>	
 </div>
 
