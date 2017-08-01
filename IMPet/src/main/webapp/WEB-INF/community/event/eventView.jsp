@@ -81,7 +81,7 @@
 <h1 class="page-header"> ${view.EVENT_SUBJECT }</h1>
 	
 	<div style="float: left; width:100%; height:800px; margin-top: 10px;">
-	<img alt="s2" src="/IMPet/resources/image/event/${view.EVENT_IMG}" style="width: 100%; height: 100%;">
+	<img alt="s2" src="/IMPet/resources/image/event/${view.EVENT_IMG}" style="width: 600px; height: 800px;">
 	</div>
 	
 
