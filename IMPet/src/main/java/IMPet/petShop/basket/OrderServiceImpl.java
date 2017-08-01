@@ -90,13 +90,15 @@ public class OrderServiceImpl implements OrderService {
 		
 		Map<String, Object> selectReceive = receiveDAO.selectReceive(map);
 		
-		System.out.println("오류나냐"+selectReceive == null);
 		if(selectReceive != null){
 			
 			int receiveNo = Integer.parseInt(selectReceive.get("RECEIVE_NO").toString());
 			
 			map.put("RECEIVE_NO", receiveNo);
 			receiveDAO.update(map);
+			
+			Map<String,Object> key = receiveDAO.selectKey();
+			map.put("RECEIVE_NO", key.get("RECEIVE_NO"));
 		}
 		else {
 			receiveDAO.insert(map);

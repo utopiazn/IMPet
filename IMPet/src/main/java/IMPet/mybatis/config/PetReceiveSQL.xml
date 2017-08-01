@@ -36,7 +36,7 @@
 		 		pet_item_receive 
 		 	where
 		 		 member_id = #{MEMBER_ID})
-
+	
 	</select>
 	
 	<update id="receiveUpdate" parameterType="hashmap">
@@ -53,6 +53,10 @@
 			
 		]]>
 	</update>
+	
+	<select id="selectKey" resultType="hashmap">
+		SELECT RECEIVE_NO_SEQ.NEXTVAL as RECEIVE_NO FROM DUAL  
+	</select>
 	
 	<!-- 배송정보추가 -->
 	<insert id="receiveInsert" parameterType="hashmap" useGeneratedKeys="true" keyProperty="RECEIVE_NO">
@@ -72,7 +76,7 @@
 					  #{RECEIVE_NO},
 				      #{MEMBER_ID},
 				      #{RECEIVE_NAME},
-				       #{RECEIVE_ZIPCODE},
+				      #{RECEIVE_ZIPCODE},
 				      #{RECEIVE_ADDRESS},
 				      #{RECEIVE_ADDRESS2},
 				      #{RECEIVE_TEL},

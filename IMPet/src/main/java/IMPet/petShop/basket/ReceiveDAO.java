@@ -28,6 +28,10 @@ public class ReceiveDAO extends AbstractDAO {
 		return  selectOne("PetReceiveSQL.selectReceive", map);	
 	}
 	
+	public Map<String,Object> selectKey() throws Exception {
+		return selectOne("PetReceiveSQL.selectKey");
+	}
+	
 	/*public void receiveUpdate(Map<String,Object>map) throws Exception{
 		update("PetReceiveSQL.receiveUpdate", map);
 	}*/
