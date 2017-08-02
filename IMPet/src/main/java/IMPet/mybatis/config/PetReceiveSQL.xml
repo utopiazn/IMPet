@@ -41,14 +41,14 @@
 	
 	<update id="receiveUpdate" parameterType="hashmap">
 		<![CDATA[
-		update PET_ITEM_RECEIVE set
+		UPDATE PET_ITEM_RECEIVE set
 			RECEIVE_NAME = #{RECEIVE_NAME},
 			RECEIVE_TEL = #{RECEIVE_TEL},
 			RECEIVE_ZIPCODE = #{RECEIVE_ZIPCODE},
 			RECEIVE_ADDRESS = #{RECEIVE_ADDRESS},
 			RECEIVE_ADDRESS2 = #{RECEIVE_ADDRESS2},
 			RECEIVE_REQUESTS = #{RECEIVE_REQUESTS}
-		where 
+		WHERE 
 			RECEIVE_NO = #{RECEIVE_NO} and MEMBER_ID = #{MEMBER_ID}
 			
 		]]>
@@ -63,7 +63,7 @@
 		<selectKey keyProperty="RECEIVE_NO" resultType="String" order="BEFORE">
 			SELECT RECEIVE_NO_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
-		insert into PET_ITEM_RECEIVE
+		INSERT INTO PET_ITEM_RECEIVE
 					 (RECEIVE_NO,
 					  MEMBER_ID,
 					  RECEIVE_NAME,
@@ -72,7 +72,7 @@
 					  RECEIVE_ADDRESS2,
 					  RECEIVE_TEL,
 					  RECEIVE_REQUESTS)
-			values(
+			VALUES(
 					  #{RECEIVE_NO},
 				      #{MEMBER_ID},
 				      #{RECEIVE_NAME},
@@ -85,6 +85,5 @@
 				      
 
 	</insert>
-
-
+	
 </mapper>

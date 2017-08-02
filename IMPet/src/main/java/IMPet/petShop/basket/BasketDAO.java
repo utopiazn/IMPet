@@ -35,6 +35,5 @@ public class BasketDAO extends AbstractDAO {
 	public void delete(Map<String, Object> map) throws Exception {
 		
 		delete("PetBasketSQL.baDelete", map);
-	}
-		
+	}		
 }

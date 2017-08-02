@@ -10,7 +10,7 @@ import IMPet.module.AbstractDAO;
 @Repository(value="orderDAO")
 public class OrderDAO extends AbstractDAO {
 	
-	//장바구니전체주문
+	//장바구니주문
 	public Map<String, Object> selectAll(Map<String, Object> map) throws Exception {
 			
 		return selectOne("PetOrderSQL.selectAll", map);
@@ -43,7 +43,6 @@ public class OrderDAO extends AbstractDAO {
 		return list;
 	}
 	
-	
 	//주문확인
 	public List<Map<String, Object>> selectTwo(Map<String, Object> map) throws Exception {
 		
@@ -53,6 +52,7 @@ public class OrderDAO extends AbstractDAO {
 		return two;	
 	}
 	
+	//구매내역페이징
 	public int selectCount(Map<String,Object> map) throws Exception {
 		Map<String,Object> count =  selectOne("PetOrderSQL.odListCount", map);
 		
