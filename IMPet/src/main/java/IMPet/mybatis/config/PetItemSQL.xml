@@ -166,7 +166,7 @@
 	<update id="sellCountUpdate" parameterType="hashmap">
 		update PET_ITEM set
 			ITEM_REMAINCOUNT = ITEM_REMAINCOUNT - #{BASKET_BUYCOUNT},
-			ITEM_SELLCOUNT = #{BASKET_BUYCOUNT}
+			ITEM_SELLCOUNT = ITEM_SELLCOUNT + #{BASKET_BUYCOUNT}
 		where ITEM_NO = #{ITEM_NO}
 	</update>
 
