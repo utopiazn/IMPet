@@ -31,10 +31,8 @@ public class PetHealingController {
 		List<Map<String, Object>> list = petHealingService.selectAll();
 		
 		String url = "petHotel/healing/list";
-		/*String url = "PetHotel_HealingList";*/
-		
-		mav.addObject("list", list);
-		
+				
+		mav.addObject("list", list);		
 		mav.setViewName(url);
 		
 		return mav;
@@ -54,10 +52,9 @@ public class PetHealingController {
 		
 		//관리자페이지 통합코드
 		int adminCode = 4;
-		mav.addObject("adminCode", adminCode);
 		
-		mav.addObject("list", list);
-		
+		mav.addObject("adminCode", adminCode);		
+		mav.addObject("list", list);		
 		mav.setViewName(url);
 		
 		return mav;
@@ -75,8 +72,7 @@ public class PetHealingController {
 		
 		String url = "petHotel/healing/adminList";
 		
-		mav.addObject("list", list);
-		
+		mav.addObject("list", list);		
 		mav.setViewName(url);
 		
 		return mav;
@@ -95,8 +91,7 @@ public class PetHealingController {
 		
 		String url = "petHotel/healing/view";
 		
-		mav.addObject("view", map);
-		
+		mav.addObject("view", map);		
 		mav.setViewName(url);
 		
 		return mav;
