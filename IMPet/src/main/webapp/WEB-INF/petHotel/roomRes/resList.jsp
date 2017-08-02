@@ -88,11 +88,11 @@ function ajaxPageView(page){
 					<td style="width: 7%; text-align:center;vertical-align:middle; border:1px solid lightgray;"> 
 					<c:choose>
 						<c:when test="${res.RES_STATE == 0}">
-						입금 대기중
+						예약 대기중
 						</c:when>
 						
 						<c:when test="${res.RES_STATE == 1}">
-						입금 완료
+						예약 완료
 						</c:when>
 						
 						<c:when test="${res.RES_STATE == 2}">
@@ -109,7 +109,7 @@ function ajaxPageView(page){
 						<input value="예약 취소" class="button2" type="button" onclick="ajaxRoomResCancel(${res.RES_NO});"/>
 					</c:if>
 					<c:if test="${res.RES_STATE == 1}">
-						<small>환불문의<br/>02)XXX-XXXX</small>
+						<small>예약 문의<br/>02)XXX-XXXX</small>
 					</c:if>
 					</td>
 				</tr>

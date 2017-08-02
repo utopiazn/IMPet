@@ -91,11 +91,11 @@ function ajaxPageView(page){
 									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;"> 
 									<c:choose>
 										<c:when test="${res.RES_STATE == 0}">
-										입금 대기중
+										예약 대기중
 										</c:when>
 										
 										<c:when test="${res.RES_STATE == 1}">
-										입금 완료
+										예약 완료
 										</c:when>
 										
 										<c:when test="${res.RES_STATE == 2}">
@@ -110,7 +110,7 @@ function ajaxPageView(page){
 									
 									<td style="width: 5%; text-align:center;vertical-align:middle; border:1px solid lightgray;">
 										<c:if test="${res.RES_STATE != 1 && res.RES_STATE != 2}">
-										<input value="입금 확인" class="button2" type="button"
+										<input value="예약 확인" class="button2" type="button"
 										 style="margin: 5px;" onclick="location.href='/IMPet/PetHotel/RoomResPayment?res_NO=${res.RES_NO}'"/>
 										<br/>
 										</c:if>
