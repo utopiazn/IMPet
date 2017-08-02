@@ -1,6 +1,7 @@
 .category_top ul{
     float:right;
 }
+
 .category_top li{
 	padding: 0 0 0 0;
     margin: 0 0 0 5px;
@@ -10,6 +11,7 @@
     float:left;
     list-style:none;
 }
+
 .order_button{
 	float:right;
 	margin-bottom: 50px;
@@ -19,7 +21,6 @@
 	margin: 30px 0 5px 5px;
 	font-size: 13px;
 	color: #888;
-	/* font-weight: bold; */
 }
 
 .orderArea .boardWrite table {
@@ -31,7 +32,6 @@
 	border: 0;
 	border-spacing: 0;
 	border-collapse: collapse;
-/* 	font-weight: 800; */
 	text-align: left;
 }
 
@@ -81,7 +81,6 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	background: #f6f6f6;
-	/* font-weight: normal; */
 	font-size: 13px;
 	color: #888;
 }
@@ -92,6 +91,7 @@
 	line-height: 140%;
 	text-align: center;
 }
+
 .basket_button #button  {
   background: #f6f6f6;
   color: #11111;
@@ -106,6 +106,7 @@
   overflow: hidden;
   cursor: pointer;
 }
+
 .effect2 {
   text-align: center;
  display: inline-block;
@@ -121,10 +122,12 @@
     border-radius: 6px;
     overflow: hidden;
 }
+
 .effect2.effect-6 {
   -webkit-transition: all 0.2s linear 0s;
   transition:  0pxall 0.2s linear 0s;
 }
+
 .effect2.effect-6:before {
   content: ">"; 
   font-family:  sans-serif;
@@ -151,11 +154,28 @@
   -webkit-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
 }
+
 .effect2.effect-6:hover {
   text-indent: 15px;
 }
+
 .effect2.effect-6:hover:before {
   -webkit-transform: scale(3, 1);
           transform: scale(1, 1);
   text-indent:0px;
-  }
+ }
+  
+ #button  {
+  background: #f6f6f6;
+  color: #11111;
+  width: 70px;
+  height: 30px;
+  border: 0;
+  font-size: 15px;
+  border-radius: 4px;
+  font-family: 'Noto sans KR', sans-serif;
+  -webkit-transition: .6s;
+  transition: .6s;
+  overflow: hidden;
+  cursor: pointer;
+}

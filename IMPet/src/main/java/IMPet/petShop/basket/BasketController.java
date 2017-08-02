@@ -188,7 +188,7 @@ public class BasketController {
 			page = Integer.parseInt(request.getParameter("PAGE"));
 		}
 		
-		System.out.println("펫샵구매내역");
+		System.out.println("펫샵주문내역");
 		String id = session.getAttribute("member_ID").toString();
 		commandMap.put("MEMBER_ID", id);
 		System.out.println(commandMap.getMap());

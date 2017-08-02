@@ -10,7 +10,6 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/IMPet/resources/JQuery/joinForm.js" charset="utf-8"></script>
 
-
 <link rel="stylesheet" href="/IMPet/resources/css/shop/orderForm.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
@@ -78,23 +77,6 @@
 	}	
 
 </script>
-<style>
-#button  {
-  background: #f6f6f6;
-  color: #11111;
-  width: 70px;
-  height: 30px;
-  border: 0;
-  font-size: 15px;
-  border-radius: 4px;
-  font-family: 'Noto sans KR', sans-serif;
-  -webkit-transition: .6s;
-  transition: .6s;
-  overflow: hidden;
-  cursor: pointer;
-}
-</style>
-
 
 
 <div  class="order_list" style="margin: 3%.0.3%.0;">
@@ -106,8 +88,6 @@
 
 	<div class="order_main">
 
-	
-	
 			 <table class="order" style="margin-bottom:15px; width:100%">
 				<colgroup>
 					<col width="20%">
@@ -185,6 +165,7 @@
 			</table>
 		</div>
 </div>
+
 <div class="orderArea">
     
 	<h3 style="padding-right: 180px;">배송지 정보
@@ -256,20 +237,16 @@
 		</div>
 </div>
 
-
-
-			<div class="basket_button" style="padding-bottom: 17px; padding-top: 17px;"">
-				<input type="button" class="check-all" value="취소하기" id="button" onclick="history.go(-1);"/>&nbsp;
-				<input type="button" class="check-all" value="주문하기" id="button" onclick="chk_radio()"/>	
-			</div>
-			
-
-
-
+	<div class="basket_button" style="padding-bottom: 17px; padding-top: 17px;"">
+		<input type="button" class="check-all" value="취소하기" id="button" onclick="history.go(-1);"/>&nbsp;
+		<input type="button" class="check-all" value="주문하기" id="button" onclick="chk_radio()"/>	
+	</div>
 </form>
+
 
 <script>
 function copydata2() {
+	
 	var rename = '${receive.RECEIVE_NAME}';
 	var retel = '${receive.RECEIVE_TEL}';
 	var rezipcode = '${receive.RECEIVE_ZIPCODE}';
@@ -288,23 +265,19 @@ function copydata2() {
        
         $('input[name="order"]').not(this).prop("checked", false); 
         
-    }
-    
-    else {
+    }else {
     	frm.reset();
     }
 }
-function copydata() {
 
+function copydata() {
 	
 	var name = '${member.MEMBER_NAME}';
 	var tel = '${member.MEMBER_TEL}';
 	var zipcode = '${member.MEMBER_ZIPCODE}';
 	var addr = '${member.MEMBER_ADDRESS}';
 	var addr2 = '${member.MEMBER_ADDRESS2}';
-	
-
-	
+		
     if ($('input[name="order"]').prop('checked') === true) {
     	
        $('input[name="RECEIVE_NAME"]').val(name);
@@ -313,13 +286,10 @@ function copydata() {
        $('input[name="RECEIVE_ADDRESS"]').val(addr);
        $('input[name="RECEIVE_ADDRESS2"]').val(addr2);
  
-       $('input[name="order2"]').not(this).prop("checked", false);
-      
+       $('input[name="order2"]').not(this).prop("checked", false);     
     } 
     else {
     	frm.reset();
-    }
-    
+    }  
  }
- 
 </script>
