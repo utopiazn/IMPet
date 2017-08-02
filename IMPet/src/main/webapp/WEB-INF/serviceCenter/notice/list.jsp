@@ -90,14 +90,12 @@ color: black;
 			<colgroup>
 				<col width="10%">
 				<col width="">
-				<col width="10%">
 				<col width="20%">
 			</colgroup>
 			<thead>
 				<tr>
 					<th scope="col">번호</th>
 					<th scope="col">제목</th>
-					<th scope="col">조회수</th>
 					<th scope="col">작성일</th>
 				</tr>
 			</thead>									 
@@ -105,7 +103,6 @@ color: black;
 				<tr>
 					<td>${notice.NOTICE_NO}</td>
 					<td style="text-align: left !important; " class="title"><a href='/IMPet/ServiceCenter/NoticeView?notice_NO=${notice.NOTICE_NO}'>${notice.NOTICE_SUBJECT}</a></td>
-					<td>${notice.NOTICE_COUNT}</td>
 					<td>${notice.NOTICE_DATE}</td>
 				</tr>			
 			</c:forEach>
