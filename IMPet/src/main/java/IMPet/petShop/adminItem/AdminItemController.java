@@ -1,7 +1,5 @@
 package IMPet.petShop.adminItem;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import IMPet.module.CommandMap;
@@ -57,19 +53,17 @@ public class AdminItemController {
 		} else {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-		System.out.println("111111111111111111111111111111");
-		System.out.println("search"+request.getParameter("isSearch"));
+
 		isSearch = request.getParameter("isSearch");
 		
 		List<Map<String,Object>> itemList = adminItemService.itemList(commandMap.getMap()); 
-		System.out.println("list"+itemList.size());
+
 		
 		if (isSearch != null) {
-			System.out.println("22222222222222");
+			
 			
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-			System.out.println("getMap : " + commandMap.getMap());
 			
 			if (searchNum == 0){ // 상품명
 				System.out.println("333333");
@@ -234,19 +228,16 @@ public class AdminItemController {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		//-----------------------------------------------------------
-		System.out.println("111111111111111111111111111111");
-		System.out.println("search"+request.getParameter("isSearch"));
+
 		
 		isSearch = request.getParameter("isSearch");
 		
 		List<Map<String,Object>> orderList = adminItemService.orderList(commandMap.getMap());
-		System.out.println("list"+orderList.size());
 		
 		if (isSearch != null) {
 		
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-			System.out.println("getMap : " + commandMap.getMap());
 			
 			if (searchNum == 0) // 아이디
 				orderList = adminItemService.orderSearch1(isSearch);
