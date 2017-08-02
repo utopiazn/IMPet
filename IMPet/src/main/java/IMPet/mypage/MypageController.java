@@ -58,9 +58,6 @@ public class MypageController {
 		return mav;
 	}
 	
-	
-	
-
 	@RequestMapping(value="/MemberModifiedForm")
 	public ModelAndView MemberModifiedForm(CommandMap commandMap,HttpSession session) throws Exception{
 		ModelAndView mav = new ModelAndView();
@@ -116,3 +113,4 @@ public class MypageController {
 	}
 
 }
+
