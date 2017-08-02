@@ -43,9 +43,6 @@ public class NoticeController {
 		
 		mav.addObject("list",list);
 
-		System.out.println("공지사항리스트");
-		
-		System.out.println(list);
 
 		mav.setViewName("NoticeList");
 		return mav;
@@ -59,9 +56,6 @@ public class NoticeController {
 		
 		mav.addObject("list",list);
 
-		System.out.println("공지사항리스트");
-		
-		System.out.println(list);
 		
 		//관리자페이지 통합코드
 		int adminCode = 7;
@@ -79,7 +73,6 @@ public class NoticeController {
 		
 		Map<String, Object> map = noticeService.selectOne(commandMap.getMap());
 
-		System.out.println("공지사항 개별페이지");
 		
 		mav.addObject("view",map);
 		
@@ -93,7 +86,6 @@ public class NoticeController {
 		
 		
 
-		System.out.println("공지사항 추가 폼");
 
 		mav.setViewName("NoticeInsertForm");
 		return mav;
@@ -107,8 +99,6 @@ public class NoticeController {
         
 		noticeService.insert(commandMap.getMap());
 
-		System.out.println("공지사항 추가");
-
 		mav.setViewName("redirect:NoticeList");
 		return mav;
 	}
@@ -121,8 +111,6 @@ public class NoticeController {
 
 		
 		Map<String, Object> map = noticeService.selectOne(commandMap.getMap());
-		
-		System.out.println("공지사항 수정 폼");
 		
 		mav.addObject("view", map);
 
@@ -142,7 +130,7 @@ public class NoticeController {
 		
 		String no = commandMap.get("notice_NO").toString();
 		
-		System.out.println("공지사항 수정");
+
 
 		mav.setViewName("redirect:NoticeView?notice_NO="+no);
 		return mav;
@@ -157,7 +145,7 @@ public class NoticeController {
 		noticeService.delete(commandMap.getMap());
 		
 
-		System.out.println("공지사항 삭제");
+
 
 		mav.setViewName("redirect:NoticeList");
 		return mav;

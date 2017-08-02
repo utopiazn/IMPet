@@ -20,8 +20,7 @@ import IMPet.module.Paging;
 @RequestMapping(value="/PetShop")
 public class BasketController {
 	
-	
-	
+		
 	@Resource(name="basketService")
 	private BasketService basketService;
 	
@@ -36,6 +35,7 @@ public class BasketController {
 	
 	
 	////////////////////////////////////////////////////////////////////////////Basket
+	
 	
 	//펫샵장바구니리스트
 	@RequestMapping(value="/BasketList")
@@ -53,6 +53,7 @@ public class BasketController {
 		return mav;
 	}
 	
+	
 	//펫샵장바구니추가처리
 	@RequestMapping(value="/BasketInsert")
 	public ModelAndView BasketInsert(CommandMap commandMap, HttpSession session) throws Exception {
@@ -68,6 +69,7 @@ public class BasketController {
 		mav.setViewName("redirect:/PetShop/BasketList?MEMBER_ID="+id);
 		return mav;
 	}
+	
 	
 	//펫샵장바구니상품삭제
 	@RequestMapping(value="/BasketDelete")
@@ -92,6 +94,7 @@ public class BasketController {
 	
 	////////////////////////////////////////////////////////////////////////////Order
 	
+	
 	//펫샵장바구니전체주문폼Basket
 	@RequestMapping(value="/OrderFormB")
 	public ModelAndView OrderBasket(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
@@ -112,6 +115,7 @@ public class BasketController {
 		return mav;
 	}
 	
+	
 	//펫샵상품바로주문폼Direct
 	@RequestMapping(value="/OrderFormD")
 	public ModelAndView OrderView(CommandMap commandMap, HttpSession session) throws Exception {
@@ -128,8 +132,7 @@ public class BasketController {
 		mav.addObject("receive", map.get("receive"));
 		mav.setViewName("OrderFormD");
 		
-		return mav;
-	
+		return mav;	
 	}
 	
 	
@@ -143,10 +146,6 @@ public class BasketController {
 		List<Map<String,Object>> orderPay = (List<Map<String, Object>>) session.getAttribute("orderView");
 		Map<String,Object> orderMember = (Map<String, Object>) session.getAttribute("member");
 		
-	/*	session.removeAttribute("orderView");
-		session.removeAttribute("member");*/
-		
-		
 		mav.addObject("orderPay", orderPay);
 		mav.addObject("member", orderMember);
 		mav.addObject("receive", commandMap.getMap());
@@ -155,13 +154,12 @@ public class BasketController {
 		return mav;
 	}
 	
+	
 	//펫샵주문완료
 	@RequestMapping(value="/OrderComplete")
 	public ModelAndView OrderComplete(CommandMap commandMap, HttpSession session) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
-		
-		
 		
 		orderService.insert(commandMap.getMap(), session);
 		List<Map<String, Object>> two = orderService.selectTwo(commandMap.getMap());
@@ -190,7 +188,7 @@ public class BasketController {
 			page = Integer.parseInt(request.getParameter("PAGE"));
 		}
 		
-		System.out.println("펫샵구매내역");
+		System.out.println("펫샵주문내역");
 		String id = session.getAttribute("member_ID").toString();
 		commandMap.put("MEMBER_ID", id);
 		System.out.println(commandMap.getMap());
@@ -199,7 +197,6 @@ public class BasketController {
 		
 		String pagingHtml = pagingHtml(commandMap,page);
 		
-
 		List<Map<String, Object>> list = orderService.selectList(commandMap.getMap());
 		
 		mav.addObject("pagingHtml", pagingHtml);
@@ -208,6 +205,7 @@ public class BasketController {
 		return mav;
 	}
 	
+
 	//펫샵구매취소
 	@RequestMapping(value="/OrderDelete")
 	public ModelAndView OrderDelete(CommandMap commandMap, HttpSession session) throws	Exception {
@@ -217,25 +215,18 @@ public class BasketController {
 		System.out.println("펫샵구매취소");
 		System.out.println("controller" +commandMap.getMap());
 		orderService.delete(commandMap.getMap());
-			
-		//String id = session.getAttribute("member_ID").toString();
 		
 		mav.setViewName("redirect:OrderList");
 		return mav;
 	}
 	
 	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
-		
-	
-		
+				
 		int blockCount =10;
-	
-		
+			
 		int totalCount=  orderService.selectCount(commandMap.getMap());
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
-		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
-		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
 		
 		String PAGIN = String.valueOf(blockCount);	
 		String PAGINGNO = String.valueOf(pageNo);		
@@ -243,8 +234,7 @@ public class BasketController {
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 
 		commandMap.put("TOTALCOUNT", totalCount);
-		
-		
+			
 		StringBuffer pagingHtml = new StringBuffer();
 		
 		for(int i=1; i<=totalPage;i++ ){			
@@ -259,16 +249,10 @@ public class BasketController {
 				
 				pagingHtml.append(" <a class='page' href='javascript:ajaxPageView("+i+");'>" );			
 				pagingHtml.append(i);				
-				pagingHtml.append("</a> ");
-				
-			}
-			
+				pagingHtml.append("</a> ");	
+			}			
 		}
-		
-
-		
-		return pagingHtml.toString();
-		
+				
+		return pagingHtml.toString();		
 	}
-	
 }

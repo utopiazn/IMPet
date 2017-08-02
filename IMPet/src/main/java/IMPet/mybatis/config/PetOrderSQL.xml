@@ -21,8 +21,7 @@
 		<![CDATA[
 			SELECT a.ITEM_NAME, a.ITEM_IMG, a.ITEM_PRICE, a.ITEM_DCPRICE, b.*
 				FROM PET_ITEM a, PET_ITEM_BASKET b
-					WHERE b.basket_no = #{BASKET_NO} AND a.ITEM_NO = b.ITEM_NO
-					
+					WHERE b.basket_no = #{BASKET_NO} AND a.ITEM_NO = b.ITEM_NO			
 		]]>
 	</select>
 	
@@ -37,8 +36,7 @@
 	
 	<!-- 결제정보추가 -->
 	<insert id="odInsert" parameterType="hashmap" >
-
-		insert into PET_ITEM_ORDER
+		INSERT INTO PET_ITEM_ORDER
 					 (ORDER_NO,
 					  ITEM_NO,
 					  ORDER_BUYCOUNT,
@@ -49,7 +47,7 @@
 					  ORDER_IMG,
 					  ORDER_NAME,
 					  RECEIVE_NO)
-			values(
+			VALUES(
 					  ORDER_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
 					  #{BASKET_BUYCOUNT},
@@ -59,13 +57,11 @@
 				      0,
 				      #{ITEM_IMG},
 				      #{ITEM_NAME},
-				      #{RECEIVE_NO})
-				      
+				      #{RECEIVE_NO})			      
 	</insert>
 	
 	<!-- 펫샵구매취소 -->
 	<update id="odDelete" parameterType="hashmap">
-	
 			UPDATE PET_ITEM_ORDER SET
 			ORDER_TYPE = #{ORDER_TYPE}
 			WHERE ORDER_NO = #{ORDER_NO}
@@ -74,8 +70,8 @@
 	
 	<!-- 펫샵구매내역 -->
 	<select id="odList" resultType="hashmap" parameterType="hashmap">
-			select a.* from  ( 
-        select 	row_number() over(order by 	RECEIVE_NO DESC) as NO, 
+			SELECT a.* from  ( 
+        	SELECT 	row_number() over(order by 	RECEIVE_NO DESC) as NO, 
               	ORDER_NO,
                 ITEM_NO,
                 ORDER_BUYCOUNT,
@@ -86,21 +82,21 @@
                 ORDER_IMG,
                 ORDER_NAME,
                 RECEIVE_NO
-          from pet_item_order where MEMBER_ID = #{MEMBER_ID} and not ORDER_TYPE = 4) a
-           where 
+          	FROM PET_ITEM_ORDER WHERE MEMBER_ID = #{MEMBER_ID} and not ORDER_TYPE = 4) a
+           	WHERE 
 			 	a.No between ${PAGING}*( ${PAGINGNO} -1)+1 and ${PAGING}*( ${PAGINGNO} )
-			 order by 			 
-			 RECEIVE_NO DESC
+				ORDER BY 			 
+			 		RECEIVE_NO DESC
 	</select>
 	
 	<select id="odListCount" resultType="hashmap">
 			
 		<![CDATA[		
-			 select 
+			 SELECT 
 			 	count(*) as count 
-			 from 
+			 FROM 
 			 	Pet_ITEM_ORDER
-			 where MEMBER_ID = #{MEMBER_ID}	and not ORDER_TYPE = 4	
+			 WHERE MEMBER_ID = #{MEMBER_ID}	and not ORDER_TYPE = 4	
 			
 		]]>
 	</select>
@@ -120,19 +116,19 @@
 	<!-- 주문 아이디 -->
 	<select id="orderSearch1" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where MEMBER_ID LIKE '%'||#{isSearch}||'%'
+		WHERE MEMBER_ID LIKE '%'||#{isSearch}||'%'
 	</select>
 
 	<!-- 주문 상품명 -->
 	<select id="orderSearch2" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where ORDER_NAME LIKE '%'||#{isSearch}||'%'
+		WHERE ORDER_NAME LIKE '%'||#{isSearch}||'%'
 	</select>
 
 	<!-- 주문 상태 -->
 	<select id="orderSearch3" resultType="hashmap" parameterType="hashmap">
 		<include refid="selectAll" />
-		where ORDER_TYPE = #{isSearch}
+		WHERE ORDER_TYPE = #{isSearch}
 	</select>
 
 	<!-- 주문 번호 -->
@@ -148,10 +144,10 @@
 	</select>
 	
 	<update id="orderType" parameterType="hashmap">
-		update PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} + 1 where RECEIVE_NO = #{RECEIVE_NO} and ORDER_NO = #{ORDER_NO}
+		UPDATE PET_ITEM_ORDER set ORDER_TYPE = #{ORDER_TYPE} + 1 WHERE RECEIVE_NO = #{RECEIVE_NO} and ORDER_NO = #{ORDER_NO}
 	</update>
 	
 	<delete id="orderDelete" parameterType="hashmap">
-		delete from PET_ITEM_ORDER where ORDER_NO = #{ORDER_NO} and RECEIVE_NO = #{RECEIVE_NO}
+		DELETE from PET_ITEM_ORDER WHERE ORDER_NO = #{ORDER_NO} and RECEIVE_NO = #{RECEIVE_NO}
 	</delete>
 </mapper>

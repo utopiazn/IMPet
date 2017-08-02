@@ -88,9 +88,7 @@ public class QnAController {
 			System.out.println("비로그인은 조회수가 증가하지 않음.");
 		}
 
-		System.out.println("자주묻는질문 개별페이지");
-		
-		System.out.println(map);
+
 		
 		mav.addObject("view", map);
 
@@ -102,7 +100,6 @@ public class QnAController {
 	@RequestMapping(value = "/QuestionInsertForm")
 	public ModelAndView QuestionInsertForm() {
 
-		System.out.println("Q&A 추가 폼");
 
 		mav.setViewName("QuestionInsertForm");
 		return mav;
@@ -116,7 +113,6 @@ public class QnAController {
 
 		qnAService.insert(commandMap.getMap());
 
-		System.out.println("Q&A 추가");
 
 		mav.setViewName("redirect:QuestionList");
 		
@@ -133,7 +129,6 @@ public class QnAController {
 
 		Map<String, Object> map = qnAService.selectOne(commandMap.getMap());
 
-		System.out.println("Q&A 수정 폼");
 
 		mav.addObject("view", map);
 
@@ -153,8 +148,7 @@ public class QnAController {
 
 		String no = commandMap.get("QnA_NO").toString();
 
-		System.out.println("Q&A 수정");
-
+	
 		mav.setViewName("redirect:QuestionView?QnA_NO=" + no);
 		return mav;
 	}
@@ -167,7 +161,6 @@ public class QnAController {
 
 		qnAService.delete(commandMap.getMap());
 
-		System.out.println("Q&A 삭제");
 
 		mav.setViewName("redirect:QuestionList");
 		return mav;
@@ -184,9 +177,7 @@ public class QnAController {
 			
 			ModelAndView mav = new ModelAndView();
 
-	
-			
-			System.out.println("Q&A 답글 폼");
+
 
 			mav.addObject("view", commandMap.getMap());
 			
@@ -203,7 +194,6 @@ public class QnAController {
 
 		qnAService.insertRef(commandMap.getMap());
 
-		System.out.println("Q&A 답글 추가");
 
 		mav.setViewName("redirect:AdminQuestionList");
 		return mav;

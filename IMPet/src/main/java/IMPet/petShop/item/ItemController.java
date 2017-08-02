@@ -1,6 +1,5 @@
 package IMPet.petShop.item;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -28,7 +27,6 @@ public class ItemController {
 	@RequestMapping(value="/Main")
 	public ModelAndView Main(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵메인");
 		
 		mav.setViewName("PetShop");
 		return mav;
@@ -38,9 +36,6 @@ public class ItemController {
 	//펫샵상품리스트
 	@RequestMapping(value="/ItemList")
 	public ModelAndView ItemList(CommandMap commandMap) throws Exception {
-
-		System.out.println("펫샵상품리스트");
-		System.out.println(commandMap.get("ITEM_TYPE"));
 		
 		Map<String,Object> map = itemService.selectItem(commandMap.getMap());
 		
@@ -57,11 +52,9 @@ public class ItemController {
 	@RequestMapping(value="/ItemView")
 	public ModelAndView ItemView(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵상품상세보기");
 		Map<String, Object> map = itemService.selectOne(commandMap.getMap());
 		
 		
-		System.out.println(map);
 		mav.addObject("view", map.get("view"));
 		mav.addObject("comment", map.get("comment"));
 		mav.setViewName("ItemView");
@@ -74,8 +67,6 @@ public class ItemController {
 	@RequestMapping(value="/ItemComment")
 	public ModelAndView ItemComment(CommandMap commandMap) throws Exception {
 
-		System.out.println("펫샵후기등록");
-		System.out.println(commandMap.getMap());
 		itemReviewService.insert(commandMap.getMap());
 	
 		mav.setViewName("redirect:ItemView?ITEM_NO="+commandMap.get("ITEM_NO"));
@@ -87,9 +78,7 @@ public class ItemController {
 	@RequestMapping(value="/ItemCommentDelete")
 	public ModelAndView ItemCommentDelete(CommandMap commandMap) throws	Exception {
 		
-		System.out.println("controller" +commandMap.getMap());
 		itemReviewService.delete(commandMap.getMap());
-		System.out.println("펫샵상품후기삭제");
 
 		mav.setViewName("redirect:ItemView?ITEM_NO="+commandMap.get("ITEM_NO"));
 		return mav;

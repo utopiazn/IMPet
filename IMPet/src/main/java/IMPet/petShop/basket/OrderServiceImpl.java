@@ -33,7 +33,8 @@ public class OrderServiceImpl implements OrderService {
 	private ItemDAO itemDAO;
 
 
-	@Override // 장바구니에서 선택한 상품만 가져오기
+	//장바구니주문
+	@Override 
 	public Map<String, Object> selectAll(Map<String, Object> map,HttpServletRequest request) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		List<Map<String, Object>> orderMap = new ArrayList<Map<String,Object>>();
@@ -46,10 +47,9 @@ public class OrderServiceImpl implements OrderService {
 			map.put("BASKET_NO", a);
 			
 			orderMap.add(orderDAO.selectAll(map));
-			System.out.println(orderMap);
-
-			 
+			System.out.println(orderMap);	 
 		}
+		
 		System.out.println("찍힌다");
 		System.out.println("장바구니사이즈"+orderMap.size());
 
@@ -63,7 +63,8 @@ public class OrderServiceImpl implements OrderService {
 		return resultMap;
 	}
 
-	@Override // 상품 바로 구매
+	// 상품바로주문
+	@Override 
 	public Map<String, Object> selectOne(Map<String, Object> map) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String,Object>();
 		List<Map<String, Object>> orderMap = new ArrayList<Map<String,Object>>();
@@ -81,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
 		return resultMap;
 	}
 
-
+	//주문추가
 	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(Map<String, Object> map, HttpSession session) throws Exception {
@@ -104,8 +105,6 @@ public class OrderServiceImpl implements OrderService {
 			receiveDAO.insert(map);
 		}
 		
-		
-
 		for(int i = 0; i < orderPay.size(); i++) {
 			 
 			orderPay.get(i).put("MEMBER_ID", map.get("MEMBER_ID"));
@@ -135,33 +134,34 @@ public class OrderServiceImpl implements OrderService {
 		}
 		
 		session.removeAttribute("orderView");
-		session.removeAttribute("member");
-				
+		session.removeAttribute("member");			
 	}
 
+	//펫샵구매취소
 	@Override
 	public void delete(Map<String, Object> map) throws Exception {
 
 		orderDAO.delete(map);		
 	}
 
+	//펫샵구매내역
 	@Override
 	public List<Map<String, Object>> selectList(Map<String, Object> map) throws Exception {
 		
 		return orderDAO.selectList(map);
 	}
 		
-
-	@Override
-	public int selectCount(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
-		return orderDAO.selectCount(map);
-	}
-
+	//주문확인
 	@Override
 	public List<Map<String, Object>> selectTwo(Map<String, Object> map) throws Exception {
 		
 		return orderDAO.selectTwo(map);
 	}
- 
+	
+	//구매내역페이징
+	@Override
+	public int selectCount(Map<String, Object> map) throws Exception {
+
+		return orderDAO.selectCount(map);
+	}
 }

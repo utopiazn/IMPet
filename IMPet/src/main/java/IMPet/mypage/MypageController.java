@@ -30,7 +30,6 @@ public class MypageController {
 	@RequestMapping(value="/MyPage")
 	public ModelAndView mypage(){
 		ModelAndView mav = new ModelAndView();
-		System.out.println("마이페이지");
 		
 		
 		String msg="회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.";
@@ -46,26 +45,14 @@ public class MypageController {
 	@RequestMapping(value="/MyWriting")
 	public ModelAndView myWriting(HttpSession session) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		System.out.println("내가 쓴 글 보기");
 		
 		String member_ID = session.getAttribute("member_ID").toString();
 		
 		List<Map<String, Object>> QNAlist = qnAService.selectMy(member_ID);
 		
-		System.out.println("마이페이지 리스트"+QNAlist);
 		
 		mav.addObject("QNAlist", QNAlist);
 		
-		/*List<Map<String,Object>> GALlist = galleryService.selectMy(member_ID);		
-		
-		System.out.println("마이페이지 리스트 2"+GALlist);
-		mav.addObject("GALlist", GALlist);*/
-		/*
-		 QnA 본인 질문, 답변 
-		 갤러리 본인이 쓴 글
-		 
-		  
-		 */
 		
 		mav.setViewName("myPage/myWriting");
 		return mav;
@@ -77,7 +64,6 @@ public class MypageController {
 	@RequestMapping(value="/MemberModifiedForm")
 	public ModelAndView MemberModifiedForm(CommandMap commandMap,HttpSession session) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		System.out.println("마이 페이지 회원 수정 폼");
 		
 		
 		String url ="myPage/PasswordCheck";
@@ -124,7 +110,6 @@ public class MypageController {
 	public ModelAndView adminPage(){
 		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("관리자페이지");
 		
 		mav.setViewName("AdminPage");
 		return mav;

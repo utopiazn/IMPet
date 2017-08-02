@@ -34,12 +34,12 @@
 	
 	<!-- 장바구니 추가 -->
 	<insert id="baInsert" parameterType="hashmap">
-		insert into PET_ITEM_BASKET
+		INSERT INTO PET_ITEM_BASKET
 					 (BASKET_NO,
 					  ITEM_NO,
 					  MEMBER_ID,
 					  BASKET_BUYCOUNT)
-			values(BASKET_NO_SEQ.NEXTVAL,
+			VALUES(BASKET_NO_SEQ.NEXTVAL,
 					  #{ITEM_NO},
 				      #{MEMBER_ID},
 				      #{BASKET_BUYCOUNT})
