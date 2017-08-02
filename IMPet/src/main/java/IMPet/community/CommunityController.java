@@ -17,8 +17,7 @@ public class CommunityController {
 	//커뮤니티 메인
 	@RequestMapping(value="/Main")
 	public ModelAndView MembershipAgreement(){
-
-
+		
 		System.out.println("커뮤니티 메인");
 
 		

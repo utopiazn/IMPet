@@ -32,25 +32,13 @@ public class EventController {
 	@RequestMapping(value="/EventList")
 	public ModelAndView EventList(CommandMap commandMap,HttpServletResponse response) throws Exception{
 		
+		System.out.println("이벤트 리스트");
 		
-	/*	
-		response.setHeader("pragma","No-cache");
-		response.setHeader("Cache-Control","no-cache");
-		response.addHeader("Cache-Control","No-store");
-		response.setDateHeader("Expires",1L);
-
-		
-		response.reset();*/
-		ModelAndView mav = new ModelAndView();
-		
+		ModelAndView mav = new ModelAndView();		
 		String url="EventList1";
 
-		System.out.println("이벤트 리스트");
-
 		int menu =1;
-		String Event= commandMap.get("Event").toString();
-		
-	
+		String Event= commandMap.get("Event").toString();	
 		
 		if(Event.equals("1")){
 			url = "community/event/eventListAdd";
@@ -59,6 +47,7 @@ public class EventController {
 			mav.addObject("menu", menu);
 			
 		}else{			
+			
 			url = "EventList1";			
 			
 			menu=1;
@@ -70,49 +59,47 @@ public class EventController {
 		int Page = 1;
 		
 		if(commandMap.get("PAGE").equals("")){
-			 Page = 1;
+			 
+			Page = 1;
+		
 		}else{
+			
 			Page = Integer.parseInt(commandMap.get("PAGE").toString());
 		}
 			
 
 		String pagingHtml =pagingHtml(commandMap,Page);
 		commandMap.MapInfoList();
-		
-	
-		
+				
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
-		
-		
+				
 		mav.addObject("listAll", listAll);	
-		mav.addObject("pagingHtml", pagingHtml);
-		
+		mav.addObject("pagingHtml", pagingHtml);		
 		mav.addObject("PAGE",Page );
+		
 		mav.setViewName(url);
+		
 		return mav;
 	}
 	
 	
 	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
 		
-		
-		
-		
 		int blockCount =6;		
 		
 		int totalCount=  eventService.selectEventCount();	
 		
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
-		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
-		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
 		
 		String PAGIN = String.valueOf(blockCount);	
 		
 		if(totalPage <pageNo){
+		
 			pageNo = totalPage;
 		}
 		
 		String PAGINGNO = String.valueOf(pageNo);		
+		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
 		commandMap.put("PAGE", PAGINGNO);
@@ -145,10 +132,9 @@ public class EventController {
 	@RequestMapping(value="/AdminEventList")
 	public ModelAndView EventListAdmin(CommandMap commandMap) throws Exception{
 
-		ModelAndView mav = new ModelAndView();
-
 		System.out.println("이벤트 리스트");
-
+		
+		ModelAndView mav = new ModelAndView();
 		
 		//관리자페이지 통합코드
 		int adminCode = 11;
@@ -157,15 +143,13 @@ public class EventController {
 		
 		String pagingHtml =pagingHtml(commandMap,1);
 		commandMap.MapInfoList();
-		
 	
 		
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
 		
 		int PAGE =1;
-		mav.addObject("PAGE", PAGE);	
 		
-		
+		mav.addObject("PAGE", PAGE);			
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
 		
@@ -182,14 +166,13 @@ public class EventController {
 	@RequestMapping(value="/EventView")
 	public ModelAndView EventView(CommandMap commandMap) throws Exception{
 
-		ModelAndView mav = new ModelAndView();
-		//String url = "community/event/eventListAdd";
+		System.out.println("이벤트 상세보기");
 		
-
+		ModelAndView mav = new ModelAndView();
+	
 		String url = "community/event/eventView";
 
 		commandMap.MapInfoList();
-		System.out.println("이벤트 상세보기");
 		
 		//상세보기 수 증가.
 		eventService.addViewNum(commandMap.getMap());
@@ -198,10 +181,7 @@ public class EventController {
 		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
 		System.out.println(view);
 
-		//String strImage = view.get("EVENT_IMG").toString();
-	
-		//mav.addObject("eventImage", strImage);
-		
+			
 		mav.addObject("view", view);
 		
 		mav.setViewName(url);
@@ -214,12 +194,12 @@ public class EventController {
 	@RequestMapping(value="/EventForm")
 	public ModelAndView EventForm(){
 
-		ModelAndView mav = new ModelAndView();
-
-		int adminCode = 14;
-	
 		System.out.println("이벤트 추가 폼");
 
+		ModelAndView mav = new ModelAndView();
+
+		int adminCode = 14;	
+		
 		mav.addObject("adminCode", adminCode);
 		mav.setViewName("AdminPage");
 		return mav;
@@ -231,38 +211,29 @@ public class EventController {
 	@RequestMapping(value="/EventInsert")
 	public ModelAndView EventInsert(CommandMap commandMap,HttpServletRequest request) throws Exception {
 		
+		System.out.println("이벤트 추가 처리");
 		
 		ModelAndView mav = new ModelAndView();
 		
 		ProjectUtil util = new ProjectUtil();
-		
-		//String url ="redirect:/Community/EventList?Event='1'";
-		
-		String url ="redirect:/Community/AdminEventList";
-		
-		System.out.println("이벤트 추가 처리");
-		
-		
+			
+		String url ="redirect:/Community/AdminEventList";		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
 
 		int num =eventService.selectKey();
 		
-		
 		commandMap.MapInfoList();		
 		
 		commandMap.put("EVENT_NO", num);
-		
 		
 		Map<String,Object> resultMap = util.UploadFile_Event(commandMap.getMap(), request, uploadPath,num);
 		
 		System.out.println(resultMap);	
 	
 		eventService.insert(resultMap);
-		System.out.println(resultMap);	
-		
-		//eventService.
-		
+				
 		mav.setViewName(url);
+		
 		return mav;
 	}
 	
@@ -272,12 +243,12 @@ public class EventController {
 	@RequestMapping(value="/EventModifyForm")
 	public ModelAndView EventModifyForm(CommandMap commandMap) throws Exception{
 
+		System.out.println("이벤트 수정폼");
 
 		ModelAndView mav = new ModelAndView();
 		String url = "community/event/eventModifyForm";
-		System.out.println("이벤트 수정폼");
 		
-		
+				
 		if(!commandMap.get("ADMIN").toString().equals("")){
 			
 			System.out.println("ADMIN"+commandMap.get("ADMIN").toString());
@@ -286,13 +257,10 @@ public class EventController {
 
 		commandMap.MapInfoList();
 		Map<String,Object>  view = eventService.selectOne(commandMap.getMap());				
-		System.out.println(view);
 		
 		System.out.println(view);
-		
-		mav.addObject("view", view);
-		
-		//mav.setViewName("EventModifyForm");
+				
+		mav.addObject("view", view);		
 		mav.setViewName(url);
 		
 		return mav;
@@ -304,45 +272,29 @@ public class EventController {
 	public ModelAndView EventModify(CommandMap commandMap,HttpServletRequest request)  throws Exception {
 
 
-		ModelAndView mav = new ModelAndView();
-
 		System.out.println("이벤트 수정처리");
-
+		
+		ModelAndView mav = new ModelAndView();
+		
 		String url ="redirect:/Community/EventList?Event='1'";
-
-
-		//String url ="redirect:/Community/EventList?Event=1";
-		  
 		
 		if(!commandMap.get("ADMIN").toString().equals("")){
-			
-			
 			
 			url ="redirect:/Community/AdminEventList";
 			
 		}
-		
-		
-		
-		ProjectUtil util = new ProjectUtil();
-		
-		
-		
+				
+		ProjectUtil util = new ProjectUtil();		
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
-
-	
 		commandMap.MapInfoList();		
 		
-		
-		
 		Map<String,Object> map = util.UpdateFile(commandMap.getMap(), request, uploadPath);
+		
 		System.out.println(map);	
 	
-		eventService.update(map);
+		eventService.update(map);	
 		
-		
-		mav.setViewName(url);
-		
+		mav.setViewName(url);	
 		
 		return mav;
 	}
@@ -353,20 +305,17 @@ public class EventController {
 	public ModelAndView EventDelete(CommandMap commandMap) throws Exception{
 
 
-		ModelAndView mav = new ModelAndView();
-
-		
-		ProjectUtil util = new ProjectUtil();
 		System.out.println("이벤트 삭제");
 		
+		ModelAndView mav = new ModelAndView();		
+		ProjectUtil util = new ProjectUtil();
+			
 		
 		String url = "community/event/eventListAdd";
 		
 		int menu=0;
 		mav.addObject("menu", menu);
 													
-		
-		
 		commandMap.MapInfoList();
 
 		eventService.delete(commandMap.getMap());
@@ -374,32 +323,24 @@ public class EventController {
 		String imgName = commandMap.get("EVENT_IMG").toString();
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
 		
-		File removeFile = new File(uploadPath, imgName);
-		removeFile.delete();
-		
-		mav.setViewName(url);
-		
-		
-	
+		if(!imgName.equals("")){
 			
-	
-
-		commandMap.MapInfoList();
-			
+			File removeFile = new File(uploadPath, imgName);
+			removeFile.delete();
+		}
+						
 
 		String pagingHtml =pagingHtml(commandMap,1);
 		commandMap.MapInfoList();
 		
-	
-		
+			
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
-		
+	
 		
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
 		
 		mav.setViewName(url);
-
 		
 		return mav;
 	}
@@ -410,22 +351,21 @@ public class EventController {
 	public ModelAndView EventAdminDelete(CommandMap commandMap) throws Exception{
 
 
+		System.out.println("이벤트 삭제");
 		ModelAndView mav = new ModelAndView();
 		
-
 		String url = "community/admin/eventMemberList";
 		
 		
-		ProjectUtil util = new ProjectUtil();
-		System.out.println("이벤트 삭제");
+		ProjectUtil util = new ProjectUtil();	
 		
 		
 		commandMap.MapInfoList();
-		System.out.println("33333333333");
+		
 		eventService.delete(commandMap.getMap());
-		System.out.println("44444444444444444444444444444444");
 		String imgName = commandMap.get("EVENT_IMG").toString();
 		String uploadPath = util.getPath()+"/IMPet/src/main/webapp/resources/image/event/";
+		
 		
 		if(!imgName.equals("")){
 			File removeFile = new File(uploadPath, imgName);
@@ -434,20 +374,16 @@ public class EventController {
 		
 		int page =  Integer.parseInt( commandMap.get("PAGE").toString());
 		
-		System.out.println("2222222222222222222222222222222");
 		String pagingHtml =pagingHtml(commandMap,page);
-		System.out.println("1111111111111111111");
 		commandMap.MapInfoList();
 				
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
 		
 		mav.addObject("PAGE", commandMap.get("PAGE"));	
 		mav.addObject("listAll", listAll);	
-		mav.addObject("pagingHtml", pagingHtml);	
+		mav.addObject("pagingHtml", pagingHtml);			
 		
-		mav.setViewName(url);
-
-		
+		mav.setViewName(url);		
 		return mav;
 	}
 	
@@ -458,9 +394,10 @@ public class EventController {
 	@RequestMapping(value="/EventAdminPageList")
 	public ModelAndView EventAdminPageList(CommandMap commandMap) throws Exception{
 		
-		ModelAndView mav = new ModelAndView();
 		System.out.println("이벤트 정보 페이지 리스트");
 
+		ModelAndView mav = new ModelAndView();
+		
 		String url = "community/admin/eventMemberList";
 		                        
 		int menu=0;
@@ -472,16 +409,11 @@ public class EventController {
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
-		
-		
-		mav.addObject("listAll", listAll);	
-		
-		mav.addObject("pagingHtml", pagingHtml);	
-		
-		
+			
+		mav.addObject("listAll", listAll);			
+		mav.addObject("pagingHtml", pagingHtml);		
 		mav.addObject("PAGE", commandMap.get("PAGE"));
-
-
+		
 		mav.setViewName(url);	
 		
 		return mav;
@@ -494,9 +426,10 @@ public class EventController {
 	@RequestMapping(value="/EventPageList")
 	public ModelAndView EventPageList(CommandMap commandMap) throws Exception{
 		
-		ModelAndView mav = new ModelAndView();
 		System.out.println("이벤트 정보 페이지 리스트");
 
+		ModelAndView mav = new ModelAndView();
+		
 		String url = "community/event/eventListAdd";
 		
 		int menu=0;
@@ -508,22 +441,13 @@ public class EventController {
 		commandMap.MapInfoList();
 		
 		List<Map<String,Object>> listAll = eventService.selectRangeAll(commandMap.getMap());		
-		
-		
-		mav.addObject("listAll", listAll);	
-		
+				
+		mav.addObject("listAll", listAll);			
 		mav.addObject("pagingHtml", pagingHtml);	
-		
-		
 		mav.addObject("pageNo", commandMap.get("pageNo"));
-
 
 		mav.setViewName(url);	
 		
 		return mav;
 	}
-
-
-	
-	
 }

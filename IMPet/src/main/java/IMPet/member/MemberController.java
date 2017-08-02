@@ -19,12 +19,7 @@ public class MemberController {
 	
 	
 	@Resource(name="memberService")
-	private MemberService memberService;
-	
-	
-	
-	
-	List<Map<String,Object>> listAll =null;
+	private MemberService memberService;	List<Map<String,Object>> listAll =null;
 	
 	
 	
@@ -59,9 +54,7 @@ public class MemberController {
 		if(LoginSuccess>0){//로그인 성공시
 			
 			//회원 정보 가져오기
-			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());			
-			
-			System.out.println("회원 정보:"+check);					
+			Map<String,Object>  check = memberService.selectLogInOne(commandMap.getMap());							
 			
 			//session 에 회원 ID 와 권한 여부 저장함.
 			session.setAttribute("member_ID", check.get("MEMBER_ID").toString());		// 로그인 아이지 저장			
@@ -102,26 +95,17 @@ public class MemberController {
 		mav.setViewName(url);
 		return mav;
 	}
-	
-
-
-	
+		
 	
 //////////////////////////////////////////////////////////////////////////////	
-	
-	
-	
-	
 	
 	//회원 가입 메인 폼
 	@RequestMapping(value="/JoinMain")
 	public ModelAndView JoinMain(){
 
+		System.out.println("회원 가입 계약");		
 		ModelAndView mav = new ModelAndView();
-		String url = "JoinMain";
-
-		System.out.println("회원 가입 계약");
-		
+		String url = "JoinMain";		
 		mav.setViewName(url);
 		return mav;
 	}	
@@ -131,10 +115,10 @@ public class MemberController {
 	@RequestMapping(value="/JoinForm")
 	public ModelAndView JoinForm(){
 		
+		System.out.println("회원 가입 폼");				
 		ModelAndView mav = new ModelAndView();
 		
 		String url ="member/joinForm";
-		System.out.println("회원 가입 폼");		
 		
 		mav.setViewName(url);
 		return mav;
@@ -143,10 +127,9 @@ public class MemberController {
 	@RequestMapping(value="/IDCheck")
 	public ModelAndView IDCheck(CommandMap commandMap) throws Exception{
 		
+		System.out.println("ID 중복 체크");		
 		ModelAndView mav = new ModelAndView();
-		String url = "member/IDCheck";
-		System.out.println("ID 중복 체크");
-		
+		String url = "member/IDCheck";		
 		
 		commandMap.MapInfoList();
 		
@@ -155,19 +138,12 @@ public class MemberController {
 		distinctID  = memberService.selectIDdistinctCount(commandMap.getMap());	
 
 		String memberID= commandMap.get("MEMBER_ID").toString();
-		
-		
-		System.out.println("distinctID:"+distinctID);
-		System.out.println("memberID:"+memberID);
-		
-		
-		mav.addObject("distinctID", distinctID);	
-		
+				
+		mav.addObject("distinctID", distinctID);			
 		mav.addObject("MEMBER_ID", memberID);	
-		
-		
-		
+			
 		mav.setViewName(url);
+		
 		return mav;
 	}	
 	
@@ -176,17 +152,16 @@ public class MemberController {
 	@RequestMapping(value="/JoinInset")
 	public ModelAndView JoinInset(CommandMap commandMap) throws Exception{
 
+		System.out.println("회원 가입 처리");				
 		ModelAndView mav = new ModelAndView();
 		String url ="member/joinInsetSuccess";
-		System.out.println("회원 가입 처리");		
 		
 		//기본 설정 데이터 
 		commandMap.MapInfoList();	
 		JoinInsertAddData(commandMap);
 		
 		//정보 확인
-		commandMap.MapInfoList();				
-		
+		commandMap.MapInfoList();						
 		memberService.insert(commandMap.getMap());
 		
 		mav.setViewName(url);
@@ -197,8 +172,7 @@ public class MemberController {
 	public void JoinInsertAddData(CommandMap commandMap){
 		
 		String userYN="Y"; // 사용 여부 ,Y: 사용 N: 미사용	
-		int admin = 0;     // 관리자 권한   0:일반 1:관리자
-		
+		int admin = 0;     // 관리자 권한   0:일반 1:관리자		
 		commandMap.put("MEMBER_USERYN", userYN);
 		commandMap.put("MEMBER_ADMIN", admin);
 		
@@ -210,43 +184,24 @@ public class MemberController {
 	@RequestMapping(value="/ModifiedForm")
 	public ModelAndView ModifiedForm(CommandMap commandMap, HttpSession session) throws Exception{
 
+		System.out.println("회원 수정 폼");	
 		ModelAndView mav = new ModelAndView();
 		
 		String url = "member/admin/modifiedForm";			
+		commandMap.MapInfoList();		
 		
-		System.out.println("회원 수정 폼");	
-	
-		
-		commandMap.MapInfoList();
-		
-		
-		
-		//회원 개인 정보
-		System.out.println("2");	
-		
-		
-		
-		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);
-		
-		System.out.println(memberInfo);
-		
+		//회원 개인 정보		
+		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);		
 		mav.addObject("memberInfo", memberInfo);				
-
-				
-		
-		
-		
 		mav.setViewName(url);	
-
-	
+		
 		return mav;
 	}
 	
 	
 	public Map<String, Object> getMemberInfo(CommandMap commandMap, HttpSession session) throws Exception{
 	
-		
-		
+				
 		String member_Admin = "0";
 		if(session.getAttribute("member_Admin") == null){
 		
@@ -256,8 +211,6 @@ public class MemberController {
 		}
 		
 	
-		System.out.println("member_Admin:"+member_Admin);			
-		
 		String member_ID="";
 		String Mypage= commandMap.get("Mypage").toString();
 		
@@ -267,14 +220,11 @@ public class MemberController {
 				
 
 			member_ID= session.getAttribute("member_ID").toString();
-
 			commandMap.put("MEMBER_ID", member_ID);	
 			
 		}else if(member_Admin.equals("1")){	//관리자일 경우
 			
-			 member_ID=commandMap.get("MEMBER_ID").toString();
-
-				
+			 member_ID=commandMap.get("MEMBER_ID").toString();			
 		}
 				
 				
@@ -289,27 +239,18 @@ public class MemberController {
 	@RequestMapping(value="/Modified")
 	public ModelAndView Modified(CommandMap commandMap, HttpSession session) throws Exception{
 		
+		System.out.println("회원들의 정보 수정 처리");		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("회원들의 정보 수정 처리");
 		
 		commandMap.MapInfoList();
 		
-		
-	
-
 		memberService.update(commandMap.getMap());
 		
-
 		Map<String, Object> memberInfo = getMemberInfo(commandMap,session);
-	
-		
-		
-		System.out.println(memberInfo);
-		
-		mav.addObject("memberInfo", memberInfo);				
-
-		
+			
+		mav.addObject("memberInfo", memberInfo);					
 		mav.setViewName("member/admin/modifiedForm");
+		
 		return mav;
 	}
 
@@ -323,11 +264,11 @@ public class MemberController {
 	@RequestMapping(value="/JoinAgreement")
 	public ModelAndView MembershipAgreement(){
 
-		ModelAndView mav = new ModelAndView();
 		System.out.println("회원 가입 계약");
-
-		
+		ModelAndView mav = new ModelAndView();
+			
 		mav.setViewName("JoinAgreement");
+		
 		return mav;
 	}
 		
@@ -336,11 +277,10 @@ public class MemberController {
 	@RequestMapping(value="/FindIDForm")
 	public ModelAndView FindIDForm(){
 
+		System.out.println("ID 찾기 폼");		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("ID 찾기 폼");
 		
 		String url = "member/findIDForm";
-
 		
 		mav.setViewName(url);
 		return mav;
@@ -351,9 +291,10 @@ public class MemberController {
 	@RequestMapping(value="/FindID")
 	public ModelAndView FindID(CommandMap commandMap) throws Exception{
 		
+
+		System.out.println("ID 찾기 처리");
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("ID 찾기 처리");
 		String url ="member/findIDForm";
 		commandMap.MapInfoList();
 		
@@ -374,9 +315,7 @@ public class MemberController {
 			mav.addObject("msg", msg);
 			
 		}
-		
-		
-		
+				
 		mav.setViewName(url);
 		return mav;
 	}
@@ -390,13 +329,10 @@ public class MemberController {
 	@RequestMapping(value="/FindPwForm")
 	public ModelAndView FindPwForm(CommandMap commandMap) throws Exception{
 		
+		System.out.println("비번 찾기 폼");		
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("비번 찾기 폼");
 		String url ="member/findPwForm";
-		/*
-		String msg="";
-		mav.addObject("msg", msg);*/
 		
 		mav.setViewName(url);
 		
@@ -408,9 +344,9 @@ public class MemberController {
 	@RequestMapping(value="/FindPw")
 	public ModelAndView FindPw(CommandMap commandMap) throws Exception{
 		
-		ModelAndView mav = new ModelAndView();
-		
 		System.out.println("비번 찾기 처리");
+		
+		ModelAndView mav = new ModelAndView();		
 		String url ="member/findPwForm";
 		
 		commandMap.MapInfoList();
@@ -422,13 +358,8 @@ public class MemberController {
 		if(PwCount>0){ //사용자 정보가 있을 경우
 			
 			Map<String, Object> Pwlist = memberService.selectFindPwOne(commandMap.getMap());
-			
-			
-			System.out.println(Pwlist);
-			msg = "비밀번호는"+  Pwlist.get("MEMBER_PW").toString()  + "입니다.  ";
-			System.out.println(msg);
-			
-			
+						
+			msg = "비밀번호는"+  Pwlist.get("MEMBER_PW").toString()  + "입니다.  ";	
 			mav.addObject("msg", msg);
 			
 		}else{ //사용자가 없는 겨우
@@ -436,8 +367,7 @@ public class MemberController {
 			msg = " 검색 결과  잘못된 정보 입니다.";
 			mav.addObject("msg", msg);
 			
-		}
-		
+		}	
 		
 		
 		mav.setViewName(url);
@@ -448,12 +378,10 @@ public class MemberController {
 	//회원 탈퇴 폼
 	@RequestMapping(value="/DeleteForm")
 	public ModelAndView DeleteForm(CommandMap commandMap,HttpSession session) throws Exception{
-
-		ModelAndView mav = new ModelAndView();
+		
 		System.out.println("로그인 탈퇴폼");
-		
-		
-		
+		ModelAndView mav = new ModelAndView();
+				
 		String member_ID = session.getAttribute("member_ID").toString();
 		commandMap.put("MEMBER_ID",member_ID);
 		
@@ -464,8 +392,8 @@ public class MemberController {
 		String MEMBER_PW = list.get("MEMBER_PW").toString();
 		
 		mav.addObject("MEMBER_PW", MEMBER_PW);
-		
 		mav.setViewName("member/deleteForm");
+		
 		return mav;
 	}
 	
@@ -474,25 +402,20 @@ public class MemberController {
 	@RequestMapping(value="/Delete")
 	public ModelAndView Delete(CommandMap commandMap) throws Exception{
 
-		ModelAndView mav = new ModelAndView();
-		String url = "member/admin/memberList";
 		System.out.println("회원 탈퇴 처리");
 
+		ModelAndView mav = new ModelAndView();
+		String url = "member/admin/memberList";
 		
 		commandMap.MapInfoList();
 		
-		//탈퇴 처리 추가 로직
-		
-		
+		//탈퇴 처리 추가 로직		
 		//사용 여부 Y:사용 N: 미사용
 		String userYN ="N";
 		commandMap.put("MEMBER_USERYN",userYN);
-		
-		//commandMap.MapInfoList();
-		
+				
 		memberService.updateUserYN(commandMap.getMap());		
 		
-
 		String Page = commandMap.get("PAGE").toString(); 
 		
 		mav.addObject("Page", Page);	
@@ -515,25 +438,20 @@ public class MemberController {
 	@RequestMapping(value="/Insert")
 	public ModelAndView Insert(CommandMap commandMap) throws Exception{
 
+		System.out.println("회원 탈퇴 처리");
 		ModelAndView mav = new ModelAndView();
 		String url = "member/admin/memberList";
-		System.out.println("회원 탈퇴 처리");
-
-		
+				
 		commandMap.MapInfoList();
 		
 		//탈퇴 처리 추가 로직
-		
-		
+				
 		//사용 여부 Y:사용 N: 미사용
 		String userYN ="Y";
 		commandMap.put("MEMBER_USERYN",userYN);
 		
-		//commandMap.MapInfoList();
-		
 		memberService.updateUserYN(commandMap.getMap());		
 		
-
 		String Page = commandMap.get("PAGE").toString(); 
 		
 		mav.addObject("Page", Page);	
@@ -556,17 +474,16 @@ public class MemberController {
 	@RequestMapping(value="/DeleteMember")
 	public ModelAndView DeleteMember(CommandMap commandMap,HttpSession session) throws Exception{
 
+		System.out.println("회원 탈퇴 처리");
 		ModelAndView mav = new ModelAndView();
 		String url = "redirect:/Main";
-		System.out.println("회원 탈퇴 처리");
-
+		
 		String member_ID = session.getAttribute("member_ID").toString();
 		commandMap.put("MEMBER_ID",member_ID);
 		
 		//사용 여부 Y:사용 N: 미사용
 		String userYN ="N";
-		commandMap.put("MEMBER_USERYN",userYN);
-		
+		commandMap.put("MEMBER_USERYN",userYN);	
 		
 		memberService.updateUserYN(commandMap.getMap());		
 		
@@ -587,23 +504,18 @@ public class MemberController {
 	private String pagingHtml(CommandMap commandMap,int pageNo) throws Exception{		
 		
 		
-		
-		
 		int blockCount =10;
-		
-
-		int totalCount=  memberService.selectMemberCount();	
-		
+		int totalCount=  memberService.selectMemberCount();			
 		int totalPage = (int) Math.ceil((double) totalCount / blockCount);		
-		//System.out.println("totalCount:"+totalCount  +"   blockCount: "+  blockCount );		
-		//System.out.println("totalPage:"+totalPage   +"  |||  "+  (int) Math.ceil((double) totalCount / blockCount)        );
 		
 		if( totalPage<pageNo){
+			
 			pageNo = totalPage;
 		}
 		
 		String PAGIN = String.valueOf(blockCount);	
 		String PAGINGNO = String.valueOf(pageNo);		
+		
 		commandMap.put("PAGING",PAGIN); //페이지의 리스트 수
 		commandMap.put("PAGINGNO",PAGINGNO); // 페이지  몇번째인지 	
 		
@@ -670,16 +582,13 @@ public class MemberController {
 	@RequestMapping(value="/MemberPageList")
 	public ModelAndView MemberPageList(CommandMap commandMap) throws Exception{
 		
-		ModelAndView mav = new ModelAndView();
 		System.out.println("회원들의 정보 리스트 보여주기");
-
-		String url = "member/admin/memberList";	
+		ModelAndView mav = new ModelAndView();
 		
-		
+		String url = "member/admin/memberList";					
 		String Page = commandMap.get("PAGE").toString(); 
 		
-		mav.addObject("Page", Page);	
-		
+		mav.addObject("Page", Page);			
 		int page =  Integer.parseInt( Page);
 		
 		String pagingHtml = pagingHtml(commandMap,page);
@@ -688,15 +597,9 @@ public class MemberController {
 		List<Map<String,Object>> listAll = memberService.selectRangeAll(commandMap.getMap());		
 		mav.addObject("listAll", listAll);	
 		mav.addObject("pagingHtml", pagingHtml);	
-
-
+		
 		mav.setViewName(url);	
 		
 		return mav;
 	}
-
-
-	
-
-
 }
