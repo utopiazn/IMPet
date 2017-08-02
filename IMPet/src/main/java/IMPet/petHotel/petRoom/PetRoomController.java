@@ -27,9 +27,7 @@ public class PetRoomController {
 	public ModelAndView main(@ModelAttribute("car") int car){
 		
 		ModelAndView mav = new ModelAndView();
-		
-		System.out.println("호텔 메인 : 카테고리번호="+car);
-		
+				
 		mav.addObject("car", car);
 		mav.setViewName("PetHotel");
 		
@@ -49,10 +47,8 @@ public class PetRoomController {
 		System.out.println(list);
 		
 		String url = "petHotel/room/list";
-		/*String url = "PetHotel_List";*/
-		
-		mav.addObject("list", list);
-		
+
+		mav.addObject("list", list);		
 		mav.setViewName(url);
 		
 		return mav;
@@ -74,8 +70,8 @@ public class PetRoomController {
 		
 		//관리자페이지 통합코드
 		int adminCode = 2;
+		
 		mav.addObject("adminCode", adminCode);
-
 		mav.addObject("list", list);
 		
 		mav.setViewName(url);
@@ -91,14 +87,10 @@ public class PetRoomController {
 			
 			System.out.println("호텔 admin 룸 리스트(ajax용)");
 
-			List<Map<String, Object>> list = petRoomService.selectAll();
-			
-			System.out.println(list);
-			
+			List<Map<String, Object>> list = petRoomService.selectAll();						
 			String url = "petHotel/room/adminList";
 
-			mav.addObject("list", list);
-			
+			mav.addObject("list", list);			
 			mav.setViewName(url);
 			
 			return mav;
@@ -115,10 +107,8 @@ public class PetRoomController {
 		Map<String, Object> map = petRoomService.selectOne(commandMap.getMap());
 		
 		String url = "petHotel/room/view";
-		/*String url = "PetHotel_View";*/
 		
-		mav.addObject("view", map);
-		
+		mav.addObject("view", map);		
 		mav.setViewName(url);
 		
 		return mav;

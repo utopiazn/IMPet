@@ -14,7 +14,7 @@
 <html lang="ko">
 <head>
  	<c:if test="${LoginSuccess==1}">
-		<meta http-equiv="refresh" content="0;url=http://localhost:8080/IMPet/Main" />	
+		<meta http-equiv="refresh" content="0;url=/IMPet/Main" />	
  	</c:if>
 
 <meta charset="UTF-8">
