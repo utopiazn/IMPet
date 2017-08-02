@@ -36,17 +36,17 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		ProjectUtil util = new ProjectUtil();
 		
-		System.out.println("여기부터 시작입니다.");
+
 		
 		Map<String,Object> key = noticeDAO.selectKey();
 		
 		int num = Integer.parseInt(key.get("NOTICE_NO").toString());
 		
-		System.out.println("key"+num);
+	
 		
 		map.put("NOTICE_NO", num);
 		
-		System.out.println("여기부터 끝입니다.");
+	
 		
 		noticeDAO.insert(map);
 		

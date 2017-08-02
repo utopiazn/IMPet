@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/IMPet/petShop/item/ItemDAO.java=UTF-8
+encoding//src/main/java/IMPet/serviceCenter/FAQ/FAQController.java=UTF-8
 encoding//src/main/webapp/WEB-INF/main/body.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/main/footer.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/main/header1.jsp=UTF-8
@@ -12,3 +13,4 @@ encoding//src/main/webapp/WEB-INF/petShop/basket/basketList.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/petShop/basket/orderForm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/petShop/item/itemList.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/petShop/item/itemView.jsp=UTF-8
+encoding/<project>=UTF-8
